@@ -1,0 +1,48 @@
+{
+  "id": "chart-radar",
+  "type": "scatterpolar",
+  "version": 1,
+  "layout": {
+    "polar": {
+      "radialaxis": {
+        "visible": true,
+        "range": [0, 108],
+        "gridcolor": "#e5e7eb",
+        "tickfont": {"size": 9, "color": "#bbb"},
+        "tickvals": [25, 50, 75, 100]
+      },
+      "angularaxis": {
+        "tickfont": {"family": "Amiri", "size": 11, "color": "#444"},
+        "rotation": 90,
+        "direction": "clockwise"
+      },
+      "bgcolor": "transparent"
+    },
+    "margin": {"t": 50, "l": 90, "r": 90, "b": 50},
+    "height": 600,
+    "paper_bgcolor": "transparent",
+    "showlegend": true,
+    "legend": {
+      "font": {"family": "Amiri", "size": 13},
+      "orientation": "h",
+      "y": -0.18,
+      "x": 0.5,
+      "xanchor": "center"
+    }
+  },
+  "trace_style": {
+    "ghost": {
+      "line": {"color": "#9ca3af", "width": 2, "dash": "dot"},
+      "marker_size": 0,
+      "opacity": 0.6,
+      "fill": "none"
+    },
+    "surah": {
+      "line_width": 2.5,
+      "marker_size": 6,
+      "fill": "toself",
+      "fill_alpha_hex": "25"
+    }
+  },
+  "palette": ["#52B788", "#4EA8DE", "#D4A373", "#E07A5F", "#8B5CF6"]
+}

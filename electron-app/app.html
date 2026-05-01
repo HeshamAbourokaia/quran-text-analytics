@@ -7763,6 +7763,8 @@ createApp({
       lang: 'ar',
       mode: 'community',
       D: DATA,
+      chartCfg: null,
+      chartCfgReady: null,
       // ── Page 17: Hero Stats Dashboard ──
       heroStats: { surahs: 0, verses: 0, words: 0, juz: 0, meccan: 0, medinan: 0 },
       heroStatsAnimated: false,
@@ -8686,7 +8688,7 @@ createApp({
         }, {responsive: true}); } catch(e) { console.error('[ADV] chart-area-length:', e.message); }
       }
     } catch(masterErr) { console.error("[ADV] MASTER ERROR:", masterErr.message, masterErr.stack); } },
-    renderRadarChart() {
+    async renderRadarChart() {
       if (!document.getElementById('chart-radar')) return;
       // Empty state: clear the chart when no surahs selected
       if (this.radarSurahs.length === 0) {
@@ -8696,6 +8698,8 @@ createApp({
         this.radarRanks = {};
         return;
       }
+      if (!this.chartCfg) await this.chartCfgReady;
+      const cfg = this.chartCfg;
       const D = this.D;
       const ext = this.surahExt;
       const isAr = this.lang === 'ar';
@@ -8723,7 +8727,7 @@ createApp({
       const commandPatterns = ['قل ', 'قولوا', 'اتقوا', 'اعبدوا', 'امنوا', 'انفقوا', 'اقيموا', 'اتوا', 'لا تقربوا', 'لا تقتلوا', 'لا تشركوا', 'كتب عليكم', 'ادعوا', 'استغفروا', 'توبوا'];
       const questionPatterns = ['أفلا', 'ألم', 'أفلم', 'أولم', 'كيف', 'أين', 'ماذا', 'هل ', 'أنى', 'أرأيت', 'من ذا الذي', 'ما لكم'];
 
-      const colors = ['#52B788', '#4EA8DE', '#D4A373', '#E07A5F', '#8B5CF6'];
+      const colors = cfg.palette;
       const allRaw = D.surahStats.map((s, i) => {
         const e = ext[String(s.n)] || {uniq:0,avg:0};
         const sn = sent[i] || {mercy:0,warning:0,guidance:0,hope:0};
@@ -8775,12 +8779,13 @@ createApp({
       avgHover.push(avgHover[0]);
       traces.push({
         type: 'scatterpolar', r: avgVals, theta: [...axes, axes[0]],
-        fill: 'none', name: isAr ? '📊 متوسط القرآن' : '📊 Quran Average',
-        line: {color: '#9ca3af', width: 2, dash: 'dot'},
-        marker: {size: 0},
+        fill: cfg.trace_style.ghost.fill,
+        name: isAr ? '📊 متوسط القرآن' : '📊 Quran Average',
+        line: cfg.trace_style.ghost.line,
+        marker: {size: cfg.trace_style.ghost.marker_size},
         text: avgHover,
         hovertemplate: '%{text}<extra></extra>',
-        opacity: 0.6
+        opacity: cfg.trace_style.ghost.opacity
       });
 
       // Surah traces
@@ -8805,23 +8810,15 @@ createApp({
         hoverTexts.push(hoverTexts[0]);
         traces.push({
           type: 'scatterpolar', r: vals, theta: [...axes, axes[0]],
-          fill: 'toself', name: surahName,
-          fillcolor: c + '25',
-          line: {color: c, width: 2.5},
-          marker: {size: 6, color: c},
+          fill: cfg.trace_style.surah.fill, name: surahName,
+          fillcolor: c + cfg.trace_style.surah.fill_alpha_hex,
+          line: {color: c, width: cfg.trace_style.surah.line_width},
+          marker: {size: cfg.trace_style.surah.marker_size, color: c},
           text: hoverTexts,
           hovertemplate: '%{text}<extra></extra>'
         });
       }
-      const radarLayout = {
-        polar: {
-          radialaxis: {visible: true, range: [0, 108], gridcolor: '#e5e7eb', tickfont: {size: 9, color: '#bbb'}, tickvals: [25, 50, 75, 100]},
-          angularaxis: {tickfont: {family: 'Amiri', size: 11, color: '#444'}, rotation: 90, direction: 'clockwise'},
-          bgcolor: 'transparent'
-        },
-        margin: {t:50,l:90,r:90,b:50}, height: 600, paper_bgcolor: 'transparent',
-        showlegend: true, legend: {font: {family: 'Amiri', size: 13}, orientation: 'h', y: -0.18, x: 0.5, xanchor: 'center'}
-      };
+      const radarLayout = JSON.parse(JSON.stringify(cfg.layout));
       const radarEl = document.getElementById('chart-radar');
       if (radarEl && radarEl.data) {
         // Animated transition
@@ -9898,6 +9895,9 @@ createApp({
     }
   },
   created() {
+    this.chartCfgReady = fetch('charts/configs/radar.json')
+      .then(r => r.json())
+      .then(cfg => { this.chartCfg = cfg; });
     this.initParticles = () => {
       const canvas = document.getElementById('particles');
       if (!canvas) return;

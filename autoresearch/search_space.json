@@ -1,0 +1,233 @@
+{
+  "version": 1,
+  "description": "Bounded mutation knobs for the chart-radar AutoResearch loop. Each knob has a type (set_swap | int_range | float_range | bool_toggle | hsl_shift) and a JSON path into the chart config. The orchestrator picks one knob per iteration (weighted by 'weight') and applies a mutation drawn from its space.",
+  "knobs": [
+    {
+      "name": "palette_swap",
+      "type": "set_swap",
+      "path": "palette",
+      "weight": 6,
+      "options": [
+        ["#52B788", "#4EA8DE", "#D4A373", "#E07A5F", "#8B5CF6"],
+        ["#0EA5E9", "#A855F7", "#F59E0B", "#EF4444", "#10B981"],
+        ["#1F2937", "#7C3AED", "#059669", "#DC2626", "#D97706"],
+        ["#0F766E", "#7E22CE", "#B45309", "#BE123C", "#1D4ED8"],
+        ["#0891B2", "#9333EA", "#CA8A04", "#E11D48", "#16A34A"],
+        ["#6366F1", "#EC4899", "#14B8A6", "#F97316", "#84CC16"],
+        ["#3B82F6", "#A78BFA", "#FB7185", "#34D399", "#FBBF24"],
+        ["#475569", "#0D9488", "#7C2D12", "#581C87", "#1E40AF"]
+      ],
+      "summary_template": "palette -> [{0}, {1}, {2}, {3}, {4}]"
+    },
+    {
+      "name": "palette_hsl_shift",
+      "type": "hsl_shift",
+      "path": "palette",
+      "weight": 3,
+      "hue_delta_range": [-15, 15],
+      "saturation_delta_range": [-0.1, 0.1],
+      "lightness_delta_range": [-0.05, 0.05],
+      "summary_template": "palette HSL nudge dh={dh} ds={ds:.2f} dl={dl:.2f}"
+    },
+    {
+      "name": "angular_tickfont_family",
+      "type": "set_swap",
+      "path": "layout.polar.angularaxis.tickfont.family",
+      "weight": 4,
+      "options": ["Amiri", "Inter", "Noto Sans Arabic", "Tajawal", "Cairo"],
+      "summary_template": "angular tickfont family -> {0}"
+    },
+    {
+      "name": "legend_font_size",
+      "type": "int_range",
+      "path": "layout.legend.font.size",
+      "weight": 3,
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "summary_template": "legend font size -> {0}"
+    },
+    {
+      "name": "radial_tickfont_size",
+      "type": "int_range",
+      "path": "layout.polar.radialaxis.tickfont.size",
+      "weight": 3,
+      "min": 7,
+      "max": 14,
+      "step": 1,
+      "summary_template": "radial tickfont size -> {0}"
+    },
+    {
+      "name": "angular_tickfont_size",
+      "type": "int_range",
+      "path": "layout.polar.angularaxis.tickfont.size",
+      "weight": 4,
+      "min": 9,
+      "max": 16,
+      "step": 1,
+      "summary_template": "angular tickfont size -> {0}"
+    },
+    {
+      "name": "margin_t",
+      "type": "int_range",
+      "path": "layout.margin.t",
+      "weight": 2,
+      "min": 30,
+      "max": 100,
+      "step": 5,
+      "summary_template": "margin.t -> {0}"
+    },
+    {
+      "name": "margin_l",
+      "type": "int_range",
+      "path": "layout.margin.l",
+      "weight": 2,
+      "min": 50,
+      "max": 130,
+      "step": 5,
+      "summary_template": "margin.l -> {0}"
+    },
+    {
+      "name": "margin_r",
+      "type": "int_range",
+      "path": "layout.margin.r",
+      "weight": 2,
+      "min": 50,
+      "max": 130,
+      "step": 5,
+      "summary_template": "margin.r -> {0}"
+    },
+    {
+      "name": "margin_b",
+      "type": "int_range",
+      "path": "layout.margin.b",
+      "weight": 2,
+      "min": 30,
+      "max": 100,
+      "step": 5,
+      "summary_template": "margin.b -> {0}"
+    },
+    {
+      "name": "height",
+      "type": "int_range",
+      "path": "layout.height",
+      "weight": 3,
+      "min": 480,
+      "max": 760,
+      "step": 20,
+      "summary_template": "height -> {0}"
+    },
+    {
+      "name": "legend_orientation",
+      "type": "set_swap",
+      "path": "layout.legend.orientation",
+      "weight": 2,
+      "options": ["h", "v"],
+      "summary_template": "legend orientation -> {0}",
+      "structural": true
+    },
+    {
+      "name": "legend_y",
+      "type": "float_range",
+      "path": "layout.legend.y",
+      "weight": 2,
+      "min": -0.30,
+      "max": -0.10,
+      "step": 0.02,
+      "summary_template": "legend.y -> {0:.2f}"
+    },
+    {
+      "name": "radial_range_max",
+      "type": "int_range",
+      "path": "layout.polar.radialaxis.range[1]",
+      "weight": 2,
+      "min": 100,
+      "max": 120,
+      "step": 2,
+      "summary_template": "radial range max -> {0}"
+    },
+    {
+      "name": "angular_rotation",
+      "type": "set_swap",
+      "path": "layout.polar.angularaxis.rotation",
+      "weight": 2,
+      "options": [0, 30, 60, 90, 120],
+      "summary_template": "angular rotation -> {0}",
+      "structural": true
+    },
+    {
+      "name": "radial_tickvals",
+      "type": "set_swap",
+      "path": "layout.polar.radialaxis.tickvals",
+      "weight": 2,
+      "options": [
+        [25, 50, 75, 100],
+        [20, 40, 60, 80, 100],
+        [50, 100],
+        [10, 30, 50, 70, 90]
+      ],
+      "summary_template": "radial tickvals -> {0}"
+    },
+    {
+      "name": "radial_gridcolor",
+      "type": "set_swap",
+      "path": "layout.polar.radialaxis.gridcolor",
+      "weight": 2,
+      "options": ["#e5e7eb", "#d1d5db", "#cbd5e1", "#f3f4f6", "#a3a3a3"],
+      "summary_template": "radial gridcolor -> {0}"
+    },
+    {
+      "name": "surah_line_width",
+      "type": "float_range",
+      "path": "trace_style.surah.line_width",
+      "weight": 3,
+      "min": 1.5,
+      "max": 3.5,
+      "step": 0.25,
+      "summary_template": "surah line width -> {0:.2f}"
+    },
+    {
+      "name": "surah_marker_size",
+      "type": "int_range",
+      "path": "trace_style.surah.marker_size",
+      "weight": 2,
+      "min": 4,
+      "max": 10,
+      "step": 1,
+      "summary_template": "surah marker size -> {0}"
+    },
+    {
+      "name": "fill_alpha_hex",
+      "type": "set_swap",
+      "path": "trace_style.surah.fill_alpha_hex",
+      "weight": 3,
+      "options": ["15", "20", "25", "30", "40", "50"],
+      "summary_template": "fill alpha hex -> {0}"
+    },
+    {
+      "name": "showlegend",
+      "type": "set_swap",
+      "path": "layout.showlegend",
+      "weight": 1,
+      "options": [true, false],
+      "summary_template": "showlegend -> {0}",
+      "structural": true
+    },
+    {
+      "name": "radialaxis_visible",
+      "type": "set_swap",
+      "path": "layout.polar.radialaxis.visible",
+      "weight": 1,
+      "options": [true, false],
+      "summary_template": "radialaxis visible -> {0}",
+      "structural": true
+    }
+  ],
+  "guards": {
+    "palette_min_size": 5,
+    "min_plot_height": 240,
+    "min_plot_width": 320,
+    "max_margin_fraction": 0.50,
+    "radial_range_min": 100
+  }
+}
