@@ -147,6 +147,7 @@ async def run(args: argparse.Namespace) -> int:
     rng = random.Random(args.seed)
     space = mutate.load_space()
     a_client = None if args.no_vision else anthropic.Anthropic()
+    recent_mutations: list[dict] = []  # short window to avoid duplicate proposals
 
     run_id = datetime.now().strftime("%Y-%m-%d_%H%M%S") + "_radar"
     run_dir = RUNS_DIR / run_id
@@ -202,8 +203,14 @@ async def run(args: argparse.Namespace) -> int:
             state.iters += 1
             force_structural = state.iters % args.structural_every == 0
             mut = mutate.propose(
-                space, best.config, force_structural=force_structural, rng=rng
+                space,
+                best.config,
+                history=recent_mutations,
+                force_structural=force_structural,
+                rng=rng,
             )
+            recent_mutations.append({"knob": mut.knob, "new_value": mut.new_value})
+            recent_mutations = recent_mutations[-5:]
             candidate = mutate.apply(best.config, mut)
             ok, reason = mutate.validate(candidate, space)
             if not ok:

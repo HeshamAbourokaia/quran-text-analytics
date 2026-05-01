@@ -86,22 +86,61 @@ def _hsl_to_hex(h: float, s: float, ll: float) -> str:
     return "#{:02X}{:02X}{:02X}".format(int(r * 255), int(g * 255), int(b * 255))
 
 
+def _pick_weighted(rng: random.Random, items: list, weights: list[int]) -> int:
+    """Single-call weighted index pick. One rng.random() consumed per call.
+    Returns the chosen INDEX (not the item), so the caller can record it."""
+    total = sum(weights)
+    threshold = rng.random() * total
+    cum = 0
+    for i, w in enumerate(weights):
+        cum += w
+        if threshold <= cum:
+            return i
+    return len(items) - 1
+
+
+def _pick_index(rng: random.Random, n: int) -> int:
+    """Single-call uniform index pick from range(n). One rng.random() consumed.
+    Replaces rng.choice which uses _randbelow and can consume a variable
+    number of getrandbits calls — that variability allowed neighbouring
+    propose() calls to align on the same option in pathological cases."""
+    if n <= 0:
+        return 0
+    return int(rng.random() * n) % n  # %n guards against ==1.0 corner case
+
+
 def propose(
     space: dict,
     current_config: dict,
     history: list[dict] | None = None,
     force_structural: bool = False,
     rng: random.Random | None = None,
+    max_history_block: int = 3,
 ) -> Mutation:
+    """Pick a knob (weighted) and a value within it (uniform), avoiding
+    the last `max_history_block` knob+value combos in `history`."""
     rng = rng or random.Random()
     knobs = space["knobs"]
     if force_structural:
         candidates = [k for k in knobs if k.get("structural")]
     else:
-        candidates = knobs
+        candidates = list(knobs)
     weights = [k.get("weight", 1) for k in candidates]
-    knob = rng.choices(candidates, weights=weights, k=1)[0]
-    return _mutation_from_knob(knob, current_config, rng)
+
+    blocked: set[tuple[str, str]] = set()
+    if history:
+        for h in history[-max_history_block:]:
+            blocked.add((h.get("knob", ""), json.dumps(h.get("new_value"), sort_keys=True)))
+
+    # Up to N retries to find a non-blocked mutation. After that, accept anyway.
+    for _ in range(8):
+        idx = _pick_weighted(rng, candidates, weights)
+        knob = candidates[idx]
+        mutation = _mutation_from_knob(knob, current_config, rng)
+        sig = (mutation.knob, json.dumps(mutation.new_value, sort_keys=True))
+        if sig not in blocked:
+            return mutation
+    return mutation  # last attempt
 
 
 def _mutation_from_knob(knob: dict, cfg: dict, rng: random.Random) -> Mutation:
@@ -121,7 +160,7 @@ def _mutation_from_knob(knob: dict, cfg: dict, rng: random.Random) -> Mutation:
         choices = [o for o in options if o != current]
         if not choices:
             choices = options
-        new_val = rng.choice(choices)
+        new_val = choices[_pick_index(rng, len(choices))]
         if isinstance(new_val, list):
             summary = summary_tpl.format(*new_val)
         else:
@@ -138,7 +177,7 @@ def _mutation_from_knob(knob: dict, cfg: dict, rng: random.Random) -> Mutation:
         choices = [s for s in steps if s != current]
         if not choices:
             choices = steps
-        new_val = rng.choice(choices)
+        new_val = choices[_pick_index(rng, len(choices))]
         return Mutation(name, path, new_val, summary_tpl.format(new_val), structural)
 
     if t == "float_range":
@@ -152,7 +191,7 @@ def _mutation_from_knob(knob: dict, cfg: dict, rng: random.Random) -> Mutation:
         choices = [s for s in steps if s != current]
         if not choices:
             choices = steps
-        new_val = rng.choice(choices)
+        new_val = choices[_pick_index(rng, len(choices))]
         return Mutation(name, path, new_val, summary_tpl.format(new_val), structural)
 
     if t == "hsl_shift":
