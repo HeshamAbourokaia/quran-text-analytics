@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<title>Chart Test</title>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+</head>
+<body style="background:#fafdf7; padding:40px; font-family:sans-serif;">
+<h1>Chart Rendering Test</h1>
+<div id="status" style="padding:10px; background:#fee; margin:10px 0;"></div>
+
+<h2>1. Simple Sunburst</h2>
+<div id="test-sunburst" style="width:100%; height:500px; border:1px solid #ccc;"></div>
+
+<h2>2. Simple Bar</h2>
+<div id="test-bar" style="width:100%; height:300px; border:1px solid #ccc;"></div>
+
+<script>
+var status = document.getElementById('status');
+status.textContent = 'Plotly loaded: ' + (typeof Plotly !== 'undefined');
+
+try {
+  // Simple sunburst test
+  Plotly.newPlot('test-sunburst', [{
+    type: 'sunburst',
+    labels: ['Quran', 'Meccan', 'Medinan', 'Al-Fatiha', 'Al-Baqara', 'Aal-Imran'],
+    parents: ['', 'Quran', 'Quran', 'Meccan', 'Medinan', 'Medinan'],
+    values: [10340, 29, 10311, 29, 6610, 3701],
+    branchvalues: 'total',
+    marker: { colors: ['#0D1B2A', '#FFDEAD', '#90EE90', '#FFDEAD', '#90EE90', '#90EE90'] },
+    textfont: { size: 14 }
+  }], {
+    margin: {t:10,l:10,r:10,b:10}, height: 500, paper_bgcolor: 'transparent'
+  });
+  status.textContent += ' | Sunburst: OK';
+  status.style.background = '#efe';
+} catch(e) {
+  status.textContent += ' | Sunburst ERROR: ' + e.message;
+}
+
+try {
+  Plotly.newPlot('test-bar', [{
+    type: 'bar', x: ['Al-Baqara', 'Aal-Imran', 'An-Nisa'], y: [286, 200, 176],
+    marker: { color: ['#FF9800', '#FF9800', '#FF9800'] }
+  }], { margin: {t:10,l:40,r:10,b:40}, height: 300, paper_bgcolor: 'transparent' });
+  status.textContent += ' | Bar: OK';
+} catch(e) {
+  status.textContent += ' | Bar ERROR: ' + e.message;
+}
+</script>
+</body></html>

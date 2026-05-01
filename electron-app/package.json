@@ -1,0 +1,48 @@
+{
+  "name": "quran-text-analytics",
+  "version": "1.0.0",
+  "description": "Quran Text Analytics — Interactive Quran analysis with NLP, numerical miracles, and full Madani mushaf reader",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build-mac": "electron-builder --mac",
+    "build-win": "electron-builder --win --portable",
+    "build-all": "electron-builder --mac --win --portable"
+  },
+  "author": "Hesham",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1"
+  },
+  "build": {
+    "appId": "com.hesham.quran-analytics",
+    "productName": "Quran Text Analytics",
+    "files": [
+      "main.js",
+      "app.html",
+      "icon.png",
+      "icon.icns"
+    ],
+    "icon": "icon.png",
+    "mac": {
+      "category": "public.app-category.education",
+      "icon": "icon.icns",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": ["universal"]
+        }
+      ]
+    },
+    "win": {
+      "icon": "icon.png",
+      "target": "portable"
+    },
+    "dmg": {
+      "title": "Quran Text Analytics",
+      "backgroundColor": "rgb(13,27,42)"
+    }
+  }
+}

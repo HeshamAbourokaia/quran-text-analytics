@@ -1,0 +1,25 @@
+# Project-local git repo for autoresearch loop isolation.
+# Created 2026-05-01 — see /Users/Hesham/.claude/plans/g-day-partitioned-pony.md
+
+# Node
+electron-app/node_modules/
+electron-app/dist/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# Autoresearch artifacts (per-run logs, screenshots — not commit history)
+autoresearch/runs/
+autoresearch/STOP
+
+# OS
+.DS_Store
+*.swp
+
+# Editor
+.vscode/
+.idea/
