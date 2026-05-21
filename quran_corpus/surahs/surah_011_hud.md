@@ -1,0 +1,633 @@
+# Surah 11: Hud (هود)
+
+- **Mushaf number**: 11
+- **Place of revelation**: Mecca (Makkiyah)
+- **Verse count**: 123
+- **Themes**: [Faith and Monotheism](../themes/faith-monotheism.md)
+- **Named entities mentioned**: [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md), [Pharaoh (Firaun)](../entities/figure_firaun.md), [Hud](../entities/prophet_hud.md), [Abraham (Ibrahim)](../entities/prophet_ibrahim.md), [Isaac (Ishaq)](../entities/prophet_ishaq.md), [Lot (Lut)](../entities/prophet_lut.md), [Madyan](../entities/place_madyan.md), [Egypt (Misr)](../entities/place_misr.md), [Moses (Musa)](../entities/prophet_musa.md), [Noah (Nuh)](../entities/prophet_nuh.md), [Rabb (the Lord)](../entities/divine_rabb.md), [Shuayb](../entities/prophet_shuayb.md), [Jacob (Yaqub)](../entities/prophet_yaqub.md)
+
+## Verses
+
+### Verse 11:0
+**Arabic**: بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+
+**English**: In the name of God, the Gracious, the Merciful.
+
+### Verse 11:1
+**Arabic**: الٓر ۚ كِتَٰبٌ أُحْكِمَتْ ءَايَٰتُهُۥ ثُمَّ فُصِّلَتْ مِن لَّدُنْ حَكِيمٍ خَبِيرٍ
+
+**English**: Alif, Lam, Ra. A Scripture whose Verses were perfected, then elaborated, from One who is Wise and Informed.
+
+### Verse 11:2
+**Arabic**: أَلَّا تَعْبُدُوٓا۟ إِلَّا ٱللَّهَ ۚ إِنَّنِى لَكُم مِّنْهُ نَذِيرٌۭ وَبَشِيرٌۭ
+
+**English**: That you shall worship none but God. "I am a warner to you from Him, and a bearer of good news."
+
+### Verse 11:3
+**Arabic**: وَأَنِ ٱسْتَغْفِرُوا۟ رَبَّكُمْ ثُمَّ تُوبُوٓا۟ إِلَيْهِ يُمَتِّعْكُم مَّتَٰعًا حَسَنًا إِلَىٰٓ أَجَلٍۢ مُّسَمًّۭى وَيُؤْتِ كُلَّ ذِى فَضْلٍۢ فَضْلَهُۥ ۖ وَإِن تَوَلَّوْا۟ فَإِنِّىٓ أَخَافُ عَلَيْكُمْ عَذَابَ يَوْمٍۢ كَبِيرٍ
+
+**English**: "And ask your Lord for forgiveness, and repent to Him. He will provide you with good sustenance until a stated term, and will bestow His grace on every possessor of virtue. But if you turn away, then I fear for you the punishment of a grievous Day."
+
+### Verse 11:4
+**Arabic**: إِلَى ٱللَّهِ مَرْجِعُكُمْ ۖ وَهُوَ عَلَىٰ كُلِّ شَىْءٍۢ قَدِيرٌ
+
+**English**: "To God is your return, and He is Capable of all things."
+
+### Verse 11:5
+**Arabic**: أَلَآ إِنَّهُمْ يَثْنُونَ صُدُورَهُمْ لِيَسْتَخْفُوا۟ مِنْهُ ۚ أَلَا حِينَ يَسْتَغْشُونَ ثِيَابَهُمْ يَعْلَمُ مَا يُسِرُّونَ وَمَا يُعْلِنُونَ ۚ إِنَّهُۥ عَلِيمٌۢ بِذَاتِ ٱلصُّدُورِ
+
+**English**: They wrap their chests to hide from Him. But even as they cover themselves with their clothes, He knows what they conceal and what they reveal. He knows what lies within the hearts.
+
+### Verse 11:6
+**Arabic**: ۞ وَمَا مِن دَآبَّةٍۢ فِى ٱلْأَرْضِ إِلَّا عَلَى ٱللَّهِ رِزْقُهَا وَيَعْلَمُ مُسْتَقَرَّهَا وَمُسْتَوْدَعَهَا ۚ كُلٌّۭ فِى كِتَٰبٍۢ مُّبِينٍۢ
+
+**English**: There is no moving creature on earth but its sustenance depends on God. And He knows where it lives and where it rests. Everything is in a Clear Book.
+
+### Verse 11:7
+**Arabic**: وَهُوَ ٱلَّذِى خَلَقَ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَ فِى سِتَّةِ أَيَّامٍۢ وَكَانَ عَرْشُهُۥ عَلَى ٱلْمَآءِ لِيَبْلُوَكُمْ أَيُّكُمْ أَحْسَنُ عَمَلًۭا ۗ وَلَئِن قُلْتَ إِنَّكُم مَّبْعُوثُونَ مِنۢ بَعْدِ ٱلْمَوْتِ لَيَقُولَنَّ ٱلَّذِينَ كَفَرُوٓا۟ إِنْ هَٰذَآ إِلَّا سِحْرٌۭ مُّبِينٌۭ
+
+**English**: It is He who created the heavens and the earth in six days-and His Throne was upon the waters-in order to test you-which of you is best in conduct. And if you were to say, "You will be resurrected after death," those who disbelieve would say, "This is nothing but plain witchcraft."
+
+### Verse 11:8
+**Arabic**: وَلَئِنْ أَخَّرْنَا عَنْهُمُ ٱلْعَذَابَ إِلَىٰٓ أُمَّةٍۢ مَّعْدُودَةٍۢ لَّيَقُولُنَّ مَا يَحْبِسُهُۥٓ ۗ أَلَا يَوْمَ يَأْتِيهِمْ لَيْسَ مَصْرُوفًا عَنْهُمْ وَحَاقَ بِهِم مَّا كَانُوا۟ بِهِۦ يَسْتَهْزِءُونَ
+
+**English**: And if We postponed their punishment until a stated time, they would say, "What holds it back?" On the Day when it reaches them, it will not be averted from them, and what they used to ridicule will besiege them.
+
+### Verse 11:9
+**Arabic**: وَلَئِنْ أَذَقْنَا ٱلْإِنسَٰنَ مِنَّا رَحْمَةًۭ ثُمَّ نَزَعْنَٰهَا مِنْهُ إِنَّهُۥ لَيَـُٔوسٌۭ كَفُورٌۭ
+
+**English**: If We give the human being a taste of mercy from Us, and then withdraw it from him, he becomes despairing and ungrateful.
+
+### Verse 11:10
+**Arabic**: وَلَئِنْ أَذَقْنَٰهُ نَعْمَآءَ بَعْدَ ضَرَّآءَ مَسَّتْهُ لَيَقُولَنَّ ذَهَبَ ٱلسَّيِّـَٔاتُ عَنِّىٓ ۚ إِنَّهُۥ لَفَرِحٌۭ فَخُورٌ
+
+**English**: And if We give him a taste of prosperity, after some adversity has afflicted him, he will say, "Troubles have gone away from me." He becomes excited and proud.
+
+### Verse 11:11
+**Arabic**: إِلَّا ٱلَّذِينَ صَبَرُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ أُو۟لَٰٓئِكَ لَهُم مَّغْفِرَةٌۭ وَأَجْرٌۭ كَبِيرٌۭ
+
+**English**: Except those who are patient and do good deeds-these will have forgiveness and a great reward.
+
+### Verse 11:12
+**Arabic**: فَلَعَلَّكَ تَارِكٌۢ بَعْضَ مَا يُوحَىٰٓ إِلَيْكَ وَضَآئِقٌۢ بِهِۦ صَدْرُكَ أَن يَقُولُوا۟ لَوْلَآ أُنزِلَ عَلَيْهِ كَنزٌ أَوْ جَآءَ مَعَهُۥ مَلَكٌ ۚ إِنَّمَآ أَنتَ نَذِيرٌۭ ۚ وَٱللَّهُ عَلَىٰ كُلِّ شَىْءٍۢ وَكِيلٌ
+
+**English**: Perhaps you wish to disregard some of what is revealed to you, and you may be stressed because of it, since they say, "If only a treasure was sent down to him, or an angel came with him." You are only a warner, and God is Responsible for all things.
+
+### Verse 11:13
+**Arabic**: أَمْ يَقُولُونَ ٱفْتَرَىٰهُ ۖ قُلْ فَأْتُوا۟ بِعَشْرِ سُوَرٍۢ مِّثْلِهِۦ مُفْتَرَيَٰتٍۢ وَٱدْعُوا۟ مَنِ ٱسْتَطَعْتُم مِّن دُونِ ٱللَّهِ إِن كُنتُمْ صَٰدِقِينَ
+
+**English**: Or do they say, "He invented it?" Say, "Then produce ten chapters like it, invented, and call upon whomever you can, besides God, if you are truthful."
+
+### Verse 11:14
+**Arabic**: فَإِلَّمْ يَسْتَجِيبُوا۟ لَكُمْ فَٱعْلَمُوٓا۟ أَنَّمَآ أُنزِلَ بِعِلْمِ ٱللَّهِ وَأَن لَّآ إِلَٰهَ إِلَّا هُوَ ۖ فَهَلْ أَنتُم مُّسْلِمُونَ
+
+**English**: But if they fail to answer you, know that it was revealed with God's knowledge, and that there is no god but He. Will you then submit?
+
+### Verse 11:15
+**Arabic**: مَن كَانَ يُرِيدُ ٱلْحَيَوٰةَ ٱلدُّنْيَا وَزِينَتَهَا نُوَفِّ إِلَيْهِمْ أَعْمَٰلَهُمْ فِيهَا وَهُمْ فِيهَا لَا يُبْخَسُونَ
+
+**English**: Whoever desires the worldly life and its glitter-We will fully recompense them for their deeds therein, and therein they will not be defrauded.
+
+### Verse 11:16
+**Arabic**: أُو۟لَٰٓئِكَ ٱلَّذِينَ لَيْسَ لَهُمْ فِى ٱلْءَاخِرَةِ إِلَّا ٱلنَّارُ ۖ وَحَبِطَ مَا صَنَعُوا۟ فِيهَا وَبَٰطِلٌۭ مَّا كَانُوا۟ يَعْمَلُونَ
+
+**English**: These-they will have nothing but the Fire in the Hereafter. Their deeds are in vain therein, and their works are null.
+
+### Verse 11:17
+**Arabic**: أَفَمَن كَانَ عَلَىٰ بَيِّنَةٍۢ مِّن رَّبِّهِۦ وَيَتْلُوهُ شَاهِدٌۭ مِّنْهُ وَمِن قَبْلِهِۦ كِتَٰبُ مُوسَىٰٓ إِمَامًۭا وَرَحْمَةً ۚ أُو۟لَٰٓئِكَ يُؤْمِنُونَ بِهِۦ ۚ وَمَن يَكْفُرْ بِهِۦ مِنَ ٱلْأَحْزَابِ فَٱلنَّارُ مَوْعِدُهُۥ ۚ فَلَا تَكُ فِى مِرْيَةٍۢ مِّنْهُ ۚ إِنَّهُ ٱلْحَقُّ مِن رَّبِّكَ وَلَٰكِنَّ أَكْثَرَ ٱلنَّاسِ لَا يُؤْمِنُونَ
+
+**English**: Is he who possesses a clear proof from his Lord, recited by a witness from Him, and before it the Book of Moses, a guide and a mercy? These believe in it. But whoever defies it from among the various factions, the Fire is his promise. So have no doubt about it. It is the truth from your Lord, but most people do not believe.
+
+### Verse 11:18
+**Arabic**: وَمَنْ أَظْلَمُ مِمَّنِ ٱفْتَرَىٰ عَلَى ٱللَّهِ كَذِبًا ۚ أُو۟لَٰٓئِكَ يُعْرَضُونَ عَلَىٰ رَبِّهِمْ وَيَقُولُ ٱلْأَشْهَٰدُ هَٰٓؤُلَآءِ ٱلَّذِينَ كَذَبُوا۟ عَلَىٰ رَبِّهِمْ ۚ أَلَا لَعْنَةُ ٱللَّهِ عَلَى ٱلظَّٰلِمِينَ
+
+**English**: Who does greater wrong than he who fabricates lies about God? These will be presented before their Lord, and the witnesses will say, "These are they who lied about their Lord." Indeed, the curse of God is upon the wrongdoers.
+
+### Verse 11:19
+**Arabic**: ٱلَّذِينَ يَصُدُّونَ عَن سَبِيلِ ٱللَّهِ وَيَبْغُونَهَا عِوَجًۭا وَهُم بِٱلْءَاخِرَةِ هُمْ كَٰفِرُونَ
+
+**English**: Those who hinder others from the path of God, and seek to make it crooked; and regarding the Hereafter, they are in denial.
+
+### Verse 11:20
+**Arabic**: أُو۟لَٰٓئِكَ لَمْ يَكُونُوا۟ مُعْجِزِينَ فِى ٱلْأَرْضِ وَمَا كَانَ لَهُم مِّن دُونِ ٱللَّهِ مِنْ أَوْلِيَآءَ ۘ يُضَٰعَفُ لَهُمُ ٱلْعَذَابُ ۚ مَا كَانُوا۟ يَسْتَطِيعُونَ ٱلسَّمْعَ وَمَا كَانُوا۟ يُبْصِرُونَ
+
+**English**: These will not escape on earth, and they have no protectors besides God. The punishment will be doubled for them. They have failed to hear, and they have failed to see.
+
+### Verse 11:21
+**Arabic**: أُو۟لَٰٓئِكَ ٱلَّذِينَ خَسِرُوٓا۟ أَنفُسَهُمْ وَضَلَّ عَنْهُم مَّا كَانُوا۟ يَفْتَرُونَ
+
+**English**: Those are the ones who lost their souls, and what they had invented has strayed away from them.
+
+### Verse 11:22
+**Arabic**: لَا جَرَمَ أَنَّهُمْ فِى ٱلْءَاخِرَةِ هُمُ ٱلْأَخْسَرُونَ
+
+**English**: Without a doubt, in the Hereafter, they will be the biggest losers.
+
+### Verse 11:23
+**Arabic**: إِنَّ ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ وَأَخْبَتُوٓا۟ إِلَىٰ رَبِّهِمْ أُو۟لَٰٓئِكَ أَصْحَٰبُ ٱلْجَنَّةِ ۖ هُمْ فِيهَا خَٰلِدُونَ
+
+**English**: As for those who believe and do good deeds, and humble themselves before their Lord-these are the inhabitants of Paradise, where they will abide forever.
+
+### Verse 11:24
+**Arabic**: ۞ مَثَلُ ٱلْفَرِيقَيْنِ كَٱلْأَعْمَىٰ وَٱلْأَصَمِّ وَٱلْبَصِيرِ وَٱلسَّمِيعِ ۚ هَلْ يَسْتَوِيَانِ مَثَلًا ۚ أَفَلَا تَذَكَّرُونَ
+
+**English**: The parable of the two groups is that of the blind and the deaf, and the seeing and the hearing. Are they equal in comparison? Will you not reflect?
+
+### Verse 11:25
+**Arabic**: وَلَقَدْ أَرْسَلْنَا نُوحًا إِلَىٰ قَوْمِهِۦٓ إِنِّى لَكُمْ نَذِيرٌۭ مُّبِينٌ
+
+**English**: We sent Noah to his people, "I am to you a clear warner."
+
+### Verse 11:26
+**Arabic**: أَن لَّا تَعْبُدُوٓا۟ إِلَّا ٱللَّهَ ۖ إِنِّىٓ أَخَافُ عَلَيْكُمْ عَذَابَ يَوْمٍ أَلِيمٍۢ
+
+**English**: "That you shall worship none but God. I fear for you the agony of a painful Day."
+
+### Verse 11:27
+**Arabic**: فَقَالَ ٱلْمَلَأُ ٱلَّذِينَ كَفَرُوا۟ مِن قَوْمِهِۦ مَا نَرَىٰكَ إِلَّا بَشَرًۭا مِّثْلَنَا وَمَا نَرَىٰكَ ٱتَّبَعَكَ إِلَّا ٱلَّذِينَ هُمْ أَرَاذِلُنَا بَادِىَ ٱلرَّأْىِ وَمَا نَرَىٰ لَكُمْ عَلَيْنَا مِن فَضْلٍۭ بَلْ نَظُنُّكُمْ كَٰذِبِينَ
+
+**English**: The notables who disbelieved among his people said, "We see in you nothing but a man like us, and we see that only the worst among us have followed you, those of immature judgment. And we see that you have no advantage over us. In fact, we think you are liars."
+
+### Verse 11:28
+**Arabic**: قَالَ يَٰقَوْمِ أَرَءَيْتُمْ إِن كُنتُ عَلَىٰ بَيِّنَةٍۢ مِّن رَّبِّى وَءَاتَىٰنِى رَحْمَةًۭ مِّنْ عِندِهِۦ فَعُمِّيَتْ عَلَيْكُمْ أَنُلْزِمُكُمُوهَا وَأَنتُمْ لَهَا كَٰرِهُونَ
+
+**English**: He said, "O my people, Have you considered? If I stand on clear evidence from my Lord, and He has given me a mercy from Himself, but you were blind to it, can we compel you to accept it, even though you dislike it?"
+
+### Verse 11:29
+**Arabic**: وَيَٰقَوْمِ لَآ أَسْـَٔلُكُمْ عَلَيْهِ مَالًا ۖ إِنْ أَجْرِىَ إِلَّا عَلَى ٱللَّهِ ۚ وَمَآ أَنَا۠ بِطَارِدِ ٱلَّذِينَ ءَامَنُوٓا۟ ۚ إِنَّهُم مُّلَٰقُوا۟ رَبِّهِمْ وَلَٰكِنِّىٓ أَرَىٰكُمْ قَوْمًۭا تَجْهَلُونَ
+
+**English**: "O my people! I ask of you no money for it. My reward lies only with God. And I am not about to dismiss those who believed; they will surely meet their Lord. And I see that you are ignorant people."
+
+### Verse 11:30
+**Arabic**: وَيَٰقَوْمِ مَن يَنصُرُنِى مِنَ ٱللَّهِ إِن طَرَدتُّهُمْ ۚ أَفَلَا تَذَكَّرُونَ
+
+**English**: "O my people! Who will support me against God, if I dismiss them? Will you not give a thought?"
+
+### Verse 11:31
+**Arabic**: وَلَآ أَقُولُ لَكُمْ عِندِى خَزَآئِنُ ٱللَّهِ وَلَآ أَعْلَمُ ٱلْغَيْبَ وَلَآ أَقُولُ إِنِّى مَلَكٌۭ وَلَآ أَقُولُ لِلَّذِينَ تَزْدَرِىٓ أَعْيُنُكُمْ لَن يُؤْتِيَهُمُ ٱللَّهُ خَيْرًا ۖ ٱللَّهُ أَعْلَمُ بِمَا فِىٓ أَنفُسِهِمْ ۖ إِنِّىٓ إِذًۭا لَّمِنَ ٱلظَّٰلِمِينَ
+
+**English**: "I do not say to you that I possess the treasures of God, nor do I know the future, nor do I say that I am an angel. Nor do I say of those who are despicable in your eyes that God will never give them any good. God is Aware of what lies in their souls. If I did, I would be one of the wrongdoers."
+
+### Verse 11:32
+**Arabic**: قَالُوا۟ يَٰنُوحُ قَدْ جَٰدَلْتَنَا فَأَكْثَرْتَ جِدَٰلَنَا فَأْتِنَا بِمَا تَعِدُنَآ إِن كُنتَ مِنَ ٱلصَّٰدِقِينَ
+
+**English**: They said, "O Noah, you have argued with us, and argued a great deal. Now bring upon us what you threaten us with, if you are truthful."
+
+### Verse 11:33
+**Arabic**: قَالَ إِنَّمَا يَأْتِيكُم بِهِ ٱللَّهُ إِن شَآءَ وَمَآ أَنتُم بِمُعْجِزِينَ
+
+**English**: He said, "It is God who will bring it upon you, if He wills, and you will not be able to escape."
+
+### Verse 11:34
+**Arabic**: وَلَا يَنفَعُكُمْ نُصْحِىٓ إِنْ أَرَدتُّ أَنْ أَنصَحَ لَكُمْ إِن كَانَ ٱللَّهُ يُرِيدُ أَن يُغْوِيَكُمْ ۚ هُوَ رَبُّكُمْ وَإِلَيْهِ تُرْجَعُونَ
+
+**English**: "My advice will not benefit you, much as I may want to advise you, if God desires to confound you. He is your Lord, and to Him you will be returned."
+
+### Verse 11:35
+**Arabic**: أَمْ يَقُولُونَ ٱفْتَرَىٰهُ ۖ قُلْ إِنِ ٱفْتَرَيْتُهُۥ فَعَلَىَّ إِجْرَامِى وَأَنَا۠ بَرِىٓءٌۭ مِّمَّا تُجْرِمُونَ
+
+**English**: Or do they say, "He made it up?" Say, "If I made it up, upon me falls my crime, and I am innocent of the crimes you commit."
+
+### Verse 11:36
+**Arabic**: وَأُوحِىَ إِلَىٰ نُوحٍ أَنَّهُۥ لَن يُؤْمِنَ مِن قَوْمِكَ إِلَّا مَن قَدْ ءَامَنَ فَلَا تَبْتَئِسْ بِمَا كَانُوا۟ يَفْعَلُونَ
+
+**English**: And it was revealed to Noah: "None of your people will believe, except those who have already believed, so do not grieve over what they do."
+
+### Verse 11:37
+**Arabic**: وَٱصْنَعِ ٱلْفُلْكَ بِأَعْيُنِنَا وَوَحْيِنَا وَلَا تُخَٰطِبْنِى فِى ٱلَّذِينَ ظَلَمُوٓا۟ ۚ إِنَّهُم مُّغْرَقُونَ
+
+**English**: "And build the Ark, under Our eyes, and with Our inspiration, and do not address Me regarding those who did wrong; they are to be drowned."
+
+### Verse 11:38
+**Arabic**: وَيَصْنَعُ ٱلْفُلْكَ وَكُلَّمَا مَرَّ عَلَيْهِ مَلَأٌۭ مِّن قَوْمِهِۦ سَخِرُوا۟ مِنْهُ ۚ قَالَ إِن تَسْخَرُوا۟ مِنَّا فَإِنَّا نَسْخَرُ مِنكُمْ كَمَا تَسْخَرُونَ
+
+**English**: As he was building the ark, whenever some of his people passed by him, they ridiculed him. He said, "If you ridicule us, we will ridicule you, just as you ridicule."
+
+### Verse 11:39
+**Arabic**: فَسَوْفَ تَعْلَمُونَ مَن يَأْتِيهِ عَذَابٌۭ يُخْزِيهِ وَيَحِلُّ عَلَيْهِ عَذَابٌۭ مُّقِيمٌ
+
+**English**: "You will surely know upon whom will come a torment that will abase him, and upon whom will fall a lasting torment."
+
+### Verse 11:40
+**Arabic**: حَتَّىٰٓ إِذَا جَآءَ أَمْرُنَا وَفَارَ ٱلتَّنُّورُ قُلْنَا ٱحْمِلْ فِيهَا مِن كُلٍّۢ زَوْجَيْنِ ٱثْنَيْنِ وَأَهْلَكَ إِلَّا مَن سَبَقَ عَلَيْهِ ٱلْقَوْلُ وَمَنْ ءَامَنَ ۚ وَمَآ ءَامَنَ مَعَهُۥٓ إِلَّا قَلِيلٌۭ
+
+**English**: Until, when Our command came, and the volcano erupted, We said, "Board into it a pair of every kind, and your family-except those against whom the sentence has already been passed-and those who have believed." But those who believed with him were only a few.
+
+### Verse 11:41
+**Arabic**: ۞ وَقَالَ ٱرْكَبُوا۟ فِيهَا بِسْمِ ٱللَّهِ مَجْر۪ىٰهَا وَمُرْسَىٰهَآ ۚ إِنَّ رَبِّى لَغَفُورٌۭ رَّحِيمٌۭ
+
+**English**: He said, "Embark in it. In the name of God shall be its sailing and its anchorage. My Lord is indeed Forgiving and Merciful."
+
+### Verse 11:42
+**Arabic**: وَهِىَ تَجْرِى بِهِمْ فِى مَوْجٍۢ كَٱلْجِبَالِ وَنَادَىٰ نُوحٌ ٱبْنَهُۥ وَكَانَ فِى مَعْزِلٍۢ يَٰبُنَىَّ ٱرْكَب مَّعَنَا وَلَا تَكُن مَّعَ ٱلْكَٰفِرِينَ
+
+**English**: And so it sailed with them amidst waves like hills. And Noah called to his son, who had kept away, "On my son! Embark with us, and do not be with the disbelievers."
+
+### Verse 11:43
+**Arabic**: قَالَ سَـَٔاوِىٓ إِلَىٰ جَبَلٍۢ يَعْصِمُنِى مِنَ ٱلْمَآءِ ۚ قَالَ لَا عَاصِمَ ٱلْيَوْمَ مِنْ أَمْرِ ٱللَّهِ إِلَّا مَن رَّحِمَ ۚ وَحَالَ بَيْنَهُمَا ٱلْمَوْجُ فَكَانَ مِنَ ٱلْمُغْرَقِينَ
+
+**English**: He said, "I will take refuge on a mountain-it will protect me from the water." He said, "There is no protection from God's decree today, except for him on whom He has mercy." And the waves surged between them, and he was among the drowned.
+
+### Verse 11:44
+**Arabic**: وَقِيلَ يَٰٓأَرْضُ ٱبْلَعِى مَآءَكِ وَيَٰسَمَآءُ أَقْلِعِى وَغِيضَ ٱلْمَآءُ وَقُضِىَ ٱلْأَمْرُ وَٱسْتَوَتْ عَلَى ٱلْجُودِىِّ ۖ وَقِيلَ بُعْدًۭا لِّلْقَوْمِ ٱلظَّٰلِمِينَ
+
+**English**: And it was said, "O earth, swallow your waters," and "O heaven, clear up." And the waters receded, and the event was concluded, and it settled on Judi, and it was proclaimed: "Away with the wicked people."
+
+### Verse 11:45
+**Arabic**: وَنَادَىٰ نُوحٌۭ رَّبَّهُۥ فَقَالَ رَبِّ إِنَّ ٱبْنِى مِنْ أَهْلِى وَإِنَّ وَعْدَكَ ٱلْحَقُّ وَأَنتَ أَحْكَمُ ٱلْحَٰكِمِينَ
+
+**English**: And Noah called to his Lord. He said, "O My Lord, my son is of my family, and Your promise is true, and You are the Wisest of the wise."
+
+### Verse 11:46
+**Arabic**: قَالَ يَٰنُوحُ إِنَّهُۥ لَيْسَ مِنْ أَهْلِكَ ۖ إِنَّهُۥ عَمَلٌ غَيْرُ صَٰلِحٍۢ ۖ فَلَا تَسْـَٔلْنِ مَا لَيْسَ لَكَ بِهِۦ عِلْمٌ ۖ إِنِّىٓ أَعِظُكَ أَن تَكُونَ مِنَ ٱلْجَٰهِلِينَ
+
+**English**: He said, "O Noah, he is not of your family. It is an unrighteous deed. So do not ask Me about something you know nothing about. I admonish you, lest you be one of the ignorant."
+
+### Verse 11:47
+**Arabic**: قَالَ رَبِّ إِنِّىٓ أَعُوذُ بِكَ أَنْ أَسْـَٔلَكَ مَا لَيْسَ لِى بِهِۦ عِلْمٌۭ ۖ وَإِلَّا تَغْفِرْ لِى وَتَرْحَمْنِىٓ أَكُن مِّنَ ٱلْخَٰسِرِينَ
+
+**English**: He said, "O My Lord, I seek refuge with You, from asking You about what I have no knowledge of. Unless You forgive me, and have mercy on me, I will be one of the losers."
+
+### Verse 11:48
+**Arabic**: قِيلَ يَٰنُوحُ ٱهْبِطْ بِسَلَٰمٍۢ مِّنَّا وَبَرَكَٰتٍ عَلَيْكَ وَعَلَىٰٓ أُمَمٍۢ مِّمَّن مَّعَكَ ۚ وَأُمَمٌۭ سَنُمَتِّعُهُمْ ثُمَّ يَمَسُّهُم مِّنَّا عَذَابٌ أَلِيمٌۭ
+
+**English**: It was said, "O Noah, disembark with peace from Us; and with blessings upon you, and upon communities from those with you. And other communities We will grant prosperity, and then a painful torment from Us will befall them."
+
+### Verse 11:49
+**Arabic**: تِلْكَ مِنْ أَنۢبَآءِ ٱلْغَيْبِ نُوحِيهَآ إِلَيْكَ ۖ مَا كُنتَ تَعْلَمُهَآ أَنتَ وَلَا قَوْمُكَ مِن قَبْلِ هَٰذَا ۖ فَٱصْبِرْ ۖ إِنَّ ٱلْعَٰقِبَةَ لِلْمُتَّقِينَ
+
+**English**: These are some stories from the past that we reveal to you. Neither you, nor your people knew them before this. So be patient. The future belongs to the pious.
+
+### Verse 11:50
+**Arabic**: وَإِلَىٰ عَادٍ أَخَاهُمْ هُودًۭا ۚ قَالَ يَٰقَوْمِ ٱعْبُدُوا۟ ٱللَّهَ مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُۥٓ ۖ إِنْ أَنتُمْ إِلَّا مُفْتَرُونَ
+
+**English**: And to Aad, their brother Hud. He said, "O my people, worship God, you have no other god besides Him. You do nothing but invent lies."
+
+### Verse 11:51
+**Arabic**: يَٰقَوْمِ لَآ أَسْـَٔلُكُمْ عَلَيْهِ أَجْرًا ۖ إِنْ أَجْرِىَ إِلَّا عَلَى ٱلَّذِى فَطَرَنِىٓ ۚ أَفَلَا تَعْقِلُونَ
+
+**English**: "O my people, I ask you no wage for it; my wage lies with Him who originated me. Do you not understand?"
+
+### Verse 11:52
+**Arabic**: وَيَٰقَوْمِ ٱسْتَغْفِرُوا۟ رَبَّكُمْ ثُمَّ تُوبُوٓا۟ إِلَيْهِ يُرْسِلِ ٱلسَّمَآءَ عَلَيْكُم مِّدْرَارًۭا وَيَزِدْكُمْ قُوَّةً إِلَىٰ قُوَّتِكُمْ وَلَا تَتَوَلَّوْا۟ مُجْرِمِينَ
+
+**English**: "O my people, ask forgiveness from your Lord, and repent to Him. He will release the sky pouring down upon you, and will add strength to your strength. And do not turn away and be wicked."
+
+### Verse 11:53
+**Arabic**: قَالُوا۟ يَٰهُودُ مَا جِئْتَنَا بِبَيِّنَةٍۢ وَمَا نَحْنُ بِتَارِكِىٓ ءَالِهَتِنَا عَن قَوْلِكَ وَمَا نَحْنُ لَكَ بِمُؤْمِنِينَ
+
+**English**: They said, "O Hud, you did not bring us any evidence, and we are not about to abandon our gods at your word, and we are not believers in you."
+
+### Verse 11:54
+**Arabic**: إِن نَّقُولُ إِلَّا ٱعْتَرَىٰكَ بَعْضُ ءَالِهَتِنَا بِسُوٓءٍۢ ۗ قَالَ إِنِّىٓ أُشْهِدُ ٱللَّهَ وَٱشْهَدُوٓا۟ أَنِّى بَرِىٓءٌۭ مِّمَّا تُشْرِكُونَ
+
+**English**: "We only say that some of our gods have possessed you with evil." He said, "I call God to witness, and you to witness, that I am innocent of what you associate.
+
+### Verse 11:55
+**Arabic**: مِن دُونِهِۦ ۖ فَكِيدُونِى جَمِيعًۭا ثُمَّ لَا تُنظِرُونِ
+
+**English**: Besides Him. So scheme against me, all of you, and do not hesitate.
+
+### Verse 11:56
+**Arabic**: إِنِّى تَوَكَّلْتُ عَلَى ٱللَّهِ رَبِّى وَرَبِّكُم ۚ مَّا مِن دَآبَّةٍ إِلَّا هُوَ ءَاخِذٌۢ بِنَاصِيَتِهَآ ۚ إِنَّ رَبِّى عَلَىٰ صِرَٰطٍۢ مُّسْتَقِيمٍۢ
+
+**English**: I have placed my trust in God, my Lord and your Lord. There is not a creature but He holds it by the forelock. My Lord is on a straight path.
+
+### Verse 11:57
+**Arabic**: فَإِن تَوَلَّوْا۟ فَقَدْ أَبْلَغْتُكُم مَّآ أُرْسِلْتُ بِهِۦٓ إِلَيْكُمْ ۚ وَيَسْتَخْلِفُ رَبِّى قَوْمًا غَيْرَكُمْ وَلَا تَضُرُّونَهُۥ شَيْـًٔا ۚ إِنَّ رَبِّى عَلَىٰ كُلِّ شَىْءٍ حَفِيظٌۭ
+
+**English**: If you turn away, I have conveyed to you what I was sent to you with; and my Lord will replace you with another people, and you will not cause Him any harm. My Lord is Guardian over all things."
+
+### Verse 11:58
+**Arabic**: وَلَمَّا جَآءَ أَمْرُنَا نَجَّيْنَا هُودًۭا وَٱلَّذِينَ ءَامَنُوا۟ مَعَهُۥ بِرَحْمَةٍۢ مِّنَّا وَنَجَّيْنَٰهُم مِّنْ عَذَابٍ غَلِيظٍۢ
+
+**English**: And when Our decree came, We saved Hud and those who believed with him, by a mercy from Us, and We delivered them from a harsh punishment.
+
+### Verse 11:59
+**Arabic**: وَتِلْكَ عَادٌۭ ۖ جَحَدُوا۟ بِـَٔايَٰتِ رَبِّهِمْ وَعَصَوْا۟ رُسُلَهُۥ وَٱتَّبَعُوٓا۟ أَمْرَ كُلِّ جَبَّارٍ عَنِيدٍۢ
+
+**English**: That was Aad; they denied the signs of their Lord, and defied His messengers, and followed the lead of every stubborn tyrant.
+
+### Verse 11:60
+**Arabic**: وَأُتْبِعُوا۟ فِى هَٰذِهِ ٱلدُّنْيَا لَعْنَةًۭ وَيَوْمَ ٱلْقِيَٰمَةِ ۗ أَلَآ إِنَّ عَادًۭا كَفَرُوا۟ رَبَّهُمْ ۗ أَلَا بُعْدًۭا لِّعَادٍۢ قَوْمِ هُودٍۢ
+
+**English**: And they were pursued by a curse in this world, and on the Day of Resurrection. Indeed, Aad blasphemed against their Lord-so away with Aad, the people of Hud.
+
+### Verse 11:61
+**Arabic**: ۞ وَإِلَىٰ ثَمُودَ أَخَاهُمْ صَٰلِحًۭا ۚ قَالَ يَٰقَوْمِ ٱعْبُدُوا۟ ٱللَّهَ مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُۥ ۖ هُوَ أَنشَأَكُم مِّنَ ٱلْأَرْضِ وَٱسْتَعْمَرَكُمْ فِيهَا فَٱسْتَغْفِرُوهُ ثُمَّ تُوبُوٓا۟ إِلَيْهِ ۚ إِنَّ رَبِّى قَرِيبٌۭ مُّجِيبٌۭ
+
+**English**: And to Thamood, their brother Saleh. He said, "O my people, worship God, you have no god other than Him. He initiated you from the earth, and settled you in it. So seek His forgiveness, and repent to Him. My Lord is Near and Responsive."
+
+### Verse 11:62
+**Arabic**: قَالُوا۟ يَٰصَٰلِحُ قَدْ كُنتَ فِينَا مَرْجُوًّۭا قَبْلَ هَٰذَآ ۖ أَتَنْهَىٰنَآ أَن نَّعْبُدَ مَا يَعْبُدُ ءَابَآؤُنَا وَإِنَّنَا لَفِى شَكٍّۢ مِّمَّا تَدْعُونَآ إِلَيْهِ مُرِيبٍۢ
+
+**English**: They said, "O Saleh, we had hopes in you before this. Are you trying to prevent us from worshiping what our parents worship? We are in serious doubt regarding what you are calling us to."
+
+### Verse 11:63
+**Arabic**: قَالَ يَٰقَوْمِ أَرَءَيْتُمْ إِن كُنتُ عَلَىٰ بَيِّنَةٍۢ مِّن رَّبِّى وَءَاتَىٰنِى مِنْهُ رَحْمَةًۭ فَمَن يَنصُرُنِى مِنَ ٱللَّهِ إِنْ عَصَيْتُهُۥ ۖ فَمَا تَزِيدُونَنِى غَيْرَ تَخْسِيرٍۢ
+
+**English**: He said, "O my people, have you considered? If I stand upon clear evidence from my Lord, and He has given me mercy from Him, who would protect me from God, if I disobeyed Him? You add nothing for me except loss."
+
+### Verse 11:64
+**Arabic**: وَيَٰقَوْمِ هَٰذِهِۦ نَاقَةُ ٱللَّهِ لَكُمْ ءَايَةًۭ فَذَرُوهَا تَأْكُلْ فِىٓ أَرْضِ ٱللَّهِ وَلَا تَمَسُّوهَا بِسُوٓءٍۢ فَيَأْخُذَكُمْ عَذَابٌۭ قَرِيبٌۭ
+
+**English**: "O my people, this is the she-camel of God, a sign for you. Let her graze on God's land, and do not harm her, lest an imminent punishment overtakes you."
+
+### Verse 11:65
+**Arabic**: فَعَقَرُوهَا فَقَالَ تَمَتَّعُوا۟ فِى دَارِكُمْ ثَلَٰثَةَ أَيَّامٍۢ ۖ ذَٰلِكَ وَعْدٌ غَيْرُ مَكْذُوبٍۢ
+
+**English**: But they hamstrung her, and so He said, "Enjoy yourselves in your homes for three days. This is a prophecy that is infallible."
+
+### Verse 11:66
+**Arabic**: فَلَمَّا جَآءَ أَمْرُنَا نَجَّيْنَا صَٰلِحًۭا وَٱلَّذِينَ ءَامَنُوا۟ مَعَهُۥ بِرَحْمَةٍۢ مِّنَّا وَمِنْ خِزْىِ يَوْمِئِذٍ ۗ إِنَّ رَبَّكَ هُوَ ٱلْقَوِىُّ ٱلْعَزِيزُ
+
+**English**: Then, when Our command came, We saved Saleh and those who believed with him, by a mercy from Us, from the disgrace of that day. Your Lord is the Strong, the Mighty.
+
+### Verse 11:67
+**Arabic**: وَأَخَذَ ٱلَّذِينَ ظَلَمُوا۟ ٱلصَّيْحَةُ فَأَصْبَحُوا۟ فِى دِيَٰرِهِمْ جَٰثِمِينَ
+
+**English**: And the Scream struck those who transgressed, and they became motionless bodies in their homes.
+
+### Verse 11:68
+**Arabic**: كَأَن لَّمْ يَغْنَوْا۟ فِيهَآ ۗ أَلَآ إِنَّ ثَمُودَا۟ كَفَرُوا۟ رَبَّهُمْ ۗ أَلَا بُعْدًۭا لِّثَمُودَ
+
+**English**: As if they had never prospered therein. Indeed, Thamood rejected their Lord, so away with Thamood.
+
+### Verse 11:69
+**Arabic**: وَلَقَدْ جَآءَتْ رُسُلُنَآ إِبْرَٰهِيمَ بِٱلْبُشْرَىٰ قَالُوا۟ سَلَٰمًۭا ۖ قَالَ سَلَٰمٌۭ ۖ فَمَا لَبِثَ أَن جَآءَ بِعِجْلٍ حَنِيذٍۢ
+
+**English**: Our messengers came to Abraham with good news. They said, "Peace." He said, "Peace." Soon after, he came with a roasted calf.
+
+### Verse 11:70
+**Arabic**: فَلَمَّا رَءَآ أَيْدِيَهُمْ لَا تَصِلُ إِلَيْهِ نَكِرَهُمْ وَأَوْجَسَ مِنْهُمْ خِيفَةًۭ ۚ قَالُوا۟ لَا تَخَفْ إِنَّآ أُرْسِلْنَآ إِلَىٰ قَوْمِ لُوطٍۢ
+
+**English**: But when he saw their hands not reaching towards it, he became suspicious of them, and conceived a fear of them. They said, "Do not fear, we were sent to the people of Lot."
+
+### Verse 11:71
+**Arabic**: وَٱمْرَأَتُهُۥ قَآئِمَةٌۭ فَضَحِكَتْ فَبَشَّرْنَٰهَا بِإِسْحَٰقَ وَمِن وَرَآءِ إِسْحَٰقَ يَعْقُوبَ
+
+**English**: His wife was standing by, so she laughed. And We gave her good news of Isaac; and after Isaac, Jacob.
+
+### Verse 11:72
+**Arabic**: قَالَتْ يَٰوَيْلَتَىٰٓ ءَأَلِدُ وَأَنَا۠ عَجُوزٌۭ وَهَٰذَا بَعْلِى شَيْخًا ۖ إِنَّ هَٰذَا لَشَىْءٌ عَجِيبٌۭ
+
+**English**: She said, "Alas for me. Shall I give birth, when I am an old woman, and this, my husband, is an old man? This is truly a strange thing."
+
+### Verse 11:73
+**Arabic**: قَالُوٓا۟ أَتَعْجَبِينَ مِنْ أَمْرِ ٱللَّهِ ۖ رَحْمَتُ ٱللَّهِ وَبَرَكَٰتُهُۥ عَلَيْكُمْ أَهْلَ ٱلْبَيْتِ ۚ إِنَّهُۥ حَمِيدٌۭ مَّجِيدٌۭ
+
+**English**: They said, "Do you marvel at the decree of God? The mercy and blessings of God are upon you, O people of the house. He is Praiseworthy and Glorious."
+
+### Verse 11:74
+**Arabic**: فَلَمَّا ذَهَبَ عَنْ إِبْرَٰهِيمَ ٱلرَّوْعُ وَجَآءَتْهُ ٱلْبُشْرَىٰ يُجَٰدِلُنَا فِى قَوْمِ لُوطٍ
+
+**English**: When Abraham's fear subsided, and the good news had reached him, he started pleading with Us concerning the people of Lot.
+
+### Verse 11:75
+**Arabic**: إِنَّ إِبْرَٰهِيمَ لَحَلِيمٌ أَوَّٰهٌۭ مُّنِيبٌۭ
+
+**English**: Abraham was gentle, kind, penitent.
+
+### Verse 11:76
+**Arabic**: يَٰٓإِبْرَٰهِيمُ أَعْرِضْ عَنْ هَٰذَآ ۖ إِنَّهُۥ قَدْ جَآءَ أَمْرُ رَبِّكَ ۖ وَإِنَّهُمْ ءَاتِيهِمْ عَذَابٌ غَيْرُ مَرْدُودٍۢ
+
+**English**: "O Abraham, refrain from this. The command of your Lord has come; they have incurred an irreversible punishment."
+
+### Verse 11:77
+**Arabic**: وَلَمَّا جَآءَتْ رُسُلُنَا لُوطًۭا سِىٓءَ بِهِمْ وَضَاقَ بِهِمْ ذَرْعًۭا وَقَالَ هَٰذَا يَوْمٌ عَصِيبٌۭ
+
+**English**: And when Our envoys came to Lot, he was anxious for them, and concerned for them. He said, "This is a dreadful day."
+
+### Verse 11:78
+**Arabic**: وَجَآءَهُۥ قَوْمُهُۥ يُهْرَعُونَ إِلَيْهِ وَمِن قَبْلُ كَانُوا۟ يَعْمَلُونَ ٱلسَّيِّـَٔاتِ ۚ قَالَ يَٰقَوْمِ هَٰٓؤُلَآءِ بَنَاتِى هُنَّ أَطْهَرُ لَكُمْ ۖ فَٱتَّقُوا۟ ٱللَّهَ وَلَا تُخْزُونِ فِى ضَيْفِىٓ ۖ أَلَيْسَ مِنكُمْ رَجُلٌۭ رَّشِيدٌۭ
+
+**English**: And his people came rushing towards him-they were in the habit of committing sins. He said, "O my people, these are my daughters; they are purer for you. So fear God, and do not embarrass me before my guests. Is there not one reasonable man among you?"
+
+### Verse 11:79
+**Arabic**: قَالُوا۟ لَقَدْ عَلِمْتَ مَا لَنَا فِى بَنَاتِكَ مِنْ حَقٍّۢ وَإِنَّكَ لَتَعْلَمُ مَا نُرِيدُ
+
+**English**: They said, "You know well that we have no right to your daughters, and you know well what we want."
+
+### Verse 11:80
+**Arabic**: قَالَ لَوْ أَنَّ لِى بِكُمْ قُوَّةً أَوْ ءَاوِىٓ إِلَىٰ رُكْنٍۢ شَدِيدٍۢ
+
+**English**: He said, "If only I had the strength to stop you, or could rely on some strong support."
+
+### Verse 11:81
+**Arabic**: قَالُوا۟ يَٰلُوطُ إِنَّا رُسُلُ رَبِّكَ لَن يَصِلُوٓا۟ إِلَيْكَ ۖ فَأَسْرِ بِأَهْلِكَ بِقِطْعٍۢ مِّنَ ٱلَّيْلِ وَلَا يَلْتَفِتْ مِنكُمْ أَحَدٌ إِلَّا ٱمْرَأَتَكَ ۖ إِنَّهُۥ مُصِيبُهَا مَآ أَصَابَهُمْ ۚ إِنَّ مَوْعِدَهُمُ ٱلصُّبْحُ ۚ أَلَيْسَ ٱلصُّبْحُ بِقَرِيبٍۢ
+
+**English**: They said, "O Lot, we are the envoys of your Lord; they will not reach you. So set out with your family during the cover of the night, and let none of you look back, except for your wife. She will be struck by what will strike them. Their appointed time is the morning. Is not the morning near?"
+
+### Verse 11:82
+**Arabic**: فَلَمَّا جَآءَ أَمْرُنَا جَعَلْنَا عَٰلِيَهَا سَافِلَهَا وَأَمْطَرْنَا عَلَيْهَا حِجَارَةًۭ مِّن سِجِّيلٍۢ مَّنضُودٍۢ
+
+**English**: And when Our command came about, We turned it upside down, and We rained down on it stones of baked clay.
+
+### Verse 11:83
+**Arabic**: مُّسَوَّمَةً عِندَ رَبِّكَ ۖ وَمَا هِىَ مِنَ ٱلظَّٰلِمِينَ بِبَعِيدٍۢ
+
+**English**: Marked from your Lord, and never far from the wrongdoers.
+
+### Verse 11:84
+**Arabic**: ۞ وَإِلَىٰ مَدْيَنَ أَخَاهُمْ شُعَيْبًۭا ۚ قَالَ يَٰقَوْمِ ٱعْبُدُوا۟ ٱللَّهَ مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُۥ ۖ وَلَا تَنقُصُوا۟ ٱلْمِكْيَالَ وَٱلْمِيزَانَ ۚ إِنِّىٓ أَرَىٰكُم بِخَيْرٍۢ وَإِنِّىٓ أَخَافُ عَلَيْكُمْ عَذَابَ يَوْمٍۢ مُّحِيطٍۢ
+
+**English**: And to Median, their brother Shuaib. He said, "O my people, worship God; you have no god other than Him. And do not short measure or short weight. I see you in good circumstances, but I fear for you the agony of an encompassing Day."
+
+### Verse 11:85
+**Arabic**: وَيَٰقَوْمِ أَوْفُوا۟ ٱلْمِكْيَالَ وَٱلْمِيزَانَ بِٱلْقِسْطِ ۖ وَلَا تَبْخَسُوا۟ ٱلنَّاسَ أَشْيَآءَهُمْ وَلَا تَعْثَوْا۟ فِى ٱلْأَرْضِ مُفْسِدِينَ
+
+**English**: "O my people! Give full measure and full weight, in all fairness, and do not cheat the people out of their rights, and do not spread corruption in the land.
+
+### Verse 11:86
+**Arabic**: بَقِيَّتُ ٱللَّهِ خَيْرٌۭ لَّكُمْ إِن كُنتُم مُّؤْمِنِينَ ۚ وَمَآ أَنَا۠ عَلَيْكُم بِحَفِيظٍۢ
+
+**English**: What is left by God is best for you, if you are believers. And I am not a guardian over you."
+
+### Verse 11:87
+**Arabic**: قَالُوا۟ يَٰشُعَيْبُ أَصَلَوٰتُكَ تَأْمُرُكَ أَن نَّتْرُكَ مَا يَعْبُدُ ءَابَآؤُنَآ أَوْ أَن نَّفْعَلَ فِىٓ أَمْوَٰلِنَا مَا نَشَٰٓؤُا۟ ۖ إِنَّكَ لَأَنتَ ٱلْحَلِيمُ ٱلرَّشِيدُ
+
+**English**: They said, "O Shuaib, does your prayer command you that we abandon what our ancestors worshiped, or doing with our wealth what we want? You are the one who is intelligent and wise."
+
+### Verse 11:88
+**Arabic**: قَالَ يَٰقَوْمِ أَرَءَيْتُمْ إِن كُنتُ عَلَىٰ بَيِّنَةٍۢ مِّن رَّبِّى وَرَزَقَنِى مِنْهُ رِزْقًا حَسَنًۭا ۚ وَمَآ أُرِيدُ أَنْ أُخَالِفَكُمْ إِلَىٰ مَآ أَنْهَىٰكُمْ عَنْهُ ۚ إِنْ أُرِيدُ إِلَّا ٱلْإِصْلَٰحَ مَا ٱسْتَطَعْتُ ۚ وَمَا تَوْفِيقِىٓ إِلَّا بِٱللَّهِ ۚ عَلَيْهِ تَوَكَّلْتُ وَإِلَيْهِ أُنِيبُ
+
+**English**: He said, "O my people, have you considered? What if I have clear evidence from my Lord, and He has given me good livelihood from Himself? I have no desire to do what I forbid you from doing. I desire nothing but reform, as far as I can. My success lies only with God. In Him I trust, and to Him I turn."
+
+### Verse 11:89
+**Arabic**: وَيَٰقَوْمِ لَا يَجْرِمَنَّكُمْ شِقَاقِىٓ أَن يُصِيبَكُم مِّثْلُ مَآ أَصَابَ قَوْمَ نُوحٍ أَوْ قَوْمَ هُودٍ أَوْ قَوْمَ صَٰلِحٍۢ ۚ وَمَا قَوْمُ لُوطٍۢ مِّنكُم بِبَعِيدٍۢ
+
+**English**: "O my people, let not your hostility towards me cause you to suffer what was suffered by the people of Noah, or the people of Hud, or the people of Saleh. The people of Lot are not far away from you."
+
+### Verse 11:90
+**Arabic**: وَٱسْتَغْفِرُوا۟ رَبَّكُمْ ثُمَّ تُوبُوٓا۟ إِلَيْهِ ۚ إِنَّ رَبِّى رَحِيمٌۭ وَدُودٌۭ
+
+**English**: "And ask your Lord for forgiveness, and repent to Him. My Lord is Merciful and Loving."
+
+### Verse 11:91
+**Arabic**: قَالُوا۟ يَٰشُعَيْبُ مَا نَفْقَهُ كَثِيرًۭا مِّمَّا تَقُولُ وَإِنَّا لَنَرَىٰكَ فِينَا ضَعِيفًۭا ۖ وَلَوْلَا رَهْطُكَ لَرَجَمْنَٰكَ ۖ وَمَآ أَنتَ عَلَيْنَا بِعَزِيزٍۢ
+
+**English**: They said, "O Shuaib, we do not understand much of what you say, and we see that you are weak among us. Were it not for your tribe, we would have stoned you. You are of no value to us."
+
+### Verse 11:92
+**Arabic**: قَالَ يَٰقَوْمِ أَرَهْطِىٓ أَعَزُّ عَلَيْكُم مِّنَ ٱللَّهِ وَٱتَّخَذْتُمُوهُ وَرَآءَكُمْ ظِهْرِيًّا ۖ إِنَّ رَبِّى بِمَا تَعْمَلُونَ مُحِيطٌۭ
+
+**English**: He said, "O my people, is my tribe more important to you than God? And you have turned your backs on Him? My Lord comprehends everything you do."
+
+### Verse 11:93
+**Arabic**: وَيَٰقَوْمِ ٱعْمَلُوا۟ عَلَىٰ مَكَانَتِكُمْ إِنِّى عَٰمِلٌۭ ۖ سَوْفَ تَعْلَمُونَ مَن يَأْتِيهِ عَذَابٌۭ يُخْزِيهِ وَمَنْ هُوَ كَٰذِبٌۭ ۖ وَٱرْتَقِبُوٓا۟ إِنِّى مَعَكُمْ رَقِيبٌۭ
+
+**English**: "O my people, do as you may, and so will I. You will know to whom will come a punishment that will shame him, and who is a liar. So look out; I am on the lookout with you."
+
+### Verse 11:94
+**Arabic**: وَلَمَّا جَآءَ أَمْرُنَا نَجَّيْنَا شُعَيْبًۭا وَٱلَّذِينَ ءَامَنُوا۟ مَعَهُۥ بِرَحْمَةٍۢ مِّنَّا وَأَخَذَتِ ٱلَّذِينَ ظَلَمُوا۟ ٱلصَّيْحَةُ فَأَصْبَحُوا۟ فِى دِيَٰرِهِمْ جَٰثِمِينَ
+
+**English**: And when Our command came, We saved Shuaib and those who believed with him, by mercy from Us, and the Blast struck the wrongdoers, and they became motionless bodies in their homes.
+
+### Verse 11:95
+**Arabic**: كَأَن لَّمْ يَغْنَوْا۟ فِيهَآ ۗ أَلَا بُعْدًۭا لِّمَدْيَنَ كَمَا بَعِدَتْ ثَمُودُ
+
+**English**: As though they never flourished therein. Away with Median, as was done away with Thamood.
+
+### Verse 11:96
+**Arabic**: وَلَقَدْ أَرْسَلْنَا مُوسَىٰ بِـَٔايَٰتِنَا وَسُلْطَٰنٍۢ مُّبِينٍ
+
+**English**: And We sent Moses with Our signs and a clear mandate.
+
+### Verse 11:97
+**Arabic**: إِلَىٰ فِرْعَوْنَ وَمَلَإِي۟هِۦ فَٱتَّبَعُوٓا۟ أَمْرَ فِرْعَوْنَ ۖ وَمَآ أَمْرُ فِرْعَوْنَ بِرَشِيدٍۢ
+
+**English**: To Pharaoh and his nobles, but they followed the command of Pharaoh, and the command of Pharaoh was not wise.
+
+### Verse 11:98
+**Arabic**: يَقْدُمُ قَوْمَهُۥ يَوْمَ ٱلْقِيَٰمَةِ فَأَوْرَدَهُمُ ٱلنَّارَ ۖ وَبِئْسَ ٱلْوِرْدُ ٱلْمَوْرُودُ
+
+**English**: He will precede his people on the Day of Resurrection, and will lead them into the Fire. Miserable is the place he placed them in.
+
+### Verse 11:99
+**Arabic**: وَأُتْبِعُوا۟ فِى هَٰذِهِۦ لَعْنَةًۭ وَيَوْمَ ٱلْقِيَٰمَةِ ۚ بِئْسَ ٱلرِّفْدُ ٱلْمَرْفُودُ
+
+**English**: They were followed by a curse in this, and on the Day of Resurrection. Miserable is the path they followed.
+
+### Verse 11:100
+**Arabic**: ذَٰلِكَ مِنْ أَنۢبَآءِ ٱلْقُرَىٰ نَقُصُّهُۥ عَلَيْكَ ۖ مِنْهَا قَآئِمٌۭ وَحَصِيدٌۭ
+
+**English**: These are of the reports of the towns-We relate them to you. Some are still standing, and some have withered away.
+
+### Verse 11:101
+**Arabic**: وَمَا ظَلَمْنَٰهُمْ وَلَٰكِن ظَلَمُوٓا۟ أَنفُسَهُمْ ۖ فَمَآ أَغْنَتْ عَنْهُمْ ءَالِهَتُهُمُ ٱلَّتِى يَدْعُونَ مِن دُونِ ٱللَّهِ مِن شَىْءٍۢ لَّمَّا جَآءَ أَمْرُ رَبِّكَ ۖ وَمَا زَادُوهُمْ غَيْرَ تَتْبِيبٍۢ
+
+**English**: We did not wrong them, but they wronged themselves. Their gods, whom they invoked besides God, availed them nothing when the command of your Lord arrived. In fact, they added only to their ruin.
+
+### Verse 11:102
+**Arabic**: وَكَذَٰلِكَ أَخْذُ رَبِّكَ إِذَآ أَخَذَ ٱلْقُرَىٰ وَهِىَ ظَٰلِمَةٌ ۚ إِنَّ أَخْذَهُۥٓ أَلِيمٌۭ شَدِيدٌ
+
+**English**: Such is the grip of your Lord when He seizes the towns in the midst of their sins. His grip is most painful, most severe.
+
+### Verse 11:103
+**Arabic**: إِنَّ فِى ذَٰلِكَ لَءَايَةًۭ لِّمَنْ خَافَ عَذَابَ ٱلْءَاخِرَةِ ۚ ذَٰلِكَ يَوْمٌۭ مَّجْمُوعٌۭ لَّهُ ٱلنَّاسُ وَذَٰلِكَ يَوْمٌۭ مَّشْهُودٌۭ
+
+**English**: In that is a sign for whoever fears the punishment of the Hereafter. That is a Day for which humanity will be gathered together-that is a Day to be witnessed.
+
+### Verse 11:104
+**Arabic**: وَمَا نُؤَخِّرُهُۥٓ إِلَّا لِأَجَلٍۢ مَّعْدُودٍۢ
+
+**English**: We only postpone it until a predetermined time.
+
+### Verse 11:105
+**Arabic**: يَوْمَ يَأْتِ لَا تَكَلَّمُ نَفْسٌ إِلَّا بِإِذْنِهِۦ ۚ فَمِنْهُمْ شَقِىٌّۭ وَسَعِيدٌۭ
+
+**English**: On the Day when it arrives, no soul will speak without His permission. Some will be miserable, and some will be happy.
+
+### Verse 11:106
+**Arabic**: فَأَمَّا ٱلَّذِينَ شَقُوا۟ فَفِى ٱلنَّارِ لَهُمْ فِيهَا زَفِيرٌۭ وَشَهِيقٌ
+
+**English**: As for those who are miserable, they will be in the Fire. They will have therein sighing and wailing.
+
+### Verse 11:107
+**Arabic**: خَٰلِدِينَ فِيهَا مَا دَامَتِ ٱلسَّمَٰوَٰتُ وَٱلْأَرْضُ إِلَّا مَا شَآءَ رَبُّكَ ۚ إِنَّ رَبَّكَ فَعَّالٌۭ لِّمَا يُرِيدُ
+
+**English**: Remaining therein for as long as the heavens and the earth endure, except as your Lord wills. Your Lord is Doer of whatever He wills.
+
+### Verse 11:108
+**Arabic**: ۞ وَأَمَّا ٱلَّذِينَ سُعِدُوا۟ فَفِى ٱلْجَنَّةِ خَٰلِدِينَ فِيهَا مَا دَامَتِ ٱلسَّمَٰوَٰتُ وَٱلْأَرْضُ إِلَّا مَا شَآءَ رَبُّكَ ۖ عَطَآءً غَيْرَ مَجْذُوذٍۢ
+
+**English**: And as for those who are happy, they will be in Paradise, remaining therein for as long as the heavens and the earth endure, except as your Lord wills-a reward without end.
+
+### Verse 11:109
+**Arabic**: فَلَا تَكُ فِى مِرْيَةٍۢ مِّمَّا يَعْبُدُ هَٰٓؤُلَآءِ ۚ مَا يَعْبُدُونَ إِلَّا كَمَا يَعْبُدُ ءَابَآؤُهُم مِّن قَبْلُ ۚ وَإِنَّا لَمُوَفُّوهُمْ نَصِيبَهُمْ غَيْرَ مَنقُوصٍۢ
+
+**English**: So be not in doubt regarding what these people worship. They worship only as their ancestors worshiped before. We will pay them their due in full, without any reduction.
+
+### Verse 11:110
+**Arabic**: وَلَقَدْ ءَاتَيْنَا مُوسَى ٱلْكِتَٰبَ فَٱخْتُلِفَ فِيهِ ۚ وَلَوْلَا كَلِمَةٌۭ سَبَقَتْ مِن رَّبِّكَ لَقُضِىَ بَيْنَهُمْ ۚ وَإِنَّهُمْ لَفِى شَكٍّۢ مِّنْهُ مُرِيبٍۢ
+
+**English**: We gave Moses the Scripture, but it was disputed. Were it not for a prior word from your Lord, it would have been settled between them. They are in serious doubt concerning it.
+
+### Verse 11:111
+**Arabic**: وَإِنَّ كُلًّۭا لَّمَّا لَيُوَفِّيَنَّهُمْ رَبُّكَ أَعْمَٰلَهُمْ ۚ إِنَّهُۥ بِمَا يَعْمَلُونَ خَبِيرٌۭ
+
+**English**: Your Lord will repay each one of them in full for their deeds. He is Aware of everything they do.
+
+### Verse 11:112
+**Arabic**: فَٱسْتَقِمْ كَمَآ أُمِرْتَ وَمَن تَابَ مَعَكَ وَلَا تَطْغَوْا۟ ۚ إِنَّهُۥ بِمَا تَعْمَلُونَ بَصِيرٌۭ
+
+**English**: So be upright, as you are commanded, along with those who repented with you, and do not transgress. He is Seeing of everything you do.
+
+### Verse 11:113
+**Arabic**: وَلَا تَرْكَنُوٓا۟ إِلَى ٱلَّذِينَ ظَلَمُوا۟ فَتَمَسَّكُمُ ٱلنَّارُ وَمَا لَكُم مِّن دُونِ ٱللَّهِ مِنْ أَوْلِيَآءَ ثُمَّ لَا تُنصَرُونَ
+
+**English**: And do not incline towards those who do wrong, or the Fire may touch you; and you will have no protectors besides God, and you will not be saved.
+
+### Verse 11:114
+**Arabic**: وَأَقِمِ ٱلصَّلَوٰةَ طَرَفَىِ ٱلنَّهَارِ وَزُلَفًۭا مِّنَ ٱلَّيْلِ ۚ إِنَّ ٱلْحَسَنَٰتِ يُذْهِبْنَ ٱلسَّيِّـَٔاتِ ۚ ذَٰلِكَ ذِكْرَىٰ لِلذَّٰكِرِينَ
+
+**English**: Perform the prayer at the borders of the day, and during the approaches of the night. The good deeds take away the bad deeds. This is a reminder for those who remember.
+
+### Verse 11:115
+**Arabic**: وَٱصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ
+
+**English**: And be patient. God will not waste the reward of the virtuous.
+
+### Verse 11:116
+**Arabic**: فَلَوْلَا كَانَ مِنَ ٱلْقُرُونِ مِن قَبْلِكُمْ أُو۟لُوا۟ بَقِيَّةٍۢ يَنْهَوْنَ عَنِ ٱلْفَسَادِ فِى ٱلْأَرْضِ إِلَّا قَلِيلًۭا مِّمَّنْ أَنجَيْنَا مِنْهُمْ ۗ وَٱتَّبَعَ ٱلَّذِينَ ظَلَمُوا۟ مَآ أُتْرِفُوا۟ فِيهِ وَكَانُوا۟ مُجْرِمِينَ
+
+**English**: If only there were, among the generations before you, people with wisdom, who spoke against corruption on earth-except for the few whom We saved. But the wrongdoers pursued the luxuries they were indulged in, and thus became guilty.
+
+### Verse 11:117
+**Arabic**: وَمَا كَانَ رَبُّكَ لِيُهْلِكَ ٱلْقُرَىٰ بِظُلْمٍۢ وَأَهْلُهَا مُصْلِحُونَ
+
+**English**: Your Lord would never destroy the towns wrongfully, while their inhabitants are righteous.
+
+### Verse 11:118
+**Arabic**: وَلَوْ شَآءَ رَبُّكَ لَجَعَلَ ٱلنَّاسَ أُمَّةًۭ وَٰحِدَةًۭ ۖ وَلَا يَزَالُونَ مُخْتَلِفِينَ
+
+**English**: Had your Lord willed, He could have made humanity one community, but they continue to differ.
+
+### Verse 11:119
+**Arabic**: إِلَّا مَن رَّحِمَ رَبُّكَ ۚ وَلِذَٰلِكَ خَلَقَهُمْ ۗ وَتَمَّتْ كَلِمَةُ رَبِّكَ لَأَمْلَأَنَّ جَهَنَّمَ مِنَ ٱلْجِنَّةِ وَٱلنَّاسِ أَجْمَعِينَ
+
+**English**: Except those on whom your Lord has mercy-for that reason He created them. The Word of your Lord is final: "I will fill Hell with jinn and humans, altogether."
+
+### Verse 11:120
+**Arabic**: وَكُلًّۭا نَّقُصُّ عَلَيْكَ مِنْ أَنۢبَآءِ ٱلرُّسُلِ مَا نُثَبِّتُ بِهِۦ فُؤَادَكَ ۚ وَجَآءَكَ فِى هَٰذِهِ ٱلْحَقُّ وَمَوْعِظَةٌۭ وَذِكْرَىٰ لِلْمُؤْمِنِينَ
+
+**English**: Everything We narrate to you of the history of the messengers is to strengthen your heart therewith. The truth has come to you in this, and a lesson, and a reminder for the believers.
+
+### Verse 11:121
+**Arabic**: وَقُل لِّلَّذِينَ لَا يُؤْمِنُونَ ٱعْمَلُوا۟ عَلَىٰ مَكَانَتِكُمْ إِنَّا عَٰمِلُونَ
+
+**English**: And say to those who do not believe, "Act according to your ability; and so will we."
+
+### Verse 11:122
+**Arabic**: وَٱنتَظِرُوٓا۟ إِنَّا مُنتَظِرُونَ
+
+**English**: "And wait; we too are waiting."
+
+### Verse 11:123
+**Arabic**: وَلِلَّهِ غَيْبُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ وَإِلَيْهِ يُرْجَعُ ٱلْأَمْرُ كُلُّهُۥ فَٱعْبُدْهُ وَتَوَكَّلْ عَلَيْهِ ۚ وَمَا رَبُّكَ بِغَٰفِلٍ عَمَّا تَعْمَلُونَ
+
+**English**: To God belongs the future of the heavens and the earth, and to Him all authority goes back. So worship Him, and rely on Him. Your Lord is never unaware of what you do.
+
+## Thematic cross-references
+
+- **Faith and Monotheism**: [Al-Fatiha](surah_001_al-fatiha.md), [Aal-Imran](surah_003_aal-imran.md), [Yunus](surah_010_yunus.md), [Yusuf](surah_012_yusuf.md), [Ar-Ra'd](surah_013_ar-ra-d.md), [Al-Kahf](surah_018_al-kahf.md), [Al-Anbiya](surah_021_al-anbiya.md), [Luqman](surah_031_luqman.md) and 14 more

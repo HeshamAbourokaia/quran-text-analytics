@@ -1,0 +1,194 @@
+# Surah 46: Al-Ahqaf (الأحقاف)
+
+- **Mushaf number**: 46
+- **Place of revelation**: Mecca (Makkiyah)
+- **Verse count**: 35
+- **Themes**: [Faith and Monotheism](../themes/faith-monotheism.md), [Patience and Endurance](../themes/patience.md)
+- **Named entities mentioned**: [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md), [Moses (Musa)](../entities/prophet_musa.md), [Rabb (the Lord)](../entities/divine_rabb.md)
+
+## Verses
+
+### Verse 46:0
+**Arabic**: بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+
+**English**: In the name of God, the Gracious, the Merciful.
+
+### Verse 46:1
+**Arabic**: حمٓ
+
+**English**: Ha, Meem.
+
+### Verse 46:2
+**Arabic**: تَنزِيلُ ٱلْكِتَٰبِ مِنَ ٱللَّهِ ٱلْعَزِيزِ ٱلْحَكِيمِ
+
+**English**: The sending down of the Scripture is from God, the Honorable, the Wise.
+
+### Verse 46:3
+**Arabic**: مَا خَلَقْنَا ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَ وَمَا بَيْنَهُمَآ إِلَّا بِٱلْحَقِّ وَأَجَلٍۢ مُّسَمًّۭى ۚ وَٱلَّذِينَ كَفَرُوا۟ عَمَّآ أُنذِرُوا۟ مُعْرِضُونَ
+
+**English**: We did not create the heavens and the earth and what lies between them except with reason, and for a finite period. But the blasphemers continue to ignore the warnings they receive.
+
+### Verse 46:4
+**Arabic**: قُلْ أَرَءَيْتُم مَّا تَدْعُونَ مِن دُونِ ٱللَّهِ أَرُونِى مَاذَا خَلَقُوا۟ مِنَ ٱلْأَرْضِ أَمْ لَهُمْ شِرْكٌۭ فِى ٱلسَّمَٰوَٰتِ ۖ ٱئْتُونِى بِكِتَٰبٍۢ مِّن قَبْلِ هَٰذَآ أَوْ أَثَٰرَةٍۢ مِّنْ عِلْمٍ إِن كُنتُمْ صَٰدِقِينَ
+
+**English**: Say, "Have you considered those you worship instead of God? Show me which portion of the earth they have created. Or do they own a share of the heavens? Bring me a scripture prior to this one, or some trace of knowledge, if you are truthful."
+
+### Verse 46:5
+**Arabic**: وَمَنْ أَضَلُّ مِمَّن يَدْعُوا۟ مِن دُونِ ٱللَّهِ مَن لَّا يَسْتَجِيبُ لَهُۥٓ إِلَىٰ يَوْمِ ٱلْقِيَٰمَةِ وَهُمْ عَن دُعَآئِهِمْ غَٰفِلُونَ
+
+**English**: Who is more wrong than him who invokes, besides God, those who will not answer him until the Day of Resurrection, and are heedless of their prayers?
+
+### Verse 46:6
+**Arabic**: وَإِذَا حُشِرَ ٱلنَّاسُ كَانُوا۟ لَهُمْ أَعْدَآءًۭ وَكَانُوا۟ بِعِبَادَتِهِمْ كَٰفِرِينَ
+
+**English**: And when humanity is gathered, they will be enemies to them, and will renounce their worship of them.
+
+### Verse 46:7
+**Arabic**: وَإِذَا تُتْلَىٰ عَلَيْهِمْ ءَايَٰتُنَا بَيِّنَٰتٍۢ قَالَ ٱلَّذِينَ كَفَرُوا۟ لِلْحَقِّ لَمَّا جَآءَهُمْ هَٰذَا سِحْرٌۭ مُّبِينٌ
+
+**English**: When Our revelations are recited to them, plain and clear, those who disbelieve say of the truth when it has come to them, "This is obviously magic."
+
+### Verse 46:8
+**Arabic**: أَمْ يَقُولُونَ ٱفْتَرَىٰهُ ۖ قُلْ إِنِ ٱفْتَرَيْتُهُۥ فَلَا تَمْلِكُونَ لِى مِنَ ٱللَّهِ شَيْـًٔا ۖ هُوَ أَعْلَمُ بِمَا تُفِيضُونَ فِيهِ ۖ كَفَىٰ بِهِۦ شَهِيدًۢا بَيْنِى وَبَيْنَكُمْ ۖ وَهُوَ ٱلْغَفُورُ ٱلرَّحِيمُ
+
+**English**: Or do they say, "He invented it himself"? Say, "If I invented it myself, there is nothing you can do to protect me from God. He knows well what you are engaged in. He is sufficient witness between me and you. He is the Forgiver, the Merciful."
+
+### Verse 46:9
+**Arabic**: قُلْ مَا كُنتُ بِدْعًۭا مِّنَ ٱلرُّسُلِ وَمَآ أَدْرِى مَا يُفْعَلُ بِى وَلَا بِكُمْ ۖ إِنْ أَتَّبِعُ إِلَّا مَا يُوحَىٰٓ إِلَىَّ وَمَآ أَنَا۠ إِلَّا نَذِيرٌۭ مُّبِينٌۭ
+
+**English**: Say, "I am not different from the other messengers; and I do not know what will be done with me, or with you. I only follow what is inspired in me, and I am only a clear warner."
+
+### Verse 46:10
+**Arabic**: قُلْ أَرَءَيْتُمْ إِن كَانَ مِنْ عِندِ ٱللَّهِ وَكَفَرْتُم بِهِۦ وَشَهِدَ شَاهِدٌۭ مِّنۢ بَنِىٓ إِسْرَٰٓءِيلَ عَلَىٰ مِثْلِهِۦ فَـَٔامَنَ وَٱسْتَكْبَرْتُمْ ۖ إِنَّ ٱللَّهَ لَا يَهْدِى ٱلْقَوْمَ ٱلظَّٰلِمِينَ
+
+**English**: Say, "Have you considered? What if it is from God and you disbelieve in it? A witness from the Children of Israel testified to its like, and has believed, while you turned arrogant. God does not guide the unjust people."
+
+### Verse 46:11
+**Arabic**: وَقَالَ ٱلَّذِينَ كَفَرُوا۟ لِلَّذِينَ ءَامَنُوا۟ لَوْ كَانَ خَيْرًۭا مَّا سَبَقُونَآ إِلَيْهِ ۚ وَإِذْ لَمْ يَهْتَدُوا۟ بِهِۦ فَسَيَقُولُونَ هَٰذَآ إِفْكٌۭ قَدِيمٌۭ
+
+**English**: Those who disbelieve say to those who believe, "If it were anything good, they would not have preceded us to it." And since they were not guided by it, they will say, "This is an ancient lie."
+
+### Verse 46:12
+**Arabic**: وَمِن قَبْلِهِۦ كِتَٰبُ مُوسَىٰٓ إِمَامًۭا وَرَحْمَةًۭ ۚ وَهَٰذَا كِتَٰبٌۭ مُّصَدِّقٌۭ لِّسَانًا عَرَبِيًّۭا لِّيُنذِرَ ٱلَّذِينَ ظَلَمُوا۟ وَبُشْرَىٰ لِلْمُحْسِنِينَ
+
+**English**: And before it was the Book of Moses, a model and a mercy. And this is a confirming Book, in the Arabic language, to warn those who do wrong-and good news for the doers of good.
+
+### Verse 46:13
+**Arabic**: إِنَّ ٱلَّذِينَ قَالُوا۟ رَبُّنَا ٱللَّهُ ثُمَّ ٱسْتَقَٰمُوا۟ فَلَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ
+
+**English**: Those who say, "Our Lord is God," then lead a righteous life-they have nothing to fear, nor shall they grieve.
+
+### Verse 46:14
+**Arabic**: أُو۟لَٰٓئِكَ أَصْحَٰبُ ٱلْجَنَّةِ خَٰلِدِينَ فِيهَا جَزَآءًۢ بِمَا كَانُوا۟ يَعْمَلُونَ
+
+**English**: These are the inhabitants of Paradise, where they will dwell forever-a reward for what they used to do.
+
+### Verse 46:15
+**Arabic**: وَوَصَّيْنَا ٱلْإِنسَٰنَ بِوَٰلِدَيْهِ إِحْسَٰنًا ۖ حَمَلَتْهُ أُمُّهُۥ كُرْهًۭا وَوَضَعَتْهُ كُرْهًۭا ۖ وَحَمْلُهُۥ وَفِصَٰلُهُۥ ثَلَٰثُونَ شَهْرًا ۚ حَتَّىٰٓ إِذَا بَلَغَ أَشُدَّهُۥ وَبَلَغَ أَرْبَعِينَ سَنَةًۭ قَالَ رَبِّ أَوْزِعْنِىٓ أَنْ أَشْكُرَ نِعْمَتَكَ ٱلَّتِىٓ أَنْعَمْتَ عَلَىَّ وَعَلَىٰ وَٰلِدَىَّ وَأَنْ أَعْمَلَ صَٰلِحًۭا تَرْضَىٰهُ وَأَصْلِحْ لِى فِى ذُرِّيَّتِىٓ ۖ إِنِّى تُبْتُ إِلَيْكَ وَإِنِّى مِنَ ٱلْمُسْلِمِينَ
+
+**English**: We have enjoined upon man kindness to his parents. His mother carried him with difficulty, and delivered him with difficulty. His bearing and weaning takes thirty months. Until, when he has attained his maturity, and has reached forty years, he says, "Lord, enable me to appreciate the blessings You have bestowed upon me and upon my parents, and to act with righteousness, pleasing You. And improve my children for me. I have sincerely repented to You, and I am of those who have surrendered."
+
+### Verse 46:16
+**Arabic**: أُو۟لَٰٓئِكَ ٱلَّذِينَ نَتَقَبَّلُ عَنْهُمْ أَحْسَنَ مَا عَمِلُوا۟ وَنَتَجَاوَزُ عَن سَيِّـَٔاتِهِمْ فِىٓ أَصْحَٰبِ ٱلْجَنَّةِ ۖ وَعْدَ ٱلصِّدْقِ ٱلَّذِى كَانُوا۟ يُوعَدُونَ
+
+**English**: Those are they from whom We accept the best of their deeds, and We overlook their misdeeds, among the dwellers of Paradise-the promise of truth which they are promised.
+
+### Verse 46:17
+**Arabic**: وَٱلَّذِى قَالَ لِوَٰلِدَيْهِ أُفٍّۢ لَّكُمَآ أَتَعِدَانِنِىٓ أَنْ أُخْرَجَ وَقَدْ خَلَتِ ٱلْقُرُونُ مِن قَبْلِى وَهُمَا يَسْتَغِيثَانِ ٱللَّهَ وَيْلَكَ ءَامِنْ إِنَّ وَعْدَ ٱللَّهِ حَقٌّۭ فَيَقُولُ مَا هَٰذَآ إِلَّآ أَسَٰطِيرُ ٱلْأَوَّلِينَ
+
+**English**: As for him who says to his parents, "Enough of you! Are you promising me that I will be raised up, when generations have passed away before me?" While they cry for God's help, "Woe to you! Believe! The promise of God is true!" But he says, "These are nothing but tales of the ancients."
+
+### Verse 46:18
+**Arabic**: أُو۟لَٰٓئِكَ ٱلَّذِينَ حَقَّ عَلَيْهِمُ ٱلْقَوْلُ فِىٓ أُمَمٍۢ قَدْ خَلَتْ مِن قَبْلِهِم مِّنَ ٱلْجِنِّ وَٱلْإِنسِ ۖ إِنَّهُمْ كَانُوا۟ خَٰسِرِينَ
+
+**English**: Those are they upon whom the sentence is justified, among the communities that have passed away before them, of jinn and humans. They are truly losers.
+
+### Verse 46:19
+**Arabic**: وَلِكُلٍّۢ دَرَجَٰتٌۭ مِّمَّا عَمِلُوا۟ ۖ وَلِيُوَفِّيَهُمْ أَعْمَٰلَهُمْ وَهُمْ لَا يُظْلَمُونَ
+
+**English**: There are degrees for everyone, according to what they have done, and He will repay them for their works in full, and they will not be wronged.
+
+### Verse 46:20
+**Arabic**: وَيَوْمَ يُعْرَضُ ٱلَّذِينَ كَفَرُوا۟ عَلَى ٱلنَّارِ أَذْهَبْتُمْ طَيِّبَٰتِكُمْ فِى حَيَاتِكُمُ ٱلدُّنْيَا وَٱسْتَمْتَعْتُم بِهَا فَٱلْيَوْمَ تُجْزَوْنَ عَذَابَ ٱلْهُونِ بِمَا كُنتُمْ تَسْتَكْبِرُونَ فِى ٱلْأَرْضِ بِغَيْرِ ٱلْحَقِّ وَبِمَا كُنتُمْ تَفْسُقُونَ
+
+**English**: On the Day when the faithless will be paraded before the Fire: "You have squandered your good in your worldly life, and you took pleasure in them. So today you are being repaid with the torment of shame, because of your unjust arrogance on earth, and because you used to sin."
+
+### Verse 46:21
+**Arabic**: ۞ وَٱذْكُرْ أَخَا عَادٍ إِذْ أَنذَرَ قَوْمَهُۥ بِٱلْأَحْقَافِ وَقَدْ خَلَتِ ٱلنُّذُرُ مِنۢ بَيْنِ يَدَيْهِ وَمِنْ خَلْفِهِۦٓ أَلَّا تَعْبُدُوٓا۟ إِلَّا ٱللَّهَ إِنِّىٓ أَخَافُ عَلَيْكُمْ عَذَابَ يَوْمٍ عَظِيمٍۢ
+
+**English**: And mention the brother of Aad, as he warned his people at the dunes. Warnings have passed away before him, and after him: "Worship none but God; I fear for you the punishment of a tremendous Day."
+
+### Verse 46:22
+**Arabic**: قَالُوٓا۟ أَجِئْتَنَا لِتَأْفِكَنَا عَنْ ءَالِهَتِنَا فَأْتِنَا بِمَا تَعِدُنَآ إِن كُنتَ مِنَ ٱلصَّٰدِقِينَ
+
+**English**: They said, "Did you come to us to divert us from our gods? Then bring us what you threaten us with, if you are being truthful."
+
+### Verse 46:23
+**Arabic**: قَالَ إِنَّمَا ٱلْعِلْمُ عِندَ ٱللَّهِ وَأُبَلِّغُكُم مَّآ أُرْسِلْتُ بِهِۦ وَلَٰكِنِّىٓ أَرَىٰكُمْ قَوْمًۭا تَجْهَلُونَ
+
+**English**: He said, "The knowledge is only with God, and I inform you of what I was sent with; but I see you are an ignorant people."
+
+### Verse 46:24
+**Arabic**: فَلَمَّا رَأَوْهُ عَارِضًۭا مُّسْتَقْبِلَ أَوْدِيَتِهِمْ قَالُوا۟ هَٰذَا عَارِضٌۭ مُّمْطِرُنَا ۚ بَلْ هُوَ مَا ٱسْتَعْجَلْتُم بِهِۦ ۖ رِيحٌۭ فِيهَا عَذَابٌ أَلِيمٌۭ
+
+**English**: Then, when they saw a cloud approaching their valley, they said, "This is a cloud that will bring us rain." "In fact, it is what you were impatient for: a wind in which is grievous suffering."
+
+### Verse 46:25
+**Arabic**: تُدَمِّرُ كُلَّ شَىْءٍۭ بِأَمْرِ رَبِّهَا فَأَصْبَحُوا۟ لَا يُرَىٰٓ إِلَّا مَسَٰكِنُهُمْ ۚ كَذَٰلِكَ نَجْزِى ٱلْقَوْمَ ٱلْمُجْرِمِينَ
+
+**English**: It will destroy everything by the command of its Lord. And when the morning came upon them, there was nothing to be seen except their dwellings. Thus We requite the guilty people.
+
+### Verse 46:26
+**Arabic**: وَلَقَدْ مَكَّنَّٰهُمْ فِيمَآ إِن مَّكَّنَّٰكُمْ فِيهِ وَجَعَلْنَا لَهُمْ سَمْعًۭا وَأَبْصَٰرًۭا وَأَفْـِٔدَةًۭ فَمَآ أَغْنَىٰ عَنْهُمْ سَمْعُهُمْ وَلَآ أَبْصَٰرُهُمْ وَلَآ أَفْـِٔدَتُهُم مِّن شَىْءٍ إِذْ كَانُوا۟ يَجْحَدُونَ بِـَٔايَٰتِ ٱللَّهِ وَحَاقَ بِهِم مَّا كَانُوا۟ بِهِۦ يَسْتَهْزِءُونَ
+
+**English**: We had empowered them in the same way as We empowered you; and We gave them the hearing, and the sight, and the minds. But neither their hearing, nor their sight, nor their minds availed them in any way. That is because they disregarded the revelations of God; and so they became surrounded by what they used to ridicule.
+
+### Verse 46:27
+**Arabic**: وَلَقَدْ أَهْلَكْنَا مَا حَوْلَكُم مِّنَ ٱلْقُرَىٰ وَصَرَّفْنَا ٱلْءَايَٰتِ لَعَلَّهُمْ يَرْجِعُونَ
+
+**English**: We have destroyed many townships around you, and diversified the signs, so that they may return.
+
+### Verse 46:28
+**Arabic**: فَلَوْلَا نَصَرَهُمُ ٱلَّذِينَ ٱتَّخَذُوا۟ مِن دُونِ ٱللَّهِ قُرْبَانًا ءَالِهَةًۢ ۖ بَلْ ضَلُّوا۟ عَنْهُمْ ۚ وَذَٰلِكَ إِفْكُهُمْ وَمَا كَانُوا۟ يَفْتَرُونَ
+
+**English**: Why then did the idols, whom they worshiped as means of nearness to God, not help them? In fact, they abandoned them. It was their lie, a fabrication of their own making.
+
+### Verse 46:29
+**Arabic**: وَإِذْ صَرَفْنَآ إِلَيْكَ نَفَرًۭا مِّنَ ٱلْجِنِّ يَسْتَمِعُونَ ٱلْقُرْءَانَ فَلَمَّا حَضَرُوهُ قَالُوٓا۟ أَنصِتُوا۟ ۖ فَلَمَّا قُضِىَ وَلَّوْا۟ إِلَىٰ قَوْمِهِم مُّنذِرِينَ
+
+**English**: Recall when We dispatched towards you a number of jinn, to listen to the Quran. When they came in its presence, they said, "Pay attention!" Then, when it was concluded, they rushed to their people, warning them.
+
+### Verse 46:30
+**Arabic**: قَالُوا۟ يَٰقَوْمَنَآ إِنَّا سَمِعْنَا كِتَٰبًا أُنزِلَ مِنۢ بَعْدِ مُوسَىٰ مُصَدِّقًۭا لِّمَا بَيْنَ يَدَيْهِ يَهْدِىٓ إِلَى ٱلْحَقِّ وَإِلَىٰ طَرِيقٍۢ مُّسْتَقِيمٍۢ
+
+**English**: They said, "O our people, we have heard a Scripture, sent down after Moses, confirming what came before it. It guides to the truth, and to a straight path.
+
+### Verse 46:31
+**Arabic**: يَٰقَوْمَنَآ أَجِيبُوا۟ دَاعِىَ ٱللَّهِ وَءَامِنُوا۟ بِهِۦ يَغْفِرْ لَكُم مِّن ذُنُوبِكُمْ وَيُجِرْكُم مِّنْ عَذَابٍ أَلِيمٍۢ
+
+**English**: O our people! Answer the caller to God, and believe in Him; and He will forgive you your sins, and will save you from a painful punishment."
+
+### Verse 46:32
+**Arabic**: وَمَن لَّا يُجِبْ دَاعِىَ ٱللَّهِ فَلَيْسَ بِمُعْجِزٍۢ فِى ٱلْأَرْضِ وَلَيْسَ لَهُۥ مِن دُونِهِۦٓ أَوْلِيَآءُ ۚ أُو۟لَٰٓئِكَ فِى ضَلَٰلٍۢ مُّبِينٍ
+
+**English**: He who does not answer the caller to God will not escape on earth, and has no protectors besides Him. Those are in obvious error.
+
+### Verse 46:33
+**Arabic**: أَوَلَمْ يَرَوْا۟ أَنَّ ٱللَّهَ ٱلَّذِى خَلَقَ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَ وَلَمْ يَعْىَ بِخَلْقِهِنَّ بِقَٰدِرٍ عَلَىٰٓ أَن يُحْۦِىَ ٱلْمَوْتَىٰ ۚ بَلَىٰٓ إِنَّهُۥ عَلَىٰ كُلِّ شَىْءٍۢ قَدِيرٌۭ
+
+**English**: Do they not realize that God, who created the heavens and the earth, and was never tired by creating them, is Able to revive the dead? Yes indeed; He is Capable of everything.
+
+### Verse 46:34
+**Arabic**: وَيَوْمَ يُعْرَضُ ٱلَّذِينَ كَفَرُوا۟ عَلَى ٱلنَّارِ أَلَيْسَ هَٰذَا بِٱلْحَقِّ ۖ قَالُوا۟ بَلَىٰ وَرَبِّنَا ۚ قَالَ فَذُوقُوا۟ ٱلْعَذَابَ بِمَا كُنتُمْ تَكْفُرُونَ
+
+**English**: On the Day when those who disbelieved are presented to the Fire: "Is this not real?" They will say, "Yes, indeed, by our Lord." He will say, "Then taste the suffering for having disbelieved."
+
+### Verse 46:35
+**Arabic**: فَٱصْبِرْ كَمَا صَبَرَ أُو۟لُوا۟ ٱلْعَزْمِ مِنَ ٱلرُّسُلِ وَلَا تَسْتَعْجِل لَّهُمْ ۚ كَأَنَّهُمْ يَوْمَ يَرَوْنَ مَا يُوعَدُونَ لَمْ يَلْبَثُوٓا۟ إِلَّا سَاعَةًۭ مِّن نَّهَارٍۭ ۚ بَلَٰغٌۭ ۚ فَهَلْ يُهْلَكُ إِلَّا ٱلْقَوْمُ ٱلْفَٰسِقُونَ
+
+**English**: So be patient, as the messengers with resolve were patient, and do not be hasty regarding them. On the Day when they witness what they are promised, it will seem as if they had lasted only for an hour of a day. A proclamation: Will any be destroyed except the sinful people?
+
+## Thematic cross-references
+
+- **Faith and Monotheism**: [Al-Fatiha](surah_001_al-fatiha.md), [Aal-Imran](surah_003_aal-imran.md), [Yunus](surah_010_yunus.md), [Hud](surah_011_hud.md), [Yusuf](surah_012_yusuf.md), [Ar-Ra'd](surah_013_ar-ra-d.md), [Al-Kahf](surah_018_al-kahf.md), [Al-Anbiya](surah_021_al-anbiya.md) and 14 more
+- **Patience and Endurance**: [Al-Kahf](surah_018_al-kahf.md), [Al-Ankabut](surah_029_al-ankabut.md), [Saba](surah_034_saba.md), [Sad](surah_038_sad.md), [Ghafir](surah_040_ghafir.md), [Al-Qalam](surah_068_al-qalam.md), [Al-Balad](surah_090_al-balad.md), [Ash-Sharh](surah_094_ash-sharh.md) and 2 more

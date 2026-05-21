@@ -1,0 +1,84 @@
+# Surah 60: Al-Mumtahinah (الممتحنة)
+
+- **Mushaf number**: 60
+- **Place of revelation**: Medina (Madaniyah)
+- **Verse count**: 13
+- **Themes**: [Legislation](../themes/legislation.md), [Community and Society](../themes/community.md)
+- **Named entities mentioned**: [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md), [Abraham (Ibrahim)](../entities/prophet_ibrahim.md), [Rabb (the Lord)](../entities/divine_rabb.md)
+
+## Verses
+
+### Verse 60:0
+**Arabic**: بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+
+**English**: In the name of God, the Gracious, the Merciful.
+
+### Verse 60:1
+**Arabic**: يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ لَا تَتَّخِذُوا۟ عَدُوِّى وَعَدُوَّكُمْ أَوْلِيَآءَ تُلْقُونَ إِلَيْهِم بِٱلْمَوَدَّةِ وَقَدْ كَفَرُوا۟ بِمَا جَآءَكُم مِّنَ ٱلْحَقِّ يُخْرِجُونَ ٱلرَّسُولَ وَإِيَّاكُمْ ۙ أَن تُؤْمِنُوا۟ بِٱللَّهِ رَبِّكُمْ إِن كُنتُمْ خَرَجْتُمْ جِهَٰدًۭا فِى سَبِيلِى وَٱبْتِغَآءَ مَرْضَاتِى ۚ تُسِرُّونَ إِلَيْهِم بِٱلْمَوَدَّةِ وَأَنَا۠ أَعْلَمُ بِمَآ أَخْفَيْتُمْ وَمَآ أَعْلَنتُمْ ۚ وَمَن يَفْعَلْهُ مِنكُمْ فَقَدْ ضَلَّ سَوَآءَ ٱلسَّبِيلِ
+
+**English**: O you who believe! Do not take My enemies and your enemies for supporters, offering them affection, when they have disbelieved in what has come to you of the Truth. They have expelled the Messenger, and you, because you believed in God, your Lord. If you have mobilized to strive for My cause, seeking My approval, how can you secretly love them? I know what you conceal and what you reveal. Whoever among you does that has strayed from the right way.
+
+### Verse 60:2
+**Arabic**: إِن يَثْقَفُوكُمْ يَكُونُوا۟ لَكُمْ أَعْدَآءًۭ وَيَبْسُطُوٓا۟ إِلَيْكُمْ أَيْدِيَهُمْ وَأَلْسِنَتَهُم بِٱلسُّوٓءِ وَوَدُّوا۟ لَوْ تَكْفُرُونَ
+
+**English**: Whenever they encounter you, they treat you as enemies, and they stretch their hands and tongues against you with malice. They wish that you would disbelieve.
+
+### Verse 60:3
+**Arabic**: لَن تَنفَعَكُمْ أَرْحَامُكُمْ وَلَآ أَوْلَٰدُكُمْ ۚ يَوْمَ ٱلْقِيَٰمَةِ يَفْصِلُ بَيْنَكُمْ ۚ وَٱللَّهُ بِمَا تَعْمَلُونَ بَصِيرٌۭ
+
+**English**: Neither your relatives nor your children will benefit you on the Day of Resurrection. He will separate between you. God is Observant of what you do.
+
+### Verse 60:4
+**Arabic**: قَدْ كَانَتْ لَكُمْ أُسْوَةٌ حَسَنَةٌۭ فِىٓ إِبْرَٰهِيمَ وَٱلَّذِينَ مَعَهُۥٓ إِذْ قَالُوا۟ لِقَوْمِهِمْ إِنَّا بُرَءَٰٓؤُا۟ مِنكُمْ وَمِمَّا تَعْبُدُونَ مِن دُونِ ٱللَّهِ كَفَرْنَا بِكُمْ وَبَدَا بَيْنَنَا وَبَيْنَكُمُ ٱلْعَدَٰوَةُ وَٱلْبَغْضَآءُ أَبَدًا حَتَّىٰ تُؤْمِنُوا۟ بِٱللَّهِ وَحْدَهُۥٓ إِلَّا قَوْلَ إِبْرَٰهِيمَ لِأَبِيهِ لَأَسْتَغْفِرَنَّ لَكَ وَمَآ أَمْلِكُ لَكَ مِنَ ٱللَّهِ مِن شَىْءٍۢ ۖ رَّبَّنَا عَلَيْكَ تَوَكَّلْنَا وَإِلَيْكَ أَنَبْنَا وَإِلَيْكَ ٱلْمَصِيرُ
+
+**English**: You have had an excellent example in Abraham and those with him; when they said to their people, "We are quit of you, and what you worship apart from God. We denounce you. Enmity and hatred has surfaced between us and you, forever, until you believe in God alone." Except for the words of Abraham to his father, "I will ask forgiveness for you, though I have no power from God to do anything for you." "Our Lord, in You we trust, and to You we repent, and to You is the ultimate resort.
+
+### Verse 60:5
+**Arabic**: رَبَّنَا لَا تَجْعَلْنَا فِتْنَةًۭ لِّلَّذِينَ كَفَرُوا۟ وَٱغْفِرْ لَنَا رَبَّنَآ ۖ إِنَّكَ أَنتَ ٱلْعَزِيزُ ٱلْحَكِيمُ
+
+**English**: Our Lord, do not make us a target for those who disbelieve, and forgive us, our Lord. You are indeed the Mighty and Wise."
+
+### Verse 60:6
+**Arabic**: لَقَدْ كَانَ لَكُمْ فِيهِمْ أُسْوَةٌ حَسَنَةٌۭ لِّمَن كَانَ يَرْجُوا۟ ٱللَّهَ وَٱلْيَوْمَ ٱلْءَاخِرَ ۚ وَمَن يَتَوَلَّ فَإِنَّ ٱللَّهَ هُوَ ٱلْغَنِىُّ ٱلْحَمِيدُ
+
+**English**: There is an excellent example in them for you-for anyone who seeks God and the Last Day. But whoever turns away-God is the Self-Sufficient, the Most Praised.
+
+### Verse 60:7
+**Arabic**: ۞ عَسَى ٱللَّهُ أَن يَجْعَلَ بَيْنَكُمْ وَبَيْنَ ٱلَّذِينَ عَادَيْتُم مِّنْهُم مَّوَدَّةًۭ ۚ وَٱللَّهُ قَدِيرٌۭ ۚ وَٱللَّهُ غَفُورٌۭ رَّحِيمٌۭ
+
+**English**: Perhaps God will plant affection between you and those of them you consider enemies. God is Capable. God is Forgiving and Merciful.
+
+### Verse 60:8
+**Arabic**: لَّا يَنْهَىٰكُمُ ٱللَّهُ عَنِ ٱلَّذِينَ لَمْ يُقَٰتِلُوكُمْ فِى ٱلدِّينِ وَلَمْ يُخْرِجُوكُم مِّن دِيَٰرِكُمْ أَن تَبَرُّوهُمْ وَتُقْسِطُوٓا۟ إِلَيْهِمْ ۚ إِنَّ ٱللَّهَ يُحِبُّ ٱلْمُقْسِطِينَ
+
+**English**: As for those who have not fought against you for your religion, nor expelled you from your homes, God does not prohibit you from dealing with them kindly and equitably. God loves the equitable.
+
+### Verse 60:9
+**Arabic**: إِنَّمَا يَنْهَىٰكُمُ ٱللَّهُ عَنِ ٱلَّذِينَ قَٰتَلُوكُمْ فِى ٱلدِّينِ وَأَخْرَجُوكُم مِّن دِيَٰرِكُمْ وَظَٰهَرُوا۟ عَلَىٰٓ إِخْرَاجِكُمْ أَن تَوَلَّوْهُمْ ۚ وَمَن يَتَوَلَّهُمْ فَأُو۟لَٰٓئِكَ هُمُ ٱلظَّٰلِمُونَ
+
+**English**: But God prohibits you from befriending those who fought against you over your religion, and expelled you from your homes, and aided in your expulsion. Whoever takes them for friends-these are the wrongdoers.
+
+### Verse 60:10
+**Arabic**: يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوٓا۟ إِذَا جَآءَكُمُ ٱلْمُؤْمِنَٰتُ مُهَٰجِرَٰتٍۢ فَٱمْتَحِنُوهُنَّ ۖ ٱللَّهُ أَعْلَمُ بِإِيمَٰنِهِنَّ ۖ فَإِنْ عَلِمْتُمُوهُنَّ مُؤْمِنَٰتٍۢ فَلَا تَرْجِعُوهُنَّ إِلَى ٱلْكُفَّارِ ۖ لَا هُنَّ حِلٌّۭ لَّهُمْ وَلَا هُمْ يَحِلُّونَ لَهُنَّ ۖ وَءَاتُوهُم مَّآ أَنفَقُوا۟ ۚ وَلَا جُنَاحَ عَلَيْكُمْ أَن تَنكِحُوهُنَّ إِذَآ ءَاتَيْتُمُوهُنَّ أُجُورَهُنَّ ۚ وَلَا تُمْسِكُوا۟ بِعِصَمِ ٱلْكَوَافِرِ وَسْـَٔلُوا۟ مَآ أَنفَقْتُمْ وَلْيَسْـَٔلُوا۟ مَآ أَنفَقُوا۟ ۚ ذَٰلِكُمْ حُكْمُ ٱللَّهِ ۖ يَحْكُمُ بَيْنَكُمْ ۚ وَٱللَّهُ عَلِيمٌ حَكِيمٌۭ
+
+**English**: O you who believe! When believing women come to you emigrating, test them. God is Aware of their faith. And if you find them to be faithful, do not send them back to the unbelievers. They are not lawful for them, nor are they lawful for them. But give them what they have spent. You are not at fault if you marry them, provided you give them their compensation. And do not hold on to ties with unbelieving women, but demand what you have spent, and let them demand what they have spent. This is the rule of God; He rules among you. God is Knowing and Wise.
+
+### Verse 60:11
+**Arabic**: وَإِن فَاتَكُمْ شَىْءٌۭ مِّنْ أَزْوَٰجِكُمْ إِلَى ٱلْكُفَّارِ فَعَاقَبْتُمْ فَـَٔاتُوا۟ ٱلَّذِينَ ذَهَبَتْ أَزْوَٰجُهُم مِّثْلَ مَآ أَنفَقُوا۟ ۚ وَٱتَّقُوا۟ ٱللَّهَ ٱلَّذِىٓ أَنتُم بِهِۦ مُؤْمِنُونَ
+
+**English**: If any of your wives desert you to the unbelievers, and you decide to penalize them, give those whose wives have gone away the equivalent of what they had spent. And fear God, in whom you are believers.
+
+### Verse 60:12
+**Arabic**: يَٰٓأَيُّهَا ٱلنَّبِىُّ إِذَا جَآءَكَ ٱلْمُؤْمِنَٰتُ يُبَايِعْنَكَ عَلَىٰٓ أَن لَّا يُشْرِكْنَ بِٱللَّهِ شَيْـًۭٔا وَلَا يَسْرِقْنَ وَلَا يَزْنِينَ وَلَا يَقْتُلْنَ أَوْلَٰدَهُنَّ وَلَا يَأْتِينَ بِبُهْتَٰنٍۢ يَفْتَرِينَهُۥ بَيْنَ أَيْدِيهِنَّ وَأَرْجُلِهِنَّ وَلَا يَعْصِينَكَ فِى مَعْرُوفٍۢ ۙ فَبَايِعْهُنَّ وَٱسْتَغْفِرْ لَهُنَّ ٱللَّهَ ۖ إِنَّ ٱللَّهَ غَفُورٌۭ رَّحِيمٌۭ
+
+**English**: O prophet! If believing women come to you, pledging allegiance to you, on condition that they will not associate anything with God, nor steal, nor commit adultery, nor kill their children, nor commit perjury as to parenthood, nor disobey you in anything righteous, accept their allegiance and ask God's forgiveness for them. God is Forgiving and Merciful.
+
+### Verse 60:13
+**Arabic**: يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ لَا تَتَوَلَّوْا۟ قَوْمًا غَضِبَ ٱللَّهُ عَلَيْهِمْ قَدْ يَئِسُوا۟ مِنَ ٱلْءَاخِرَةِ كَمَا يَئِسَ ٱلْكُفَّارُ مِنْ أَصْحَٰبِ ٱلْقُبُورِ
+
+**English**: O you who believe! Do not befriend people with whom God has become angry, and have despaired of the Hereafter, as the faithless have despaired of the occupants of the graves.
+
+## Thematic cross-references
+
+- **Legislation**: [Al-Baqara](surah_002_al-baqara.md), [An-Nisaa'](surah_004_an-nisaa.md), [Al-Ma'ida](surah_005_al-ma-ida.md), [Al-Anfal](surah_008_al-anfal.md), [An-Nur](surah_024_an-nur.md), [Al-Ahzab](surah_033_al-ahzab.md), [Al-Hujurat](surah_049_al-hujurat.md), [Al-Mujadilah](surah_058_al-mujadilah.md) and 2 more
+- **Community and Society**: [Al-Tawba](surah_009_al-tawba.md), [Al-Ahzab](surah_033_al-ahzab.md), [Al-Fath](surah_048_al-fath.md), [Al-Hujurat](surah_049_al-hujurat.md), [Al-Kafirun](surah_109_al-kafirun.md)

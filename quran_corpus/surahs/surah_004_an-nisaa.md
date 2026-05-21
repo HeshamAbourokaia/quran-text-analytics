@@ -1,0 +1,898 @@
+# Surah 4: An-Nisaa' (النساء)
+
+- **Mushaf number**: 4
+- **Place of revelation**: Medina (Madaniyah)
+- **Verse count**: 176
+- **Themes**: [Legislation](../themes/legislation.md)
+- **Named entities mentioned**: [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md), [Job (Ayyub)](../entities/prophet_ayyub.md), [David (Dawud)](../entities/prophet_dawud.md), [Iblis (Satan)](../entities/figure_iblis.md), [Abraham (Ibrahim)](../entities/prophet_ibrahim.md), [Jesus (Isa)](../entities/prophet_isa.md), [Isaac (Ishaq)](../entities/prophet_ishaq.md), [Ishmael (Ismail)](../entities/prophet_ismail.md), [Mary (Maryam, mother of Jesus)](../entities/figure_maryam.md), [Moses (Musa)](../entities/prophet_musa.md), [Noah (Nuh)](../entities/prophet_nuh.md), [Rabb (the Lord)](../entities/divine_rabb.md), [Mount Sinai (Tur)](../entities/place_sinai.md), [Jacob (Yaqub)](../entities/prophet_yaqub.md), [Jonah (Yunus)](../entities/prophet_yunus.md)
+
+## Verses
+
+### Verse 4:0
+**Arabic**: بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+
+**English**: In the name of God, the Gracious, the Merciful.
+
+### Verse 4:1
+**Arabic**: يَٰٓأَيُّهَا ٱلنَّاسُ ٱتَّقُوا۟ رَبَّكُمُ ٱلَّذِى خَلَقَكُم مِّن نَّفْسٍۢ وَٰحِدَةٍۢ وَخَلَقَ مِنْهَا زَوْجَهَا وَبَثَّ مِنْهُمَا رِجَالًۭا كَثِيرًۭا وَنِسَآءًۭ ۚ وَٱتَّقُوا۟ ٱللَّهَ ٱلَّذِى تَسَآءَلُونَ بِهِۦ وَٱلْأَرْحَامَ ۚ إِنَّ ٱللَّهَ كَانَ عَلَيْكُمْ رَقِيبًۭا
+
+**English**: O people! Fear your Lord, who created you from a single soul, and created from it its mate, and propagated from them many men and women. And revere God whom you ask about, and the parents. Surely, God is Watchful over you.
+
+### Verse 4:2
+**Arabic**: وَءَاتُوا۟ ٱلْيَتَٰمَىٰٓ أَمْوَٰلَهُمْ ۖ وَلَا تَتَبَدَّلُوا۟ ٱلْخَبِيثَ بِٱلطَّيِّبِ ۖ وَلَا تَأْكُلُوٓا۟ أَمْوَٰلَهُمْ إِلَىٰٓ أَمْوَٰلِكُمْ ۚ إِنَّهُۥ كَانَ حُوبًۭا كَبِيرًۭا
+
+**English**: And give orphans their properties, and do not substitute the bad for the good. And do not consume their properties by combining them with yours, for that would be a serious sin.
+
+### Verse 4:3
+**Arabic**: وَإِنْ خِفْتُمْ أَلَّا تُقْسِطُوا۟ فِى ٱلْيَتَٰمَىٰ فَٱنكِحُوا۟ مَا طَابَ لَكُم مِّنَ ٱلنِّسَآءِ مَثْنَىٰ وَثُلَٰثَ وَرُبَٰعَ ۖ فَإِنْ خِفْتُمْ أَلَّا تَعْدِلُوا۟ فَوَٰحِدَةً أَوْ مَا مَلَكَتْ أَيْمَٰنُكُمْ ۚ ذَٰلِكَ أَدْنَىٰٓ أَلَّا تَعُولُوا۟
+
+**English**: If you fear you cannot act fairly towards the orphans-then marry the women you like-two, or three, or four. But if you fear you will not be fair, then one, or what you already have. That makes it more likely that you avoid bias.
+
+### Verse 4:4
+**Arabic**: وَءَاتُوا۟ ٱلنِّسَآءَ صَدُقَٰتِهِنَّ نِحْلَةًۭ ۚ فَإِن طِبْنَ لَكُمْ عَن شَىْءٍۢ مِّنْهُ نَفْسًۭا فَكُلُوهُ هَنِيٓـًۭٔا مَّرِيٓـًۭٔا
+
+**English**: Give women their dowries graciously. But if they willingly forego some of it, then consume it with enjoyment and pleasure.
+
+### Verse 4:5
+**Arabic**: وَلَا تُؤْتُوا۟ ٱلسُّفَهَآءَ أَمْوَٰلَكُمُ ٱلَّتِى جَعَلَ ٱللَّهُ لَكُمْ قِيَٰمًۭا وَٱرْزُقُوهُمْ فِيهَا وَٱكْسُوهُمْ وَقُولُوا۟ لَهُمْ قَوْلًۭا مَّعْرُوفًۭا
+
+**English**: Do not give the immature your money which God has assigned to you for support. But provide for them from it, and clothe them, and speak to them with kind words.
+
+### Verse 4:6
+**Arabic**: وَٱبْتَلُوا۟ ٱلْيَتَٰمَىٰ حَتَّىٰٓ إِذَا بَلَغُوا۟ ٱلنِّكَاحَ فَإِنْ ءَانَسْتُم مِّنْهُمْ رُشْدًۭا فَٱدْفَعُوٓا۟ إِلَيْهِمْ أَمْوَٰلَهُمْ ۖ وَلَا تَأْكُلُوهَآ إِسْرَافًۭا وَبِدَارًا أَن يَكْبَرُوا۟ ۚ وَمَن كَانَ غَنِيًّۭا فَلْيَسْتَعْفِفْ ۖ وَمَن كَانَ فَقِيرًۭا فَلْيَأْكُلْ بِٱلْمَعْرُوفِ ۚ فَإِذَا دَفَعْتُمْ إِلَيْهِمْ أَمْوَٰلَهُمْ فَأَشْهِدُوا۟ عَلَيْهِمْ ۚ وَكَفَىٰ بِٱللَّهِ حَسِيبًۭا
+
+**English**: Test the orphans until they reach the age of marriage. If you find them to be mature enough, hand over their properties to them. And do not consume it extravagantly or hastily before they grow up. The rich shall not charge any wage, but the poor may charge fairly. When you hand over their properties to them, have it witnessed for them. God suffices as a Reckoner.
+
+### Verse 4:7
+**Arabic**: لِّلرِّجَالِ نَصِيبٌۭ مِّمَّا تَرَكَ ٱلْوَٰلِدَانِ وَٱلْأَقْرَبُونَ وَلِلنِّسَآءِ نَصِيبٌۭ مِّمَّا تَرَكَ ٱلْوَٰلِدَانِ وَٱلْأَقْرَبُونَ مِمَّا قَلَّ مِنْهُ أَوْ كَثُرَ ۚ نَصِيبًۭا مَّفْرُوضًۭا
+
+**English**: Men receive a share of what their parents and relatives leave, and women receive a share of what their parents and relatives leave; be it little or much-a legal share.
+
+### Verse 4:8
+**Arabic**: وَإِذَا حَضَرَ ٱلْقِسْمَةَ أُو۟لُوا۟ ٱلْقُرْبَىٰ وَٱلْيَتَٰمَىٰ وَٱلْمَسَٰكِينُ فَٱرْزُقُوهُم مِّنْهُ وَقُولُوا۟ لَهُمْ قَوْلًۭا مَّعْرُوفًۭا
+
+**English**: If the distribution is attended by the relatives, and the orphans, and the needy, give them something out of it, and speak to them kindly.
+
+### Verse 4:9
+**Arabic**: وَلْيَخْشَ ٱلَّذِينَ لَوْ تَرَكُوا۟ مِنْ خَلْفِهِمْ ذُرِّيَّةًۭ ضِعَٰفًا خَافُوا۟ عَلَيْهِمْ فَلْيَتَّقُوا۟ ٱللَّهَ وَلْيَقُولُوا۟ قَوْلًۭا سَدِيدًا
+
+**English**: Those who are concerned about the fate of their weak children, in case they leave them behind, should fear God, and speak appropriate words.
+
+### Verse 4:10
+**Arabic**: إِنَّ ٱلَّذِينَ يَأْكُلُونَ أَمْوَٰلَ ٱلْيَتَٰمَىٰ ظُلْمًا إِنَّمَا يَأْكُلُونَ فِى بُطُونِهِمْ نَارًۭا ۖ وَسَيَصْلَوْنَ سَعِيرًۭا
+
+**English**: Those who consume the wealth of orphans illicitly consume only fire into their bellies; and they will roast in a Blaze.
+
+### Verse 4:11
+**Arabic**: يُوصِيكُمُ ٱللَّهُ فِىٓ أَوْلَٰدِكُمْ ۖ لِلذَّكَرِ مِثْلُ حَظِّ ٱلْأُنثَيَيْنِ ۚ فَإِن كُنَّ نِسَآءًۭ فَوْقَ ٱثْنَتَيْنِ فَلَهُنَّ ثُلُثَا مَا تَرَكَ ۖ وَإِن كَانَتْ وَٰحِدَةًۭ فَلَهَا ٱلنِّصْفُ ۚ وَلِأَبَوَيْهِ لِكُلِّ وَٰحِدٍۢ مِّنْهُمَا ٱلسُّدُسُ مِمَّا تَرَكَ إِن كَانَ لَهُۥ وَلَدٌۭ ۚ فَإِن لَّمْ يَكُن لَّهُۥ وَلَدٌۭ وَوَرِثَهُۥٓ أَبَوَاهُ فَلِأُمِّهِ ٱلثُّلُثُ ۚ فَإِن كَانَ لَهُۥٓ إِخْوَةٌۭ فَلِأُمِّهِ ٱلسُّدُسُ ۚ مِنۢ بَعْدِ وَصِيَّةٍۢ يُوصِى بِهَآ أَوْ دَيْنٍ ۗ ءَابَآؤُكُمْ وَأَبْنَآؤُكُمْ لَا تَدْرُونَ أَيُّهُمْ أَقْرَبُ لَكُمْ نَفْعًۭا ۚ فَرِيضَةًۭ مِّنَ ٱللَّهِ ۗ إِنَّ ٱللَّهَ كَانَ عَلِيمًا حَكِيمًۭا
+
+**English**: God instructs you regarding your children: The male receives the equivalent of the share of two females. If they are daughters, more than two, they get two-thirds of what he leaves. If there is only one, she gets one-half. As for the parents, each gets one-sixth of what he leaves, if he had children. If he had no children, and his parents inherit from him, his mother gets one-third. If he has siblings, his mother gets one-sixth. After fulfilling any bequest and paying off debts. Your parents and your children-you do not know which are closer to you in welfare. This is God's Law. God is Knowing and Judicious.
+
+### Verse 4:12
+**Arabic**: ۞ وَلَكُمْ نِصْفُ مَا تَرَكَ أَزْوَٰجُكُمْ إِن لَّمْ يَكُن لَّهُنَّ وَلَدٌۭ ۚ فَإِن كَانَ لَهُنَّ وَلَدٌۭ فَلَكُمُ ٱلرُّبُعُ مِمَّا تَرَكْنَ ۚ مِنۢ بَعْدِ وَصِيَّةٍۢ يُوصِينَ بِهَآ أَوْ دَيْنٍۢ ۚ وَلَهُنَّ ٱلرُّبُعُ مِمَّا تَرَكْتُمْ إِن لَّمْ يَكُن لَّكُمْ وَلَدٌۭ ۚ فَإِن كَانَ لَكُمْ وَلَدٌۭ فَلَهُنَّ ٱلثُّمُنُ مِمَّا تَرَكْتُم ۚ مِّنۢ بَعْدِ وَصِيَّةٍۢ تُوصُونَ بِهَآ أَوْ دَيْنٍۢ ۗ وَإِن كَانَ رَجُلٌۭ يُورَثُ كَلَٰلَةً أَوِ ٱمْرَأَةٌۭ وَلَهُۥٓ أَخٌ أَوْ أُخْتٌۭ فَلِكُلِّ وَٰحِدٍۢ مِّنْهُمَا ٱلسُّدُسُ ۚ فَإِن كَانُوٓا۟ أَكْثَرَ مِن ذَٰلِكَ فَهُمْ شُرَكَآءُ فِى ٱلثُّلُثِ ۚ مِنۢ بَعْدِ وَصِيَّةٍۢ يُوصَىٰ بِهَآ أَوْ دَيْنٍ غَيْرَ مُضَآرٍّۢ ۚ وَصِيَّةًۭ مِّنَ ٱللَّهِ ۗ وَٱللَّهُ عَلِيمٌ حَلِيمٌۭ
+
+**English**: You get one-half of what your wives leave behind, if they had no children. If they had children, you get one-fourth of what they leave. After fulfilling any bequest and paying off debts. They get one-fourth of what you leave behind, if you have no children. If you have children, they get one-eighth of what you leave. After fulfilling any bequest and paying off debts. If a man or woman leaves neither parents nor children, but has a brother or sister, each of them gets one-sixth. If there are more siblings, they share one-third. After fulfilling any bequest and paying off debts, without any prejudice. This is a will from God. God is Knowing and Clement.
+
+### Verse 4:13
+**Arabic**: تِلْكَ حُدُودُ ٱللَّهِ ۚ وَمَن يُطِعِ ٱللَّهَ وَرَسُولَهُۥ يُدْخِلْهُ جَنَّٰتٍۢ تَجْرِى مِن تَحْتِهَا ٱلْأَنْهَٰرُ خَٰلِدِينَ فِيهَا ۚ وَذَٰلِكَ ٱلْفَوْزُ ٱلْعَظِيمُ
+
+**English**: These are the bounds set by God. Whoever obeys God and His Messenger, He will admit him into Gardens beneath which rivers flow, to abide therein forever. That is the great attainment.
+
+### Verse 4:14
+**Arabic**: وَمَن يَعْصِ ٱللَّهَ وَرَسُولَهُۥ وَيَتَعَدَّ حُدُودَهُۥ يُدْخِلْهُ نَارًا خَٰلِدًۭا فِيهَا وَلَهُۥ عَذَابٌۭ مُّهِينٌۭ
+
+**English**: But whoever disobeys God and His Messenger, and oversteps His bounds, He will admit him into a Fire, wherein he abides forever, and he will have a shameful punishment.
+
+### Verse 4:15
+**Arabic**: وَٱلَّٰتِى يَأْتِينَ ٱلْفَٰحِشَةَ مِن نِّسَآئِكُمْ فَٱسْتَشْهِدُوا۟ عَلَيْهِنَّ أَرْبَعَةًۭ مِّنكُمْ ۖ فَإِن شَهِدُوا۟ فَأَمْسِكُوهُنَّ فِى ٱلْبُيُوتِ حَتَّىٰ يَتَوَفَّىٰهُنَّ ٱلْمَوْتُ أَوْ يَجْعَلَ ٱللَّهُ لَهُنَّ سَبِيلًۭا
+
+**English**: Those of your women who commit lewdness, you must have four witnesses against them, from among you. If they testify, confine them to the homes until death claims them, or God makes a way for them.
+
+### Verse 4:16
+**Arabic**: وَٱلَّذَانِ يَأْتِيَٰنِهَا مِنكُمْ فَـَٔاذُوهُمَا ۖ فَإِن تَابَا وَأَصْلَحَا فَأَعْرِضُوا۟ عَنْهُمَآ ۗ إِنَّ ٱللَّهَ كَانَ تَوَّابًۭا رَّحِيمًا
+
+**English**: If two men among you commit it, punish them both. But if they repent and reform, leave them alone. God is Redeemer, Full of Mercy.
+
+### Verse 4:17
+**Arabic**: إِنَّمَا ٱلتَّوْبَةُ عَلَى ٱللَّهِ لِلَّذِينَ يَعْمَلُونَ ٱلسُّوٓءَ بِجَهَٰلَةٍۢ ثُمَّ يَتُوبُونَ مِن قَرِيبٍۢ فَأُو۟لَٰٓئِكَ يَتُوبُ ٱللَّهُ عَلَيْهِمْ ۗ وَكَانَ ٱللَّهُ عَلِيمًا حَكِيمًۭا
+
+**English**: Repentance is available from God for those who commit evil out of ignorance, and then repent soon after. These-God will relent towards them. God is Knowing and Wise.
+
+### Verse 4:18
+**Arabic**: وَلَيْسَتِ ٱلتَّوْبَةُ لِلَّذِينَ يَعْمَلُونَ ٱلسَّيِّـَٔاتِ حَتَّىٰٓ إِذَا حَضَرَ أَحَدَهُمُ ٱلْمَوْتُ قَالَ إِنِّى تُبْتُ ٱلْـَٰٔنَ وَلَا ٱلَّذِينَ يَمُوتُونَ وَهُمْ كُفَّارٌ ۚ أُو۟لَٰٓئِكَ أَعْتَدْنَا لَهُمْ عَذَابًا أَلِيمًۭا
+
+**English**: But repentance is not available for those who commit evils, until when death approaches one of them, he says, "Now I repent," nor for those who die as disbelievers. These-We have prepared for them a painful torment.
+
+### Verse 4:19
+**Arabic**: يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ لَا يَحِلُّ لَكُمْ أَن تَرِثُوا۟ ٱلنِّسَآءَ كَرْهًۭا ۖ وَلَا تَعْضُلُوهُنَّ لِتَذْهَبُوا۟ بِبَعْضِ مَآ ءَاتَيْتُمُوهُنَّ إِلَّآ أَن يَأْتِينَ بِفَٰحِشَةٍۢ مُّبَيِّنَةٍۢ ۚ وَعَاشِرُوهُنَّ بِٱلْمَعْرُوفِ ۚ فَإِن كَرِهْتُمُوهُنَّ فَعَسَىٰٓ أَن تَكْرَهُوا۟ شَيْـًۭٔا وَيَجْعَلَ ٱللَّهُ فِيهِ خَيْرًۭا كَثِيرًۭا
+
+**English**: O you who believe! It is not permitted for you to inherit women against their will. And do not coerce them in order to take away some of what you had given them, unless they commit a proven adultery. And live with them in kindness. If you dislike them, it may be that you dislike something in which God has placed much good.
+
+### Verse 4:20
+**Arabic**: وَإِنْ أَرَدتُّمُ ٱسْتِبْدَالَ زَوْجٍۢ مَّكَانَ زَوْجٍۢ وَءَاتَيْتُمْ إِحْدَىٰهُنَّ قِنطَارًۭا فَلَا تَأْخُذُوا۟ مِنْهُ شَيْـًٔا ۚ أَتَأْخُذُونَهُۥ بُهْتَٰنًۭا وَإِثْمًۭا مُّبِينًۭا
+
+**English**: If you wish to replace one wife with another, and you have given one of them a fortune, take nothing back from it. Would you take it back fraudulently and sinfully?
+
+### Verse 4:21
+**Arabic**: وَكَيْفَ تَأْخُذُونَهُۥ وَقَدْ أَفْضَىٰ بَعْضُكُمْ إِلَىٰ بَعْضٍۢ وَأَخَذْنَ مِنكُم مِّيثَٰقًا غَلِيظًۭا
+
+**English**: And how can you take it back, when you have been intimate with one another, and they have received from you a solid commitment?
+
+### Verse 4:22
+**Arabic**: وَلَا تَنكِحُوا۟ مَا نَكَحَ ءَابَآؤُكُم مِّنَ ٱلنِّسَآءِ إِلَّا مَا قَدْ سَلَفَ ۚ إِنَّهُۥ كَانَ فَٰحِشَةًۭ وَمَقْتًۭا وَسَآءَ سَبِيلًا
+
+**English**: Do not marry women whom your fathers married, except what is already past. That is improper, indecent, and a bad custom.
+
+### Verse 4:23
+**Arabic**: حُرِّمَتْ عَلَيْكُمْ أُمَّهَٰتُكُمْ وَبَنَاتُكُمْ وَأَخَوَٰتُكُمْ وَعَمَّٰتُكُمْ وَخَٰلَٰتُكُمْ وَبَنَاتُ ٱلْأَخِ وَبَنَاتُ ٱلْأُخْتِ وَأُمَّهَٰتُكُمُ ٱلَّٰتِىٓ أَرْضَعْنَكُمْ وَأَخَوَٰتُكُم مِّنَ ٱلرَّضَٰعَةِ وَأُمَّهَٰتُ نِسَآئِكُمْ وَرَبَٰٓئِبُكُمُ ٱلَّٰتِى فِى حُجُورِكُم مِّن نِّسَآئِكُمُ ٱلَّٰتِى دَخَلْتُم بِهِنَّ فَإِن لَّمْ تَكُونُوا۟ دَخَلْتُم بِهِنَّ فَلَا جُنَاحَ عَلَيْكُمْ وَحَلَٰٓئِلُ أَبْنَآئِكُمُ ٱلَّذِينَ مِنْ أَصْلَٰبِكُمْ وَأَن تَجْمَعُوا۟ بَيْنَ ٱلْأُخْتَيْنِ إِلَّا مَا قَدْ سَلَفَ ۗ إِنَّ ٱللَّهَ كَانَ غَفُورًۭا رَّحِيمًۭا
+
+**English**: Forbidden for you are your mothers, your daughters, your sisters, your paternal aunts, your maternal aunts, your brother's daughters, your sister's daughters, your foster-mothers who nursed you, your sisters through nursing, your wives' mothers, and your stepdaughters in your guardianship-born of wives you have gone into-but if you have not gone into them, there is no blame on you. And the wives of your genetic sons, and marrying two sisters simultaneously. Except what is past. God is Oft-Forgiving, Most Merciful.
+
+### Verse 4:24
+**Arabic**: ۞ وَٱلْمُحْصَنَٰتُ مِنَ ٱلنِّسَآءِ إِلَّا مَا مَلَكَتْ أَيْمَٰنُكُمْ ۖ كِتَٰبَ ٱللَّهِ عَلَيْكُمْ ۚ وَأُحِلَّ لَكُم مَّا وَرَآءَ ذَٰلِكُمْ أَن تَبْتَغُوا۟ بِأَمْوَٰلِكُم مُّحْصِنِينَ غَيْرَ مُسَٰفِحِينَ ۚ فَمَا ٱسْتَمْتَعْتُم بِهِۦ مِنْهُنَّ فَـَٔاتُوهُنَّ أُجُورَهُنَّ فَرِيضَةًۭ ۚ وَلَا جُنَاحَ عَلَيْكُمْ فِيمَا تَرَٰضَيْتُم بِهِۦ مِنۢ بَعْدِ ٱلْفَرِيضَةِ ۚ إِنَّ ٱللَّهَ كَانَ عَلِيمًا حَكِيمًۭا
+
+**English**: And all married women, except those you rightfully possess. This is God's decree, binding upon you. Permitted for you are those that lie outside these limits, provided you seek them in legal marriage, with gifts from your property, seeking wedlock, not prostitution. If you wish to enjoy them, then give them their dowry-a legal obligation. You commit no error by agreeing to any change to the dowry. God is All-Knowing, Most Wise.
+
+### Verse 4:25
+**Arabic**: وَمَن لَّمْ يَسْتَطِعْ مِنكُمْ طَوْلًا أَن يَنكِحَ ٱلْمُحْصَنَٰتِ ٱلْمُؤْمِنَٰتِ فَمِن مَّا مَلَكَتْ أَيْمَٰنُكُم مِّن فَتَيَٰتِكُمُ ٱلْمُؤْمِنَٰتِ ۚ وَٱللَّهُ أَعْلَمُ بِإِيمَٰنِكُم ۚ بَعْضُكُم مِّنۢ بَعْضٍۢ ۚ فَٱنكِحُوهُنَّ بِإِذْنِ أَهْلِهِنَّ وَءَاتُوهُنَّ أُجُورَهُنَّ بِٱلْمَعْرُوفِ مُحْصَنَٰتٍ غَيْرَ مُسَٰفِحَٰتٍۢ وَلَا مُتَّخِذَٰتِ أَخْدَانٍۢ ۚ فَإِذَآ أُحْصِنَّ فَإِنْ أَتَيْنَ بِفَٰحِشَةٍۢ فَعَلَيْهِنَّ نِصْفُ مَا عَلَى ٱلْمُحْصَنَٰتِ مِنَ ٱلْعَذَابِ ۚ ذَٰلِكَ لِمَنْ خَشِىَ ٱلْعَنَتَ مِنكُمْ ۚ وَأَن تَصْبِرُوا۟ خَيْرٌۭ لَّكُمْ ۗ وَٱللَّهُ غَفُورٌۭ رَّحِيمٌۭ
+
+**English**: If any of you lack the means to marry free believing women, he may marry one of the believing maids under your control. God is well aware of your faith. You are from one another. Marry them with the permission of their guardians, and give them their recompense fairly-to be protected-neither committing adultery, nor taking secret lovers. When they are married, if they commit adultery, their punishment shall be half that of free women. That is for those among you who fear falling into decadence. But to practice self-restraint is better for you. God is Most Forgiving, Most Merciful.
+
+### Verse 4:26
+**Arabic**: يُرِيدُ ٱللَّهُ لِيُبَيِّنَ لَكُمْ وَيَهْدِيَكُمْ سُنَنَ ٱلَّذِينَ مِن قَبْلِكُمْ وَيَتُوبَ عَلَيْكُمْ ۗ وَٱللَّهُ عَلِيمٌ حَكِيمٌۭ
+
+**English**: God intends to make things clear to you, and to guide you in the ways of those before you, and to redeem you. God is Most Knowing, Most Wise.
+
+### Verse 4:27
+**Arabic**: وَٱللَّهُ يُرِيدُ أَن يَتُوبَ عَلَيْكُمْ وَيُرِيدُ ٱلَّذِينَ يَتَّبِعُونَ ٱلشَّهَوَٰتِ أَن تَمِيلُوا۟ مَيْلًا عَظِيمًۭا
+
+**English**: God intends to redeem you, but those who follow their desires want you to turn away utterly.
+
+### Verse 4:28
+**Arabic**: يُرِيدُ ٱللَّهُ أَن يُخَفِّفَ عَنكُمْ ۚ وَخُلِقَ ٱلْإِنسَٰنُ ضَعِيفًۭا
+
+**English**: God intends to lighten your burden, for the human being was created weak.
+
+### Verse 4:29
+**Arabic**: يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ لَا تَأْكُلُوٓا۟ أَمْوَٰلَكُم بَيْنَكُم بِٱلْبَٰطِلِ إِلَّآ أَن تَكُونَ تِجَٰرَةً عَن تَرَاضٍۢ مِّنكُمْ ۚ وَلَا تَقْتُلُوٓا۟ أَنفُسَكُمْ ۚ إِنَّ ٱللَّهَ كَانَ بِكُمْ رَحِيمًۭا
+
+**English**: O you who believe! Do not consume each other's wealth illicitly, but trade by mutual consent. And do not kill yourselves, for God is Merciful towards you.
+
+### Verse 4:30
+**Arabic**: وَمَن يَفْعَلْ ذَٰلِكَ عُدْوَٰنًۭا وَظُلْمًۭا فَسَوْفَ نُصْلِيهِ نَارًۭا ۚ وَكَانَ ذَٰلِكَ عَلَى ٱللَّهِ يَسِيرًا
+
+**English**: Whoever does that, out of hostility and wrongdoing, We will cast him into a Fire. And that would be easy for God.
+
+### Verse 4:31
+**Arabic**: إِن تَجْتَنِبُوا۟ كَبَآئِرَ مَا تُنْهَوْنَ عَنْهُ نُكَفِّرْ عَنكُمْ سَيِّـَٔاتِكُمْ وَنُدْخِلْكُم مُّدْخَلًۭا كَرِيمًۭا
+
+**English**: If you avoid the worst of what you are forbidden, We will remit your sins, and admit you by a Gate of Honor.
+
+### Verse 4:32
+**Arabic**: وَلَا تَتَمَنَّوْا۟ مَا فَضَّلَ ٱللَّهُ بِهِۦ بَعْضَكُمْ عَلَىٰ بَعْضٍۢ ۚ لِّلرِّجَالِ نَصِيبٌۭ مِّمَّا ٱكْتَسَبُوا۟ ۖ وَلِلنِّسَآءِ نَصِيبٌۭ مِّمَّا ٱكْتَسَبْنَ ۚ وَسْـَٔلُوا۟ ٱللَّهَ مِن فَضْلِهِۦٓ ۗ إِنَّ ٱللَّهَ كَانَ بِكُلِّ شَىْءٍ عَلِيمًۭا
+
+**English**: Do not covet what God has given to some of you in preference to others. For men is a share of what they have earned, and for women is a share of what they have earned. And ask God of his bounty. God has knowledge of everything.
+
+### Verse 4:33
+**Arabic**: وَلِكُلٍّۢ جَعَلْنَا مَوَٰلِىَ مِمَّا تَرَكَ ٱلْوَٰلِدَانِ وَٱلْأَقْرَبُونَ ۚ وَٱلَّذِينَ عَقَدَتْ أَيْمَٰنُكُمْ فَـَٔاتُوهُمْ نَصِيبَهُمْ ۚ إِنَّ ٱللَّهَ كَانَ عَلَىٰ كُلِّ شَىْءٍۢ شَهِيدًا
+
+**English**: To everyone We have assigned beneficiaries in what is left by parents and relatives. Those with whom you have made an agreement, give them their share. God is Witness over all things.
+
+### Verse 4:34
+**Arabic**: ٱلرِّجَالُ قَوَّٰمُونَ عَلَى ٱلنِّسَآءِ بِمَا فَضَّلَ ٱللَّهُ بَعْضَهُمْ عَلَىٰ بَعْضٍۢ وَبِمَآ أَنفَقُوا۟ مِنْ أَمْوَٰلِهِمْ ۚ فَٱلصَّٰلِحَٰتُ قَٰنِتَٰتٌ حَٰفِظَٰتٌۭ لِّلْغَيْبِ بِمَا حَفِظَ ٱللَّهُ ۚ وَٱلَّٰتِى تَخَافُونَ نُشُوزَهُنَّ فَعِظُوهُنَّ وَٱهْجُرُوهُنَّ فِى ٱلْمَضَاجِعِ وَٱضْرِبُوهُنَّ ۖ فَإِنْ أَطَعْنَكُمْ فَلَا تَبْغُوا۟ عَلَيْهِنَّ سَبِيلًا ۗ إِنَّ ٱللَّهَ كَانَ عَلِيًّۭا كَبِيرًۭا
+
+**English**: Men are the protectors and maintainers of women, as God has given some of them an advantage over others, and because they spend out of their wealth. The good women are obedient, guarding what God would have them guard. As for those from whom you fear disloyalty, admonish them, and abandon them in their beds, then strike them. But if they obey you, seek no way against them. God is Sublime, Great.
+
+### Verse 4:35
+**Arabic**: وَإِنْ خِفْتُمْ شِقَاقَ بَيْنِهِمَا فَٱبْعَثُوا۟ حَكَمًۭا مِّنْ أَهْلِهِۦ وَحَكَمًۭا مِّنْ أَهْلِهَآ إِن يُرِيدَآ إِصْلَٰحًۭا يُوَفِّقِ ٱللَّهُ بَيْنَهُمَآ ۗ إِنَّ ٱللَّهَ كَانَ عَلِيمًا خَبِيرًۭا
+
+**English**: If you fear a breach between the two, appoint an arbiter from his family and an arbiter from her family. If they wish to reconcile, God will bring them together. God is Knowledgeable, Expert.
+
+### Verse 4:36
+**Arabic**: ۞ وَٱعْبُدُوا۟ ٱللَّهَ وَلَا تُشْرِكُوا۟ بِهِۦ شَيْـًۭٔا ۖ وَبِٱلْوَٰلِدَيْنِ إِحْسَٰنًۭا وَبِذِى ٱلْقُرْبَىٰ وَٱلْيَتَٰمَىٰ وَٱلْمَسَٰكِينِ وَٱلْجَارِ ذِى ٱلْقُرْبَىٰ وَٱلْجَارِ ٱلْجُنُبِ وَٱلصَّاحِبِ بِٱلْجَنۢبِ وَٱبْنِ ٱلسَّبِيلِ وَمَا مَلَكَتْ أَيْمَٰنُكُمْ ۗ إِنَّ ٱللَّهَ لَا يُحِبُّ مَن كَانَ مُخْتَالًۭا فَخُورًا
+
+**English**: Worship God, and ascribe no partners to Him, and be good to the parents, and the relatives, and the orphans, and the poor, and the neighbor next door, and the distant neighbor, and the close associate, and the traveler, and your servants. God does not love the arrogant showoff.
+
+### Verse 4:37
+**Arabic**: ٱلَّذِينَ يَبْخَلُونَ وَيَأْمُرُونَ ٱلنَّاسَ بِٱلْبُخْلِ وَيَكْتُمُونَ مَآ ءَاتَىٰهُمُ ٱللَّهُ مِن فَضْلِهِۦ ۗ وَأَعْتَدْنَا لِلْكَٰفِرِينَ عَذَابًۭا مُّهِينًۭا
+
+**English**: Those who are stingy, and exhort people to stinginess, and conceal what God has given them from His bounty. We have prepared for the disbelievers a disgraceful punishment.
+
+### Verse 4:38
+**Arabic**: وَٱلَّذِينَ يُنفِقُونَ أَمْوَٰلَهُمْ رِئَآءَ ٱلنَّاسِ وَلَا يُؤْمِنُونَ بِٱللَّهِ وَلَا بِٱلْيَوْمِ ٱلْءَاخِرِ ۗ وَمَن يَكُنِ ٱلشَّيْطَٰنُ لَهُۥ قَرِينًۭا فَسَآءَ قَرِينًۭا
+
+**English**: And those who spend their money to be seen by people, and believe neither in God nor in the Last Day. Whoever has Satan as a companion-what an evil companion.
+
+### Verse 4:39
+**Arabic**: وَمَاذَا عَلَيْهِمْ لَوْ ءَامَنُوا۟ بِٱللَّهِ وَٱلْيَوْمِ ٱلْءَاخِرِ وَأَنفَقُوا۟ مِمَّا رَزَقَهُمُ ٱللَّهُ ۚ وَكَانَ ٱللَّهُ بِهِمْ عَلِيمًا
+
+**English**: What would they have lost, had they believed in God and the Last Day, and gave out of what God has provided for them? God knows them very well.
+
+### Verse 4:40
+**Arabic**: إِنَّ ٱللَّهَ لَا يَظْلِمُ مِثْقَالَ ذَرَّةٍۢ ۖ وَإِن تَكُ حَسَنَةًۭ يُضَٰعِفْهَا وَيُؤْتِ مِن لَّدُنْهُ أَجْرًا عَظِيمًۭا
+
+**English**: God does not commit an atom's weight of injustice; and if there is a good deed, He doubles it, and gives from His Presence a sublime compensation.
+
+### Verse 4:41
+**Arabic**: فَكَيْفَ إِذَا جِئْنَا مِن كُلِّ أُمَّةٍۭ بِشَهِيدٍۢ وَجِئْنَا بِكَ عَلَىٰ هَٰٓؤُلَآءِ شَهِيدًۭا
+
+**English**: Then how will it be, when We bring a witness from every community, and We bring you as a witness against these?
+
+### Verse 4:42
+**Arabic**: يَوْمَئِذٍۢ يَوَدُّ ٱلَّذِينَ كَفَرُوا۟ وَعَصَوُا۟ ٱلرَّسُولَ لَوْ تُسَوَّىٰ بِهِمُ ٱلْأَرْضُ وَلَا يَكْتُمُونَ ٱللَّهَ حَدِيثًۭا
+
+**English**: On that Day, those who disbelieved and disobeyed the Messenger will wish that the earth were leveled over them. They will conceal nothing from God.
+
+### Verse 4:43
+**Arabic**: يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ لَا تَقْرَبُوا۟ ٱلصَّلَوٰةَ وَأَنتُمْ سُكَٰرَىٰ حَتَّىٰ تَعْلَمُوا۟ مَا تَقُولُونَ وَلَا جُنُبًا إِلَّا عَابِرِى سَبِيلٍ حَتَّىٰ تَغْتَسِلُوا۟ ۚ وَإِن كُنتُم مَّرْضَىٰٓ أَوْ عَلَىٰ سَفَرٍ أَوْ جَآءَ أَحَدٌۭ مِّنكُم مِّنَ ٱلْغَآئِطِ أَوْ لَٰمَسْتُمُ ٱلنِّسَآءَ فَلَمْ تَجِدُوا۟ مَآءًۭ فَتَيَمَّمُوا۟ صَعِيدًۭا طَيِّبًۭا فَٱمْسَحُوا۟ بِوُجُوهِكُمْ وَأَيْدِيكُمْ ۗ إِنَّ ٱللَّهَ كَانَ عَفُوًّا غَفُورًا
+
+**English**: O you who believe! Do not approach the prayer while you are drunk, so that you know what you say; nor after sexual orgasm-unless you are travelling-until you have bathed. If you are sick, or traveling, or one of you comes from the toilet, or you have had intercourse with women, and cannot find water, find clean sand and wipe your faces and your hands with it. God is Pardoning and Forgiving.
+
+### Verse 4:44
+**Arabic**: أَلَمْ تَرَ إِلَى ٱلَّذِينَ أُوتُوا۟ نَصِيبًۭا مِّنَ ٱلْكِتَٰبِ يَشْتَرُونَ ٱلضَّلَٰلَةَ وَيُرِيدُونَ أَن تَضِلُّوا۟ ٱلسَّبِيلَ
+
+**English**: Have you not considered those who were given a share of the Book? They buy error, and wish you would lose the way.
+
+### Verse 4:45
+**Arabic**: وَٱللَّهُ أَعْلَمُ بِأَعْدَآئِكُمْ ۚ وَكَفَىٰ بِٱللَّهِ وَلِيًّۭا وَكَفَىٰ بِٱللَّهِ نَصِيرًۭا
+
+**English**: But God knows your enemies best. God is sufficient as a Protector, and God is sufficient as a Supporter.
+
+### Verse 4:46
+**Arabic**: مِّنَ ٱلَّذِينَ هَادُوا۟ يُحَرِّفُونَ ٱلْكَلِمَ عَن مَّوَاضِعِهِۦ وَيَقُولُونَ سَمِعْنَا وَعَصَيْنَا وَٱسْمَعْ غَيْرَ مُسْمَعٍۢ وَرَٰعِنَا لَيًّۢا بِأَلْسِنَتِهِمْ وَطَعْنًۭا فِى ٱلدِّينِ ۚ وَلَوْ أَنَّهُمْ قَالُوا۟ سَمِعْنَا وَأَطَعْنَا وَٱسْمَعْ وَٱنظُرْنَا لَكَانَ خَيْرًۭا لَّهُمْ وَأَقْوَمَ وَلَٰكِن لَّعَنَهُمُ ٱللَّهُ بِكُفْرِهِمْ فَلَا يُؤْمِنُونَ إِلَّا قَلِيلًۭا
+
+**English**: Among the Jews are some who take words out of context, and say, "We hear and we disobey", and "Hear without listening", and "Observe us," twisting with their tongues and slandering the religion. Had they said, "We hear and we obey", and "Listen", and "Give us your attention," it would have been better for them, and more upright. But God has cursed them for their disbelief; they do not believe except a little.
+
+### Verse 4:47
+**Arabic**: يَٰٓأَيُّهَا ٱلَّذِينَ أُوتُوا۟ ٱلْكِتَٰبَ ءَامِنُوا۟ بِمَا نَزَّلْنَا مُصَدِّقًۭا لِّمَا مَعَكُم مِّن قَبْلِ أَن نَّطْمِسَ وُجُوهًۭا فَنَرُدَّهَا عَلَىٰٓ أَدْبَارِهَآ أَوْ نَلْعَنَهُمْ كَمَا لَعَنَّآ أَصْحَٰبَ ٱلسَّبْتِ ۚ وَكَانَ أَمْرُ ٱللَّهِ مَفْعُولًا
+
+**English**: O you who were given the Book! Believe in what We sent down, confirming what you have, before We obliterate faces and turn them inside out, or curse them as We cursed the Sabbath-breakers. The command of God is always done.
+
+### Verse 4:48
+**Arabic**: إِنَّ ٱللَّهَ لَا يَغْفِرُ أَن يُشْرَكَ بِهِۦ وَيَغْفِرُ مَا دُونَ ذَٰلِكَ لِمَن يَشَآءُ ۚ وَمَن يُشْرِكْ بِٱللَّهِ فَقَدِ ٱفْتَرَىٰٓ إِثْمًا عَظِيمًا
+
+**English**: God does not forgive association with Him, but He forgives anything less than that to whomever He wills. Whoever associates anything with God has devised a monstrous sin.
+
+### Verse 4:49
+**Arabic**: أَلَمْ تَرَ إِلَى ٱلَّذِينَ يُزَكُّونَ أَنفُسَهُم ۚ بَلِ ٱللَّهُ يُزَكِّى مَن يَشَآءُ وَلَا يُظْلَمُونَ فَتِيلًا
+
+**English**: Have you not considered those who claim purity for themselves? Rather, God purifies whom He wills, and they will not be wronged a whit.
+
+### Verse 4:50
+**Arabic**: ٱنظُرْ كَيْفَ يَفْتَرُونَ عَلَى ٱللَّهِ ٱلْكَذِبَ ۖ وَكَفَىٰ بِهِۦٓ إِثْمًۭا مُّبِينًا
+
+**English**: See how they devise lies against God. That alone is an outright sin.
+
+### Verse 4:51
+**Arabic**: أَلَمْ تَرَ إِلَى ٱلَّذِينَ أُوتُوا۟ نَصِيبًۭا مِّنَ ٱلْكِتَٰبِ يُؤْمِنُونَ بِٱلْجِبْتِ وَٱلطَّٰغُوتِ وَيَقُولُونَ لِلَّذِينَ كَفَرُوا۟ هَٰٓؤُلَآءِ أَهْدَىٰ مِنَ ٱلَّذِينَ ءَامَنُوا۟ سَبِيلًا
+
+**English**: Have you not considered those who were given a share of the Book? They believe in superstition and evil powers, and say of those who disbelieve, "These are better guided on the way than the believers."
+
+### Verse 4:52
+**Arabic**: أُو۟لَٰٓئِكَ ٱلَّذِينَ لَعَنَهُمُ ٱللَّهُ ۖ وَمَن يَلْعَنِ ٱللَّهُ فَلَن تَجِدَ لَهُۥ نَصِيرًا
+
+**English**: Those are they whom God has cursed. Whomever God curses, you will find no savior for him.
+
+### Verse 4:53
+**Arabic**: أَمْ لَهُمْ نَصِيبٌۭ مِّنَ ٱلْمُلْكِ فَإِذًۭا لَّا يُؤْتُونَ ٱلنَّاسَ نَقِيرًا
+
+**English**: Or do they own a share of the kingdom? Then they would not give people a speck.
+
+### Verse 4:54
+**Arabic**: أَمْ يَحْسُدُونَ ٱلنَّاسَ عَلَىٰ مَآ ءَاتَىٰهُمُ ٱللَّهُ مِن فَضْلِهِۦ ۖ فَقَدْ ءَاتَيْنَآ ءَالَ إِبْرَٰهِيمَ ٱلْكِتَٰبَ وَٱلْحِكْمَةَ وَءَاتَيْنَٰهُم مُّلْكًا عَظِيمًۭا
+
+**English**: Or do they envy the people for what God has given them of His grace? We have given the family of Abraham the Book and wisdom, and We have given them a great kingdom.
+
+### Verse 4:55
+**Arabic**: فَمِنْهُم مَّنْ ءَامَنَ بِهِۦ وَمِنْهُم مَّن صَدَّ عَنْهُ ۚ وَكَفَىٰ بِجَهَنَّمَ سَعِيرًا
+
+**English**: Among them are those who believed in it, and among them are those who held back from it. Hell is a sufficient Inferno.
+
+### Verse 4:56
+**Arabic**: إِنَّ ٱلَّذِينَ كَفَرُوا۟ بِـَٔايَٰتِنَا سَوْفَ نُصْلِيهِمْ نَارًۭا كُلَّمَا نَضِجَتْ جُلُودُهُم بَدَّلْنَٰهُمْ جُلُودًا غَيْرَهَا لِيَذُوقُوا۟ ٱلْعَذَابَ ۗ إِنَّ ٱللَّهَ كَانَ عَزِيزًا حَكِيمًۭا
+
+**English**: Those who reject Our revelations-We will scorch them in a Fire. Every time their skins are cooked, We will replace them with other skins, so they will experience the suffering. God is Most Powerful, Most Wise.
+
+### Verse 4:57
+**Arabic**: وَٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ سَنُدْخِلُهُمْ جَنَّٰتٍۢ تَجْرِى مِن تَحْتِهَا ٱلْأَنْهَٰرُ خَٰلِدِينَ فِيهَآ أَبَدًۭا ۖ لَّهُمْ فِيهَآ أَزْوَٰجٌۭ مُّطَهَّرَةٌۭ ۖ وَنُدْخِلُهُمْ ظِلًّۭا ظَلِيلًا
+
+**English**: As for those who believe and do good deeds, We will admit them into Gardens beneath which rivers flow, abiding therein forever. They will have purified spouses therein, and We will admit them into a shady shade.
+
+### Verse 4:58
+**Arabic**: ۞ إِنَّ ٱللَّهَ يَأْمُرُكُمْ أَن تُؤَدُّوا۟ ٱلْأَمَٰنَٰتِ إِلَىٰٓ أَهْلِهَا وَإِذَا حَكَمْتُم بَيْنَ ٱلنَّاسِ أَن تَحْكُمُوا۟ بِٱلْعَدْلِ ۚ إِنَّ ٱللَّهَ نِعِمَّا يَعِظُكُم بِهِۦٓ ۗ إِنَّ ٱللَّهَ كَانَ سَمِيعًۢا بَصِيرًۭا
+
+**English**: God instructs you to give back things entrusted to you to their owners. And when you judge between people, judge with justice. God's instructions to you are excellent. God is All-Hearing, All-Seeing.
+
+### Verse 4:59
+**Arabic**: يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوٓا۟ أَطِيعُوا۟ ٱللَّهَ وَأَطِيعُوا۟ ٱلرَّسُولَ وَأُو۟لِى ٱلْأَمْرِ مِنكُمْ ۖ فَإِن تَنَٰزَعْتُمْ فِى شَىْءٍۢ فَرُدُّوهُ إِلَى ٱللَّهِ وَٱلرَّسُولِ إِن كُنتُمْ تُؤْمِنُونَ بِٱللَّهِ وَٱلْيَوْمِ ٱلْءَاخِرِ ۚ ذَٰلِكَ خَيْرٌۭ وَأَحْسَنُ تَأْوِيلًا
+
+**English**: O you who believe! Obey God and obey the Messenger and those in authority among you. And if you dispute over anything, refer it to God and the Messenger, if you believe in God and the Last Day. That is best, and a most excellent determination.
+
+### Verse 4:60
+**Arabic**: أَلَمْ تَرَ إِلَى ٱلَّذِينَ يَزْعُمُونَ أَنَّهُمْ ءَامَنُوا۟ بِمَآ أُنزِلَ إِلَيْكَ وَمَآ أُنزِلَ مِن قَبْلِكَ يُرِيدُونَ أَن يَتَحَاكَمُوٓا۟ إِلَى ٱلطَّٰغُوتِ وَقَدْ أُمِرُوٓا۟ أَن يَكْفُرُوا۟ بِهِۦ وَيُرِيدُ ٱلشَّيْطَٰنُ أَن يُضِلَّهُمْ ضَلَٰلًۢا بَعِيدًۭا
+
+**English**: Have you not observed those who claim that they believe in what was revealed to you, and in what was revealed before you, yet they seek Satanic sources for legislation, in spite of being commanded to reject them? Satan means to mislead them far away.
+
+### Verse 4:61
+**Arabic**: وَإِذَا قِيلَ لَهُمْ تَعَالَوْا۟ إِلَىٰ مَآ أَنزَلَ ٱللَّهُ وَإِلَى ٱلرَّسُولِ رَأَيْتَ ٱلْمُنَٰفِقِينَ يَصُدُّونَ عَنكَ صُدُودًۭا
+
+**English**: And when it is said to them, "Come to what God has revealed, and to the Messenger," you see the hypocrites shunning you completely.
+
+### Verse 4:62
+**Arabic**: فَكَيْفَ إِذَآ أَصَٰبَتْهُم مُّصِيبَةٌۢ بِمَا قَدَّمَتْ أَيْدِيهِمْ ثُمَّ جَآءُوكَ يَحْلِفُونَ بِٱللَّهِ إِنْ أَرَدْنَآ إِلَّآ إِحْسَٰنًۭا وَتَوْفِيقًا
+
+**English**: How about when a disaster strikes them because what their hands have put forward, and then they come to you swearing by God: "We only intended goodwill and reconciliation"?
+
+### Verse 4:63
+**Arabic**: أُو۟لَٰٓئِكَ ٱلَّذِينَ يَعْلَمُ ٱللَّهُ مَا فِى قُلُوبِهِمْ فَأَعْرِضْ عَنْهُمْ وَعِظْهُمْ وَقُل لَّهُمْ فِىٓ أَنفُسِهِمْ قَوْلًۢا بَلِيغًۭا
+
+**English**: They are those whom God knows what is in their hearts. So ignore them, and admonish them, and say to them concerning themselves penetrating words.
+
+### Verse 4:64
+**Arabic**: وَمَآ أَرْسَلْنَا مِن رَّسُولٍ إِلَّا لِيُطَاعَ بِإِذْنِ ٱللَّهِ ۚ وَلَوْ أَنَّهُمْ إِذ ظَّلَمُوٓا۟ أَنفُسَهُمْ جَآءُوكَ فَٱسْتَغْفَرُوا۟ ٱللَّهَ وَٱسْتَغْفَرَ لَهُمُ ٱلرَّسُولُ لَوَجَدُوا۟ ٱللَّهَ تَوَّابًۭا رَّحِيمًۭا
+
+**English**: We did not send any messenger except to be obeyed by God's leave. Had they, when they wronged themselves, come to you, and prayed for God's forgiveness, and the Messenger had prayed for their forgiveness, they would have found God Relenting and Merciful.
+
+### Verse 4:65
+**Arabic**: فَلَا وَرَبِّكَ لَا يُؤْمِنُونَ حَتَّىٰ يُحَكِّمُوكَ فِيمَا شَجَرَ بَيْنَهُمْ ثُمَّ لَا يَجِدُوا۟ فِىٓ أَنفُسِهِمْ حَرَجًۭا مِّمَّا قَضَيْتَ وَيُسَلِّمُوا۟ تَسْلِيمًۭا
+
+**English**: But no, by your Lord, they will not believe until they call you to arbitrate in their disputes, and then find within themselves no resentment regarding your decisions, and submit themselves completely.
+
+### Verse 4:66
+**Arabic**: وَلَوْ أَنَّا كَتَبْنَا عَلَيْهِمْ أَنِ ٱقْتُلُوٓا۟ أَنفُسَكُمْ أَوِ ٱخْرُجُوا۟ مِن دِيَٰرِكُم مَّا فَعَلُوهُ إِلَّا قَلِيلٌۭ مِّنْهُمْ ۖ وَلَوْ أَنَّهُمْ فَعَلُوا۟ مَا يُوعَظُونَ بِهِۦ لَكَانَ خَيْرًۭا لَّهُمْ وَأَشَدَّ تَثْبِيتًۭا
+
+**English**: Had We decreed for them: "Kill yourselves," or "Leave your homes," they would not have done it, except for a few of them. But had they done what they were instructed to do, it would have been better for them, and a firmer confirmation.
+
+### Verse 4:67
+**Arabic**: وَإِذًۭا لَّءَاتَيْنَٰهُم مِّن لَّدُنَّآ أَجْرًا عَظِيمًۭا
+
+**English**: And We would have given them from Our presence a rich compensation.
+
+### Verse 4:68
+**Arabic**: وَلَهَدَيْنَٰهُمْ صِرَٰطًۭا مُّسْتَقِيمًۭا
+
+**English**: And We would have guided them on a straight path.
+
+### Verse 4:69
+**Arabic**: وَمَن يُطِعِ ٱللَّهَ وَٱلرَّسُولَ فَأُو۟لَٰٓئِكَ مَعَ ٱلَّذِينَ أَنْعَمَ ٱللَّهُ عَلَيْهِم مِّنَ ٱلنَّبِيِّۦنَ وَٱلصِّدِّيقِينَ وَٱلشُّهَدَآءِ وَٱلصَّٰلِحِينَ ۚ وَحَسُنَ أُو۟لَٰٓئِكَ رَفِيقًۭا
+
+**English**: Whoever obeys God and the Messenger-these are with those whom God has blessed-among the prophets, and the sincere, and the martyrs, and the upright. Excellent are those as companions.
+
+### Verse 4:70
+**Arabic**: ذَٰلِكَ ٱلْفَضْلُ مِنَ ٱللَّهِ ۚ وَكَفَىٰ بِٱللَّهِ عَلِيمًۭا
+
+**English**: That is the grace from God. God suffices as Knower.
+
+### Verse 4:71
+**Arabic**: يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ خُذُوا۟ حِذْرَكُمْ فَٱنفِرُوا۟ ثُبَاتٍ أَوِ ٱنفِرُوا۟ جَمِيعًۭا
+
+**English**: O you who believe! Take your precautions, and mobilize in groups, or mobilize altogether.
+
+### Verse 4:72
+**Arabic**: وَإِنَّ مِنكُمْ لَمَن لَّيُبَطِّئَنَّ فَإِنْ أَصَٰبَتْكُم مُّصِيبَةٌۭ قَالَ قَدْ أَنْعَمَ ٱللَّهُ عَلَىَّ إِذْ لَمْ أَكُن مَّعَهُمْ شَهِيدًۭا
+
+**English**: Among you is he who lags behind. Then, when a calamity befalls you, he says, "God has favored me, that I was not martyred with them."
+
+### Verse 4:73
+**Arabic**: وَلَئِنْ أَصَٰبَكُمْ فَضْلٌۭ مِّنَ ٱللَّهِ لَيَقُولَنَّ كَأَن لَّمْ تَكُنۢ بَيْنَكُمْ وَبَيْنَهُۥ مَوَدَّةٌۭ يَٰلَيْتَنِى كُنتُ مَعَهُمْ فَأَفُوزَ فَوْزًا عَظِيمًۭا
+
+**English**: But when some bounty from God comes to you, he says-as if no affection existed between you and him-"If only I had been with them, I would have achieved a great victory."
+
+### Verse 4:74
+**Arabic**: ۞ فَلْيُقَٰتِلْ فِى سَبِيلِ ٱللَّهِ ٱلَّذِينَ يَشْرُونَ ٱلْحَيَوٰةَ ٱلدُّنْيَا بِٱلْءَاخِرَةِ ۚ وَمَن يُقَٰتِلْ فِى سَبِيلِ ٱللَّهِ فَيُقْتَلْ أَوْ يَغْلِبْ فَسَوْفَ نُؤْتِيهِ أَجْرًا عَظِيمًۭا
+
+**English**: Let those who sell the life of this world for the Hereafter fight in the cause of God. Whoever fights in the cause of God, and then is killed, or achieves victory, We will grant him a great compensation.
+
+### Verse 4:75
+**Arabic**: وَمَا لَكُمْ لَا تُقَٰتِلُونَ فِى سَبِيلِ ٱللَّهِ وَٱلْمُسْتَضْعَفِينَ مِنَ ٱلرِّجَالِ وَٱلنِّسَآءِ وَٱلْوِلْدَٰنِ ٱلَّذِينَ يَقُولُونَ رَبَّنَآ أَخْرِجْنَا مِنْ هَٰذِهِ ٱلْقَرْيَةِ ٱلظَّالِمِ أَهْلُهَا وَٱجْعَل لَّنَا مِن لَّدُنكَ وَلِيًّۭا وَٱجْعَل لَّنَا مِن لَّدُنكَ نَصِيرًا
+
+**English**: And why would you not fight in the cause of God, and the helpless men, and women, and children, cry out, "Our Lord, deliver us from this town whose people are oppressive, and appoint for us from Your Presence a Protector, and appoint for us from Your Presence a Victor."
+
+### Verse 4:76
+**Arabic**: ٱلَّذِينَ ءَامَنُوا۟ يُقَٰتِلُونَ فِى سَبِيلِ ٱللَّهِ ۖ وَٱلَّذِينَ كَفَرُوا۟ يُقَٰتِلُونَ فِى سَبِيلِ ٱلطَّٰغُوتِ فَقَٰتِلُوٓا۟ أَوْلِيَآءَ ٱلشَّيْطَٰنِ ۖ إِنَّ كَيْدَ ٱلشَّيْطَٰنِ كَانَ ضَعِيفًا
+
+**English**: Those who believe fight in the cause of God, while those who disbelieve fight in the cause of Evil. So fight the allies of the Devil. Surely the strategy of the Devil is weak.
+
+### Verse 4:77
+**Arabic**: أَلَمْ تَرَ إِلَى ٱلَّذِينَ قِيلَ لَهُمْ كُفُّوٓا۟ أَيْدِيَكُمْ وَأَقِيمُوا۟ ٱلصَّلَوٰةَ وَءَاتُوا۟ ٱلزَّكَوٰةَ فَلَمَّا كُتِبَ عَلَيْهِمُ ٱلْقِتَالُ إِذَا فَرِيقٌۭ مِّنْهُمْ يَخْشَوْنَ ٱلنَّاسَ كَخَشْيَةِ ٱللَّهِ أَوْ أَشَدَّ خَشْيَةًۭ ۚ وَقَالُوا۟ رَبَّنَا لِمَ كَتَبْتَ عَلَيْنَا ٱلْقِتَالَ لَوْلَآ أَخَّرْتَنَآ إِلَىٰٓ أَجَلٍۢ قَرِيبٍۢ ۗ قُلْ مَتَٰعُ ٱلدُّنْيَا قَلِيلٌۭ وَٱلْءَاخِرَةُ خَيْرٌۭ لِّمَنِ ٱتَّقَىٰ وَلَا تُظْلَمُونَ فَتِيلًا
+
+**English**: Have you not considered those who were told, "Restrain your hands, and perform your prayers, and spend in regular charity"? But when fighting was ordained for them, a faction of them feared the people as God is ought to be feared, or even more. And they said, "Our Lord, why did You ordain fighting for us? If only You would postpone it for us for a short while." Say, "The enjoyments of this life are brief, but the Hereafter is better for the righteous, and you will not be wronged one bit."
+
+### Verse 4:78
+**Arabic**: أَيْنَمَا تَكُونُوا۟ يُدْرِككُّمُ ٱلْمَوْتُ وَلَوْ كُنتُمْ فِى بُرُوجٍۢ مُّشَيَّدَةٍۢ ۗ وَإِن تُصِبْهُمْ حَسَنَةٌۭ يَقُولُوا۟ هَٰذِهِۦ مِنْ عِندِ ٱللَّهِ ۖ وَإِن تُصِبْهُمْ سَيِّئَةٌۭ يَقُولُوا۟ هَٰذِهِۦ مِنْ عِندِكَ ۚ قُلْ كُلٌّۭ مِّنْ عِندِ ٱللَّهِ ۖ فَمَالِ هَٰٓؤُلَآءِ ٱلْقَوْمِ لَا يَكَادُونَ يَفْقَهُونَ حَدِيثًۭا
+
+**English**: Wherever you may be, death will catch up with you, even if you were in fortified towers. When a good fortune comes their way, they say, "This is from God." But when a misfortune befalls them, they say, "This is from you." Say, "All is from God." So what is the matter with these people, that they hardly understand a thing?
+
+### Verse 4:79
+**Arabic**: مَّآ أَصَابَكَ مِنْ حَسَنَةٍۢ فَمِنَ ٱللَّهِ ۖ وَمَآ أَصَابَكَ مِن سَيِّئَةٍۢ فَمِن نَّفْسِكَ ۚ وَأَرْسَلْنَٰكَ لِلنَّاسِ رَسُولًۭا ۚ وَكَفَىٰ بِٱللَّهِ شَهِيدًۭا
+
+**English**: Whatever good happens to you is from God, and whatever bad happens to you is from your own self. We sent you to humanity as a messenger, and God is Witness enough.
+
+### Verse 4:80
+**Arabic**: مَّن يُطِعِ ٱلرَّسُولَ فَقَدْ أَطَاعَ ٱللَّهَ ۖ وَمَن تَوَلَّىٰ فَمَآ أَرْسَلْنَٰكَ عَلَيْهِمْ حَفِيظًۭا
+
+**English**: Whoever obeys the Messenger is obeying God. And whoever turns away-We did not send you as a watcher over them.
+
+### Verse 4:81
+**Arabic**: وَيَقُولُونَ طَاعَةٌۭ فَإِذَا بَرَزُوا۟ مِنْ عِندِكَ بَيَّتَ طَآئِفَةٌۭ مِّنْهُمْ غَيْرَ ٱلَّذِى تَقُولُ ۖ وَٱللَّهُ يَكْتُبُ مَا يُبَيِّتُونَ ۖ فَأَعْرِضْ عَنْهُمْ وَتَوَكَّلْ عَلَى ٱللَّهِ ۚ وَكَفَىٰ بِٱللَّهِ وَكِيلًا
+
+**English**: They profess obedience, but when they leave your presence, some of them conspire something contrary to what you said. But God writes down what they conspire. So avoid them, and put your trust in God. God is Guardian enough.
+
+### Verse 4:82
+**Arabic**: أَفَلَا يَتَدَبَّرُونَ ٱلْقُرْءَانَ ۚ وَلَوْ كَانَ مِنْ عِندِ غَيْرِ ٱللَّهِ لَوَجَدُوا۟ فِيهِ ٱخْتِلَٰفًۭا كَثِيرًۭا
+
+**English**: Do they not ponder the Quran? Had it been from any other than God, they would have found in it much discrepancy.
+
+### Verse 4:83
+**Arabic**: وَإِذَا جَآءَهُمْ أَمْرٌۭ مِّنَ ٱلْأَمْنِ أَوِ ٱلْخَوْفِ أَذَاعُوا۟ بِهِۦ ۖ وَلَوْ رَدُّوهُ إِلَى ٱلرَّسُولِ وَإِلَىٰٓ أُو۟لِى ٱلْأَمْرِ مِنْهُمْ لَعَلِمَهُ ٱلَّذِينَ يَسْتَنۢبِطُونَهُۥ مِنْهُمْ ۗ وَلَوْلَا فَضْلُ ٱللَّهِ عَلَيْكُمْ وَرَحْمَتُهُۥ لَٱتَّبَعْتُمُ ٱلشَّيْطَٰنَ إِلَّا قَلِيلًۭا
+
+**English**: When some news of security or alarm comes their way, they broadcast it. But had they referred it to the Messenger, and to those in authority among them, those who can draw conclusions from it would have comprehended it. Were it not for God's blessing and mercy upon you, you would have followed the Devil, except for a few.
+
+### Verse 4:84
+**Arabic**: فَقَٰتِلْ فِى سَبِيلِ ٱللَّهِ لَا تُكَلَّفُ إِلَّا نَفْسَكَ ۚ وَحَرِّضِ ٱلْمُؤْمِنِينَ ۖ عَسَى ٱللَّهُ أَن يَكُفَّ بَأْسَ ٱلَّذِينَ كَفَرُوا۟ ۚ وَٱللَّهُ أَشَدُّ بَأْسًۭا وَأَشَدُّ تَنكِيلًۭا
+
+**English**: So fight in the cause of God; you are responsible only for yourself. And rouse the believers. Perhaps God will restrain the might of those who disbelieve. God is Stronger in Might, and More Punishing.
+
+### Verse 4:85
+**Arabic**: مَّن يَشْفَعْ شَفَٰعَةً حَسَنَةًۭ يَكُن لَّهُۥ نَصِيبٌۭ مِّنْهَا ۖ وَمَن يَشْفَعْ شَفَٰعَةًۭ سَيِّئَةًۭ يَكُن لَّهُۥ كِفْلٌۭ مِّنْهَا ۗ وَكَانَ ٱللَّهُ عَلَىٰ كُلِّ شَىْءٍۢ مُّقِيتًۭا
+
+**English**: Whoever intercedes for a good cause has a share in it, and whoever intercedes for an evil cause shares in its burdens. God keeps watch over everything.
+
+### Verse 4:86
+**Arabic**: وَإِذَا حُيِّيتُم بِتَحِيَّةٍۢ فَحَيُّوا۟ بِأَحْسَنَ مِنْهَآ أَوْ رُدُّوهَآ ۗ إِنَّ ٱللَّهَ كَانَ عَلَىٰ كُلِّ شَىْءٍ حَسِيبًا
+
+**English**: When you are greeted with a greeting, respond with a better greeting, or return it. God keeps count of everything.
+
+### Verse 4:87
+**Arabic**: ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ۚ لَيَجْمَعَنَّكُمْ إِلَىٰ يَوْمِ ٱلْقِيَٰمَةِ لَا رَيْبَ فِيهِ ۗ وَمَنْ أَصْدَقُ مِنَ ٱللَّهِ حَدِيثًۭا
+
+**English**: God-there is no god except He. He will gather you to the Day of Resurrection, in which there is no doubt. And who speaks more truly than God?
+
+### Verse 4:88
+**Arabic**: ۞ فَمَا لَكُمْ فِى ٱلْمُنَٰفِقِينَ فِئَتَيْنِ وَٱللَّهُ أَرْكَسَهُم بِمَا كَسَبُوٓا۟ ۚ أَتُرِيدُونَ أَن تَهْدُوا۟ مَنْ أَضَلَّ ٱللَّهُ ۖ وَمَن يُضْلِلِ ٱللَّهُ فَلَن تَجِدَ لَهُۥ سَبِيلًۭا
+
+**English**: What is the matter with you, divided into two factions regarding the hypocrites, when God Himself has overwhelmed them on account of what they did? Do you want to guide those whom God has led astray? Whomever God leads astray-you will never find for him a way.
+
+### Verse 4:89
+**Arabic**: وَدُّوا۟ لَوْ تَكْفُرُونَ كَمَا كَفَرُوا۟ فَتَكُونُونَ سَوَآءًۭ ۖ فَلَا تَتَّخِذُوا۟ مِنْهُمْ أَوْلِيَآءَ حَتَّىٰ يُهَاجِرُوا۟ فِى سَبِيلِ ٱللَّهِ ۚ فَإِن تَوَلَّوْا۟ فَخُذُوهُمْ وَٱقْتُلُوهُمْ حَيْثُ وَجَدتُّمُوهُمْ ۖ وَلَا تَتَّخِذُوا۟ مِنْهُمْ وَلِيًّۭا وَلَا نَصِيرًا
+
+**English**: They would love to see you disbelieve, just as they disbelieve, so you would become equal. So do not befriend any of them, unless they emigrate in the way of God. If they turn away, seize them and execute them wherever you may find them; and do not take from among them allies or supporters.
+
+### Verse 4:90
+**Arabic**: إِلَّا ٱلَّذِينَ يَصِلُونَ إِلَىٰ قَوْمٍۭ بَيْنَكُمْ وَبَيْنَهُم مِّيثَٰقٌ أَوْ جَآءُوكُمْ حَصِرَتْ صُدُورُهُمْ أَن يُقَٰتِلُوكُمْ أَوْ يُقَٰتِلُوا۟ قَوْمَهُمْ ۚ وَلَوْ شَآءَ ٱللَّهُ لَسَلَّطَهُمْ عَلَيْكُمْ فَلَقَٰتَلُوكُمْ ۚ فَإِنِ ٱعْتَزَلُوكُمْ فَلَمْ يُقَٰتِلُوكُمْ وَأَلْقَوْا۟ إِلَيْكُمُ ٱلسَّلَمَ فَمَا جَعَلَ ٱللَّهُ لَكُمْ عَلَيْهِمْ سَبِيلًۭا
+
+**English**: Except those who join people with whom you have a treaty, or those who come to you reluctant to fight you or fight their own people. Had God willed, He would have given them power over you, and they would have fought you. If they withdraw from you, and do not fight you, and offer you peace, then God assigns no excuse for you against them.
+
+### Verse 4:91
+**Arabic**: سَتَجِدُونَ ءَاخَرِينَ يُرِيدُونَ أَن يَأْمَنُوكُمْ وَيَأْمَنُوا۟ قَوْمَهُمْ كُلَّ مَا رُدُّوٓا۟ إِلَى ٱلْفِتْنَةِ أُرْكِسُوا۟ فِيهَا ۚ فَإِن لَّمْ يَعْتَزِلُوكُمْ وَيُلْقُوٓا۟ إِلَيْكُمُ ٱلسَّلَمَ وَيَكُفُّوٓا۟ أَيْدِيَهُمْ فَخُذُوهُمْ وَٱقْتُلُوهُمْ حَيْثُ ثَقِفْتُمُوهُمْ ۚ وَأُو۟لَٰٓئِكُمْ جَعَلْنَا لَكُمْ عَلَيْهِمْ سُلْطَٰنًۭا مُّبِينًۭا
+
+**English**: You will find others who want security from you, and security from their own people. But whenever they are tempted into civil discord, they plunge into it. So if they do not withdraw from you, nor offer you peace, nor restrain their hands, seize them and execute them wherever you find them. Against these, We have given you clear authorization.
+
+### Verse 4:92
+**Arabic**: وَمَا كَانَ لِمُؤْمِنٍ أَن يَقْتُلَ مُؤْمِنًا إِلَّا خَطَـًۭٔا ۚ وَمَن قَتَلَ مُؤْمِنًا خَطَـًۭٔا فَتَحْرِيرُ رَقَبَةٍۢ مُّؤْمِنَةٍۢ وَدِيَةٌۭ مُّسَلَّمَةٌ إِلَىٰٓ أَهْلِهِۦٓ إِلَّآ أَن يَصَّدَّقُوا۟ ۚ فَإِن كَانَ مِن قَوْمٍ عَدُوٍّۢ لَّكُمْ وَهُوَ مُؤْمِنٌۭ فَتَحْرِيرُ رَقَبَةٍۢ مُّؤْمِنَةٍۢ ۖ وَإِن كَانَ مِن قَوْمٍۭ بَيْنَكُمْ وَبَيْنَهُم مِّيثَٰقٌۭ فَدِيَةٌۭ مُّسَلَّمَةٌ إِلَىٰٓ أَهْلِهِۦ وَتَحْرِيرُ رَقَبَةٍۢ مُّؤْمِنَةٍۢ ۖ فَمَن لَّمْ يَجِدْ فَصِيَامُ شَهْرَيْنِ مُتَتَابِعَيْنِ تَوْبَةًۭ مِّنَ ٱللَّهِ ۗ وَكَانَ ٱللَّهُ عَلِيمًا حَكِيمًۭا
+
+**English**: Never should a believer kill another believer, unless by error. Anyone who kills a believer by error must set free a believing slave, and pay compensation to the victim's family, unless they remit it as charity. If the victim belonged to a people who are hostile to you, but is a believer, then the compensation is to free a believing slave. If he belonged to a people with whom you have a treaty, then compensation should be handed over to his family, and a believing slave set free. Anyone who lacks the means must fast for two consecutive months, by way of repentance to God. God is All-Knowing, Most Wise.
+
+### Verse 4:93
+**Arabic**: وَمَن يَقْتُلْ مُؤْمِنًۭا مُّتَعَمِّدًۭا فَجَزَآؤُهُۥ جَهَنَّمُ خَٰلِدًۭا فِيهَا وَغَضِبَ ٱللَّهُ عَلَيْهِ وَلَعَنَهُۥ وَأَعَدَّ لَهُۥ عَذَابًا عَظِيمًۭا
+
+**English**: Whoever kills a believer deliberately, the penalty for him is Hell, where he will remain forever. And God will be angry with him, and will curse him, and will prepare for him a terrible punishment.
+
+### Verse 4:94
+**Arabic**: يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوٓا۟ إِذَا ضَرَبْتُمْ فِى سَبِيلِ ٱللَّهِ فَتَبَيَّنُوا۟ وَلَا تَقُولُوا۟ لِمَنْ أَلْقَىٰٓ إِلَيْكُمُ ٱلسَّلَٰمَ لَسْتَ مُؤْمِنًۭا تَبْتَغُونَ عَرَضَ ٱلْحَيَوٰةِ ٱلدُّنْيَا فَعِندَ ٱللَّهِ مَغَانِمُ كَثِيرَةٌۭ ۚ كَذَٰلِكَ كُنتُم مِّن قَبْلُ فَمَنَّ ٱللَّهُ عَلَيْكُمْ فَتَبَيَّنُوٓا۟ ۚ إِنَّ ٱللَّهَ كَانَ بِمَا تَعْمَلُونَ خَبِيرًۭا
+
+**English**: O you who believe! When you journey in the way of God, investigate, and do not say to him who offers you peace, "You are not a believer," aspiring for the goods of this world. With God are abundant riches. You yourselves were like this before, and God bestowed favor on you; so investigate. God is well aware of what you do.
+
+### Verse 4:95
+**Arabic**: لَّا يَسْتَوِى ٱلْقَٰعِدُونَ مِنَ ٱلْمُؤْمِنِينَ غَيْرُ أُو۟لِى ٱلضَّرَرِ وَٱلْمُجَٰهِدُونَ فِى سَبِيلِ ٱللَّهِ بِأَمْوَٰلِهِمْ وَأَنفُسِهِمْ ۚ فَضَّلَ ٱللَّهُ ٱلْمُجَٰهِدِينَ بِأَمْوَٰلِهِمْ وَأَنفُسِهِمْ عَلَى ٱلْقَٰعِدِينَ دَرَجَةًۭ ۚ وَكُلًّۭا وَعَدَ ٱللَّهُ ٱلْحُسْنَىٰ ۚ وَفَضَّلَ ٱللَّهُ ٱلْمُجَٰهِدِينَ عَلَى ٱلْقَٰعِدِينَ أَجْرًا عَظِيمًۭا
+
+**English**: Not equal are the inactive among the believers-except the disabled-and the strivers in the cause of God with their possessions and their persons. God prefers the strivers with their possessions and their persons above the inactive, by a degree. But God has promised goodness to both. Yet God favors the strivers, over the inactive, with a great reward.
+
+### Verse 4:96
+**Arabic**: دَرَجَٰتٍۢ مِّنْهُ وَمَغْفِرَةًۭ وَرَحْمَةًۭ ۚ وَكَانَ ٱللَّهُ غَفُورًۭا رَّحِيمًا
+
+**English**: Degrees from Him, and forgiveness, and mercy. God is Forgiving and Merciful.
+
+### Verse 4:97
+**Arabic**: إِنَّ ٱلَّذِينَ تَوَفَّىٰهُمُ ٱلْمَلَٰٓئِكَةُ ظَالِمِىٓ أَنفُسِهِمْ قَالُوا۟ فِيمَ كُنتُمْ ۖ قَالُوا۟ كُنَّا مُسْتَضْعَفِينَ فِى ٱلْأَرْضِ ۚ قَالُوٓا۟ أَلَمْ تَكُنْ أَرْضُ ٱللَّهِ وَٰسِعَةًۭ فَتُهَاجِرُوا۟ فِيهَا ۚ فَأُو۟لَٰٓئِكَ مَأْوَىٰهُمْ جَهَنَّمُ ۖ وَسَآءَتْ مَصِيرًا
+
+**English**: While the angels are removing the souls of those who have wronged themselves, they will say, "What was the matter with you?" They will say, "We were oppressed in the land." They will say, "Was God's earth not vast enough for you to emigrate in it?" These-their refuge is Hell. What a wretched retreat!
+
+### Verse 4:98
+**Arabic**: إِلَّا ٱلْمُسْتَضْعَفِينَ مِنَ ٱلرِّجَالِ وَٱلنِّسَآءِ وَٱلْوِلْدَٰنِ لَا يَسْتَطِيعُونَ حِيلَةًۭ وَلَا يَهْتَدُونَ سَبِيلًۭا
+
+**English**: Except for the weak among men, and women, and children who have no means to act, and no means to find a way out.
+
+### Verse 4:99
+**Arabic**: فَأُو۟لَٰٓئِكَ عَسَى ٱللَّهُ أَن يَعْفُوَ عَنْهُمْ ۚ وَكَانَ ٱللَّهُ عَفُوًّا غَفُورًۭا
+
+**English**: These-God may well pardon them. God is Pardoning and Forgiving.
+
+### Verse 4:100
+**Arabic**: ۞ وَمَن يُهَاجِرْ فِى سَبِيلِ ٱللَّهِ يَجِدْ فِى ٱلْأَرْضِ مُرَٰغَمًۭا كَثِيرًۭا وَسَعَةًۭ ۚ وَمَن يَخْرُجْ مِنۢ بَيْتِهِۦ مُهَاجِرًا إِلَى ٱللَّهِ وَرَسُولِهِۦ ثُمَّ يُدْرِكْهُ ٱلْمَوْتُ فَقَدْ وَقَعَ أَجْرُهُۥ عَلَى ٱللَّهِ ۗ وَكَانَ ٱللَّهُ غَفُورًۭا رَّحِيمًۭا
+
+**English**: Anyone who emigrates for the sake of God will find on earth many places of refuge, and plentitude. Anyone who leaves his home, emigrating to God and His Messenger, and then is overtaken by death, his compensation falls on God. God is Forgiver, Most Merciful.
+
+### Verse 4:101
+**Arabic**: وَإِذَا ضَرَبْتُمْ فِى ٱلْأَرْضِ فَلَيْسَ عَلَيْكُمْ جُنَاحٌ أَن تَقْصُرُوا۟ مِنَ ٱلصَّلَوٰةِ إِنْ خِفْتُمْ أَن يَفْتِنَكُمُ ٱلَّذِينَ كَفَرُوٓا۟ ۚ إِنَّ ٱلْكَٰفِرِينَ كَانُوا۟ لَكُمْ عَدُوًّۭا مُّبِينًۭا
+
+**English**: When you travel in the land, there is no blame on you for shortening the prayers, if you fear that the disbelievers may harm you. The disbelievers are your manifest enemies.
+
+### Verse 4:102
+**Arabic**: وَإِذَا كُنتَ فِيهِمْ فَأَقَمْتَ لَهُمُ ٱلصَّلَوٰةَ فَلْتَقُمْ طَآئِفَةٌۭ مِّنْهُم مَّعَكَ وَلْيَأْخُذُوٓا۟ أَسْلِحَتَهُمْ فَإِذَا سَجَدُوا۟ فَلْيَكُونُوا۟ مِن وَرَآئِكُمْ وَلْتَأْتِ طَآئِفَةٌ أُخْرَىٰ لَمْ يُصَلُّوا۟ فَلْيُصَلُّوا۟ مَعَكَ وَلْيَأْخُذُوا۟ حِذْرَهُمْ وَأَسْلِحَتَهُمْ ۗ وَدَّ ٱلَّذِينَ كَفَرُوا۟ لَوْ تَغْفُلُونَ عَنْ أَسْلِحَتِكُمْ وَأَمْتِعَتِكُمْ فَيَمِيلُونَ عَلَيْكُم مَّيْلَةًۭ وَٰحِدَةًۭ ۚ وَلَا جُنَاحَ عَلَيْكُمْ إِن كَانَ بِكُمْ أَذًۭى مِّن مَّطَرٍ أَوْ كُنتُم مَّرْضَىٰٓ أَن تَضَعُوٓا۟ أَسْلِحَتَكُمْ ۖ وَخُذُوا۟ حِذْرَكُمْ ۗ إِنَّ ٱللَّهَ أَعَدَّ لِلْكَٰفِرِينَ عَذَابًۭا مُّهِينًۭا
+
+**English**: When you are among them, and you stand to lead them in prayer, let a group of them stand with you, and let them hold their weapons. Then, when they have done their prostrations, let them withdraw to the rear, and let another group, that have not prayed yet, come forward and pray with you; and let them take their precautions and their weapons. Those who disbelieve would like you to neglect your weapons and your equipment, so they can attack you in a single assault. You commit no error, if you are hampered by rain or are sick, by putting down your weapons; but take precautions. Indeed, God has prepared for the disbelievers a demeaning punishment.
+
+### Verse 4:103
+**Arabic**: فَإِذَا قَضَيْتُمُ ٱلصَّلَوٰةَ فَٱذْكُرُوا۟ ٱللَّهَ قِيَٰمًۭا وَقُعُودًۭا وَعَلَىٰ جُنُوبِكُمْ ۚ فَإِذَا ٱطْمَأْنَنتُمْ فَأَقِيمُوا۟ ٱلصَّلَوٰةَ ۚ إِنَّ ٱلصَّلَوٰةَ كَانَتْ عَلَى ٱلْمُؤْمِنِينَ كِتَٰبًۭا مَّوْقُوتًۭا
+
+**English**: When you have completed the prayer, remember God, standing, or sitting, or on your sides. And when you feel secure, perform the prayer. The prayer is obligatory for believers at specific times.
+
+### Verse 4:104
+**Arabic**: وَلَا تَهِنُوا۟ فِى ٱبْتِغَآءِ ٱلْقَوْمِ ۖ إِن تَكُونُوا۟ تَأْلَمُونَ فَإِنَّهُمْ يَأْلَمُونَ كَمَا تَأْلَمُونَ ۖ وَتَرْجُونَ مِنَ ٱللَّهِ مَا لَا يَرْجُونَ ۗ وَكَانَ ٱللَّهُ عَلِيمًا حَكِيمًا
+
+**English**: And do not falter in the pursuit of the enemy. If you are aching, they are aching as you are aching, but you expect from God what they cannot expect. God is Knowledgeable and Wise.
+
+### Verse 4:105
+**Arabic**: إِنَّآ أَنزَلْنَآ إِلَيْكَ ٱلْكِتَٰبَ بِٱلْحَقِّ لِتَحْكُمَ بَيْنَ ٱلنَّاسِ بِمَآ أَرَىٰكَ ٱللَّهُ ۚ وَلَا تَكُن لِّلْخَآئِنِينَ خَصِيمًۭا
+
+**English**: We have revealed to you the Scripture, with the truth, so that you judge between people in accordance with what God has shown you. And do not be an advocate for the traitors.
+
+### Verse 4:106
+**Arabic**: وَٱسْتَغْفِرِ ٱللَّهَ ۖ إِنَّ ٱللَّهَ كَانَ غَفُورًۭا رَّحِيمًۭا
+
+**English**: And ask God for forgiveness. God is Forgiver and Merciful.
+
+### Verse 4:107
+**Arabic**: وَلَا تُجَٰدِلْ عَنِ ٱلَّذِينَ يَخْتَانُونَ أَنفُسَهُمْ ۚ إِنَّ ٱللَّهَ لَا يُحِبُّ مَن كَانَ خَوَّانًا أَثِيمًۭا
+
+**English**: And do not argue on behalf of those who deceive themselves. God does not love the deceitful sinner.
+
+### Verse 4:108
+**Arabic**: يَسْتَخْفُونَ مِنَ ٱلنَّاسِ وَلَا يَسْتَخْفُونَ مِنَ ٱللَّهِ وَهُوَ مَعَهُمْ إِذْ يُبَيِّتُونَ مَا لَا يَرْضَىٰ مِنَ ٱلْقَوْلِ ۚ وَكَانَ ٱللَّهُ بِمَا يَعْمَلُونَ مُحِيطًا
+
+**English**: They hide from the people, but they cannot hide from God. He is with them, as they plot by night with words He does not approve. God comprehends what they do.
+
+### Verse 4:109
+**Arabic**: هَٰٓأَنتُمْ هَٰٓؤُلَآءِ جَٰدَلْتُمْ عَنْهُمْ فِى ٱلْحَيَوٰةِ ٱلدُّنْيَا فَمَن يُجَٰدِلُ ٱللَّهَ عَنْهُمْ يَوْمَ ٱلْقِيَٰمَةِ أَم مَّن يَكُونُ عَلَيْهِمْ وَكِيلًۭا
+
+**English**: There you are, arguing on their behalf in the present life, but who will argue with God on their behalf on the Day of Resurrection? Or who will be their representative?
+
+### Verse 4:110
+**Arabic**: وَمَن يَعْمَلْ سُوٓءًا أَوْ يَظْلِمْ نَفْسَهُۥ ثُمَّ يَسْتَغْفِرِ ٱللَّهَ يَجِدِ ٱللَّهَ غَفُورًۭا رَّحِيمًۭا
+
+**English**: Whoever commits evil, or wrongs his soul, then implores God for forgiveness, will find God Forgiving and Merciful.
+
+### Verse 4:111
+**Arabic**: وَمَن يَكْسِبْ إِثْمًۭا فَإِنَّمَا يَكْسِبُهُۥ عَلَىٰ نَفْسِهِۦ ۚ وَكَانَ ٱللَّهُ عَلِيمًا حَكِيمًۭا
+
+**English**: And Whoever earns a sin, earns it against himself. God is Aware and Wise.
+
+### Verse 4:112
+**Arabic**: وَمَن يَكْسِبْ خَطِيٓـَٔةً أَوْ إِثْمًۭا ثُمَّ يَرْمِ بِهِۦ بَرِيٓـًۭٔا فَقَدِ ٱحْتَمَلَ بُهْتَٰنًۭا وَإِثْمًۭا مُّبِينًۭا
+
+**English**: And whoever commits a mistake, or a sin, and then blames it on an innocent person, has taken a slander and a clear sin.
+
+### Verse 4:113
+**Arabic**: وَلَوْلَا فَضْلُ ٱللَّهِ عَلَيْكَ وَرَحْمَتُهُۥ لَهَمَّت طَّآئِفَةٌۭ مِّنْهُمْ أَن يُضِلُّوكَ وَمَا يُضِلُّونَ إِلَّآ أَنفُسَهُمْ ۖ وَمَا يَضُرُّونَكَ مِن شَىْءٍۢ ۚ وَأَنزَلَ ٱللَّهُ عَلَيْكَ ٱلْكِتَٰبَ وَٱلْحِكْمَةَ وَعَلَّمَكَ مَا لَمْ تَكُن تَعْلَمُ ۚ وَكَانَ فَضْلُ ٱللَّهِ عَلَيْكَ عَظِيمًۭا
+
+**English**: Were it not for God's grace towards you, and His mercy, a faction of them would have managed to mislead you. But they only mislead themselves, and they cannot harm you in any way. God has revealed to you the Scripture and wisdom, and has taught you what you did not know. God's goodness towards you is great.
+
+### Verse 4:114
+**Arabic**: ۞ لَّا خَيْرَ فِى كَثِيرٍۢ مِّن نَّجْوَىٰهُمْ إِلَّا مَنْ أَمَرَ بِصَدَقَةٍ أَوْ مَعْرُوفٍ أَوْ إِصْلَٰحٍۭ بَيْنَ ٱلنَّاسِ ۚ وَمَن يَفْعَلْ ذَٰلِكَ ٱبْتِغَآءَ مَرْضَاتِ ٱللَّهِ فَسَوْفَ نُؤْتِيهِ أَجْرًا عَظِيمًۭا
+
+**English**: There is no good in much of their private counsels, except for him who advocates charity, or kindness, or reconciliation between people. Whoever does that, seeking God's approval, We will give him a great compensation.
+
+### Verse 4:115
+**Arabic**: وَمَن يُشَاقِقِ ٱلرَّسُولَ مِنۢ بَعْدِ مَا تَبَيَّنَ لَهُ ٱلْهُدَىٰ وَيَتَّبِعْ غَيْرَ سَبِيلِ ٱلْمُؤْمِنِينَ نُوَلِّهِۦ مَا تَوَلَّىٰ وَنُصْلِهِۦ جَهَنَّمَ ۖ وَسَآءَتْ مَصِيرًا
+
+**English**: Whoever makes a breach with the Messenger, after the guidance has become clear to him, and follows other than the path of the believers, We will direct him in the direction he has chosen, and commit him to Hell-what a terrible destination!
+
+### Verse 4:116
+**Arabic**: إِنَّ ٱللَّهَ لَا يَغْفِرُ أَن يُشْرَكَ بِهِۦ وَيَغْفِرُ مَا دُونَ ذَٰلِكَ لِمَن يَشَآءُ ۚ وَمَن يُشْرِكْ بِٱللَّهِ فَقَدْ ضَلَّ ضَلَٰلًۢا بَعِيدًا
+
+**English**: God will not forgive that partners be associated with Him; but will forgive anything less than that, to whomever He wills. Anyone who ascribes partners to God has strayed into far error.
+
+### Verse 4:117
+**Arabic**: إِن يَدْعُونَ مِن دُونِهِۦٓ إِلَّآ إِنَٰثًۭا وَإِن يَدْعُونَ إِلَّا شَيْطَٰنًۭا مَّرِيدًۭا
+
+**English**: They invoke in His stead only females. In fact, they invoke none but a rebellious devil.
+
+### Verse 4:118
+**Arabic**: لَّعَنَهُ ٱللَّهُ ۘ وَقَالَ لَأَتَّخِذَنَّ مِنْ عِبَادِكَ نَصِيبًۭا مَّفْرُوضًۭا
+
+**English**: God has cursed him. And he said, "I will take to myself my due share of Your servants."
+
+### Verse 4:119
+**Arabic**: وَلَأُضِلَّنَّهُمْ وَلَأُمَنِّيَنَّهُمْ وَلَءَامُرَنَّهُمْ فَلَيُبَتِّكُنَّ ءَاذَانَ ٱلْأَنْعَٰمِ وَلَءَامُرَنَّهُمْ فَلَيُغَيِّرُنَّ خَلْقَ ٱللَّهِ ۚ وَمَن يَتَّخِذِ ٱلشَّيْطَٰنَ وَلِيًّۭا مِّن دُونِ ٱللَّهِ فَقَدْ خَسِرَ خُسْرَانًۭا مُّبِينًۭا
+
+**English**: "And I will mislead them, and I will entice them, and I will prompt them to slit the ears of cattle, and I will prompt them to alter the creation of God." Whoever takes Satan as a lord, instead of God, has surely suffered a profound loss.
+
+### Verse 4:120
+**Arabic**: يَعِدُهُمْ وَيُمَنِّيهِمْ ۖ وَمَا يَعِدُهُمُ ٱلشَّيْطَٰنُ إِلَّا غُرُورًا
+
+**English**: He promises them, and he raises their expectations, but Satan promises them nothing but delusions.
+
+### Verse 4:121
+**Arabic**: أُو۟لَٰٓئِكَ مَأْوَىٰهُمْ جَهَنَّمُ وَلَا يَجِدُونَ عَنْهَا مَحِيصًۭا
+
+**English**: These-their place is Hell, and they will find no escape from it.
+
+### Verse 4:122
+**Arabic**: وَٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ سَنُدْخِلُهُمْ جَنَّٰتٍۢ تَجْرِى مِن تَحْتِهَا ٱلْأَنْهَٰرُ خَٰلِدِينَ فِيهَآ أَبَدًۭا ۖ وَعْدَ ٱللَّهِ حَقًّۭا ۚ وَمَنْ أَصْدَقُ مِنَ ٱللَّهِ قِيلًۭا
+
+**English**: But as for those who believe and do righteous deeds, We will admit them into gardens beneath which rivers flow, where they will abide forever. The promise of God is true-and who is more truthful in speech than God?
+
+### Verse 4:123
+**Arabic**: لَّيْسَ بِأَمَانِيِّكُمْ وَلَآ أَمَانِىِّ أَهْلِ ٱلْكِتَٰبِ ۗ مَن يَعْمَلْ سُوٓءًۭا يُجْزَ بِهِۦ وَلَا يَجِدْ لَهُۥ مِن دُونِ ٱللَّهِ وَلِيًّۭا وَلَا نَصِيرًۭا
+
+**English**: It is not in accordance with your wishes, nor in accordance with the wishes of the People of the Scripture. Whoever works evil will pay for it, and will not find for himself, besides God, any protector or savior.
+
+### Verse 4:124
+**Arabic**: وَمَن يَعْمَلْ مِنَ ٱلصَّٰلِحَٰتِ مِن ذَكَرٍ أَوْ أُنثَىٰ وَهُوَ مُؤْمِنٌۭ فَأُو۟لَٰٓئِكَ يَدْخُلُونَ ٱلْجَنَّةَ وَلَا يُظْلَمُونَ نَقِيرًۭا
+
+**English**: But whoever works righteousness, whether male or female, and is a believer-those will enter Paradise, and will not be wronged a whit.
+
+### Verse 4:125
+**Arabic**: وَمَنْ أَحْسَنُ دِينًۭا مِّمَّنْ أَسْلَمَ وَجْهَهُۥ لِلَّهِ وَهُوَ مُحْسِنٌۭ وَٱتَّبَعَ مِلَّةَ إِبْرَٰهِيمَ حَنِيفًۭا ۗ وَٱتَّخَذَ ٱللَّهُ إِبْرَٰهِيمَ خَلِيلًۭا
+
+**English**: And who is better in religion than he who submits himself wholly to God, and is a doer of good, and follows the faith of Abraham the Monotheist? God has chosen Abraham for a friend.
+
+### Verse 4:126
+**Arabic**: وَلِلَّهِ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِ ۚ وَكَانَ ٱللَّهُ بِكُلِّ شَىْءٍۢ مُّحِيطًۭا
+
+**English**: To God belongs what is in the heavens and what is on earth, and God encompasses everything.
+
+### Verse 4:127
+**Arabic**: وَيَسْتَفْتُونَكَ فِى ٱلنِّسَآءِ ۖ قُلِ ٱللَّهُ يُفْتِيكُمْ فِيهِنَّ وَمَا يُتْلَىٰ عَلَيْكُمْ فِى ٱلْكِتَٰبِ فِى يَتَٰمَى ٱلنِّسَآءِ ٱلَّٰتِى لَا تُؤْتُونَهُنَّ مَا كُتِبَ لَهُنَّ وَتَرْغَبُونَ أَن تَنكِحُوهُنَّ وَٱلْمُسْتَضْعَفِينَ مِنَ ٱلْوِلْدَٰنِ وَأَن تَقُومُوا۟ لِلْيَتَٰمَىٰ بِٱلْقِسْطِ ۚ وَمَا تَفْعَلُوا۟ مِنْ خَيْرٍۢ فَإِنَّ ٱللَّهَ كَانَ بِهِۦ عَلِيمًۭا
+
+**English**: They ask you for a ruling about women. Say, "God gives you a ruling about them, and so does what is stated to you in the Book about widowed women from whom you withhold what is decreed for them, yet you desire to marry them, and about helpless children: that you should treat the orphans fairly." Whatever good you do, God knows it.
+
+### Verse 4:128
+**Arabic**: وَإِنِ ٱمْرَأَةٌ خَافَتْ مِنۢ بَعْلِهَا نُشُوزًا أَوْ إِعْرَاضًۭا فَلَا جُنَاحَ عَلَيْهِمَآ أَن يُصْلِحَا بَيْنَهُمَا صُلْحًۭا ۚ وَٱلصُّلْحُ خَيْرٌۭ ۗ وَأُحْضِرَتِ ٱلْأَنفُسُ ٱلشُّحَّ ۚ وَإِن تُحْسِنُوا۟ وَتَتَّقُوا۟ فَإِنَّ ٱللَّهَ كَانَ بِمَا تَعْمَلُونَ خَبِيرًۭا
+
+**English**: If a woman fears maltreatment or desertion from her husband, there is no fault in them if they reconcile their differences, for reconciliation is best. Souls are prone to avarice; yet if you do what is good, and practice piety-God is Cognizant of what you do.
+
+### Verse 4:129
+**Arabic**: وَلَن تَسْتَطِيعُوٓا۟ أَن تَعْدِلُوا۟ بَيْنَ ٱلنِّسَآءِ وَلَوْ حَرَصْتُمْ ۖ فَلَا تَمِيلُوا۟ كُلَّ ٱلْمَيْلِ فَتَذَرُوهَا كَٱلْمُعَلَّقَةِ ۚ وَإِن تُصْلِحُوا۟ وَتَتَّقُوا۟ فَإِنَّ ٱللَّهَ كَانَ غَفُورًۭا رَّحِيمًۭا
+
+**English**: You will not be able to treat women with equal fairness, no matter how much you desire it. But do not be so biased as to leave another suspended. If you make amends, and act righteously-God is Forgiving and Merciful.
+
+### Verse 4:130
+**Arabic**: وَإِن يَتَفَرَّقَا يُغْنِ ٱللَّهُ كُلًّۭا مِّن سَعَتِهِۦ ۚ وَكَانَ ٱللَّهُ وَٰسِعًا حَكِيمًۭا
+
+**English**: And if they separate, God will enrich each from His abundance. God is Bounteous and Wise.
+
+### Verse 4:131
+**Arabic**: وَلِلَّهِ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِ ۗ وَلَقَدْ وَصَّيْنَا ٱلَّذِينَ أُوتُوا۟ ٱلْكِتَٰبَ مِن قَبْلِكُمْ وَإِيَّاكُمْ أَنِ ٱتَّقُوا۟ ٱللَّهَ ۚ وَإِن تَكْفُرُوا۟ فَإِنَّ لِلَّهِ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِ ۚ وَكَانَ ٱللَّهُ غَنِيًّا حَمِيدًۭا
+
+**English**: To God belongs everything in the heavens and everything on earth. We have instructed those who were given the Book before you, and you, to be conscious of God. But if you refuse-to God belongs everything in the heavens and everything on earth. God is in no need, Praiseworthy.
+
+### Verse 4:132
+**Arabic**: وَلِلَّهِ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِ ۚ وَكَفَىٰ بِٱللَّهِ وَكِيلًا
+
+**English**: To God belongs everything in the heavens and everything on earth. God suffices as Manager.
+
+### Verse 4:133
+**Arabic**: إِن يَشَأْ يُذْهِبْكُمْ أَيُّهَا ٱلنَّاسُ وَيَأْتِ بِـَٔاخَرِينَ ۚ وَكَانَ ٱللَّهُ عَلَىٰ ذَٰلِكَ قَدِيرًۭا
+
+**English**: If He wills, He can do away with you, O people, and bring others. God is Able to do that.
+
+### Verse 4:134
+**Arabic**: مَّن كَانَ يُرِيدُ ثَوَابَ ٱلدُّنْيَا فَعِندَ ٱللَّهِ ثَوَابُ ٱلدُّنْيَا وَٱلْءَاخِرَةِ ۚ وَكَانَ ٱللَّهُ سَمِيعًۢا بَصِيرًۭا
+
+**English**: Whoever desires the reward of this world-with God is the reward of this world and the next. God is All-Hearing, All-Seeing.
+
+### Verse 4:135
+**Arabic**: ۞ يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ كُونُوا۟ قَوَّٰمِينَ بِٱلْقِسْطِ شُهَدَآءَ لِلَّهِ وَلَوْ عَلَىٰٓ أَنفُسِكُمْ أَوِ ٱلْوَٰلِدَيْنِ وَٱلْأَقْرَبِينَ ۚ إِن يَكُنْ غَنِيًّا أَوْ فَقِيرًۭا فَٱللَّهُ أَوْلَىٰ بِهِمَا ۖ فَلَا تَتَّبِعُوا۟ ٱلْهَوَىٰٓ أَن تَعْدِلُوا۟ ۚ وَإِن تَلْوُۥٓا۟ أَوْ تُعْرِضُوا۟ فَإِنَّ ٱللَّهَ كَانَ بِمَا تَعْمَلُونَ خَبِيرًۭا
+
+**English**: O you who believe! Stand firmly for justice, as witnesses to God, even if against yourselves, or your parents, or your relatives. Whether one is rich or poor, God takes care of both. So do not follow your desires, lest you swerve. If you deviate, or turn away-then God is Aware of what you do.
+
+### Verse 4:136
+**Arabic**: يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوٓا۟ ءَامِنُوا۟ بِٱللَّهِ وَرَسُولِهِۦ وَٱلْكِتَٰبِ ٱلَّذِى نَزَّلَ عَلَىٰ رَسُولِهِۦ وَٱلْكِتَٰبِ ٱلَّذِىٓ أَنزَلَ مِن قَبْلُ ۚ وَمَن يَكْفُرْ بِٱللَّهِ وَمَلَٰٓئِكَتِهِۦ وَكُتُبِهِۦ وَرُسُلِهِۦ وَٱلْيَوْمِ ٱلْءَاخِرِ فَقَدْ ضَلَّ ضَلَٰلًۢا بَعِيدًا
+
+**English**: O you who believe! Believe in God and His messenger, and the Book He sent down to His messenger, and the Book He sent down before. Whoever rejects God, His angels, His Books, His messengers, and the Last Day, has strayed far in error.
+
+### Verse 4:137
+**Arabic**: إِنَّ ٱلَّذِينَ ءَامَنُوا۟ ثُمَّ كَفَرُوا۟ ثُمَّ ءَامَنُوا۟ ثُمَّ كَفَرُوا۟ ثُمَّ ٱزْدَادُوا۟ كُفْرًۭا لَّمْ يَكُنِ ٱللَّهُ لِيَغْفِرَ لَهُمْ وَلَا لِيَهْدِيَهُمْ سَبِيلًۢا
+
+**English**: Those who believe, then disbelieve, then believe, then disbelieve, then increase in disbelief, God will not forgive them, nor will He guide them to a way.
+
+### Verse 4:138
+**Arabic**: بَشِّرِ ٱلْمُنَٰفِقِينَ بِأَنَّ لَهُمْ عَذَابًا أَلِيمًا
+
+**English**: Inform the hypocrites that they will have a painful punishment.
+
+### Verse 4:139
+**Arabic**: ٱلَّذِينَ يَتَّخِذُونَ ٱلْكَٰفِرِينَ أَوْلِيَآءَ مِن دُونِ ٱلْمُؤْمِنِينَ ۚ أَيَبْتَغُونَ عِندَهُمُ ٱلْعِزَّةَ فَإِنَّ ٱلْعِزَّةَ لِلَّهِ جَمِيعًۭا
+
+**English**: Those who ally themselves with the disbelievers instead of the believers. Do they seek glory in them? All glory belongs to God.
+
+### Verse 4:140
+**Arabic**: وَقَدْ نَزَّلَ عَلَيْكُمْ فِى ٱلْكِتَٰبِ أَنْ إِذَا سَمِعْتُمْ ءَايَٰتِ ٱللَّهِ يُكْفَرُ بِهَا وَيُسْتَهْزَأُ بِهَا فَلَا تَقْعُدُوا۟ مَعَهُمْ حَتَّىٰ يَخُوضُوا۟ فِى حَدِيثٍ غَيْرِهِۦٓ ۚ إِنَّكُمْ إِذًۭا مِّثْلُهُمْ ۗ إِنَّ ٱللَّهَ جَامِعُ ٱلْمُنَٰفِقِينَ وَٱلْكَٰفِرِينَ فِى جَهَنَّمَ جَمِيعًا
+
+**English**: He has revealed to you in the Book that when you hear God's revelations being rejected, or ridiculed, do not sit with them until they engage in some other subject. Otherwise, you would be like them. God will gather the hypocrites and the disbelievers, into Hell, altogether.
+
+### Verse 4:141
+**Arabic**: ٱلَّذِينَ يَتَرَبَّصُونَ بِكُمْ فَإِن كَانَ لَكُمْ فَتْحٌۭ مِّنَ ٱللَّهِ قَالُوٓا۟ أَلَمْ نَكُن مَّعَكُمْ وَإِن كَانَ لِلْكَٰفِرِينَ نَصِيبٌۭ قَالُوٓا۟ أَلَمْ نَسْتَحْوِذْ عَلَيْكُمْ وَنَمْنَعْكُم مِّنَ ٱلْمُؤْمِنِينَ ۚ فَٱللَّهُ يَحْكُمُ بَيْنَكُمْ يَوْمَ ٱلْقِيَٰمَةِ ۗ وَلَن يَجْعَلَ ٱللَّهُ لِلْكَٰفِرِينَ عَلَى ٱلْمُؤْمِنِينَ سَبِيلًا
+
+**English**: Those who lie in wait for you: if you attain victory from God, they say, "Were we not with you?" But if the disbelievers get a turn, they say, "Did we not side with you, and defend you from the believers?" God will judge between you on the Day of Resurrection; and God will give the disbelievers no means of overcoming the believers.
+
+### Verse 4:142
+**Arabic**: إِنَّ ٱلْمُنَٰفِقِينَ يُخَٰدِعُونَ ٱللَّهَ وَهُوَ خَٰدِعُهُمْ وَإِذَا قَامُوٓا۟ إِلَى ٱلصَّلَوٰةِ قَامُوا۟ كُسَالَىٰ يُرَآءُونَ ٱلنَّاسَ وَلَا يَذْكُرُونَ ٱللَّهَ إِلَّا قَلِيلًۭا
+
+**English**: The hypocrites try to deceive God, but He is deceiving them. And when they stand for prayer, they stand lazily, showing off in front of people, and remembering God only a little.
+
+### Verse 4:143
+**Arabic**: مُّذَبْذَبِينَ بَيْنَ ذَٰلِكَ لَآ إِلَىٰ هَٰٓؤُلَآءِ وَلَآ إِلَىٰ هَٰٓؤُلَآءِ ۚ وَمَن يُضْلِلِ ٱللَّهُ فَلَن تَجِدَ لَهُۥ سَبِيلًۭا
+
+**English**: Wavering in between, neither with these, nor with those. Whomever God sends astray, you will never find for him a way.
+
+### Verse 4:144
+**Arabic**: يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ لَا تَتَّخِذُوا۟ ٱلْكَٰفِرِينَ أَوْلِيَآءَ مِن دُونِ ٱلْمُؤْمِنِينَ ۚ أَتُرِيدُونَ أَن تَجْعَلُوا۟ لِلَّهِ عَلَيْكُمْ سُلْطَٰنًۭا مُّبِينًا
+
+**English**: O you who believe! Do not befriend disbelievers rather than believers. Do you want to give God a clear case against you?
+
+### Verse 4:145
+**Arabic**: إِنَّ ٱلْمُنَٰفِقِينَ فِى ٱلدَّرْكِ ٱلْأَسْفَلِ مِنَ ٱلنَّارِ وَلَن تَجِدَ لَهُمْ نَصِيرًا
+
+**English**: The hypocrites will be in the lowest level of the Fire, and you will find no helper for them.
+
+### Verse 4:146
+**Arabic**: إِلَّا ٱلَّذِينَ تَابُوا۟ وَأَصْلَحُوا۟ وَٱعْتَصَمُوا۟ بِٱللَّهِ وَأَخْلَصُوا۟ دِينَهُمْ لِلَّهِ فَأُو۟لَٰٓئِكَ مَعَ ٱلْمُؤْمِنِينَ ۖ وَسَوْفَ يُؤْتِ ٱللَّهُ ٱلْمُؤْمِنِينَ أَجْرًا عَظِيمًۭا
+
+**English**: Except those who repent, and reform, and hold fast to God, and dedicate their religion to God alone. These are with the believers; and God will give the believers a great reward.
+
+### Verse 4:147
+**Arabic**: مَّا يَفْعَلُ ٱللَّهُ بِعَذَابِكُمْ إِن شَكَرْتُمْ وَءَامَنتُمْ ۚ وَكَانَ ٱللَّهُ شَاكِرًا عَلِيمًۭا
+
+**English**: What would God accomplish by your punishment, if you have given thanks, and have believed? God is Appreciative and Cognizant.
+
+### Verse 4:148
+**Arabic**: ۞ لَّا يُحِبُّ ٱللَّهُ ٱلْجَهْرَ بِٱلسُّوٓءِ مِنَ ٱلْقَوْلِ إِلَّا مَن ظُلِمَ ۚ وَكَانَ ٱللَّهُ سَمِيعًا عَلِيمًا
+
+**English**: God does not like the public uttering of bad language, unless someone was wronged. God is Hearing and Knowing.
+
+### Verse 4:149
+**Arabic**: إِن تُبْدُوا۟ خَيْرًا أَوْ تُخْفُوهُ أَوْ تَعْفُوا۟ عَن سُوٓءٍۢ فَإِنَّ ٱللَّهَ كَانَ عَفُوًّۭا قَدِيرًا
+
+**English**: If you let a good deed be shown, or conceal it, or pardon an offense-God is Pardoning and Capable.
+
+### Verse 4:150
+**Arabic**: إِنَّ ٱلَّذِينَ يَكْفُرُونَ بِٱللَّهِ وَرُسُلِهِۦ وَيُرِيدُونَ أَن يُفَرِّقُوا۟ بَيْنَ ٱللَّهِ وَرُسُلِهِۦ وَيَقُولُونَ نُؤْمِنُ بِبَعْضٍۢ وَنَكْفُرُ بِبَعْضٍۢ وَيُرِيدُونَ أَن يَتَّخِذُوا۟ بَيْنَ ذَٰلِكَ سَبِيلًا
+
+**English**: Those who disbelieve in God and His messengers, and want to separate between God and His messengers, and say, "We believe in some, and reject some," and wish to take a path in between.
+
+### Verse 4:151
+**Arabic**: أُو۟لَٰٓئِكَ هُمُ ٱلْكَٰفِرُونَ حَقًّۭا ۚ وَأَعْتَدْنَا لِلْكَٰفِرِينَ عَذَابًۭا مُّهِينًۭا
+
+**English**: These are the unbelievers, truly. We have prepared for the unbelievers a shameful punishment.
+
+### Verse 4:152
+**Arabic**: وَٱلَّذِينَ ءَامَنُوا۟ بِٱللَّهِ وَرُسُلِهِۦ وَلَمْ يُفَرِّقُوا۟ بَيْنَ أَحَدٍۢ مِّنْهُمْ أُو۟لَٰٓئِكَ سَوْفَ يُؤْتِيهِمْ أُجُورَهُمْ ۗ وَكَانَ ٱللَّهُ غَفُورًۭا رَّحِيمًۭا
+
+**English**: As for those who believe in God and His messengers, and make no distinction between any of them-He will give them their rewards. God is Forgiver and Merciful.
+
+### Verse 4:153
+**Arabic**: يَسْـَٔلُكَ أَهْلُ ٱلْكِتَٰبِ أَن تُنَزِّلَ عَلَيْهِمْ كِتَٰبًۭا مِّنَ ٱلسَّمَآءِ ۚ فَقَدْ سَأَلُوا۟ مُوسَىٰٓ أَكْبَرَ مِن ذَٰلِكَ فَقَالُوٓا۟ أَرِنَا ٱللَّهَ جَهْرَةًۭ فَأَخَذَتْهُمُ ٱلصَّٰعِقَةُ بِظُلْمِهِمْ ۚ ثُمَّ ٱتَّخَذُوا۟ ٱلْعِجْلَ مِنۢ بَعْدِ مَا جَآءَتْهُمُ ٱلْبَيِّنَٰتُ فَعَفَوْنَا عَن ذَٰلِكَ ۚ وَءَاتَيْنَا مُوسَىٰ سُلْطَٰنًۭا مُّبِينًۭا
+
+**English**: The People of the Scripture challenge you to bring down to them a book from the sky. They had asked Moses for something even greater. They said, "Show us God plainly." The thunderbolt struck them for their wickedness. Then they took the calf for worship, even after the clear proofs had come to them. Yet We pardoned that, and We gave Moses a clear authority.
+
+### Verse 4:154
+**Arabic**: وَرَفَعْنَا فَوْقَهُمُ ٱلطُّورَ بِمِيثَٰقِهِمْ وَقُلْنَا لَهُمُ ٱدْخُلُوا۟ ٱلْبَابَ سُجَّدًۭا وَقُلْنَا لَهُمْ لَا تَعْدُوا۟ فِى ٱلسَّبْتِ وَأَخَذْنَا مِنْهُم مِّيثَٰقًا غَلِيظًۭا
+
+**English**: And We raised the Mount above them in accordance with their covenant, and We said to them, "Enter the gate humbly", and We said to them, "Do not violate the Sabbath", and We received from them a solemn pledge.
+
+### Verse 4:155
+**Arabic**: فَبِمَا نَقْضِهِم مِّيثَٰقَهُمْ وَكُفْرِهِم بِـَٔايَٰتِ ٱللَّهِ وَقَتْلِهِمُ ٱلْأَنۢبِيَآءَ بِغَيْرِ حَقٍّۢ وَقَوْلِهِمْ قُلُوبُنَا غُلْفٌۢ ۚ بَلْ طَبَعَ ٱللَّهُ عَلَيْهَا بِكُفْرِهِمْ فَلَا يُؤْمِنُونَ إِلَّا قَلِيلًۭا
+
+**English**: But for their violation of their covenant, and their denial of God's revelations, and their killing of the prophets unjustly, and their saying, "Our minds are closed." In fact, God has sealed them for their disbelief, so they do not believe, except for a few.
+
+### Verse 4:156
+**Arabic**: وَبِكُفْرِهِمْ وَقَوْلِهِمْ عَلَىٰ مَرْيَمَ بُهْتَٰنًا عَظِيمًۭا
+
+**English**: And for their faithlessness, and their saying against Mary a monstrous slander.
+
+### Verse 4:157
+**Arabic**: وَقَوْلِهِمْ إِنَّا قَتَلْنَا ٱلْمَسِيحَ عِيسَى ٱبْنَ مَرْيَمَ رَسُولَ ٱللَّهِ وَمَا قَتَلُوهُ وَمَا صَلَبُوهُ وَلَٰكِن شُبِّهَ لَهُمْ ۚ وَإِنَّ ٱلَّذِينَ ٱخْتَلَفُوا۟ فِيهِ لَفِى شَكٍّۢ مِّنْهُ ۚ مَا لَهُم بِهِۦ مِنْ عِلْمٍ إِلَّا ٱتِّبَاعَ ٱلظَّنِّ ۚ وَمَا قَتَلُوهُ يَقِينًۢا
+
+**English**: And for their saying, "We have killed the Messiah, Jesus, the son of Mary, the Messenger of God." In fact, they did not kill him, nor did they crucify him, but it appeared to them as if they did. Indeed, those who differ about him are in doubt about it. They have no knowledge of it, except the following of assumptions. Certainly, they did not kill him.
+
+### Verse 4:158
+**Arabic**: بَل رَّفَعَهُ ٱللَّهُ إِلَيْهِ ۚ وَكَانَ ٱللَّهُ عَزِيزًا حَكِيمًۭا
+
+**English**: Rather, God raised him up to Himself. God is Mighty and Wise.
+
+### Verse 4:159
+**Arabic**: وَإِن مِّنْ أَهْلِ ٱلْكِتَٰبِ إِلَّا لَيُؤْمِنَنَّ بِهِۦ قَبْلَ مَوْتِهِۦ ۖ وَيَوْمَ ٱلْقِيَٰمَةِ يَكُونُ عَلَيْهِمْ شَهِيدًۭا
+
+**English**: There is none from the People of the Scripture but will believe in him before his death, and on the Day of Resurrection he will be a witness against them.
+
+### Verse 4:160
+**Arabic**: فَبِظُلْمٍۢ مِّنَ ٱلَّذِينَ هَادُوا۟ حَرَّمْنَا عَلَيْهِمْ طَيِّبَٰتٍ أُحِلَّتْ لَهُمْ وَبِصَدِّهِمْ عَن سَبِيلِ ٱللَّهِ كَثِيرًۭا
+
+**English**: Due to wrongdoing on the part of the Jews, We forbade them good things that used to be lawful for them; and for deterring many from God's path.
+
+### Verse 4:161
+**Arabic**: وَأَخْذِهِمُ ٱلرِّبَوٰا۟ وَقَدْ نُهُوا۟ عَنْهُ وَأَكْلِهِمْ أَمْوَٰلَ ٱلنَّاسِ بِٱلْبَٰطِلِ ۚ وَأَعْتَدْنَا لِلْكَٰفِرِينَ مِنْهُمْ عَذَابًا أَلِيمًۭا
+
+**English**: And for their taking usury, although they were forbidden it; and for their consuming people's wealth dishonestly. We have prepared for the faithless among them a painful torment.
+
+### Verse 4:162
+**Arabic**: لَّٰكِنِ ٱلرَّٰسِخُونَ فِى ٱلْعِلْمِ مِنْهُمْ وَٱلْمُؤْمِنُونَ يُؤْمِنُونَ بِمَآ أُنزِلَ إِلَيْكَ وَمَآ أُنزِلَ مِن قَبْلِكَ ۚ وَٱلْمُقِيمِينَ ٱلصَّلَوٰةَ ۚ وَٱلْمُؤْتُونَ ٱلزَّكَوٰةَ وَٱلْمُؤْمِنُونَ بِٱللَّهِ وَٱلْيَوْمِ ٱلْءَاخِرِ أُو۟لَٰٓئِكَ سَنُؤْتِيهِمْ أَجْرًا عَظِيمًا
+
+**English**: But those among them firmly rooted in knowledge, and the believers, believe in what was revealed to you, and in what was revealed before you; and the observers of prayers, and the givers of charity, and the believers in God and the Last Day-upon these We will bestow an immense reward.
+
+### Verse 4:163
+**Arabic**: ۞ إِنَّآ أَوْحَيْنَآ إِلَيْكَ كَمَآ أَوْحَيْنَآ إِلَىٰ نُوحٍۢ وَٱلنَّبِيِّۦنَ مِنۢ بَعْدِهِۦ ۚ وَأَوْحَيْنَآ إِلَىٰٓ إِبْرَٰهِيمَ وَإِسْمَٰعِيلَ وَإِسْحَٰقَ وَيَعْقُوبَ وَٱلْأَسْبَاطِ وَعِيسَىٰ وَأَيُّوبَ وَيُونُسَ وَهَٰرُونَ وَسُلَيْمَٰنَ ۚ وَءَاتَيْنَا دَاوُۥدَ زَبُورًۭا
+
+**English**: We have inspired you, as We had inspired Noah and the prophets after him. And We inspired Abraham, and Ishmael, and Isaac, and Jacob, and the Patriarchs, and Jesus, and Job, and Jonah, and Aaron, and Solomon. And We gave David the Psalms.
+
+### Verse 4:164
+**Arabic**: وَرُسُلًۭا قَدْ قَصَصْنَٰهُمْ عَلَيْكَ مِن قَبْلُ وَرُسُلًۭا لَّمْ نَقْصُصْهُمْ عَلَيْكَ ۚ وَكَلَّمَ ٱللَّهُ مُوسَىٰ تَكْلِيمًۭا
+
+**English**: Some messengers We have already told you about, while some messengers We have not told you about. And God spoke to Moses directly.
+
+### Verse 4:165
+**Arabic**: رُّسُلًۭا مُّبَشِّرِينَ وَمُنذِرِينَ لِئَلَّا يَكُونَ لِلنَّاسِ عَلَى ٱللَّهِ حُجَّةٌۢ بَعْدَ ٱلرُّسُلِ ۚ وَكَانَ ٱللَّهُ عَزِيزًا حَكِيمًۭا
+
+**English**: Messengers delivering good news, and bringing warnings; so that people may have no excuse before God after the coming of the messengers. God is Powerful and Wise.
+
+### Verse 4:166
+**Arabic**: لَّٰكِنِ ٱللَّهُ يَشْهَدُ بِمَآ أَنزَلَ إِلَيْكَ ۖ أَنزَلَهُۥ بِعِلْمِهِۦ ۖ وَٱلْمَلَٰٓئِكَةُ يَشْهَدُونَ ۚ وَكَفَىٰ بِٱللَّهِ شَهِيدًا
+
+**English**: But God bears witness to what He revealed to you. He revealed it with His knowledge. And the angels bear witness. Though God is a sufficient witness.
+
+### Verse 4:167
+**Arabic**: إِنَّ ٱلَّذِينَ كَفَرُوا۟ وَصَدُّوا۟ عَن سَبِيلِ ٱللَّهِ قَدْ ضَلُّوا۟ ضَلَٰلًۢا بَعِيدًا
+
+**English**: Those who disbelieve and repel from God's path have gone far astray.
+
+### Verse 4:168
+**Arabic**: إِنَّ ٱلَّذِينَ كَفَرُوا۟ وَظَلَمُوا۟ لَمْ يَكُنِ ٱللَّهُ لِيَغْفِرَ لَهُمْ وَلَا لِيَهْدِيَهُمْ طَرِيقًا
+
+**English**: Those who disbelieve and transgress; God is not about to forgive them, nor will He guide them to any path.
+
+### Verse 4:169
+**Arabic**: إِلَّا طَرِيقَ جَهَنَّمَ خَٰلِدِينَ فِيهَآ أَبَدًۭا ۚ وَكَانَ ذَٰلِكَ عَلَى ٱللَّهِ يَسِيرًۭا
+
+**English**: Except to the path of Hell, where they will dwell forever. And that is easy for God.
+
+### Verse 4:170
+**Arabic**: يَٰٓأَيُّهَا ٱلنَّاسُ قَدْ جَآءَكُمُ ٱلرَّسُولُ بِٱلْحَقِّ مِن رَّبِّكُمْ فَـَٔامِنُوا۟ خَيْرًۭا لَّكُمْ ۚ وَإِن تَكْفُرُوا۟ فَإِنَّ لِلَّهِ مَا فِى ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ ۚ وَكَانَ ٱللَّهُ عَلِيمًا حَكِيمًۭا
+
+**English**: O people! The Messenger has come to you with the truth from your Lord, so believe-that is best for you. But if you disbelieve, to God belongs everything in the heavens and the earth. God is Omniscient and Wise.
+
+### Verse 4:171
+**Arabic**: يَٰٓأَهْلَ ٱلْكِتَٰبِ لَا تَغْلُوا۟ فِى دِينِكُمْ وَلَا تَقُولُوا۟ عَلَى ٱللَّهِ إِلَّا ٱلْحَقَّ ۚ إِنَّمَا ٱلْمَسِيحُ عِيسَى ٱبْنُ مَرْيَمَ رَسُولُ ٱللَّهِ وَكَلِمَتُهُۥٓ أَلْقَىٰهَآ إِلَىٰ مَرْيَمَ وَرُوحٌۭ مِّنْهُ ۖ فَـَٔامِنُوا۟ بِٱللَّهِ وَرُسُلِهِۦ ۖ وَلَا تَقُولُوا۟ ثَلَٰثَةٌ ۚ ٱنتَهُوا۟ خَيْرًۭا لَّكُمْ ۚ إِنَّمَا ٱللَّهُ إِلَٰهٌۭ وَٰحِدٌۭ ۖ سُبْحَٰنَهُۥٓ أَن يَكُونَ لَهُۥ وَلَدٌۭ ۘ لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِ ۗ وَكَفَىٰ بِٱللَّهِ وَكِيلًۭا
+
+**English**: O People of the Scripture! Do not exaggerate in your religion, and do not say about God except the truth. The Messiah, Jesus, the son of Mary, is the Messenger of God, and His Word that He conveyed to Mary, and a Spirit from Him. So believe in God and His messengers, and do not say, "Three." Refrain-it is better for you. God is only one God. Glory be to Him-that He should have a son. To Him belongs everything in the heavens and the earth, and God is a sufficient Protector.
+
+### Verse 4:172
+**Arabic**: لَّن يَسْتَنكِفَ ٱلْمَسِيحُ أَن يَكُونَ عَبْدًۭا لِّلَّهِ وَلَا ٱلْمَلَٰٓئِكَةُ ٱلْمُقَرَّبُونَ ۚ وَمَن يَسْتَنكِفْ عَنْ عِبَادَتِهِۦ وَيَسْتَكْبِرْ فَسَيَحْشُرُهُمْ إِلَيْهِ جَمِيعًۭا
+
+**English**: The Messiah does not disdain to be a servant of God, nor do the favored angels. Whoever disdains His worship, and is too arrogant-He will round them up to Himself altogether.
+
+### Verse 4:173
+**Arabic**: فَأَمَّا ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ فَيُوَفِّيهِمْ أُجُورَهُمْ وَيَزِيدُهُم مِّن فَضْلِهِۦ ۖ وَأَمَّا ٱلَّذِينَ ٱسْتَنكَفُوا۟ وَٱسْتَكْبَرُوا۟ فَيُعَذِّبُهُمْ عَذَابًا أَلِيمًۭا وَلَا يَجِدُونَ لَهُم مِّن دُونِ ٱللَّهِ وَلِيًّۭا وَلَا نَصِيرًۭا
+
+**English**: But as for those who believe and do good works, He will pay them their wages in full, and will increase His grace for them. But as for those who disdain and are too proud, He will punish them with an agonizing punishment. And they will find for themselves, apart from God, no lord and no savior.
+
+### Verse 4:174
+**Arabic**: يَٰٓأَيُّهَا ٱلنَّاسُ قَدْ جَآءَكُم بُرْهَٰنٌۭ مِّن رَّبِّكُمْ وَأَنزَلْنَآ إِلَيْكُمْ نُورًۭا مُّبِينًۭا
+
+**English**: O people! A proof has come to you from your Lord, and We sent down to you a clear light.
+
+### Verse 4:175
+**Arabic**: فَأَمَّا ٱلَّذِينَ ءَامَنُوا۟ بِٱللَّهِ وَٱعْتَصَمُوا۟ بِهِۦ فَسَيُدْخِلُهُمْ فِى رَحْمَةٍۢ مِّنْهُ وَفَضْلٍۢ وَيَهْدِيهِمْ إِلَيْهِ صِرَٰطًۭا مُّسْتَقِيمًۭا
+
+**English**: As for those who believe in God, and hold fast to Him, He will admit them into mercy and grace from Him, and will guide them to Himself in a straight path.
+
+### Verse 4:176
+**Arabic**: يَسْتَفْتُونَكَ قُلِ ٱللَّهُ يُفْتِيكُمْ فِى ٱلْكَلَٰلَةِ ۚ إِنِ ٱمْرُؤٌا۟ هَلَكَ لَيْسَ لَهُۥ وَلَدٌۭ وَلَهُۥٓ أُخْتٌۭ فَلَهَا نِصْفُ مَا تَرَكَ ۚ وَهُوَ يَرِثُهَآ إِن لَّمْ يَكُن لَّهَا وَلَدٌۭ ۚ فَإِن كَانَتَا ٱثْنَتَيْنِ فَلَهُمَا ٱلثُّلُثَانِ مِمَّا تَرَكَ ۚ وَإِن كَانُوٓا۟ إِخْوَةًۭ رِّجَالًۭا وَنِسَآءًۭ فَلِلذَّكَرِ مِثْلُ حَظِّ ٱلْأُنثَيَيْنِ ۗ يُبَيِّنُ ٱللَّهُ لَكُمْ أَن تَضِلُّوا۟ ۗ وَٱللَّهُ بِكُلِّ شَىْءٍ عَلِيمٌۢ
+
+**English**: They ask you for a ruling. Say, "God gives you a ruling concerning the person who has neither parents nor children." If a man dies, and leaves no children, and he had a sister, she receives one-half of what he leaves. And he inherits from her if she leaves no children. But if there are two sisters, they receive two-thirds of what he leaves. If the siblings are men and women, the male receives the share of two females." God makes things clear for you, lest you err. God is Aware of everything.
+
+## Thematic cross-references
+
+- **Legislation**: [Al-Baqara](surah_002_al-baqara.md), [Al-Ma'ida](surah_005_al-ma-ida.md), [Al-Anfal](surah_008_al-anfal.md), [An-Nur](surah_024_an-nur.md), [Al-Ahzab](surah_033_al-ahzab.md), [Al-Hujurat](surah_049_al-hujurat.md), [Al-Mujadilah](surah_058_al-mujadilah.md), [Al-Mumtahinah](surah_060_al-mumtahinah.md) and 2 more

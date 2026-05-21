@@ -1,0 +1,288 @@
+# Surah 41: Fussilat (فصلت)
+
+- **Mushaf number**: 41
+- **Place of revelation**: Mecca (Makkiyah)
+- **Verse count**: 54
+- **Themes**: [Warning](../themes/warning.md)
+- **Named entities mentioned**: [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md), [Iblis (Satan)](../entities/figure_iblis.md), [Moses (Musa)](../entities/prophet_musa.md), [Rabb (the Lord)](../entities/divine_rabb.md)
+
+## Verses
+
+### Verse 41:0
+**Arabic**: بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+
+**English**: In the name of God, the Gracious, the Merciful.
+
+### Verse 41:1
+**Arabic**: حمٓ
+
+**English**: Ha, Meem.
+
+### Verse 41:2
+**Arabic**: تَنزِيلٌۭ مِّنَ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
+
+**English**: A revelation from the Most Gracious, the Most Merciful.
+
+### Verse 41:3
+**Arabic**: كِتَٰبٌۭ فُصِّلَتْ ءَايَٰتُهُۥ قُرْءَانًا عَرَبِيًّۭا لِّقَوْمٍۢ يَعْلَمُونَ
+
+**English**: A Scripture whose Verses are detailed, a Quran in Arabic for people who know.
+
+### Verse 41:4
+**Arabic**: بَشِيرًۭا وَنَذِيرًۭا فَأَعْرَضَ أَكْثَرُهُمْ فَهُمْ لَا يَسْمَعُونَ
+
+**English**: Bringing good news, and giving warnings. But most of them turn away, so they do not listen.
+
+### Verse 41:5
+**Arabic**: وَقَالُوا۟ قُلُوبُنَا فِىٓ أَكِنَّةٍۢ مِّمَّا تَدْعُونَآ إِلَيْهِ وَفِىٓ ءَاذَانِنَا وَقْرٌۭ وَمِنۢ بَيْنِنَا وَبَيْنِكَ حِجَابٌۭ فَٱعْمَلْ إِنَّنَا عَٰمِلُونَ
+
+**English**: And they say, "Our hearts are screened from what you call us to, and in our ears is deafness, and between us and you is a barrier. So do what you want, and so will we."
+
+### Verse 41:6
+**Arabic**: قُلْ إِنَّمَآ أَنَا۠ بَشَرٌۭ مِّثْلُكُمْ يُوحَىٰٓ إِلَىَّ أَنَّمَآ إِلَٰهُكُمْ إِلَٰهٌۭ وَٰحِدٌۭ فَٱسْتَقِيمُوٓا۟ إِلَيْهِ وَٱسْتَغْفِرُوهُ ۗ وَوَيْلٌۭ لِّلْمُشْرِكِينَ
+
+**English**: Say, "I am only a human like you; it is inspired in me that your God is One God. So be upright towards Him, and seek forgiveness from Him." And woe to the idolaters.
+
+### Verse 41:7
+**Arabic**: ٱلَّذِينَ لَا يُؤْتُونَ ٱلزَّكَوٰةَ وَهُم بِٱلْءَاخِرَةِ هُمْ كَٰفِرُونَ
+
+**English**: Those who do not pay the alms; and regarding the Hereafter, they are disbelievers.
+
+### Verse 41:8
+**Arabic**: إِنَّ ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ لَهُمْ أَجْرٌ غَيْرُ مَمْنُونٍۢ
+
+**English**: As for those who believe and do righteous deeds-for them is a reward uninterrupted.
+
+### Verse 41:9
+**Arabic**: ۞ قُلْ أَئِنَّكُمْ لَتَكْفُرُونَ بِٱلَّذِى خَلَقَ ٱلْأَرْضَ فِى يَوْمَيْنِ وَتَجْعَلُونَ لَهُۥٓ أَندَادًۭا ۚ ذَٰلِكَ رَبُّ ٱلْعَٰلَمِينَ
+
+**English**: Say, "Do you reject the One who created the earth in two days? And you attribute equals to Him? That is the Lord of the Universe."
+
+### Verse 41:10
+**Arabic**: وَجَعَلَ فِيهَا رَوَٰسِىَ مِن فَوْقِهَا وَبَٰرَكَ فِيهَا وَقَدَّرَ فِيهَآ أَقْوَٰتَهَا فِىٓ أَرْبَعَةِ أَيَّامٍۢ سَوَآءًۭ لِّلسَّآئِلِينَ
+
+**English**: He placed stabilizers over it; and blessed it; and planned its provisions in four days, equally to the seekers.
+
+### Verse 41:11
+**Arabic**: ثُمَّ ٱسْتَوَىٰٓ إِلَى ٱلسَّمَآءِ وَهِىَ دُخَانٌۭ فَقَالَ لَهَا وَلِلْأَرْضِ ٱئْتِيَا طَوْعًا أَوْ كَرْهًۭا قَالَتَآ أَتَيْنَا طَآئِعِينَ
+
+**English**: Then He turned to the sky, and it was smoke, and said to it and to the earth, "Come, willingly or unwillingly." They said, "We come willingly."
+
+### Verse 41:12
+**Arabic**: فَقَضَىٰهُنَّ سَبْعَ سَمَٰوَاتٍۢ فِى يَوْمَيْنِ وَأَوْحَىٰ فِى كُلِّ سَمَآءٍ أَمْرَهَا ۚ وَزَيَّنَّا ٱلسَّمَآءَ ٱلدُّنْيَا بِمَصَٰبِيحَ وَحِفْظًۭا ۚ ذَٰلِكَ تَقْدِيرُ ٱلْعَزِيزِ ٱلْعَلِيمِ
+
+**English**: So He completed them as seven universes in two days, and He assigned to each universe its laws. And We decorated the lower universe with lamps, and for protection. That is the design of the Almighty, the All-Knowing.
+
+### Verse 41:13
+**Arabic**: فَإِنْ أَعْرَضُوا۟ فَقُلْ أَنذَرْتُكُمْ صَٰعِقَةًۭ مِّثْلَ صَٰعِقَةِ عَادٍۢ وَثَمُودَ
+
+**English**: But if they turn away, say, "I have warned you of a thunderbolt, like the thunderbolt of Aad and Thamood."
+
+### Verse 41:14
+**Arabic**: إِذْ جَآءَتْهُمُ ٱلرُّسُلُ مِنۢ بَيْنِ أَيْدِيهِمْ وَمِنْ خَلْفِهِمْ أَلَّا تَعْبُدُوٓا۟ إِلَّا ٱللَّهَ ۖ قَالُوا۟ لَوْ شَآءَ رَبُّنَا لَأَنزَلَ مَلَٰٓئِكَةًۭ فَإِنَّا بِمَآ أُرْسِلْتُم بِهِۦ كَٰفِرُونَ
+
+**English**: Their messengers came to them, from before them and from behind them, saying, "Do not worship anyone but God." They said, "Had our Lord willed, He would have sent down angels; Therefore, we reject what you are sent with."
+
+### Verse 41:15
+**Arabic**: فَأَمَّا عَادٌۭ فَٱسْتَكْبَرُوا۟ فِى ٱلْأَرْضِ بِغَيْرِ ٱلْحَقِّ وَقَالُوا۟ مَنْ أَشَدُّ مِنَّا قُوَّةً ۖ أَوَلَمْ يَرَوْا۟ أَنَّ ٱللَّهَ ٱلَّذِى خَلَقَهُمْ هُوَ أَشَدُّ مِنْهُمْ قُوَّةًۭ ۖ وَكَانُوا۟ بِـَٔايَٰتِنَا يَجْحَدُونَ
+
+**English**: As for Aad, they turned arrogant on earth, and opposed justice, and said, "Who is more powerful than us?" Have they not considered that God, who created them, is more powerful than they? And they went on denying Our revelations.
+
+### Verse 41:16
+**Arabic**: فَأَرْسَلْنَا عَلَيْهِمْ رِيحًۭا صَرْصَرًۭا فِىٓ أَيَّامٍۢ نَّحِسَاتٍۢ لِّنُذِيقَهُمْ عَذَابَ ٱلْخِزْىِ فِى ٱلْحَيَوٰةِ ٱلدُّنْيَا ۖ وَلَعَذَابُ ٱلْءَاخِرَةِ أَخْزَىٰ ۖ وَهُمْ لَا يُنصَرُونَ
+
+**English**: So We unleashed upon them a screaming wind, for a few miserable days, to make them taste the punishment of shame in this life; but the punishment of the Hereafter is more shameful; and they will not be saved.
+
+### Verse 41:17
+**Arabic**: وَأَمَّا ثَمُودُ فَهَدَيْنَٰهُمْ فَٱسْتَحَبُّوا۟ ٱلْعَمَىٰ عَلَى ٱلْهُدَىٰ فَأَخَذَتْهُمْ صَٰعِقَةُ ٱلْعَذَابِ ٱلْهُونِ بِمَا كَانُوا۟ يَكْسِبُونَ
+
+**English**: And as for Thamood, We guided them, but they preferred blindness over guidance. So the thunderbolt of the humiliating punishment seized them, because of what they used to earn.
+
+### Verse 41:18
+**Arabic**: وَنَجَّيْنَا ٱلَّذِينَ ءَامَنُوا۟ وَكَانُوا۟ يَتَّقُونَ
+
+**English**: And We saved those who believed and were righteous.
+
+### Verse 41:19
+**Arabic**: وَيَوْمَ يُحْشَرُ أَعْدَآءُ ٱللَّهِ إِلَى ٱلنَّارِ فَهُمْ يُوزَعُونَ
+
+**English**: The Day when God's enemies are herded into the Fire, forcibly.
+
+### Verse 41:20
+**Arabic**: حَتَّىٰٓ إِذَا مَا جَآءُوهَا شَهِدَ عَلَيْهِمْ سَمْعُهُمْ وَأَبْصَٰرُهُمْ وَجُلُودُهُم بِمَا كَانُوا۟ يَعْمَلُونَ
+
+**English**: Until, when they have reached it, their hearing, and their sight, and their skins will testify against them regarding what they used to do.
+
+### Verse 41:21
+**Arabic**: وَقَالُوا۟ لِجُلُودِهِمْ لِمَ شَهِدتُّمْ عَلَيْنَا ۖ قَالُوٓا۟ أَنطَقَنَا ٱللَّهُ ٱلَّذِىٓ أَنطَقَ كُلَّ شَىْءٍۢ وَهُوَ خَلَقَكُمْ أَوَّلَ مَرَّةٍۢ وَإِلَيْهِ تُرْجَعُونَ
+
+**English**: And they will say to their skins, "Why did you testify against us?" They will say, "God, Who made all things speak, made us speak. It is He who created you the first time, and to Him you are returned."
+
+### Verse 41:22
+**Arabic**: وَمَا كُنتُمْ تَسْتَتِرُونَ أَن يَشْهَدَ عَلَيْكُمْ سَمْعُكُمْ وَلَآ أَبْصَٰرُكُمْ وَلَا جُلُودُكُمْ وَلَٰكِن ظَنَنتُمْ أَنَّ ٱللَّهَ لَا يَعْلَمُ كَثِيرًۭا مِّمَّا تَعْمَلُونَ
+
+**English**: You were unable to hide yourselves from your hearing, and your sight, and your skins, to prevent them from testifying against you, and you imagined that God was unaware of much of what you do.
+
+### Verse 41:23
+**Arabic**: وَذَٰلِكُمْ ظَنُّكُمُ ٱلَّذِى ظَنَنتُم بِرَبِّكُمْ أَرْدَىٰكُمْ فَأَصْبَحْتُم مِّنَ ٱلْخَٰسِرِينَ
+
+**English**: It is that thought of yours about your Lord that led you to ruin-so you became of the losers.
+
+### Verse 41:24
+**Arabic**: فَإِن يَصْبِرُوا۟ فَٱلنَّارُ مَثْوًۭى لَّهُمْ ۖ وَإِن يَسْتَعْتِبُوا۟ فَمَا هُم مِّنَ ٱلْمُعْتَبِينَ
+
+**English**: If they endure patiently, the Fire will be their residence; and if they make up excuses, they will not be pardoned.
+
+### Verse 41:25
+**Arabic**: ۞ وَقَيَّضْنَا لَهُمْ قُرَنَآءَ فَزَيَّنُوا۟ لَهُم مَّا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَحَقَّ عَلَيْهِمُ ٱلْقَوْلُ فِىٓ أُمَمٍۢ قَدْ خَلَتْ مِن قَبْلِهِم مِّنَ ٱلْجِنِّ وَٱلْإِنسِ ۖ إِنَّهُمْ كَانُوا۟ خَٰسِرِينَ
+
+**English**: We had assigned companions for them, who glamorized to them what was in front of them, and what was behind them. And the Word proved true against them in communities of jinn and humans that have passed away before them. They were losers.
+
+### Verse 41:26
+**Arabic**: وَقَالَ ٱلَّذِينَ كَفَرُوا۟ لَا تَسْمَعُوا۟ لِهَٰذَا ٱلْقُرْءَانِ وَٱلْغَوْا۟ فِيهِ لَعَلَّكُمْ تَغْلِبُونَ
+
+**English**: Those who disbelieve say, "Do not listen to this Quran, and talk over it, so that you may prevail."
+
+### Verse 41:27
+**Arabic**: فَلَنُذِيقَنَّ ٱلَّذِينَ كَفَرُوا۟ عَذَابًۭا شَدِيدًۭا وَلَنَجْزِيَنَّهُمْ أَسْوَأَ ٱلَّذِى كَانُوا۟ يَعْمَلُونَ
+
+**English**: We will make those who disbelieve taste an intense agony, and We will recompense them according to the worst of what they used to do.
+
+### Verse 41:28
+**Arabic**: ذَٰلِكَ جَزَآءُ أَعْدَآءِ ٱللَّهِ ٱلنَّارُ ۖ لَهُمْ فِيهَا دَارُ ٱلْخُلْدِ ۖ جَزَآءًۢ بِمَا كَانُوا۟ بِـَٔايَٰتِنَا يَجْحَدُونَ
+
+**English**: Such is the recompense of God's enemies-the Fire-where they will have their permanent home, in recompense for having disregarded Our revelations.
+
+### Verse 41:29
+**Arabic**: وَقَالَ ٱلَّذِينَ كَفَرُوا۟ رَبَّنَآ أَرِنَا ٱلَّذَيْنِ أَضَلَّانَا مِنَ ٱلْجِنِّ وَٱلْإِنسِ نَجْعَلْهُمَا تَحْتَ أَقْدَامِنَا لِيَكُونَا مِنَ ٱلْأَسْفَلِينَ
+
+**English**: Those who disbelieved will say, "Our Lord, show us those who led us astray-among jinn and humans-and we will trample them under our feet, so they become among of the lowest."
+
+### Verse 41:30
+**Arabic**: إِنَّ ٱلَّذِينَ قَالُوا۟ رَبُّنَا ٱللَّهُ ثُمَّ ٱسْتَقَٰمُوا۟ تَتَنَزَّلُ عَلَيْهِمُ ٱلْمَلَٰٓئِكَةُ أَلَّا تَخَافُوا۟ وَلَا تَحْزَنُوا۟ وَأَبْشِرُوا۟ بِٱلْجَنَّةِ ٱلَّتِى كُنتُمْ تُوعَدُونَ
+
+**English**: Surely, those who say: "Our Lord is God," and then go straight, the angels will descend upon them: "Do not fear, and do not grieve, but rejoice in the news of the Garden which you were promised.
+
+### Verse 41:31
+**Arabic**: نَحْنُ أَوْلِيَآؤُكُمْ فِى ٱلْحَيَوٰةِ ٱلدُّنْيَا وَفِى ٱلْءَاخِرَةِ ۖ وَلَكُمْ فِيهَا مَا تَشْتَهِىٓ أَنفُسُكُمْ وَلَكُمْ فِيهَا مَا تَدَّعُونَ
+
+**English**: We are your allies in this life and in the Hereafter, wherein you will have whatever your souls desire, and you will have therein whatever you call for.
+
+### Verse 41:32
+**Arabic**: نُزُلًۭا مِّنْ غَفُورٍۢ رَّحِيمٍۢ
+
+**English**: As Hospitality from an All-Forgiving, Merciful One."
+
+### Verse 41:33
+**Arabic**: وَمَنْ أَحْسَنُ قَوْلًۭا مِّمَّن دَعَآ إِلَى ٱللَّهِ وَعَمِلَ صَٰلِحًۭا وَقَالَ إِنَّنِى مِنَ ٱلْمُسْلِمِينَ
+
+**English**: And who is better in speech than someone who calls to God, and acts with integrity, and says, "I am of those who submit"?
+
+### Verse 41:34
+**Arabic**: وَلَا تَسْتَوِى ٱلْحَسَنَةُ وَلَا ٱلسَّيِّئَةُ ۚ ٱدْفَعْ بِٱلَّتِى هِىَ أَحْسَنُ فَإِذَا ٱلَّذِى بَيْنَكَ وَبَيْنَهُۥ عَدَٰوَةٌۭ كَأَنَّهُۥ وَلِىٌّ حَمِيمٌۭ
+
+**English**: Good and evil are not equal. Repel evil with good, and the person who was your enemy becomes like an intimate friend.
+
+### Verse 41:35
+**Arabic**: وَمَا يُلَقَّىٰهَآ إِلَّا ٱلَّذِينَ صَبَرُوا۟ وَمَا يُلَقَّىٰهَآ إِلَّا ذُو حَظٍّ عَظِيمٍۢ
+
+**English**: But none will attain it except those who persevere, and none will attain it except the very fortunate.
+
+### Verse 41:36
+**Arabic**: وَإِمَّا يَنزَغَنَّكَ مِنَ ٱلشَّيْطَٰنِ نَزْغٌۭ فَٱسْتَعِذْ بِٱللَّهِ ۖ إِنَّهُۥ هُوَ ٱلسَّمِيعُ ٱلْعَلِيمُ
+
+**English**: When a temptation from the Devil provokes you, seek refuge in God; He is the Hearer, the Knower.
+
+### Verse 41:37
+**Arabic**: وَمِنْ ءَايَٰتِهِ ٱلَّيْلُ وَٱلنَّهَارُ وَٱلشَّمْسُ وَٱلْقَمَرُ ۚ لَا تَسْجُدُوا۟ لِلشَّمْسِ وَلَا لِلْقَمَرِ وَٱسْجُدُوا۟ لِلَّهِ ٱلَّذِى خَلَقَهُنَّ إِن كُنتُمْ إِيَّاهُ تَعْبُدُونَ
+
+**English**: And of His signs are the night and the day, and the sun and the moon. Do not bow down to the sun, nor to the moon, but bow down to God, Who created them both, if it is Him that you serve.
+
+### Verse 41:38
+**Arabic**: فَإِنِ ٱسْتَكْبَرُوا۟ فَٱلَّذِينَ عِندَ رَبِّكَ يُسَبِّحُونَ لَهُۥ بِٱلَّيْلِ وَٱلنَّهَارِ وَهُمْ لَا يَسْـَٔمُونَ ۩
+
+**English**: But if they are too proud-those in the presence of your Lord praise Him night and day, and without ever tiring.
+
+### Verse 41:39
+**Arabic**: وَمِنْ ءَايَٰتِهِۦٓ أَنَّكَ تَرَى ٱلْأَرْضَ خَٰشِعَةًۭ فَإِذَآ أَنزَلْنَا عَلَيْهَا ٱلْمَآءَ ٱهْتَزَّتْ وَرَبَتْ ۚ إِنَّ ٱلَّذِىٓ أَحْيَاهَا لَمُحْىِ ٱلْمَوْتَىٰٓ ۚ إِنَّهُۥ عَلَىٰ كُلِّ شَىْءٍۢ قَدِيرٌ
+
+**English**: And of His signs is that you see the land still. But when We send down water upon it, it stirs and grows. Surely, He Who revived it will revive the dead. He is Able to do all things.
+
+### Verse 41:40
+**Arabic**: إِنَّ ٱلَّذِينَ يُلْحِدُونَ فِىٓ ءَايَٰتِنَا لَا يَخْفَوْنَ عَلَيْنَآ ۗ أَفَمَن يُلْقَىٰ فِى ٱلنَّارِ خَيْرٌ أَم مَّن يَأْتِىٓ ءَامِنًۭا يَوْمَ ٱلْقِيَٰمَةِ ۚ ٱعْمَلُوا۟ مَا شِئْتُمْ ۖ إِنَّهُۥ بِمَا تَعْمَلُونَ بَصِيرٌ
+
+**English**: Those who despise Our revelations are not hidden from Us. Is he who is hurled into the Fire better? Or he who arrives safely on the Day of Resurrection? Do as you please; He is Seeing of everything you do.
+
+### Verse 41:41
+**Arabic**: إِنَّ ٱلَّذِينَ كَفَرُوا۟ بِٱلذِّكْرِ لَمَّا جَآءَهُمْ ۖ وَإِنَّهُۥ لَكِتَٰبٌ عَزِيزٌۭ
+
+**English**: Those who reject the Reminder when it has come to them-it is an invincible Book.
+
+### Verse 41:42
+**Arabic**: لَّا يَأْتِيهِ ٱلْبَٰطِلُ مِنۢ بَيْنِ يَدَيْهِ وَلَا مِنْ خَلْفِهِۦ ۖ تَنزِيلٌۭ مِّنْ حَكِيمٍ حَمِيدٍۢ
+
+**English**: Falsehood cannot approach it, from before it or behind it. It is a revelation from One Wise and Praiseworthy.
+
+### Verse 41:43
+**Arabic**: مَّا يُقَالُ لَكَ إِلَّا مَا قَدْ قِيلَ لِلرُّسُلِ مِن قَبْلِكَ ۚ إِنَّ رَبَّكَ لَذُو مَغْفِرَةٍۢ وَذُو عِقَابٍ أَلِيمٍۢ
+
+**English**: Nothing is said to you but was said to the Messengers before you: your Lord is Possessor of Forgiveness, and Possessor of Painful Repayment.
+
+### Verse 41:44
+**Arabic**: وَلَوْ جَعَلْنَٰهُ قُرْءَانًا أَعْجَمِيًّۭا لَّقَالُوا۟ لَوْلَا فُصِّلَتْ ءَايَٰتُهُۥٓ ۖ ءَا۬عْجَمِىٌّۭ وَعَرَبِىٌّۭ ۗ قُلْ هُوَ لِلَّذِينَ ءَامَنُوا۟ هُدًۭى وَشِفَآءٌۭ ۖ وَٱلَّذِينَ لَا يُؤْمِنُونَ فِىٓ ءَاذَانِهِمْ وَقْرٌۭ وَهُوَ عَلَيْهِمْ عَمًى ۚ أُو۟لَٰٓئِكَ يُنَادَوْنَ مِن مَّكَانٍۭ بَعِيدٍۢ
+
+**English**: Had We made it a Quran in a foreign language, they would have said, "If only its verses were made clear." Non-Arabic and an Arab? Say, "For those who believe, it is guidance and healing. But as for those who do not believe: there is heaviness in their ears, and it is blindness for them. These are being called from a distant place."
+
+### Verse 41:45
+**Arabic**: وَلَقَدْ ءَاتَيْنَا مُوسَى ٱلْكِتَٰبَ فَٱخْتُلِفَ فِيهِ ۗ وَلَوْلَا كَلِمَةٌۭ سَبَقَتْ مِن رَّبِّكَ لَقُضِىَ بَيْنَهُمْ ۚ وَإِنَّهُمْ لَفِى شَكٍّۢ مِّنْهُ مُرِيبٍۢ
+
+**English**: We gave Moses the Book, but disputes arose concerning it. Were it not for a prior decree from your Lord, judgment would have been pronounced between them. But they are in perplexing doubt concerning it.
+
+### Verse 41:46
+**Arabic**: مَّنْ عَمِلَ صَٰلِحًۭا فَلِنَفْسِهِۦ ۖ وَمَنْ أَسَآءَ فَعَلَيْهَا ۗ وَمَا رَبُّكَ بِظَلَّٰمٍۢ لِّلْعَبِيدِ
+
+**English**: Whoever acts righteously does so for himself; and whoever works evil does so against himself. Your Lord is not unjust to the servants.
+
+### Verse 41:47
+**Arabic**: ۞ إِلَيْهِ يُرَدُّ عِلْمُ ٱلسَّاعَةِ ۚ وَمَا تَخْرُجُ مِن ثَمَرَٰتٍۢ مِّنْ أَكْمَامِهَا وَمَا تَحْمِلُ مِنْ أُنثَىٰ وَلَا تَضَعُ إِلَّا بِعِلْمِهِۦ ۚ وَيَوْمَ يُنَادِيهِمْ أَيْنَ شُرَكَآءِى قَالُوٓا۟ ءَاذَنَّٰكَ مَا مِنَّا مِن شَهِيدٍۢ
+
+**English**: To Him is referred the knowledge of the Hour. No fruit emerges from its sheath, and no female conceives or delivers, except with His knowledge. And on the Day when He calls out to them, "Where are My associates?" They will say, "We admit to you, none of us is a witness."
+
+### Verse 41:48
+**Arabic**: وَضَلَّ عَنْهُم مَّا كَانُوا۟ يَدْعُونَ مِن قَبْلُ ۖ وَظَنُّوا۟ مَا لَهُم مِّن مَّحِيصٍۢ
+
+**English**: What they used to pray to before will forsake them, and they will realize that they have no escape.
+
+### Verse 41:49
+**Arabic**: لَّا يَسْـَٔمُ ٱلْإِنسَٰنُ مِن دُعَآءِ ٱلْخَيْرِ وَإِن مَّسَّهُ ٱلشَّرُّ فَيَـُٔوسٌۭ قَنُوطٌۭ
+
+**English**: The human being never tires of praying for good things; but when adversity afflicts him, he despairs and loses hope.
+
+### Verse 41:50
+**Arabic**: وَلَئِنْ أَذَقْنَٰهُ رَحْمَةًۭ مِّنَّا مِنۢ بَعْدِ ضَرَّآءَ مَسَّتْهُ لَيَقُولَنَّ هَٰذَا لِى وَمَآ أَظُنُّ ٱلسَّاعَةَ قَآئِمَةًۭ وَلَئِن رُّجِعْتُ إِلَىٰ رَبِّىٓ إِنَّ لِى عِندَهُۥ لَلْحُسْنَىٰ ۚ فَلَنُنَبِّئَنَّ ٱلَّذِينَ كَفَرُوا۟ بِمَا عَمِلُوا۟ وَلَنُذِيقَنَّهُم مِّنْ عَذَابٍ غَلِيظٍۢ
+
+**English**: And when We let him taste a mercy from Us, after the adversity that had afflicted him, he will say, "This is mine, and I do not think that the Hour is coming; and even if I am returned to my Lord, I will have the very best with Him." We will inform those who disbelieve of what they did, and We will make them taste an awful punishment.
+
+### Verse 41:51
+**Arabic**: وَإِذَآ أَنْعَمْنَا عَلَى ٱلْإِنسَٰنِ أَعْرَضَ وَنَـَٔا بِجَانِبِهِۦ وَإِذَا مَسَّهُ ٱلشَّرُّ فَذُو دُعَآءٍ عَرِيضٍۢ
+
+**English**: When We provide comfort for the human being, he withdraws and distances himself; but when adversity befalls him, he starts lengthy prayers.
+
+### Verse 41:52
+**Arabic**: قُلْ أَرَءَيْتُمْ إِن كَانَ مِنْ عِندِ ٱللَّهِ ثُمَّ كَفَرْتُم بِهِۦ مَنْ أَضَلُّ مِمَّنْ هُوَ فِى شِقَاقٍۭ بَعِيدٍۢ
+
+**English**: Say, "Have you considered? If it is from God and you reject it-who is further astray than he who is cutoff and alienated?"
+
+### Verse 41:53
+**Arabic**: سَنُرِيهِمْ ءَايَٰتِنَا فِى ٱلْءَافَاقِ وَفِىٓ أَنفُسِهِمْ حَتَّىٰ يَتَبَيَّنَ لَهُمْ أَنَّهُ ٱلْحَقُّ ۗ أَوَلَمْ يَكْفِ بِرَبِّكَ أَنَّهُۥ عَلَىٰ كُلِّ شَىْءٍۢ شَهِيدٌ
+
+**English**: We will show them Our proofs on the horizons, and in their very souls, until it becomes clear to them that it is the truth. Is it not sufficient that your Lord is witness over everything?
+
+### Verse 41:54
+**Arabic**: أَلَآ إِنَّهُمْ فِى مِرْيَةٍۢ مِّن لِّقَآءِ رَبِّهِمْ ۗ أَلَآ إِنَّهُۥ بِكُلِّ شَىْءٍۢ مُّحِيطٌۢ
+
+**English**: Surely they are in doubt about the encounter with their Lord. Surely He comprehends everything.
+
+## Thematic cross-references
+
+- **Warning**: [Al-Tawba](surah_009_al-tawba.md), [Al-Israa](surah_017_al-israa.md), [Al-Furqan](surah_025_al-furqan.md), [As-Sajdah](surah_032_as-sajdah.md), [Az-Zukhruf](surah_043_az-zukhruf.md), [Az-Zariyat](surah_051_az-zariyat.md), [At-Tur](surah_052_at-tur.md), [Al-Qamar](surah_054_al-qamar.md) and 7 more

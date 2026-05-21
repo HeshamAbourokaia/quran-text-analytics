@@ -87,12 +87,16 @@ See the [Screenshots](#screenshots) section below for the same pages rendered in
 - Commits wins on the `autoresearch/radar` branch
 - See [`autoresearch/README.md`](autoresearch/README.md) for the experiment design
 
-### Experimental: Knowledge graph of the project (`graphify-out/`)
+### Two knowledge graphs (`graphify-out/`)
 
-The whole project, indexed as a navigable knowledge graph using [graphify](https://github.com/safishamsi/graphify). 631 nodes, 749 edges, 63 communities, generated from a hybrid pipeline (Python AST extraction for code + parallel Claude general-purpose subagents for docs, screenshots, and high-level Vue.js structure).
+This project ships **two** distinct knowledge graphs, both built with [graphify](https://github.com/safishamsi/graphify) (Karpathy-adjacent open-source tool for turning any folder into a queryable graph). Together they cover the full ML/data-science pipeline applied to one corpus: code structure AND content semantics.
+
+#### 1. Code knowledge graph: the project itself, indexed
+
+A hybrid AST + Claude-subagent extraction of every Python file, Vue component, screenshot, design doc, and the autoresearch loop. **631 nodes, 749 edges, 63 communities**, generated from a parallel pipeline (Python AST for deterministic structural edges + 6 parallel Claude general-purpose subagents for semantic and rationale edges across docs, screenshots, and the 9,900-line Vue app).
 
 <p align="center">
-  <img src="docs/screenshots/knowledge-graph.png" alt="Knowledge graph of the project, 631 nodes clustered into 63 communities" width="800"/>
+  <img src="docs/screenshots/knowledge-graph.png" alt="Code knowledge graph: 631 nodes clustered into 63 communities" width="800"/>
 </p>
 
 | Output | Purpose |
@@ -101,16 +105,30 @@ The whole project, indexed as a navigable knowledge graph using [graphify](https
 | [`graphify-out/GRAPH_REPORT.md`](graphify-out/GRAPH_REPORT.md) | Audit report: god nodes, surprising cross-community connections, suggested questions, hyperedges, per-community deep-dives |
 | [`graphify-out/graph.json`](graphify-out/graph.json) | Raw graph data for GraphRAG, agent retrieval, or Neo4j import |
 
-The top "god nodes" (most central abstractions) the graph surfaced:
-1. `run()` in `autoresearch/orchestrator.py`, 27 connections, the iteration loop's central bridge
-2. `Vue 3 Root Component` in `electron-app/app.html`, 26 connections, the app's single source of truth
-3. `app.html` (the 9,900-line single-file Vue app), 17 connections, the project's main artifact
-4. `tokenize_arabic()`, 16 connections, the linguistic backbone
-5. `RadarRenderer` (autoresearch), 14 connections, the chart-tuning subject
+**Top "god nodes"** (most central abstractions the graph surfaced):
 
-Token-reduction benchmark: graphify queries cost **15.9x fewer tokens** than naive grep over the same corpus (42,066 tokens corpus → ~2,644 tokens per query).
+| Rank | Node | Connections | Why it matters |
+|------|------|-------------|----------------|
+| 1 | `run()` in `autoresearch/orchestrator.py` | 27 | The iteration loop's central bridge. 6.6% of all shortest paths in the graph pass through this one function. |
+| 2 | `Vue 3 Root Component` | 26 | The single source of truth for the entire app's reactive state. |
+| 3 | `app.html` (~9,900 lines) | 17 | The project's main artifact, the file that everything else either feeds into or screenshots. |
+| 4 | `tokenize_arabic()` | 16 | The linguistic backbone, used by every NLP feature. |
+| 5 | `RadarRenderer` | 14 | The autoresearch subject of study, the chart being auto-tuned. |
 
-To regenerate after code changes: `/graphify --update` (incremental, only re-extracts changed files) or `graphify watch .` (auto-rebuild on save).
+**Benchmark**: graphify queries cost **15.9x fewer tokens** than naive grep over the same corpus (42,066 tokens corpus → ~2,644 tokens per query).
+
+To regenerate after code changes: `/graphify --update` (incremental, only re-extracts changed files).
+
+#### 2. Quranic content knowledge graph (planned, in progress)
+
+The same technique applied to the Quran itself: ~170 generated markdown documents covering every surah, every named entity (prophets, places, divine attributes), every scholarly theme, and the special patterns (Bismillah, refrains, numerical miracles). Will produce a graph where:
+
+- Communities cluster thematically (Stories of Moses, Day of Judgment, Mercy, Legislation, etc.)
+- "God nodes" surface the most-referenced concepts (Allah, Faith, the Hereafter, the Prophets)
+- Bridge nodes reveal verses that connect distant thematic clusters
+- Entity links let you jump from any prophet to every verse they appear in
+
+This is the kind of structural understanding of the Quranic text that classical concordances took lifetimes to compile, generated in hours from existing source data. See `quran_corpus/` for the source documents and [`graphify-out-quran/`](graphify-out-quran/) for the rendered graph (once built).
 
 ## Screenshots
 

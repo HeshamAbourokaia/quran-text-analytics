@@ -1,0 +1,408 @@
+# Surah 22: Al-Hajj (الحج)
+
+- **Mushaf number**: 22
+- **Place of revelation**: Medina (Madaniyah)
+- **Verse count**: 78
+- **Themes**: [Nature and Signs](../themes/nature.md)
+- **Named entities mentioned**: [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md), [Iblis (Satan)](../entities/figure_iblis.md), [Abraham (Ibrahim)](../entities/prophet_ibrahim.md), [Lot (Lut)](../entities/prophet_lut.md), [Madyan](../entities/place_madyan.md), [The Sacred Mosque (Makka)](../entities/place_masjid-al-haram.md), [Moses (Musa)](../entities/prophet_musa.md), [Noah (Nuh)](../entities/prophet_nuh.md), [Rabb (the Lord)](../entities/divine_rabb.md), [John the Baptist (Yahya)](../entities/prophet_yahya.md)
+
+## Verses
+
+### Verse 22:0
+**Arabic**: بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+
+**English**: In the name of God, the Gracious, the Merciful.
+
+### Verse 22:1
+**Arabic**: يَٰٓأَيُّهَا ٱلنَّاسُ ٱتَّقُوا۟ رَبَّكُمْ ۚ إِنَّ زَلْزَلَةَ ٱلسَّاعَةِ شَىْءٌ عَظِيمٌۭ
+
+**English**: O people, be conscious of your Lord. The quaking of the Hour is a tremendous thing.
+
+### Verse 22:2
+**Arabic**: يَوْمَ تَرَوْنَهَا تَذْهَلُ كُلُّ مُرْضِعَةٍ عَمَّآ أَرْضَعَتْ وَتَضَعُ كُلُّ ذَاتِ حَمْلٍ حَمْلَهَا وَتَرَى ٱلنَّاسَ سُكَٰرَىٰ وَمَا هُم بِسُكَٰرَىٰ وَلَٰكِنَّ عَذَابَ ٱللَّهِ شَدِيدٌۭ
+
+**English**: On the Day when you will see it: every nursing mother will discard her infant, and every pregnant woman will abort her load, and you will see the people drunk, even though they are not drunk-but the punishment of God is severe.
+
+### Verse 22:3
+**Arabic**: وَمِنَ ٱلنَّاسِ مَن يُجَٰدِلُ فِى ٱللَّهِ بِغَيْرِ عِلْمٍۢ وَيَتَّبِعُ كُلَّ شَيْطَٰنٍۢ مَّرِيدٍۢ
+
+**English**: Among the people is he who argues about God without knowledge, and follows every defiant devil.
+
+### Verse 22:4
+**Arabic**: كُتِبَ عَلَيْهِ أَنَّهُۥ مَن تَوَلَّاهُ فَأَنَّهُۥ يُضِلُّهُۥ وَيَهْدِيهِ إِلَىٰ عَذَابِ ٱلسَّعِيرِ
+
+**English**: It was decreed for him, that whoever follows him-he will misguide him, and lead him to the torment of the Blaze.
+
+### Verse 22:5
+**Arabic**: يَٰٓأَيُّهَا ٱلنَّاسُ إِن كُنتُمْ فِى رَيْبٍۢ مِّنَ ٱلْبَعْثِ فَإِنَّا خَلَقْنَٰكُم مِّن تُرَابٍۢ ثُمَّ مِن نُّطْفَةٍۢ ثُمَّ مِنْ عَلَقَةٍۢ ثُمَّ مِن مُّضْغَةٍۢ مُّخَلَّقَةٍۢ وَغَيْرِ مُخَلَّقَةٍۢ لِّنُبَيِّنَ لَكُمْ ۚ وَنُقِرُّ فِى ٱلْأَرْحَامِ مَا نَشَآءُ إِلَىٰٓ أَجَلٍۢ مُّسَمًّۭى ثُمَّ نُخْرِجُكُمْ طِفْلًۭا ثُمَّ لِتَبْلُغُوٓا۟ أَشُدَّكُمْ ۖ وَمِنكُم مَّن يُتَوَفَّىٰ وَمِنكُم مَّن يُرَدُّ إِلَىٰٓ أَرْذَلِ ٱلْعُمُرِ لِكَيْلَا يَعْلَمَ مِنۢ بَعْدِ عِلْمٍۢ شَيْـًۭٔا ۚ وَتَرَى ٱلْأَرْضَ هَامِدَةًۭ فَإِذَآ أَنزَلْنَا عَلَيْهَا ٱلْمَآءَ ٱهْتَزَّتْ وَرَبَتْ وَأَنۢبَتَتْ مِن كُلِّ زَوْجٍۭ بَهِيجٍۢ
+
+**English**: O people! If you are in doubt about the Resurrection-We created you from dust, then from a small drop, then from a clinging clot, then from a lump of flesh, partly developed and partly undeveloped. In order to clarify things for you. And We settle in the wombs whatever We will for a designated term, and then We bring you out as infants, until you reach your full strength. And some of you will pass away, and some of you will be returned to the vilest age, so that he may not know, after having known. And you see the earth still; but when We send down water on it, it vibrates, and swells, and grows all kinds of lovely pairs.
+
+### Verse 22:6
+**Arabic**: ذَٰلِكَ بِأَنَّ ٱللَّهَ هُوَ ٱلْحَقُّ وَأَنَّهُۥ يُحْىِ ٱلْمَوْتَىٰ وَأَنَّهُۥ عَلَىٰ كُلِّ شَىْءٍۢ قَدِيرٌۭ
+
+**English**: That is because God is the truth, and because He gives life to the dead, and because He is Capable of everything.
+
+### Verse 22:7
+**Arabic**: وَأَنَّ ٱلسَّاعَةَ ءَاتِيَةٌۭ لَّا رَيْبَ فِيهَا وَأَنَّ ٱللَّهَ يَبْعَثُ مَن فِى ٱلْقُبُورِ
+
+**English**: And because the Hour is coming-there is no doubt about it-and because God will resurrect those in the graves.
+
+### Verse 22:8
+**Arabic**: وَمِنَ ٱلنَّاسِ مَن يُجَٰدِلُ فِى ٱللَّهِ بِغَيْرِ عِلْمٍۢ وَلَا هُدًۭى وَلَا كِتَٰبٍۢ مُّنِيرٍۢ
+
+**English**: And among the people is he who argues about God without knowledge, or guidance, or an enlightening scripture.
+
+### Verse 22:9
+**Arabic**: ثَانِىَ عِطْفِهِۦ لِيُضِلَّ عَن سَبِيلِ ٱللَّهِ ۖ لَهُۥ فِى ٱلدُّنْيَا خِزْىٌۭ ۖ وَنُذِيقُهُۥ يَوْمَ ٱلْقِيَٰمَةِ عَذَابَ ٱلْحَرِيقِ
+
+**English**: Turning aside in contempt, to lead away from the path of God. He will have humiliation in this world, and on the Day of Resurrection We will make him taste the agony of burning.
+
+### Verse 22:10
+**Arabic**: ذَٰلِكَ بِمَا قَدَّمَتْ يَدَاكَ وَأَنَّ ٱللَّهَ لَيْسَ بِظَلَّٰمٍۢ لِّلْعَبِيدِ
+
+**English**: That is for what your hands have advanced, and because God is not unjust to the servants.
+
+### Verse 22:11
+**Arabic**: وَمِنَ ٱلنَّاسِ مَن يَعْبُدُ ٱللَّهَ عَلَىٰ حَرْفٍۢ ۖ فَإِنْ أَصَابَهُۥ خَيْرٌ ٱطْمَأَنَّ بِهِۦ ۖ وَإِنْ أَصَابَتْهُ فِتْنَةٌ ٱنقَلَبَ عَلَىٰ وَجْهِهِۦ خَسِرَ ٱلدُّنْيَا وَٱلْءَاخِرَةَ ۚ ذَٰلِكَ هُوَ ٱلْخُسْرَانُ ٱلْمُبِينُ
+
+**English**: And among the people is he who worships God on edge. When something good comes his way, he is content with it. But when an ordeal strikes him, he makes a turnaround. He loses this world and the next. That is the obvious loss.
+
+### Verse 22:12
+**Arabic**: يَدْعُوا۟ مِن دُونِ ٱللَّهِ مَا لَا يَضُرُّهُۥ وَمَا لَا يَنفَعُهُۥ ۚ ذَٰلِكَ هُوَ ٱلضَّلَٰلُ ٱلْبَعِيدُ
+
+**English**: He invokes, instead of God, what can neither harm him nor benefit him. That is the far straying.
+
+### Verse 22:13
+**Arabic**: يَدْعُوا۟ لَمَن ضَرُّهُۥٓ أَقْرَبُ مِن نَّفْعِهِۦ ۚ لَبِئْسَ ٱلْمَوْلَىٰ وَلَبِئْسَ ٱلْعَشِيرُ
+
+**English**: He invokes one whose harm is closer than his benefit. What a miserable master. What a miserable companion.
+
+### Verse 22:14
+**Arabic**: إِنَّ ٱللَّهَ يُدْخِلُ ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ جَنَّٰتٍۢ تَجْرِى مِن تَحْتِهَا ٱلْأَنْهَٰرُ ۚ إِنَّ ٱللَّهَ يَفْعَلُ مَا يُرِيدُ
+
+**English**: God will admit those who believe and do righteous deeds into Gardens beneath which rivers flow. God does whatever He wills.
+
+### Verse 22:15
+**Arabic**: مَن كَانَ يَظُنُّ أَن لَّن يَنصُرَهُ ٱللَّهُ فِى ٱلدُّنْيَا وَٱلْءَاخِرَةِ فَلْيَمْدُدْ بِسَبَبٍ إِلَى ٱلسَّمَآءِ ثُمَّ لْيَقْطَعْ فَلْيَنظُرْ هَلْ يُذْهِبَنَّ كَيْدُهُۥ مَا يَغِيظُ
+
+**English**: Whoever thinks that God will not help him in this life and in the Hereafter-let him turn to heaven, then sever, and see if his cunning eliminates what enrages him.
+
+### Verse 22:16
+**Arabic**: وَكَذَٰلِكَ أَنزَلْنَٰهُ ءَايَٰتٍۭ بَيِّنَٰتٍۢ وَأَنَّ ٱللَّهَ يَهْدِى مَن يُرِيدُ
+
+**English**: Thus We revealed it as clarifying signs, and God guides whomever He wills.
+
+### Verse 22:17
+**Arabic**: إِنَّ ٱلَّذِينَ ءَامَنُوا۟ وَٱلَّذِينَ هَادُوا۟ وَٱلصَّٰبِـِٔينَ وَٱلنَّصَٰرَىٰ وَٱلْمَجُوسَ وَٱلَّذِينَ أَشْرَكُوٓا۟ إِنَّ ٱللَّهَ يَفْصِلُ بَيْنَهُمْ يَوْمَ ٱلْقِيَٰمَةِ ۚ إِنَّ ٱللَّهَ عَلَىٰ كُلِّ شَىْءٍۢ شَهِيدٌ
+
+**English**: Those who believe, and those who are Jewish, and the Sabeans, and the Christians, and the Zoroastrians, and the Polytheists-God will judge between them on the Day of Resurrection. God is witness to all things.
+
+### Verse 22:18
+**Arabic**: أَلَمْ تَرَ أَنَّ ٱللَّهَ يَسْجُدُ لَهُۥ مَن فِى ٱلسَّمَٰوَٰتِ وَمَن فِى ٱلْأَرْضِ وَٱلشَّمْسُ وَٱلْقَمَرُ وَٱلنُّجُومُ وَٱلْجِبَالُ وَٱلشَّجَرُ وَٱلدَّوَآبُّ وَكَثِيرٌۭ مِّنَ ٱلنَّاسِ ۖ وَكَثِيرٌ حَقَّ عَلَيْهِ ٱلْعَذَابُ ۗ وَمَن يُهِنِ ٱللَّهُ فَمَا لَهُۥ مِن مُّكْرِمٍ ۚ إِنَّ ٱللَّهَ يَفْعَلُ مَا يَشَآءُ ۩
+
+**English**: Do you not realize that to God prostrates everyone in the heavens and everyone on earth, and the sun, and the moon, and the stars, and the mountains, and the trees, and the animals, and many of the people? But many are justly deserving of punishment. Whomever God shames, there is none to honor him. God does whatever He wills.
+
+### Verse 22:19
+**Arabic**: ۞ هَٰذَانِ خَصْمَانِ ٱخْتَصَمُوا۟ فِى رَبِّهِمْ ۖ فَٱلَّذِينَ كَفَرُوا۟ قُطِّعَتْ لَهُمْ ثِيَابٌۭ مِّن نَّارٍۢ يُصَبُّ مِن فَوْقِ رُءُوسِهِمُ ٱلْحَمِيمُ
+
+**English**: Here are two adversaries feuding regarding their Lord. As for those who disbelieve, garments of fire will be tailored for them, and scalding water will be poured over their heads.
+
+### Verse 22:20
+**Arabic**: يُصْهَرُ بِهِۦ مَا فِى بُطُونِهِمْ وَٱلْجُلُودُ
+
+**English**: Melting their insides and their skins.
+
+### Verse 22:21
+**Arabic**: وَلَهُم مَّقَٰمِعُ مِنْ حَدِيدٍۢ
+
+**English**: And they will have maces of iron.
+
+### Verse 22:22
+**Arabic**: كُلَّمَآ أَرَادُوٓا۟ أَن يَخْرُجُوا۟ مِنْهَا مِنْ غَمٍّ أُعِيدُوا۟ فِيهَا وَذُوقُوا۟ عَذَابَ ٱلْحَرِيقِ
+
+**English**: Whenever they try to escape the gloom, they will be driven back to it: "Taste the suffering of burning."
+
+### Verse 22:23
+**Arabic**: إِنَّ ٱللَّهَ يُدْخِلُ ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ جَنَّٰتٍۢ تَجْرِى مِن تَحْتِهَا ٱلْأَنْهَٰرُ يُحَلَّوْنَ فِيهَا مِنْ أَسَاوِرَ مِن ذَهَبٍۢ وَلُؤْلُؤًۭا ۖ وَلِبَاسُهُمْ فِيهَا حَرِيرٌۭ
+
+**English**: But God will admit those who believe and do good deeds into Gardens beneath which rivers flow. They will be decorated therein with bracelets of gold and pearls, and their garments therein will be of silk.
+
+### Verse 22:24
+**Arabic**: وَهُدُوٓا۟ إِلَى ٱلطَّيِّبِ مِنَ ٱلْقَوْلِ وَهُدُوٓا۟ إِلَىٰ صِرَٰطِ ٱلْحَمِيدِ
+
+**English**: They were guided to purity of speech. They were guided to the path of the Most Praised.
+
+### Verse 22:25
+**Arabic**: إِنَّ ٱلَّذِينَ كَفَرُوا۟ وَيَصُدُّونَ عَن سَبِيلِ ٱللَّهِ وَٱلْمَسْجِدِ ٱلْحَرَامِ ٱلَّذِى جَعَلْنَٰهُ لِلنَّاسِ سَوَآءً ٱلْعَٰكِفُ فِيهِ وَٱلْبَادِ ۚ وَمَن يُرِدْ فِيهِ بِإِلْحَادٍۭ بِظُلْمٍۢ نُّذِقْهُ مِنْ عَذَابٍ أَلِيمٍۢ
+
+**English**: As for those who disbelieve and repel from God's path and from the Sacred Mosque-which We have designated for all mankind equally, whether residing therein or passing through-and seek to commit sacrilege therein-We will make him taste of a painful punishment.
+
+### Verse 22:26
+**Arabic**: وَإِذْ بَوَّأْنَا لِإِبْرَٰهِيمَ مَكَانَ ٱلْبَيْتِ أَن لَّا تُشْرِكْ بِى شَيْـًۭٔا وَطَهِّرْ بَيْتِىَ لِلطَّآئِفِينَ وَٱلْقَآئِمِينَ وَٱلرُّكَّعِ ٱلسُّجُودِ
+
+**English**: We showed Abraham the location of the House: "Do not associate anything with Me; and purify My House for those who circle around, and those who stand to pray, and those who kneel and prostrate."
+
+### Verse 22:27
+**Arabic**: وَأَذِّن فِى ٱلنَّاسِ بِٱلْحَجِّ يَأْتُوكَ رِجَالًۭا وَعَلَىٰ كُلِّ ضَامِرٍۢ يَأْتِينَ مِن كُلِّ فَجٍّ عَمِيقٍۢ
+
+**English**: And announce the pilgrimage to humanity. They will come to you on foot, and on every transport. They will come from every distant point.
+
+### Verse 22:28
+**Arabic**: لِّيَشْهَدُوا۟ مَنَٰفِعَ لَهُمْ وَيَذْكُرُوا۟ ٱسْمَ ٱللَّهِ فِىٓ أَيَّامٍۢ مَّعْلُومَٰتٍ عَلَىٰ مَا رَزَقَهُم مِّنۢ بَهِيمَةِ ٱلْأَنْعَٰمِ ۖ فَكُلُوا۟ مِنْهَا وَأَطْعِمُوا۟ ٱلْبَآئِسَ ٱلْفَقِيرَ
+
+**English**: That they may witness the benefits for themselves, and celebrate the name of God during the appointed days, for providing them with the animal livestock. So eat from it, and feed the unfortunate poor.
+
+### Verse 22:29
+**Arabic**: ثُمَّ لْيَقْضُوا۟ تَفَثَهُمْ وَلْيُوفُوا۟ نُذُورَهُمْ وَلْيَطَّوَّفُوا۟ بِٱلْبَيْتِ ٱلْعَتِيقِ
+
+**English**: Then let them perform their acts of cleansing, and fulfill their vows, and circle around the Ancient House.
+
+### Verse 22:30
+**Arabic**: ذَٰلِكَ وَمَن يُعَظِّمْ حُرُمَٰتِ ٱللَّهِ فَهُوَ خَيْرٌۭ لَّهُۥ عِندَ رَبِّهِۦ ۗ وَأُحِلَّتْ لَكُمُ ٱلْأَنْعَٰمُ إِلَّا مَا يُتْلَىٰ عَلَيْكُمْ ۖ فَٱجْتَنِبُوا۟ ٱلرِّجْسَ مِنَ ٱلْأَوْثَٰنِ وَٱجْتَنِبُوا۟ قَوْلَ ٱلزُّورِ
+
+**English**: All that. Whoever venerates the sanctities of God-it is good for him with his Lord. All livestock are permitted to you, except what is recited to you. So stay away from the abomination of idols, and stay away from perjury.
+
+### Verse 22:31
+**Arabic**: حُنَفَآءَ لِلَّهِ غَيْرَ مُشْرِكِينَ بِهِۦ ۚ وَمَن يُشْرِكْ بِٱللَّهِ فَكَأَنَّمَا خَرَّ مِنَ ٱلسَّمَآءِ فَتَخْطَفُهُ ٱلطَّيْرُ أَوْ تَهْوِى بِهِ ٱلرِّيحُ فِى مَكَانٍۢ سَحِيقٍۢ
+
+**English**: Being true to God, without associating anything with Him. Whoever associates anything with God-it is as though he has fallen from the sky, and is snatched by the birds, or is swept away by the wind to a distant abyss.
+
+### Verse 22:32
+**Arabic**: ذَٰلِكَ وَمَن يُعَظِّمْ شَعَٰٓئِرَ ٱللَّهِ فَإِنَّهَا مِن تَقْوَى ٱلْقُلُوبِ
+
+**English**: So it is. Whoever venerates the sacraments of God-it is from the piety of the hearts.
+
+### Verse 22:33
+**Arabic**: لَكُمْ فِيهَا مَنَٰفِعُ إِلَىٰٓ أَجَلٍۢ مُّسَمًّۭى ثُمَّ مَحِلُّهَآ إِلَى ٱلْبَيْتِ ٱلْعَتِيقِ
+
+**English**: In them are benefits for you until a certain time. Then their place is by the Ancient House.
+
+### Verse 22:34
+**Arabic**: وَلِكُلِّ أُمَّةٍۢ جَعَلْنَا مَنسَكًۭا لِّيَذْكُرُوا۟ ٱسْمَ ٱللَّهِ عَلَىٰ مَا رَزَقَهُم مِّنۢ بَهِيمَةِ ٱلْأَنْعَٰمِ ۗ فَإِلَٰهُكُمْ إِلَٰهٌۭ وَٰحِدٌۭ فَلَهُۥٓ أَسْلِمُوا۟ ۗ وَبَشِّرِ ٱلْمُخْبِتِينَ
+
+**English**: We have appointed a rite for every nation, that they may commemorate God's name over the livestock He has provided for them. Your God is One God, so to Him submit, and announce good news to the humble.
+
+### Verse 22:35
+**Arabic**: ٱلَّذِينَ إِذَا ذُكِرَ ٱللَّهُ وَجِلَتْ قُلُوبُهُمْ وَٱلصَّٰبِرِينَ عَلَىٰ مَآ أَصَابَهُمْ وَٱلْمُقِيمِى ٱلصَّلَوٰةِ وَمِمَّا رَزَقْنَٰهُمْ يُنفِقُونَ
+
+**English**: Those whose hearts tremble when God is mentioned, and those who endure what has befallen them, and those who perform the prayer and spend from what We have provided for them.
+
+### Verse 22:36
+**Arabic**: وَٱلْبُدْنَ جَعَلْنَٰهَا لَكُم مِّن شَعَٰٓئِرِ ٱللَّهِ لَكُمْ فِيهَا خَيْرٌۭ ۖ فَٱذْكُرُوا۟ ٱسْمَ ٱللَّهِ عَلَيْهَا صَوَآفَّ ۖ فَإِذَا وَجَبَتْ جُنُوبُهَا فَكُلُوا۟ مِنْهَا وَأَطْعِمُوا۟ ٱلْقَانِعَ وَٱلْمُعْتَرَّ ۚ كَذَٰلِكَ سَخَّرْنَٰهَا لَكُمْ لَعَلَّكُمْ تَشْكُرُونَ
+
+**English**: We have made the animal offerings emblems of God for you. In them is goodness for you. So pronounce God's name upon them as they line up. Then, when they have fallen on their sides, eat of them and feed the contented and the beggar. Thus We have subjected them to you, that you may be thankful.
+
+### Verse 22:37
+**Arabic**: لَن يَنَالَ ٱللَّهَ لُحُومُهَا وَلَا دِمَآؤُهَا وَلَٰكِن يَنَالُهُ ٱلتَّقْوَىٰ مِنكُمْ ۚ كَذَٰلِكَ سَخَّرَهَا لَكُمْ لِتُكَبِّرُوا۟ ٱللَّهَ عَلَىٰ مَا هَدَىٰكُمْ ۗ وَبَشِّرِ ٱلْمُحْسِنِينَ
+
+**English**: Neither their flesh, nor their blood, ever reaches God. What reaches Him is the righteousness from you. Thus He subdued them to you, that you may glorify God for guiding you. And give good news to the charitable.
+
+### Verse 22:38
+**Arabic**: ۞ إِنَّ ٱللَّهَ يُدَٰفِعُ عَنِ ٱلَّذِينَ ءَامَنُوٓا۟ ۗ إِنَّ ٱللَّهَ لَا يُحِبُّ كُلَّ خَوَّانٍۢ كَفُورٍ
+
+**English**: God defends those who believe. God does not love any ungrateful traitor.
+
+### Verse 22:39
+**Arabic**: أُذِنَ لِلَّذِينَ يُقَٰتَلُونَ بِأَنَّهُمْ ظُلِمُوا۟ ۚ وَإِنَّ ٱللَّهَ عَلَىٰ نَصْرِهِمْ لَقَدِيرٌ
+
+**English**: Permission is given to those who are fought against, and God is Able to give them victory.
+
+### Verse 22:40
+**Arabic**: ٱلَّذِينَ أُخْرِجُوا۟ مِن دِيَٰرِهِم بِغَيْرِ حَقٍّ إِلَّآ أَن يَقُولُوا۟ رَبُّنَا ٱللَّهُ ۗ وَلَوْلَا دَفْعُ ٱللَّهِ ٱلنَّاسَ بَعْضَهُم بِبَعْضٍۢ لَّهُدِّمَتْ صَوَٰمِعُ وَبِيَعٌۭ وَصَلَوَٰتٌۭ وَمَسَٰجِدُ يُذْكَرُ فِيهَا ٱسْمُ ٱللَّهِ كَثِيرًۭا ۗ وَلَيَنصُرَنَّ ٱللَّهُ مَن يَنصُرُهُۥٓ ۗ إِنَّ ٱللَّهَ لَقَوِىٌّ عَزِيزٌ
+
+**English**: Those who were unjustly evicted from their homes, merely for saying, "Our Lord is God." Were it not that God repels people by means of others: monasteries, churches, synagogues, and mosques-where the name of God is mentioned much-would have been demolished. God supports whoever supports Him. God is Strong and Mighty.
+
+### Verse 22:41
+**Arabic**: ٱلَّذِينَ إِن مَّكَّنَّٰهُمْ فِى ٱلْأَرْضِ أَقَامُوا۟ ٱلصَّلَوٰةَ وَءَاتَوُا۟ ٱلزَّكَوٰةَ وَأَمَرُوا۟ بِٱلْمَعْرُوفِ وَنَهَوْا۟ عَنِ ٱلْمُنكَرِ ۗ وَلِلَّهِ عَٰقِبَةُ ٱلْأُمُورِ
+
+**English**: Those who, when We empower them in the land, observe the prayer, and give regular charity, and command what is right, and forbid what is wrong. To God belongs the outcome of events.
+
+### Verse 22:42
+**Arabic**: وَإِن يُكَذِّبُوكَ فَقَدْ كَذَّبَتْ قَبْلَهُمْ قَوْمُ نُوحٍۢ وَعَادٌۭ وَثَمُودُ
+
+**English**: If they deny you-before them the people of Noah, and Aad, and Thamood also denied.
+
+### Verse 22:43
+**Arabic**: وَقَوْمُ إِبْرَٰهِيمَ وَقَوْمُ لُوطٍۢ
+
+**English**: And the people of Abraham, and the people of Lot.
+
+### Verse 22:44
+**Arabic**: وَأَصْحَٰبُ مَدْيَنَ ۖ وَكُذِّبَ مُوسَىٰ فَأَمْلَيْتُ لِلْكَٰفِرِينَ ثُمَّ أَخَذْتُهُمْ ۖ فَكَيْفَ كَانَ نَكِيرِ
+
+**English**: And the inhabitants of Median. And Moses was denied. Then I reprieved those who disbelieved, but then I seized them. So how was My rejection?
+
+### Verse 22:45
+**Arabic**: فَكَأَيِّن مِّن قَرْيَةٍ أَهْلَكْنَٰهَا وَهِىَ ظَالِمَةٌۭ فَهِىَ خَاوِيَةٌ عَلَىٰ عُرُوشِهَا وَبِئْرٍۢ مُّعَطَّلَةٍۢ وَقَصْرٍۢ مَّشِيدٍ
+
+**English**: How many a town have We destroyed while it was doing wrong? They lie in ruins; with stilled wells, and lofty mansions.
+
+### Verse 22:46
+**Arabic**: أَفَلَمْ يَسِيرُوا۟ فِى ٱلْأَرْضِ فَتَكُونَ لَهُمْ قُلُوبٌۭ يَعْقِلُونَ بِهَآ أَوْ ءَاذَانٌۭ يَسْمَعُونَ بِهَا ۖ فَإِنَّهَا لَا تَعْمَى ٱلْأَبْصَٰرُ وَلَٰكِن تَعْمَى ٱلْقُلُوبُ ٱلَّتِى فِى ٱلصُّدُورِ
+
+**English**: Have they not journeyed in the land, and had minds to reason with, or ears to listen with? It is not the eyes that go blind, but it is the hearts, within the chests, that go blind.
+
+### Verse 22:47
+**Arabic**: وَيَسْتَعْجِلُونَكَ بِٱلْعَذَابِ وَلَن يُخْلِفَ ٱللَّهُ وَعْدَهُۥ ۚ وَإِنَّ يَوْمًا عِندَ رَبِّكَ كَأَلْفِ سَنَةٍۢ مِّمَّا تَعُدُّونَ
+
+**English**: And they ask you to hasten the punishment. But God never breaks His promise. A day with your Lord is like a thousand years of your count.
+
+### Verse 22:48
+**Arabic**: وَكَأَيِّن مِّن قَرْيَةٍ أَمْلَيْتُ لَهَا وَهِىَ ظَالِمَةٌۭ ثُمَّ أَخَذْتُهَا وَإِلَىَّ ٱلْمَصِيرُ
+
+**English**: How many a town have I reprieved, although it was unjust? Then I seized it. To Me is the destination.
+
+### Verse 22:49
+**Arabic**: قُلْ يَٰٓأَيُّهَا ٱلنَّاسُ إِنَّمَآ أَنَا۠ لَكُمْ نَذِيرٌۭ مُّبِينٌۭ
+
+**English**: Say, "O people, I am only a plain warner to you."
+
+### Verse 22:50
+**Arabic**: فَٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ لَهُم مَّغْفِرَةٌۭ وَرِزْقٌۭ كَرِيمٌۭ
+
+**English**: Those who believe and work righteousness-for them is forgiveness and a generous provision.
+
+### Verse 22:51
+**Arabic**: وَٱلَّذِينَ سَعَوْا۟ فِىٓ ءَايَٰتِنَا مُعَٰجِزِينَ أُو۟لَٰٓئِكَ أَصْحَٰبُ ٱلْجَحِيمِ
+
+**English**: But those who strive against Our revelations-these are the inmates of Hell.
+
+### Verse 22:52
+**Arabic**: وَمَآ أَرْسَلْنَا مِن قَبْلِكَ مِن رَّسُولٍۢ وَلَا نَبِىٍّ إِلَّآ إِذَا تَمَنَّىٰٓ أَلْقَى ٱلشَّيْطَٰنُ فِىٓ أُمْنِيَّتِهِۦ فَيَنسَخُ ٱللَّهُ مَا يُلْقِى ٱلشَّيْطَٰنُ ثُمَّ يُحْكِمُ ٱللَّهُ ءَايَٰتِهِۦ ۗ وَٱللَّهُ عَلِيمٌ حَكِيمٌۭ
+
+**English**: We never sent a messenger before you, or a prophet, but when he had a desire Satan interfered in his wishes. But God nullifies what Satan interjects, and God affirms His revelations. God is Omniscient and Wise.
+
+### Verse 22:53
+**Arabic**: لِّيَجْعَلَ مَا يُلْقِى ٱلشَّيْطَٰنُ فِتْنَةًۭ لِّلَّذِينَ فِى قُلُوبِهِم مَّرَضٌۭ وَٱلْقَاسِيَةِ قُلُوبُهُمْ ۗ وَإِنَّ ٱلظَّٰلِمِينَ لَفِى شِقَاقٍۭ بَعِيدٍۢ
+
+**English**: In order to make Satan's suggestions a trial for those whose hearts are diseased, and those whose hearts are hardened. The wrongdoers are in profound discord.
+
+### Verse 22:54
+**Arabic**: وَلِيَعْلَمَ ٱلَّذِينَ أُوتُوا۟ ٱلْعِلْمَ أَنَّهُ ٱلْحَقُّ مِن رَّبِّكَ فَيُؤْمِنُوا۟ بِهِۦ فَتُخْبِتَ لَهُۥ قُلُوبُهُمْ ۗ وَإِنَّ ٱللَّهَ لَهَادِ ٱلَّذِينَ ءَامَنُوٓا۟ إِلَىٰ صِرَٰطٍۢ مُّسْتَقِيمٍۢ
+
+**English**: And so that those endowed with knowledge may know that it is the truth from your Lord, and so believe in it, and their hearts soften to it. God guides those who believe to a straight path.
+
+### Verse 22:55
+**Arabic**: وَلَا يَزَالُ ٱلَّذِينَ كَفَرُوا۟ فِى مِرْيَةٍۢ مِّنْهُ حَتَّىٰ تَأْتِيَهُمُ ٱلسَّاعَةُ بَغْتَةً أَوْ يَأْتِيَهُمْ عَذَابُ يَوْمٍ عَقِيمٍ
+
+**English**: Those who disbelieve will continue to be hesitant about it, until the Hour comes upon them suddenly, or there comes to them the torment of a desolate Day.
+
+### Verse 22:56
+**Arabic**: ٱلْمُلْكُ يَوْمَئِذٍۢ لِّلَّهِ يَحْكُمُ بَيْنَهُمْ ۚ فَٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ فِى جَنَّٰتِ ٱلنَّعِيمِ
+
+**English**: Sovereignty on that Day belongs to God; He will judge between them. Those who believe and do good deeds will be in the Gardens of Bliss.
+
+### Verse 22:57
+**Arabic**: وَٱلَّذِينَ كَفَرُوا۟ وَكَذَّبُوا۟ بِـَٔايَٰتِنَا فَأُو۟لَٰٓئِكَ لَهُمْ عَذَابٌۭ مُّهِينٌۭ
+
+**English**: But those who disbelieve and reject Our revelations-these will have a humiliating punishment.
+
+### Verse 22:58
+**Arabic**: وَٱلَّذِينَ هَاجَرُوا۟ فِى سَبِيلِ ٱللَّهِ ثُمَّ قُتِلُوٓا۟ أَوْ مَاتُوا۟ لَيَرْزُقَنَّهُمُ ٱللَّهُ رِزْقًا حَسَنًۭا ۚ وَإِنَّ ٱللَّهَ لَهُوَ خَيْرُ ٱلرَّٰزِقِينَ
+
+**English**: Those who emigrate in God's cause, then get killed, or die, God will provide them with fine provisions. God is the Best of Providers.
+
+### Verse 22:59
+**Arabic**: لَيُدْخِلَنَّهُم مُّدْخَلًۭا يَرْضَوْنَهُۥ ۗ وَإِنَّ ٱللَّهَ لَعَلِيمٌ حَلِيمٌۭ
+
+**English**: He will admit them an admittance that will please them. God is Knowing and Clement.
+
+### Verse 22:60
+**Arabic**: ۞ ذَٰلِكَ وَمَنْ عَاقَبَ بِمِثْلِ مَا عُوقِبَ بِهِۦ ثُمَّ بُغِىَ عَلَيْهِ لَيَنصُرَنَّهُ ٱللَّهُ ۗ إِنَّ ٱللَّهَ لَعَفُوٌّ غَفُورٌۭ
+
+**English**: That is so! Whoever retaliates similarly to the affliction he was made to suffer, and then he is wronged again, God will definitely assist him. God is Pardoning and Forgiving.
+
+### Verse 22:61
+**Arabic**: ذَٰلِكَ بِأَنَّ ٱللَّهَ يُولِجُ ٱلَّيْلَ فِى ٱلنَّهَارِ وَيُولِجُ ٱلنَّهَارَ فِى ٱلَّيْلِ وَأَنَّ ٱللَّهَ سَمِيعٌۢ بَصِيرٌۭ
+
+**English**: That is because God merges the night into the day, and He merges the day into the night, and because God is Hearing and Seeing.
+
+### Verse 22:62
+**Arabic**: ذَٰلِكَ بِأَنَّ ٱللَّهَ هُوَ ٱلْحَقُّ وَأَنَّ مَا يَدْعُونَ مِن دُونِهِۦ هُوَ ٱلْبَٰطِلُ وَأَنَّ ٱللَّهَ هُوَ ٱلْعَلِىُّ ٱلْكَبِيرُ
+
+**English**: That is because God is the Reality, and what they invoke besides Him is vanity, and because God is the Sublime, the Grand.
+
+### Verse 22:63
+**Arabic**: أَلَمْ تَرَ أَنَّ ٱللَّهَ أَنزَلَ مِنَ ٱلسَّمَآءِ مَآءًۭ فَتُصْبِحُ ٱلْأَرْضُ مُخْضَرَّةً ۗ إِنَّ ٱللَّهَ لَطِيفٌ خَبِيرٌۭ
+
+**English**: Do you not see that God sends down water from the sky, and the land becomes green? God is Kind and Aware.
+
+### Verse 22:64
+**Arabic**: لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِ ۗ وَإِنَّ ٱللَّهَ لَهُوَ ٱلْغَنِىُّ ٱلْحَمِيدُ
+
+**English**: To Him belongs everything in the heavens and everything on earth. God is the Rich, the Praised.
+
+### Verse 22:65
+**Arabic**: أَلَمْ تَرَ أَنَّ ٱللَّهَ سَخَّرَ لَكُم مَّا فِى ٱلْأَرْضِ وَٱلْفُلْكَ تَجْرِى فِى ٱلْبَحْرِ بِأَمْرِهِۦ وَيُمْسِكُ ٱلسَّمَآءَ أَن تَقَعَ عَلَى ٱلْأَرْضِ إِلَّا بِإِذْنِهِۦٓ ۗ إِنَّ ٱللَّهَ بِٱلنَّاسِ لَرَءُوفٌۭ رَّحِيمٌۭ
+
+**English**: Do you not see that God made everything on earth subservient to you? How the ships sail at sea by His command? That He holds up the sky lest it falls on earth-except by His permission? God is Gracious towards the people, Most Merciful.
+
+### Verse 22:66
+**Arabic**: وَهُوَ ٱلَّذِىٓ أَحْيَاكُمْ ثُمَّ يُمِيتُكُمْ ثُمَّ يُحْيِيكُمْ ۗ إِنَّ ٱلْإِنسَٰنَ لَكَفُورٌۭ
+
+**English**: And it is He who gives you life, then makes you die, then revives you. The human being is unappreciative.
+
+### Verse 22:67
+**Arabic**: لِّكُلِّ أُمَّةٍۢ جَعَلْنَا مَنسَكًا هُمْ نَاسِكُوهُ ۖ فَلَا يُنَٰزِعُنَّكَ فِى ٱلْأَمْرِ ۚ وَٱدْعُ إِلَىٰ رَبِّكَ ۖ إِنَّكَ لَعَلَىٰ هُدًۭى مُّسْتَقِيمٍۢ
+
+**English**: For every congregation We have appointed acts of devotion, which they observe. So do not let them dispute with you in this matter. And invite to your Lord; you are upon a straight guidance.
+
+### Verse 22:68
+**Arabic**: وَإِن جَٰدَلُوكَ فَقُلِ ٱللَّهُ أَعْلَمُ بِمَا تَعْمَلُونَ
+
+**English**: But if they dispute with you, say, "God is fully aware of what you do."
+
+### Verse 22:69
+**Arabic**: ٱللَّهُ يَحْكُمُ بَيْنَكُمْ يَوْمَ ٱلْقِيَٰمَةِ فِيمَا كُنتُمْ فِيهِ تَخْتَلِفُونَ
+
+**English**: God will judge between you on the Day of Resurrection regarding what you disagree about.
+
+### Verse 22:70
+**Arabic**: أَلَمْ تَعْلَمْ أَنَّ ٱللَّهَ يَعْلَمُ مَا فِى ٱلسَّمَآءِ وَٱلْأَرْضِ ۗ إِنَّ ذَٰلِكَ فِى كِتَٰبٍ ۚ إِنَّ ذَٰلِكَ عَلَى ٱللَّهِ يَسِيرٌۭ
+
+**English**: Do you not know that God knows everything in the heavens and the earth? This is in a book. That is easy for God.
+
+### Verse 22:71
+**Arabic**: وَيَعْبُدُونَ مِن دُونِ ٱللَّهِ مَا لَمْ يُنَزِّلْ بِهِۦ سُلْطَٰنًۭا وَمَا لَيْسَ لَهُم بِهِۦ عِلْمٌۭ ۗ وَمَا لِلظَّٰلِمِينَ مِن نَّصِيرٍۢ
+
+**English**: Yet they worship, besides God, things for which He sent down no warrant, and what they have no knowledge of. There is no savior for the transgressors.
+
+### Verse 22:72
+**Arabic**: وَإِذَا تُتْلَىٰ عَلَيْهِمْ ءَايَٰتُنَا بَيِّنَٰتٍۢ تَعْرِفُ فِى وُجُوهِ ٱلَّذِينَ كَفَرُوا۟ ٱلْمُنكَرَ ۖ يَكَادُونَ يَسْطُونَ بِٱلَّذِينَ يَتْلُونَ عَلَيْهِمْ ءَايَٰتِنَا ۗ قُلْ أَفَأُنَبِّئُكُم بِشَرٍّۢ مِّن ذَٰلِكُمُ ۗ ٱلنَّارُ وَعَدَهَا ٱللَّهُ ٱلَّذِينَ كَفَرُوا۟ ۖ وَبِئْسَ ٱلْمَصِيرُ
+
+**English**: And when Our Clear Verses are recited to them, you will recognize disgust on the faces of those who disbelieve. They nearly assault those who recite to them Our Verses. Say, "Shall I inform you of something worse than that? The Fire! God has promised it to those who disbelieve. And what a wretched outcome!"
+
+### Verse 22:73
+**Arabic**: يَٰٓأَيُّهَا ٱلنَّاسُ ضُرِبَ مَثَلٌۭ فَٱسْتَمِعُوا۟ لَهُۥٓ ۚ إِنَّ ٱلَّذِينَ تَدْعُونَ مِن دُونِ ٱللَّهِ لَن يَخْلُقُوا۟ ذُبَابًۭا وَلَوِ ٱجْتَمَعُوا۟ لَهُۥ ۖ وَإِن يَسْلُبْهُمُ ٱلذُّبَابُ شَيْـًۭٔا لَّا يَسْتَنقِذُوهُ مِنْهُ ۚ ضَعُفَ ٱلطَّالِبُ وَٱلْمَطْلُوبُ
+
+**English**: O people! A parable is presented, so listen to it: Those you invoke besides God will never create a fly, even if they banded together for that purpose. And if the fly steals anything from them, they cannot recover it from it. Weak are the pursuer and the pursued.
+
+### Verse 22:74
+**Arabic**: مَا قَدَرُوا۟ ٱللَّهَ حَقَّ قَدْرِهِۦٓ ۗ إِنَّ ٱللَّهَ لَقَوِىٌّ عَزِيزٌ
+
+**English**: They do not value God as He should be valued. God is Strong and Powerful.
+
+### Verse 22:75
+**Arabic**: ٱللَّهُ يَصْطَفِى مِنَ ٱلْمَلَٰٓئِكَةِ رُسُلًۭا وَمِنَ ٱلنَّاسِ ۚ إِنَّ ٱللَّهَ سَمِيعٌۢ بَصِيرٌۭ
+
+**English**: God chooses messengers from among the angels, and from among the people. God is Hearing and Seeing.
+
+### Verse 22:76
+**Arabic**: يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۗ وَإِلَى ٱللَّهِ تُرْجَعُ ٱلْأُمُورُ
+
+**English**: He knows what is before them, and what is behind them. To God all matters are referred.
+
+### Verse 22:77
+**Arabic**: يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ ٱرْكَعُوا۟ وَٱسْجُدُوا۟ وَٱعْبُدُوا۟ رَبَّكُمْ وَٱفْعَلُوا۟ ٱلْخَيْرَ لَعَلَّكُمْ تُفْلِحُونَ ۩
+
+**English**: O you who believe! Kneel, and prostrate, and worship your Lord, and do good deeds, so that you may succeed.
+
+### Verse 22:78
+**Arabic**: وَجَٰهِدُوا۟ فِى ٱللَّهِ حَقَّ جِهَادِهِۦ ۚ هُوَ ٱجْتَبَىٰكُمْ وَمَا جَعَلَ عَلَيْكُمْ فِى ٱلدِّينِ مِنْ حَرَجٍۢ ۚ مِّلَّةَ أَبِيكُمْ إِبْرَٰهِيمَ ۚ هُوَ سَمَّىٰكُمُ ٱلْمُسْلِمِينَ مِن قَبْلُ وَفِى هَٰذَا لِيَكُونَ ٱلرَّسُولُ شَهِيدًا عَلَيْكُمْ وَتَكُونُوا۟ شُهَدَآءَ عَلَى ٱلنَّاسِ ۚ فَأَقِيمُوا۟ ٱلصَّلَوٰةَ وَءَاتُوا۟ ٱلزَّكَوٰةَ وَٱعْتَصِمُوا۟ بِٱللَّهِ هُوَ مَوْلَىٰكُمْ ۖ فَنِعْمَ ٱلْمَوْلَىٰ وَنِعْمَ ٱلنَّصِيرُ
+
+**English**: And strive for God, with the striving due to Him. He has chosen you, and has not burdened you in religion-the faith of your father Abraham. It is he who named you Muslims before, and in this. So that the Messenger may be a witness over you, and you may be witnesses over the people. So pray regularly, and give regular charity, and cleave to God. He is your Protector. What an excellent Protector, and what an excellent Helper.
+
+## Thematic cross-references
+
+- **Nature and Signs**: [Abasa](surah_080_abasa.md)

@@ -1,0 +1,233 @@
+# Surah 13: Ar-Ra'd (الرعد)
+
+- **Mushaf number**: 13
+- **Place of revelation**: Medina (Madaniyah)
+- **Verse count**: 43
+- **Themes**: [Faith and Monotheism](../themes/faith-monotheism.md)
+- **Named entities mentioned**: [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md), [Rabb (the Lord)](../entities/divine_rabb.md)
+
+## Verses
+
+### Verse 13:0
+**Arabic**: بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+
+**English**: In the name of God, the Gracious, the Merciful.
+
+### Verse 13:1
+**Arabic**: الٓمٓر ۚ تِلْكَ ءَايَٰتُ ٱلْكِتَٰبِ ۗ وَٱلَّذِىٓ أُنزِلَ إِلَيْكَ مِن رَّبِّكَ ٱلْحَقُّ وَلَٰكِنَّ أَكْثَرَ ٱلنَّاسِ لَا يُؤْمِنُونَ
+
+**English**: Alif, Lam, Meem, Ra. These are the signs of the Scripture. What is revealed to you from your Lord is the truth, but most people do not believe.
+
+### Verse 13:2
+**Arabic**: ٱللَّهُ ٱلَّذِى رَفَعَ ٱلسَّمَٰوَٰتِ بِغَيْرِ عَمَدٍۢ تَرَوْنَهَا ۖ ثُمَّ ٱسْتَوَىٰ عَلَى ٱلْعَرْشِ ۖ وَسَخَّرَ ٱلشَّمْسَ وَٱلْقَمَرَ ۖ كُلٌّۭ يَجْرِى لِأَجَلٍۢ مُّسَمًّۭى ۚ يُدَبِّرُ ٱلْأَمْرَ يُفَصِّلُ ٱلْءَايَٰتِ لَعَلَّكُم بِلِقَآءِ رَبِّكُمْ تُوقِنُونَ
+
+**English**: God is He who raised the heavens without pillars that you can see, and then settled on the Throne. And He regulated the sun and the moon, each running for a specified period. He manages all affairs, and He explains the signs, that you may be certain of the meeting with your Lord.
+
+### Verse 13:3
+**Arabic**: وَهُوَ ٱلَّذِى مَدَّ ٱلْأَرْضَ وَجَعَلَ فِيهَا رَوَٰسِىَ وَأَنْهَٰرًۭا ۖ وَمِن كُلِّ ٱلثَّمَرَٰتِ جَعَلَ فِيهَا زَوْجَيْنِ ٱثْنَيْنِ ۖ يُغْشِى ٱلَّيْلَ ٱلنَّهَارَ ۚ إِنَّ فِى ذَٰلِكَ لَءَايَٰتٍۢ لِّقَوْمٍۢ يَتَفَكَّرُونَ
+
+**English**: And it is He who spread the earth, and placed in it mountains and rivers. And He placed in it two kinds of every fruit. He causes the night to overlap the day. In that are signs for people who reflect.
+
+### Verse 13:4
+**Arabic**: وَفِى ٱلْأَرْضِ قِطَعٌۭ مُّتَجَٰوِرَٰتٌۭ وَجَنَّٰتٌۭ مِّنْ أَعْنَٰبٍۢ وَزَرْعٌۭ وَنَخِيلٌۭ صِنْوَانٌۭ وَغَيْرُ صِنْوَانٍۢ يُسْقَىٰ بِمَآءٍۢ وَٰحِدٍۢ وَنُفَضِّلُ بَعْضَهَا عَلَىٰ بَعْضٍۢ فِى ٱلْأُكُلِ ۚ إِنَّ فِى ذَٰلِكَ لَءَايَٰتٍۢ لِّقَوْمٍۢ يَعْقِلُونَ
+
+**English**: On earth are adjacent terrains, and gardens of vines, and crops, and date-palms, from the same root or from distinct roots, irrigated with the same water. We make some taste better than others. In that are proofs for people who reason.
+
+### Verse 13:5
+**Arabic**: ۞ وَإِن تَعْجَبْ فَعَجَبٌۭ قَوْلُهُمْ أَءِذَا كُنَّا تُرَٰبًا أَءِنَّا لَفِى خَلْقٍۢ جَدِيدٍ ۗ أُو۟لَٰٓئِكَ ٱلَّذِينَ كَفَرُوا۟ بِرَبِّهِمْ ۖ وَأُو۟لَٰٓئِكَ ٱلْأَغْلَٰلُ فِىٓ أَعْنَاقِهِمْ ۖ وَأُو۟لَٰٓئِكَ أَصْحَٰبُ ٱلنَّارِ ۖ هُمْ فِيهَا خَٰلِدُونَ
+
+**English**: Should you wonder-the real wonder is their saying: "When we have become dust, will we be in a new creation?" Those are they who defied their Lord. Those are they who will have yokes around their necks. Those are the inhabitants of the Fire, where they will remain forever.
+
+### Verse 13:6
+**Arabic**: وَيَسْتَعْجِلُونَكَ بِٱلسَّيِّئَةِ قَبْلَ ٱلْحَسَنَةِ وَقَدْ خَلَتْ مِن قَبْلِهِمُ ٱلْمَثُلَٰتُ ۗ وَإِنَّ رَبَّكَ لَذُو مَغْفِرَةٍۢ لِّلنَّاسِ عَلَىٰ ظُلْمِهِمْ ۖ وَإِنَّ رَبَّكَ لَشَدِيدُ ٱلْعِقَابِ
+
+**English**: And they urge you to hasten evil before good, though examples have passed away before them. Your Lord is full of forgiveness towards the people for their wrongdoings, yet your Lord is severe in retribution.
+
+### Verse 13:7
+**Arabic**: وَيَقُولُ ٱلَّذِينَ كَفَرُوا۟ لَوْلَآ أُنزِلَ عَلَيْهِ ءَايَةٌۭ مِّن رَّبِّهِۦٓ ۗ إِنَّمَآ أَنتَ مُنذِرٌۭ ۖ وَلِكُلِّ قَوْمٍ هَادٍ
+
+**English**: Those who disbelieve say, "Why was a miracle not sent down to him from his Lord?" You are only a warner, and to every community is a guide.
+
+### Verse 13:8
+**Arabic**: ٱللَّهُ يَعْلَمُ مَا تَحْمِلُ كُلُّ أُنثَىٰ وَمَا تَغِيضُ ٱلْأَرْحَامُ وَمَا تَزْدَادُ ۖ وَكُلُّ شَىْءٍ عِندَهُۥ بِمِقْدَارٍ
+
+**English**: God knows what every female bears, and every increase and decrease of the wombs. With Him, everything is by measure.
+
+### Verse 13:9
+**Arabic**: عَٰلِمُ ٱلْغَيْبِ وَٱلشَّهَٰدَةِ ٱلْكَبِيرُ ٱلْمُتَعَالِ
+
+**English**: The Knower of the Invisible and the Visible; the Grand, the Supreme.
+
+### Verse 13:10
+**Arabic**: سَوَآءٌۭ مِّنكُم مَّنْ أَسَرَّ ٱلْقَوْلَ وَمَن جَهَرَ بِهِۦ وَمَنْ هُوَ مُسْتَخْفٍۭ بِٱلَّيْلِ وَسَارِبٌۢ بِٱلنَّهَارِ
+
+**English**: It is the same; whether one of you conceals his speech, or declares it; whether he goes into hiding by night, or goes out by day.
+
+### Verse 13:11
+**Arabic**: لَهُۥ مُعَقِّبَٰتٌۭ مِّنۢ بَيْنِ يَدَيْهِ وَمِنْ خَلْفِهِۦ يَحْفَظُونَهُۥ مِنْ أَمْرِ ٱللَّهِ ۗ إِنَّ ٱللَّهَ لَا يُغَيِّرُ مَا بِقَوْمٍ حَتَّىٰ يُغَيِّرُوا۟ مَا بِأَنفُسِهِمْ ۗ وَإِذَآ أَرَادَ ٱللَّهُ بِقَوْمٍۢ سُوٓءًۭا فَلَا مَرَدَّ لَهُۥ ۚ وَمَا لَهُم مِّن دُونِهِۦ مِن وَالٍ
+
+**English**: He has a succession; before him and behind him, protecting him by God's command. God does not change the condition of a people until they change what is within themselves. And if God wills any hardship for a people, there is no turning it back;, and apart from Him they have no protector.
+
+### Verse 13:12
+**Arabic**: هُوَ ٱلَّذِى يُرِيكُمُ ٱلْبَرْقَ خَوْفًۭا وَطَمَعًۭا وَيُنشِئُ ٱلسَّحَابَ ٱلثِّقَالَ
+
+**English**: It is He who shows you the lightening, causing fear and hope. And He produces the heavy clouds.
+
+### Verse 13:13
+**Arabic**: وَيُسَبِّحُ ٱلرَّعْدُ بِحَمْدِهِۦ وَٱلْمَلَٰٓئِكَةُ مِنْ خِيفَتِهِۦ وَيُرْسِلُ ٱلصَّوَٰعِقَ فَيُصِيبُ بِهَا مَن يَشَآءُ وَهُمْ يُجَٰدِلُونَ فِى ٱللَّهِ وَهُوَ شَدِيدُ ٱلْمِحَالِ
+
+**English**: The thunder praises His glory, and so do the angels, in awe of Him. And He sends the thunderbolts, striking with them whomever He wills. Yet they argue about God, while He is Tremendous in might.
+
+### Verse 13:14
+**Arabic**: لَهُۥ دَعْوَةُ ٱلْحَقِّ ۖ وَٱلَّذِينَ يَدْعُونَ مِن دُونِهِۦ لَا يَسْتَجِيبُونَ لَهُم بِشَىْءٍ إِلَّا كَبَٰسِطِ كَفَّيْهِ إِلَى ٱلْمَآءِ لِيَبْلُغَ فَاهُ وَمَا هُوَ بِبَٰلِغِهِۦ ۚ وَمَا دُعَآءُ ٱلْكَٰفِرِينَ إِلَّا فِى ضَلَٰلٍۢ
+
+**English**: To Him belongs the call to truth. Those they call upon besides Him do not respond to them with anything-except as someone who stretches his hands towards water, so that it may reach his mouth, but it does not reach it. The prayers of the unbelievers are only in vain.
+
+### Verse 13:15
+**Arabic**: وَلِلَّهِ يَسْجُدُ مَن فِى ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ طَوْعًۭا وَكَرْهًۭا وَظِلَٰلُهُم بِٱلْغُدُوِّ وَٱلْءَاصَالِ ۩
+
+**English**: To God prostrates everyone in the heavens and the earth, willingly or unwillingly, as do their shadows, in the morning and in the evening.
+
+### Verse 13:16
+**Arabic**: قُلْ مَن رَّبُّ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ قُلِ ٱللَّهُ ۚ قُلْ أَفَٱتَّخَذْتُم مِّن دُونِهِۦٓ أَوْلِيَآءَ لَا يَمْلِكُونَ لِأَنفُسِهِمْ نَفْعًۭا وَلَا ضَرًّۭا ۚ قُلْ هَلْ يَسْتَوِى ٱلْأَعْمَىٰ وَٱلْبَصِيرُ أَمْ هَلْ تَسْتَوِى ٱلظُّلُمَٰتُ وَٱلنُّورُ ۗ أَمْ جَعَلُوا۟ لِلَّهِ شُرَكَآءَ خَلَقُوا۟ كَخَلْقِهِۦ فَتَشَٰبَهَ ٱلْخَلْقُ عَلَيْهِمْ ۚ قُلِ ٱللَّهُ خَٰلِقُ كُلِّ شَىْءٍۢ وَهُوَ ٱلْوَٰحِدُ ٱلْقَهَّٰرُ
+
+**English**: Say, "Who is the Lord of the heavens and the earth?" Say, "God." Say, "Have you taken besides Him protectors, who have no power to profit or harm even themselves?" Say, "Are the blind and the seeing equal? Or are darkness and light equal? Or have they assigned to God associates, who created the likes of His creation, so that the creations seemed to them alike? Say, "God is the Creator of all things, and He is The One, the Irresistible."
+
+### Verse 13:17
+**Arabic**: أَنزَلَ مِنَ ٱلسَّمَآءِ مَآءًۭ فَسَالَتْ أَوْدِيَةٌۢ بِقَدَرِهَا فَٱحْتَمَلَ ٱلسَّيْلُ زَبَدًۭا رَّابِيًۭا ۚ وَمِمَّا يُوقِدُونَ عَلَيْهِ فِى ٱلنَّارِ ٱبْتِغَآءَ حِلْيَةٍ أَوْ مَتَٰعٍۢ زَبَدٌۭ مِّثْلُهُۥ ۚ كَذَٰلِكَ يَضْرِبُ ٱللَّهُ ٱلْحَقَّ وَٱلْبَٰطِلَ ۚ فَأَمَّا ٱلزَّبَدُ فَيَذْهَبُ جُفَآءًۭ ۖ وَأَمَّا مَا يَنفَعُ ٱلنَّاسَ فَيَمْكُثُ فِى ٱلْأَرْضِ ۚ كَذَٰلِكَ يَضْرِبُ ٱللَّهُ ٱلْأَمْثَالَ
+
+**English**: He sends down water from the sky, and riverbeds flow according to their capacity. The current carries swelling froth. And from what they heat in fire of ornaments or utensils comes a similar froth. Thus God exemplifies truth and falsehood. As for the froth, it is swept away, but what benefits the people remains in the ground. Thus God presents the analogies.
+
+### Verse 13:18
+**Arabic**: لِلَّذِينَ ٱسْتَجَابُوا۟ لِرَبِّهِمُ ٱلْحُسْنَىٰ ۚ وَٱلَّذِينَ لَمْ يَسْتَجِيبُوا۟ لَهُۥ لَوْ أَنَّ لَهُم مَّا فِى ٱلْأَرْضِ جَمِيعًۭا وَمِثْلَهُۥ مَعَهُۥ لَٱفْتَدَوْا۟ بِهِۦٓ ۚ أُو۟لَٰٓئِكَ لَهُمْ سُوٓءُ ٱلْحِسَابِ وَمَأْوَىٰهُمْ جَهَنَّمُ ۖ وَبِئْسَ ٱلْمِهَادُ
+
+**English**: For those who respond to their Lord is the best. But as for those who do not respond to Him, even if they possessed everything on earth, and twice as much, they could not redeem themselves with it. Those will have the worst reckoning; and their home is Hell-a miserable destination.
+
+### Verse 13:19
+**Arabic**: ۞ أَفَمَن يَعْلَمُ أَنَّمَآ أُنزِلَ إِلَيْكَ مِن رَّبِّكَ ٱلْحَقُّ كَمَنْ هُوَ أَعْمَىٰٓ ۚ إِنَّمَا يَتَذَكَّرُ أُو۟لُوا۟ ٱلْأَلْبَٰبِ
+
+**English**: Is he who knows that what was revealed to your from your Lord is the truth, like him who is blind? Only those who reason will remember.
+
+### Verse 13:20
+**Arabic**: ٱلَّذِينَ يُوفُونَ بِعَهْدِ ٱللَّهِ وَلَا يَنقُضُونَ ٱلْمِيثَٰقَ
+
+**English**: Those who fulfill the promise to God, and do not violate the agreement.
+
+### Verse 13:21
+**Arabic**: وَٱلَّذِينَ يَصِلُونَ مَآ أَمَرَ ٱللَّهُ بِهِۦٓ أَن يُوصَلَ وَيَخْشَوْنَ رَبَّهُمْ وَيَخَافُونَ سُوٓءَ ٱلْحِسَابِ
+
+**English**: And those who join what God has commanded to be joined, and fear their Lord, and dread the dire reckoning.
+
+### Verse 13:22
+**Arabic**: وَٱلَّذِينَ صَبَرُوا۟ ٱبْتِغَآءَ وَجْهِ رَبِّهِمْ وَأَقَامُوا۟ ٱلصَّلَوٰةَ وَأَنفَقُوا۟ مِمَّا رَزَقْنَٰهُمْ سِرًّۭا وَعَلَانِيَةًۭ وَيَدْرَءُونَ بِٱلْحَسَنَةِ ٱلسَّيِّئَةَ أُو۟لَٰٓئِكَ لَهُمْ عُقْبَى ٱلدَّارِ
+
+**English**: And those who patiently seek the presence of their Lord, and pray regularly, and spend from Our provisions to them, secretly and openly, and repel evil with good. These will have the Ultimate Home.
+
+### Verse 13:23
+**Arabic**: جَنَّٰتُ عَدْنٍۢ يَدْخُلُونَهَا وَمَن صَلَحَ مِنْ ءَابَآئِهِمْ وَأَزْوَٰجِهِمْ وَذُرِّيَّٰتِهِمْ ۖ وَٱلْمَلَٰٓئِكَةُ يَدْخُلُونَ عَلَيْهِم مِّن كُلِّ بَابٍۢ
+
+**English**: Everlasting Gardens, which they will enter, along with the righteous among their parents, and their spouses, and their descendants. And the angels will enter upon them from every gate.
+
+### Verse 13:24
+**Arabic**: سَلَٰمٌ عَلَيْكُم بِمَا صَبَرْتُمْ ۚ فَنِعْمَ عُقْبَى ٱلدَّارِ
+
+**English**: "Peace be upon you, because you endured patiently. How excellent is the Final Home."
+
+### Verse 13:25
+**Arabic**: وَٱلَّذِينَ يَنقُضُونَ عَهْدَ ٱللَّهِ مِنۢ بَعْدِ مِيثَٰقِهِۦ وَيَقْطَعُونَ مَآ أَمَرَ ٱللَّهُ بِهِۦٓ أَن يُوصَلَ وَيُفْسِدُونَ فِى ٱلْأَرْضِ ۙ أُو۟لَٰٓئِكَ لَهُمُ ٱللَّعْنَةُ وَلَهُمْ سُوٓءُ ٱلدَّارِ
+
+**English**: As for those who violate the promise to God, after pledging to keep it, and sever what God has commanded to be joined, and spread corruption on earth-these, the curse will be upon them, and they will have the Worst Home.
+
+### Verse 13:26
+**Arabic**: ٱللَّهُ يَبْسُطُ ٱلرِّزْقَ لِمَن يَشَآءُ وَيَقْدِرُ ۚ وَفَرِحُوا۟ بِٱلْحَيَوٰةِ ٱلدُّنْيَا وَمَا ٱلْحَيَوٰةُ ٱلدُّنْيَا فِى ٱلْءَاخِرَةِ إِلَّا مَتَٰعٌۭ
+
+**English**: God dispenses the provisions to whomever He wills, and restricts. And they delight in the worldly life; yet the worldly life, compared to the Hereafter, is only enjoyment.
+
+### Verse 13:27
+**Arabic**: وَيَقُولُ ٱلَّذِينَ كَفَرُوا۟ لَوْلَآ أُنزِلَ عَلَيْهِ ءَايَةٌۭ مِّن رَّبِّهِۦ ۗ قُلْ إِنَّ ٱللَّهَ يُضِلُّ مَن يَشَآءُ وَيَهْدِىٓ إِلَيْهِ مَنْ أَنَابَ
+
+**English**: Those who disbelieve say, "If only a miracle was sent down to him from his Lord." Say, "God leads astray whomever He wills, and He guides to Himself whoever repents."
+
+### Verse 13:28
+**Arabic**: ٱلَّذِينَ ءَامَنُوا۟ وَتَطْمَئِنُّ قُلُوبُهُم بِذِكْرِ ٱللَّهِ ۗ أَلَا بِذِكْرِ ٱللَّهِ تَطْمَئِنُّ ٱلْقُلُوبُ
+
+**English**: Those who believe, and whose hearts find comfort in the remembrance of God. Surely, it is in the remembrance of God that hearts find comfort."
+
+### Verse 13:29
+**Arabic**: ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ طُوبَىٰ لَهُمْ وَحُسْنُ مَـَٔابٍۢ
+
+**English**: For those who believe and do righteous deeds-for them is happiness and a beautiful return.
+
+### Verse 13:30
+**Arabic**: كَذَٰلِكَ أَرْسَلْنَٰكَ فِىٓ أُمَّةٍۢ قَدْ خَلَتْ مِن قَبْلِهَآ أُمَمٌۭ لِّتَتْلُوَا۟ عَلَيْهِمُ ٱلَّذِىٓ أَوْحَيْنَآ إِلَيْكَ وَهُمْ يَكْفُرُونَ بِٱلرَّحْمَٰنِ ۚ قُلْ هُوَ رَبِّى لَآ إِلَٰهَ إِلَّا هُوَ عَلَيْهِ تَوَكَّلْتُ وَإِلَيْهِ مَتَابِ
+
+**English**: Thus We sent you among a community before which other communities have passed away, that you may recite to them what We revealed to you. Yet they deny the Benevolent One. Say, "He is my Lord; there is no god but He; in Him I trust, and to Him is my repentance."
+
+### Verse 13:31
+**Arabic**: وَلَوْ أَنَّ قُرْءَانًۭا سُيِّرَتْ بِهِ ٱلْجِبَالُ أَوْ قُطِّعَتْ بِهِ ٱلْأَرْضُ أَوْ كُلِّمَ بِهِ ٱلْمَوْتَىٰ ۗ بَل لِّلَّهِ ٱلْأَمْرُ جَمِيعًا ۗ أَفَلَمْ يَا۟يْـَٔسِ ٱلَّذِينَ ءَامَنُوٓا۟ أَن لَّوْ يَشَآءُ ٱللَّهُ لَهَدَى ٱلنَّاسَ جَمِيعًۭا ۗ وَلَا يَزَالُ ٱلَّذِينَ كَفَرُوا۟ تُصِيبُهُم بِمَا صَنَعُوا۟ قَارِعَةٌ أَوْ تَحُلُّ قَرِيبًۭا مِّن دَارِهِمْ حَتَّىٰ يَأْتِىَ وَعْدُ ٱللَّهِ ۚ إِنَّ ٱللَّهَ لَا يُخْلِفُ ٱلْمِيعَادَ
+
+**English**: Even if there were a Quran, by which mountains could be set in motion, or by which the earth could be shattered, or by which the dead could be made to speak. In fact, every decision rests with God. Did the believers not give up and realize that had God willed, He would have guided all humanity? Disasters will continue to strike those who disbelieve, because of their deeds, or they fall near their homes, until God's promise comes true. God never breaks a promise.
+
+### Verse 13:32
+**Arabic**: وَلَقَدِ ٱسْتُهْزِئَ بِرُسُلٍۢ مِّن قَبْلِكَ فَأَمْلَيْتُ لِلَّذِينَ كَفَرُوا۟ ثُمَّ أَخَذْتُهُمْ ۖ فَكَيْفَ كَانَ عِقَابِ
+
+**English**: Messengers before you were ridiculed, but I granted the disbelievers respite, and then I seized them. What a punishment it was!
+
+### Verse 13:33
+**Arabic**: أَفَمَنْ هُوَ قَآئِمٌ عَلَىٰ كُلِّ نَفْسٍۭ بِمَا كَسَبَتْ ۗ وَجَعَلُوا۟ لِلَّهِ شُرَكَآءَ قُلْ سَمُّوهُمْ ۚ أَمْ تُنَبِّـُٔونَهُۥ بِمَا لَا يَعْلَمُ فِى ٱلْأَرْضِ أَم بِظَٰهِرٍۢ مِّنَ ٱلْقَوْلِ ۗ بَلْ زُيِّنَ لِلَّذِينَ كَفَرُوا۟ مَكْرُهُمْ وَصُدُّوا۟ عَنِ ٱلسَّبِيلِ ۗ وَمَن يُضْلِلِ ٱللَّهُ فَمَا لَهُۥ مِنْ هَادٍۢ
+
+**English**: Is He who is watchful over the deeds of every soul? Yet they ascribe associates to God. Say, "Name them! Or are you informing Him of something on earth He does not know, or is it a show of words?" In fact, the scheming of those who disbelieve is made to appear good to them, and they are averted from the path. Whomever God misguides has no guide.
+
+### Verse 13:34
+**Arabic**: لَّهُمْ عَذَابٌۭ فِى ٱلْحَيَوٰةِ ٱلدُّنْيَا ۖ وَلَعَذَابُ ٱلْءَاخِرَةِ أَشَقُّ ۖ وَمَا لَهُم مِّنَ ٱللَّهِ مِن وَاقٍۢ
+
+**English**: There is for them torment in the worldly life, but the torment of the Hereafter is harsher. And they have no defender against God.
+
+### Verse 13:35
+**Arabic**: ۞ مَّثَلُ ٱلْجَنَّةِ ٱلَّتِى وُعِدَ ٱلْمُتَّقُونَ ۖ تَجْرِى مِن تَحْتِهَا ٱلْأَنْهَٰرُ ۖ أُكُلُهَا دَآئِمٌۭ وَظِلُّهَا ۚ تِلْكَ عُقْبَى ٱلَّذِينَ ٱتَّقَوا۟ ۖ وَّعُقْبَى ٱلْكَٰفِرِينَ ٱلنَّارُ
+
+**English**: The likeness of the Garden promised to the righteous: rivers flowing beneath it; its food is perpetual, and so is its shade. Such is the sequel for those who guard against evil, but the sequel of the disbelievers is the Fire.
+
+### Verse 13:36
+**Arabic**: وَٱلَّذِينَ ءَاتَيْنَٰهُمُ ٱلْكِتَٰبَ يَفْرَحُونَ بِمَآ أُنزِلَ إِلَيْكَ ۖ وَمِنَ ٱلْأَحْزَابِ مَن يُنكِرُ بَعْضَهُۥ ۚ قُلْ إِنَّمَآ أُمِرْتُ أَنْ أَعْبُدَ ٱللَّهَ وَلَآ أُشْرِكَ بِهِۦٓ ۚ إِلَيْهِ أَدْعُوا۟ وَإِلَيْهِ مَـَٔابِ
+
+**English**: Those to whom We gave the Scripture rejoice in what was revealed to you, while some factions reject parts of it. Say, "I am commanded to worship God, and to never associate anything with Him. To Him I invite, and to Him is my return."
+
+### Verse 13:37
+**Arabic**: وَكَذَٰلِكَ أَنزَلْنَٰهُ حُكْمًا عَرَبِيًّۭا ۚ وَلَئِنِ ٱتَّبَعْتَ أَهْوَآءَهُم بَعْدَمَا جَآءَكَ مِنَ ٱلْعِلْمِ مَا لَكَ مِنَ ٱللَّهِ مِن وَلِىٍّۢ وَلَا وَاقٍۢ
+
+**English**: Thus We revealed it an Arabic code of law. Were you to follow their desires, after the knowledge that has come to you, you would have neither ally nor defender against God.
+
+### Verse 13:38
+**Arabic**: وَلَقَدْ أَرْسَلْنَا رُسُلًۭا مِّن قَبْلِكَ وَجَعَلْنَا لَهُمْ أَزْوَٰجًۭا وَذُرِّيَّةًۭ ۚ وَمَا كَانَ لِرَسُولٍ أَن يَأْتِىَ بِـَٔايَةٍ إِلَّا بِإِذْنِ ٱللَّهِ ۗ لِكُلِّ أَجَلٍۢ كِتَابٌۭ
+
+**English**: We sent messengers before you, and We assigned for them wives and offspring. No messenger could bring a sign except with the permission of God. For every era is a scripture.
+
+### Verse 13:39
+**Arabic**: يَمْحُوا۟ ٱللَّهُ مَا يَشَآءُ وَيُثْبِتُ ۖ وَعِندَهُۥٓ أُمُّ ٱلْكِتَٰبِ
+
+**English**: God abolishes whatever He wills, and He affirms. With Him is the source of the Scripture.
+
+### Verse 13:40
+**Arabic**: وَإِن مَّا نُرِيَنَّكَ بَعْضَ ٱلَّذِى نَعِدُهُمْ أَوْ نَتَوَفَّيَنَّكَ فَإِنَّمَا عَلَيْكَ ٱلْبَلَٰغُ وَعَلَيْنَا ٱلْحِسَابُ
+
+**English**: Whether We show you some of what We have promised them, or We cause you to die-your duty is to inform, and Ours is the reckoning.
+
+### Verse 13:41
+**Arabic**: أَوَلَمْ يَرَوْا۟ أَنَّا نَأْتِى ٱلْأَرْضَ نَنقُصُهَا مِنْ أَطْرَافِهَا ۚ وَٱللَّهُ يَحْكُمُ لَا مُعَقِّبَ لِحُكْمِهِۦ ۚ وَهُوَ سَرِيعُ ٱلْحِسَابِ
+
+**English**: Do they not see how We deal with the earth, diminishing it at its edges? God judges; and nothing can hold back His judgment. And He is quick to settle accounts.
+
+### Verse 13:42
+**Arabic**: وَقَدْ مَكَرَ ٱلَّذِينَ مِن قَبْلِهِمْ فَلِلَّهِ ٱلْمَكْرُ جَمِيعًۭا ۖ يَعْلَمُ مَا تَكْسِبُ كُلُّ نَفْسٍۢ ۗ وَسَيَعْلَمُ ٱلْكُفَّٰرُ لِمَنْ عُقْبَى ٱلدَّارِ
+
+**English**: Those before them planned, but the entire plan is up to God. He knows what every soul earns. Those who disbelieve will know to whom the Ultimate Home is.
+
+### Verse 13:43
+**Arabic**: وَيَقُولُ ٱلَّذِينَ كَفَرُوا۟ لَسْتَ مُرْسَلًۭا ۚ قُلْ كَفَىٰ بِٱللَّهِ شَهِيدًۢا بَيْنِى وَبَيْنَكُمْ وَمَنْ عِندَهُۥ عِلْمُ ٱلْكِتَٰبِ
+
+**English**: Those who disbelieve say, "You are not a messenger." Say, "God is a sufficient witness between me and you, and whoever has knowledge of the Scripture."
+
+## Thematic cross-references
+
+- **Faith and Monotheism**: [Al-Fatiha](surah_001_al-fatiha.md), [Aal-Imran](surah_003_aal-imran.md), [Yunus](surah_010_yunus.md), [Hud](surah_011_hud.md), [Yusuf](surah_012_yusuf.md), [Al-Kahf](surah_018_al-kahf.md), [Al-Anbiya](surah_021_al-anbiya.md), [Luqman](surah_031_luqman.md) and 14 more

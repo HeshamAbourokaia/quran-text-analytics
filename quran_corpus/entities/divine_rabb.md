@@ -1,0 +1,106 @@
+# Rabb (the Lord)
+
+- **Arabic**: رب
+- **Category**: Divine
+- **Total verse mentions**: 1072
+- **Surahs containing this entity**: 97
+
+## Surahs where mentioned
+
+- **[Surah 1: Al-Fatiha](../surahs/surah_001_al-fatiha.md)**: verses 2
+- **[Surah 2: Al-Baqara](../surahs/surah_002_al-baqara.md)**: verses 5, 16, 21, 26, 30, 35, 37, 46, 49, 51, 60, 61, 62, 68, 69 (and 52 more)
+- **[Surah 3: Aal-Imran](../surahs/surah_003_aal-imran.md)**: verses 7, 8, 9, 15, 16, 35, 36, 37, 38, 40, 41, 43, 45, 47, 49 (and 28 more)
+- **[Surah 4: An-Nisaa'](../surahs/surah_004_an-nisaa.md)**: verses 1, 3, 7, 8, 11, 12, 15, 23, 33, 34, 36, 43, 65, 75, 77 (and 8 more)
+- **[Surah 5: Al-Ma'ida](../surahs/surah_005_al-ma-ida.md)**: verses 2, 8, 24, 25, 26, 27, 28, 33, 44, 63, 64, 66, 67, 68, 72 (and 7 more)
+- **[Surah 6: Al-An'am](../surahs/surah_006_al-an-am.md)**: verses 1, 4, 15, 23, 27, 30, 37, 38, 45, 51, 52, 54, 57, 64, 71 (and 32 more)
+- **[Surah 7: Al-A'raf](../surahs/surah_007_al-a-raf.md)**: verses 3, 19, 20, 22, 23, 29, 31, 33, 38, 43, 44, 47, 53, 54, 55 (and 45 more)
+- **[Surah 8: Al-Anfal](../surahs/surah_008_al-anfal.md)**: verses 2, 4, 5, 9, 11, 12, 41, 50, 54, 57, 60
+- **[Surah 9: Al-Tawba](../surahs/surah_009_al-tawba.md)**: verses 2, 21, 24, 28, 31, 36, 52, 98, 99, 107, 113, 129
+- **[Surah 10: Yunus](../surahs/surah_010_yunus.md)**: verses 2, 3, 9, 10, 15, 19, 20, 32, 33, 37, 40, 53, 57, 61, 85 (and 6 more)
+- **[Surah 11: Hud](../surahs/surah_011_hud.md)**: verses 3, 17, 18, 23, 28, 29, 34, 41, 45, 47, 52, 56, 57, 59, 60 (and 20 more)
+- **[Surah 12: Yusuf](../surahs/surah_012_yusuf.md)**: verses 2, 6, 23, 24, 33, 34, 37, 39, 41, 42, 50, 53, 60, 98, 100 (and 1 more)
+- **[Surah 13: Ar-Ra'd](../surahs/surah_013_ar-ra-d.md)**: verses 1, 2, 5, 6, 7, 10, 16, 17, 18, 19, 21, 22, 27, 30, 37
+- **[Surah 14: Ibrahim](../surahs/surah_014_ibrahim.md)**: verses 1, 6, 7, 13, 18, 23, 24, 25, 35, 36, 37, 38, 39, 40, 41 (and 2 more)
+- **[Surah 15: Al-Hijr](../surahs/surah_015_al-hijr.md)**: verses 2, 25, 28, 36, 39, 56, 86, 92, 98, 99
+- **[Surah 16: An-Nahl](../surahs/surah_016_an-nahl.md)**: verses 7, 24, 30, 33, 42, 47, 50, 54, 66, 68, 69, 74, 75, 76, 77 (and 12 more)
+- **[Surah 17: Al-Israa](../surahs/surah_017_al-israa.md)**: verses 8, 12, 17, 20, 23, 24, 25, 26, 27, 28, 30, 32, 34, 38, 39 (and 18 more)
+- **[Surah 18: Al-Kahf](../surahs/surah_018_al-kahf.md)**: verses 10, 11, 13, 14, 16, 17, 19, 21, 22, 24, 27, 28, 29, 32, 36 (and 21 more)
+- **[Surah 19: Maryam](../surahs/surah_019_maryam.md)**: verses 2, 3, 4, 6, 8, 9, 10, 19, 21, 24, 26, 36, 47, 48, 52 (and 6 more)
+- **[Surah 20: Ta-Ha](../surahs/surah_020_ta-ha.md)**: verses 12, 18, 25, 45, 47, 49, 50, 52, 70, 73, 74, 77, 84, 86, 90 (and 13 more)
+- **[Surah 21: Al-Anbiya](../surahs/surah_021_al-anbiya.md)**: verses 1, 2, 4, 22, 42, 46, 49, 56, 76, 83, 89, 92, 97, 112
+- **[Surah 22: Al-Hajj](../surahs/surah_022_al-hajj.md)**: verses 1, 5, 13, 19, 30, 40, 47, 54, 67, 73, 77
+- **[Surah 23: Al-Muminun](../surahs/surah_023_al-muminun.md)**: verses 25, 26, 29, 33, 39, 50, 52, 57, 58, 59, 60, 72, 76, 86, 93 (and 10 more)
+- **[Surah 24: An-Nur](../surahs/surah_024_an-nur.md)**: verses 4, 6, 8, 13, 22, 31, 35, 45
+- **[Surah 25: Al-Furqan](../surahs/surah_025_al-furqan.md)**: verses 9, 16, 20, 21, 30, 31, 39, 45, 54, 55, 57, 64, 65, 73, 74 (and 1 more)
+- **[Surah 26: Ash-Shuara](../surahs/surah_026_ash-shuara.md)**: verses 9, 10, 12, 16, 18, 21, 23, 24, 26, 28, 42, 47, 48, 50, 51 (and 26 more)
+- **[Surah 27: An-Naml](../surahs/surah_027_an-naml.md)**: verses 8, 19, 26, 40, 44, 67, 73, 74, 78, 91, 93
+- **[Surah 28: Al-Qasas](../surahs/surah_028_al-qasas.md)**: verses 10, 16, 17, 21, 22, 24, 30, 32, 33, 37, 44, 46, 47, 53, 59 (and 6 more)
+- **[Surah 29: Al-Ankabut](../surahs/surah_029_al-ankabut.md)**: verses 10, 26, 30, 43, 50, 59
+- **[Surah 30: Ar-Rum](../surahs/surah_030_ar-rum.md)**: verses 8, 28, 33, 38, 39, 58
+- **[Surah 31: Luqman](../surahs/surah_031_luqman.md)**: verses 5, 33
+- **[Surah 32: As-Sajdah](../surahs/surah_032_as-sajdah.md)**: verses 2, 3, 10, 11, 12, 15, 16, 22, 25
+- **[Surah 33: Al-Ahzab](../surahs/surah_033_al-ahzab.md)**: verses 2, 13, 67, 68
+- **[Surah 34: Saba](../surahs/surah_034_saba.md)**: verses 3, 6, 12, 15, 19, 21, 23, 26, 31, 36, 37, 39, 48, 50
+- **[Surah 35: Fatir](../surahs/surah_035_fatir.md)**: verses 1, 13, 18, 34, 37, 39
+- **[Surah 36: Yasin](../surahs/surah_036_yasin.md)**: verses 13, 16, 25, 27, 46, 51, 58, 73, 78
+- **[Surah 37: As-Saffat](../surahs/surah_037_as-saffat.md)**: verses 5, 31, 46, 57, 76, 84, 87, 93, 99, 100, 115, 126, 149, 180, 182
+- **[Surah 38: Sad](../surahs/surah_038_sad.md)**: verses 9, 16, 24, 32, 35, 41, 44, 61, 66, 71, 79
+- **[Surah 39: Az-Zumar](../surahs/surah_039_az-zumar.md)**: verses 3, 6, 7, 8, 9, 10, 13, 20, 22, 23, 27, 28, 29, 31, 34 (and 6 more)
+- **[Surah 40: Ghafir](../surahs/surah_040_ghafir.md)**: verses 6, 7, 8, 11, 26, 27, 28, 49, 55, 60, 62, 64, 65, 66
+- **[Surah 41: Fussilat](../surahs/surah_041_fussilat.md)**: verses 3, 9, 10, 14, 23, 29, 30, 38, 39, 43, 44, 45, 46, 50, 53 (and 1 more)
+- **[Surah 42: Ash-Shura](../surahs/surah_042_ash-shura.md)**: verses 5, 7, 10, 14, 15, 16, 22, 23, 36, 38, 47
+- **[Surah 43: Az-Zukhruf](../surahs/surah_043_az-zukhruf.md)**: verses 3, 5, 13, 14, 17, 32, 35, 46, 49, 57, 58, 64, 77, 82, 88
+- **[Surah 44: Ad-Dukhan](../surahs/surah_044_ad-dukhan.md)**: verses 6, 7, 8, 12, 20, 22, 57
+- **[Surah 45: Al-Jathiya](../surahs/surah_045_al-jathiya.md)**: verses 11, 15, 17, 30, 36
+- **[Surah 46: Al-Ahqaf](../surahs/surah_046_al-ahqaf.md)**: verses 12, 13, 15, 25, 28, 34
+- **[Surah 47: Muhammad](../surahs/surah_047_muhammad.md)**: verses 2, 3, 4, 14, 15, 27
+- **[Surah 50: Qaf](../surahs/surah_050_qaf.md)**: verses 16, 27, 39
+- **[Surah 51: Az-Zariyat](../surahs/surah_051_az-zariyat.md)**: verses 16, 23, 27, 30, 34, 44
+- **[Surah 52: At-Tur](../surahs/surah_052_at-tur.md)**: verses 7, 18, 19, 29, 30, 31, 37, 48
+- **[Surah 53: An-Najm](../surahs/surah_053_an-najm.md)**: verses 18, 23, 30, 32, 42, 49, 55
+- **[Surah 54: Al-Qamar](../surahs/surah_054_al-qamar.md)**: verses 1, 10, 28
+- **[Surah 55: Ar-Rahman](../surahs/surah_055_ar-rahman.md)**: verses 13, 16, 17, 18, 21, 23, 25, 27, 28, 30, 32, 34, 36, 38, 40 (and 20 more)
+- **[Surah 56: Al-Waqia](../surahs/surah_056_al-waqia.md)**: verses 11, 37, 54, 55, 68, 74, 80, 85, 88, 96
+- **[Surah 57: Al-Hadid](../surahs/surah_057_al-hadid.md)**: verses 8, 13, 14, 19, 21
+- **[Surah 59: Al-Hashr](../surahs/surah_059_al-hashr.md)**: verses 2, 7, 10, 16, 21
+- **[Surah 60: Al-Mumtahinah](../surahs/surah_060_al-mumtahinah.md)**: verses 1, 4, 5
+- **[Surah 63: Al-Munafiqun](../surahs/surah_063_al-munafiqun.md)**: verses 10
+- **[Surah 64: At-Taghabun](../surahs/surah_064_at-taghabun.md)**: verses 7
+- **[Surah 65: At-Talaq](../surahs/surah_065_at-talaq.md)**: verses 1, 8
+- **[Surah 66: At-Tahrim](../surahs/surah_066_at-tahrim.md)**: verses 5, 8, 10, 11, 12
+- **[Surah 67: Al-Mulk](../surahs/surah_067_al-mulk.md)**: verses 6, 12
+- **[Surah 68: Al-Qalam](../surahs/surah_068_al-qalam.md)**: verses 2, 7, 19, 29, 32, 34, 48, 49, 50
+- **[Surah 69: Al-Haqqah](../surahs/surah_069_al-haqqah.md)**: verses 10, 17, 24, 43, 52
+- **[Surah 70: Al-Ma'arij](../surahs/surah_070_al-ma-arij.md)**: verses 27, 28, 40
+- **[Surah 71: Nuh](../surahs/surah_071_nuh.md)**: verses 5, 10, 21, 26, 28
+- **[Surah 72: Al-Jinn](../surahs/surah_072_al-jinn.md)**: verses 2, 3, 10, 12, 13, 17, 20, 25, 28
+- **[Surah 73: Al-Muzzammil](../surahs/surah_073_al-muzzammil.md)**: verses 8, 9, 19, 20
+- **[Surah 74: Al-Muddaththir](../surahs/surah_074_al-muddaththir.md)**: verses 3, 7, 31
+- **[Surah 75: Al-Qiyamah](../surahs/surah_075_al-qiyamah.md)**: verses 12, 23, 30
+- **[Surah 76: Al-Insan](../surahs/surah_076_al-insan.md)**: verses 5, 6, 10, 21, 24, 25, 29
+- **[Surah 77: Al-Mursalat](../surahs/surah_077_al-mursalat.md)**: verses 43
+- **[Surah 78: An-Naba](../surahs/surah_078_an-naba.md)**: verses 36, 37, 39, 40
+- **[Surah 79: An-Naziat](../surahs/surah_079_an-naziat.md)**: verses 16, 19, 24, 40, 44
+- **[Surah 81: At-Takwir](../surahs/surah_081_at-takwir.md)**: verses 29
+- **[Surah 82: Al-Infitar](../surahs/surah_082_al-infitar.md)**: verses 6
+- **[Surah 83: Al-Mutaffifin](../surahs/surah_083_al-mutaffifin.md)**: verses 6, 15, 21, 28
+- **[Surah 84: Al-Inshiqaq](../surahs/surah_084_al-inshiqaq.md)**: verses 2, 5, 6, 15
+- **[Surah 85: Al-Buruj](../surahs/surah_085_al-buruj.md)**: verses 12
+- **[Surah 87: Al-Ala](../surahs/surah_087_al-ala.md)**: verses 1, 15
+- **[Surah 89: Al-Fajr](../surahs/surah_089_al-fajr.md)**: verses 6, 13, 14, 15, 16, 22, 28
+- **[Surah 90: Al-Balad](../surahs/surah_090_al-balad.md)**: verses 15, 16
+- **[Surah 91: Ash-Shams](../surahs/surah_091_ash-shams.md)**: verses 14
+- **[Surah 92: Al-Lail](../surahs/surah_092_al-lail.md)**: verses 20
+- **[Surah 93: Ad-Duha](../surahs/surah_093_ad-duha.md)**: verses 3, 5, 11
+- **[Surah 94: Ash-Sharh](../surahs/surah_094_ash-sharh.md)**: verses 8
+- **[Surah 96: Al-Alaq](../surahs/surah_096_al-alaq.md)**: verses 1, 3, 8, 19
+- **[Surah 97: Al-Qadr](../surahs/surah_097_al-qadr.md)**: verses 4
+- **[Surah 98: Al-Bayinah](../surahs/surah_098_al-bayinah.md)**: verses 8
+- **[Surah 99: Az-Zalzalah](../surahs/surah_099_az-zalzalah.md)**: verses 5
+- **[Surah 100: Al-Adiyat](../surahs/surah_100_al-adiyat.md)**: verses 6, 11
+- **[Surah 105: Al-Fil](../surahs/surah_105_al-fil.md)**: verses 1
+- **[Surah 106: Quraish](../surahs/surah_106_quraish.md)**: verses 3
+- **[Surah 108: Al-Kauthar](../surahs/surah_108_al-kauthar.md)**: verses 2
+- **[Surah 110: An-Nasr](../surahs/surah_110_an-nasr.md)**: verses 3
+- **[Surah 113: Al-Falaq](../surahs/surah_113_al-falaq.md)**: verses 1
+- **[Surah 114: An-Nas](../surahs/surah_114_an-nas.md)**: verses 1

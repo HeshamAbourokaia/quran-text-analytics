@@ -1,0 +1,1448 @@
+# Surah 2: Al-Baqara (البقرة)
+
+- **Mushaf number**: 2
+- **Place of revelation**: Medina (Madaniyah)
+- **Verse count**: 286
+- **Themes**: [Legislation](../themes/legislation.md)
+- **Named entities mentioned**: [Adam](../entities/prophet_adam.md), [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md), [David (Dawud)](../entities/prophet_dawud.md), [Pharaoh (Firaun)](../entities/figure_firaun.md), [Hud](../entities/prophet_hud.md), [Iblis (Satan)](../entities/figure_iblis.md), [Jesus (Isa)](../entities/prophet_isa.md), [Isaac (Ishaq)](../entities/prophet_ishaq.md), [Ishmael (Ismail)](../entities/prophet_ismail.md), [Gabriel (Jibril)](../entities/figure_jibril.md), [Mary (Maryam, mother of Jesus)](../entities/figure_maryam.md), [The Sacred Mosque (Makka)](../entities/place_masjid-al-haram.md), [Egypt (Misr)](../entities/place_misr.md), [Moses (Musa)](../entities/prophet_musa.md), [Rabb (the Lord)](../entities/divine_rabb.md), [Mount Sinai (Tur)](../entities/place_sinai.md), [John the Baptist (Yahya)](../entities/prophet_yahya.md), [Jacob (Yaqub)](../entities/prophet_yaqub.md)
+
+## Verses
+
+### Verse 2:0
+**Arabic**: بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+
+**English**: In the name of God, the Gracious, the Merciful.
+
+### Verse 2:1
+**Arabic**: الٓمٓ
+
+**English**: Alif, Lam, Meem.
+
+### Verse 2:2
+**Arabic**: ذَٰلِكَ ٱلْكِتَٰبُ لَا رَيْبَ ۛ فِيهِ ۛ هُدًۭى لِّلْمُتَّقِينَ
+
+**English**: This is the Book in which there is no doubt, a guide for the righteous.
+
+### Verse 2:3
+**Arabic**: ٱلَّذِينَ يُؤْمِنُونَ بِٱلْغَيْبِ وَيُقِيمُونَ ٱلصَّلَوٰةَ وَمِمَّا رَزَقْنَٰهُمْ يُنفِقُونَ
+
+**English**: Those who believe in the unseen, and perform the prayers, and give from what We have provided for them.
+
+### Verse 2:4
+**Arabic**: وَٱلَّذِينَ يُؤْمِنُونَ بِمَآ أُنزِلَ إِلَيْكَ وَمَآ أُنزِلَ مِن قَبْلِكَ وَبِٱلْءَاخِرَةِ هُمْ يُوقِنُونَ
+
+**English**: And those who believe in what was revealed to you, and in what was revealed before you, and are certain of the Hereafter.
+
+### Verse 2:5
+**Arabic**: أُو۟لَٰٓئِكَ عَلَىٰ هُدًۭى مِّن رَّبِّهِمْ ۖ وَأُو۟لَٰٓئِكَ هُمُ ٱلْمُفْلِحُونَ
+
+**English**: These are upon guidance from their Lord. These are the successful.
+
+### Verse 2:6
+**Arabic**: إِنَّ ٱلَّذِينَ كَفَرُوا۟ سَوَآءٌ عَلَيْهِمْ ءَأَنذَرْتَهُمْ أَمْ لَمْ تُنذِرْهُمْ لَا يُؤْمِنُونَ
+
+**English**: As for those who disbelieve-it is the same for them, whether you have warned them, or have not warned them-they do not believe.
+
+### Verse 2:7
+**Arabic**: خَتَمَ ٱللَّهُ عَلَىٰ قُلُوبِهِمْ وَعَلَىٰ سَمْعِهِمْ ۖ وَعَلَىٰٓ أَبْصَٰرِهِمْ غِشَٰوَةٌۭ ۖ وَلَهُمْ عَذَابٌ عَظِيمٌۭ
+
+**English**: God has set a seal on their hearts and on their hearing, and over their vision is a veil. They will have a severe torment.
+
+### Verse 2:8
+**Arabic**: وَمِنَ ٱلنَّاسِ مَن يَقُولُ ءَامَنَّا بِٱللَّهِ وَبِٱلْيَوْمِ ٱلْءَاخِرِ وَمَا هُم بِمُؤْمِنِينَ
+
+**English**: Among the people are those who say, "We believe in God and in the Last Day," but they are not believers.
+
+### Verse 2:9
+**Arabic**: يُخَٰدِعُونَ ٱللَّهَ وَٱلَّذِينَ ءَامَنُوا۟ وَمَا يَخْدَعُونَ إِلَّآ أَنفُسَهُمْ وَمَا يَشْعُرُونَ
+
+**English**: They seek to deceive God and those who believe, but they deceive none but themselves, though they are not aware.
+
+### Verse 2:10
+**Arabic**: فِى قُلُوبِهِم مَّرَضٌۭ فَزَادَهُمُ ٱللَّهُ مَرَضًۭا ۖ وَلَهُمْ عَذَابٌ أَلِيمٌۢ بِمَا كَانُوا۟ يَكْذِبُونَ
+
+**English**: In their hearts is sickness, and God has increased their sickness. They will have a painful punishment because of their denial.
+
+### Verse 2:11
+**Arabic**: وَإِذَا قِيلَ لَهُمْ لَا تُفْسِدُوا۟ فِى ٱلْأَرْضِ قَالُوٓا۟ إِنَّمَا نَحْنُ مُصْلِحُونَ
+
+**English**: And when it is said to them, "Do not make trouble on earth," they say, "We are only reformers."
+
+### Verse 2:12
+**Arabic**: أَلَآ إِنَّهُمْ هُمُ ٱلْمُفْسِدُونَ وَلَٰكِن لَّا يَشْعُرُونَ
+
+**English**: In fact, they are the troublemakers, but they are not aware.
+
+### Verse 2:13
+**Arabic**: وَإِذَا قِيلَ لَهُمْ ءَامِنُوا۟ كَمَآ ءَامَنَ ٱلنَّاسُ قَالُوٓا۟ أَنُؤْمِنُ كَمَآ ءَامَنَ ٱلسُّفَهَآءُ ۗ أَلَآ إِنَّهُمْ هُمُ ٱلسُّفَهَآءُ وَلَٰكِن لَّا يَعْلَمُونَ
+
+**English**: And when it is said to them, "Believe as the people have believed," they say, "Shall we believe as the fools have believed?" In fact, it is they who are the fools, but they do not know.
+
+### Verse 2:14
+**Arabic**: وَإِذَا لَقُوا۟ ٱلَّذِينَ ءَامَنُوا۟ قَالُوٓا۟ ءَامَنَّا وَإِذَا خَلَوْا۟ إِلَىٰ شَيَٰطِينِهِمْ قَالُوٓا۟ إِنَّا مَعَكُمْ إِنَّمَا نَحْنُ مُسْتَهْزِءُونَ
+
+**English**: And when they come across those who believe, they say, "We believe"; but when they are alone with their devils, they say, "We are with you; we were only ridiculing."
+
+### Verse 2:15
+**Arabic**: ٱللَّهُ يَسْتَهْزِئُ بِهِمْ وَيَمُدُّهُمْ فِى طُغْيَٰنِهِمْ يَعْمَهُونَ
+
+**English**: It is God who ridicules them, and leaves them bewildered in their transgression.
+
+### Verse 2:16
+**Arabic**: أُو۟لَٰٓئِكَ ٱلَّذِينَ ٱشْتَرَوُا۟ ٱلضَّلَٰلَةَ بِٱلْهُدَىٰ فَمَا رَبِحَت تِّجَٰرَتُهُمْ وَمَا كَانُوا۟ مُهْتَدِينَ
+
+**English**: Those are they who have bartered error for guidance; but their trade does not profit them, and they are not guided.
+
+### Verse 2:17
+**Arabic**: مَثَلُهُمْ كَمَثَلِ ٱلَّذِى ٱسْتَوْقَدَ نَارًۭا فَلَمَّآ أَضَآءَتْ مَا حَوْلَهُۥ ذَهَبَ ٱللَّهُ بِنُورِهِمْ وَتَرَكَهُمْ فِى ظُلُمَٰتٍۢ لَّا يُبْصِرُونَ
+
+**English**: Their likeness is that of a person who kindled a fire; when it illuminated all around him, God took away their light, and left them in darkness, unable to see.
+
+### Verse 2:18
+**Arabic**: صُمٌّۢ بُكْمٌ عُمْىٌۭ فَهُمْ لَا يَرْجِعُونَ
+
+**English**: Deaf, dumb, blind. They will not return.
+
+### Verse 2:19
+**Arabic**: أَوْ كَصَيِّبٍۢ مِّنَ ٱلسَّمَآءِ فِيهِ ظُلُمَٰتٌۭ وَرَعْدٌۭ وَبَرْقٌۭ يَجْعَلُونَ أَصَٰبِعَهُمْ فِىٓ ءَاذَانِهِم مِّنَ ٱلصَّوَٰعِقِ حَذَرَ ٱلْمَوْتِ ۚ وَٱللَّهُ مُحِيطٌۢ بِٱلْكَٰفِرِينَ
+
+**English**: Or like a cloudburst from the sky, in which is darkness, and thunder, and lightning. They press their fingers into their ears from the thunderbolts, in fear of death. But God surrounds the disbelievers.
+
+### Verse 2:20
+**Arabic**: يَكَادُ ٱلْبَرْقُ يَخْطَفُ أَبْصَٰرَهُمْ ۖ كُلَّمَآ أَضَآءَ لَهُم مَّشَوْا۟ فِيهِ وَإِذَآ أَظْلَمَ عَلَيْهِمْ قَامُوا۟ ۚ وَلَوْ شَآءَ ٱللَّهُ لَذَهَبَ بِسَمْعِهِمْ وَأَبْصَٰرِهِمْ ۚ إِنَّ ٱللَّهَ عَلَىٰ كُلِّ شَىْءٍۢ قَدِيرٌۭ
+
+**English**: The lightning almost snatches their sight away. Whenever it illuminates for them, they walk in it; but when it grows dark over them, they stand still. Had God willed, He could have taken away their hearing and their sight. God is capable of everything.
+
+### Verse 2:21
+**Arabic**: يَٰٓأَيُّهَا ٱلنَّاسُ ٱعْبُدُوا۟ رَبَّكُمُ ٱلَّذِى خَلَقَكُمْ وَٱلَّذِينَ مِن قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ
+
+**English**: O people! Worship your Lord who created you and those before you, that you may attain piety.
+
+### Verse 2:22
+**Arabic**: ٱلَّذِى جَعَلَ لَكُمُ ٱلْأَرْضَ فِرَٰشًۭا وَٱلسَّمَآءَ بِنَآءًۭ وَأَنزَلَ مِنَ ٱلسَّمَآءِ مَآءًۭ فَأَخْرَجَ بِهِۦ مِنَ ٱلثَّمَرَٰتِ رِزْقًۭا لَّكُمْ ۖ فَلَا تَجْعَلُوا۟ لِلَّهِ أَندَادًۭا وَأَنتُمْ تَعْلَمُونَ
+
+**English**: He who made the earth a habitat for you, and the sky a structure, and sends water down from the sky, and brings out fruits thereby, as a sustenance for you. Therefore, do not assign rivals to God while you know.
+
+### Verse 2:23
+**Arabic**: وَإِن كُنتُمْ فِى رَيْبٍۢ مِّمَّا نَزَّلْنَا عَلَىٰ عَبْدِنَا فَأْتُوا۟ بِسُورَةٍۢ مِّن مِّثْلِهِۦ وَٱدْعُوا۟ شُهَدَآءَكُم مِّن دُونِ ٱللَّهِ إِن كُنتُمْ صَٰدِقِينَ
+
+**English**: And if you are in doubt about what We have revealed to Our servant, then produce a chapter like these, and call your witnesses apart from God, if you are truthful.
+
+### Verse 2:24
+**Arabic**: فَإِن لَّمْ تَفْعَلُوا۟ وَلَن تَفْعَلُوا۟ فَٱتَّقُوا۟ ٱلنَّارَ ٱلَّتِى وَقُودُهَا ٱلنَّاسُ وَٱلْحِجَارَةُ ۖ أُعِدَّتْ لِلْكَٰفِرِينَ
+
+**English**: But if you do not-and you will not-then beware the Fire whose fuel is people and stones, prepared for the disbelievers.
+
+### Verse 2:25
+**Arabic**: وَبَشِّرِ ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ أَنَّ لَهُمْ جَنَّٰتٍۢ تَجْرِى مِن تَحْتِهَا ٱلْأَنْهَٰرُ ۖ كُلَّمَا رُزِقُوا۟ مِنْهَا مِن ثَمَرَةٍۢ رِّزْقًۭا ۙ قَالُوا۟ هَٰذَا ٱلَّذِى رُزِقْنَا مِن قَبْلُ ۖ وَأُتُوا۟ بِهِۦ مُتَشَٰبِهًۭا ۖ وَلَهُمْ فِيهَآ أَزْوَٰجٌۭ مُّطَهَّرَةٌۭ ۖ وَهُمْ فِيهَا خَٰلِدُونَ
+
+**English**: And give good news to those who believe and do righteous deeds; that they will have gardens beneath which rivers flow. Whenever they are provided with fruit therefrom as sustenance, they will say, "This is what we were provided with before," and they will be given the like of it. And they will have pure spouses therein, and they will abide therein forever.
+
+### Verse 2:26
+**Arabic**: ۞ إِنَّ ٱللَّهَ لَا يَسْتَحْىِۦٓ أَن يَضْرِبَ مَثَلًۭا مَّا بَعُوضَةًۭ فَمَا فَوْقَهَا ۚ فَأَمَّا ٱلَّذِينَ ءَامَنُوا۟ فَيَعْلَمُونَ أَنَّهُ ٱلْحَقُّ مِن رَّبِّهِمْ ۖ وَأَمَّا ٱلَّذِينَ كَفَرُوا۟ فَيَقُولُونَ مَاذَآ أَرَادَ ٱللَّهُ بِهَٰذَا مَثَلًۭا ۘ يُضِلُّ بِهِۦ كَثِيرًۭا وَيَهْدِى بِهِۦ كَثِيرًۭا ۚ وَمَا يُضِلُّ بِهِۦٓ إِلَّا ٱلْفَٰسِقِينَ
+
+**English**: God does not shy away from making an example of a gnat, or something above it. As for those who believe, they know that it is the Truth from their Lord. But as for those who disbelieve, they say, "What did God intend by this example?" He leads astray many thereby, and He guides many thereby; but He misleads thereby only the evildoers.
+
+### Verse 2:27
+**Arabic**: ٱلَّذِينَ يَنقُضُونَ عَهْدَ ٱللَّهِ مِنۢ بَعْدِ مِيثَٰقِهِۦ وَيَقْطَعُونَ مَآ أَمَرَ ٱللَّهُ بِهِۦٓ أَن يُوصَلَ وَيُفْسِدُونَ فِى ٱلْأَرْضِ ۚ أُو۟لَٰٓئِكَ هُمُ ٱلْخَٰسِرُونَ
+
+**English**: Those who violate God's covenant after its confirmation, and sever what God has commanded to be joined, and commit evil on earth. These are the losers.
+
+### Verse 2:28
+**Arabic**: كَيْفَ تَكْفُرُونَ بِٱللَّهِ وَكُنتُمْ أَمْوَٰتًۭا فَأَحْيَٰكُمْ ۖ ثُمَّ يُمِيتُكُمْ ثُمَّ يُحْيِيكُمْ ثُمَّ إِلَيْهِ تُرْجَعُونَ
+
+**English**: How can you deny God, when you were dead and He gave you life, then He will put you to death, then He will bring you to life, then to Him you will be returned?
+
+### Verse 2:29
+**Arabic**: هُوَ ٱلَّذِى خَلَقَ لَكُم مَّا فِى ٱلْأَرْضِ جَمِيعًۭا ثُمَّ ٱسْتَوَىٰٓ إِلَى ٱلسَّمَآءِ فَسَوَّىٰهُنَّ سَبْعَ سَمَٰوَٰتٍۢ ۚ وَهُوَ بِكُلِّ شَىْءٍ عَلِيمٌۭ
+
+**English**: It is He who created for you everything on earth, then turned to the heaven, and made them seven heavens. And He is aware of all things.
+
+### Verse 2:30
+**Arabic**: وَإِذْ قَالَ رَبُّكَ لِلْمَلَٰٓئِكَةِ إِنِّى جَاعِلٌۭ فِى ٱلْأَرْضِ خَلِيفَةًۭ ۖ قَالُوٓا۟ أَتَجْعَلُ فِيهَا مَن يُفْسِدُ فِيهَا وَيَسْفِكُ ٱلدِّمَآءَ وَنَحْنُ نُسَبِّحُ بِحَمْدِكَ وَنُقَدِّسُ لَكَ ۖ قَالَ إِنِّىٓ أَعْلَمُ مَا لَا تَعْلَمُونَ
+
+**English**: When your Lord said to the angels, "I am placing a successor on earth." They said, "Will You place in it someone who will cause corruption in it and shed blood, while we declare Your praises and sanctify You?" He said, "I know what you do not know."
+
+### Verse 2:31
+**Arabic**: وَعَلَّمَ ءَادَمَ ٱلْأَسْمَآءَ كُلَّهَا ثُمَّ عَرَضَهُمْ عَلَى ٱلْمَلَٰٓئِكَةِ فَقَالَ أَنۢبِـُٔونِى بِأَسْمَآءِ هَٰٓؤُلَآءِ إِن كُنتُمْ صَٰدِقِينَ
+
+**English**: And He taught Adam the names, all of them; then he presented them to the angels, and said, "Tell Me the names of these, if you are sincere."
+
+### Verse 2:32
+**Arabic**: قَالُوا۟ سُبْحَٰنَكَ لَا عِلْمَ لَنَآ إِلَّا مَا عَلَّمْتَنَآ ۖ إِنَّكَ أَنتَ ٱلْعَلِيمُ ٱلْحَكِيمُ
+
+**English**: They said, "Glory be to You! We have no knowledge except what You have taught us. It is you who are the Knowledgeable, the Wise."
+
+### Verse 2:33
+**Arabic**: قَالَ يَٰٓـَٔادَمُ أَنۢبِئْهُم بِأَسْمَآئِهِمْ ۖ فَلَمَّآ أَنۢبَأَهُم بِأَسْمَآئِهِمْ قَالَ أَلَمْ أَقُل لَّكُمْ إِنِّىٓ أَعْلَمُ غَيْبَ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ وَأَعْلَمُ مَا تُبْدُونَ وَمَا كُنتُمْ تَكْتُمُونَ
+
+**English**: He said, "O Adam, tell them their names." And when he told them their names, He said, "Did I not tell you that I know the secrets of the heavens and the earth, and that I know what you reveal and what you conceal?"
+
+### Verse 2:34
+**Arabic**: وَإِذْ قُلْنَا لِلْمَلَٰٓئِكَةِ ٱسْجُدُوا۟ لِءَادَمَ فَسَجَدُوٓا۟ إِلَّآ إِبْلِيسَ أَبَىٰ وَٱسْتَكْبَرَ وَكَانَ مِنَ ٱلْكَٰفِرِينَ
+
+**English**: And We said to the angels, "Bow down to Adam." They bowed down, except for Satan. He refused, was arrogant, and was one of the disbelievers.
+
+### Verse 2:35
+**Arabic**: وَقُلْنَا يَٰٓـَٔادَمُ ٱسْكُنْ أَنتَ وَزَوْجُكَ ٱلْجَنَّةَ وَكُلَا مِنْهَا رَغَدًا حَيْثُ شِئْتُمَا وَلَا تَقْرَبَا هَٰذِهِ ٱلشَّجَرَةَ فَتَكُونَا مِنَ ٱلظَّٰلِمِينَ
+
+**English**: We said, "O Adam, inhabit the Garden, you and your spouse, and eat from it freely as you please, but do not approach this tree, lest you become wrongdoers."
+
+### Verse 2:36
+**Arabic**: فَأَزَلَّهُمَا ٱلشَّيْطَٰنُ عَنْهَا فَأَخْرَجَهُمَا مِمَّا كَانَا فِيهِ ۖ وَقُلْنَا ٱهْبِطُوا۟ بَعْضُكُمْ لِبَعْضٍ عَدُوٌّۭ ۖ وَلَكُمْ فِى ٱلْأَرْضِ مُسْتَقَرٌّۭ وَمَتَٰعٌ إِلَىٰ حِينٍۢ
+
+**English**: But Satan caused them to slip from it, and caused them to depart the state they were in. We said, "Go down, some of you enemies of one another. And you will have residence on earth, and enjoyment for a while."
+
+### Verse 2:37
+**Arabic**: فَتَلَقَّىٰٓ ءَادَمُ مِن رَّبِّهِۦ كَلِمَٰتٍۢ فَتَابَ عَلَيْهِ ۚ إِنَّهُۥ هُوَ ٱلتَّوَّابُ ٱلرَّحِيمُ
+
+**English**: Then Adam received words from his Lord, so He relented towards him. He is the Relenting, the Merciful.
+
+### Verse 2:38
+**Arabic**: قُلْنَا ٱهْبِطُوا۟ مِنْهَا جَمِيعًۭا ۖ فَإِمَّا يَأْتِيَنَّكُم مِّنِّى هُدًۭى فَمَن تَبِعَ هُدَاىَ فَلَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ
+
+**English**: We said, "Go down from it, all of you. Yet whenever guidance comes to you from Me, then whoever follows My guidance-they have nothing to fear, nor shall they grieve.
+
+### Verse 2:39
+**Arabic**: وَٱلَّذِينَ كَفَرُوا۟ وَكَذَّبُوا۟ بِـَٔايَٰتِنَآ أُو۟لَٰٓئِكَ أَصْحَٰبُ ٱلنَّارِ ۖ هُمْ فِيهَا خَٰلِدُونَ
+
+**English**: But as for those who disbelieve and reject Our signs-these are the inmates of the Fire-wherein they will remain forever."
+
+### Verse 2:40
+**Arabic**: يَٰبَنِىٓ إِسْرَٰٓءِيلَ ٱذْكُرُوا۟ نِعْمَتِىَ ٱلَّتِىٓ أَنْعَمْتُ عَلَيْكُمْ وَأَوْفُوا۟ بِعَهْدِىٓ أُوفِ بِعَهْدِكُمْ وَإِيَّٰىَ فَٱرْهَبُونِ
+
+**English**: O Children of Israel! Remember My blessings which I bestowed upon you, and fulfill your pledge to Me, and I will fulfill My pledge to you, and fear Me.
+
+### Verse 2:41
+**Arabic**: وَءَامِنُوا۟ بِمَآ أَنزَلْتُ مُصَدِّقًۭا لِّمَا مَعَكُمْ وَلَا تَكُونُوٓا۟ أَوَّلَ كَافِرٍۭ بِهِۦ ۖ وَلَا تَشْتَرُوا۟ بِـَٔايَٰتِى ثَمَنًۭا قَلِيلًۭا وَإِيَّٰىَ فَٱتَّقُونِ
+
+**English**: And believe in what I revealed, confirming what is with you; and do not be the first to deny it; and do not exchange My revelations for a small price; and be conscious of Me.
+
+### Verse 2:42
+**Arabic**: وَلَا تَلْبِسُوا۟ ٱلْحَقَّ بِٱلْبَٰطِلِ وَتَكْتُمُوا۟ ٱلْحَقَّ وَأَنتُمْ تَعْلَمُونَ
+
+**English**: And do not mix truth with falsehood, and do not conceal the truth while you know.
+
+### Verse 2:43
+**Arabic**: وَأَقِيمُوا۟ ٱلصَّلَوٰةَ وَءَاتُوا۟ ٱلزَّكَوٰةَ وَٱرْكَعُوا۟ مَعَ ٱلرَّٰكِعِينَ
+
+**English**: And attend to your prayers, and practice regular charity, and kneel with those who kneel.
+
+### Verse 2:44
+**Arabic**: ۞ أَتَأْمُرُونَ ٱلنَّاسَ بِٱلْبِرِّ وَتَنسَوْنَ أَنفُسَكُمْ وَأَنتُمْ تَتْلُونَ ٱلْكِتَٰبَ ۚ أَفَلَا تَعْقِلُونَ
+
+**English**: Do you command people to virtuous conduct, and forget yourselves, even though you read the Scripture? Do you not understand?
+
+### Verse 2:45
+**Arabic**: وَٱسْتَعِينُوا۟ بِٱلصَّبْرِ وَٱلصَّلَوٰةِ ۚ وَإِنَّهَا لَكَبِيرَةٌ إِلَّا عَلَى ٱلْخَٰشِعِينَ
+
+**English**: And seek help through patience and prayer. But it is difficult, except for the devout.
+
+### Verse 2:46
+**Arabic**: ٱلَّذِينَ يَظُنُّونَ أَنَّهُم مُّلَٰقُوا۟ رَبِّهِمْ وَأَنَّهُمْ إِلَيْهِ رَٰجِعُونَ
+
+**English**: Those who know that they will meet their Lord, and that to Him they will return.
+
+### Verse 2:47
+**Arabic**: يَٰبَنِىٓ إِسْرَٰٓءِيلَ ٱذْكُرُوا۟ نِعْمَتِىَ ٱلَّتِىٓ أَنْعَمْتُ عَلَيْكُمْ وَأَنِّى فَضَّلْتُكُمْ عَلَى ٱلْعَٰلَمِينَ
+
+**English**: O Children of Israel! Remember My favor which I bestowed upon you, and I that favored you over all nations.
+
+### Verse 2:48
+**Arabic**: وَٱتَّقُوا۟ يَوْمًۭا لَّا تَجْزِى نَفْسٌ عَن نَّفْسٍۢ شَيْـًۭٔا وَلَا يُقْبَلُ مِنْهَا شَفَٰعَةٌۭ وَلَا يُؤْخَذُ مِنْهَا عَدْلٌۭ وَلَا هُمْ يُنصَرُونَ
+
+**English**: And beware of a Day when no soul will avail another in the least, nor will any intercession be accepted on its behalf, nor will any ransom be taken from it, nor will they be helped.
+
+### Verse 2:49
+**Arabic**: وَإِذْ نَجَّيْنَٰكُم مِّنْ ءَالِ فِرْعَوْنَ يَسُومُونَكُمْ سُوٓءَ ٱلْعَذَابِ يُذَبِّحُونَ أَبْنَآءَكُمْ وَيَسْتَحْيُونَ نِسَآءَكُمْ ۚ وَفِى ذَٰلِكُم بَلَآءٌۭ مِّن رَّبِّكُمْ عَظِيمٌۭ
+
+**English**: And recall that We delivered you from the people of Pharaoh. They inflicted on you terrible persecution, killing your sons and sparing your women. Therein was a tremendous trial from your Lord.
+
+### Verse 2:50
+**Arabic**: وَإِذْ فَرَقْنَا بِكُمُ ٱلْبَحْرَ فَأَنجَيْنَٰكُمْ وَأَغْرَقْنَآ ءَالَ فِرْعَوْنَ وَأَنتُمْ تَنظُرُونَ
+
+**English**: And recall that We parted the sea for you, so We saved you, and We drowned the people of Pharaoh as you looked on.
+
+### Verse 2:51
+**Arabic**: وَإِذْ وَٰعَدْنَا مُوسَىٰٓ أَرْبَعِينَ لَيْلَةًۭ ثُمَّ ٱتَّخَذْتُمُ ٱلْعِجْلَ مِنۢ بَعْدِهِۦ وَأَنتُمْ ظَٰلِمُونَ
+
+**English**: And recall that We appointed for Moses forty nights. Then you took to worshiping the calf after him, and you turned wicked.
+
+### Verse 2:52
+**Arabic**: ثُمَّ عَفَوْنَا عَنكُم مِّنۢ بَعْدِ ذَٰلِكَ لَعَلَّكُمْ تَشْكُرُونَ
+
+**English**: Then We pardoned you after that, so that you might be grateful.
+
+### Verse 2:53
+**Arabic**: وَإِذْ ءَاتَيْنَا مُوسَى ٱلْكِتَٰبَ وَٱلْفُرْقَانَ لَعَلَّكُمْ تَهْتَدُونَ
+
+**English**: And recall that We gave Moses the Scripture and the Criterion, so that you may be guided.
+
+### Verse 2:54
+**Arabic**: وَإِذْ قَالَ مُوسَىٰ لِقَوْمِهِۦ يَٰقَوْمِ إِنَّكُمْ ظَلَمْتُمْ أَنفُسَكُم بِٱتِّخَاذِكُمُ ٱلْعِجْلَ فَتُوبُوٓا۟ إِلَىٰ بَارِئِكُمْ فَٱقْتُلُوٓا۟ أَنفُسَكُمْ ذَٰلِكُمْ خَيْرٌۭ لَّكُمْ عِندَ بَارِئِكُمْ فَتَابَ عَلَيْكُمْ ۚ إِنَّهُۥ هُوَ ٱلتَّوَّابُ ٱلرَّحِيمُ
+
+**English**: And recall that Moses said to his people, "O my people, you have done wrong to yourselves by worshiping the calf. So repent to your Maker, and kill your egos. That would be better for you with your Maker." So He turned to you in repentance. He is the Accepter of Repentance, the Merciful.
+
+### Verse 2:55
+**Arabic**: وَإِذْ قُلْتُمْ يَٰمُوسَىٰ لَن نُّؤْمِنَ لَكَ حَتَّىٰ نَرَى ٱللَّهَ جَهْرَةًۭ فَأَخَذَتْكُمُ ٱلصَّٰعِقَةُ وَأَنتُمْ تَنظُرُونَ
+
+**English**: And recall that you said, "O Moses, we will not believe in you unless we see God plainly." Thereupon the thunderbolt struck you, as you looked on.
+
+### Verse 2:56
+**Arabic**: ثُمَّ بَعَثْنَٰكُم مِّنۢ بَعْدِ مَوْتِكُمْ لَعَلَّكُمْ تَشْكُرُونَ
+
+**English**: Then We revived you after your death, so that you may be appreciative.
+
+### Verse 2:57
+**Arabic**: وَظَلَّلْنَا عَلَيْكُمُ ٱلْغَمَامَ وَأَنزَلْنَا عَلَيْكُمُ ٱلْمَنَّ وَٱلسَّلْوَىٰ ۖ كُلُوا۟ مِن طَيِّبَٰتِ مَا رَزَقْنَٰكُمْ ۖ وَمَا ظَلَمُونَا وَلَٰكِن كَانُوٓا۟ أَنفُسَهُمْ يَظْلِمُونَ
+
+**English**: And We shaded you with clouds, and We sent down to you manna and quails: "Eat of the good things We have provided for you." They did not wrong Us, but they used to wrong their own souls.
+
+### Verse 2:58
+**Arabic**: وَإِذْ قُلْنَا ٱدْخُلُوا۟ هَٰذِهِ ٱلْقَرْيَةَ فَكُلُوا۟ مِنْهَا حَيْثُ شِئْتُمْ رَغَدًۭا وَٱدْخُلُوا۟ ٱلْبَابَ سُجَّدًۭا وَقُولُوا۟ حِطَّةٌۭ نَّغْفِرْ لَكُمْ خَطَٰيَٰكُمْ ۚ وَسَنَزِيدُ ٱلْمُحْسِنِينَ
+
+**English**: And recall that We said, "Enter this town, and eat plentifully from it whatever you wish; but enter the gate humbly, and say, 'Pardon.' We will forgive your sins, and give increase to the virtuous."
+
+### Verse 2:59
+**Arabic**: فَبَدَّلَ ٱلَّذِينَ ظَلَمُوا۟ قَوْلًا غَيْرَ ٱلَّذِى قِيلَ لَهُمْ فَأَنزَلْنَا عَلَى ٱلَّذِينَ ظَلَمُوا۟ رِجْزًۭا مِّنَ ٱلسَّمَآءِ بِمَا كَانُوا۟ يَفْسُقُونَ
+
+**English**: But the wrongdoers among them substituted words other than those given to them, so We sent down on the wrongdoers a plague from heaven, because of their wicked behavior.
+
+### Verse 2:60
+**Arabic**: ۞ وَإِذِ ٱسْتَسْقَىٰ مُوسَىٰ لِقَوْمِهِۦ فَقُلْنَا ٱضْرِب بِّعَصَاكَ ٱلْحَجَرَ ۖ فَٱنفَجَرَتْ مِنْهُ ٱثْنَتَا عَشْرَةَ عَيْنًۭا ۖ قَدْ عَلِمَ كُلُّ أُنَاسٍۢ مَّشْرَبَهُمْ ۖ كُلُوا۟ وَٱشْرَبُوا۟ مِن رِّزْقِ ٱللَّهِ وَلَا تَعْثَوْا۟ فِى ٱلْأَرْضِ مُفْسِدِينَ
+
+**English**: And recall when Moses prayed for water for his people. We said, "Strike the rock with your staff." Thereupon twelve springs gushed out from it, and each tribe recognized its drinking-place. "Eat and drink from God's provision, and do not corrupt the earth with disobedience."
+
+### Verse 2:61
+**Arabic**: وَإِذْ قُلْتُمْ يَٰمُوسَىٰ لَن نَّصْبِرَ عَلَىٰ طَعَامٍۢ وَٰحِدٍۢ فَٱدْعُ لَنَا رَبَّكَ يُخْرِجْ لَنَا مِمَّا تُنۢبِتُ ٱلْأَرْضُ مِنۢ بَقْلِهَا وَقِثَّآئِهَا وَفُومِهَا وَعَدَسِهَا وَبَصَلِهَا ۖ قَالَ أَتَسْتَبْدِلُونَ ٱلَّذِى هُوَ أَدْنَىٰ بِٱلَّذِى هُوَ خَيْرٌ ۚ ٱهْبِطُوا۟ مِصْرًۭا فَإِنَّ لَكُم مَّا سَأَلْتُمْ ۗ وَضُرِبَتْ عَلَيْهِمُ ٱلذِّلَّةُ وَٱلْمَسْكَنَةُ وَبَآءُو بِغَضَبٍۢ مِّنَ ٱللَّهِ ۗ ذَٰلِكَ بِأَنَّهُمْ كَانُوا۟ يَكْفُرُونَ بِـَٔايَٰتِ ٱللَّهِ وَيَقْتُلُونَ ٱلنَّبِيِّۦنَ بِغَيْرِ ٱلْحَقِّ ۗ ذَٰلِكَ بِمَا عَصَوا۟ وَّكَانُوا۟ يَعْتَدُونَ
+
+**English**: And recall when you said, "O Moses, we cannot endure one kind of food, so call to your Lord to produce for us of what the earth grows: of its herbs, and its cucumbers, and its garlic, and its lentils, and its onions." He said, "Would you substitute worse for better? Go down to Egypt, where you will have what you asked for." They were struck with humiliation and poverty, and incurred wrath from God. That was because they rejected God's revelations and wrongfully killed the prophets. That was because they disobeyed and transgressed.
+
+### Verse 2:62
+**Arabic**: إِنَّ ٱلَّذِينَ ءَامَنُوا۟ وَٱلَّذِينَ هَادُوا۟ وَٱلنَّصَٰرَىٰ وَٱلصَّٰبِـِٔينَ مَنْ ءَامَنَ بِٱللَّهِ وَٱلْيَوْمِ ٱلْءَاخِرِ وَعَمِلَ صَٰلِحًۭا فَلَهُمْ أَجْرُهُمْ عِندَ رَبِّهِمْ وَلَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ
+
+**English**: Those who believe, and those who are Jewish, and the Christians, and the Sabeans-any who believe in God and the Last Day, and act righteously-will have their reward with their Lord; they have nothing to fear, nor will they grieve.
+
+### Verse 2:63
+**Arabic**: وَإِذْ أَخَذْنَا مِيثَٰقَكُمْ وَرَفَعْنَا فَوْقَكُمُ ٱلطُّورَ خُذُوا۟ مَآ ءَاتَيْنَٰكُم بِقُوَّةٍۢ وَٱذْكُرُوا۟ مَا فِيهِ لَعَلَّكُمْ تَتَّقُونَ
+
+**English**: And recall when We received a pledge from you, and raised the Mount above you: "Take what We have given you earnestly, and remember what is in it, that you may attain righteousness."
+
+### Verse 2:64
+**Arabic**: ثُمَّ تَوَلَّيْتُم مِّنۢ بَعْدِ ذَٰلِكَ ۖ فَلَوْلَا فَضْلُ ٱللَّهِ عَلَيْكُمْ وَرَحْمَتُهُۥ لَكُنتُم مِّنَ ٱلْخَٰسِرِينَ
+
+**English**: But after that you turned away. Were it not for God's grace and mercy towards you, you would have been among the losers.
+
+### Verse 2:65
+**Arabic**: وَلَقَدْ عَلِمْتُمُ ٱلَّذِينَ ٱعْتَدَوْا۟ مِنكُمْ فِى ٱلسَّبْتِ فَقُلْنَا لَهُمْ كُونُوا۟ قِرَدَةً خَٰسِـِٔينَ
+
+**English**: And you surely knew those of you who violated the Sabbath. We said to them, "Be despicable apes!"
+
+### Verse 2:66
+**Arabic**: فَجَعَلْنَٰهَا نَكَٰلًۭا لِّمَا بَيْنَ يَدَيْهَا وَمَا خَلْفَهَا وَمَوْعِظَةًۭ لِّلْمُتَّقِينَ
+
+**English**: Thus We made it a deterrent for their generation, and for subsequent generations, and a lesson for the righteous.
+
+### Verse 2:67
+**Arabic**: وَإِذْ قَالَ مُوسَىٰ لِقَوْمِهِۦٓ إِنَّ ٱللَّهَ يَأْمُرُكُمْ أَن تَذْبَحُوا۟ بَقَرَةًۭ ۖ قَالُوٓا۟ أَتَتَّخِذُنَا هُزُوًۭا ۖ قَالَ أَعُوذُ بِٱللَّهِ أَنْ أَكُونَ مِنَ ٱلْجَٰهِلِينَ
+
+**English**: And recall when Moses said to his people, "God commands you to sacrifice a heifer." They said, "Do you make a mockery of us?" He said, "God forbid that I should be so ignorant."
+
+### Verse 2:68
+**Arabic**: قَالُوا۟ ٱدْعُ لَنَا رَبَّكَ يُبَيِّن لَّنَا مَا هِىَ ۚ قَالَ إِنَّهُۥ يَقُولُ إِنَّهَا بَقَرَةٌۭ لَّا فَارِضٌۭ وَلَا بِكْرٌ عَوَانٌۢ بَيْنَ ذَٰلِكَ ۖ فَٱفْعَلُوا۟ مَا تُؤْمَرُونَ
+
+**English**: They said, "Call upon your Lord to show us which one." He said, "He says she is a heifer, neither too old, nor too young, but in between. So do what you are commanded."
+
+### Verse 2:69
+**Arabic**: قَالُوا۟ ٱدْعُ لَنَا رَبَّكَ يُبَيِّن لَّنَا مَا لَوْنُهَا ۚ قَالَ إِنَّهُۥ يَقُولُ إِنَّهَا بَقَرَةٌۭ صَفْرَآءُ فَاقِعٌۭ لَّوْنُهَا تَسُرُّ ٱلنَّٰظِرِينَ
+
+**English**: They said, "Call upon your Lord to show us what her color is." He said, "He says she is a yellow heifer, bright in color, pleasing to the beholders."
+
+### Verse 2:70
+**Arabic**: قَالُوا۟ ٱدْعُ لَنَا رَبَّكَ يُبَيِّن لَّنَا مَا هِىَ إِنَّ ٱلْبَقَرَ تَشَٰبَهَ عَلَيْنَا وَإِنَّآ إِن شَآءَ ٱللَّهُ لَمُهْتَدُونَ
+
+**English**: They said, "Call upon your Lord to show us which one; the heifers look alike to us; and God willing, we will be guided."
+
+### Verse 2:71
+**Arabic**: قَالَ إِنَّهُۥ يَقُولُ إِنَّهَا بَقَرَةٌۭ لَّا ذَلُولٌۭ تُثِيرُ ٱلْأَرْضَ وَلَا تَسْقِى ٱلْحَرْثَ مُسَلَّمَةٌۭ لَّا شِيَةَ فِيهَا ۚ قَالُوا۟ ٱلْـَٰٔنَ جِئْتَ بِٱلْحَقِّ ۚ فَذَبَحُوهَا وَمَا كَادُوا۟ يَفْعَلُونَ
+
+**English**: He said, "He says she is a heifer, neither yoked to plow the earth, nor to irrigate the field; sound without blemish." They said, "Now you have brought the truth." So they slew her; though they almost did not.
+
+### Verse 2:72
+**Arabic**: وَإِذْ قَتَلْتُمْ نَفْسًۭا فَٱدَّٰرَْٰٔتُمْ فِيهَا ۖ وَٱللَّهُ مُخْرِجٌۭ مَّا كُنتُمْ تَكْتُمُونَ
+
+**English**: And recall when you killed a person, and disputed in the matter; but God was to expose what you were hiding.
+
+### Verse 2:73
+**Arabic**: فَقُلْنَا ٱضْرِبُوهُ بِبَعْضِهَا ۚ كَذَٰلِكَ يُحْىِ ٱللَّهُ ٱلْمَوْتَىٰ وَيُرِيكُمْ ءَايَٰتِهِۦ لَعَلَّكُمْ تَعْقِلُونَ
+
+**English**: We said, "Strike him with part of it." Thus God brings the dead to life; and He shows you His signs, that you may understand.
+
+### Verse 2:74
+**Arabic**: ثُمَّ قَسَتْ قُلُوبُكُم مِّنۢ بَعْدِ ذَٰلِكَ فَهِىَ كَٱلْحِجَارَةِ أَوْ أَشَدُّ قَسْوَةًۭ ۚ وَإِنَّ مِنَ ٱلْحِجَارَةِ لَمَا يَتَفَجَّرُ مِنْهُ ٱلْأَنْهَٰرُ ۚ وَإِنَّ مِنْهَا لَمَا يَشَّقَّقُ فَيَخْرُجُ مِنْهُ ٱلْمَآءُ ۚ وَإِنَّ مِنْهَا لَمَا يَهْبِطُ مِنْ خَشْيَةِ ٱللَّهِ ۗ وَمَا ٱللَّهُ بِغَٰفِلٍ عَمَّا تَعْمَلُونَ
+
+**English**: Then after that your hearts hardened. They were as rocks, or even harder. For there are some rocks from which rivers gush out, and others that splinter and water comes out from them, and others that sink in awe of God. God is not unaware of what you do.
+
+### Verse 2:75
+**Arabic**: ۞ أَفَتَطْمَعُونَ أَن يُؤْمِنُوا۟ لَكُمْ وَقَدْ كَانَ فَرِيقٌۭ مِّنْهُمْ يَسْمَعُونَ كَلَٰمَ ٱللَّهِ ثُمَّ يُحَرِّفُونَهُۥ مِنۢ بَعْدِ مَا عَقَلُوهُ وَهُمْ يَعْلَمُونَ
+
+**English**: Do you hope that they will believe in you, when some of them used to hear the Word of God, and then deliberately distort it, even after understanding it?
+
+### Verse 2:76
+**Arabic**: وَإِذَا لَقُوا۟ ٱلَّذِينَ ءَامَنُوا۟ قَالُوٓا۟ ءَامَنَّا وَإِذَا خَلَا بَعْضُهُمْ إِلَىٰ بَعْضٍۢ قَالُوٓا۟ أَتُحَدِّثُونَهُم بِمَا فَتَحَ ٱللَّهُ عَلَيْكُمْ لِيُحَآجُّوكُم بِهِۦ عِندَ رَبِّكُمْ ۚ أَفَلَا تَعْقِلُونَ
+
+**English**: And when they come across those who believe, they say, "We believe," but when they come together privately, they say, "Will you inform them of what God has disclosed to you, so that they might dispute with you concerning it before your Lord?" Do you not understand?
+
+### Verse 2:77
+**Arabic**: أَوَلَا يَعْلَمُونَ أَنَّ ٱللَّهَ يَعْلَمُ مَا يُسِرُّونَ وَمَا يُعْلِنُونَ
+
+**English**: Do they not know that God knows what they conceal and what they reveal?
+
+### Verse 2:78
+**Arabic**: وَمِنْهُمْ أُمِّيُّونَ لَا يَعْلَمُونَ ٱلْكِتَٰبَ إِلَّآ أَمَانِىَّ وَإِنْ هُمْ إِلَّا يَظُنُّونَ
+
+**English**: And among them are uneducated who know the Scripture only through hearsay, and they only speculate.
+
+### Verse 2:79
+**Arabic**: فَوَيْلٌۭ لِّلَّذِينَ يَكْتُبُونَ ٱلْكِتَٰبَ بِأَيْدِيهِمْ ثُمَّ يَقُولُونَ هَٰذَا مِنْ عِندِ ٱللَّهِ لِيَشْتَرُوا۟ بِهِۦ ثَمَنًۭا قَلِيلًۭا ۖ فَوَيْلٌۭ لَّهُم مِّمَّا كَتَبَتْ أَيْدِيهِمْ وَوَيْلٌۭ لَّهُم مِّمَّا يَكْسِبُونَ
+
+**English**: So woe to those who write the Scripture with their own hands, and then say, "This is from God," that they may exchange it for a little price. Woe to them for what their hands have written, and woe to them for what they earn.
+
+### Verse 2:80
+**Arabic**: وَقَالُوا۟ لَن تَمَسَّنَا ٱلنَّارُ إِلَّآ أَيَّامًۭا مَّعْدُودَةًۭ ۚ قُلْ أَتَّخَذْتُمْ عِندَ ٱللَّهِ عَهْدًۭا فَلَن يُخْلِفَ ٱللَّهُ عَهْدَهُۥٓ ۖ أَمْ تَقُولُونَ عَلَى ٱللَّهِ مَا لَا تَعْلَمُونَ
+
+**English**: And they say, "The Fire will not touch us except for a number of days." Say, "Have you received a promise from God-God never breaks His promise-or are you saying about God what you do not know?"
+
+### Verse 2:81
+**Arabic**: بَلَىٰ مَن كَسَبَ سَيِّئَةًۭ وَأَحَٰطَتْ بِهِۦ خَطِيٓـَٔتُهُۥ فَأُو۟لَٰٓئِكَ أَصْحَٰبُ ٱلنَّارِ ۖ هُمْ فِيهَا خَٰلِدُونَ
+
+**English**: Indeed, whoever commits misdeeds, and becomes besieged by his iniquities-these are the inmates of the Fire, wherein they will dwell forever.
+
+### Verse 2:82
+**Arabic**: وَٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ أُو۟لَٰٓئِكَ أَصْحَٰبُ ٱلْجَنَّةِ ۖ هُمْ فِيهَا خَٰلِدُونَ
+
+**English**: As for those who believe and do righteous deeds-these are the inhabitants of Paradise, wherein they will dwell forever.
+
+### Verse 2:83
+**Arabic**: وَإِذْ أَخَذْنَا مِيثَٰقَ بَنِىٓ إِسْرَٰٓءِيلَ لَا تَعْبُدُونَ إِلَّا ٱللَّهَ وَبِٱلْوَٰلِدَيْنِ إِحْسَانًۭا وَذِى ٱلْقُرْبَىٰ وَٱلْيَتَٰمَىٰ وَٱلْمَسَٰكِينِ وَقُولُوا۟ لِلنَّاسِ حُسْنًۭا وَأَقِيمُوا۟ ٱلصَّلَوٰةَ وَءَاتُوا۟ ٱلزَّكَوٰةَ ثُمَّ تَوَلَّيْتُمْ إِلَّا قَلِيلًۭا مِّنكُمْ وَأَنتُم مُّعْرِضُونَ
+
+**English**: We made a covenant with the Children of Israel: "Worship none but God; and be good to parents, and relatives, and orphans, and the needy; and speak nicely to people; and pray regularly, and give alms." Then you turned away, except for a few of you, recanting.
+
+### Verse 2:84
+**Arabic**: وَإِذْ أَخَذْنَا مِيثَٰقَكُمْ لَا تَسْفِكُونَ دِمَآءَكُمْ وَلَا تُخْرِجُونَ أَنفُسَكُم مِّن دِيَٰرِكُمْ ثُمَّ أَقْرَرْتُمْ وَأَنتُمْ تَشْهَدُونَ
+
+**English**: And We made a covenant with you: "You shall not shed the blood of your own, nor shall you evict your own from your homes." You agreed, and were all witnesses.
+
+### Verse 2:85
+**Arabic**: ثُمَّ أَنتُمْ هَٰٓؤُلَآءِ تَقْتُلُونَ أَنفُسَكُمْ وَتُخْرِجُونَ فَرِيقًۭا مِّنكُم مِّن دِيَٰرِهِمْ تَظَٰهَرُونَ عَلَيْهِم بِٱلْإِثْمِ وَٱلْعُدْوَٰنِ وَإِن يَأْتُوكُمْ أُسَٰرَىٰ تُفَٰدُوهُمْ وَهُوَ مُحَرَّمٌ عَلَيْكُمْ إِخْرَاجُهُمْ ۚ أَفَتُؤْمِنُونَ بِبَعْضِ ٱلْكِتَٰبِ وَتَكْفُرُونَ بِبَعْضٍۢ ۚ فَمَا جَزَآءُ مَن يَفْعَلُ ذَٰلِكَ مِنكُمْ إِلَّا خِزْىٌۭ فِى ٱلْحَيَوٰةِ ٱلدُّنْيَا ۖ وَيَوْمَ ٱلْقِيَٰمَةِ يُرَدُّونَ إِلَىٰٓ أَشَدِّ ٱلْعَذَابِ ۗ وَمَا ٱللَّهُ بِغَٰفِلٍ عَمَّا تَعْمَلُونَ
+
+**English**: But here you are, killing your own, and expelling a group of your own from their homes-conspiring against them in wrongdoing and hostility. And if they come to you as captives, you ransom them, although it was forbidden to you. Is it that you believe in part of the Scripture, and disbelieve in part? What is the reward for those among you who do that but humiliation in this life? And on the Day of Resurrection, they will be assigned to the most severe torment. God is not unaware of what you do.
+
+### Verse 2:86
+**Arabic**: أُو۟لَٰٓئِكَ ٱلَّذِينَ ٱشْتَرَوُا۟ ٱلْحَيَوٰةَ ٱلدُّنْيَا بِٱلْءَاخِرَةِ ۖ فَلَا يُخَفَّفُ عَنْهُمُ ٱلْعَذَابُ وَلَا هُمْ يُنصَرُونَ
+
+**English**: Those are they who bought the present life for the Hereafter, so the punishment will not be lightened for them, nor will they be helped.
+
+### Verse 2:87
+**Arabic**: وَلَقَدْ ءَاتَيْنَا مُوسَى ٱلْكِتَٰبَ وَقَفَّيْنَا مِنۢ بَعْدِهِۦ بِٱلرُّسُلِ ۖ وَءَاتَيْنَا عِيسَى ٱبْنَ مَرْيَمَ ٱلْبَيِّنَٰتِ وَأَيَّدْنَٰهُ بِرُوحِ ٱلْقُدُسِ ۗ أَفَكُلَّمَا جَآءَكُمْ رَسُولٌۢ بِمَا لَا تَهْوَىٰٓ أَنفُسُكُمُ ٱسْتَكْبَرْتُمْ فَفَرِيقًۭا كَذَّبْتُمْ وَفَرِيقًۭا تَقْتُلُونَ
+
+**English**: We gave Moses the Scripture, and sent a succession of messengers after him. And We gave Jesus son of Mary the clear proofs, and We supported him with the Holy Spirit. Is it that whenever a messenger comes to you with anything your souls do not desire, you grew arrogant, calling some impostors, and killing others?
+
+### Verse 2:88
+**Arabic**: وَقَالُوا۟ قُلُوبُنَا غُلْفٌۢ ۚ بَل لَّعَنَهُمُ ٱللَّهُ بِكُفْرِهِمْ فَقَلِيلًۭا مَّا يُؤْمِنُونَ
+
+**English**: And they said, "Our hearts are sealed." Rather, God has cursed them for their ingratitude. They have little faith.
+
+### Verse 2:89
+**Arabic**: وَلَمَّا جَآءَهُمْ كِتَٰبٌۭ مِّنْ عِندِ ٱللَّهِ مُصَدِّقٌۭ لِّمَا مَعَهُمْ وَكَانُوا۟ مِن قَبْلُ يَسْتَفْتِحُونَ عَلَى ٱلَّذِينَ كَفَرُوا۟ فَلَمَّا جَآءَهُم مَّا عَرَفُوا۟ كَفَرُوا۟ بِهِۦ ۚ فَلَعْنَةُ ٱللَّهِ عَلَى ٱلْكَٰفِرِينَ
+
+**English**: And when a scripture came to them from God, confirming what they have-although previously they were seeking victory against those who disbelieved-but when there came to them what they recognized, they disbelieved in it. So God's curse is upon the disbelievers.
+
+### Verse 2:90
+**Arabic**: بِئْسَمَا ٱشْتَرَوْا۟ بِهِۦٓ أَنفُسَهُمْ أَن يَكْفُرُوا۟ بِمَآ أَنزَلَ ٱللَّهُ بَغْيًا أَن يُنَزِّلَ ٱللَّهُ مِن فَضْلِهِۦ عَلَىٰ مَن يَشَآءُ مِنْ عِبَادِهِۦ ۖ فَبَآءُو بِغَضَبٍ عَلَىٰ غَضَبٍۢ ۚ وَلِلْكَٰفِرِينَ عَذَابٌۭ مُّهِينٌۭ
+
+**English**: Miserable is what they sold their souls for-rejecting what God has revealed, out of resentment that God would send down His grace upon whomever He chooses from among His servants. Thus they incurred wrath upon wrath. And there is a demeaning punishment for the disbelievers.
+
+### Verse 2:91
+**Arabic**: وَإِذَا قِيلَ لَهُمْ ءَامِنُوا۟ بِمَآ أَنزَلَ ٱللَّهُ قَالُوا۟ نُؤْمِنُ بِمَآ أُنزِلَ عَلَيْنَا وَيَكْفُرُونَ بِمَا وَرَآءَهُۥ وَهُوَ ٱلْحَقُّ مُصَدِّقًۭا لِّمَا مَعَهُمْ ۗ قُلْ فَلِمَ تَقْتُلُونَ أَنۢبِيَآءَ ٱللَّهِ مِن قَبْلُ إِن كُنتُم مُّؤْمِنِينَ
+
+**English**: And when it is said to them, "Believe in what God has revealed," they say, "We believe in what was revealed to us," and they reject anything beyond that, although it is the truth which confirms what they have. Say, "Why did you kill God's prophets before, if you were believers?"
+
+### Verse 2:92
+**Arabic**: ۞ وَلَقَدْ جَآءَكُم مُّوسَىٰ بِٱلْبَيِّنَٰتِ ثُمَّ ٱتَّخَذْتُمُ ٱلْعِجْلَ مِنۢ بَعْدِهِۦ وَأَنتُمْ ظَٰلِمُونَ
+
+**English**: Moses came to you with clear proofs, yet you adopted the calf in his absence, and you were in the wrong.
+
+### Verse 2:93
+**Arabic**: وَإِذْ أَخَذْنَا مِيثَٰقَكُمْ وَرَفَعْنَا فَوْقَكُمُ ٱلطُّورَ خُذُوا۟ مَآ ءَاتَيْنَٰكُم بِقُوَّةٍۢ وَٱسْمَعُوا۟ ۖ قَالُوا۟ سَمِعْنَا وَعَصَيْنَا وَأُشْرِبُوا۟ فِى قُلُوبِهِمُ ٱلْعِجْلَ بِكُفْرِهِمْ ۚ قُلْ بِئْسَمَا يَأْمُرُكُم بِهِۦٓ إِيمَٰنُكُمْ إِن كُنتُم مُّؤْمِنِينَ
+
+**English**: And We made a covenant with you, and raised the Mount above you: "Take what We have given you firmly, and listen." They said, "We hear and disobey." And their hearts became filled with the love of the calf because of their disbelief. Say, "Wretched is what your faith commands you to do, if you are believers."
+
+### Verse 2:94
+**Arabic**: قُلْ إِن كَانَتْ لَكُمُ ٱلدَّارُ ٱلْءَاخِرَةُ عِندَ ٱللَّهِ خَالِصَةًۭ مِّن دُونِ ٱلنَّاسِ فَتَمَنَّوُا۟ ٱلْمَوْتَ إِن كُنتُمْ صَٰدِقِينَ
+
+**English**: Say, "If the Final Home with God is yours alone, to the exclusion of all other people, then wish for death if you are sincere."
+
+### Verse 2:95
+**Arabic**: وَلَن يَتَمَنَّوْهُ أَبَدًۢا بِمَا قَدَّمَتْ أَيْدِيهِمْ ۗ وَٱللَّهُ عَلِيمٌۢ بِٱلظَّٰلِمِينَ
+
+**English**: But they will never wish for it, because of what their hands have forwarded. God is aware of the evildoers.
+
+### Verse 2:96
+**Arabic**: وَلَتَجِدَنَّهُمْ أَحْرَصَ ٱلنَّاسِ عَلَىٰ حَيَوٰةٍۢ وَمِنَ ٱلَّذِينَ أَشْرَكُوا۟ ۚ يَوَدُّ أَحَدُهُمْ لَوْ يُعَمَّرُ أَلْفَ سَنَةٍۢ وَمَا هُوَ بِمُزَحْزِحِهِۦ مِنَ ٱلْعَذَابِ أَن يُعَمَّرَ ۗ وَٱللَّهُ بَصِيرٌۢ بِمَا يَعْمَلُونَ
+
+**English**: You will find them, of all mankind, the most eager for life, even more than the polytheists. Every one of them wishes he could live a thousand years; but to be granted a long life will not nudge him from the punishment. God is Seeing of what they do.
+
+### Verse 2:97
+**Arabic**: قُلْ مَن كَانَ عَدُوًّۭا لِّجِبْرِيلَ فَإِنَّهُۥ نَزَّلَهُۥ عَلَىٰ قَلْبِكَ بِإِذْنِ ٱللَّهِ مُصَدِّقًۭا لِّمَا بَيْنَ يَدَيْهِ وَهُدًۭى وَبُشْرَىٰ لِلْمُؤْمِنِينَ
+
+**English**: Say, "Whoever is hostile to Gabriel-it is he who revealed it to your heart by God's leave, confirming what preceded it, and guidance and good news for the believers."
+
+### Verse 2:98
+**Arabic**: مَن كَانَ عَدُوًّۭا لِّلَّهِ وَمَلَٰٓئِكَتِهِۦ وَرُسُلِهِۦ وَجِبْرِيلَ وَمِيكَىٰلَ فَإِنَّ ٱللَّهَ عَدُوٌّۭ لِّلْكَٰفِرِينَ
+
+**English**: Whoever is hostile to God, and His angels, and His messengers, and Gabriel, and Michael-God is hostile to the faithless.
+
+### Verse 2:99
+**Arabic**: وَلَقَدْ أَنزَلْنَآ إِلَيْكَ ءَايَٰتٍۭ بَيِّنَٰتٍۢ ۖ وَمَا يَكْفُرُ بِهَآ إِلَّا ٱلْفَٰسِقُونَ
+
+**English**: We have revealed to you clear signs, and none rejects them except the sinners.
+
+### Verse 2:100
+**Arabic**: أَوَكُلَّمَا عَٰهَدُوا۟ عَهْدًۭا نَّبَذَهُۥ فَرِيقٌۭ مِّنْهُم ۚ بَلْ أَكْثَرُهُمْ لَا يُؤْمِنُونَ
+
+**English**: Is it not that whenever they make a covenant, some of them toss it aside? In fact, most of them do not believe.
+
+### Verse 2:101
+**Arabic**: وَلَمَّا جَآءَهُمْ رَسُولٌۭ مِّنْ عِندِ ٱللَّهِ مُصَدِّقٌۭ لِّمَا مَعَهُمْ نَبَذَ فَرِيقٌۭ مِّنَ ٱلَّذِينَ أُوتُوا۟ ٱلْكِتَٰبَ كِتَٰبَ ٱللَّهِ وَرَآءَ ظُهُورِهِمْ كَأَنَّهُمْ لَا يَعْلَمُونَ
+
+**English**: And when there came to them a messenger from God, confirming what they had, a faction of those who were given the Book threw the Book of God behind their backs, as if they do not know.
+
+### Verse 2:102
+**Arabic**: وَٱتَّبَعُوا۟ مَا تَتْلُوا۟ ٱلشَّيَٰطِينُ عَلَىٰ مُلْكِ سُلَيْمَٰنَ ۖ وَمَا كَفَرَ سُلَيْمَٰنُ وَلَٰكِنَّ ٱلشَّيَٰطِينَ كَفَرُوا۟ يُعَلِّمُونَ ٱلنَّاسَ ٱلسِّحْرَ وَمَآ أُنزِلَ عَلَى ٱلْمَلَكَيْنِ بِبَابِلَ هَٰرُوتَ وَمَٰرُوتَ ۚ وَمَا يُعَلِّمَانِ مِنْ أَحَدٍ حَتَّىٰ يَقُولَآ إِنَّمَا نَحْنُ فِتْنَةٌۭ فَلَا تَكْفُرْ ۖ فَيَتَعَلَّمُونَ مِنْهُمَا مَا يُفَرِّقُونَ بِهِۦ بَيْنَ ٱلْمَرْءِ وَزَوْجِهِۦ ۚ وَمَا هُم بِضَآرِّينَ بِهِۦ مِنْ أَحَدٍ إِلَّا بِإِذْنِ ٱللَّهِ ۚ وَيَتَعَلَّمُونَ مَا يَضُرُّهُمْ وَلَا يَنفَعُهُمْ ۚ وَلَقَدْ عَلِمُوا۟ لَمَنِ ٱشْتَرَىٰهُ مَا لَهُۥ فِى ٱلْءَاخِرَةِ مِنْ خَلَٰقٍۢ ۚ وَلَبِئْسَ مَا شَرَوْا۟ بِهِۦٓ أَنفُسَهُمْ ۚ لَوْ كَانُوا۟ يَعْلَمُونَ
+
+**English**: And they followed what the devils taught during the reign of Salomon. It was not Solomon who disbelieved, but it was the devils who disbelieved. They taught the people witchcraft and what was revealed in Babylon to the two angels Harut and Marut. They did not teach anybody until they had said, "We are a test, so do not lose faith." But they learned from them the means to cause separation between man and his wife. But they cannot harm anyone except with God's permission. And they learned what would harm them and not benefit them. Yet they knew that whoever deals in it will have no share in the Hereafter. Miserable is what they sold their souls for, if they only knew.
+
+### Verse 2:103
+**Arabic**: وَلَوْ أَنَّهُمْ ءَامَنُوا۟ وَٱتَّقَوْا۟ لَمَثُوبَةٌۭ مِّنْ عِندِ ٱللَّهِ خَيْرٌۭ ۖ لَّوْ كَانُوا۟ يَعْلَمُونَ
+
+**English**: Had they believed and been righteous, the reward from God would have been better, if they only knew.
+
+### Verse 2:104
+**Arabic**: يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ لَا تَقُولُوا۟ رَٰعِنَا وَقُولُوا۟ ٱنظُرْنَا وَٱسْمَعُوا۟ ۗ وَلِلْكَٰفِرِينَ عَذَابٌ أَلِيمٌۭ
+
+**English**: O you who believe! Do not say ambiguous words, but say words of respect, and listen. The disbelievers will have a painful torment.
+
+### Verse 2:105
+**Arabic**: مَّا يَوَدُّ ٱلَّذِينَ كَفَرُوا۟ مِنْ أَهْلِ ٱلْكِتَٰبِ وَلَا ٱلْمُشْرِكِينَ أَن يُنَزَّلَ عَلَيْكُم مِّنْ خَيْرٍۢ مِّن رَّبِّكُمْ ۗ وَٱللَّهُ يَخْتَصُّ بِرَحْمَتِهِۦ مَن يَشَآءُ ۚ وَٱللَّهُ ذُو ٱلْفَضْلِ ٱلْعَظِيمِ
+
+**English**: It is never the wish of the disbelievers from among the People of the Book, nor of the polytheists, that any good should be sent down to you from your Lord. But God chooses for His mercy whomever He wills. God is Possessor of Sublime Grace.
+
+### Verse 2:106
+**Arabic**: ۞ مَا نَنسَخْ مِنْ ءَايَةٍ أَوْ نُنسِهَا نَأْتِ بِخَيْرٍۢ مِّنْهَآ أَوْ مِثْلِهَآ ۗ أَلَمْ تَعْلَمْ أَنَّ ٱللَّهَ عَلَىٰ كُلِّ شَىْءٍۢ قَدِيرٌ
+
+**English**: We never nullify a verse, nor cause it to be forgotten, unless We bring one better than it, or similar to it. Do you not know that God is capable of all things?
+
+### Verse 2:107
+**Arabic**: أَلَمْ تَعْلَمْ أَنَّ ٱللَّهَ لَهُۥ مُلْكُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ ۗ وَمَا لَكُم مِّن دُونِ ٱللَّهِ مِن وَلِىٍّۢ وَلَا نَصِيرٍ
+
+**English**: Do you not know that to God belongs the sovereignty of the heavens and the earth, and that apart from God you have no guardian or helper?
+
+### Verse 2:108
+**Arabic**: أَمْ تُرِيدُونَ أَن تَسْـَٔلُوا۟ رَسُولَكُمْ كَمَا سُئِلَ مُوسَىٰ مِن قَبْلُ ۗ وَمَن يَتَبَدَّلِ ٱلْكُفْرَ بِٱلْإِيمَٰنِ فَقَدْ ضَلَّ سَوَآءَ ٱلسَّبِيلِ
+
+**English**: Or do you want to question your Messenger as Moses was questioned before? Whoever exchanges faith for disbelief has strayed from the right path.
+
+### Verse 2:109
+**Arabic**: وَدَّ كَثِيرٌۭ مِّنْ أَهْلِ ٱلْكِتَٰبِ لَوْ يَرُدُّونَكُم مِّنۢ بَعْدِ إِيمَٰنِكُمْ كُفَّارًا حَسَدًۭا مِّنْ عِندِ أَنفُسِهِم مِّنۢ بَعْدِ مَا تَبَيَّنَ لَهُمُ ٱلْحَقُّ ۖ فَٱعْفُوا۟ وَٱصْفَحُوا۟ حَتَّىٰ يَأْتِىَ ٱللَّهُ بِأَمْرِهِۦٓ ۗ إِنَّ ٱللَّهَ عَلَىٰ كُلِّ شَىْءٍۢ قَدِيرٌۭ
+
+**English**: Many of the People of the Book wish to turn you back into unbelievers after you have believed, out of envy on their part, after the Truth has become clear to them. But pardon and overlook, until God brings His command. God has power over all things.
+
+### Verse 2:110
+**Arabic**: وَأَقِيمُوا۟ ٱلصَّلَوٰةَ وَءَاتُوا۟ ٱلزَّكَوٰةَ ۚ وَمَا تُقَدِّمُوا۟ لِأَنفُسِكُم مِّنْ خَيْرٍۢ تَجِدُوهُ عِندَ ٱللَّهِ ۗ إِنَّ ٱللَّهَ بِمَا تَعْمَلُونَ بَصِيرٌۭ
+
+**English**: And perform the prayer, and give alms. Whatever good you forward for yourselves, you will find it with God. God is Seeing of everything you do.
+
+### Verse 2:111
+**Arabic**: وَقَالُوا۟ لَن يَدْخُلَ ٱلْجَنَّةَ إِلَّا مَن كَانَ هُودًا أَوْ نَصَٰرَىٰ ۗ تِلْكَ أَمَانِيُّهُمْ ۗ قُلْ هَاتُوا۟ بُرْهَٰنَكُمْ إِن كُنتُمْ صَٰدِقِينَ
+
+**English**: And they say, "None will enter Heaven unless he is a Jew or a Christian." These are their wishes. Say, "Produce your proof, if you are truthful."
+
+### Verse 2:112
+**Arabic**: بَلَىٰ مَنْ أَسْلَمَ وَجْهَهُۥ لِلَّهِ وَهُوَ مُحْسِنٌۭ فَلَهُۥٓ أَجْرُهُۥ عِندَ رَبِّهِۦ وَلَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ
+
+**English**: In fact, whoever submits himself to God, and is a doer of good, will have his reward with his Lord-they have nothing to fear, nor shall they grieve.
+
+### Verse 2:113
+**Arabic**: وَقَالَتِ ٱلْيَهُودُ لَيْسَتِ ٱلنَّصَٰرَىٰ عَلَىٰ شَىْءٍۢ وَقَالَتِ ٱلنَّصَٰرَىٰ لَيْسَتِ ٱلْيَهُودُ عَلَىٰ شَىْءٍۢ وَهُمْ يَتْلُونَ ٱلْكِتَٰبَ ۗ كَذَٰلِكَ قَالَ ٱلَّذِينَ لَا يَعْلَمُونَ مِثْلَ قَوْلِهِمْ ۚ فَٱللَّهُ يَحْكُمُ بَيْنَهُمْ يَوْمَ ٱلْقِيَٰمَةِ فِيمَا كَانُوا۟ فِيهِ يَخْتَلِفُونَ
+
+**English**: The Jews say, "The Christians are not based on anything;" and the Christians say, "The Jews are not based on anything." Yet they both read the Scripture. Similarly, the ignorant said the same thing. God will judge between them on the Day of Resurrection regarding their differences.
+
+### Verse 2:114
+**Arabic**: وَمَنْ أَظْلَمُ مِمَّن مَّنَعَ مَسَٰجِدَ ٱللَّهِ أَن يُذْكَرَ فِيهَا ٱسْمُهُۥ وَسَعَىٰ فِى خَرَابِهَآ ۚ أُو۟لَٰٓئِكَ مَا كَانَ لَهُمْ أَن يَدْخُلُوهَآ إِلَّا خَآئِفِينَ ۚ لَهُمْ فِى ٱلدُّنْيَا خِزْىٌۭ وَلَهُمْ فِى ٱلْءَاخِرَةِ عَذَابٌ عَظِيمٌۭ
+
+**English**: Who is more unjust than him who forbids the remembrance of God's name in places of worship, and contributes to their ruin? These ought not to enter them except in fear. For them is disgrace in this world, and for them is a terrible punishment in the Hereafter.
+
+### Verse 2:115
+**Arabic**: وَلِلَّهِ ٱلْمَشْرِقُ وَٱلْمَغْرِبُ ۚ فَأَيْنَمَا تُوَلُّوا۟ فَثَمَّ وَجْهُ ٱللَّهِ ۚ إِنَّ ٱللَّهَ وَٰسِعٌ عَلِيمٌۭ
+
+**English**: To God belong the East and the West. Whichever way you turn, there is God's presence. God is Omnipresent and Omniscient.
+
+### Verse 2:116
+**Arabic**: وَقَالُوا۟ ٱتَّخَذَ ٱللَّهُ وَلَدًۭا ۗ سُبْحَٰنَهُۥ ۖ بَل لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ ۖ كُلٌّۭ لَّهُۥ قَٰنِتُونَ
+
+**English**: And they say, "God has begotten a son." Be He glorified. Rather, His is everything in the heavens and the earth; all are obedient to Him.
+
+### Verse 2:117
+**Arabic**: بَدِيعُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ ۖ وَإِذَا قَضَىٰٓ أَمْرًۭا فَإِنَّمَا يَقُولُ لَهُۥ كُن فَيَكُونُ
+
+**English**: Originator of the heavens and the earth. Whenever He decrees a thing, He says to it, "Be," and it becomes.
+
+### Verse 2:118
+**Arabic**: وَقَالَ ٱلَّذِينَ لَا يَعْلَمُونَ لَوْلَا يُكَلِّمُنَا ٱللَّهُ أَوْ تَأْتِينَآ ءَايَةٌۭ ۗ كَذَٰلِكَ قَالَ ٱلَّذِينَ مِن قَبْلِهِم مِّثْلَ قَوْلِهِمْ ۘ تَشَٰبَهَتْ قُلُوبُهُمْ ۗ قَدْ بَيَّنَّا ٱلْءَايَٰتِ لِقَوْمٍۢ يُوقِنُونَ
+
+**English**: Those who do not know say, "If only God would speak to us, or a sign would come to us." Thus said those who were before them. Their hearts are alike. We have made the signs clear for people who are certain.
+
+### Verse 2:119
+**Arabic**: إِنَّآ أَرْسَلْنَٰكَ بِٱلْحَقِّ بَشِيرًۭا وَنَذِيرًۭا ۖ وَلَا تُسْـَٔلُ عَنْ أَصْحَٰبِ ٱلْجَحِيمِ
+
+**English**: We have sent you with the truth-bringing good news, and giving warnings. You will not be questioned about the inmates of Hell.
+
+### Verse 2:120
+**Arabic**: وَلَن تَرْضَىٰ عَنكَ ٱلْيَهُودُ وَلَا ٱلنَّصَٰرَىٰ حَتَّىٰ تَتَّبِعَ مِلَّتَهُمْ ۗ قُلْ إِنَّ هُدَى ٱللَّهِ هُوَ ٱلْهُدَىٰ ۗ وَلَئِنِ ٱتَّبَعْتَ أَهْوَآءَهُم بَعْدَ ٱلَّذِى جَآءَكَ مِنَ ٱلْعِلْمِ ۙ مَا لَكَ مِنَ ٱللَّهِ مِن وَلِىٍّۢ وَلَا نَصِيرٍ
+
+**English**: The Jews and the Christians will not approve of you, unless you follow their creed. Say, "God's guidance is the guidance." Should you follow their desires, after the knowledge that has come to you, you will have in God neither guardian nor helper.
+
+### Verse 2:121
+**Arabic**: ٱلَّذِينَ ءَاتَيْنَٰهُمُ ٱلْكِتَٰبَ يَتْلُونَهُۥ حَقَّ تِلَاوَتِهِۦٓ أُو۟لَٰٓئِكَ يُؤْمِنُونَ بِهِۦ ۗ وَمَن يَكْفُرْ بِهِۦ فَأُو۟لَٰٓئِكَ هُمُ ٱلْخَٰسِرُونَ
+
+**English**: Those to whom We have given the Scripture follow it, as it ought to be followed-these believe in it. But as for those who reject it-these are the losers.
+
+### Verse 2:122
+**Arabic**: يَٰبَنِىٓ إِسْرَٰٓءِيلَ ٱذْكُرُوا۟ نِعْمَتِىَ ٱلَّتِىٓ أَنْعَمْتُ عَلَيْكُمْ وَأَنِّى فَضَّلْتُكُمْ عَلَى ٱلْعَٰلَمِينَ
+
+**English**: O Children of Israel! Remember My blessing which I bestowed upon you, and that I have favored you over all people.
+
+### Verse 2:123
+**Arabic**: وَٱتَّقُوا۟ يَوْمًۭا لَّا تَجْزِى نَفْسٌ عَن نَّفْسٍۢ شَيْـًۭٔا وَلَا يُقْبَلُ مِنْهَا عَدْلٌۭ وَلَا تَنفَعُهَا شَفَٰعَةٌۭ وَلَا هُمْ يُنصَرُونَ
+
+**English**: And beware of a Day when no soul will avail another soul in any way, and no ransom will be accepted from it, and no intercession will benefit it, and they will not be helped.
+
+### Verse 2:124
+**Arabic**: ۞ وَإِذِ ٱبْتَلَىٰٓ إِبْرَٰهِۦمَ رَبُّهُۥ بِكَلِمَٰتٍۢ فَأَتَمَّهُنَّ ۖ قَالَ إِنِّى جَاعِلُكَ لِلنَّاسِ إِمَامًۭا ۖ قَالَ وَمِن ذُرِّيَّتِى ۖ قَالَ لَا يَنَالُ عَهْدِى ٱلظَّٰلِمِينَ
+
+**English**: And when his Lord tested Abraham with certain words, and he fulfilled them. He said, "I am making you a leader of humanity." He said, "And my descendants?" He said, "My pledge does not include the wrongdoers."
+
+### Verse 2:125
+**Arabic**: وَإِذْ جَعَلْنَا ٱلْبَيْتَ مَثَابَةًۭ لِّلنَّاسِ وَأَمْنًۭا وَٱتَّخِذُوا۟ مِن مَّقَامِ إِبْرَٰهِۦمَ مُصَلًّۭى ۖ وَعَهِدْنَآ إِلَىٰٓ إِبْرَٰهِۦمَ وَإِسْمَٰعِيلَ أَن طَهِّرَا بَيْتِىَ لِلطَّآئِفِينَ وَٱلْعَٰكِفِينَ وَٱلرُّكَّعِ ٱلسُّجُودِ
+
+**English**: And We made the House a focal point for the people, and a sanctuary. Use the shrine of Abraham as a place of prayer. And We commissioned Abraham and Ishmael, "Sanctify My House for those who circle around it, and those who seclude themselves in it, and those who kneel and prostrate."
+
+### Verse 2:126
+**Arabic**: وَإِذْ قَالَ إِبْرَٰهِۦمُ رَبِّ ٱجْعَلْ هَٰذَا بَلَدًا ءَامِنًۭا وَٱرْزُقْ أَهْلَهُۥ مِنَ ٱلثَّمَرَٰتِ مَنْ ءَامَنَ مِنْهُم بِٱللَّهِ وَٱلْيَوْمِ ٱلْءَاخِرِ ۖ قَالَ وَمَن كَفَرَ فَأُمَتِّعُهُۥ قَلِيلًۭا ثُمَّ أَضْطَرُّهُۥٓ إِلَىٰ عَذَابِ ٱلنَّارِ ۖ وَبِئْسَ ٱلْمَصِيرُ
+
+**English**: When Abraham said, "O My Lord, make this a peaceful land, and provide its people with fruits-whoever of them believes in God and the Last Day." He said, "And whoever disbelieves, I will give him a little enjoyment, then I will consign him to the punishment of the Fire; how miserable the destiny!"
+
+### Verse 2:127
+**Arabic**: وَإِذْ يَرْفَعُ إِبْرَٰهِۦمُ ٱلْقَوَاعِدَ مِنَ ٱلْبَيْتِ وَإِسْمَٰعِيلُ رَبَّنَا تَقَبَّلْ مِنَّآ ۖ إِنَّكَ أَنتَ ٱلسَّمِيعُ ٱلْعَلِيمُ
+
+**English**: As Abraham raises the foundations of the House, together with Ishmael, "Our Lord, accept it from us, You are the Hearer, the Knower.
+
+### Verse 2:128
+**Arabic**: رَبَّنَا وَٱجْعَلْنَا مُسْلِمَيْنِ لَكَ وَمِن ذُرِّيَّتِنَآ أُمَّةًۭ مُّسْلِمَةًۭ لَّكَ وَأَرِنَا مَنَاسِكَنَا وَتُبْ عَلَيْنَآ ۖ إِنَّكَ أَنتَ ٱلتَّوَّابُ ٱلرَّحِيمُ
+
+**English**: Our Lord, and make us submissive to You, and from our descendants a community submissive to You. And show us our rites, and accept our repentance. You are the Acceptor of Repentance, the Merciful.
+
+### Verse 2:129
+**Arabic**: رَبَّنَا وَٱبْعَثْ فِيهِمْ رَسُولًۭا مِّنْهُمْ يَتْلُوا۟ عَلَيْهِمْ ءَايَٰتِكَ وَيُعَلِّمُهُمُ ٱلْكِتَٰبَ وَٱلْحِكْمَةَ وَيُزَكِّيهِمْ ۚ إِنَّكَ أَنتَ ٱلْعَزِيزُ ٱلْحَكِيمُ
+
+**English**: Our Lord, and raise up among them a messenger, of themselves, who will recite to them Your revelations, and teach them the Book and wisdom, and purify them. You are the Almighty, the Wise."
+
+### Verse 2:130
+**Arabic**: وَمَن يَرْغَبُ عَن مِّلَّةِ إِبْرَٰهِۦمَ إِلَّا مَن سَفِهَ نَفْسَهُۥ ۚ وَلَقَدِ ٱصْطَفَيْنَٰهُ فِى ٱلدُّنْيَا ۖ وَإِنَّهُۥ فِى ٱلْءَاخِرَةِ لَمِنَ ٱلصَّٰلِحِينَ
+
+**English**: Who would forsake the religion of Abraham, except he who fools himself? We chose him in this world, and in the Hereafter he will be among the righteous.
+
+### Verse 2:131
+**Arabic**: إِذْ قَالَ لَهُۥ رَبُّهُۥٓ أَسْلِمْ ۖ قَالَ أَسْلَمْتُ لِرَبِّ ٱلْعَٰلَمِينَ
+
+**English**: When his Lord said to him, "Submit!" He said, "I have submitted to the Lord of the Worlds."
+
+### Verse 2:132
+**Arabic**: وَوَصَّىٰ بِهَآ إِبْرَٰهِۦمُ بَنِيهِ وَيَعْقُوبُ يَٰبَنِىَّ إِنَّ ٱللَّهَ ٱصْطَفَىٰ لَكُمُ ٱلدِّينَ فَلَا تَمُوتُنَّ إِلَّا وَأَنتُم مُّسْلِمُونَ
+
+**English**: And Abraham exhorted his sons, and Jacob, "O my sons, God has chosen this religion for you, so do not die unless you have submitted."
+
+### Verse 2:133
+**Arabic**: أَمْ كُنتُمْ شُهَدَآءَ إِذْ حَضَرَ يَعْقُوبَ ٱلْمَوْتُ إِذْ قَالَ لِبَنِيهِ مَا تَعْبُدُونَ مِنۢ بَعْدِى قَالُوا۟ نَعْبُدُ إِلَٰهَكَ وَإِلَٰهَ ءَابَآئِكَ إِبْرَٰهِۦمَ وَإِسْمَٰعِيلَ وَإِسْحَٰقَ إِلَٰهًۭا وَٰحِدًۭا وَنَحْنُ لَهُۥ مُسْلِمُونَ
+
+**English**: Or were you witnesses when death approached Jacob, and he said to his sons, "What will you worship after Me?" They said, "We will worship your God, and the God of your fathers, Abraham, Ishmael, and Isaac; One God; and to Him we submit."
+
+### Verse 2:134
+**Arabic**: تِلْكَ أُمَّةٌۭ قَدْ خَلَتْ ۖ لَهَا مَا كَسَبَتْ وَلَكُم مَّا كَسَبْتُمْ ۖ وَلَا تُسْـَٔلُونَ عَمَّا كَانُوا۟ يَعْمَلُونَ
+
+**English**: That was a community that has passed; for them is what they have earned, and for you is what you have earned; and you will not be questioned about what they used to do.
+
+### Verse 2:135
+**Arabic**: وَقَالُوا۟ كُونُوا۟ هُودًا أَوْ نَصَٰرَىٰ تَهْتَدُوا۟ ۗ قُلْ بَلْ مِلَّةَ إِبْرَٰهِۦمَ حَنِيفًۭا ۖ وَمَا كَانَ مِنَ ٱلْمُشْرِكِينَ
+
+**English**: And they say, "Be Jews or Christians, and you will be guided." Say, "Rather, the religion of Abraham, the Monotheist; he was not an idolater."
+
+### Verse 2:136
+**Arabic**: قُولُوٓا۟ ءَامَنَّا بِٱللَّهِ وَمَآ أُنزِلَ إِلَيْنَا وَمَآ أُنزِلَ إِلَىٰٓ إِبْرَٰهِۦمَ وَإِسْمَٰعِيلَ وَإِسْحَٰقَ وَيَعْقُوبَ وَٱلْأَسْبَاطِ وَمَآ أُوتِىَ مُوسَىٰ وَعِيسَىٰ وَمَآ أُوتِىَ ٱلنَّبِيُّونَ مِن رَّبِّهِمْ لَا نُفَرِّقُ بَيْنَ أَحَدٍۢ مِّنْهُمْ وَنَحْنُ لَهُۥ مُسْلِمُونَ
+
+**English**: Say, "We believe in God; and in what was revealed to us; and in what was revealed to Abraham, and Ishmael, and Isaac, and Jacob, and the Patriarchs; and in what was given to Moses and Jesus; and in what was given to the prophets-from their Lord. We make no distinction between any of them, and to Him we surrender."
+
+### Verse 2:137
+**Arabic**: فَإِنْ ءَامَنُوا۟ بِمِثْلِ مَآ ءَامَنتُم بِهِۦ فَقَدِ ٱهْتَدَوا۟ ۖ وَّإِن تَوَلَّوْا۟ فَإِنَّمَا هُمْ فِى شِقَاقٍۢ ۖ فَسَيَكْفِيكَهُمُ ٱللَّهُ ۚ وَهُوَ ٱلسَّمِيعُ ٱلْعَلِيمُ
+
+**English**: If they believe in the same as you have believed in, then they have been guided. But if they turn away, then they are in schism. God will protect you against them; for He is the Hearer, the Knower.
+
+### Verse 2:138
+**Arabic**: صِبْغَةَ ٱللَّهِ ۖ وَمَنْ أَحْسَنُ مِنَ ٱللَّهِ صِبْغَةًۭ ۖ وَنَحْنُ لَهُۥ عَٰبِدُونَ
+
+**English**: God's coloring. And who gives better coloring than God? "And we are devoted to Him."
+
+### Verse 2:139
+**Arabic**: قُلْ أَتُحَآجُّونَنَا فِى ٱللَّهِ وَهُوَ رَبُّنَا وَرَبُّكُمْ وَلَنَآ أَعْمَٰلُنَا وَلَكُمْ أَعْمَٰلُكُمْ وَنَحْنُ لَهُۥ مُخْلِصُونَ
+
+**English**: Say, "Do you argue with us about God, when He is our Lord and your Lord, and We have our works, and you have your works, and we are sincere to Him?"
+
+### Verse 2:140
+**Arabic**: أَمْ تَقُولُونَ إِنَّ إِبْرَٰهِۦمَ وَإِسْمَٰعِيلَ وَإِسْحَٰقَ وَيَعْقُوبَ وَٱلْأَسْبَاطَ كَانُوا۟ هُودًا أَوْ نَصَٰرَىٰ ۗ قُلْ ءَأَنتُمْ أَعْلَمُ أَمِ ٱللَّهُ ۗ وَمَنْ أَظْلَمُ مِمَّن كَتَمَ شَهَٰدَةً عِندَهُۥ مِنَ ٱللَّهِ ۗ وَمَا ٱللَّهُ بِغَٰفِلٍ عَمَّا تَعْمَلُونَ
+
+**English**: Or do you say that Abraham, Ishmael, Isaac, Jacob, and the Patriarchs were Jews or Christians? Say, "Do you know better, or God?" And who does greater wrong than he who conceals a testimony he has from God? God is not unaware of what you do.
+
+### Verse 2:141
+**Arabic**: تِلْكَ أُمَّةٌۭ قَدْ خَلَتْ ۖ لَهَا مَا كَسَبَتْ وَلَكُم مَّا كَسَبْتُمْ ۖ وَلَا تُسْـَٔلُونَ عَمَّا كَانُوا۟ يَعْمَلُونَ
+
+**English**: That was a community that has passed. To them is what they have earned, and to you is what you have earned. And you will not be questioned about what they used to do.
+
+### Verse 2:142
+**Arabic**: ۞ سَيَقُولُ ٱلسُّفَهَآءُ مِنَ ٱلنَّاسِ مَا وَلَّىٰهُمْ عَن قِبْلَتِهِمُ ٱلَّتِى كَانُوا۟ عَلَيْهَا ۚ قُل لِّلَّهِ ٱلْمَشْرِقُ وَٱلْمَغْرِبُ ۚ يَهْدِى مَن يَشَآءُ إِلَىٰ صِرَٰطٍۢ مُّسْتَقِيمٍۢ
+
+**English**: The ignorant among the people will say, "What has turned them away from the direction of prayer they once followed?" Say, "To God belong the East and the West. He guides whom He wills to a straight path."
+
+### Verse 2:143
+**Arabic**: وَكَذَٰلِكَ جَعَلْنَٰكُمْ أُمَّةًۭ وَسَطًۭا لِّتَكُونُوا۟ شُهَدَآءَ عَلَى ٱلنَّاسِ وَيَكُونَ ٱلرَّسُولُ عَلَيْكُمْ شَهِيدًۭا ۗ وَمَا جَعَلْنَا ٱلْقِبْلَةَ ٱلَّتِى كُنتَ عَلَيْهَآ إِلَّا لِنَعْلَمَ مَن يَتَّبِعُ ٱلرَّسُولَ مِمَّن يَنقَلِبُ عَلَىٰ عَقِبَيْهِ ۚ وَإِن كَانَتْ لَكَبِيرَةً إِلَّا عَلَى ٱلَّذِينَ هَدَى ٱللَّهُ ۗ وَمَا كَانَ ٱللَّهُ لِيُضِيعَ إِيمَٰنَكُمْ ۚ إِنَّ ٱللَّهَ بِٱلنَّاسِ لَرَءُوفٌۭ رَّحِيمٌۭ
+
+**English**: Thus We made you a moderate community, that you may be witnesses to humanity, and that the Messenger may be a witness to you. We only established the direction of prayer, which you once followed, that We may distinguish those who follow the Messenger from those who turn on their heels. It is indeed difficult, except for those whom God has guided. But God would never let your faith go to waste. God is Kind towards the people, Merciful.
+
+### Verse 2:144
+**Arabic**: قَدْ نَرَىٰ تَقَلُّبَ وَجْهِكَ فِى ٱلسَّمَآءِ ۖ فَلَنُوَلِّيَنَّكَ قِبْلَةًۭ تَرْضَىٰهَا ۚ فَوَلِّ وَجْهَكَ شَطْرَ ٱلْمَسْجِدِ ٱلْحَرَامِ ۚ وَحَيْثُ مَا كُنتُمْ فَوَلُّوا۟ وُجُوهَكُمْ شَطْرَهُۥ ۗ وَإِنَّ ٱلَّذِينَ أُوتُوا۟ ٱلْكِتَٰبَ لَيَعْلَمُونَ أَنَّهُ ٱلْحَقُّ مِن رَّبِّهِمْ ۗ وَمَا ٱللَّهُ بِغَٰفِلٍ عَمَّا يَعْمَلُونَ
+
+**English**: We have seen your face turned towards the heaven. So We will turn you towards a direction that will satisfy you. So turn your face towards the Sacred Mosque. And wherever you may be, turn your faces towards it. Those who were given the Book know that it is the Truth from their Lord; and God is not unaware of what they do.
+
+### Verse 2:145
+**Arabic**: وَلَئِنْ أَتَيْتَ ٱلَّذِينَ أُوتُوا۟ ٱلْكِتَٰبَ بِكُلِّ ءَايَةٍۢ مَّا تَبِعُوا۟ قِبْلَتَكَ ۚ وَمَآ أَنتَ بِتَابِعٍۢ قِبْلَتَهُمْ ۚ وَمَا بَعْضُهُم بِتَابِعٍۢ قِبْلَةَ بَعْضٍۢ ۚ وَلَئِنِ ٱتَّبَعْتَ أَهْوَآءَهُم مِّنۢ بَعْدِ مَا جَآءَكَ مِنَ ٱلْعِلْمِ ۙ إِنَّكَ إِذًۭا لَّمِنَ ٱلظَّٰلِمِينَ
+
+**English**: Even if you were to bring to those who were given the Book every proof, they would not follow your direction, nor are you to follow their direction, nor do they follow the direction of one another. And if you were to follow their desires, after the knowledge that has come to you, you would be in that case one of the wrongdoers.
+
+### Verse 2:146
+**Arabic**: ٱلَّذِينَ ءَاتَيْنَٰهُمُ ٱلْكِتَٰبَ يَعْرِفُونَهُۥ كَمَا يَعْرِفُونَ أَبْنَآءَهُمْ ۖ وَإِنَّ فَرِيقًۭا مِّنْهُمْ لَيَكْتُمُونَ ٱلْحَقَّ وَهُمْ يَعْلَمُونَ
+
+**English**: Those to whom We have given the Book recognize it as they recognize their own children. But some of them conceal the truth while they know.
+
+### Verse 2:147
+**Arabic**: ٱلْحَقُّ مِن رَّبِّكَ ۖ فَلَا تَكُونَنَّ مِنَ ٱلْمُمْتَرِينَ
+
+**English**: The truth is from your Lord, so do not be a skeptic.
+
+### Verse 2:148
+**Arabic**: وَلِكُلٍّۢ وِجْهَةٌ هُوَ مُوَلِّيهَا ۖ فَٱسْتَبِقُوا۟ ٱلْخَيْرَٰتِ ۚ أَيْنَ مَا تَكُونُوا۟ يَأْتِ بِكُمُ ٱللَّهُ جَمِيعًا ۚ إِنَّ ٱللَّهَ عَلَىٰ كُلِّ شَىْءٍۢ قَدِيرٌۭ
+
+**English**: To every community is a direction towards which it turns. Therefore, race towards goodness. Wherever you may be, God will bring you all together. God is capable of everything.
+
+### Verse 2:149
+**Arabic**: وَمِنْ حَيْثُ خَرَجْتَ فَوَلِّ وَجْهَكَ شَطْرَ ٱلْمَسْجِدِ ٱلْحَرَامِ ۖ وَإِنَّهُۥ لَلْحَقُّ مِن رَّبِّكَ ۗ وَمَا ٱللَّهُ بِغَٰفِلٍ عَمَّا تَعْمَلُونَ
+
+**English**: And wherever you come from, turn your face towards the Sacred Mosque. This is the truth from your Lord, and God is not heedless of what you do.
+
+### Verse 2:150
+**Arabic**: وَمِنْ حَيْثُ خَرَجْتَ فَوَلِّ وَجْهَكَ شَطْرَ ٱلْمَسْجِدِ ٱلْحَرَامِ ۚ وَحَيْثُ مَا كُنتُمْ فَوَلُّوا۟ وُجُوهَكُمْ شَطْرَهُۥ لِئَلَّا يَكُونَ لِلنَّاسِ عَلَيْكُمْ حُجَّةٌ إِلَّا ٱلَّذِينَ ظَلَمُوا۟ مِنْهُمْ فَلَا تَخْشَوْهُمْ وَٱخْشَوْنِى وَلِأُتِمَّ نِعْمَتِى عَلَيْكُمْ وَلَعَلَّكُمْ تَهْتَدُونَ
+
+**English**: And wherever you come from, turn your face towards the Sacred Mosque. And wherever you may be, turn your faces towards it. So that the people may not have any argument against you-except those who do wrong among them. So do not fear them, but fear Me, that I may complete My blessings upon you, and that you may be guided.
+
+### Verse 2:151
+**Arabic**: كَمَآ أَرْسَلْنَا فِيكُمْ رَسُولًۭا مِّنكُمْ يَتْلُوا۟ عَلَيْكُمْ ءَايَٰتِنَا وَيُزَكِّيكُمْ وَيُعَلِّمُكُمُ ٱلْكِتَٰبَ وَٱلْحِكْمَةَ وَيُعَلِّمُكُم مَّا لَمْ تَكُونُوا۟ تَعْلَمُونَ
+
+**English**: Just as We sent to you a messenger from among you, who recites Our revelations to you, and purifies you, and teaches you the Book and wisdom, and teaches you what you did not know.
+
+### Verse 2:152
+**Arabic**: فَٱذْكُرُونِىٓ أَذْكُرْكُمْ وَٱشْكُرُوا۟ لِى وَلَا تَكْفُرُونِ
+
+**English**: So remember Me, and I will remember you. And thank Me, and do not be ungrateful.
+
+### Verse 2:153
+**Arabic**: يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ ٱسْتَعِينُوا۟ بِٱلصَّبْرِ وَٱلصَّلَوٰةِ ۚ إِنَّ ٱللَّهَ مَعَ ٱلصَّٰبِرِينَ
+
+**English**: O you who believe! Seek help through patience and prayers. God is with the steadfast.
+
+### Verse 2:154
+**Arabic**: وَلَا تَقُولُوا۟ لِمَن يُقْتَلُ فِى سَبِيلِ ٱللَّهِ أَمْوَٰتٌۢ ۚ بَلْ أَحْيَآءٌۭ وَلَٰكِن لَّا تَشْعُرُونَ
+
+**English**: And do not say of those who are killed in the cause of God, "Dead." Rather, they are alive, but you do not perceive.
+
+### Verse 2:155
+**Arabic**: وَلَنَبْلُوَنَّكُم بِشَىْءٍۢ مِّنَ ٱلْخَوْفِ وَٱلْجُوعِ وَنَقْصٍۢ مِّنَ ٱلْأَمْوَٰلِ وَٱلْأَنفُسِ وَٱلثَّمَرَٰتِ ۗ وَبَشِّرِ ٱلصَّٰبِرِينَ
+
+**English**: We will certainly test you with some fear and hunger, and some loss of possessions and lives and crops. But give good news to the steadfast.
+
+### Verse 2:156
+**Arabic**: ٱلَّذِينَ إِذَآ أَصَٰبَتْهُم مُّصِيبَةٌۭ قَالُوٓا۟ إِنَّا لِلَّهِ وَإِنَّآ إِلَيْهِ رَٰجِعُونَ
+
+**English**: Those who, when a calamity afflicts them, say, "To God we belong, and to Him we will return."
+
+### Verse 2:157
+**Arabic**: أُو۟لَٰٓئِكَ عَلَيْهِمْ صَلَوَٰتٌۭ مِّن رَّبِّهِمْ وَرَحْمَةٌۭ ۖ وَأُو۟لَٰٓئِكَ هُمُ ٱلْمُهْتَدُونَ
+
+**English**: Upon these are blessings and mercy from their Lord. These are the guided ones.
+
+### Verse 2:158
+**Arabic**: ۞ إِنَّ ٱلصَّفَا وَٱلْمَرْوَةَ مِن شَعَآئِرِ ٱللَّهِ ۖ فَمَنْ حَجَّ ٱلْبَيْتَ أَوِ ٱعْتَمَرَ فَلَا جُنَاحَ عَلَيْهِ أَن يَطَّوَّفَ بِهِمَا ۚ وَمَن تَطَوَّعَ خَيْرًۭا فَإِنَّ ٱللَّهَ شَاكِرٌ عَلِيمٌ
+
+**English**: Safa and Marwa are among the rites of God. Whoever makes the Pilgrimage to the House, or performs the Umrah, commits no error by circulating between them. Whoever volunteers good-God is Appreciative and Cognizant.
+
+### Verse 2:159
+**Arabic**: إِنَّ ٱلَّذِينَ يَكْتُمُونَ مَآ أَنزَلْنَا مِنَ ٱلْبَيِّنَٰتِ وَٱلْهُدَىٰ مِنۢ بَعْدِ مَا بَيَّنَّٰهُ لِلنَّاسِ فِى ٱلْكِتَٰبِ ۙ أُو۟لَٰٓئِكَ يَلْعَنُهُمُ ٱللَّهُ وَيَلْعَنُهُمُ ٱللَّٰعِنُونَ
+
+**English**: Those who suppress the proofs and the guidance We have revealed, after We have clarified them to humanity in the Scripture-those-God curses them, and the cursers curse them.
+
+### Verse 2:160
+**Arabic**: إِلَّا ٱلَّذِينَ تَابُوا۟ وَأَصْلَحُوا۟ وَبَيَّنُوا۟ فَأُو۟لَٰٓئِكَ أَتُوبُ عَلَيْهِمْ ۚ وَأَنَا ٱلتَّوَّابُ ٱلرَّحِيمُ
+
+**English**: Except those who repent, and reform, and proclaim. Those-I will accept their repentance. I am the Acceptor of Repentance, the Merciful.
+
+### Verse 2:161
+**Arabic**: إِنَّ ٱلَّذِينَ كَفَرُوا۟ وَمَاتُوا۟ وَهُمْ كُفَّارٌ أُو۟لَٰٓئِكَ عَلَيْهِمْ لَعْنَةُ ٱللَّهِ وَٱلْمَلَٰٓئِكَةِ وَٱلنَّاسِ أَجْمَعِينَ
+
+**English**: But as for those who reject faith, and die rejecting-those-upon them is the curse of God, and of the angels, and of all humanity.
+
+### Verse 2:162
+**Arabic**: خَٰلِدِينَ فِيهَا ۖ لَا يُخَفَّفُ عَنْهُمُ ٱلْعَذَابُ وَلَا هُمْ يُنظَرُونَ
+
+**English**: They will remain under it forever, and the torment will not be lightened for them, and they will not be reprieved.
+
+### Verse 2:163
+**Arabic**: وَإِلَٰهُكُمْ إِلَٰهٌۭ وَٰحِدٌۭ ۖ لَّآ إِلَٰهَ إِلَّا هُوَ ٱلرَّحْمَٰنُ ٱلرَّحِيمُ
+
+**English**: Your God is one God. There is no god but He, the Benevolent, the Compassionate.
+
+### Verse 2:164
+**Arabic**: إِنَّ فِى خَلْقِ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ وَٱخْتِلَٰفِ ٱلَّيْلِ وَٱلنَّهَارِ وَٱلْفُلْكِ ٱلَّتِى تَجْرِى فِى ٱلْبَحْرِ بِمَا يَنفَعُ ٱلنَّاسَ وَمَآ أَنزَلَ ٱللَّهُ مِنَ ٱلسَّمَآءِ مِن مَّآءٍۢ فَأَحْيَا بِهِ ٱلْأَرْضَ بَعْدَ مَوْتِهَا وَبَثَّ فِيهَا مِن كُلِّ دَآبَّةٍۢ وَتَصْرِيفِ ٱلرِّيَٰحِ وَٱلسَّحَابِ ٱلْمُسَخَّرِ بَيْنَ ٱلسَّمَآءِ وَٱلْأَرْضِ لَءَايَٰتٍۢ لِّقَوْمٍۢ يَعْقِلُونَ
+
+**English**: In the creation of the heavens and the earth; in the alternation of night and day; in the ships that sail the oceans for the benefit of mankind; in the water that God sends down from the sky, and revives the earth with it after it had died, and scatters in it all kinds of creatures; in the changing of the winds, and the clouds disposed between the sky and the earth; are signs for people who understand.
+
+### Verse 2:165
+**Arabic**: وَمِنَ ٱلنَّاسِ مَن يَتَّخِذُ مِن دُونِ ٱللَّهِ أَندَادًۭا يُحِبُّونَهُمْ كَحُبِّ ٱللَّهِ ۖ وَٱلَّذِينَ ءَامَنُوٓا۟ أَشَدُّ حُبًّۭا لِّلَّهِ ۗ وَلَوْ يَرَى ٱلَّذِينَ ظَلَمُوٓا۟ إِذْ يَرَوْنَ ٱلْعَذَابَ أَنَّ ٱلْقُوَّةَ لِلَّهِ جَمِيعًۭا وَأَنَّ ٱللَّهَ شَدِيدُ ٱلْعَذَابِ
+
+**English**: Yet among the people are those who take other than God as equals to Him. They love them as the love of God. But those who believe have greater love for God. If only the wrongdoers would realize, when they see the torment; that all power is God's, and that God is severe in punishment.
+
+### Verse 2:166
+**Arabic**: إِذْ تَبَرَّأَ ٱلَّذِينَ ٱتُّبِعُوا۟ مِنَ ٱلَّذِينَ ٱتَّبَعُوا۟ وَرَأَوُا۟ ٱلْعَذَابَ وَتَقَطَّعَتْ بِهِمُ ٱلْأَسْبَابُ
+
+**English**: Those who were followed will then disown those who followed them, and they will see the retribution, and ties between them will be severed.
+
+### Verse 2:167
+**Arabic**: وَقَالَ ٱلَّذِينَ ٱتَّبَعُوا۟ لَوْ أَنَّ لَنَا كَرَّةًۭ فَنَتَبَرَّأَ مِنْهُمْ كَمَا تَبَرَّءُوا۟ مِنَّا ۗ كَذَٰلِكَ يُرِيهِمُ ٱللَّهُ أَعْمَٰلَهُمْ حَسَرَٰتٍ عَلَيْهِمْ ۖ وَمَا هُم بِخَٰرِجِينَ مِنَ ٱلنَّارِ
+
+**English**: Those who followed will say, "If only we can have another chance, we will disown them, as they disowned us." Thus God will show them their deeds, as regrets to them, and they will not come out of the Fire.
+
+### Verse 2:168
+**Arabic**: يَٰٓأَيُّهَا ٱلنَّاسُ كُلُوا۟ مِمَّا فِى ٱلْأَرْضِ حَلَٰلًۭا طَيِّبًۭا وَلَا تَتَّبِعُوا۟ خُطُوَٰتِ ٱلشَّيْطَٰنِ ۚ إِنَّهُۥ لَكُمْ عَدُوٌّۭ مُّبِينٌ
+
+**English**: O people! Eat of what is lawful and good on earth, and do not follow the footsteps of Satan. He is to you an open enemy.
+
+### Verse 2:169
+**Arabic**: إِنَّمَا يَأْمُرُكُم بِٱلسُّوٓءِ وَٱلْفَحْشَآءِ وَأَن تَقُولُوا۟ عَلَى ٱللَّهِ مَا لَا تَعْلَمُونَ
+
+**English**: He commands you to do evil and vice, and to say about God what you do not know.
+
+### Verse 2:170
+**Arabic**: وَإِذَا قِيلَ لَهُمُ ٱتَّبِعُوا۟ مَآ أَنزَلَ ٱللَّهُ قَالُوا۟ بَلْ نَتَّبِعُ مَآ أَلْفَيْنَا عَلَيْهِ ءَابَآءَنَآ ۗ أَوَلَوْ كَانَ ءَابَآؤُهُمْ لَا يَعْقِلُونَ شَيْـًۭٔا وَلَا يَهْتَدُونَ
+
+**English**: And when it is said to them, "Follow what God has revealed," they say, "We will follow what we found our ancestors following." Even if their ancestors understood nothing, and were not guided?
+
+### Verse 2:171
+**Arabic**: وَمَثَلُ ٱلَّذِينَ كَفَرُوا۟ كَمَثَلِ ٱلَّذِى يَنْعِقُ بِمَا لَا يَسْمَعُ إِلَّا دُعَآءًۭ وَنِدَآءًۭ ۚ صُمٌّۢ بُكْمٌ عُمْىٌۭ فَهُمْ لَا يَعْقِلُونَ
+
+**English**: The parable of those who disbelieve is that of someone who calls upon someone who hears nothing except screaming and yelling. Deaf, dumb, and blind-they do not understand.
+
+### Verse 2:172
+**Arabic**: يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ كُلُوا۟ مِن طَيِّبَٰتِ مَا رَزَقْنَٰكُمْ وَٱشْكُرُوا۟ لِلَّهِ إِن كُنتُمْ إِيَّاهُ تَعْبُدُونَ
+
+**English**: O you who believe! Eat of the good things We have provided for you, and give thanks to God, if it is Him that you serve.
+
+### Verse 2:173
+**Arabic**: إِنَّمَا حَرَّمَ عَلَيْكُمُ ٱلْمَيْتَةَ وَٱلدَّمَ وَلَحْمَ ٱلْخِنزِيرِ وَمَآ أُهِلَّ بِهِۦ لِغَيْرِ ٱللَّهِ ۖ فَمَنِ ٱضْطُرَّ غَيْرَ بَاغٍۢ وَلَا عَادٍۢ فَلَآ إِثْمَ عَلَيْهِ ۚ إِنَّ ٱللَّهَ غَفُورٌۭ رَّحِيمٌ
+
+**English**: He has forbidden you carrion, and blood, and the flesh of swine, and what was dedicated to other than God. But if anyone is compelled, without desiring or exceeding, he commits no sin. God is Forgiving and Merciful.
+
+### Verse 2:174
+**Arabic**: إِنَّ ٱلَّذِينَ يَكْتُمُونَ مَآ أَنزَلَ ٱللَّهُ مِنَ ٱلْكِتَٰبِ وَيَشْتَرُونَ بِهِۦ ثَمَنًۭا قَلِيلًا ۙ أُو۟لَٰٓئِكَ مَا يَأْكُلُونَ فِى بُطُونِهِمْ إِلَّا ٱلنَّارَ وَلَا يُكَلِّمُهُمُ ٱللَّهُ يَوْمَ ٱلْقِيَٰمَةِ وَلَا يُزَكِّيهِمْ وَلَهُمْ عَذَابٌ أَلِيمٌ
+
+**English**: Those who conceal what God revealed in the Book, and exchange it for a small price-those swallow nothing but fire into their bellies. And God will not speak to them on the Day of Resurrection, nor will He purify them, and they will have a painful punishment.
+
+### Verse 2:175
+**Arabic**: أُو۟لَٰٓئِكَ ٱلَّذِينَ ٱشْتَرَوُا۟ ٱلضَّلَٰلَةَ بِٱلْهُدَىٰ وَٱلْعَذَابَ بِٱلْمَغْفِرَةِ ۚ فَمَآ أَصْبَرَهُمْ عَلَى ٱلنَّارِ
+
+**English**: It is they who exchange guidance for error, and forgiveness for punishment. But why do they insist on the Fire?
+
+### Verse 2:176
+**Arabic**: ذَٰلِكَ بِأَنَّ ٱللَّهَ نَزَّلَ ٱلْكِتَٰبَ بِٱلْحَقِّ ۗ وَإِنَّ ٱلَّذِينَ ٱخْتَلَفُوا۟ فِى ٱلْكِتَٰبِ لَفِى شِقَاقٍۭ بَعِيدٍۢ
+
+**English**: That is because God has revealed the Book in truth; and those who differ about the Book are in deep discord.
+
+### Verse 2:177
+**Arabic**: ۞ لَّيْسَ ٱلْبِرَّ أَن تُوَلُّوا۟ وُجُوهَكُمْ قِبَلَ ٱلْمَشْرِقِ وَٱلْمَغْرِبِ وَلَٰكِنَّ ٱلْبِرَّ مَنْ ءَامَنَ بِٱللَّهِ وَٱلْيَوْمِ ٱلْءَاخِرِ وَٱلْمَلَٰٓئِكَةِ وَٱلْكِتَٰبِ وَٱلنَّبِيِّۦنَ وَءَاتَى ٱلْمَالَ عَلَىٰ حُبِّهِۦ ذَوِى ٱلْقُرْبَىٰ وَٱلْيَتَٰمَىٰ وَٱلْمَسَٰكِينَ وَٱبْنَ ٱلسَّبِيلِ وَٱلسَّآئِلِينَ وَفِى ٱلرِّقَابِ وَأَقَامَ ٱلصَّلَوٰةَ وَءَاتَى ٱلزَّكَوٰةَ وَٱلْمُوفُونَ بِعَهْدِهِمْ إِذَا عَٰهَدُوا۟ ۖ وَٱلصَّٰبِرِينَ فِى ٱلْبَأْسَآءِ وَٱلضَّرَّآءِ وَحِينَ ٱلْبَأْسِ ۗ أُو۟لَٰٓئِكَ ٱلَّذِينَ صَدَقُوا۟ ۖ وَأُو۟لَٰٓئِكَ هُمُ ٱلْمُتَّقُونَ
+
+**English**: Righteousness does not consist of turning your faces towards the East and the West. But righteous is he who believes in God, and the Last Day, and the angels, and the Scripture, and the prophets. Who gives money, though dear, to near relatives, and orphans, and the needy, and the homeless, and the beggars, and for the freeing of slaves; those who perform the prayers, and pay the obligatory charity, and fulfill their promise when they promise, and patiently persevere in the face of persecution, hardship, and in the time of conflict. These are the sincere; these are the pious.
+
+### Verse 2:178
+**Arabic**: يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ كُتِبَ عَلَيْكُمُ ٱلْقِصَاصُ فِى ٱلْقَتْلَى ۖ ٱلْحُرُّ بِٱلْحُرِّ وَٱلْعَبْدُ بِٱلْعَبْدِ وَٱلْأُنثَىٰ بِٱلْأُنثَىٰ ۚ فَمَنْ عُفِىَ لَهُۥ مِنْ أَخِيهِ شَىْءٌۭ فَٱتِّبَاعٌۢ بِٱلْمَعْرُوفِ وَأَدَآءٌ إِلَيْهِ بِإِحْسَٰنٍۢ ۗ ذَٰلِكَ تَخْفِيفٌۭ مِّن رَّبِّكُمْ وَرَحْمَةٌۭ ۗ فَمَنِ ٱعْتَدَىٰ بَعْدَ ذَٰلِكَ فَلَهُۥ عَذَابٌ أَلِيمٌۭ
+
+**English**: O you who believe! Retaliation for the murdered is ordained upon you: the free for the free, the slave for the slave, the female for the female. But if he is forgiven by his kin, then grant any reasonable demand, and pay with good will. This is a concession from your Lord, and a mercy. But whoever commits aggression after that, a painful torment awaits him.
+
+### Verse 2:179
+**Arabic**: وَلَكُمْ فِى ٱلْقِصَاصِ حَيَوٰةٌۭ يَٰٓأُو۟لِى ٱلْأَلْبَٰبِ لَعَلَّكُمْ تَتَّقُونَ
+
+**English**: There is life for you in retaliation, O people of understanding, so that you may refrain.
+
+### Verse 2:180
+**Arabic**: كُتِبَ عَلَيْكُمْ إِذَا حَضَرَ أَحَدَكُمُ ٱلْمَوْتُ إِن تَرَكَ خَيْرًا ٱلْوَصِيَّةُ لِلْوَٰلِدَيْنِ وَٱلْأَقْرَبِينَ بِٱلْمَعْرُوفِ ۖ حَقًّا عَلَى ٱلْمُتَّقِينَ
+
+**English**: It is decreed for you: when death approaches one of you, and he leaves wealth, to make a testament in favor of the parents and the relatives, fairly and correctly-a duty upon the righteous.
+
+### Verse 2:181
+**Arabic**: فَمَنۢ بَدَّلَهُۥ بَعْدَمَا سَمِعَهُۥ فَإِنَّمَآ إِثْمُهُۥ عَلَى ٱلَّذِينَ يُبَدِّلُونَهُۥٓ ۚ إِنَّ ٱللَّهَ سَمِيعٌ عَلِيمٌۭ
+
+**English**: But whoever changes it after he has heard it, the guilt is upon those who change it. God is All-Hearing, All-Knowing.
+
+### Verse 2:182
+**Arabic**: فَمَنْ خَافَ مِن مُّوصٍۢ جَنَفًا أَوْ إِثْمًۭا فَأَصْلَحَ بَيْنَهُمْ فَلَآ إِثْمَ عَلَيْهِ ۚ إِنَّ ٱللَّهَ غَفُورٌۭ رَّحِيمٌۭ
+
+**English**: Should someone suspect bias or injustice on the part of a testator, and then reconciles between them, he commits no sin. God is Forgiving and Merciful.
+
+### Verse 2:183
+**Arabic**: يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ كُتِبَ عَلَيْكُمُ ٱلصِّيَامُ كَمَا كُتِبَ عَلَى ٱلَّذِينَ مِن قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ
+
+**English**: O you who believe! Fasting is prescribed for you, as it was prescribed for those before you, that you may become righteous.
+
+### Verse 2:184
+**Arabic**: أَيَّامًۭا مَّعْدُودَٰتٍۢ ۚ فَمَن كَانَ مِنكُم مَّرِيضًا أَوْ عَلَىٰ سَفَرٍۢ فَعِدَّةٌۭ مِّنْ أَيَّامٍ أُخَرَ ۚ وَعَلَى ٱلَّذِينَ يُطِيقُونَهُۥ فِدْيَةٌۭ طَعَامُ مِسْكِينٍۢ ۖ فَمَن تَطَوَّعَ خَيْرًۭا فَهُوَ خَيْرٌۭ لَّهُۥ ۚ وَأَن تَصُومُوا۟ خَيْرٌۭ لَّكُمْ ۖ إِن كُنتُمْ تَعْلَمُونَ
+
+**English**: For a specified number of days. But whoever among you is sick, or on a journey, then a number of other days. For those who are able: a ransom of feeding a needy person. But whoever volunteers goodness, it is better for him. But to fast is best for you, if you only knew.
+
+### Verse 2:185
+**Arabic**: شَهْرُ رَمَضَانَ ٱلَّذِىٓ أُنزِلَ فِيهِ ٱلْقُرْءَانُ هُدًۭى لِّلنَّاسِ وَبَيِّنَٰتٍۢ مِّنَ ٱلْهُدَىٰ وَٱلْفُرْقَانِ ۚ فَمَن شَهِدَ مِنكُمُ ٱلشَّهْرَ فَلْيَصُمْهُ ۖ وَمَن كَانَ مَرِيضًا أَوْ عَلَىٰ سَفَرٍۢ فَعِدَّةٌۭ مِّنْ أَيَّامٍ أُخَرَ ۗ يُرِيدُ ٱللَّهُ بِكُمُ ٱلْيُسْرَ وَلَا يُرِيدُ بِكُمُ ٱلْعُسْرَ وَلِتُكْمِلُوا۟ ٱلْعِدَّةَ وَلِتُكَبِّرُوا۟ ٱللَّهَ عَلَىٰ مَا هَدَىٰكُمْ وَلَعَلَّكُمْ تَشْكُرُونَ
+
+**English**: Ramadan is the month in which the Quran was revealed. Guidance for humanity, and clear portents of guidance, and the Criterion. Whoever of you witnesses the month, shall fast it. But whoever is sick, or on a journey, then a number of other days. God desires ease for you, and does not desire hardship for you, that you may complete the number, and celebrate God for having guided you, so that you may be thankful.
+
+### Verse 2:186
+**Arabic**: وَإِذَا سَأَلَكَ عِبَادِى عَنِّى فَإِنِّى قَرِيبٌ ۖ أُجِيبُ دَعْوَةَ ٱلدَّاعِ إِذَا دَعَانِ ۖ فَلْيَسْتَجِيبُوا۟ لِى وَلْيُؤْمِنُوا۟ بِى لَعَلَّهُمْ يَرْشُدُونَ
+
+**English**: And when My servants ask you about Me, I Am near; I answer the call of the caller when he calls on Me. So let them answer Me, and have faith in Me, that they may be rightly guided.
+
+### Verse 2:187
+**Arabic**: أُحِلَّ لَكُمْ لَيْلَةَ ٱلصِّيَامِ ٱلرَّفَثُ إِلَىٰ نِسَآئِكُمْ ۚ هُنَّ لِبَاسٌۭ لَّكُمْ وَأَنتُمْ لِبَاسٌۭ لَّهُنَّ ۗ عَلِمَ ٱللَّهُ أَنَّكُمْ كُنتُمْ تَخْتَانُونَ أَنفُسَكُمْ فَتَابَ عَلَيْكُمْ وَعَفَا عَنكُمْ ۖ فَٱلْـَٰٔنَ بَٰشِرُوهُنَّ وَٱبْتَغُوا۟ مَا كَتَبَ ٱللَّهُ لَكُمْ ۚ وَكُلُوا۟ وَٱشْرَبُوا۟ حَتَّىٰ يَتَبَيَّنَ لَكُمُ ٱلْخَيْطُ ٱلْأَبْيَضُ مِنَ ٱلْخَيْطِ ٱلْأَسْوَدِ مِنَ ٱلْفَجْرِ ۖ ثُمَّ أَتِمُّوا۟ ٱلصِّيَامَ إِلَى ٱلَّيْلِ ۚ وَلَا تُبَٰشِرُوهُنَّ وَأَنتُمْ عَٰكِفُونَ فِى ٱلْمَسَٰجِدِ ۗ تِلْكَ حُدُودُ ٱللَّهِ فَلَا تَقْرَبُوهَا ۗ كَذَٰلِكَ يُبَيِّنُ ٱللَّهُ ءَايَٰتِهِۦ لِلنَّاسِ لَعَلَّهُمْ يَتَّقُونَ
+
+**English**: Permitted for you is intercourse with your wives on the night of the fast. They are a garment for you, and you are a garment for them. God knows that you used to betray yourselves, but He turned to you and pardoned you. So approach them now, and seek what God has ordained for you, and eat and drink until the white streak of dawn can be distinguished from the black streak. Then complete the fast until nightfall. But do not approach them while you are in retreat at the mosques. These are the limits of God, so do not come near them. God thus clarifies His revelations to the people, that they may attain piety.
+
+### Verse 2:188
+**Arabic**: وَلَا تَأْكُلُوٓا۟ أَمْوَٰلَكُم بَيْنَكُم بِٱلْبَٰطِلِ وَتُدْلُوا۟ بِهَآ إِلَى ٱلْحُكَّامِ لِتَأْكُلُوا۟ فَرِيقًۭا مِّنْ أَمْوَٰلِ ٱلنَّاسِ بِٱلْإِثْمِ وَأَنتُمْ تَعْلَمُونَ
+
+**English**: And do not consume one another's wealth by unjust means, nor offer it as bribes to the officials in order to consume part of other people's wealth illicitly, while you know.
+
+### Verse 2:189
+**Arabic**: ۞ يَسْـَٔلُونَكَ عَنِ ٱلْأَهِلَّةِ ۖ قُلْ هِىَ مَوَٰقِيتُ لِلنَّاسِ وَٱلْحَجِّ ۗ وَلَيْسَ ٱلْبِرُّ بِأَن تَأْتُوا۟ ٱلْبُيُوتَ مِن ظُهُورِهَا وَلَٰكِنَّ ٱلْبِرَّ مَنِ ٱتَّقَىٰ ۗ وَأْتُوا۟ ٱلْبُيُوتَ مِنْ أَبْوَٰبِهَا ۚ وَٱتَّقُوا۟ ٱللَّهَ لَعَلَّكُمْ تُفْلِحُونَ
+
+**English**: They ask you about the crescents. Say, "They are timetables for people, and for the Hajj." It is not virtuous that you approach homes from their backs, but virtue is to be pious. So approach homes from their doors, and observe God, that you may succeed.
+
+### Verse 2:190
+**Arabic**: وَقَٰتِلُوا۟ فِى سَبِيلِ ٱللَّهِ ٱلَّذِينَ يُقَٰتِلُونَكُمْ وَلَا تَعْتَدُوٓا۟ ۚ إِنَّ ٱللَّهَ لَا يُحِبُّ ٱلْمُعْتَدِينَ
+
+**English**: And fight in the cause of God those who fight you, but do not commit aggression; God does not love the aggressors.
+
+### Verse 2:191
+**Arabic**: وَٱقْتُلُوهُمْ حَيْثُ ثَقِفْتُمُوهُمْ وَأَخْرِجُوهُم مِّنْ حَيْثُ أَخْرَجُوكُمْ ۚ وَٱلْفِتْنَةُ أَشَدُّ مِنَ ٱلْقَتْلِ ۚ وَلَا تُقَٰتِلُوهُمْ عِندَ ٱلْمَسْجِدِ ٱلْحَرَامِ حَتَّىٰ يُقَٰتِلُوكُمْ فِيهِ ۖ فَإِن قَٰتَلُوكُمْ فَٱقْتُلُوهُمْ ۗ كَذَٰلِكَ جَزَآءُ ٱلْكَٰفِرِينَ
+
+**English**: And kill them wherever you overtake them, and expel them from where they had expelled you. Oppression is more serious than murder. But do not fight them at the Sacred Mosque, unless they fight you there. If they fight you, then kill them. Such is the retribution of the disbelievers.
+
+### Verse 2:192
+**Arabic**: فَإِنِ ٱنتَهَوْا۟ فَإِنَّ ٱللَّهَ غَفُورٌۭ رَّحِيمٌۭ
+
+**English**: But if they cease, then God is Forgiving and Merciful.
+
+### Verse 2:193
+**Arabic**: وَقَٰتِلُوهُمْ حَتَّىٰ لَا تَكُونَ فِتْنَةٌۭ وَيَكُونَ ٱلدِّينُ لِلَّهِ ۖ فَإِنِ ٱنتَهَوْا۟ فَلَا عُدْوَٰنَ إِلَّا عَلَى ٱلظَّٰلِمِينَ
+
+**English**: And fight them until there is no oppression, and worship becomes devoted to God alone. But if they cease, then let there be no hostility except against the oppressors.
+
+### Verse 2:194
+**Arabic**: ٱلشَّهْرُ ٱلْحَرَامُ بِٱلشَّهْرِ ٱلْحَرَامِ وَٱلْحُرُمَٰتُ قِصَاصٌۭ ۚ فَمَنِ ٱعْتَدَىٰ عَلَيْكُمْ فَٱعْتَدُوا۟ عَلَيْهِ بِمِثْلِ مَا ٱعْتَدَىٰ عَلَيْكُمْ ۚ وَٱتَّقُوا۟ ٱللَّهَ وَٱعْلَمُوٓا۟ أَنَّ ٱللَّهَ مَعَ ٱلْمُتَّقِينَ
+
+**English**: The sacred month for the sacred month; and sacrilege calls for retaliation. Whoever commits aggression against you, retaliate against him in the same measure as he has committed against you. And be conscious of God, and know that God is with the righteous.
+
+### Verse 2:195
+**Arabic**: وَأَنفِقُوا۟ فِى سَبِيلِ ٱللَّهِ وَلَا تُلْقُوا۟ بِأَيْدِيكُمْ إِلَى ٱلتَّهْلُكَةِ ۛ وَأَحْسِنُوٓا۟ ۛ إِنَّ ٱللَّهَ يُحِبُّ ٱلْمُحْسِنِينَ
+
+**English**: And spend in the cause of God, and do not throw yourselves with your own hands into ruin, and be charitable. God loves the charitable.
+
+### Verse 2:196
+**Arabic**: وَأَتِمُّوا۟ ٱلْحَجَّ وَٱلْعُمْرَةَ لِلَّهِ ۚ فَإِنْ أُحْصِرْتُمْ فَمَا ٱسْتَيْسَرَ مِنَ ٱلْهَدْىِ ۖ وَلَا تَحْلِقُوا۟ رُءُوسَكُمْ حَتَّىٰ يَبْلُغَ ٱلْهَدْىُ مَحِلَّهُۥ ۚ فَمَن كَانَ مِنكُم مَّرِيضًا أَوْ بِهِۦٓ أَذًۭى مِّن رَّأْسِهِۦ فَفِدْيَةٌۭ مِّن صِيَامٍ أَوْ صَدَقَةٍ أَوْ نُسُكٍۢ ۚ فَإِذَآ أَمِنتُمْ فَمَن تَمَتَّعَ بِٱلْعُمْرَةِ إِلَى ٱلْحَجِّ فَمَا ٱسْتَيْسَرَ مِنَ ٱلْهَدْىِ ۚ فَمَن لَّمْ يَجِدْ فَصِيَامُ ثَلَٰثَةِ أَيَّامٍۢ فِى ٱلْحَجِّ وَسَبْعَةٍ إِذَا رَجَعْتُمْ ۗ تِلْكَ عَشَرَةٌۭ كَامِلَةٌۭ ۗ ذَٰلِكَ لِمَن لَّمْ يَكُنْ أَهْلُهُۥ حَاضِرِى ٱلْمَسْجِدِ ٱلْحَرَامِ ۚ وَٱتَّقُوا۟ ٱللَّهَ وَٱعْلَمُوٓا۟ أَنَّ ٱللَّهَ شَدِيدُ ٱلْعِقَابِ
+
+**English**: And carry out the Hajj and the Umrah for God. But if you are prevented, then whatever is feasible of offerings. And do not shave your heads until the offering has reached its destination. Whoever of you is sick, or has an injury of the head, then redemption of fasting, or charity, or worship. When you are secure: whoever continues the Umrah until the Hajj, then whatever is feasible of offering. But if he lacks the means, then fasting for three days during the Hajj and seven when you have returned, making ten in all. This is for he whose household is not present at the Sacred Mosque. And remain conscious of God, and know that God is stern in retribution.
+
+### Verse 2:197
+**Arabic**: ٱلْحَجُّ أَشْهُرٌۭ مَّعْلُومَٰتٌۭ ۚ فَمَن فَرَضَ فِيهِنَّ ٱلْحَجَّ فَلَا رَفَثَ وَلَا فُسُوقَ وَلَا جِدَالَ فِى ٱلْحَجِّ ۗ وَمَا تَفْعَلُوا۟ مِنْ خَيْرٍۢ يَعْلَمْهُ ٱللَّهُ ۗ وَتَزَوَّدُوا۟ فَإِنَّ خَيْرَ ٱلزَّادِ ٱلتَّقْوَىٰ ۚ وَٱتَّقُونِ يَٰٓأُو۟لِى ٱلْأَلْبَٰبِ
+
+**English**: The Hajj is during specific months. Whoever decides to perform the Hajj-there shall be no sexual relations, nor misconduct, nor quarrelling during the Hajj. And whatever good you do, God knows it. And take provisions, but the best provision is righteousness. And be mindful of Me, O people of understanding.
+
+### Verse 2:198
+**Arabic**: لَيْسَ عَلَيْكُمْ جُنَاحٌ أَن تَبْتَغُوا۟ فَضْلًۭا مِّن رَّبِّكُمْ ۚ فَإِذَآ أَفَضْتُم مِّنْ عَرَفَٰتٍۢ فَٱذْكُرُوا۟ ٱللَّهَ عِندَ ٱلْمَشْعَرِ ٱلْحَرَامِ ۖ وَٱذْكُرُوهُ كَمَا هَدَىٰكُمْ وَإِن كُنتُم مِّن قَبْلِهِۦ لَمِنَ ٱلضَّآلِّينَ
+
+**English**: You commit no error by seeking bounty from your Lord. When you disperse from Arafat, remember God at the Sacred Landmark. And remember Him as He has guided you. Although, before that, you were of those astray.
+
+### Verse 2:199
+**Arabic**: ثُمَّ أَفِيضُوا۟ مِنْ حَيْثُ أَفَاضَ ٱلنَّاسُ وَٱسْتَغْفِرُوا۟ ٱللَّهَ ۚ إِنَّ ٱللَّهَ غَفُورٌۭ رَّحِيمٌۭ
+
+**English**: Then disperse from where the people disperse, and ask God for forgiveness. God is Most Forgiving, Most Merciful.
+
+### Verse 2:200
+**Arabic**: فَإِذَا قَضَيْتُم مَّنَٰسِكَكُمْ فَٱذْكُرُوا۟ ٱللَّهَ كَذِكْرِكُمْ ءَابَآءَكُمْ أَوْ أَشَدَّ ذِكْرًۭا ۗ فَمِنَ ٱلنَّاسِ مَن يَقُولُ رَبَّنَآ ءَاتِنَا فِى ٱلدُّنْيَا وَمَا لَهُۥ فِى ٱلْءَاخِرَةِ مِنْ خَلَٰقٍۢ
+
+**English**: When you have completed your rites, remember God as you remember your parents, or even more. Among the people is he who says, "Our Lord, give us in this world," yet he has no share in the Hereafter.
+
+### Verse 2:201
+**Arabic**: وَمِنْهُم مَّن يَقُولُ رَبَّنَآ ءَاتِنَا فِى ٱلدُّنْيَا حَسَنَةًۭ وَفِى ٱلْءَاخِرَةِ حَسَنَةًۭ وَقِنَا عَذَابَ ٱلنَّارِ
+
+**English**: And among them is he who says, "Our Lord, give us goodness in this world, and goodness in the Hereafter, and protect us from the torment of the Fire."
+
+### Verse 2:202
+**Arabic**: أُو۟لَٰٓئِكَ لَهُمْ نَصِيبٌۭ مِّمَّا كَسَبُوا۟ ۚ وَٱللَّهُ سَرِيعُ ٱلْحِسَابِ
+
+**English**: These will have a share of what they have earned. God is swift in reckoning.
+
+### Verse 2:203
+**Arabic**: ۞ وَٱذْكُرُوا۟ ٱللَّهَ فِىٓ أَيَّامٍۢ مَّعْدُودَٰتٍۢ ۚ فَمَن تَعَجَّلَ فِى يَوْمَيْنِ فَلَآ إِثْمَ عَلَيْهِ وَمَن تَأَخَّرَ فَلَآ إِثْمَ عَلَيْهِ ۚ لِمَنِ ٱتَّقَىٰ ۗ وَٱتَّقُوا۟ ٱللَّهَ وَٱعْلَمُوٓا۟ أَنَّكُمْ إِلَيْهِ تُحْشَرُونَ
+
+**English**: And remember God during the designated days. But whoever hurries on in two days commits no wrong, and whoever stays on commits no wrong-provided he maintains righteousness. And obey God, and know that to Him you will be gathered.
+
+### Verse 2:204
+**Arabic**: وَمِنَ ٱلنَّاسِ مَن يُعْجِبُكَ قَوْلُهُۥ فِى ٱلْحَيَوٰةِ ٱلدُّنْيَا وَيُشْهِدُ ٱللَّهَ عَلَىٰ مَا فِى قَلْبِهِۦ وَهُوَ أَلَدُّ ٱلْخِصَامِ
+
+**English**: Among the people is he whose speech about the worldly life impresses you, and he calls God to witness what is in his heart, while he is the most hostile of adversaries.
+
+### Verse 2:205
+**Arabic**: وَإِذَا تَوَلَّىٰ سَعَىٰ فِى ٱلْأَرْضِ لِيُفْسِدَ فِيهَا وَيُهْلِكَ ٱلْحَرْثَ وَٱلنَّسْلَ ۗ وَٱللَّهُ لَا يُحِبُّ ٱلْفَسَادَ
+
+**English**: When he gains power, he strives to spread corruption on earth, destroying properties and lives. God does not like corruption.
+
+### Verse 2:206
+**Arabic**: وَإِذَا قِيلَ لَهُ ٱتَّقِ ٱللَّهَ أَخَذَتْهُ ٱلْعِزَّةُ بِٱلْإِثْمِ ۚ فَحَسْبُهُۥ جَهَنَّمُ ۚ وَلَبِئْسَ ٱلْمِهَادُ
+
+**English**: And when he is told, "Beware of God," his pride leads him to more sin. Hell is enough for him-a dreadful abode.
+
+### Verse 2:207
+**Arabic**: وَمِنَ ٱلنَّاسِ مَن يَشْرِى نَفْسَهُ ٱبْتِغَآءَ مَرْضَاتِ ٱللَّهِ ۗ وَٱللَّهُ رَءُوفٌۢ بِٱلْعِبَادِ
+
+**English**: And among the people is he who sells himself seeking God's approval. God is kind towards the servants.
+
+### Verse 2:208
+**Arabic**: يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ ٱدْخُلُوا۟ فِى ٱلسِّلْمِ كَآفَّةًۭ وَلَا تَتَّبِعُوا۟ خُطُوَٰتِ ٱلشَّيْطَٰنِ ۚ إِنَّهُۥ لَكُمْ عَدُوٌّۭ مُّبِينٌۭ
+
+**English**: O you who believe! Enter into submission, wholeheartedly, and do not follow the footsteps of Satan; he is to you an outright enemy.
+
+### Verse 2:209
+**Arabic**: فَإِن زَلَلْتُم مِّنۢ بَعْدِ مَا جَآءَتْكُمُ ٱلْبَيِّنَٰتُ فَٱعْلَمُوٓا۟ أَنَّ ٱللَّهَ عَزِيزٌ حَكِيمٌ
+
+**English**: But if you slip after the proofs have come to you, know that God is Powerful and Wise.
+
+### Verse 2:210
+**Arabic**: هَلْ يَنظُرُونَ إِلَّآ أَن يَأْتِيَهُمُ ٱللَّهُ فِى ظُلَلٍۢ مِّنَ ٱلْغَمَامِ وَٱلْمَلَٰٓئِكَةُ وَقُضِىَ ٱلْأَمْرُ ۚ وَإِلَى ٱللَّهِ تُرْجَعُ ٱلْأُمُورُ
+
+**English**: Are they waiting for God Himself to come to them in the shadows of the clouds, together with the angels, and thus the matter is settled? All things are returned to God.
+
+### Verse 2:211
+**Arabic**: سَلْ بَنِىٓ إِسْرَٰٓءِيلَ كَمْ ءَاتَيْنَٰهُم مِّنْ ءَايَةٍۭ بَيِّنَةٍۢ ۗ وَمَن يُبَدِّلْ نِعْمَةَ ٱللَّهِ مِنۢ بَعْدِ مَا جَآءَتْهُ فَإِنَّ ٱللَّهَ شَدِيدُ ٱلْعِقَابِ
+
+**English**: Ask the Children of Israel how many clear signs We have given them. Whoever alters the blessing of God after it has come to him-God is severe in retribution.
+
+### Verse 2:212
+**Arabic**: زُيِّنَ لِلَّذِينَ كَفَرُوا۟ ٱلْحَيَوٰةُ ٱلدُّنْيَا وَيَسْخَرُونَ مِنَ ٱلَّذِينَ ءَامَنُوا۟ ۘ وَٱلَّذِينَ ٱتَّقَوْا۟ فَوْقَهُمْ يَوْمَ ٱلْقِيَٰمَةِ ۗ وَٱللَّهُ يَرْزُقُ مَن يَشَآءُ بِغَيْرِ حِسَابٍۢ
+
+**English**: Beautified is the life of this world for those who disbelieve, and they ridicule those who believe. But the righteous will be above them on the Day of Resurrection. God provides to whomever He wills without measure.
+
+### Verse 2:213
+**Arabic**: كَانَ ٱلنَّاسُ أُمَّةًۭ وَٰحِدَةًۭ فَبَعَثَ ٱللَّهُ ٱلنَّبِيِّۦنَ مُبَشِّرِينَ وَمُنذِرِينَ وَأَنزَلَ مَعَهُمُ ٱلْكِتَٰبَ بِٱلْحَقِّ لِيَحْكُمَ بَيْنَ ٱلنَّاسِ فِيمَا ٱخْتَلَفُوا۟ فِيهِ ۚ وَمَا ٱخْتَلَفَ فِيهِ إِلَّا ٱلَّذِينَ أُوتُوهُ مِنۢ بَعْدِ مَا جَآءَتْهُمُ ٱلْبَيِّنَٰتُ بَغْيًۢا بَيْنَهُمْ ۖ فَهَدَى ٱللَّهُ ٱلَّذِينَ ءَامَنُوا۟ لِمَا ٱخْتَلَفُوا۟ فِيهِ مِنَ ٱلْحَقِّ بِإِذْنِهِۦ ۗ وَٱللَّهُ يَهْدِى مَن يَشَآءُ إِلَىٰ صِرَٰطٍۢ مُّسْتَقِيمٍ
+
+**English**: Humanity used to be one community; then God sent the prophets, bringing good news and giving warnings. And He sent down with them the Scripture, with the truth, to judge between people regarding their differences. But none differed over it except those who were given it-after the proofs had come to them-out of mutual envy between them. Then God guided those who believed to the truth they had disputed, in accordance with His will. God guides whom He wills to a straight path.
+
+### Verse 2:214
+**Arabic**: أَمْ حَسِبْتُمْ أَن تَدْخُلُوا۟ ٱلْجَنَّةَ وَلَمَّا يَأْتِكُم مَّثَلُ ٱلَّذِينَ خَلَوْا۟ مِن قَبْلِكُم ۖ مَّسَّتْهُمُ ٱلْبَأْسَآءُ وَٱلضَّرَّآءُ وَزُلْزِلُوا۟ حَتَّىٰ يَقُولَ ٱلرَّسُولُ وَٱلَّذِينَ ءَامَنُوا۟ مَعَهُۥ مَتَىٰ نَصْرُ ٱللَّهِ ۗ أَلَآ إِنَّ نَصْرَ ٱللَّهِ قَرِيبٌۭ
+
+**English**: Or do you expect to enter Paradise before the example of those who came before you had reached you? Adversity and hardship had afflicted them, and they were so shaken up, that the Messenger and those who believed with him said, "When is God's victory?" Indeed, God's victory is near.
+
+### Verse 2:215
+**Arabic**: يَسْـَٔلُونَكَ مَاذَا يُنفِقُونَ ۖ قُلْ مَآ أَنفَقْتُم مِّنْ خَيْرٍۢ فَلِلْوَٰلِدَيْنِ وَٱلْأَقْرَبِينَ وَٱلْيَتَٰمَىٰ وَٱلْمَسَٰكِينِ وَٱبْنِ ٱلسَّبِيلِ ۗ وَمَا تَفْعَلُوا۟ مِنْ خَيْرٍۢ فَإِنَّ ٱللَّهَ بِهِۦ عَلِيمٌۭ
+
+**English**: They ask you what they should give. Say, "Whatever charity you give is for the parents, and the relatives, and the orphans, and the poor, and the wayfarer. Whatever good you do, God is aware of it.
+
+### Verse 2:216
+**Arabic**: كُتِبَ عَلَيْكُمُ ٱلْقِتَالُ وَهُوَ كُرْهٌۭ لَّكُمْ ۖ وَعَسَىٰٓ أَن تَكْرَهُوا۟ شَيْـًۭٔا وَهُوَ خَيْرٌۭ لَّكُمْ ۖ وَعَسَىٰٓ أَن تُحِبُّوا۟ شَيْـًۭٔا وَهُوَ شَرٌّۭ لَّكُمْ ۗ وَٱللَّهُ يَعْلَمُ وَأَنتُمْ لَا تَعْلَمُونَ
+
+**English**: Fighting is ordained for you, even though you dislike it. But it may be that you dislike something while it is good for you, and it may be that you like something while it is bad for you. God knows, and you do not know.
+
+### Verse 2:217
+**Arabic**: يَسْـَٔلُونَكَ عَنِ ٱلشَّهْرِ ٱلْحَرَامِ قِتَالٍۢ فِيهِ ۖ قُلْ قِتَالٌۭ فِيهِ كَبِيرٌۭ ۖ وَصَدٌّ عَن سَبِيلِ ٱللَّهِ وَكُفْرٌۢ بِهِۦ وَٱلْمَسْجِدِ ٱلْحَرَامِ وَإِخْرَاجُ أَهْلِهِۦ مِنْهُ أَكْبَرُ عِندَ ٱللَّهِ ۚ وَٱلْفِتْنَةُ أَكْبَرُ مِنَ ٱلْقَتْلِ ۗ وَلَا يَزَالُونَ يُقَٰتِلُونَكُمْ حَتَّىٰ يَرُدُّوكُمْ عَن دِينِكُمْ إِنِ ٱسْتَطَٰعُوا۟ ۚ وَمَن يَرْتَدِدْ مِنكُمْ عَن دِينِهِۦ فَيَمُتْ وَهُوَ كَافِرٌۭ فَأُو۟لَٰٓئِكَ حَبِطَتْ أَعْمَٰلُهُمْ فِى ٱلدُّنْيَا وَٱلْءَاخِرَةِ ۖ وَأُو۟لَٰٓئِكَ أَصْحَٰبُ ٱلنَّارِ ۖ هُمْ فِيهَا خَٰلِدُونَ
+
+**English**: They ask you about fighting during the Holy Month. Say, "Fighting during it is deplorable; but to bar others from God's path, and to disbelieve in Him, and to prevent access to the Holy Mosque, and to expel its people from it, are more deplorable with God. And persecution is more serious than killing. They will not cease to fight you until they turn you back from your religion, if they can. Whoever among you turns back from his religion, and dies a disbeliever-those are they whose works will come to nothing, in this life, and in the Hereafter. Those are the inmates of the Fire, abiding in it forever.
+
+### Verse 2:218
+**Arabic**: إِنَّ ٱلَّذِينَ ءَامَنُوا۟ وَٱلَّذِينَ هَاجَرُوا۟ وَجَٰهَدُوا۟ فِى سَبِيلِ ٱللَّهِ أُو۟لَٰٓئِكَ يَرْجُونَ رَحْمَتَ ٱللَّهِ ۚ وَٱللَّهُ غَفُورٌۭ رَّحِيمٌۭ
+
+**English**: Those who believed, and those who migrated and fought for the sake of God-those look forward to God's mercy. God is Forgiving and Merciful.
+
+### Verse 2:219
+**Arabic**: ۞ يَسْـَٔلُونَكَ عَنِ ٱلْخَمْرِ وَٱلْمَيْسِرِ ۖ قُلْ فِيهِمَآ إِثْمٌۭ كَبِيرٌۭ وَمَنَٰفِعُ لِلنَّاسِ وَإِثْمُهُمَآ أَكْبَرُ مِن نَّفْعِهِمَا ۗ وَيَسْـَٔلُونَكَ مَاذَا يُنفِقُونَ قُلِ ٱلْعَفْوَ ۗ كَذَٰلِكَ يُبَيِّنُ ٱللَّهُ لَكُمُ ٱلْءَايَٰتِ لَعَلَّكُمْ تَتَفَكَّرُونَ
+
+**English**: They ask you about intoxicants and gambling. Say, "There is gross sin in them, and some benefits for people, but their sinfulness outweighs their benefit." And they ask you about what they should give: say, "The surplus." Thus God explains the revelations to you, so that you may think.
+
+### Verse 2:220
+**Arabic**: فِى ٱلدُّنْيَا وَٱلْءَاخِرَةِ ۗ وَيَسْـَٔلُونَكَ عَنِ ٱلْيَتَٰمَىٰ ۖ قُلْ إِصْلَاحٌۭ لَّهُمْ خَيْرٌۭ ۖ وَإِن تُخَالِطُوهُمْ فَإِخْوَٰنُكُمْ ۚ وَٱللَّهُ يَعْلَمُ ٱلْمُفْسِدَ مِنَ ٱلْمُصْلِحِ ۚ وَلَوْ شَآءَ ٱللَّهُ لَأَعْنَتَكُمْ ۚ إِنَّ ٱللَّهَ عَزِيزٌ حَكِيمٌۭ
+
+**English**: About this world and the next. And they ask you about orphans. Say, "Improvement for them is best. And if you intermix with them, then they are your brethren." God knows the dishonest from the honest. Had God willed, He could have overburdened you. God is Mighty and Wise.
+
+### Verse 2:221
+**Arabic**: وَلَا تَنكِحُوا۟ ٱلْمُشْرِكَٰتِ حَتَّىٰ يُؤْمِنَّ ۚ وَلَأَمَةٌۭ مُّؤْمِنَةٌ خَيْرٌۭ مِّن مُّشْرِكَةٍۢ وَلَوْ أَعْجَبَتْكُمْ ۗ وَلَا تُنكِحُوا۟ ٱلْمُشْرِكِينَ حَتَّىٰ يُؤْمِنُوا۟ ۚ وَلَعَبْدٌۭ مُّؤْمِنٌ خَيْرٌۭ مِّن مُّشْرِكٍۢ وَلَوْ أَعْجَبَكُمْ ۗ أُو۟لَٰٓئِكَ يَدْعُونَ إِلَى ٱلنَّارِ ۖ وَٱللَّهُ يَدْعُوٓا۟ إِلَى ٱلْجَنَّةِ وَٱلْمَغْفِرَةِ بِإِذْنِهِۦ ۖ وَيُبَيِّنُ ءَايَٰتِهِۦ لِلنَّاسِ لَعَلَّهُمْ يَتَذَكَّرُونَ
+
+**English**: Do not marry idolatresses, unless they have believed. A believing maid is better than an idolatress, even if you like her. And do not marry idolaters, unless they have believed. A believing servant is better than an idolater, even if you like him. These call to the Fire, but God calls to the Garden and to forgiveness, by His leave. He makes clear His communications to the people, that they may be mindful.
+
+### Verse 2:222
+**Arabic**: وَيَسْـَٔلُونَكَ عَنِ ٱلْمَحِيضِ ۖ قُلْ هُوَ أَذًۭى فَٱعْتَزِلُوا۟ ٱلنِّسَآءَ فِى ٱلْمَحِيضِ ۖ وَلَا تَقْرَبُوهُنَّ حَتَّىٰ يَطْهُرْنَ ۖ فَإِذَا تَطَهَّرْنَ فَأْتُوهُنَّ مِنْ حَيْثُ أَمَرَكُمُ ٱللَّهُ ۚ إِنَّ ٱللَّهَ يُحِبُّ ٱلتَّوَّٰبِينَ وَيُحِبُّ ٱلْمُتَطَهِّرِينَ
+
+**English**: And they ask you about menstruation: say, "It is harmful, so keep away from women during menstruation. And do not approach them until they have become pure. Once they have become pure, approach them in the way God has directed you." God loves the repentant, and He loves those who keep clean."
+
+### Verse 2:223
+**Arabic**: نِسَآؤُكُمْ حَرْثٌۭ لَّكُمْ فَأْتُوا۟ حَرْثَكُمْ أَنَّىٰ شِئْتُمْ ۖ وَقَدِّمُوا۟ لِأَنفُسِكُمْ ۚ وَٱتَّقُوا۟ ٱللَّهَ وَٱعْلَمُوٓا۟ أَنَّكُم مُّلَٰقُوهُ ۗ وَبَشِّرِ ٱلْمُؤْمِنِينَ
+
+**English**: Your women are cultivation for you; so approach your cultivation whenever you like, and send ahead for yourselves. And fear God, and know that you will meet Him. And give good news to the believers.
+
+### Verse 2:224
+**Arabic**: وَلَا تَجْعَلُوا۟ ٱللَّهَ عُرْضَةًۭ لِّأَيْمَٰنِكُمْ أَن تَبَرُّوا۟ وَتَتَّقُوا۟ وَتُصْلِحُوا۟ بَيْنَ ٱلنَّاسِ ۗ وَٱللَّهُ سَمِيعٌ عَلِيمٌۭ
+
+**English**: And do not allow your oaths in God's name to hinder you from virtue, and righteousness, and making peace between people. God is Listener and Knower.
+
+### Verse 2:225
+**Arabic**: لَّا يُؤَاخِذُكُمُ ٱللَّهُ بِٱللَّغْوِ فِىٓ أَيْمَٰنِكُمْ وَلَٰكِن يُؤَاخِذُكُم بِمَا كَسَبَتْ قُلُوبُكُمْ ۗ وَٱللَّهُ غَفُورٌ حَلِيمٌۭ
+
+**English**: God does not hold you responsible for your unintentional oaths, but He holds you responsible for your intentions. God is Forgiving and Forbearing.
+
+### Verse 2:226
+**Arabic**: لِّلَّذِينَ يُؤْلُونَ مِن نِّسَآئِهِمْ تَرَبُّصُ أَرْبَعَةِ أَشْهُرٍۢ ۖ فَإِن فَآءُو فَإِنَّ ٱللَّهَ غَفُورٌۭ رَّحِيمٌۭ
+
+**English**: Those who vow abstinence from their wives must wait for four months. But if they reconcile-God is Forgiving and Merciful.
+
+### Verse 2:227
+**Arabic**: وَإِنْ عَزَمُوا۟ ٱلطَّلَٰقَ فَإِنَّ ٱللَّهَ سَمِيعٌ عَلِيمٌۭ
+
+**English**: And if they resolve to divorce-God is Hearing and Knowing.
+
+### Verse 2:228
+**Arabic**: وَٱلْمُطَلَّقَٰتُ يَتَرَبَّصْنَ بِأَنفُسِهِنَّ ثَلَٰثَةَ قُرُوٓءٍۢ ۚ وَلَا يَحِلُّ لَهُنَّ أَن يَكْتُمْنَ مَا خَلَقَ ٱللَّهُ فِىٓ أَرْحَامِهِنَّ إِن كُنَّ يُؤْمِنَّ بِٱللَّهِ وَٱلْيَوْمِ ٱلْءَاخِرِ ۚ وَبُعُولَتُهُنَّ أَحَقُّ بِرَدِّهِنَّ فِى ذَٰلِكَ إِنْ أَرَادُوٓا۟ إِصْلَٰحًۭا ۚ وَلَهُنَّ مِثْلُ ٱلَّذِى عَلَيْهِنَّ بِٱلْمَعْرُوفِ ۚ وَلِلرِّجَالِ عَلَيْهِنَّ دَرَجَةٌۭ ۗ وَٱللَّهُ عَزِيزٌ حَكِيمٌ
+
+**English**: Divorced women shall wait by themselves for three periods. And it is not lawful for them to conceal what God has created in their wombs, if they believe in God and the Last Day. Meanwhile, their husbands have the better right to take them back, if they desire reconciliation. And women have rights similar to their obligations, according to what is fair. But men have a degree over them. God is Mighty and Wise.
+
+### Verse 2:229
+**Arabic**: ٱلطَّلَٰقُ مَرَّتَانِ ۖ فَإِمْسَاكٌۢ بِمَعْرُوفٍ أَوْ تَسْرِيحٌۢ بِإِحْسَٰنٍۢ ۗ وَلَا يَحِلُّ لَكُمْ أَن تَأْخُذُوا۟ مِمَّآ ءَاتَيْتُمُوهُنَّ شَيْـًٔا إِلَّآ أَن يَخَافَآ أَلَّا يُقِيمَا حُدُودَ ٱللَّهِ ۖ فَإِنْ خِفْتُمْ أَلَّا يُقِيمَا حُدُودَ ٱللَّهِ فَلَا جُنَاحَ عَلَيْهِمَا فِيمَا ٱفْتَدَتْ بِهِۦ ۗ تِلْكَ حُدُودُ ٱللَّهِ فَلَا تَعْتَدُوهَا ۚ وَمَن يَتَعَدَّ حُدُودَ ٱللَّهِ فَأُو۟لَٰٓئِكَ هُمُ ٱلظَّٰلِمُونَ
+
+**English**: Divorce is allowed twice. Then, either honorable retention, or setting free kindly. It is not lawful for you to take back anything you have given them, unless they fear that they cannot maintain God's limits. If you fear that they cannot maintain God's limits, then there is no blame on them if she sacrifices something for her release. These are God's limits, so do not transgress them. Those who transgress God's limits are the unjust.
+
+### Verse 2:230
+**Arabic**: فَإِن طَلَّقَهَا فَلَا تَحِلُّ لَهُۥ مِنۢ بَعْدُ حَتَّىٰ تَنكِحَ زَوْجًا غَيْرَهُۥ ۗ فَإِن طَلَّقَهَا فَلَا جُنَاحَ عَلَيْهِمَآ أَن يَتَرَاجَعَآ إِن ظَنَّآ أَن يُقِيمَا حُدُودَ ٱللَّهِ ۗ وَتِلْكَ حُدُودُ ٱللَّهِ يُبَيِّنُهَا لِقَوْمٍۢ يَعْلَمُونَ
+
+**English**: If he divorces her, she shall not be lawful for him again until she has married another husband. If the latter divorces her, then there is no blame on them for reuniting, provided they think they can maintain God's limits. These are God's limits; He makes them clear to people who know.
+
+### Verse 2:231
+**Arabic**: وَإِذَا طَلَّقْتُمُ ٱلنِّسَآءَ فَبَلَغْنَ أَجَلَهُنَّ فَأَمْسِكُوهُنَّ بِمَعْرُوفٍ أَوْ سَرِّحُوهُنَّ بِمَعْرُوفٍۢ ۚ وَلَا تُمْسِكُوهُنَّ ضِرَارًۭا لِّتَعْتَدُوا۟ ۚ وَمَن يَفْعَلْ ذَٰلِكَ فَقَدْ ظَلَمَ نَفْسَهُۥ ۚ وَلَا تَتَّخِذُوٓا۟ ءَايَٰتِ ٱللَّهِ هُزُوًۭا ۚ وَٱذْكُرُوا۟ نِعْمَتَ ٱللَّهِ عَلَيْكُمْ وَمَآ أَنزَلَ عَلَيْكُم مِّنَ ٱلْكِتَٰبِ وَٱلْحِكْمَةِ يَعِظُكُم بِهِۦ ۚ وَٱتَّقُوا۟ ٱللَّهَ وَٱعْلَمُوٓا۟ أَنَّ ٱللَّهَ بِكُلِّ شَىْءٍ عَلِيمٌۭ
+
+**English**: When you divorce women, and they have reached their term, either retain them amicably, or release them amicably. But do not retain them to hurt them and commit aggression. Whoever does that has wronged himself. And do not take God's revelations for a joke. And remember God's favor to you, and that He revealed to you the Scripture and Wisdom to teach you. And fear God, and know that God is aware of everything.
+
+### Verse 2:232
+**Arabic**: وَإِذَا طَلَّقْتُمُ ٱلنِّسَآءَ فَبَلَغْنَ أَجَلَهُنَّ فَلَا تَعْضُلُوهُنَّ أَن يَنكِحْنَ أَزْوَٰجَهُنَّ إِذَا تَرَٰضَوْا۟ بَيْنَهُم بِٱلْمَعْرُوفِ ۗ ذَٰلِكَ يُوعَظُ بِهِۦ مَن كَانَ مِنكُمْ يُؤْمِنُ بِٱللَّهِ وَٱلْيَوْمِ ٱلْءَاخِرِ ۗ ذَٰلِكُمْ أَزْكَىٰ لَكُمْ وَأَطْهَرُ ۗ وَٱللَّهُ يَعْلَمُ وَأَنتُمْ لَا تَعْلَمُونَ
+
+**English**: When you divorce women, and they have reached their term, do not prevent them from marrying their husbands, provided they agree on fair terms. Thereby is advised whoever among you believes in God and the Last Day. That is better and more decent for you. God knows, and you do not know.
+
+### Verse 2:233
+**Arabic**: ۞ وَٱلْوَٰلِدَٰتُ يُرْضِعْنَ أَوْلَٰدَهُنَّ حَوْلَيْنِ كَامِلَيْنِ ۖ لِمَنْ أَرَادَ أَن يُتِمَّ ٱلرَّضَاعَةَ ۚ وَعَلَى ٱلْمَوْلُودِ لَهُۥ رِزْقُهُنَّ وَكِسْوَتُهُنَّ بِٱلْمَعْرُوفِ ۚ لَا تُكَلَّفُ نَفْسٌ إِلَّا وُسْعَهَا ۚ لَا تُضَآرَّ وَٰلِدَةٌۢ بِوَلَدِهَا وَلَا مَوْلُودٌۭ لَّهُۥ بِوَلَدِهِۦ ۚ وَعَلَى ٱلْوَارِثِ مِثْلُ ذَٰلِكَ ۗ فَإِنْ أَرَادَا فِصَالًا عَن تَرَاضٍۢ مِّنْهُمَا وَتَشَاوُرٍۢ فَلَا جُنَاحَ عَلَيْهِمَا ۗ وَإِنْ أَرَدتُّمْ أَن تَسْتَرْضِعُوٓا۟ أَوْلَٰدَكُمْ فَلَا جُنَاحَ عَلَيْكُمْ إِذَا سَلَّمْتُم مَّآ ءَاتَيْتُم بِٱلْمَعْرُوفِ ۗ وَٱتَّقُوا۟ ٱللَّهَ وَٱعْلَمُوٓا۟ أَنَّ ٱللَّهَ بِمَا تَعْمَلُونَ بَصِيرٌۭ
+
+**English**: Mothers may nurse their infants for two whole years, for those who desire to complete the nursing-period. It is the duty of the father to provide for them and clothe them in a proper manner. No soul shall be burdened beyond its capacity. No mother shall be harmed on account of her child, and no father shall be harmed on account of his child. The same duty rests upon the heir. If the couple desire weaning, by mutual consent and consultation, they commit no error by doing so. You commit no error by hiring nursing-mothers, as long as you pay them fairly. And be wary of God, and know that God is Seeing of what you do.
+
+### Verse 2:234
+**Arabic**: وَٱلَّذِينَ يُتَوَفَّوْنَ مِنكُمْ وَيَذَرُونَ أَزْوَٰجًۭا يَتَرَبَّصْنَ بِأَنفُسِهِنَّ أَرْبَعَةَ أَشْهُرٍۢ وَعَشْرًۭا ۖ فَإِذَا بَلَغْنَ أَجَلَهُنَّ فَلَا جُنَاحَ عَلَيْكُمْ فِيمَا فَعَلْنَ فِىٓ أَنفُسِهِنَّ بِٱلْمَعْرُوفِ ۗ وَٱللَّهُ بِمَا تَعْمَلُونَ خَبِيرٌۭ
+
+**English**: As for those among you who die and leave widows behind, their widows shall wait by themselves for four months and ten days. When they have reached their term, there is no blame on you regarding what they might honorably do with themselves. God is fully acquainted with what you do.
+
+### Verse 2:235
+**Arabic**: وَلَا جُنَاحَ عَلَيْكُمْ فِيمَا عَرَّضْتُم بِهِۦ مِنْ خِطْبَةِ ٱلنِّسَآءِ أَوْ أَكْنَنتُمْ فِىٓ أَنفُسِكُمْ ۚ عَلِمَ ٱللَّهُ أَنَّكُمْ سَتَذْكُرُونَهُنَّ وَلَٰكِن لَّا تُوَاعِدُوهُنَّ سِرًّا إِلَّآ أَن تَقُولُوا۟ قَوْلًۭا مَّعْرُوفًۭا ۚ وَلَا تَعْزِمُوا۟ عُقْدَةَ ٱلنِّكَاحِ حَتَّىٰ يَبْلُغَ ٱلْكِتَٰبُ أَجَلَهُۥ ۚ وَٱعْلَمُوٓا۟ أَنَّ ٱللَّهَ يَعْلَمُ مَا فِىٓ أَنفُسِكُمْ فَٱحْذَرُوهُ ۚ وَٱعْلَمُوٓا۟ أَنَّ ٱللَّهَ غَفُورٌ حَلِيمٌۭ
+
+**English**: You commit no error by announcing your engagement to women, or by keeping it to yourselves. God knows that you will be thinking about them. But do not meet them secretly, unless you have something proper to say. And do not confirm the marriage tie until the writing is fulfilled. And know that God knows what is in your souls, so beware of Him. And know that God is Forgiving and Forbearing.
+
+### Verse 2:236
+**Arabic**: لَّا جُنَاحَ عَلَيْكُمْ إِن طَلَّقْتُمُ ٱلنِّسَآءَ مَا لَمْ تَمَسُّوهُنَّ أَوْ تَفْرِضُوا۟ لَهُنَّ فَرِيضَةًۭ ۚ وَمَتِّعُوهُنَّ عَلَى ٱلْمُوسِعِ قَدَرُهُۥ وَعَلَى ٱلْمُقْتِرِ قَدَرُهُۥ مَتَٰعًۢا بِٱلْمَعْرُوفِ ۖ حَقًّا عَلَى ٱلْمُحْسِنِينَ
+
+**English**: You commit no error by divorcing women before having touched them, or before having set the dowry for them. And compensate them-the wealthy according to his means, and the poor according to his means-with a fair compensation, a duty upon the doers of good.
+
+### Verse 2:237
+**Arabic**: وَإِن طَلَّقْتُمُوهُنَّ مِن قَبْلِ أَن تَمَسُّوهُنَّ وَقَدْ فَرَضْتُمْ لَهُنَّ فَرِيضَةًۭ فَنِصْفُ مَا فَرَضْتُمْ إِلَّآ أَن يَعْفُونَ أَوْ يَعْفُوَا۟ ٱلَّذِى بِيَدِهِۦ عُقْدَةُ ٱلنِّكَاحِ ۚ وَأَن تَعْفُوٓا۟ أَقْرَبُ لِلتَّقْوَىٰ ۚ وَلَا تَنسَوُا۟ ٱلْفَضْلَ بَيْنَكُمْ ۚ إِنَّ ٱللَّهَ بِمَا تَعْمَلُونَ بَصِيرٌ
+
+**English**: If you divorce them before you have touched them, but after you had set the dowry for them, give them half of what you specified-unless they forego the right, or the one in whose hand is the marriage contract foregoes it. But to forego is nearer to piety. And do not forget generosity between one another. God is seeing of everything you do.
+
+### Verse 2:238
+**Arabic**: حَٰفِظُوا۟ عَلَى ٱلصَّلَوَٰتِ وَٱلصَّلَوٰةِ ٱلْوُسْطَىٰ وَقُومُوا۟ لِلَّهِ قَٰنِتِينَ
+
+**English**: Guard your prayers, and the middle prayer, and stand before God in devotion.
+
+### Verse 2:239
+**Arabic**: فَإِنْ خِفْتُمْ فَرِجَالًا أَوْ رُكْبَانًۭا ۖ فَإِذَآ أَمِنتُمْ فَٱذْكُرُوا۟ ٱللَّهَ كَمَا عَلَّمَكُم مَّا لَمْ تَكُونُوا۟ تَعْلَمُونَ
+
+**English**: But if you are in fear, then on foot, or riding. And when you are safe, remember God, as He taught you what you did not know.
+
+### Verse 2:240
+**Arabic**: وَٱلَّذِينَ يُتَوَفَّوْنَ مِنكُمْ وَيَذَرُونَ أَزْوَٰجًۭا وَصِيَّةًۭ لِّأَزْوَٰجِهِم مَّتَٰعًا إِلَى ٱلْحَوْلِ غَيْرَ إِخْرَاجٍۢ ۚ فَإِنْ خَرَجْنَ فَلَا جُنَاحَ عَلَيْكُمْ فِى مَا فَعَلْنَ فِىٓ أَنفُسِهِنَّ مِن مَّعْرُوفٍۢ ۗ وَٱللَّهُ عَزِيزٌ حَكِيمٌۭ
+
+**English**: Those of you who die and leave wives behind-a will shall provide their wives with support for a year, provided they do not leave. If they leave, you are not to blame for what they do with themselves, provided it is reasonable. God is Mighty and Wise.
+
+### Verse 2:241
+**Arabic**: وَلِلْمُطَلَّقَٰتِ مَتَٰعٌۢ بِٱلْمَعْرُوفِ ۖ حَقًّا عَلَى ٱلْمُتَّقِينَ
+
+**English**: And divorced women shall be provided for, equitably-a duty upon the righteous.
+
+### Verse 2:242
+**Arabic**: كَذَٰلِكَ يُبَيِّنُ ٱللَّهُ لَكُمْ ءَايَٰتِهِۦ لَعَلَّكُمْ تَعْقِلُونَ
+
+**English**: God thus explains His revelations to you, so that you may understand.
+
+### Verse 2:243
+**Arabic**: ۞ أَلَمْ تَرَ إِلَى ٱلَّذِينَ خَرَجُوا۟ مِن دِيَٰرِهِمْ وَهُمْ أُلُوفٌ حَذَرَ ٱلْمَوْتِ فَقَالَ لَهُمُ ٱللَّهُ مُوتُوا۟ ثُمَّ أَحْيَٰهُمْ ۚ إِنَّ ٱللَّهَ لَذُو فَضْلٍ عَلَى ٱلنَّاسِ وَلَٰكِنَّ أَكْثَرَ ٱلنَّاسِ لَا يَشْكُرُونَ
+
+**English**: Have you not considered those who fled their homes, by the thousands, fearful of death? God said to them, "Die." Then He revived them. God is Gracious towards the people, but most people are not appreciative.
+
+### Verse 2:244
+**Arabic**: وَقَٰتِلُوا۟ فِى سَبِيلِ ٱللَّهِ وَٱعْلَمُوٓا۟ أَنَّ ٱللَّهَ سَمِيعٌ عَلِيمٌۭ
+
+**English**: Fight in the cause of God, and know that God is Hearing and Knowing.
+
+### Verse 2:245
+**Arabic**: مَّن ذَا ٱلَّذِى يُقْرِضُ ٱللَّهَ قَرْضًا حَسَنًۭا فَيُضَٰعِفَهُۥ لَهُۥٓ أَضْعَافًۭا كَثِيرَةًۭ ۚ وَٱللَّهُ يَقْبِضُ وَيَبْصُۜطُ وَإِلَيْهِ تُرْجَعُونَ
+
+**English**: Who is he who will offer God a generous loan, so He will multiply it for him manifold? God receives and amplifies, and to Him you will be returned.
+
+### Verse 2:246
+**Arabic**: أَلَمْ تَرَ إِلَى ٱلْمَلَإِ مِنۢ بَنِىٓ إِسْرَٰٓءِيلَ مِنۢ بَعْدِ مُوسَىٰٓ إِذْ قَالُوا۟ لِنَبِىٍّۢ لَّهُمُ ٱبْعَثْ لَنَا مَلِكًۭا نُّقَٰتِلْ فِى سَبِيلِ ٱللَّهِ ۖ قَالَ هَلْ عَسَيْتُمْ إِن كُتِبَ عَلَيْكُمُ ٱلْقِتَالُ أَلَّا تُقَٰتِلُوا۟ ۖ قَالُوا۟ وَمَا لَنَآ أَلَّا نُقَٰتِلَ فِى سَبِيلِ ٱللَّهِ وَقَدْ أُخْرِجْنَا مِن دِيَٰرِنَا وَأَبْنَآئِنَا ۖ فَلَمَّا كُتِبَ عَلَيْهِمُ ٱلْقِتَالُ تَوَلَّوْا۟ إِلَّا قَلِيلًۭا مِّنْهُمْ ۗ وَٱللَّهُ عَلِيمٌۢ بِٱلظَّٰلِمِينَ
+
+**English**: Have you not considered the notables of the Children of Israel after Moses? When they said to a prophet of theirs, "Appoint a king for us, and we will fight in the cause of God." He said, "Is it possible that, if fighting was ordained for you, you would not fight?" They said, "Why would we not fight in the cause of God, when we were driven out of our homes, along with our children?" But when fighting was ordained for them, they turned away, except for a few of them. But God is aware of the wrongdoers.
+
+### Verse 2:247
+**Arabic**: وَقَالَ لَهُمْ نَبِيُّهُمْ إِنَّ ٱللَّهَ قَدْ بَعَثَ لَكُمْ طَالُوتَ مَلِكًۭا ۚ قَالُوٓا۟ أَنَّىٰ يَكُونُ لَهُ ٱلْمُلْكُ عَلَيْنَا وَنَحْنُ أَحَقُّ بِٱلْمُلْكِ مِنْهُ وَلَمْ يُؤْتَ سَعَةًۭ مِّنَ ٱلْمَالِ ۚ قَالَ إِنَّ ٱللَّهَ ٱصْطَفَىٰهُ عَلَيْكُمْ وَزَادَهُۥ بَسْطَةًۭ فِى ٱلْعِلْمِ وَٱلْجِسْمِ ۖ وَٱللَّهُ يُؤْتِى مُلْكَهُۥ مَن يَشَآءُ ۚ وَٱللَّهُ وَٰسِعٌ عَلِيمٌۭ
+
+**English**: Their prophet said to them, "God has appointed Saul to be your king." They said, "How can he have authority over us, when we are more worthy of authority than he, and he was not given plenty of wealth?" He said, "God has chosen him over you, and has increased him in knowledge and stature." God bestows His sovereignty upon whomever He wills. God is Embracing and Knowing.
+
+### Verse 2:248
+**Arabic**: وَقَالَ لَهُمْ نَبِيُّهُمْ إِنَّ ءَايَةَ مُلْكِهِۦٓ أَن يَأْتِيَكُمُ ٱلتَّابُوتُ فِيهِ سَكِينَةٌۭ مِّن رَّبِّكُمْ وَبَقِيَّةٌۭ مِّمَّا تَرَكَ ءَالُ مُوسَىٰ وَءَالُ هَٰرُونَ تَحْمِلُهُ ٱلْمَلَٰٓئِكَةُ ۚ إِنَّ فِى ذَٰلِكَ لَءَايَةًۭ لَّكُمْ إِن كُنتُم مُّؤْمِنِينَ
+
+**English**: And their prophet said to them, "The proof of his kingship is that the Ark will be restored to you, bringing tranquility from your Lord, and relics left by the family of Moses and the family of Aaron. It will be carried by the angels. In that is a sign for you, if you are believers."
+
+### Verse 2:249
+**Arabic**: فَلَمَّا فَصَلَ طَالُوتُ بِٱلْجُنُودِ قَالَ إِنَّ ٱللَّهَ مُبْتَلِيكُم بِنَهَرٍۢ فَمَن شَرِبَ مِنْهُ فَلَيْسَ مِنِّى وَمَن لَّمْ يَطْعَمْهُ فَإِنَّهُۥ مِنِّىٓ إِلَّا مَنِ ٱغْتَرَفَ غُرْفَةًۢ بِيَدِهِۦ ۚ فَشَرِبُوا۟ مِنْهُ إِلَّا قَلِيلًۭا مِّنْهُمْ ۚ فَلَمَّا جَاوَزَهُۥ هُوَ وَٱلَّذِينَ ءَامَنُوا۟ مَعَهُۥ قَالُوا۟ لَا طَاقَةَ لَنَا ٱلْيَوْمَ بِجَالُوتَ وَجُنُودِهِۦ ۚ قَالَ ٱلَّذِينَ يَظُنُّونَ أَنَّهُم مُّلَٰقُوا۟ ٱللَّهِ كَم مِّن فِئَةٍۢ قَلِيلَةٍ غَلَبَتْ فِئَةًۭ كَثِيرَةًۢ بِإِذْنِ ٱللَّهِ ۗ وَٱللَّهُ مَعَ ٱلصَّٰبِرِينَ
+
+**English**: When Saul set out with the troops, he said, "God will be testing you with a river. Whoever drinks from it does not belong with me. But whoever does not drink from it, does belong with me, except for whoever scoops up a little with his hand." But they drank from it, except for a few of them. Then, when he crossed it, he and those who believed with him, they said, "We have no strength to face Goliath and his troops today." But those who knew that they would meet God said, "How many a small group has defeated a large group by God's will. God is with the steadfast."
+
+### Verse 2:250
+**Arabic**: وَلَمَّا بَرَزُوا۟ لِجَالُوتَ وَجُنُودِهِۦ قَالُوا۟ رَبَّنَآ أَفْرِغْ عَلَيْنَا صَبْرًۭا وَثَبِّتْ أَقْدَامَنَا وَٱنصُرْنَا عَلَى ٱلْقَوْمِ ٱلْكَٰفِرِينَ
+
+**English**: And when they confronted Goliath and his troops, they said, "Our Lord, pour down patience on us, and strengthen our foothold, and support us against the faithless people."
+
+### Verse 2:251
+**Arabic**: فَهَزَمُوهُم بِإِذْنِ ٱللَّهِ وَقَتَلَ دَاوُۥدُ جَالُوتَ وَءَاتَىٰهُ ٱللَّهُ ٱلْمُلْكَ وَٱلْحِكْمَةَ وَعَلَّمَهُۥ مِمَّا يَشَآءُ ۗ وَلَوْلَا دَفْعُ ٱللَّهِ ٱلنَّاسَ بَعْضَهُم بِبَعْضٍۢ لَّفَسَدَتِ ٱلْأَرْضُ وَلَٰكِنَّ ٱللَّهَ ذُو فَضْلٍ عَلَى ٱلْعَٰلَمِينَ
+
+**English**: And they defeated them by God's leave, and David killed Goliath, and God gave him sovereignty and wisdom, and taught him as He willed. Were it not for God restraining the people, some by means of others, the earth would have gone to ruin. But God is gracious towards mankind.
+
+### Verse 2:252
+**Arabic**: تِلْكَ ءَايَٰتُ ٱللَّهِ نَتْلُوهَا عَلَيْكَ بِٱلْحَقِّ ۚ وَإِنَّكَ لَمِنَ ٱلْمُرْسَلِينَ
+
+**English**: These are God's revelations, which We recite to you in truth. You are one of the messengers.
+
+### Verse 2:253
+**Arabic**: ۞ تِلْكَ ٱلرُّسُلُ فَضَّلْنَا بَعْضَهُمْ عَلَىٰ بَعْضٍۢ ۘ مِّنْهُم مَّن كَلَّمَ ٱللَّهُ ۖ وَرَفَعَ بَعْضَهُمْ دَرَجَٰتٍۢ ۚ وَءَاتَيْنَا عِيسَى ٱبْنَ مَرْيَمَ ٱلْبَيِّنَٰتِ وَأَيَّدْنَٰهُ بِرُوحِ ٱلْقُدُسِ ۗ وَلَوْ شَآءَ ٱللَّهُ مَا ٱقْتَتَلَ ٱلَّذِينَ مِنۢ بَعْدِهِم مِّنۢ بَعْدِ مَا جَآءَتْهُمُ ٱلْبَيِّنَٰتُ وَلَٰكِنِ ٱخْتَلَفُوا۟ فَمِنْهُم مَّنْ ءَامَنَ وَمِنْهُم مَّن كَفَرَ ۚ وَلَوْ شَآءَ ٱللَّهُ مَا ٱقْتَتَلُوا۟ وَلَٰكِنَّ ٱللَّهَ يَفْعَلُ مَا يُرِيدُ
+
+**English**: These messengers: We gave some advantage over others. To some of them God spoke directly, and some He raised in rank. We gave Jesus son of Mary the clear miracles, and We strengthened him with the Holy Spirit. Had God willed, those who succeeded them would not have fought one another, after the clear signs had come to them; but they disputed; some of them believed, and some of them disbelieved. Had God willed, they would not have fought one another; but God does whatever He desires.
+
+### Verse 2:254
+**Arabic**: يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوٓا۟ أَنفِقُوا۟ مِمَّا رَزَقْنَٰكُم مِّن قَبْلِ أَن يَأْتِىَ يَوْمٌۭ لَّا بَيْعٌۭ فِيهِ وَلَا خُلَّةٌۭ وَلَا شَفَٰعَةٌۭ ۗ وَٱلْكَٰفِرُونَ هُمُ ٱلظَّٰلِمُونَ
+
+**English**: O you who believe! Spend from what We have given you, before a Day comes in which there is neither trading, nor friendship, nor intercession. The disbelievers are the wrongdoers.
+
+### Verse 2:255
+**Arabic**: ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُ ۚ لَا تَأْخُذُهُۥ سِنَةٌۭ وَلَا نَوْمٌۭ ۚ لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِ ۗ مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَىْءٍۢ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَ ۚ وَسِعَ كُرْسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَ ۖ وَلَا يَـُٔودُهُۥ حِفْظُهُمَا ۚ وَهُوَ ٱلْعَلِىُّ ٱلْعَظِيمُ
+
+**English**: God! There is no god except He, the Living, the Everlasting. Neither slumber overtakes Him, nor sleep. To Him belongs everything in the heavens and everything on earth. Who is he that can intercede with Him except with His permission? He knows what is before them, and what is behind them; and they cannot grasp any of His knowledge, except as He wills. His Throne extends over the heavens and the earth, and their preservation does not burden Him. He is the Most High, the Great.
+
+### Verse 2:256
+**Arabic**: لَآ إِكْرَاهَ فِى ٱلدِّينِ ۖ قَد تَّبَيَّنَ ٱلرُّشْدُ مِنَ ٱلْغَىِّ ۚ فَمَن يَكْفُرْ بِٱلطَّٰغُوتِ وَيُؤْمِنۢ بِٱللَّهِ فَقَدِ ٱسْتَمْسَكَ بِٱلْعُرْوَةِ ٱلْوُثْقَىٰ لَا ٱنفِصَامَ لَهَا ۗ وَٱللَّهُ سَمِيعٌ عَلِيمٌ
+
+**English**: There shall be no compulsion in religion; the right way has become distinct from the wrong way. Whoever renounces evil and believes in God has grasped the most trustworthy handle; which does not break. God is Hearing and Knowing.
+
+### Verse 2:257
+**Arabic**: ٱللَّهُ وَلِىُّ ٱلَّذِينَ ءَامَنُوا۟ يُخْرِجُهُم مِّنَ ٱلظُّلُمَٰتِ إِلَى ٱلنُّورِ ۖ وَٱلَّذِينَ كَفَرُوٓا۟ أَوْلِيَآؤُهُمُ ٱلطَّٰغُوتُ يُخْرِجُونَهُم مِّنَ ٱلنُّورِ إِلَى ٱلظُّلُمَٰتِ ۗ أُو۟لَٰٓئِكَ أَصْحَٰبُ ٱلنَّارِ ۖ هُمْ فِيهَا خَٰلِدُونَ
+
+**English**: God is the Lord of those who believe; He brings them out of darkness and into light. As for those who disbelieve, their lords are the evil ones; they bring them out of light and into darkness-these are the inmates of the Fire, in which they will abide forever.
+
+### Verse 2:258
+**Arabic**: أَلَمْ تَرَ إِلَى ٱلَّذِى حَآجَّ إِبْرَٰهِۦمَ فِى رَبِّهِۦٓ أَنْ ءَاتَىٰهُ ٱللَّهُ ٱلْمُلْكَ إِذْ قَالَ إِبْرَٰهِۦمُ رَبِّىَ ٱلَّذِى يُحْىِۦ وَيُمِيتُ قَالَ أَنَا۠ أُحْىِۦ وَأُمِيتُ ۖ قَالَ إِبْرَٰهِۦمُ فَإِنَّ ٱللَّهَ يَأْتِى بِٱلشَّمْسِ مِنَ ٱلْمَشْرِقِ فَأْتِ بِهَا مِنَ ٱلْمَغْرِبِ فَبُهِتَ ٱلَّذِى كَفَرَ ۗ وَٱللَّهُ لَا يَهْدِى ٱلْقَوْمَ ٱلظَّٰلِمِينَ
+
+**English**: Have you not considered him who argued with Abraham about his Lord, because God had given him sovereignty? Abraham said, "My Lord is He who gives life and causes death." He said, "I give life and cause death." Abraham said, "God brings the sun from the East, so bring it from the West," so the blasphemer was confounded. God does not guide the wrongdoing people.
+
+### Verse 2:259
+**Arabic**: أَوْ كَٱلَّذِى مَرَّ عَلَىٰ قَرْيَةٍۢ وَهِىَ خَاوِيَةٌ عَلَىٰ عُرُوشِهَا قَالَ أَنَّىٰ يُحْىِۦ هَٰذِهِ ٱللَّهُ بَعْدَ مَوْتِهَا ۖ فَأَمَاتَهُ ٱللَّهُ مِا۟ئَةَ عَامٍۢ ثُمَّ بَعَثَهُۥ ۖ قَالَ كَمْ لَبِثْتَ ۖ قَالَ لَبِثْتُ يَوْمًا أَوْ بَعْضَ يَوْمٍۢ ۖ قَالَ بَل لَّبِثْتَ مِا۟ئَةَ عَامٍۢ فَٱنظُرْ إِلَىٰ طَعَامِكَ وَشَرَابِكَ لَمْ يَتَسَنَّهْ ۖ وَٱنظُرْ إِلَىٰ حِمَارِكَ وَلِنَجْعَلَكَ ءَايَةًۭ لِّلنَّاسِ ۖ وَٱنظُرْ إِلَى ٱلْعِظَامِ كَيْفَ نُنشِزُهَا ثُمَّ نَكْسُوهَا لَحْمًۭا ۚ فَلَمَّا تَبَيَّنَ لَهُۥ قَالَ أَعْلَمُ أَنَّ ٱللَّهَ عَلَىٰ كُلِّ شَىْءٍۢ قَدِيرٌۭ
+
+**English**: Or like him who passed by a town collapsed on its foundations. He said, "How can God revive this after its demise?" Thereupon God caused him to die for a hundred years, and then resurrected him. He said, "For how long have you tarried?" He said, "I have tarried for a day, or part of a day." He said, "No. You have tarried for a hundred years. Now look at your food and your drink-it has not spoiled-and look at your donkey. We will make you a wonder for mankind. And look at the bones, how We arrange them, and then clothe them with flesh." So when it became clear to him, he said, "I know that God has power over all things."
+
+### Verse 2:260
+**Arabic**: وَإِذْ قَالَ إِبْرَٰهِۦمُ رَبِّ أَرِنِى كَيْفَ تُحْىِ ٱلْمَوْتَىٰ ۖ قَالَ أَوَلَمْ تُؤْمِن ۖ قَالَ بَلَىٰ وَلَٰكِن لِّيَطْمَئِنَّ قَلْبِى ۖ قَالَ فَخُذْ أَرْبَعَةًۭ مِّنَ ٱلطَّيْرِ فَصُرْهُنَّ إِلَيْكَ ثُمَّ ٱجْعَلْ عَلَىٰ كُلِّ جَبَلٍۢ مِّنْهُنَّ جُزْءًۭا ثُمَّ ٱدْعُهُنَّ يَأْتِينَكَ سَعْيًۭا ۚ وَٱعْلَمْ أَنَّ ٱللَّهَ عَزِيزٌ حَكِيمٌۭ
+
+**English**: And when Abraham said, "My Lord, show me how You give life to the dead." He said, "Have you not believed?" He said, "Yes, but to put my heart at ease." He said, "Take four birds, and incline them to yourself, then place a part on each hill, then call to them; and they will come rushing to you. And know that God is Powerful and Wise."
+
+### Verse 2:261
+**Arabic**: مَّثَلُ ٱلَّذِينَ يُنفِقُونَ أَمْوَٰلَهُمْ فِى سَبِيلِ ٱللَّهِ كَمَثَلِ حَبَّةٍ أَنۢبَتَتْ سَبْعَ سَنَابِلَ فِى كُلِّ سُنۢبُلَةٍۢ مِّا۟ئَةُ حَبَّةٍۢ ۗ وَٱللَّهُ يُضَٰعِفُ لِمَن يَشَآءُ ۗ وَٱللَّهُ وَٰسِعٌ عَلِيمٌ
+
+**English**: The parable of those who spend their wealth in God's way is that of a grain that produces seven spikes; in each spike is a hundred grains. God multiplies for whom He wills. God is Bounteous and Knowing.
+
+### Verse 2:262
+**Arabic**: ٱلَّذِينَ يُنفِقُونَ أَمْوَٰلَهُمْ فِى سَبِيلِ ٱللَّهِ ثُمَّ لَا يُتْبِعُونَ مَآ أَنفَقُوا۟ مَنًّۭا وَلَآ أَذًۭى ۙ لَّهُمْ أَجْرُهُمْ عِندَ رَبِّهِمْ وَلَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ
+
+**English**: Those who spend their wealth in the way of God, and then do not follow up what they spent with reminders of their generosity or with insults, will have their reward with their Lord-they have nothing to fear, nor shall they grieve.
+
+### Verse 2:263
+**Arabic**: ۞ قَوْلٌۭ مَّعْرُوفٌۭ وَمَغْفِرَةٌ خَيْرٌۭ مِّن صَدَقَةٍۢ يَتْبَعُهَآ أَذًۭى ۗ وَٱللَّهُ غَنِىٌّ حَلِيمٌۭ
+
+**English**: Kind words and forgiveness are better than charity followed by insults. God is Rich and Clement.
+
+### Verse 2:264
+**Arabic**: يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ لَا تُبْطِلُوا۟ صَدَقَٰتِكُم بِٱلْمَنِّ وَٱلْأَذَىٰ كَٱلَّذِى يُنفِقُ مَالَهُۥ رِئَآءَ ٱلنَّاسِ وَلَا يُؤْمِنُ بِٱللَّهِ وَٱلْيَوْمِ ٱلْءَاخِرِ ۖ فَمَثَلُهُۥ كَمَثَلِ صَفْوَانٍ عَلَيْهِ تُرَابٌۭ فَأَصَابَهُۥ وَابِلٌۭ فَتَرَكَهُۥ صَلْدًۭا ۖ لَّا يَقْدِرُونَ عَلَىٰ شَىْءٍۢ مِّمَّا كَسَبُوا۟ ۗ وَٱللَّهُ لَا يَهْدِى ٱلْقَوْمَ ٱلْكَٰفِرِينَ
+
+**English**: O you who believe! Do not nullify your charitable deeds with reminders and hurtful words, like him who spends his wealth to be seen by the people, and does not believe in God and the Last Day. His likeness is that of a smooth rock covered with soil: a downpour strikes it, and leaves it bare-they gain nothing from their efforts. God does not guide the disbelieving people.
+
+### Verse 2:265
+**Arabic**: وَمَثَلُ ٱلَّذِينَ يُنفِقُونَ أَمْوَٰلَهُمُ ٱبْتِغَآءَ مَرْضَاتِ ٱللَّهِ وَتَثْبِيتًۭا مِّنْ أَنفُسِهِمْ كَمَثَلِ جَنَّةٍۭ بِرَبْوَةٍ أَصَابَهَا وَابِلٌۭ فَـَٔاتَتْ أُكُلَهَا ضِعْفَيْنِ فَإِن لَّمْ يُصِبْهَا وَابِلٌۭ فَطَلٌّۭ ۗ وَٱللَّهُ بِمَا تَعْمَلُونَ بَصِيرٌ
+
+**English**: And the parable of those who spend their wealth seeking God's approval, and to strengthen their souls, is that of a garden on a hillside. If heavy rain falls on it, its produce is doubled; and if no heavy rain falls, then dew is enough. God is seeing of everything you do.
+
+### Verse 2:266
+**Arabic**: أَيَوَدُّ أَحَدُكُمْ أَن تَكُونَ لَهُۥ جَنَّةٌۭ مِّن نَّخِيلٍۢ وَأَعْنَابٍۢ تَجْرِى مِن تَحْتِهَا ٱلْأَنْهَٰرُ لَهُۥ فِيهَا مِن كُلِّ ٱلثَّمَرَٰتِ وَأَصَابَهُ ٱلْكِبَرُ وَلَهُۥ ذُرِّيَّةٌۭ ضُعَفَآءُ فَأَصَابَهَآ إِعْصَارٌۭ فِيهِ نَارٌۭ فَٱحْتَرَقَتْ ۗ كَذَٰلِكَ يُبَيِّنُ ٱللَّهُ لَكُمُ ٱلْءَايَٰتِ لَعَلَّكُمْ تَتَفَكَّرُونَ
+
+**English**: Would anyone of you like to have a garden of palms and vines, under which rivers flow-with all kinds of fruit in it for him, and old age has stricken him, and he has weak children-then a tornado with fire batters it, and it burns down? Thus God makes clear the signs for you, so that you may reflect.
+
+### Verse 2:267
+**Arabic**: يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوٓا۟ أَنفِقُوا۟ مِن طَيِّبَٰتِ مَا كَسَبْتُمْ وَمِمَّآ أَخْرَجْنَا لَكُم مِّنَ ٱلْأَرْضِ ۖ وَلَا تَيَمَّمُوا۟ ٱلْخَبِيثَ مِنْهُ تُنفِقُونَ وَلَسْتُم بِـَٔاخِذِيهِ إِلَّآ أَن تُغْمِضُوا۟ فِيهِ ۚ وَٱعْلَمُوٓا۟ أَنَّ ٱللَّهَ غَنِىٌّ حَمِيدٌ
+
+**English**: O you who believe! Give of the good things you have earned, and from what We have produced for you from the earth. And do not pick the inferior things to give away, when you yourselves would not accept it except with eyes closed. And know that God is Sufficient and Praiseworthy.
+
+### Verse 2:268
+**Arabic**: ٱلشَّيْطَٰنُ يَعِدُكُمُ ٱلْفَقْرَ وَيَأْمُرُكُم بِٱلْفَحْشَآءِ ۖ وَٱللَّهُ يَعِدُكُم مَّغْفِرَةًۭ مِّنْهُ وَفَضْلًۭا ۗ وَٱللَّهُ وَٰسِعٌ عَلِيمٌۭ
+
+**English**: Satan promises you poverty, and urges you to immorality; but God promises you forgiveness from Himself, and grace. God is Embracing and Knowing.
+
+### Verse 2:269
+**Arabic**: يُؤْتِى ٱلْحِكْمَةَ مَن يَشَآءُ ۚ وَمَن يُؤْتَ ٱلْحِكْمَةَ فَقَدْ أُوتِىَ خَيْرًۭا كَثِيرًۭا ۗ وَمَا يَذَّكَّرُ إِلَّآ أُو۟لُوا۟ ٱلْأَلْبَٰبِ
+
+**English**: He gives wisdom to whomever He wills. Whoever is given wisdom has been given much good. But none pays heed except those with insight.
+
+### Verse 2:270
+**Arabic**: وَمَآ أَنفَقْتُم مِّن نَّفَقَةٍ أَوْ نَذَرْتُم مِّن نَّذْرٍۢ فَإِنَّ ٱللَّهَ يَعْلَمُهُۥ ۗ وَمَا لِلظَّٰلِمِينَ مِنْ أَنصَارٍ
+
+**English**: Whatever charity you give, or a pledge you fulfill, God knows it. The wrongdoers have no helpers.
+
+### Verse 2:271
+**Arabic**: إِن تُبْدُوا۟ ٱلصَّدَقَٰتِ فَنِعِمَّا هِىَ ۖ وَإِن تُخْفُوهَا وَتُؤْتُوهَا ٱلْفُقَرَآءَ فَهُوَ خَيْرٌۭ لَّكُمْ ۚ وَيُكَفِّرُ عَنكُم مِّن سَيِّـَٔاتِكُمْ ۗ وَٱللَّهُ بِمَا تَعْمَلُونَ خَبِيرٌۭ
+
+**English**: If you give charity openly, that is good. But if you keep it secret, and give it to the needy in private, that is better for you. It will atone for some of your misdeeds. God is cognizant of what you do.
+
+### Verse 2:272
+**Arabic**: ۞ لَّيْسَ عَلَيْكَ هُدَىٰهُمْ وَلَٰكِنَّ ٱللَّهَ يَهْدِى مَن يَشَآءُ ۗ وَمَا تُنفِقُوا۟ مِنْ خَيْرٍۢ فَلِأَنفُسِكُمْ ۚ وَمَا تُنفِقُونَ إِلَّا ٱبْتِغَآءَ وَجْهِ ٱللَّهِ ۚ وَمَا تُنفِقُوا۟ مِنْ خَيْرٍۢ يُوَفَّ إِلَيْكُمْ وَأَنتُمْ لَا تُظْلَمُونَ
+
+**English**: Their guidance is not your responsibility, but God guides whom He wills. Any charity you give is for your own good. Any charity you give shall be for the sake of God. Any charity you give will be repaid to you in full, and you will not be wronged.
+
+### Verse 2:273
+**Arabic**: لِلْفُقَرَآءِ ٱلَّذِينَ أُحْصِرُوا۟ فِى سَبِيلِ ٱللَّهِ لَا يَسْتَطِيعُونَ ضَرْبًۭا فِى ٱلْأَرْضِ يَحْسَبُهُمُ ٱلْجَاهِلُ أَغْنِيَآءَ مِنَ ٱلتَّعَفُّفِ تَعْرِفُهُم بِسِيمَٰهُمْ لَا يَسْـَٔلُونَ ٱلنَّاسَ إِلْحَافًۭا ۗ وَمَا تُنفِقُوا۟ مِنْ خَيْرٍۢ فَإِنَّ ٱللَّهَ بِهِۦ عَلِيمٌ
+
+**English**: It is for the poor; those who are restrained in the way of God, and unable to travel in the land. The unaware would think them rich, due to their dignity. You will recognize them by their features. They do not ask from people insistently. Whatever charity you give, God is aware of it.
+
+### Verse 2:274
+**Arabic**: ٱلَّذِينَ يُنفِقُونَ أَمْوَٰلَهُم بِٱلَّيْلِ وَٱلنَّهَارِ سِرًّۭا وَعَلَانِيَةًۭ فَلَهُمْ أَجْرُهُمْ عِندَ رَبِّهِمْ وَلَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ
+
+**English**: Those who spend their wealth by night and day, privately and publicly, will receive their reward from their Lord. They have nothing to fear, nor shall they grieve.
+
+### Verse 2:275
+**Arabic**: ٱلَّذِينَ يَأْكُلُونَ ٱلرِّبَوٰا۟ لَا يَقُومُونَ إِلَّا كَمَا يَقُومُ ٱلَّذِى يَتَخَبَّطُهُ ٱلشَّيْطَٰنُ مِنَ ٱلْمَسِّ ۚ ذَٰلِكَ بِأَنَّهُمْ قَالُوٓا۟ إِنَّمَا ٱلْبَيْعُ مِثْلُ ٱلرِّبَوٰا۟ ۗ وَأَحَلَّ ٱللَّهُ ٱلْبَيْعَ وَحَرَّمَ ٱلرِّبَوٰا۟ ۚ فَمَن جَآءَهُۥ مَوْعِظَةٌۭ مِّن رَّبِّهِۦ فَٱنتَهَىٰ فَلَهُۥ مَا سَلَفَ وَأَمْرُهُۥٓ إِلَى ٱللَّهِ ۖ وَمَنْ عَادَ فَأُو۟لَٰٓئِكَ أَصْحَٰبُ ٱلنَّارِ ۖ هُمْ فِيهَا خَٰلِدُونَ
+
+**English**: Those who swallow usury will not rise, except as someone driven mad by Satan's touch. That is because they say, "Commerce is like usury." But God has permitted commerce, and has forbidden usury. Whoever, on receiving advice from his Lord, refrains, may keep his past earnings, and his case rests with God. But whoever resumes-these are the dwellers of the Fire, wherein they will abide forever.
+
+### Verse 2:276
+**Arabic**: يَمْحَقُ ٱللَّهُ ٱلرِّبَوٰا۟ وَيُرْبِى ٱلصَّدَقَٰتِ ۗ وَٱللَّهُ لَا يُحِبُّ كُلَّ كَفَّارٍ أَثِيمٍ
+
+**English**: God condemns usury, and He blesses charities. God does not love any sinful ingrate.
+
+### Verse 2:277
+**Arabic**: إِنَّ ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ وَأَقَامُوا۟ ٱلصَّلَوٰةَ وَءَاتَوُا۟ ٱلزَّكَوٰةَ لَهُمْ أَجْرُهُمْ عِندَ رَبِّهِمْ وَلَا خَوْفٌ عَلَيْهِمْ وَلَا هُمْ يَحْزَنُونَ
+
+**English**: Those who believe, and do good deeds, and pray regularly, and give charity-they will have their reward with their Lord; they will have no fear, nor shall they grieve.
+
+### Verse 2:278
+**Arabic**: يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ ٱتَّقُوا۟ ٱللَّهَ وَذَرُوا۟ مَا بَقِىَ مِنَ ٱلرِّبَوٰٓا۟ إِن كُنتُم مُّؤْمِنِينَ
+
+**English**: O you who believe! Fear God, and forgo what remains of usury, if you are believers.
+
+### Verse 2:279
+**Arabic**: فَإِن لَّمْ تَفْعَلُوا۟ فَأْذَنُوا۟ بِحَرْبٍۢ مِّنَ ٱللَّهِ وَرَسُولِهِۦ ۖ وَإِن تُبْتُمْ فَلَكُمْ رُءُوسُ أَمْوَٰلِكُمْ لَا تَظْلِمُونَ وَلَا تُظْلَمُونَ
+
+**English**: If you do not, then take notice of a war by God and His Messenger. But if you repent, you may keep your capital, neither wronging, nor being wronged.
+
+### Verse 2:280
+**Arabic**: وَإِن كَانَ ذُو عُسْرَةٍۢ فَنَظِرَةٌ إِلَىٰ مَيْسَرَةٍۢ ۚ وَأَن تَصَدَّقُوا۟ خَيْرٌۭ لَّكُمْ ۖ إِن كُنتُمْ تَعْلَمُونَ
+
+**English**: But if he is in hardship, then deferment until a time of ease. But to remit it as charity is better for you, if you only knew.
+
+### Verse 2:281
+**Arabic**: وَٱتَّقُوا۟ يَوْمًۭا تُرْجَعُونَ فِيهِ إِلَى ٱللَّهِ ۖ ثُمَّ تُوَفَّىٰ كُلُّ نَفْسٍۢ مَّا كَسَبَتْ وَهُمْ لَا يُظْلَمُونَ
+
+**English**: And guard yourselves against a Day when you will be returned to God; then each soul will be rewarded fully for what it has earned, and they will not be wronged.
+
+### Verse 2:282
+**Arabic**: يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوٓا۟ إِذَا تَدَايَنتُم بِدَيْنٍ إِلَىٰٓ أَجَلٍۢ مُّسَمًّۭى فَٱكْتُبُوهُ ۚ وَلْيَكْتُب بَّيْنَكُمْ كَاتِبٌۢ بِٱلْعَدْلِ ۚ وَلَا يَأْبَ كَاتِبٌ أَن يَكْتُبَ كَمَا عَلَّمَهُ ٱللَّهُ ۚ فَلْيَكْتُبْ وَلْيُمْلِلِ ٱلَّذِى عَلَيْهِ ٱلْحَقُّ وَلْيَتَّقِ ٱللَّهَ رَبَّهُۥ وَلَا يَبْخَسْ مِنْهُ شَيْـًۭٔا ۚ فَإِن كَانَ ٱلَّذِى عَلَيْهِ ٱلْحَقُّ سَفِيهًا أَوْ ضَعِيفًا أَوْ لَا يَسْتَطِيعُ أَن يُمِلَّ هُوَ فَلْيُمْلِلْ وَلِيُّهُۥ بِٱلْعَدْلِ ۚ وَٱسْتَشْهِدُوا۟ شَهِيدَيْنِ مِن رِّجَالِكُمْ ۖ فَإِن لَّمْ يَكُونَا رَجُلَيْنِ فَرَجُلٌۭ وَٱمْرَأَتَانِ مِمَّن تَرْضَوْنَ مِنَ ٱلشُّهَدَآءِ أَن تَضِلَّ إِحْدَىٰهُمَا فَتُذَكِّرَ إِحْدَىٰهُمَا ٱلْأُخْرَىٰ ۚ وَلَا يَأْبَ ٱلشُّهَدَآءُ إِذَا مَا دُعُوا۟ ۚ وَلَا تَسْـَٔمُوٓا۟ أَن تَكْتُبُوهُ صَغِيرًا أَوْ كَبِيرًا إِلَىٰٓ أَجَلِهِۦ ۚ ذَٰلِكُمْ أَقْسَطُ عِندَ ٱللَّهِ وَأَقْوَمُ لِلشَّهَٰدَةِ وَأَدْنَىٰٓ أَلَّا تَرْتَابُوٓا۟ ۖ إِلَّآ أَن تَكُونَ تِجَٰرَةً حَاضِرَةًۭ تُدِيرُونَهَا بَيْنَكُمْ فَلَيْسَ عَلَيْكُمْ جُنَاحٌ أَلَّا تَكْتُبُوهَا ۗ وَأَشْهِدُوٓا۟ إِذَا تَبَايَعْتُمْ ۚ وَلَا يُضَآرَّ كَاتِبٌۭ وَلَا شَهِيدٌۭ ۚ وَإِن تَفْعَلُوا۟ فَإِنَّهُۥ فُسُوقٌۢ بِكُمْ ۗ وَٱتَّقُوا۟ ٱللَّهَ ۖ وَيُعَلِّمُكُمُ ٱللَّهُ ۗ وَٱللَّهُ بِكُلِّ شَىْءٍ عَلِيمٌۭ
+
+**English**: O you who believe! When you incur debt among yourselves for a certain period of time, write it down. And have a scribe write in your presence, in all fairness. And let no scribe refuse to write, as God has taught him. So let him write, and let the debtor dictate. And let him fear God, his Lord, and diminish nothing from it. But if the debtor is mentally deficient, or weak, or unable to dictate, then let his guardian dictate with honesty. And call to witness two men from among you. If two men are not available, then one man and two women whose testimony is acceptable to all-if one of them fails to remember, the other would remind her. Witnesses must not refuse when called upon. And do not think it too trivial to write down, whether small or large, including the time of repayment. That is more equitable with God, and stronger as evidence, and more likely to prevent doubt-except in the case of a spot transaction between you-then there is no blame on you if you do not write it down. And let there be witnesses whenever you conclude a contract, and let no harm be done to either scribe or witness. If you do that, it is corruption on your part. And fear God. God teaches you. God is aware of everything.
+
+### Verse 2:283
+**Arabic**: ۞ وَإِن كُنتُمْ عَلَىٰ سَفَرٍۢ وَلَمْ تَجِدُوا۟ كَاتِبًۭا فَرِهَٰنٌۭ مَّقْبُوضَةٌۭ ۖ فَإِنْ أَمِنَ بَعْضُكُم بَعْضًۭا فَلْيُؤَدِّ ٱلَّذِى ٱؤْتُمِنَ أَمَٰنَتَهُۥ وَلْيَتَّقِ ٱللَّهَ رَبَّهُۥ ۗ وَلَا تَكْتُمُوا۟ ٱلشَّهَٰدَةَ ۚ وَمَن يَكْتُمْهَا فَإِنَّهُۥٓ ءَاثِمٌۭ قَلْبُهُۥ ۗ وَٱللَّهُ بِمَا تَعْمَلُونَ عَلِيمٌۭ
+
+**English**: If you are on a journey, and cannot find a scribe, then a security deposit should be handed over. But if you trust one another, let the trustee fulfill his trust, and let him fear God, his Lord. And do not conceal testimony. Whoever conceals it is sinner at heart. God is aware of what you do.
+
+### Verse 2:284
+**Arabic**: لِّلَّهِ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِ ۗ وَإِن تُبْدُوا۟ مَا فِىٓ أَنفُسِكُمْ أَوْ تُخْفُوهُ يُحَاسِبْكُم بِهِ ٱللَّهُ ۖ فَيَغْفِرُ لِمَن يَشَآءُ وَيُعَذِّبُ مَن يَشَآءُ ۗ وَٱللَّهُ عَلَىٰ كُلِّ شَىْءٍۢ قَدِيرٌ
+
+**English**: To God belongs everything in the heavens and the earth. Whether you reveal what is within your selves, or conceal it, God will call you to account for it. He forgives whom He wills, and He punishes whom He wills. God is Able to do all things.
+
+### Verse 2:285
+**Arabic**: ءَامَنَ ٱلرَّسُولُ بِمَآ أُنزِلَ إِلَيْهِ مِن رَّبِّهِۦ وَٱلْمُؤْمِنُونَ ۚ كُلٌّ ءَامَنَ بِٱللَّهِ وَمَلَٰٓئِكَتِهِۦ وَكُتُبِهِۦ وَرُسُلِهِۦ لَا نُفَرِّقُ بَيْنَ أَحَدٍۢ مِّن رُّسُلِهِۦ ۚ وَقَالُوا۟ سَمِعْنَا وَأَطَعْنَا ۖ غُفْرَانَكَ رَبَّنَا وَإِلَيْكَ ٱلْمَصِيرُ
+
+**English**: The Messenger has believed in what was revealed to him from his Lord, as did the believers. They all have believed in God, and His angels, and His scriptures, and His messengers: "We make no distinction between any of His messengers." And they say, "We hear and we obey. Your forgiveness, our Lord. To you is the destiny."
+
+### Verse 2:286
+**Arabic**: لَا يُكَلِّفُ ٱللَّهُ نَفْسًا إِلَّا وُسْعَهَا ۚ لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا ٱكْتَسَبَتْ ۗ رَبَّنَا لَا تُؤَاخِذْنَآ إِن نَّسِينَآ أَوْ أَخْطَأْنَا ۚ رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَآ إِصْرًۭا كَمَا حَمَلْتَهُۥ عَلَى ٱلَّذِينَ مِن قَبْلِنَا ۚ رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِۦ ۖ وَٱعْفُ عَنَّا وَٱغْفِرْ لَنَا وَٱرْحَمْنَآ ۚ أَنتَ مَوْلَىٰنَا فَٱنصُرْنَا عَلَى ٱلْقَوْمِ ٱلْكَٰفِرِينَ
+
+**English**: God does not burden any soul beyond its capacity. To its credit is what it earns, and against it is what it commits. "Our Lord, do not condemn us if we forget or make a mistake. Our Lord, do not burden us as You have burdened those before us. Our Lord, do not burden us with more than we have strength to bear; and pardon us, and forgive us, and have mercy on us. You are our Lord and Master, so help us against the disbelieving people."
+
+## Thematic cross-references
+
+- **Legislation**: [An-Nisaa'](surah_004_an-nisaa.md), [Al-Ma'ida](surah_005_al-ma-ida.md), [Al-Anfal](surah_008_al-anfal.md), [An-Nur](surah_024_an-nur.md), [Al-Ahzab](surah_033_al-ahzab.md), [Al-Hujurat](surah_049_al-hujurat.md), [Al-Mujadilah](surah_058_al-mujadilah.md), [Al-Mumtahinah](surah_060_al-mumtahinah.md) and 2 more

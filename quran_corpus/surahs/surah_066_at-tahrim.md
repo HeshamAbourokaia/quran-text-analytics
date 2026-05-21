@@ -1,0 +1,78 @@
+# Surah 66: At-Tahrim (التحريم)
+
+- **Mushaf number**: 66
+- **Place of revelation**: Medina (Madaniyah)
+- **Verse count**: 12
+- **Themes**: [Legislation](../themes/legislation.md)
+- **Named entities mentioned**: [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md), [Pharaoh (Firaun)](../entities/figure_firaun.md), [Gabriel (Jibril)](../entities/figure_jibril.md), [Lot (Lut)](../entities/prophet_lut.md), [Mary (Maryam, mother of Jesus)](../entities/figure_maryam.md), [Noah (Nuh)](../entities/prophet_nuh.md), [Rabb (the Lord)](../entities/divine_rabb.md)
+
+## Verses
+
+### Verse 66:0
+**Arabic**: بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+
+**English**: In the name of God, the Gracious, the Merciful.
+
+### Verse 66:1
+**Arabic**: يَٰٓأَيُّهَا ٱلنَّبِىُّ لِمَ تُحَرِّمُ مَآ أَحَلَّ ٱللَّهُ لَكَ ۖ تَبْتَغِى مَرْضَاتَ أَزْوَٰجِكَ ۚ وَٱللَّهُ غَفُورٌۭ رَّحِيمٌۭ
+
+**English**: O prophet! Why do you prohibit what God has permitted for you, seeking to please your wives? God is Forgiving and Merciful.
+
+### Verse 66:2
+**Arabic**: قَدْ فَرَضَ ٱللَّهُ لَكُمْ تَحِلَّةَ أَيْمَٰنِكُمْ ۚ وَٱللَّهُ مَوْلَىٰكُمْ ۖ وَهُوَ ٱلْعَلِيمُ ٱلْحَكِيمُ
+
+**English**: God has decreed for you the dissolution of your oaths. God is your Master. He is the All-Knowing, the Most Wise.
+
+### Verse 66:3
+**Arabic**: وَإِذْ أَسَرَّ ٱلنَّبِىُّ إِلَىٰ بَعْضِ أَزْوَٰجِهِۦ حَدِيثًۭا فَلَمَّا نَبَّأَتْ بِهِۦ وَأَظْهَرَهُ ٱللَّهُ عَلَيْهِ عَرَّفَ بَعْضَهُۥ وَأَعْرَضَ عَنۢ بَعْضٍۢ ۖ فَلَمَّا نَبَّأَهَا بِهِۦ قَالَتْ مَنْ أَنۢبَأَكَ هَٰذَا ۖ قَالَ نَبَّأَنِىَ ٱلْعَلِيمُ ٱلْخَبِيرُ
+
+**English**: The Prophet told something in confidence to one of his wives. But when she disclosed it, and God made it known to him; he communicated part of it, and he avoided another part. Then, when he informed her of it, she said, "Who informed you of this?" He said, "The All-Knowing, the All-Informed, informed me."
+
+### Verse 66:4
+**Arabic**: إِن تَتُوبَآ إِلَى ٱللَّهِ فَقَدْ صَغَتْ قُلُوبُكُمَا ۖ وَإِن تَظَٰهَرَا عَلَيْهِ فَإِنَّ ٱللَّهَ هُوَ مَوْلَىٰهُ وَجِبْرِيلُ وَصَٰلِحُ ٱلْمُؤْمِنِينَ ۖ وَٱلْمَلَٰٓئِكَةُ بَعْدَ ذَٰلِكَ ظَهِيرٌ
+
+**English**: If you repent to God, then your hearts have listened. But if you band together against him, then God is his Ally, as is Gabriel, and the righteous believers. In addition, the angels will assist him.
+
+### Verse 66:5
+**Arabic**: عَسَىٰ رَبُّهُۥٓ إِن طَلَّقَكُنَّ أَن يُبْدِلَهُۥٓ أَزْوَٰجًا خَيْرًۭا مِّنكُنَّ مُسْلِمَٰتٍۢ مُّؤْمِنَٰتٍۢ قَٰنِتَٰتٍۢ تَٰٓئِبَٰتٍ عَٰبِدَٰتٍۢ سَٰٓئِحَٰتٍۢ ثَيِّبَٰتٍۢ وَأَبْكَارًۭا
+
+**English**: Perhaps, if he divorces you, his Lord will give him in exchange wives better than you: submissive, believing, obedient, penitent, devout, fasting-previously married, or virgins.
+
+### Verse 66:6
+**Arabic**: يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ قُوٓا۟ أَنفُسَكُمْ وَأَهْلِيكُمْ نَارًۭا وَقُودُهَا ٱلنَّاسُ وَٱلْحِجَارَةُ عَلَيْهَا مَلَٰٓئِكَةٌ غِلَاظٌۭ شِدَادٌۭ لَّا يَعْصُونَ ٱللَّهَ مَآ أَمَرَهُمْ وَيَفْعَلُونَ مَا يُؤْمَرُونَ
+
+**English**: O you who believe! Protect yourselves and your families from a Fire, whose fuel is people and stones. Over it are angels, fierce and powerful. They never disobey God in anything He commands them, and they carry out whatever they are commanded.
+
+### Verse 66:7
+**Arabic**: يَٰٓأَيُّهَا ٱلَّذِينَ كَفَرُوا۟ لَا تَعْتَذِرُوا۟ ٱلْيَوْمَ ۖ إِنَّمَا تُجْزَوْنَ مَا كُنتُمْ تَعْمَلُونَ
+
+**English**: O you who disbelieved! Make no excuses today. You are being repaid for what you used to do.
+
+### Verse 66:8
+**Arabic**: يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ تُوبُوٓا۟ إِلَى ٱللَّهِ تَوْبَةًۭ نَّصُوحًا عَسَىٰ رَبُّكُمْ أَن يُكَفِّرَ عَنكُمْ سَيِّـَٔاتِكُمْ وَيُدْخِلَكُمْ جَنَّٰتٍۢ تَجْرِى مِن تَحْتِهَا ٱلْأَنْهَٰرُ يَوْمَ لَا يُخْزِى ٱللَّهُ ٱلنَّبِىَّ وَٱلَّذِينَ ءَامَنُوا۟ مَعَهُۥ ۖ نُورُهُمْ يَسْعَىٰ بَيْنَ أَيْدِيهِمْ وَبِأَيْمَٰنِهِمْ يَقُولُونَ رَبَّنَآ أَتْمِمْ لَنَا نُورَنَا وَٱغْفِرْ لَنَآ ۖ إِنَّكَ عَلَىٰ كُلِّ شَىْءٍۢ قَدِيرٌۭ
+
+**English**: O you who believe! Repent to God with sincere repentance. Perhaps your Lord will remit your sins, and admit you into gardens beneath which rivers flow, on the Day when God will not disappoint the Prophet and those who believed with him. Their light streaming before them, and to their right, they will say, "Our Lord, complete our light for us, and forgive us; You are capable of all things."
+
+### Verse 66:9
+**Arabic**: يَٰٓأَيُّهَا ٱلنَّبِىُّ جَٰهِدِ ٱلْكُفَّارَ وَٱلْمُنَٰفِقِينَ وَٱغْلُظْ عَلَيْهِمْ ۚ وَمَأْوَىٰهُمْ جَهَنَّمُ ۖ وَبِئْسَ ٱلْمَصِيرُ
+
+**English**: O prophet! Strive hard against the disbelievers and the hypocrites, and be stern with them. Their abode is Hell. What a miserable destination!
+
+### Verse 66:10
+**Arabic**: ضَرَبَ ٱللَّهُ مَثَلًۭا لِّلَّذِينَ كَفَرُوا۟ ٱمْرَأَتَ نُوحٍۢ وَٱمْرَأَتَ لُوطٍۢ ۖ كَانَتَا تَحْتَ عَبْدَيْنِ مِنْ عِبَادِنَا صَٰلِحَيْنِ فَخَانَتَاهُمَا فَلَمْ يُغْنِيَا عَنْهُمَا مِنَ ٱللَّهِ شَيْـًۭٔا وَقِيلَ ٱدْخُلَا ٱلنَّارَ مَعَ ٱلدَّٰخِلِينَ
+
+**English**: God illustrates an example of those who disbelieve: the wife of Noah and the wife of Lot. They were under two of Our righteous servants, but they betrayed them. They availed them nothing against God, and it was said, "Enter the Fire with those who are entering."
+
+### Verse 66:11
+**Arabic**: وَضَرَبَ ٱللَّهُ مَثَلًۭا لِّلَّذِينَ ءَامَنُوا۟ ٱمْرَأَتَ فِرْعَوْنَ إِذْ قَالَتْ رَبِّ ٱبْنِ لِى عِندَكَ بَيْتًۭا فِى ٱلْجَنَّةِ وَنَجِّنِى مِن فِرْعَوْنَ وَعَمَلِهِۦ وَنَجِّنِى مِنَ ٱلْقَوْمِ ٱلظَّٰلِمِينَ
+
+**English**: And God illustrates an example of those who believe: the wife of Pharaoh, when she said, "My Lord, build for me, with you, a house in Paradise, and save me from Pharaoh and his works, and save me from the wrongdoing people."
+
+### Verse 66:12
+**Arabic**: وَمَرْيَمَ ٱبْنَتَ عِمْرَٰنَ ٱلَّتِىٓ أَحْصَنَتْ فَرْجَهَا فَنَفَخْنَا فِيهِ مِن رُّوحِنَا وَصَدَّقَتْ بِكَلِمَٰتِ رَبِّهَا وَكُتُبِهِۦ وَكَانَتْ مِنَ ٱلْقَٰنِتِينَ
+
+**English**: And Mary, the daughter of Imran, who guarded her womb, and so We breathed into her of Our Spirit; and she believed in the truth of her Lord's Words and His Books, and was one of the devout.
+
+## Thematic cross-references
+
+- **Legislation**: [Al-Baqara](surah_002_al-baqara.md), [An-Nisaa'](surah_004_an-nisaa.md), [Al-Ma'ida](surah_005_al-ma-ida.md), [Al-Anfal](surah_008_al-anfal.md), [An-Nur](surah_024_an-nur.md), [Al-Ahzab](surah_033_al-ahzab.md), [Al-Hujurat](surah_049_al-hujurat.md), [Al-Mujadilah](surah_058_al-mujadilah.md) and 2 more

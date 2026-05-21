@@ -1,0 +1,338 @@
+# Surah 24: An-Nur (النور)
+
+- **Mushaf number**: 24
+- **Place of revelation**: Medina (Madaniyah)
+- **Verse count**: 64
+- **Themes**: [Legislation](../themes/legislation.md)
+- **Named entities mentioned**: [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md), [Iblis (Satan)](../entities/figure_iblis.md), [Rabb (the Lord)](../entities/divine_rabb.md)
+
+## Verses
+
+### Verse 24:0
+**Arabic**: بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+
+**English**: In the name of God, the Gracious, the Merciful.
+
+### Verse 24:1
+**Arabic**: سُورَةٌ أَنزَلْنَٰهَا وَفَرَضْنَٰهَا وَأَنزَلْنَا فِيهَآ ءَايَٰتٍۭ بَيِّنَٰتٍۢ لَّعَلَّكُمْ تَذَكَّرُونَ
+
+**English**: A chapter that We have revealed, and made obligatory, and revealed in it clear Verses, that you may take heed.
+
+### Verse 24:2
+**Arabic**: ٱلزَّانِيَةُ وَٱلزَّانِى فَٱجْلِدُوا۟ كُلَّ وَٰحِدٍۢ مِّنْهُمَا مِا۟ئَةَ جَلْدَةٍۢ ۖ وَلَا تَأْخُذْكُم بِهِمَا رَأْفَةٌۭ فِى دِينِ ٱللَّهِ إِن كُنتُمْ تُؤْمِنُونَ بِٱللَّهِ وَٱلْيَوْمِ ٱلْءَاخِرِ ۖ وَلْيَشْهَدْ عَذَابَهُمَا طَآئِفَةٌۭ مِّنَ ٱلْمُؤْمِنِينَ
+
+**English**: The adulteress and the adulterer-whip each one of them a hundred lashes, and let no pity towards them overcome you regarding God's Law, if you believe in God and the Last Day. And let a group of believers witness their punishment.
+
+### Verse 24:3
+**Arabic**: ٱلزَّانِى لَا يَنكِحُ إِلَّا زَانِيَةً أَوْ مُشْرِكَةًۭ وَٱلزَّانِيَةُ لَا يَنكِحُهَآ إِلَّا زَانٍ أَوْ مُشْرِكٌۭ ۚ وَحُرِّمَ ذَٰلِكَ عَلَى ٱلْمُؤْمِنِينَ
+
+**English**: The adulterer shall marry none but an adulteress or an idolatress; and the adulteress shall marry none but an adulterer or an idolater. That has been prohibited for the believers.
+
+### Verse 24:4
+**Arabic**: وَٱلَّذِينَ يَرْمُونَ ٱلْمُحْصَنَٰتِ ثُمَّ لَمْ يَأْتُوا۟ بِأَرْبَعَةِ شُهَدَآءَ فَٱجْلِدُوهُمْ ثَمَٰنِينَ جَلْدَةًۭ وَلَا تَقْبَلُوا۟ لَهُمْ شَهَٰدَةً أَبَدًۭا ۚ وَأُو۟لَٰٓئِكَ هُمُ ٱلْفَٰسِقُونَ
+
+**English**: Those who accuse chaste women, then cannot bring four witnesses, whip them eighty lashes, and do not ever accept their testimony. For these are the immoral.
+
+### Verse 24:5
+**Arabic**: إِلَّا ٱلَّذِينَ تَابُوا۟ مِنۢ بَعْدِ ذَٰلِكَ وَأَصْلَحُوا۟ فَإِنَّ ٱللَّهَ غَفُورٌۭ رَّحِيمٌۭ
+
+**English**: Except for those who repent afterwards, and reform; for God is Forgiving and Merciful.
+
+### Verse 24:6
+**Arabic**: وَٱلَّذِينَ يَرْمُونَ أَزْوَٰجَهُمْ وَلَمْ يَكُن لَّهُمْ شُهَدَآءُ إِلَّآ أَنفُسُهُمْ فَشَهَٰدَةُ أَحَدِهِمْ أَرْبَعُ شَهَٰدَٰتٍۭ بِٱللَّهِ ۙ إِنَّهُۥ لَمِنَ ٱلصَّٰدِقِينَ
+
+**English**: As for those who accuse their own spouses, but have no witnesses except themselves, the testimony of one of them is equivalent to four testimonies, if he swears by God that he is truthful.
+
+### Verse 24:7
+**Arabic**: وَٱلْخَٰمِسَةُ أَنَّ لَعْنَتَ ٱللَّهِ عَلَيْهِ إِن كَانَ مِنَ ٱلْكَٰذِبِينَ
+
+**English**: And the fifth time, that God's curse be upon him, if he is a liar.
+
+### Verse 24:8
+**Arabic**: وَيَدْرَؤُا۟ عَنْهَا ٱلْعَذَابَ أَن تَشْهَدَ أَرْبَعَ شَهَٰدَٰتٍۭ بِٱللَّهِ ۙ إِنَّهُۥ لَمِنَ ٱلْكَٰذِبِينَ
+
+**English**: But punishment shall be averted from her, if she swears four times by God, that he is a liar.
+
+### Verse 24:9
+**Arabic**: وَٱلْخَٰمِسَةَ أَنَّ غَضَبَ ٱللَّهِ عَلَيْهَآ إِن كَانَ مِنَ ٱلصَّٰدِقِينَ
+
+**English**: And the fifth time, that God's wrath be upon her, if he is truthful.
+
+### Verse 24:10
+**Arabic**: وَلَوْلَا فَضْلُ ٱللَّهِ عَلَيْكُمْ وَرَحْمَتُهُۥ وَأَنَّ ٱللَّهَ تَوَّابٌ حَكِيمٌ
+
+**English**: Were it not for God's grace upon you, and His mercy, and that God is Conciliatory and Wise.
+
+### Verse 24:11
+**Arabic**: إِنَّ ٱلَّذِينَ جَآءُو بِٱلْإِفْكِ عُصْبَةٌۭ مِّنكُمْ ۚ لَا تَحْسَبُوهُ شَرًّۭا لَّكُم ۖ بَلْ هُوَ خَيْرٌۭ لَّكُمْ ۚ لِكُلِّ ٱمْرِئٍۢ مِّنْهُم مَّا ٱكْتَسَبَ مِنَ ٱلْإِثْمِ ۚ وَٱلَّذِى تَوَلَّىٰ كِبْرَهُۥ مِنْهُمْ لَهُۥ عَذَابٌ عَظِيمٌۭ
+
+**English**: Those who perpetrated the slander are a band of you. Do not consider it bad for you, but it is good for you. Each person among them bears his share in the sin. As for him who played the major role-for him is a terrible punishment.
+
+### Verse 24:12
+**Arabic**: لَّوْلَآ إِذْ سَمِعْتُمُوهُ ظَنَّ ٱلْمُؤْمِنُونَ وَٱلْمُؤْمِنَٰتُ بِأَنفُسِهِمْ خَيْرًۭا وَقَالُوا۟ هَٰذَآ إِفْكٌۭ مُّبِينٌۭ
+
+**English**: Why, when you heard about it, the believing men and women did not think well of one another, and say, "This is an obvious lie"?
+
+### Verse 24:13
+**Arabic**: لَّوْلَا جَآءُو عَلَيْهِ بِأَرْبَعَةِ شُهَدَآءَ ۚ فَإِذْ لَمْ يَأْتُوا۟ بِٱلشُّهَدَآءِ فَأُو۟لَٰٓئِكَ عِندَ ٱللَّهِ هُمُ ٱلْكَٰذِبُونَ
+
+**English**: Why did they not bring four witnesses to testify to it? If they fail to bring the witnesses, then in God's sight, they are liars.
+
+### Verse 24:14
+**Arabic**: وَلَوْلَا فَضْلُ ٱللَّهِ عَلَيْكُمْ وَرَحْمَتُهُۥ فِى ٱلدُّنْيَا وَٱلْءَاخِرَةِ لَمَسَّكُمْ فِى مَآ أَفَضْتُمْ فِيهِ عَذَابٌ عَظِيمٌ
+
+**English**: Were it not for God's favor upon you, and His mercy, in this world and the Hereafter, you would have suffered a great punishment for what you have ventured into.
+
+### Verse 24:15
+**Arabic**: إِذْ تَلَقَّوْنَهُۥ بِأَلْسِنَتِكُمْ وَتَقُولُونَ بِأَفْوَاهِكُم مَّا لَيْسَ لَكُم بِهِۦ عِلْمٌۭ وَتَحْسَبُونَهُۥ هَيِّنًۭا وَهُوَ عِندَ ٱللَّهِ عَظِيمٌۭ
+
+**English**: When you rumored it with your tongues, and spoke with your mouths what you had no knowledge of, and you considered it trivial; but according to God, it is serious.
+
+### Verse 24:16
+**Arabic**: وَلَوْلَآ إِذْ سَمِعْتُمُوهُ قُلْتُم مَّا يَكُونُ لَنَآ أَن نَّتَكَلَّمَ بِهَٰذَا سُبْحَٰنَكَ هَٰذَا بُهْتَٰنٌ عَظِيمٌۭ
+
+**English**: When you heard it, you should have said, "It is not for us to repeat this. By Your glory, this is a serious slander."
+
+### Verse 24:17
+**Arabic**: يَعِظُكُمُ ٱللَّهُ أَن تَعُودُوا۟ لِمِثْلِهِۦٓ أَبَدًا إِن كُنتُم مُّؤْمِنِينَ
+
+**English**: God cautions you never to return to the like of it, if you are believers.
+
+### Verse 24:18
+**Arabic**: وَيُبَيِّنُ ٱللَّهُ لَكُمُ ٱلْءَايَٰتِ ۚ وَٱللَّهُ عَلِيمٌ حَكِيمٌ
+
+**English**: God explains the Verses to you. God is Knowing and Wise.
+
+### Verse 24:19
+**Arabic**: إِنَّ ٱلَّذِينَ يُحِبُّونَ أَن تَشِيعَ ٱلْفَٰحِشَةُ فِى ٱلَّذِينَ ءَامَنُوا۟ لَهُمْ عَذَابٌ أَلِيمٌۭ فِى ٱلدُّنْيَا وَٱلْءَاخِرَةِ ۚ وَٱللَّهُ يَعْلَمُ وَأَنتُمْ لَا تَعْلَمُونَ
+
+**English**: Those who love to see immorality spread among the believers-for them is a painful punishment, in this life and in the Hereafter. God knows, and you do not know.
+
+### Verse 24:20
+**Arabic**: وَلَوْلَا فَضْلُ ٱللَّهِ عَلَيْكُمْ وَرَحْمَتُهُۥ وَأَنَّ ٱللَّهَ رَءُوفٌۭ رَّحِيمٌۭ
+
+**English**: Were it not for God's grace upon you, and His mercy, and that God is Clement and Merciful.
+
+### Verse 24:21
+**Arabic**: ۞ يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ لَا تَتَّبِعُوا۟ خُطُوَٰتِ ٱلشَّيْطَٰنِ ۚ وَمَن يَتَّبِعْ خُطُوَٰتِ ٱلشَّيْطَٰنِ فَإِنَّهُۥ يَأْمُرُ بِٱلْفَحْشَآءِ وَٱلْمُنكَرِ ۚ وَلَوْلَا فَضْلُ ٱللَّهِ عَلَيْكُمْ وَرَحْمَتُهُۥ مَا زَكَىٰ مِنكُم مِّنْ أَحَدٍ أَبَدًۭا وَلَٰكِنَّ ٱللَّهَ يُزَكِّى مَن يَشَآءُ ۗ وَٱللَّهُ سَمِيعٌ عَلِيمٌۭ
+
+**English**: O you who believe! Do not follow Satan's footsteps. Whoever follows Satan's footsteps-he advocates obscenity and immorality. Were it not for God's grace towards you, and His mercy, not one of you would have been pure, ever. But God purifies whomever He wills. God is All-Hearing, All-Knowing.
+
+### Verse 24:22
+**Arabic**: وَلَا يَأْتَلِ أُو۟لُوا۟ ٱلْفَضْلِ مِنكُمْ وَٱلسَّعَةِ أَن يُؤْتُوٓا۟ أُو۟لِى ٱلْقُرْبَىٰ وَٱلْمَسَٰكِينَ وَٱلْمُهَٰجِرِينَ فِى سَبِيلِ ٱللَّهِ ۖ وَلْيَعْفُوا۟ وَلْيَصْفَحُوٓا۟ ۗ أَلَا تُحِبُّونَ أَن يَغْفِرَ ٱللَّهُ لَكُمْ ۗ وَٱللَّهُ غَفُورٌۭ رَّحِيمٌ
+
+**English**: Those of you who have affluence and means should not refuse to give to the relatives, and the needy, and the emigrants for the sake of God. And let them pardon, and let them overlook. Do you not love for God to pardon you? God is All-Forgiving, Most Merciful.
+
+### Verse 24:23
+**Arabic**: إِنَّ ٱلَّذِينَ يَرْمُونَ ٱلْمُحْصَنَٰتِ ٱلْغَٰفِلَٰتِ ٱلْمُؤْمِنَٰتِ لُعِنُوا۟ فِى ٱلدُّنْيَا وَٱلْءَاخِرَةِ وَلَهُمْ عَذَابٌ عَظِيمٌۭ
+
+**English**: Those who slander honorable, innocent, believing women are cursed in this life and in the Hereafter. They will have a terrible punishment.
+
+### Verse 24:24
+**Arabic**: يَوْمَ تَشْهَدُ عَلَيْهِمْ أَلْسِنَتُهُمْ وَأَيْدِيهِمْ وَأَرْجُلُهُم بِمَا كَانُوا۟ يَعْمَلُونَ
+
+**English**: On the Day when their tongues, and their hands, and their feet will testify against them regarding what they used to do.
+
+### Verse 24:25
+**Arabic**: يَوْمَئِذٍۢ يُوَفِّيهِمُ ٱللَّهُ دِينَهُمُ ٱلْحَقَّ وَيَعْلَمُونَ أَنَّ ٱللَّهَ هُوَ ٱلْحَقُّ ٱلْمُبِينُ
+
+**English**: On that Day, God will pay them their account in full, and they will know that God is the Evident Reality.
+
+### Verse 24:26
+**Arabic**: ٱلْخَبِيثَٰتُ لِلْخَبِيثِينَ وَٱلْخَبِيثُونَ لِلْخَبِيثَٰتِ ۖ وَٱلطَّيِّبَٰتُ لِلطَّيِّبِينَ وَٱلطَّيِّبُونَ لِلطَّيِّبَٰتِ ۚ أُو۟لَٰٓئِكَ مُبَرَّءُونَ مِمَّا يَقُولُونَ ۖ لَهُم مَّغْفِرَةٌۭ وَرِزْقٌۭ كَرِيمٌۭ
+
+**English**: Bad women are for bad men, and bad men are for bad women, and good women are for good men, and good men are for good women. Those are acquitted of what they say. There is forgiveness for them, and a generous provision.
+
+### Verse 24:27
+**Arabic**: يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ لَا تَدْخُلُوا۟ بُيُوتًا غَيْرَ بُيُوتِكُمْ حَتَّىٰ تَسْتَأْنِسُوا۟ وَتُسَلِّمُوا۟ عَلَىٰٓ أَهْلِهَا ۚ ذَٰلِكُمْ خَيْرٌۭ لَّكُمْ لَعَلَّكُمْ تَذَكَّرُونَ
+
+**English**: O you who believe! Do not enter homes other than your own, until you have asked permission and greeted their occupants. That is better for you, that you may be aware.
+
+### Verse 24:28
+**Arabic**: فَإِن لَّمْ تَجِدُوا۟ فِيهَآ أَحَدًۭا فَلَا تَدْخُلُوهَا حَتَّىٰ يُؤْذَنَ لَكُمْ ۖ وَإِن قِيلَ لَكُمُ ٱرْجِعُوا۟ فَٱرْجِعُوا۟ ۖ هُوَ أَزْكَىٰ لَكُمْ ۚ وَٱللَّهُ بِمَا تَعْمَلُونَ عَلِيمٌۭ
+
+**English**: And if you find no one in them, do not enter them until you are given permission. And if it is said to you, "Turn back," then turn back. That is more proper for you. God is aware of what you do.
+
+### Verse 24:29
+**Arabic**: لَّيْسَ عَلَيْكُمْ جُنَاحٌ أَن تَدْخُلُوا۟ بُيُوتًا غَيْرَ مَسْكُونَةٍۢ فِيهَا مَتَٰعٌۭ لَّكُمْ ۚ وَٱللَّهُ يَعْلَمُ مَا تُبْدُونَ وَمَا تَكْتُمُونَ
+
+**English**: There is no blame on you for entering uninhabited houses, in which are belongings of yours. God knows what you reveal and what you conceal.
+
+### Verse 24:30
+**Arabic**: قُل لِّلْمُؤْمِنِينَ يَغُضُّوا۟ مِنْ أَبْصَٰرِهِمْ وَيَحْفَظُوا۟ فُرُوجَهُمْ ۚ ذَٰلِكَ أَزْكَىٰ لَهُمْ ۗ إِنَّ ٱللَّهَ خَبِيرٌۢ بِمَا يَصْنَعُونَ
+
+**English**: Tell the believing men to restrain their looks, and to guard their privates. That is purer for them. God is cognizant of what they do.
+
+### Verse 24:31
+**Arabic**: وَقُل لِّلْمُؤْمِنَٰتِ يَغْضُضْنَ مِنْ أَبْصَٰرِهِنَّ وَيَحْفَظْنَ فُرُوجَهُنَّ وَلَا يُبْدِينَ زِينَتَهُنَّ إِلَّا مَا ظَهَرَ مِنْهَا ۖ وَلْيَضْرِبْنَ بِخُمُرِهِنَّ عَلَىٰ جُيُوبِهِنَّ ۖ وَلَا يُبْدِينَ زِينَتَهُنَّ إِلَّا لِبُعُولَتِهِنَّ أَوْ ءَابَآئِهِنَّ أَوْ ءَابَآءِ بُعُولَتِهِنَّ أَوْ أَبْنَآئِهِنَّ أَوْ أَبْنَآءِ بُعُولَتِهِنَّ أَوْ إِخْوَٰنِهِنَّ أَوْ بَنِىٓ إِخْوَٰنِهِنَّ أَوْ بَنِىٓ أَخَوَٰتِهِنَّ أَوْ نِسَآئِهِنَّ أَوْ مَا مَلَكَتْ أَيْمَٰنُهُنَّ أَوِ ٱلتَّٰبِعِينَ غَيْرِ أُو۟لِى ٱلْإِرْبَةِ مِنَ ٱلرِّجَالِ أَوِ ٱلطِّفْلِ ٱلَّذِينَ لَمْ يَظْهَرُوا۟ عَلَىٰ عَوْرَٰتِ ٱلنِّسَآءِ ۖ وَلَا يَضْرِبْنَ بِأَرْجُلِهِنَّ لِيُعْلَمَ مَا يُخْفِينَ مِن زِينَتِهِنَّ ۚ وَتُوبُوٓا۟ إِلَى ٱللَّهِ جَمِيعًا أَيُّهَ ٱلْمُؤْمِنُونَ لَعَلَّكُمْ تُفْلِحُونَ
+
+**English**: And tell the believing women to restrain their looks, and to guard their privates, and not display their beauty except what is apparent thereof, and to draw their coverings over their breasts, and not expose their beauty except to their husbands, their fathers, their husbands' fathers, their sons, their husbands' sons, their brothers, their brothers' sons, their sisters' sons, their women, what their right hands possess, their male attendants who have no sexual desires, or children who are not yet aware of the nakedness of women. And they should not strike their feet to draw attention to their hidden beauty. And repent to God, all of you believers, so that you may succeed.
+
+### Verse 24:32
+**Arabic**: وَأَنكِحُوا۟ ٱلْأَيَٰمَىٰ مِنكُمْ وَٱلصَّٰلِحِينَ مِنْ عِبَادِكُمْ وَإِمَآئِكُمْ ۚ إِن يَكُونُوا۟ فُقَرَآءَ يُغْنِهِمُ ٱللَّهُ مِن فَضْلِهِۦ ۗ وَٱللَّهُ وَٰسِعٌ عَلِيمٌۭ
+
+**English**: And wed the singles among you, and those who are fit among your servants and maids. If they are poor, God will enrich them from His bounty. God is All-Encompassing, All-Knowing.
+
+### Verse 24:33
+**Arabic**: وَلْيَسْتَعْفِفِ ٱلَّذِينَ لَا يَجِدُونَ نِكَاحًا حَتَّىٰ يُغْنِيَهُمُ ٱللَّهُ مِن فَضْلِهِۦ ۗ وَٱلَّذِينَ يَبْتَغُونَ ٱلْكِتَٰبَ مِمَّا مَلَكَتْ أَيْمَٰنُكُمْ فَكَاتِبُوهُمْ إِنْ عَلِمْتُمْ فِيهِمْ خَيْرًۭا ۖ وَءَاتُوهُم مِّن مَّالِ ٱللَّهِ ٱلَّذِىٓ ءَاتَىٰكُمْ ۚ وَلَا تُكْرِهُوا۟ فَتَيَٰتِكُمْ عَلَى ٱلْبِغَآءِ إِنْ أَرَدْنَ تَحَصُّنًۭا لِّتَبْتَغُوا۟ عَرَضَ ٱلْحَيَوٰةِ ٱلدُّنْيَا ۚ وَمَن يُكْرِههُّنَّ فَإِنَّ ٱللَّهَ مِنۢ بَعْدِ إِكْرَٰهِهِنَّ غَفُورٌۭ رَّحِيمٌۭ
+
+**English**: And let those who do not find the means to marry abstain, until God enriches them from His bounty. If any of your servants wish to be freed, grant them their wish, if you recognize some good in them. And give them of God's wealth which he has given you. And do not compel your girls to prostitution, seeking the materials of this life, if they desire to remain chaste. Should anyone compel them-after their compulsion, God is Forgiving and Merciful.
+
+### Verse 24:34
+**Arabic**: وَلَقَدْ أَنزَلْنَآ إِلَيْكُمْ ءَايَٰتٍۢ مُّبَيِّنَٰتٍۢ وَمَثَلًۭا مِّنَ ٱلَّذِينَ خَلَوْا۟ مِن قَبْلِكُمْ وَمَوْعِظَةًۭ لِّلْمُتَّقِينَ
+
+**English**: We have sent down to you clarifying revelations, and examples of those who passed on before you, and advice for the righteous.
+
+### Verse 24:35
+**Arabic**: ۞ ٱللَّهُ نُورُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ ۚ مَثَلُ نُورِهِۦ كَمِشْكَوٰةٍۢ فِيهَا مِصْبَاحٌ ۖ ٱلْمِصْبَاحُ فِى زُجَاجَةٍ ۖ ٱلزُّجَاجَةُ كَأَنَّهَا كَوْكَبٌۭ دُرِّىٌّۭ يُوقَدُ مِن شَجَرَةٍۢ مُّبَٰرَكَةٍۢ زَيْتُونَةٍۢ لَّا شَرْقِيَّةٍۢ وَلَا غَرْبِيَّةٍۢ يَكَادُ زَيْتُهَا يُضِىٓءُ وَلَوْ لَمْ تَمْسَسْهُ نَارٌۭ ۚ نُّورٌ عَلَىٰ نُورٍۢ ۗ يَهْدِى ٱللَّهُ لِنُورِهِۦ مَن يَشَآءُ ۚ وَيَضْرِبُ ٱللَّهُ ٱلْأَمْثَٰلَ لِلنَّاسِ ۗ وَٱللَّهُ بِكُلِّ شَىْءٍ عَلِيمٌۭ
+
+**English**: God is the Light of the heavens and the earth. The allegory of His light is that of a pillar on which is a lamp. The lamp is within a glass. The glass is like a brilliant planet, fueled by a blessed tree, an olive tree, neither eastern nor western. Its oil would almost illuminate, even if no fire has touched it. Light upon Light. God guides to His light whomever He wills. God thus cites the parables for the people. God is cognizant of everything.
+
+### Verse 24:36
+**Arabic**: فِى بُيُوتٍ أَذِنَ ٱللَّهُ أَن تُرْفَعَ وَيُذْكَرَ فِيهَا ٱسْمُهُۥ يُسَبِّحُ لَهُۥ فِيهَا بِٱلْغُدُوِّ وَٱلْءَاصَالِ
+
+**English**: In houses which God has permitted to be raised, and His name is celebrated therein. He is glorified therein, morning and evening.
+
+### Verse 24:37
+**Arabic**: رِجَالٌۭ لَّا تُلْهِيهِمْ تِجَٰرَةٌۭ وَلَا بَيْعٌ عَن ذِكْرِ ٱللَّهِ وَإِقَامِ ٱلصَّلَوٰةِ وَإِيتَآءِ ٱلزَّكَوٰةِ ۙ يَخَافُونَ يَوْمًۭا تَتَقَلَّبُ فِيهِ ٱلْقُلُوبُ وَٱلْأَبْصَٰرُ
+
+**English**: By men who neither trading nor commerce distracts them from God's remembrance, and from performing the prayers, and from giving alms. They fear a Day when hearts and sights are overturned.
+
+### Verse 24:38
+**Arabic**: لِيَجْزِيَهُمُ ٱللَّهُ أَحْسَنَ مَا عَمِلُوا۟ وَيَزِيدَهُم مِّن فَضْلِهِۦ ۗ وَٱللَّهُ يَرْزُقُ مَن يَشَآءُ بِغَيْرِ حِسَابٍۢ
+
+**English**: God will reward them according to the best of what they did, and He will increase them from His bounty. God provides for whomever He wills without reckoning.
+
+### Verse 24:39
+**Arabic**: وَٱلَّذِينَ كَفَرُوٓا۟ أَعْمَٰلُهُمْ كَسَرَابٍۭ بِقِيعَةٍۢ يَحْسَبُهُ ٱلظَّمْـَٔانُ مَآءً حَتَّىٰٓ إِذَا جَآءَهُۥ لَمْ يَجِدْهُ شَيْـًۭٔا وَوَجَدَ ٱللَّهَ عِندَهُۥ فَوَفَّىٰهُ حِسَابَهُۥ ۗ وَٱللَّهُ سَرِيعُ ٱلْحِسَابِ
+
+**English**: As for those who disbelieve, their works are like a mirage in a desert. The thirsty assumes it is to be water. Until, when he has reached it, he finds it to be nothing, but there he finds God, Who settles his account in full. God is swift in reckoning.
+
+### Verse 24:40
+**Arabic**: أَوْ كَظُلُمَٰتٍۢ فِى بَحْرٍۢ لُّجِّىٍّۢ يَغْشَىٰهُ مَوْجٌۭ مِّن فَوْقِهِۦ مَوْجٌۭ مِّن فَوْقِهِۦ سَحَابٌۭ ۚ ظُلُمَٰتٌۢ بَعْضُهَا فَوْقَ بَعْضٍ إِذَآ أَخْرَجَ يَدَهُۥ لَمْ يَكَدْ يَرَىٰهَا ۗ وَمَن لَّمْ يَجْعَلِ ٱللَّهُ لَهُۥ نُورًۭا فَمَا لَهُۥ مِن نُّورٍ
+
+**English**: Or like utter darkness in a vast ocean, covered by waves, above which are waves, above which is fog. Darkness upon darkness. If he brings out his hand, he will hardly see it. He to whom God has not granted a light has no light.
+
+### Verse 24:41
+**Arabic**: أَلَمْ تَرَ أَنَّ ٱللَّهَ يُسَبِّحُ لَهُۥ مَن فِى ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ وَٱلطَّيْرُ صَٰٓفَّٰتٍۢ ۖ كُلٌّۭ قَدْ عَلِمَ صَلَاتَهُۥ وَتَسْبِيحَهُۥ ۗ وَٱللَّهُ عَلِيمٌۢ بِمَا يَفْعَلُونَ
+
+**English**: Do you not realize that God is glorified by whatever is in the heavens and the earth, and even by the birds in formation? Each knows its prayer and its manner of praise. God knows well what they do.
+
+### Verse 24:42
+**Arabic**: وَلِلَّهِ مُلْكُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ ۖ وَإِلَى ٱللَّهِ ٱلْمَصِيرُ
+
+**English**: To God belongs the dominion of the heavens and the earth, and to God is the ultimate return.
+
+### Verse 24:43
+**Arabic**: أَلَمْ تَرَ أَنَّ ٱللَّهَ يُزْجِى سَحَابًۭا ثُمَّ يُؤَلِّفُ بَيْنَهُۥ ثُمَّ يَجْعَلُهُۥ رُكَامًۭا فَتَرَى ٱلْوَدْقَ يَخْرُجُ مِنْ خِلَٰلِهِۦ وَيُنَزِّلُ مِنَ ٱلسَّمَآءِ مِن جِبَالٍۢ فِيهَا مِنۢ بَرَدٍۢ فَيُصِيبُ بِهِۦ مَن يَشَآءُ وَيَصْرِفُهُۥ عَن مَّن يَشَآءُ ۖ يَكَادُ سَنَا بَرْقِهِۦ يَذْهَبُ بِٱلْأَبْصَٰرِ
+
+**English**: Have you not seen how God propels the clouds, then brings them together, then piles them into a heap, and you see rain drops emerging from its midst? How He brings down loads of hail from the sky, striking with it whomever He wills, and diverting it from whomever He wills? The flash of its lightening almost snatches the sight away.
+
+### Verse 24:44
+**Arabic**: يُقَلِّبُ ٱللَّهُ ٱلَّيْلَ وَٱلنَّهَارَ ۚ إِنَّ فِى ذَٰلِكَ لَعِبْرَةًۭ لِّأُو۟لِى ٱلْأَبْصَٰرِ
+
+**English**: God alternates the night and the day. In that is a lesson for those who have insight.
+
+### Verse 24:45
+**Arabic**: وَٱللَّهُ خَلَقَ كُلَّ دَآبَّةٍۢ مِّن مَّآءٍۢ ۖ فَمِنْهُم مَّن يَمْشِى عَلَىٰ بَطْنِهِۦ وَمِنْهُم مَّن يَمْشِى عَلَىٰ رِجْلَيْنِ وَمِنْهُم مَّن يَمْشِى عَلَىٰٓ أَرْبَعٍۢ ۚ يَخْلُقُ ٱللَّهُ مَا يَشَآءُ ۚ إِنَّ ٱللَّهَ عَلَىٰ كُلِّ شَىْءٍۢ قَدِيرٌۭ
+
+**English**: God created every living creature from water. Some of them crawl on their bellies, and some walk on two feet, and others walk on four. God creates whatever He wills. God is Capable of everything.
+
+### Verse 24:46
+**Arabic**: لَّقَدْ أَنزَلْنَآ ءَايَٰتٍۢ مُّبَيِّنَٰتٍۢ ۚ وَٱللَّهُ يَهْدِى مَن يَشَآءُ إِلَىٰ صِرَٰطٍۢ مُّسْتَقِيمٍۢ
+
+**English**: We sent down enlightening revelations, and God guides whomever He wills to a straight path.
+
+### Verse 24:47
+**Arabic**: وَيَقُولُونَ ءَامَنَّا بِٱللَّهِ وَبِٱلرَّسُولِ وَأَطَعْنَا ثُمَّ يَتَوَلَّىٰ فَرِيقٌۭ مِّنْهُم مِّنۢ بَعْدِ ذَٰلِكَ ۚ وَمَآ أُو۟لَٰٓئِكَ بِٱلْمُؤْمِنِينَ
+
+**English**: And they say, "We have believed in God and the Messenger, and we obey," but some of them turn away afterwards. These are not believers.
+
+### Verse 24:48
+**Arabic**: وَإِذَا دُعُوٓا۟ إِلَى ٱللَّهِ وَرَسُولِهِۦ لِيَحْكُمَ بَيْنَهُمْ إِذَا فَرِيقٌۭ مِّنْهُم مُّعْرِضُونَ
+
+**English**: And when they are called to God and His Messenger, in order to judge between them, some of them refuse.
+
+### Verse 24:49
+**Arabic**: وَإِن يَكُن لَّهُمُ ٱلْحَقُّ يَأْتُوٓا۟ إِلَيْهِ مُذْعِنِينَ
+
+**English**: But if justice is on their side, they accept it willingly.
+
+### Verse 24:50
+**Arabic**: أَفِى قُلُوبِهِم مَّرَضٌ أَمِ ٱرْتَابُوٓا۟ أَمْ يَخَافُونَ أَن يَحِيفَ ٱللَّهُ عَلَيْهِمْ وَرَسُولُهُۥ ۚ بَلْ أُو۟لَٰٓئِكَ هُمُ ٱلظَّٰلِمُونَ
+
+**English**: Is there sickness in their hearts? Or are they suspicious? Or do they fear that God may do them injustice? Or His Messenger? In fact, they themselves are the unjust.
+
+### Verse 24:51
+**Arabic**: إِنَّمَا كَانَ قَوْلَ ٱلْمُؤْمِنِينَ إِذَا دُعُوٓا۟ إِلَى ٱللَّهِ وَرَسُولِهِۦ لِيَحْكُمَ بَيْنَهُمْ أَن يَقُولُوا۟ سَمِعْنَا وَأَطَعْنَا ۚ وَأُو۟لَٰٓئِكَ هُمُ ٱلْمُفْلِحُونَ
+
+**English**: The response of the believers, when they are called to God and His Messenger in order to judge between them, is to say, "We hear and we obey." These are the successful.
+
+### Verse 24:52
+**Arabic**: وَمَن يُطِعِ ٱللَّهَ وَرَسُولَهُۥ وَيَخْشَ ٱللَّهَ وَيَتَّقْهِ فَأُو۟لَٰٓئِكَ هُمُ ٱلْفَآئِزُونَ
+
+**English**: Whoever obeys God and His Messenger, and fears God, and is conscious of Him-these are the winners.
+
+### Verse 24:53
+**Arabic**: ۞ وَأَقْسَمُوا۟ بِٱللَّهِ جَهْدَ أَيْمَٰنِهِمْ لَئِنْ أَمَرْتَهُمْ لَيَخْرُجُنَّ ۖ قُل لَّا تُقْسِمُوا۟ ۖ طَاعَةٌۭ مَّعْرُوفَةٌ ۚ إِنَّ ٱللَّهَ خَبِيرٌۢ بِمَا تَعْمَلُونَ
+
+**English**: And they swear by God with their solemn oaths, that if you commanded them, they would mobilize. Say, "Do not swear. Obedience will be recognized. God is experienced with what you do."
+
+### Verse 24:54
+**Arabic**: قُلْ أَطِيعُوا۟ ٱللَّهَ وَأَطِيعُوا۟ ٱلرَّسُولَ ۖ فَإِن تَوَلَّوْا۟ فَإِنَّمَا عَلَيْهِ مَا حُمِّلَ وَعَلَيْكُم مَّا حُمِّلْتُمْ ۖ وَإِن تُطِيعُوهُ تَهْتَدُوا۟ ۚ وَمَا عَلَى ٱلرَّسُولِ إِلَّا ٱلْبَلَٰغُ ٱلْمُبِينُ
+
+**English**: Say, "Obey God and obey the Messenger." But if they turn away, then he is responsible for his obligations, and you are responsible for your obligations. And if you obey him, you will be guided. It is only incumbent on the Messenger to deliver the Clarifying Message.
+
+### Verse 24:55
+**Arabic**: وَعَدَ ٱللَّهُ ٱلَّذِينَ ءَامَنُوا۟ مِنكُمْ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ لَيَسْتَخْلِفَنَّهُمْ فِى ٱلْأَرْضِ كَمَا ٱسْتَخْلَفَ ٱلَّذِينَ مِن قَبْلِهِمْ وَلَيُمَكِّنَنَّ لَهُمْ دِينَهُمُ ٱلَّذِى ٱرْتَضَىٰ لَهُمْ وَلَيُبَدِّلَنَّهُم مِّنۢ بَعْدِ خَوْفِهِمْ أَمْنًۭا ۚ يَعْبُدُونَنِى لَا يُشْرِكُونَ بِى شَيْـًۭٔا ۚ وَمَن كَفَرَ بَعْدَ ذَٰلِكَ فَأُو۟لَٰٓئِكَ هُمُ ٱلْفَٰسِقُونَ
+
+**English**: God has promised those of you who believe and do righteous deeds, that He will make them successors on earth, as He made those before them successors, and He will establish for them their religion-which He has approved for them-and He will substitute security in place of their fear. They worship Me, never associating anything with Me. But whoever disbelieves after that-these are the sinners.
+
+### Verse 24:56
+**Arabic**: وَأَقِيمُوا۟ ٱلصَّلَوٰةَ وَءَاتُوا۟ ٱلزَّكَوٰةَ وَأَطِيعُوا۟ ٱلرَّسُولَ لَعَلَّكُمْ تُرْحَمُونَ
+
+**English**: Pray regularly, and give regular charity, and obey the Messenger, so that you may receive mercy.
+
+### Verse 24:57
+**Arabic**: لَا تَحْسَبَنَّ ٱلَّذِينَ كَفَرُوا۟ مُعْجِزِينَ فِى ٱلْأَرْضِ ۚ وَمَأْوَىٰهُمُ ٱلنَّارُ ۖ وَلَبِئْسَ ٱلْمَصِيرُ
+
+**English**: Never think that those who disbelieve can escape on earth. Their place is the Fire; a miserable destination.
+
+### Verse 24:58
+**Arabic**: يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ لِيَسْتَـْٔذِنكُمُ ٱلَّذِينَ مَلَكَتْ أَيْمَٰنُكُمْ وَٱلَّذِينَ لَمْ يَبْلُغُوا۟ ٱلْحُلُمَ مِنكُمْ ثَلَٰثَ مَرَّٰتٍۢ ۚ مِّن قَبْلِ صَلَوٰةِ ٱلْفَجْرِ وَحِينَ تَضَعُونَ ثِيَابَكُم مِّنَ ٱلظَّهِيرَةِ وَمِنۢ بَعْدِ صَلَوٰةِ ٱلْعِشَآءِ ۚ ثَلَٰثُ عَوْرَٰتٍۢ لَّكُمْ ۚ لَيْسَ عَلَيْكُمْ وَلَا عَلَيْهِمْ جُنَاحٌۢ بَعْدَهُنَّ ۚ طَوَّٰفُونَ عَلَيْكُم بَعْضُكُمْ عَلَىٰ بَعْضٍۢ ۚ كَذَٰلِكَ يُبَيِّنُ ٱللَّهُ لَكُمُ ٱلْءَايَٰتِ ۗ وَٱللَّهُ عَلِيمٌ حَكِيمٌۭ
+
+**English**: O you who believe! Permission must be requested by your servants and those of you who have not reached puberty. On three occasions: before the Dawn Prayer, and at noon when you change your clothes, and after the Evening Prayer. These are three occasions of privacy for you. At other times, it is not wrong for you or them to intermingle with one another. God thus clarifies the revelations for you. God is Knowledgeable and Wise.
+
+### Verse 24:59
+**Arabic**: وَإِذَا بَلَغَ ٱلْأَطْفَٰلُ مِنكُمُ ٱلْحُلُمَ فَلْيَسْتَـْٔذِنُوا۟ كَمَا ٱسْتَـْٔذَنَ ٱلَّذِينَ مِن قَبْلِهِمْ ۚ كَذَٰلِكَ يُبَيِّنُ ٱللَّهُ لَكُمْ ءَايَٰتِهِۦ ۗ وَٱللَّهُ عَلِيمٌ حَكِيمٌۭ
+
+**English**: When the children among you reach puberty, they must ask permission, as those before them asked permission. God thus clarifies His revelations for you. God is Knowledgeable and Wise.
+
+### Verse 24:60
+**Arabic**: وَٱلْقَوَٰعِدُ مِنَ ٱلنِّسَآءِ ٱلَّٰتِى لَا يَرْجُونَ نِكَاحًۭا فَلَيْسَ عَلَيْهِنَّ جُنَاحٌ أَن يَضَعْنَ ثِيَابَهُنَّ غَيْرَ مُتَبَرِّجَٰتٍۭ بِزِينَةٍۢ ۖ وَأَن يَسْتَعْفِفْنَ خَيْرٌۭ لَّهُنَّ ۗ وَٱللَّهُ سَمِيعٌ عَلِيمٌۭ
+
+**English**: Women past the age of childbearing, who have no desire for marriage, commit no wrong by taking off their outer clothing, provided they do not flaunt their finery. But to maintain modesty is better for them. God is Hearing and Knowing.
+
+### Verse 24:61
+**Arabic**: لَّيْسَ عَلَى ٱلْأَعْمَىٰ حَرَجٌۭ وَلَا عَلَى ٱلْأَعْرَجِ حَرَجٌۭ وَلَا عَلَى ٱلْمَرِيضِ حَرَجٌۭ وَلَا عَلَىٰٓ أَنفُسِكُمْ أَن تَأْكُلُوا۟ مِنۢ بُيُوتِكُمْ أَوْ بُيُوتِ ءَابَآئِكُمْ أَوْ بُيُوتِ أُمَّهَٰتِكُمْ أَوْ بُيُوتِ إِخْوَٰنِكُمْ أَوْ بُيُوتِ أَخَوَٰتِكُمْ أَوْ بُيُوتِ أَعْمَٰمِكُمْ أَوْ بُيُوتِ عَمَّٰتِكُمْ أَوْ بُيُوتِ أَخْوَٰلِكُمْ أَوْ بُيُوتِ خَٰلَٰتِكُمْ أَوْ مَا مَلَكْتُم مَّفَاتِحَهُۥٓ أَوْ صَدِيقِكُمْ ۚ لَيْسَ عَلَيْكُمْ جُنَاحٌ أَن تَأْكُلُوا۟ جَمِيعًا أَوْ أَشْتَاتًۭا ۚ فَإِذَا دَخَلْتُم بُيُوتًۭا فَسَلِّمُوا۟ عَلَىٰٓ أَنفُسِكُمْ تَحِيَّةًۭ مِّنْ عِندِ ٱللَّهِ مُبَٰرَكَةًۭ طَيِّبَةًۭ ۚ كَذَٰلِكَ يُبَيِّنُ ٱللَّهُ لَكُمُ ٱلْءَايَٰتِ لَعَلَّكُمْ تَعْقِلُونَ
+
+**English**: There is no blame on the blind, nor any blame on the lame, nor any blame on the sick, nor on yourselves for eating at your homes, or your fathers' homes, or your mothers' homes, or your brothers' homes, or your sisters' homes, or the homes of your paternal uncles, or the homes of your paternal aunts, or the homes of your maternal uncles, or the homes of your maternal aunts, or those whose keys you own, or the homes of your friends. You commit no wrong by eating together or separately. But when you enter any home, greet one another with a greeting from God, blessed and good. God thus explains the revelations for you, so that you may understand.
+
+### Verse 24:62
+**Arabic**: إِنَّمَا ٱلْمُؤْمِنُونَ ٱلَّذِينَ ءَامَنُوا۟ بِٱللَّهِ وَرَسُولِهِۦ وَإِذَا كَانُوا۟ مَعَهُۥ عَلَىٰٓ أَمْرٍۢ جَامِعٍۢ لَّمْ يَذْهَبُوا۟ حَتَّىٰ يَسْتَـْٔذِنُوهُ ۚ إِنَّ ٱلَّذِينَ يَسْتَـْٔذِنُونَكَ أُو۟لَٰٓئِكَ ٱلَّذِينَ يُؤْمِنُونَ بِٱللَّهِ وَرَسُولِهِۦ ۚ فَإِذَا ٱسْتَـْٔذَنُوكَ لِبَعْضِ شَأْنِهِمْ فَأْذَن لِّمَن شِئْتَ مِنْهُمْ وَٱسْتَغْفِرْ لَهُمُ ٱللَّهَ ۚ إِنَّ ٱللَّهَ غَفُورٌۭ رَّحِيمٌۭ
+
+**English**: The believers are those who believe in God and His Messenger, and when they are with him for a matter of common interest, they do not leave until they have asked him for permission. Those who ask your permission are those who believe in God and His Messenger. So when they ask your permission to attend to some affair of theirs, give permission to any of them you wish, and ask God's forgiveness for them. God is Forgiving and Merciful.
+
+### Verse 24:63
+**Arabic**: لَّا تَجْعَلُوا۟ دُعَآءَ ٱلرَّسُولِ بَيْنَكُمْ كَدُعَآءِ بَعْضِكُم بَعْضًۭا ۚ قَدْ يَعْلَمُ ٱللَّهُ ٱلَّذِينَ يَتَسَلَّلُونَ مِنكُمْ لِوَاذًۭا ۚ فَلْيَحْذَرِ ٱلَّذِينَ يُخَالِفُونَ عَنْ أَمْرِهِۦٓ أَن تُصِيبَهُمْ فِتْنَةٌ أَوْ يُصِيبَهُمْ عَذَابٌ أَلِيمٌ
+
+**English**: Do not address the Messenger in the same manner you address one another. God knows those of you who slip away using flimsy excuses. So let those who oppose his orders beware, lest an ordeal strikes them, or a painful punishment befalls them.
+
+### Verse 24:64
+**Arabic**: أَلَآ إِنَّ لِلَّهِ مَا فِى ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ ۖ قَدْ يَعْلَمُ مَآ أَنتُمْ عَلَيْهِ وَيَوْمَ يُرْجَعُونَ إِلَيْهِ فَيُنَبِّئُهُم بِمَا عَمِلُوا۟ ۗ وَٱللَّهُ بِكُلِّ شَىْءٍ عَلِيمٌۢ
+
+**English**: Surely, to God belongs everything in the heavens and the earth. He knows what you are about. And on the Day they are returned to Him, He will inform them of what they did. God has full knowledge of all things.
+
+## Thematic cross-references
+
+- **Legislation**: [Al-Baqara](surah_002_al-baqara.md), [An-Nisaa'](surah_004_an-nisaa.md), [Al-Ma'ida](surah_005_al-ma-ida.md), [Al-Anfal](surah_008_al-anfal.md), [Al-Ahzab](surah_033_al-ahzab.md), [Al-Hujurat](surah_049_al-hujurat.md), [Al-Mujadilah](surah_058_al-mujadilah.md), [Al-Mumtahinah](surah_060_al-mumtahinah.md) and 2 more
