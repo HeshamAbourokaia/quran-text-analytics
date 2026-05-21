@@ -6,6 +6,9 @@
 - **Themes**: [Legislation](../themes/legislation.md)
 - **Named entities mentioned**: [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md), [Iblis (Satan)](../entities/figure_iblis.md), [Rabb (the Lord)](../entities/divine_rabb.md)
 
+- **Revelation order (chronological)**: #102 of 114
+- **Revelation phase**: [Late Medinan](../timeline/phase_late-medina.md) (628-632 CE, Year 6-10 AH)
+
 ## Verses
 
 ### Verse 24:0

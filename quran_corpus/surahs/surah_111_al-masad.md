@@ -6,6 +6,9 @@
 - **Themes**: [Warning](../themes/warning.md)
 - **Named entities mentioned**: [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md)
 
+- **Revelation order (chronological)**: #6 of 114
+- **Revelation phase**: [Early Meccan](../timeline/phase_early-mecca.md) (610-615 CE, Year 1-5 of Prophethood)
+
 ## Verses
 
 ### Verse 111:0

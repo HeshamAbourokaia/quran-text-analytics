@@ -6,6 +6,9 @@
 - **Themes**: [Faith and Monotheism](../themes/faith-monotheism.md), [Patience and Endurance](../themes/patience.md)
 - **Named entities mentioned**: [Adam](../entities/prophet_adam.md), [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md), [Iblis (Satan)](../entities/figure_iblis.md), [Medina](../entities/place_madinah.md), [Madyan](../entities/place_madyan.md), [Egypt (Misr)](../entities/place_misr.md), [Moses (Musa)](../entities/prophet_musa.md), [Rabb (the Lord)](../entities/divine_rabb.md)
 
+- **Revelation order (chronological)**: #69 of 114
+- **Revelation phase**: [Middle Meccan](../timeline/phase_middle-mecca.md) (615-619 CE, Year 5-9 of Prophethood)
+
 ## Verses
 
 ### Verse 18:0

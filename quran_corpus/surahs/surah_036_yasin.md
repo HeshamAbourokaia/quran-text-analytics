@@ -6,6 +6,9 @@
 - **Themes**: [Day of Judgment](../themes/day-of-judgment.md)
 - **Named entities mentioned**: [Adam](../entities/prophet_adam.md), [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md), [Iblis (Satan)](../entities/figure_iblis.md), [Medina](../entities/place_madinah.md), [Madyan](../entities/place_madyan.md), [Rabb (the Lord)](../entities/divine_rabb.md), [John the Baptist (Yahya)](../entities/prophet_yahya.md)
 
+- **Revelation order (chronological)**: #41 of 114
+- **Revelation phase**: [Early Meccan](../timeline/phase_early-mecca.md) (610-615 CE, Year 1-5 of Prophethood)
+
 ## Verses
 
 ### Verse 36:0

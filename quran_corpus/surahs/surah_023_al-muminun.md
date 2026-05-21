@@ -6,6 +6,9 @@
 - **Themes**: [Day of Judgment](../themes/day-of-judgment.md)
 - **Named entities mentioned**: [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md), [Pharaoh (Firaun)](../entities/figure_firaun.md), [Mary (Maryam, mother of Jesus)](../entities/figure_maryam.md), [Moses (Musa)](../entities/prophet_musa.md), [Noah (Nuh)](../entities/prophet_nuh.md), [Rabb (the Lord)](../entities/divine_rabb.md), [Mount Sinai (Tur)](../entities/place_sinai.md)
 
+- **Revelation order (chronological)**: #74 of 114
+- **Revelation phase**: [Middle Meccan](../timeline/phase_middle-mecca.md) (615-619 CE, Year 5-9 of Prophethood)
+
 ## Verses
 
 ### Verse 23:0

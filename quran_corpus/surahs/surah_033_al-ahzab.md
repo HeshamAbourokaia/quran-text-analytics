@@ -6,6 +6,9 @@
 - **Themes**: [Legislation](../themes/legislation.md), [Community and Society](../themes/community.md)
 - **Named entities mentioned**: [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md), [Abraham (Ibrahim)](../entities/prophet_ibrahim.md), [Jesus (Isa)](../entities/prophet_isa.md), [Medina](../entities/place_madinah.md), [Madyan](../entities/place_madyan.md), [Mary (Maryam, mother of Jesus)](../entities/figure_maryam.md), [Muhammad](../entities/prophet_muhammad.md), [Moses (Musa)](../entities/prophet_musa.md), [Noah (Nuh)](../entities/prophet_nuh.md), [Rabb (the Lord)](../entities/divine_rabb.md)
 
+- **Revelation order (chronological)**: #90 of 114
+- **Revelation phase**: [Early Medinan](../timeline/phase_early-medina.md) (622-628 CE, Year 1-6 AH)
+
 ## Verses
 
 ### Verse 33:0

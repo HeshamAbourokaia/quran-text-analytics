@@ -6,6 +6,9 @@
 - **Themes**: [Legislation](../themes/legislation.md)
 - **Named entities mentioned**: [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md), [Pharaoh (Firaun)](../entities/figure_firaun.md), [Gabriel (Jibril)](../entities/figure_jibril.md), [Lot (Lut)](../entities/prophet_lut.md), [Mary (Maryam, mother of Jesus)](../entities/figure_maryam.md), [Noah (Nuh)](../entities/prophet_nuh.md), [Rabb (the Lord)](../entities/divine_rabb.md)
 
+- **Revelation order (chronological)**: #107 of 114
+- **Revelation phase**: [Late Medinan](../timeline/phase_late-medina.md) (628-632 CE, Year 6-10 AH)
+
 ## Verses
 
 ### Verse 66:0

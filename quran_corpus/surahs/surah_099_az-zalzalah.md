@@ -6,6 +6,9 @@
 - **Themes**: [Day of Judgment](../themes/day-of-judgment.md)
 - **Named entities mentioned**: [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md), [Rabb (the Lord)](../entities/divine_rabb.md)
 
+- **Revelation order (chronological)**: #93 of 114
+- **Revelation phase**: [Early Medinan](../timeline/phase_early-medina.md) (622-628 CE, Year 1-6 AH)
+
 ## Verses
 
 ### Verse 99:0

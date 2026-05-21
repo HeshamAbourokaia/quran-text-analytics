@@ -6,6 +6,9 @@
 - **Themes**: [Day of Judgment](../themes/day-of-judgment.md)
 - **Named entities mentioned**: [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md), [Pharaoh (Firaun)](../entities/figure_firaun.md), [Rabb (the Lord)](../entities/divine_rabb.md)
 
+- **Revelation order (chronological)**: #64 of 114
+- **Revelation phase**: [Middle Meccan](../timeline/phase_middle-mecca.md) (615-619 CE, Year 5-9 of Prophethood)
+
 ## Verses
 
 ### Verse 44:0

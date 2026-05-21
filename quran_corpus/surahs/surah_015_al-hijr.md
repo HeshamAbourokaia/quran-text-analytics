@@ -6,6 +6,9 @@
 - **Themes**: [Stories of the Prophets](../themes/prophets-stories.md)
 - **Named entities mentioned**: [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md), [Iblis (Satan)](../entities/figure_iblis.md), [Abraham (Ibrahim)](../entities/prophet_ibrahim.md), [Lot (Lut)](../entities/prophet_lut.md), [Medina](../entities/place_madinah.md), [Madyan](../entities/place_madyan.md), [Rabb (the Lord)](../entities/divine_rabb.md)
 
+- **Revelation order (chronological)**: #54 of 114
+- **Revelation phase**: [Middle Meccan](../timeline/phase_middle-mecca.md) (615-619 CE, Year 5-9 of Prophethood)
+
 ## Verses
 
 ### Verse 15:0

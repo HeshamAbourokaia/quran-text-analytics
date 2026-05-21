@@ -6,6 +6,9 @@
 - **Themes**: [Nature and Signs](../themes/nature.md)
 - **Named entities mentioned**: [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md), [Iblis (Satan)](../entities/figure_iblis.md), [Abraham (Ibrahim)](../entities/prophet_ibrahim.md), [Lot (Lut)](../entities/prophet_lut.md), [Madyan](../entities/place_madyan.md), [The Sacred Mosque (Makka)](../entities/place_masjid-al-haram.md), [Moses (Musa)](../entities/prophet_musa.md), [Noah (Nuh)](../entities/prophet_nuh.md), [Rabb (the Lord)](../entities/divine_rabb.md), [John the Baptist (Yahya)](../entities/prophet_yahya.md)
 
+- **Revelation order (chronological)**: #103 of 114
+- **Revelation phase**: [Late Medinan](../timeline/phase_late-medina.md) (628-632 CE, Year 6-10 AH)
+
 ## Verses
 
 ### Verse 22:0

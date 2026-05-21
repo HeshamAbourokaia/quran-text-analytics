@@ -6,6 +6,9 @@
 - **Themes**: [Faith and Monotheism](../themes/faith-monotheism.md)
 - **Named entities mentioned**: [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md), [Iblis (Satan)](../entities/figure_iblis.md), [Rabb (the Lord)](../entities/divine_rabb.md)
 
+- **Revelation order (chronological)**: #57 of 114
+- **Revelation phase**: [Middle Meccan](../timeline/phase_middle-mecca.md) (615-619 CE, Year 5-9 of Prophethood)
+
 ## Verses
 
 ### Verse 31:0

@@ -6,6 +6,9 @@
 - **Themes**: [Day of Judgment](../themes/day-of-judgment.md)
 - **Named entities mentioned**: [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md), [Rabb (the Lord)](../entities/divine_rabb.md)
 
+- **Revelation order (chronological)**: #80 of 114
+- **Revelation phase**: [Late Meccan](../timeline/phase_late-mecca.md) (619-622 CE, Year 9-13 of Prophethood)
+
 ## Verses
 
 ### Verse 78:0

@@ -6,6 +6,9 @@
 - **Themes**: [Stories of the Prophets](../themes/prophets-stories.md)
 - **Named entities mentioned**: [Adam](../entities/prophet_adam.md), [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md), [Iblis (Satan)](../entities/figure_iblis.md), [Abraham (Ibrahim)](../entities/prophet_ibrahim.md), [Idris (Enoch)](../entities/prophet_idris.md), [Jesus (Isa)](../entities/prophet_isa.md), [Isaac (Ishaq)](../entities/prophet_ishaq.md), [Ishmael (Ismail)](../entities/prophet_ismail.md), [Mary (Maryam, mother of Jesus)](../entities/figure_maryam.md), [Moses (Musa)](../entities/prophet_musa.md), [Noah (Nuh)](../entities/prophet_nuh.md), [Rabb (the Lord)](../entities/divine_rabb.md), [Mount Sinai (Tur)](../entities/place_sinai.md), [John the Baptist (Yahya)](../entities/prophet_yahya.md), [Jacob (Yaqub)](../entities/prophet_yaqub.md), [Zechariah (Zakariya)](../entities/prophet_zakariya.md)
 
+- **Revelation order (chronological)**: #44 of 114
+- **Revelation phase**: [Early Meccan](../timeline/phase_early-mecca.md) (610-615 CE, Year 1-5 of Prophethood)
+
 ## Verses
 
 ### Verse 19:0

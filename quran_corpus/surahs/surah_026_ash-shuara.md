@@ -6,6 +6,9 @@
 - **Themes**: [Stories of the Prophets](../themes/prophets-stories.md)
 - **Named entities mentioned**: [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md), [Pharaoh (Firaun)](../entities/figure_firaun.md), [Hud](../entities/prophet_hud.md), [Iblis (Satan)](../entities/figure_iblis.md), [Abraham (Ibrahim)](../entities/prophet_ibrahim.md), [Lot (Lut)](../entities/prophet_lut.md), [Moses (Musa)](../entities/prophet_musa.md), [Noah (Nuh)](../entities/prophet_nuh.md), [Rabb (the Lord)](../entities/divine_rabb.md), [Shuayb](../entities/prophet_shuayb.md), [John the Baptist (Yahya)](../entities/prophet_yahya.md)
 
+- **Revelation order (chronological)**: #47 of 114
+- **Revelation phase**: [Early Meccan](../timeline/phase_early-mecca.md) (610-615 CE, Year 1-5 of Prophethood)
+
 ## Verses
 
 ### Verse 26:0

@@ -6,6 +6,9 @@
 - **Themes**: [Legislation](../themes/legislation.md)
 - **Named entities mentioned**: [Adam](../entities/prophet_adam.md), [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md), [David (Dawud)](../entities/prophet_dawud.md), [Hud](../entities/prophet_hud.md), [Iblis (Satan)](../entities/figure_iblis.md), [Jesus (Isa)](../entities/prophet_isa.md), [Mary (Maryam, mother of Jesus)](../entities/figure_maryam.md), [The Sacred Mosque (Makka)](../entities/place_masjid-al-haram.md), [Moses (Musa)](../entities/prophet_musa.md), [Rabb (the Lord)](../entities/divine_rabb.md)
 
+- **Revelation order (chronological)**: #112 of 114
+- **Revelation phase**: [Late Medinan](../timeline/phase_late-medina.md) (628-632 CE, Year 6-10 AH)
+
 ## Verses
 
 ### Verse 5:0

@@ -6,6 +6,9 @@
 - **Themes**: [Faith and Monotheism](../themes/faith-monotheism.md)
 - **Named entities mentioned**: [Adam](../entities/prophet_adam.md), [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md), [Pharaoh (Firaun)](../entities/figure_firaun.md), [Hud](../entities/prophet_hud.md), [Iblis (Satan)](../entities/figure_iblis.md), [Abraham (Ibrahim)](../entities/prophet_ibrahim.md), [Jesus (Isa)](../entities/prophet_isa.md), [Isaac (Ishaq)](../entities/prophet_ishaq.md), [Ishmael (Ismail)](../entities/prophet_ismail.md), [Mecca (Makka)](../entities/place_makka.md), [Mary (Maryam, mother of Jesus)](../entities/figure_maryam.md), [Muhammad](../entities/prophet_muhammad.md), [Moses (Musa)](../entities/prophet_musa.md), [Noah (Nuh)](../entities/prophet_nuh.md), [Rabb (the Lord)](../entities/divine_rabb.md), [John the Baptist (Yahya)](../entities/prophet_yahya.md), [Jacob (Yaqub)](../entities/prophet_yaqub.md), [Zechariah (Zakariya)](../entities/prophet_zakariya.md)
 
+- **Revelation order (chronological)**: #89 of 114
+- **Revelation phase**: [Early Medinan](../timeline/phase_early-medina.md) (622-628 CE, Year 1-6 AH)
+
 ## Verses
 
 ### Verse 3:0

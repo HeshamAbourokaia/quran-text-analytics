@@ -6,6 +6,9 @@
 - **Themes**: [Worship and Devotion](../themes/worship.md)
 - **Named entities mentioned**: [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md), [Rabb (the Lord)](../entities/divine_rabb.md)
 
+- **Revelation order (chronological)**: #114 of 114
+- **Revelation phase**: [Late Medinan](../timeline/phase_late-medina.md) (628-632 CE, Year 6-10 AH)
+
 ## Verses
 
 ### Verse 110:0

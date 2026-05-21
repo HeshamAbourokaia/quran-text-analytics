@@ -6,6 +6,9 @@
 - **Themes**: [Stories of the Prophets](../themes/prophets-stories.md)
 - **Named entities mentioned**: [Adam](../entities/prophet_adam.md), [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md), [Pharaoh (Firaun)](../entities/figure_firaun.md), [Iblis (Satan)](../entities/figure_iblis.md), [Madyan](../entities/place_madyan.md), [Moses (Musa)](../entities/prophet_musa.md), [Rabb (the Lord)](../entities/divine_rabb.md), [Mount Sinai (Tur)](../entities/place_sinai.md), [John the Baptist (Yahya)](../entities/prophet_yahya.md)
 
+- **Revelation order (chronological)**: #45 of 114
+- **Revelation phase**: [Early Meccan](../timeline/phase_early-mecca.md) (610-615 CE, Year 1-5 of Prophethood)
+
 ## Verses
 
 ### Verse 20:0

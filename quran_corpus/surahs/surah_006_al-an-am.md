@@ -6,6 +6,9 @@
 - **Themes**: [Stories of the Prophets](../themes/prophets-stories.md)
 - **Named entities mentioned**: [Elisha (Al-Yasa)](../entities/prophet_al-yasa.md), [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md), [Job (Ayyub)](../entities/prophet_ayyub.md), [David (Dawud)](../entities/prophet_dawud.md), [Iblis (Satan)](../entities/figure_iblis.md), [Abraham (Ibrahim)](../entities/prophet_ibrahim.md), [Elijah (Ilyas)](../entities/prophet_ilyas.md), [Jesus (Isa)](../entities/prophet_isa.md), [Isaac (Ishaq)](../entities/prophet_ishaq.md), [Ishmael (Ismail)](../entities/prophet_ismail.md), [Lot (Lut)](../entities/prophet_lut.md), [Moses (Musa)](../entities/prophet_musa.md), [Noah (Nuh)](../entities/prophet_nuh.md), [Rabb (the Lord)](../entities/divine_rabb.md), [John the Baptist (Yahya)](../entities/prophet_yahya.md), [Jacob (Yaqub)](../entities/prophet_yaqub.md), [Jonah (Yunus)](../entities/prophet_yunus.md), [Joseph (Yusuf)](../entities/prophet_yusuf.md), [Zechariah (Zakariya)](../entities/prophet_zakariya.md)
 
+- **Revelation order (chronological)**: #55 of 114
+- **Revelation phase**: [Middle Meccan](../timeline/phase_middle-mecca.md) (615-619 CE, Year 5-9 of Prophethood)
+
 ## Verses
 
 ### Verse 6:0

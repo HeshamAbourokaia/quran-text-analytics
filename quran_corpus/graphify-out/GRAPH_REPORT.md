@@ -1,343 +1,243 @@
 # Graph Report - /Users/Hesham/Documents/quran-analytics/quran_corpus  (2026-05-22)
 
 ## Corpus Check
-- 167 files · ~272,046 words
+- 215 files · ~282,391 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 536 nodes · 673 edges · 86 communities (40 shown, 46 thin omitted)
-- Extraction: 76% EXTRACTED · 24% INFERRED · 0% AMBIGUOUS · INFERRED: 160 edges (avg confidence: 0.89)
-- Token cost: 714,473 input · 238,155 output
+- 439 nodes · 929 edges · 28 communities (20 shown, 8 thin omitted)
+- Extraction: 77% EXTRACTED · 23% INFERRED · 0% AMBIGUOUS · INFERRED: 217 edges (avg confidence: 0.88)
+- Token cost: 685,905 input · 228,634 output
 
 ## Community Hubs (Navigation)
-- [[_COMMUNITY_Meccan Revelation Period|Meccan Revelation Period]]
-- [[_COMMUNITY_Aal-Imran & Battle of Uhud|Aal-Imran & Battle of Uhud]]
-- [[_COMMUNITY_Juz Amma & Oath Surahs|Juz Amma & Oath Surahs]]
-- [[_COMMUNITY_Eschatology & Quran Bookends|Eschatology & Quran Bookends]]
-- [[_COMMUNITY_Al-Baqara + Moses-Pharaoh|Al-Baqara + Moses-Pharaoh]]
-- [[_COMMUNITY_Creation & Fall Narratives|Creation & Fall Narratives]]
-- [[_COMMUNITY_Wisdom Prophets (David, Solomon, Job, Luqman)|Wisdom Prophets (David, Solomon, Job, Luqman)]]
-- [[_COMMUNITY_Al-Hajj Pilgrimage & Embryology|Al-Hajj: Pilgrimage & Embryology]]
-- [[_COMMUNITY_Ar-Rahman Refrain & Day of Judgment|Ar-Rahman Refrain & Day of Judgment]]
-- [[_COMMUNITY_Treaty of Hudaybiyyah & Victory|Treaty of Hudaybiyyah & Victory]]
-- [[_COMMUNITY_Adam-Iblis & People of Heights|Adam-Iblis & People of Heights]]
-- [[_COMMUNITY_At-Tawba Hypocrites & Repentance|At-Tawba: Hypocrites & Repentance]]
-- [[_COMMUNITY_First Revelation (Iqra)|First Revelation (Iqra)]]
-- [[_COMMUNITY_Divine Names (Allah, Ar-Rahman, Ar-Rahim)|Divine Names (Allah, Ar-Rahman, Ar-Rahim)]]
-- [[_COMMUNITY_Night Vision & Banu Nadir|Night Vision & Banu Nadir]]
-- [[_COMMUNITY_Iron Miracle, Moon Splitting, Noah's Lament|Iron Miracle, Moon Splitting, Noah's Lament]]
-- [[_COMMUNITY_Abraham's Family (Ibrahim, Ishaq, Ismail)|Abraham's Family (Ibrahim, Ishaq, Ismail)]]
-- [[_COMMUNITY_Hypocrites Warning & Late Medinan|Hypocrites Warning & Late Medinan]]
-- [[_COMMUNITY_Abraham's Debate (Al-Anam)|Abraham's Debate (Al-Anam)]]
-- [[_COMMUNITY_Divine Names Cross-Surah Hub|Divine Names Cross-Surah Hub]]
-- [[_COMMUNITY_Moses-Pharaoh in Al-Baqara|Moses-Pharaoh in Al-Baqara]]
-- [[_COMMUNITY_Early Meccan Prophet Commands|Early Meccan Prophet Commands]]
-- [[_COMMUNITY_Pure Monotheism (Al-Ikhlas + Al-A'la)|Pure Monotheism (Al-Ikhlas + Al-A'la)]]
-- [[_COMMUNITY_Prophet Muhammad's Hijra Geography|Prophet Muhammad's Hijra Geography]]
-- [[_COMMUNITY_Al-Baqara Pillars of Worship|Al-Baqara Pillars of Worship]]
-- [[_COMMUNITY_Marriage & Divorce Law (Al-Mujadila, At-Talaq)|Marriage & Divorce Law (Al-Mujadila, At-Talaq)]]
-- [[_COMMUNITY_Al-Baqara Closing Verses|Al-Baqara Closing Verses]]
-- [[_COMMUNITY_Al-Baqara Commercial Law (Riba, Debt)|Al-Baqara Commercial Law (Riba, Debt)]]
-- [[_COMMUNITY_Surah At-Tahrim & Mary|Surah At-Tahrim & Mary]]
-- [[_COMMUNITY_Year of the Elephant & Quraysh|Year of the Elephant & Quraysh]]
-- [[_COMMUNITY_Surah 98 Al-Bayinah (The Clear Evidence|Surah 98: Al-Bayinah (The Clear Evidence]]
-- [[_COMMUNITY_Surah 104 Al-Humaza (The Slanderer)|Surah 104: Al-Humaza (The Slanderer)]]
-- [[_COMMUNITY_Verify News from a Troublemaker (anti-fi|Verify News from a Troublemaker (anti-fi]]
-- [[_COMMUNITY_Surah Al-Ankabut (The Spider)|Surah Al-Ankabut (The Spider)]]
-- [[_COMMUNITY_Surah Az-Zumar (The Crowds)|Surah Az-Zumar (The Crowds)]]
-- [[_COMMUNITY_Friday Congregation (Al-Jumua, weekly pr|Friday Congregation (Al-Jumua, weekly pr]]
-- [[_COMMUNITY_Surah 76 Al-Insan (Man)|Surah 76: Al-Insan (Man)]]
-- [[_COMMUNITY_Surah 80 Abasa (He Frowned)|Surah 80: Abasa (He Frowned)]]
-- [[_COMMUNITY_Surah 83 Al-Mutaffifin (The Defrauders)|Surah 83: Al-Mutaffifin (The Defrauders)]]
-- [[_COMMUNITY_Surah 108 Al-Kawthar (The Abundance)|Surah 108: Al-Kawthar (The Abundance)]]
-- [[_COMMUNITY_The Ascending Stairways (Al-Ma'arij)|The Ascending Stairways (Al-Ma'arij)]]
-- [[_COMMUNITY_Test of Dominion (life and death as test|Test of Dominion (life and death as test]]
-- [[_COMMUNITY_Mount Sinai (At-Tur)|Mount Sinai (At-Tur)]]
-- [[_COMMUNITY_Surah Ar-Rum (The Romans)|Surah Ar-Rum (The Romans)]]
-- [[_COMMUNITY_The Pen and What They Inscribe (Surah Al|The Pen and What They Inscribe (Surah Al]]
-- [[_COMMUNITY_Jinn Listen to the Quran (and believe)|Jinn Listen to the Quran (and believe)]]
-- [[_COMMUNITY_Surah 102 At-Takathur (Worldly Increase|Surah 102: At-Takathur (Worldly Increase]]
-- [[_COMMUNITY_Surah Fatir (Originator)|Surah Fatir (Originator)]]
-- [[_COMMUNITY_Surah 64 At-Taghabun (Mutual Disillusio|Surah 64: At-Taghabun (Mutual Disillusio]]
-- [[_COMMUNITY_Medinan Legal Corpus (community legislat|Medinan Legal Corpus (community legislat]]
-- [[_COMMUNITY_Late Meccan Eschatological Cluster|Late Meccan Eschatological Cluster]]
-- [[_COMMUNITY_Ar-Rahman Refrain Verse 21|Ar-Rahman Refrain Verse 21]]
-- [[_COMMUNITY_Ar-Rahman Refrain Verse 23|Ar-Rahman Refrain Verse 23]]
-- [[_COMMUNITY_Ar-Rahman Refrain Verse 25|Ar-Rahman Refrain Verse 25]]
-- [[_COMMUNITY_Ar-Rahman Refrain Verse 28|Ar-Rahman Refrain Verse 28]]
-- [[_COMMUNITY_Ar-Rahman Refrain Verse 30|Ar-Rahman Refrain Verse 30]]
-- [[_COMMUNITY_Ar-Rahman Refrain Verse 32|Ar-Rahman Refrain Verse 32]]
-- [[_COMMUNITY_Ar-Rahman Refrain Verse 34|Ar-Rahman Refrain Verse 34]]
-- [[_COMMUNITY_Ar-Rahman Refrain Verse 36|Ar-Rahman Refrain Verse 36]]
-- [[_COMMUNITY_Ar-Rahman Refrain Verse 38|Ar-Rahman Refrain Verse 38]]
-- [[_COMMUNITY_Ar-Rahman Refrain Verse 40|Ar-Rahman Refrain Verse 40]]
-- [[_COMMUNITY_Ar-Rahman Refrain Verse 42|Ar-Rahman Refrain Verse 42]]
-- [[_COMMUNITY_Ar-Rahman Refrain Verse 45|Ar-Rahman Refrain Verse 45]]
-- [[_COMMUNITY_Ar-Rahman Refrain Verse 47|Ar-Rahman Refrain Verse 47]]
-- [[_COMMUNITY_Ar-Rahman Refrain Verse 49|Ar-Rahman Refrain Verse 49]]
-- [[_COMMUNITY_Ar-Rahman Refrain Verse 51|Ar-Rahman Refrain Verse 51]]
-- [[_COMMUNITY_Ar-Rahman Refrain Verse 53|Ar-Rahman Refrain Verse 53]]
-- [[_COMMUNITY_Ar-Rahman Refrain Verse 55|Ar-Rahman Refrain Verse 55]]
-- [[_COMMUNITY_Ar-Rahman Refrain Verse 57|Ar-Rahman Refrain Verse 57]]
-- [[_COMMUNITY_Ar-Rahman Refrain Verse 59|Ar-Rahman Refrain Verse 59]]
-- [[_COMMUNITY_Ar-Rahman Refrain Verse 61|Ar-Rahman Refrain Verse 61]]
-- [[_COMMUNITY_Ar-Rahman Refrain Verse 63|Ar-Rahman Refrain Verse 63]]
-- [[_COMMUNITY_Ar-Rahman Refrain Verse 65|Ar-Rahman Refrain Verse 65]]
-- [[_COMMUNITY_Ar-Rahman Refrain Verse 67|Ar-Rahman Refrain Verse 67]]
-- [[_COMMUNITY_Ar-Rahman Refrain Verse 69|Ar-Rahman Refrain Verse 69]]
-- [[_COMMUNITY_Ar-Rahman Refrain Verse 71|Ar-Rahman Refrain Verse 71]]
-- [[_COMMUNITY_Ar-Rahman Refrain Verse 73|Ar-Rahman Refrain Verse 73]]
-- [[_COMMUNITY_Ar-Rahman Refrain Verse 75|Ar-Rahman Refrain Verse 75]]
-- [[_COMMUNITY_Elisha (Al-Yasa)|Elisha (Al-Yasa)]]
-- [[_COMMUNITY_Job (Ayyub)|Job (Ayyub)]]
+- [[_COMMUNITY_Late Medinan Hijab, Zaynab, Divine Names|Late Medinan: Hijab, Zaynab, Divine Names]]
+- [[_COMMUNITY_Divine Names Hub (Allah, Ar-Rahman, Ar-Rahim)|Divine Names Hub (Allah, Ar-Rahman, Ar-Rahim)]]
+- [[_COMMUNITY_Pleading Woman + Farewell Pilgrimage|Pleading Woman + Farewell Pilgrimage]]
+- [[_COMMUNITY_Battle of Uhud + Mubahala + Adam|Battle of Uhud + Mubahala + Adam]]
+- [[_COMMUNITY_Al-Baqara Bani Israel, Adam, Ibrahim arcs|Al-Baqara: Bani Israel, Adam, Ibrahim arcs]]
+- [[_COMMUNITY_Asbab al-Nuzul Methodology|Asbab al-Nuzul Methodology]]
+- [[_COMMUNITY_Late Meccan Eschatology|Late Meccan Eschatology]]
+- [[_COMMUNITY_Historical Punishment Stories (Abu Lahab, Elephant, Trench)|Historical Punishment Stories (Abu Lahab, Elephant, Trench)]]
+- [[_COMMUNITY_Tafsir Methodological Schools (bil-Mathur, Muyassar)|Tafsir Methodological Schools (bil-Mathur, Muyassar)]]
+- [[_COMMUNITY_Year of Sorrow + Destroyed Nations (Aad, Thamud)|Year of Sorrow + Destroyed Nations (Aad, Thamud)]]
+- [[_COMMUNITY_Farewell Pilgrimage + Tawhid|Farewell Pilgrimage + Tawhid]]
+- [[_COMMUNITY_Early Mecca Cave of Hira + Boycott|Early Mecca: Cave of Hira + Boycott]]
+- [[_COMMUNITY_Al-Samarrai's Linguistic Bayani School|Al-Samarrai's Linguistic Bayani School]]
+- [[_COMMUNITY_Special Patterns (Mu'awwidhatan, Refrain, Night of Decree)|Special Patterns (Mu'awwidhatan, Refrain, Night of Decree)]]
+- [[_COMMUNITY_Divine Names + Bismillah Pattern|Divine Names + Bismillah Pattern]]
+- [[_COMMUNITY_Aisha Cluster (Slander, Light Verse)|Aisha Cluster (Slander, Light Verse)]]
+- [[_COMMUNITY_Sayyid Qutb's Fi Zilal School|Sayyid Qutb's Fi Zilal School]]
+- [[_COMMUNITY_Al-Sha'rawi's Khawatir Reflections|Al-Sha'rawi's Khawatir Reflections]]
+- [[_COMMUNITY_Al-Qurtubi's Fiqhi Jurisprudence|Al-Qurtubi's Fiqhi Jurisprudence]]
+- [[_COMMUNITY_The Blind Man Incident (Abasa 80)|The Blind Man Incident (Abasa 80)]]
+- [[_COMMUNITY_Al-Wahidi (d. 1076 CE)|Al-Wahidi (d. 1076 CE)]]
+- [[_COMMUNITY_Ar-Rahman (the Most Gracious)|Ar-Rahman (the Most Gracious)]]
+- [[_COMMUNITY_Ar-Rahim (the Most Merciful)|Ar-Rahim (the Most Merciful)]]
+- [[_COMMUNITY_Medina|Medina]]
+- [[_COMMUNITY_Theme Community and Defence|Theme: Community and Defence]]
+- [[_COMMUNITY_Adam|Adam]]
 - [[_COMMUNITY_Dhul-Kifl|Dhul-Kifl]]
-- [[_COMMUNITY_Elijah (Ilyas)|Elijah (Ilyas)]]
-- [[_COMMUNITY_Theme Community and Society|Theme: Community and Society]]
-- [[_COMMUNITY_Theme Day of Judgment|Theme: Day of Judgment]]
-- [[_COMMUNITY_Theme Nature and Signs|Theme: Nature and Signs]]
-- [[_COMMUNITY_Quran Corpus for Knowledge Graph|Quran Corpus for Knowledge Graph]]
+- [[_COMMUNITY_The Sacred Mosque (Makka)|The Sacred Mosque (Makka)]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `Surah 2: Al-Baqara (The Cow)` - 70 edges
-2. `Surah 7: Al-A'raf (The Heights)` - 21 edges
-3. `Surah 12: Yusuf (Joseph)` - 20 edges
-4. `Surah 20: Ta-Ha` - 19 edges
-5. `Surah 11: Hud` - 19 edges
-6. `Surah 18: Al-Kahf (The Cave)` - 18 edges
-7. `Surah 19: Maryam (Mary)` - 18 edges
-8. `Surah 9: At-Tawba (The Repentance)` - 17 edges
-9. `Surah Al-Anbiya (The Prophets)` - 15 edges
-10. `Surah 3: Aal-Imran (Family of Imran)` - 14 edges
+1. `Surah 2: Al-Baqara (The Cow)` - 49 edges
+2. `Early Meccan Phase (610-615 CE)` - 42 edges
+3. `Surah 3: Aal-Imran (The Family of Imran)` - 31 edges
+4. `Surah 4: An-Nisaa' (The Women)` - 27 edges
+5. `Surah 9: At-Tawba (The Repentance)` - 27 edges
+6. `Surah 6: Al-An'am (The Cattle)` - 26 edges
+7. `Surah 5: Al-Ma'ida (The Table Spread)` - 24 edges
+8. `Surah 7: Al-A'raf (The Heights)` - 24 edges
+9. `Surah 19: Maryam` - 24 edges
+10. `Middle Meccan Phase (615-619 CE)` - 24 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `Moses (Musa)` --narrates--> `Pharaoh (Firaun)`  [INFERRED]
-  surahs/surah_020_ta-ha.md → entities/figure_firaun.md
-- `Rabb (the Lord)` --appears_in--> `Surah 2: Al-Baqara (The Cow)`  [EXTRACTED]
-  entities/divine_rabb.md → surahs/surah_002_al-baqara.md
-- `Gabriel (Jibril)` --appears_in--> `Surah 2: Al-Baqara (The Cow)`  [EXTRACTED]
-  entities/figure_jibril.md → surahs/surah_002_al-baqara.md
-- `Surah 6: Al-An'am (The Cattle)` --thematically_related_to--> `Theme: Faith and Monotheism (Tawhid)`  [INFERRED]
-  surahs/surah_006_al-an-am.md → themes/faith-monotheism.md
-- `Noah and the flood narrative` --semantically_similar_to--> `Surah 6: Al-An'am (The Cattle)`  [INFERRED] [semantically similar]
-  surahs/surah_007_al-a-raf.md → surahs/surah_006_al-an-am.md
+- `Tawaffa: Souls Taken at Death` --semantically_similar_to--> `Jesus (Isa)`  [INFERRED] [semantically similar]
+  narratives/tawaffa-souls.md → entities/prophet_isa.md
+- `Surah 65: At-Talaq` --revealed_during--> `Early Medinan Phase (622-628 CE, Year 1-6 AH)`  [EXTRACTED]
+  surahs/surah_065_at-talaq.md → timeline/phase_early-medina.md
+- `Annunciation and Birth of Jesus (Isa) to Mary` --thematically_related_to--> `Faith and Monotheism`  [INFERRED]
+  surahs/surah_003_aal-imran.md → themes/faith-monotheism.md
+- `Verse of Mubahala (mutual cursing) with Christians of Najran` --thematically_related_to--> `Faith and Monotheism`  [INFERRED]
+  surahs/surah_003_aal-imran.md → themes/faith-monotheism.md
+- `The People of the Cave: 309 Lunar = 300 Solar Years` --thematically_related_to--> `Faith and Monotheism`  [EXTRACTED]
+  special/cave-309-lunar-years.md → themes/faith-monotheism.md
 
 ## Hyperedges (group relationships)
-- **Legal Rulings Block (Prayer, Fasting, Hajj, Marriage, Divorce, Debt, Interest, Charity, Dietary Laws)**, surah_002_theme_prayer, surah_002_theme_fasting, surah_002_theme_hajj, surah_002_theme_marriage_divorce, surah_002_theme_debt_contracts, surah_002_theme_interest_riba, surah_002_theme_charity, surah_002_theme_dietary_laws [INFERRED 0.95]
-- **Bani Israel Narrative Arc (Exodus, Covenant, Cow, Disobedience)**, surah_002_narrative_bani_israel, surah_002_narrative_cow, surah_002_musa, surah_002_firaun, surah_002_misr, surah_002_sinai, surah_002_theme_covenant [EXTRACTED 1.00]
-- **Opening Contrast Block (Believers, Hypocrites, Disbelievers verses 1-20)**, surah_002_theme_faith_vs_disbelief, surah_002_verse_2_30_khilafah, surah_002_narrative_adam_creation [INFERRED 0.85]
-- **Legal rulings cluster (inheritance, marriage, food, ablution)**, surah_004_inheritance_laws, surah_004_marriage_laws, surah_005_food_laws [EXTRACTED 1.00]
-- **Narratives of Mary and Jesus across surahs 3-5**, surah_003_birth_of_jesus, surah_005_table_spread, surah_005_mubahala [EXTRACTED 1.00]
-- **Comparative religion / People of the Book engagement**, surah_003_people_of_the_book, surah_004_people_of_the_book, surah_005_people_of_the_book [EXTRACTED 1.00]
-- **Prophet-narratives cluster in Al-A'raf (Noah, Hud, Lot)**, surah_007_concept_noah_flood, surah_007_concept_hud_and_aad, surah_007_concept_lot_destroyed_cities [EXTRACTED 1.00]
-- **Battle of Badr context in Al-Anfal (event, divine aid, spoils)**, surah_008_concept_battle_of_badr, surah_008_concept_angels_reinforcement, surah_008_concept_spoils_of_war_distribution [EXTRACTED 1.00]
-- **Surah 9 unique features (no bismillah, repentance, hypocrites exposed)**, surah_009_concept_absence_of_bismillah, surah_009_concept_repentance_theme, surah_009_concept_hypocrites_exposed [EXTRACTED 1.00]
-- **Joseph's complete narrative arc (dream to reunion)**, surah_012_yusuf_dream, surah_012_yusuf_betrayal, surah_012_yusuf_reunion [EXTRACTED 1.00]
-- **Al-Kahf's four-story structure (Cave, Gardens, Khidr, Dhul-Qarnayn)**, surah_018_cave_sleepers, surah_018_moses_khidr, surah_018_dhul_qarnayn [EXTRACTED 1.00]
-- **Surahs named after prophets and figures (Yunus, Hud, Yusuf, Ibrahim, Maryam, Ta-Ha)**, surah_010_yunus, surah_011_hud, surah_012_yusuf [EXTRACTED 1.00]
-- **Solomon's narrative arc across surahs**, surah_021_al_anbiya, surah_027_an_naml, surah_034_saba [EXTRACTED 0.95]
-- **Hawamim cluster - surahs opening with Ha-Meem (40-46)**, surah_040_ghafir, surah_041_fussilat, surah_042_ash_shura [EXTRACTED 1.00]
-- **Ya-Sin structural significance - heart of the Quran**, surah_036_yasin, surah_023_al_muminun, surah_032_as_sajdah [INFERRED 0.85]
-- **Ar-Rahman 31-Refrain Pattern: 'fa-bi-ayyi alaa-i rabbikuma tukadhdhiban' repeats across the surah binding creation, judgment, and paradise**, concept_ar_rahman_refrain, verse_055_013_refrain, verse_055_016_refrain, verse_055_018_refrain, verse_055_021_refrain, verse_055_023_refrain, verse_055_025_refrain, verse_055_028_refrain, verse_055_030_refrain, verse_055_032_refrain, verse_055_034_refrain, verse_055_036_refrain, verse_055_038_refrain, verse_055_040_refrain, verse_055_042_refrain, verse_055_045_refrain, verse_055_047_refrain, verse_055_049_refrain, verse_055_051_refrain, verse_055_053_refrain, verse_055_055_refrain, verse_055_057_refrain, verse_055_059_refrain, verse_055_061_refrain, verse_055_063_refrain, verse_055_065_refrain, verse_055_067_refrain, verse_055_069_refrain, verse_055_071_refrain, verse_055_073_refrain, verse_055_075_refrain, verse_055_077_refrain [EXTRACTED 1.00]
-- **Medinan Legal & Community-Conduct Cluster (community rules, divorce, oaths, hypocrites, allies, exile)**, surah_047_muhammad, surah_048_al_fath, surah_049_al_hujurat, surah_058_al_mujadilah, surah_059_al_hashr, surah_060_al_mumtahinah, surah_061_as_saff, surah_062_al_jumuah, surah_063_al_munafiqun, surah_064_at_taghabun, surah_065_at_talaq, surah_066_at_tahrim, concept_medinan_legal_corpus [INFERRED 0.95]
-- **Early Meccan Revelation-Onset Cluster (the cloaked one, the enwrapped, the pen, Noah's preaching, command to arise and warn)**, surah_068_al_qalam, surah_073_al_muzzammil, surah_074_al_muddaththir, surah_071_nuh, concept_early_meccan_command_to_preach, concept_night_prayer_qiyam, concept_arise_and_warn [INFERRED 0.85]
-- **Juz Amma - 37 short rhythmic surahs from An-Naba through An-Nas**, surah_078_an_naba, surah_097_al_qadr, surah_114_an_nas [INFERRED 0.95]
-- **Al-Mu'awwidhatan - the twin protection surahs**, surah_113_al_falaq, surah_114_an_nas, concept_mu_awwidhatan_protection_pair [INFERRED 0.95]
-- **Revelation arc - first revealed (Al-Alaq) and last revealed (An-Nasr)**, surah_096_al_alaq, surah_110_an_nasr, concept_first_and_last_revelations_pair [INFERRED 0.85]
-- **Abrahamic Prophets**, prophet_ibrahim, prophet_ismail, prophet_ishaq [INFERRED 0.95]
-- **Jacob's Line**, prophet_yaqub, prophet_yusuf, prophet_ishaq [INFERRED 0.95]
-- **Exodus Narrative**, prophet_musa, figure_firaun, place_sinai [INFERRED 0.95]
-- **Nativity Narrative**, prophet_isa, figure_maryam, prophet_zakariya [INFERRED 0.95]
+- **Adam creation cluster (Adam, Iblis, khilafah)**, surah_002_entity_adam, surah_002_entity_iblis, surah_002_verse_khilafah_2_30 [EXTRACTED 1.00]
+- **Ibrahim, Ismail and the Sacred Mosque**, surah_002_entity_ibrahim, surah_002_entity_ismail, surah_002_entity_masjid_al_haram [EXTRACTED 1.00]
+- **Talut, Jalut and David (kingship and victory)**, surah_002_entity_talut, surah_002_entity_jalut, surah_002_entity_dawud [EXTRACTED 1.00]
+- **Exodus cluster (Musa, Pharaoh, Bani Israel)**, surah_002_entity_musa, surah_002_entity_firaun, surah_002_entity_bani_israel [EXTRACTED 1.00]
+- **Financial legislation cluster (riba, debt verse, ethics)**, surah_002_arc_riba, surah_002_arc_debt_verse, surah_002_theme_legislation [INFERRED 0.95]
+- **Qibla change and middle-nation identity**, surah_002_verse_change_of_qibla_2_142_150, surah_002_verse_middle_nation_2_143, surah_002_entity_masjid_al_haram [INFERRED 0.95]
+- **Faith pillars (Ayat al-Kursi, closing verses, monotheism)**, surah_002_verse_ayat_al_kursi_2_255, surah_002_verse_closing_2_285_286, surah_002_theme_faith_monotheism [INFERRED 0.95]
+- **Mubahala event with Najran Christians**, surah_003_narrative_mubahala, entity_isa, asbab_mubahala_najran [INFERRED 0.95]
+- **Imran family lineage: Mary, Zechariah's guardianship, John**, entity_maryam, entity_zakariya, entity_yahya [EXTRACTED 1.00]
+- **Christological clarification across Medinan corpus**, surah_003_narrative_birth_isa, surah_004_narrative_jesus_nature, surah_005_narrative_jesus_questioned [INFERRED 0.95]
+- **Civil legislation in Medina: marriage, inheritance, food**, surah_004_narrative_inheritance_laws, surah_004_narrative_marriage_laws, surah_005_narrative_food_laws [INFERRED 0.95]
+- **Battle of Uhud aftermath: rumour of Prophet's death, lessons**, surah_003_narrative_uhud_aftermath, surah_003_narrative_muhammad_messenger, asbab_battle_uhud [INFERRED 0.95]
+- **Verse of Perfection during Farewell Pilgrimage**, surah_005_narrative_verse_of_perfection, asbab_farewell_pilgrimage, surah_005_al_maida [INFERRED 0.95]
+- **Table spread miracle requested by disciples of Jesus**, surah_005_narrative_table_spread, entity_isa, entity_maryam [EXTRACTED 1.00]
+- **First murder narrative: Adam's sons and the raven**, surah_005_narrative_cain_abel, entity_adam, surah_005_al_maida [EXTRACTED 1.00]
+- **Medinan surah cluster (3, 4, 5)**, surah_003_aal_imran, surah_004_an_nisaa, surah_005_al_maida [EXTRACTED 1.00]
+- **Surahs revealed across Medinan phases**, phase_early_medina, surah_003_aal_imran, surah_005_al_maida [EXTRACTED 1.00]
+- **Meccan Prophet Narrative Cycle (Al-A'raf core)**, narrative_noah_flood, narrative_hud_ad, narrative_shuayb_madyan [INFERRED 0.95]
+- **Battle of Badr Revelation Complex**, surah_008_al-anfal, event_battle_of_badr, narrative_battle_of_badr [INFERRED 0.95]
+- **At-Tawba Special Features (no Bismillah, Tabuk, three-who-stayed)**, feature_no_bismillah_tawba, narrative_tabuk_expedition, narrative_three_who_stayed_behind [INFERRED 0.95]
+- **Abraham's Cosmological Argument Against Polytheism**, narrative_abraham_idolaters_debate, prophet_ibrahim, theme_tawhid_monotheism [INFERRED 0.95]
+- **Moses-Pharaoh Confrontation Cycle**, narrative_moses_pharaoh_extended, prophet_musa, figure_firaun [INFERRED 0.95]
+- **Hypocrites Exposure Narrative Arc (Tabuk context)**, narrative_exposure_of_hypocrites, figure_hypocrites_munafiqun, narrative_tabuk_expedition [INFERRED 0.95]
+- **Anfal-Tawba Continuous Pairing (Medinan jihad/community legislation)**, surah_008_al-anfal, surah_009_al-tawba, feature_no_bismillah_tawba [INFERRED 0.85]
+- **Muhajirun-Ansar Alliance Formation**, narrative_hijra_emigration, event_hijra, place_madinah [INFERRED 0.85]
+- **Destroyed Nations Pattern (Al-A'raf)**, narrative_noah_flood, narrative_lut_sodom, narrative_hud_ad [INFERRED 0.85]
+- **Joseph (Yusuf) narrative arc - full prophet biography**, surah_012_yusuf, prophet_yusuf, prophet_yaqub [EXTRACTED 1.00]
+- **Al-Kahf triad: Cave Sleepers, Moses-Khidr, Dhul-Qarnayn**, surah_018_al-kahf, prophet_musa, event_migration-to-abyssinia [INFERRED 0.85]
+- **Annunciation and birth of Jesus - Maryam, Jesus, Zakariya/Yahya cluster**, surah_019_maryam, figure_maryam, prophet_isa [EXTRACTED 1.00]
+- **Ha-Mim Family (40-46)**, surah_040_ghafir, surah_041_fussilat, surah_042_ash-shura [INFERRED 0.95]
+- **Solomon and Queen of Sheba narrative arc**, entity_prophet_sulayman, entity_figure_bilqis, surah_027_an-naml [EXTRACTED 1.00]
+- **Moses birth narrative arc**, entity_prophet_musa, entity_figure_firaun, narrative_moses_birth_and_rescue [EXTRACTED 1.00]
+- **Battle of the Trench arc**, surah_033_al-ahzab, event_battle-of-the-trench, narrative_battle_of_trench [EXTRACTED 1.00]
+- **Slander of Aisha arc**, surah_024_an-nur, entity_figure_aisha, asbab_the-slander-of-aisha [EXTRACTED 1.00]
+- **Luqman wisdom and parenting arc**, entity_figure_luqman, surah_031_luqman, narrative_luqman_parenting [EXTRACTED 1.00]
+- **Tawaffa doctrine cluster (souls at death/sleep)**, narrative_tawaffa_souls_at_death, surah_039_az-zumar, entity_prophet_isa [INFERRED 0.95]
+- **Five great prophets pledge (33:7)**, entity_prophet_nuh, entity_prophet_ibrahim, entity_prophet_musa [EXTRACTED 1.00]
+- **Meccan prophet story cluster**, surah_026_ash-shuara, surah_027_an-naml, surah_028_al-qasas [INFERRED 0.95]
+- **Medinan legislation cluster**, surah_024_an-nur, surah_033_al-ahzab [EXTRACTED 1.00]
+- **Pharaoh's court oppressors**, entity_figure_firaun, entity_figure_haman, entity_figure_qarun [INFERRED 0.95]
+- **Ya-Sin resurrection emphasis cluster**, surah_036_yasin, narrative_resurrection_emphasis_yasin, theme_day-of-judgment [EXTRACTED 1.00]
+- **Sheba dam collapse arc**, surah_034_saba, entity_place_saba, narrative_saba_dam_collapse [EXTRACTED 1.00]
+- **Anbiya prophets chain (21)**, entity_prophet_ibrahim, entity_prophet_nuh, entity_prophet_dawud [EXTRACTED 1.00]
+- **Late Medinan legislative surahs (Mujadilah, Talaq, Tahrim)**, surah_058_al_mujadilah, surah_065_at_talaq, surah_066_at_tahrim [INFERRED 0.85]
+- **Earliest Meccan commands to Prophet (Al-Qalam, Al-Muzzammil, Al-Muddaththir)**, surah_068_al_qalam, surah_073_al_muzzammil, surah_074_al_muddaththir [INFERRED 0.95]
+- **Day of Judgment surahs (Al-Waqia, Al-Haqqah, Al-Qiyamah, Al-Ma'arij)**, surah_056_al_waqia, surah_069_al_haqqah, surah_070_al_maarij [INFERRED 0.85]
+- **Al-Mu'awwidhatan (closing protective surahs)**, surah_112_al_ikhlas, surah_113_al_falaq, surah_114_an_nas [EXTRACTED 0.95]
+- **Consolation surahs revealed during Year of Sorrow**, surah_093_ad_duha, surah_094_ash_sharh, event_year_of_sorrow [INFERRED 0.85]
+- **First revelation: Cave of Hira**, surah_096_al_alaq, event_cave_of_hira_first_revelation, concept_night_of_decree [INFERRED 0.85]
+- **Protection of Quraish: Year of Elephant + Quraish journeys**, surah_105_al_fil, surah_106_quraish, concept_quraish_tribe [INFERRED 0.85]
+- **Final revelation arc: victory and conquest**, surah_110_an_nasr, event_conquest_of_mecca, phase_late_medina [INFERRED 0.85]
+- **Cosmic upheaval at the Day of Judgment**, surah_081_at_takwir, surah_082_al_infitar, surah_084_al_inshiqaq [INFERRED 0.85]
+- **Destroyed nations as warnings: Aad, Thamood, Pharaoh**, surah_089_al_fajr, concept_aad_iram, concept_thamud [EXTRACTED 0.95]
+- **Ethics of caring for the orphan and the poor**, surah_089_al_fajr, surah_093_ad_duha, surah_107_al_maun [INFERRED 0.85]
+- **Moses-Pharaoh narrative cluster**, surah_079_an_naziat, prophet_musa, figure_firaun [EXTRACTED 0.95]
+- **The Revelation Timeline (5 phases spanning 610-632 CE)**, phase_early_mecca, phase_middle_mecca, phase_late_mecca [EXTRACTED 1.00]
+- **Medinan Military History (Badr, Uhud, Trench, Hudaybiyyah, Conquest)**, event_battle_of_badr, event_battle_of_uhud, event_battle_of_the_trench [INFERRED 0.95]
+- **Year of Sorrow Events (Abu Talib's death, Khadijah's death, Ta'if rejection)**, event_year_of_sorrow, event_boycott_of_banu_hashim, event_isra_and_miraj [INFERRED 0.85]
+- **The Tafsir Canon Referenced in the App**, scholar_al_tabari, scholar_ibn_kathir, scholar_al_qurtubi [EXTRACTED 1.00]
+- **Modern Tafsir Canon (20th-21st century)**, scholar_ibn_ashur, scholar_sayyid_qutb, scholar_al_samarrai [EXTRACTED 1.00]
+- **Ulum al-Quran Foundational Disciplines**, science_asbab_al_nuzul_methodology, science_nasikh_mansukh, science_muhkam_mutashabih [EXTRACTED 1.00]
+- **Ulum al-Quran Textual Disciplines**, science_makki_madani, science_qiraat, science_ijaz_al_quran [EXTRACTED 1.00]
+- **Classical Occasions of Revelation: Medinan Legal Framework**, asbab_verses_of_inheritance, asbab_verses_on_orphans_after_uhud, asbab_verses_of_hijab [EXTRACTED 1.00]
+- **Classical Occasions: Personal Narrative Asbab**, asbab_the_pleading_woman, asbab_the_slander_of_aisha, asbab_the_three_who_stayed_behind [EXTRACTED 1.00]
+- **Classical Occasions: Creedal/Theological Centerpieces**, asbab_ayat_al_kursi, asbab_verse_of_light, asbab_verse_of_perfection [EXTRACTED 1.00]
+- **Classical Occasions: Surah At-Tawba Late Medinan Cluster**, asbab_verses_of_bara_immunity, asbab_the_three_companions, asbab_the_three_who_stayed_behind [EXTRACTED 1.00]
+- **Classical Occasions: Marriage, Mubahala, Pilgrimage**, asbab_verses_of_marriage_to_zaynab, asbab_verse_of_mubahala, asbab_verse_of_pilgrimage_call [EXTRACTED 1.00]
+- **Classical Occasion: Change of Qibla**, asbab_change_of_qibla [EXTRACTED 1.00]
+- **Methodological Cluster: Tafsir bil-Mathur Lineage**, scholar_al_tabari, scholar_ibn_kathir, approach_tafsir_bil_mathur [EXTRACTED 1.00]
+- **Methodological Cluster: Linguistic-Rhetorical Tafsir**, scholar_ibn_ashur, scholar_al_samarrai, approach_tafsir_lughawi_balaghi [EXTRACTED 1.00]
+- **Methodological Cluster: Accessible/Devotional Tafsir**, scholar_al_sadi, scholar_al_sharawi, scholar_sayyid_qutb [INFERRED 0.85]
 - **Divine Names of Bismillah**, divine_allah, divine_ar_rahman, divine_ar_rahim [EXTRACTED 1.00]
-- **Prophets to Destroyed Nations**, prophet_hud, prophet_lut, prophet_shuayb [INFERRED 0.85]
-- **Lesser-Mentioned Prophets**, prophet_idris, prophet_dhul_kifl, prophet_al_yasa [INFERRED 0.75]
-- **Holy Cities of Arabia**, place_makka, place_madinah, place_masjid_al_haram [INFERRED 0.95]
-- **Creedal Core Themes**, theme_faith_monotheism, theme_day_of_judgment, theme_worship [INFERRED 0.85]
-- **Social and Legal Themes**, theme_legislation, theme_community, theme_ethics [INFERRED 0.85]
-- **Narrative and Warning Themes**, theme_prophets_stories, theme_warning, theme_patience [INFERRED 0.85]
-- **Numerical Structural Miracles**, special_bismillah_113_occurrences, special_number_19_pattern, special_iron_miracle_hadid [INFERRED 0.85]
-- **Structural Patterns**, special_ar_rahman_refrain_31x, special_longest_shortest_arrangement, special_cave_309_lunar_years [INFERRED 0.85]
 
-## Communities (86 total, 46 thin omitted)
+## Communities (28 total, 8 thin omitted)
 
-### Community 0 - "Meccan Revelation Period"
+### Community 0 - "Late Medinan: Hijab, Zaynab, Divine Names"
 Cohesion: 0.06
-Nodes (67): Meccan revelation period, Pharaoh (Firaun), Iblis (Satan), The Aziz's wife (Potiphar's wife), Dhul-Qarnayn (the Two-Horned One), Gog and Magog (Yajuj and Majuj), Al-Khidr (the unnamed servant of God), Mary (Maryam, mother of Jesus) (+59 more)
+Nodes (65): Asbab: Verses of Hijab, Asbab: Marriage to Zaynab, Allah, Rabb (the Lord), Bilqis (Queen of Sheba), Pharaoh (Firaun), Hamaan (Pharaoh's minister), Iblis (Satan) (+57 more)
 
-### Community 1 - "Aal-Imran & Battle of Uhud"
-Cohesion: 0.06
-Nodes (41): Surah 3: Aal-Imran (Family of Imran), Allah, Battle of Badr / Uhud reference (two parties), Birth of Jesus narrative, Theme: Faith and Monotheism, Family of Imran (Aal-Imran), Abraham (Ibrahim), Jesus (Isa) (+33 more)
-
-### Community 2 - "Juz Amma & Oath Surahs"
-Cohesion: 0.06
-Nodes (35): Concept: Oath openings (qasam) as rhetorical signature of short Meccan surahs, Surah 79: An-Naziat (Those Who Pull Out), Concept: Moses-Pharaoh paradigm of defiance and punishment, Concept: Five-fold oath by extracting and gliding agents (angels of death), Surah 85: Al-Buruj (The Constellations), Concept: People of the Trench (Ashab al-Ukhdud) - martyrs burned alive for faith, Concept: The Preserved Tablet (al-Lawh al-Mahfuz) as the Quran's heavenly origin, Surah 86: At-Tariq (The Night Visitor) (+27 more)
-
-### Community 3 - "Eschatology & Quran Bookends"
-Cohesion: 0.08
-Nodes (31): Concept: Cosmic dissolution imagery - sun folded, stars fall, oceans burst, mountains scattered, Concept: Al-Fatiha (opening) and An-Nas (closing) as structural bookends of the mushaf, Concept: Juz Amma - the final juz with short, rhythmic, easily memorised surahs (78-114), Concept: Al-Mu'awwidhatan - the twin protection surahs (113 and 114), Surah 77: Al-Mursalat (Those Sent Forth), Concept: Day of Decision (Yawm al-Fasl), Concept: Five-fold oath by winds or messengers, Concept: Recurring refrain 'Woe on that Day to the deniers' (+23 more)
-
-### Community 4 - "Al-Baqara + Moses-Pharaoh"
-Cohesion: 0.09
-Nodes (29): Pharaoh (Firaun), Moses (Musa) - extensive narratives, Surah 2: Al-Baqara, Moses versus Pharaoh extended narrative (plagues, exodus), Surah Al-Muminun (The Believers), Barzakh - the barrier between death and resurrection, Seven characteristics of successful believers, Surah 26: Ash-Shu'ara (+21 more)
-
-### Community 5 - "Creation & Fall Narratives"
-Cohesion: 0.10
-Nodes (27): Pharaoh (Firaun), Iblis (Satan), Adam, David (Dawud), Quran's Length Arrangement: Longest to Shortest, Surah 2: Al-Baqara (The Cow), Adam, Ar-Rahim (the Most Merciful) (+19 more)
-
-### Community 6 - "Wisdom Prophets (David, Solomon, Job, Luqman)"
-Cohesion: 0.10
-Nodes (26): David (Dawud), Job (Ayyub), Luqman the wise, Solomon (Sulayman), Queen Bilqis of Sheba, Surah Al-Anbiya (The Prophets), Abraham breaks the idols narrative, Heavens and earth were one mass torn apart - creation cosmology (+18 more)
-
-### Community 7 - "Al-Hajj: Pilgrimage & Embryology"
+### Community 1 - "Divine Names Hub (Allah, Ar-Rahman, Ar-Rahim)"
 Cohesion: 0.11
-Nodes (20): Surah Al-Hajj (The Pilgrimage), Embryological stages of human creation, First permission to fight in self-defense, Pilgrimage rites at the Ancient House, Human embryological development from clay to creature, Surah An-Nur (The Light), Legal punishment for adultery (100 lashes), Modesty commandments for men and women (hijab) (+12 more)
+Nodes (62): Allah, Ar-Rahim (the Most Merciful), Ar-Rahman (the Most Gracious), Rabb (the Lord), Isra and Mi'raj (Night Journey), Migration to Abyssinia (615 CE), Pharaoh (Firaun), Iblis (Satan) (+54 more)
 
-### Community 8 - "Ar-Rahman Refrain & Day of Judgment"
-Cohesion: 0.12
-Nodes (16): Ar-Rahman Refrain 'fa-bi-ayyi alaa-i rabbikuma tukadhdhiban' (repeated 31x), The Blaming Soul (an-Nafs al-Lawwamah), Creation of Man from Clay, Jinn from Fire, Day of Resurrection (Yawm al-Qiyamah), The Balance (Mizan, scales of justice), The Reality (al-Haqqah, the inevitable Day), Two Gardens of Paradise (Jannatan), Two Seas with a Barrier (Barzakh) (+8 more)
+### Community 2 - "Pleading Woman + Farewell Pilgrimage"
+Cohesion: 0.06
+Nodes (57): Asbab: The Pleading Woman, Asbab: Verses on marriage to Zaynab, Farewell Pilgrimage (closing event of prophetic mission), Year 1 of the Hijri Calendar (temporal pivot), Battle of Badr (17 Ramadan 2 AH / March 624 CE), Battle of the Trench / Al-Khandaq (627 CE / 5 AH), Battle of Uhud (625 CE / 3 AH), Event: Conquest of Mecca (+49 more)
 
-### Community 9 - "Treaty of Hudaybiyyah & Victory"
-Cohesion: 0.12
-Nodes (16): Conspicuous Victory (Fath Mubin), Rules for War Captives (release by grace or ransom), Sakinah (Divine Tranquility in believers' hearts), Treaty of Hudaybiyyah (the defeat-that-was-victory), Pharaoh (Firaun), Mecca (Makka), The Sacred Mosque (Makka), Prophet Muhammad (+8 more)
+### Community 3 - "Battle of Uhud + Mubahala + Adam"
+Cohesion: 0.07
+Nodes (55): Asbab al-Nuzul: Battle of Uhud (3 AH / 625 CE), Asbab al-Nuzul: Christian delegation from Najran (Mubahala event), Adam, Allah (God), Ar-Rahim (the Most Merciful), Ar-Rahman (the Most Gracious), Job (Ayyub), David (Dawud) (+47 more)
 
-### Community 10 - "Adam-Iblis & People of Heights"
-Cohesion: 0.17
-Nodes (12): People of the Heights (Ashab al-A'raf), Adam, Shu'ayb, Surah 7: Al-A'raf (The Heights), Adam and Iblis creation narrative (refusal to bow), The golden calf and Aaron's stewardship, Hud and the people of 'Ad, Lot and the destroyed cities (Sodom) (+4 more)
+### Community 4 - "Al-Baqara: Bani Israel, Adam, Ibrahim arcs"
+Cohesion: 0.06
+Nodes (50): Surah 2: Al-Baqara (The Cow), Narrative arc: Adam's creation and the angels' prostration, Narrative arc: Bani Israel (covenant, exodus, golden calf, repentance), Narrative arc: The traveller by the ruined town (death and resurrection), Narrative arc: The Debt verse (longest verse, lending and witnesses), Narrative arc: Ibrahim, Ismail and the building of the Kaaba, Narrative arc: Ibrahim disputing with Nimrod over the Lord, Narrative arc: Prohibition of riba (usury) (+42 more)
 
-### Community 11 - "At-Tawba: Hypocrites & Repentance"
+### Community 5 - "Asbab al-Nuzul Methodology"
+Cohesion: 0.11
+Nodes (18): Asbab: Ayat al-Kursi (2:255), Asbab: Change of Qibla (2:142-150), Asbab: The Pleading Woman (58:1-4), Asbab: Slander of Aisha (24:11-20), Asbab: First Three Converts (9:100,117), Asbab: Three Who Stayed Behind from Tabuk (9:117-118), Asbab: Ayat an-Nur (24:35), Asbab: Verse of Mubahala (3:61) (+10 more)
+
+### Community 6 - "Late Meccan Eschatology"
+Cohesion: 0.21
+Nodes (16): Sacred Valley of Tuwa, Phase: Late Meccan, Surah 69: Al-Haqqah, Surah 70: Al-Ma'arij, Surah 75: Al-Qiyamah, Surah 77: Al-Mursalat, Surah 78: An-Naba, Surah 79: An-Naziat (+8 more)
+
+### Community 7 - "Historical Punishment Stories (Abu Lahab, Elephant, Trench)"
+Cohesion: 0.15
+Nodes (15): Abu Lahab (uncle of the Prophet), People of the Elephant (Year of the Elephant), People of the Trench (Ashab al-Ukhdud), Quraish tribe, Surah 52: At-Tur, Surah 68: Al-Qalam, Surah 85: Al-Buruj, Surah 90: Al-Balad (+7 more)
+
+### Community 8 - "Tafsir Methodological Schools (bil-Mathur, Muyassar)"
 Cohesion: 0.18
-Nodes (11): Madyan, The Hypocrites (al-Munafiqun), Surah 9: At-Tawba (The Repentance), Absence of Bismillah (only surah without opening invocation), Declaration of immunity from treaties with polytheists, Hypocrites (al-munafiqun) exposed and characterised, Repentance (tawba) as central surah theme, Tabuk expedition and tests of faith (+3 more)
+Nodes (13): Tafsir bil-Mathur (interpretation through transmitted narration), Tafsir Muyassar (accessible tafsir), Israiliyyat (Jewish/Christian narratives in tafsir), Al-Sa'di, Imam Al-Tabari, Ibn Kathir, Ibn Taymiyyah, Muhkam and Mutashabih (+5 more)
 
-### Community 12 - "First Revelation (Iqra)"
+### Community 9 - "Year of Sorrow + Destroyed Nations (Aad, Thamud)"
+Cohesion: 0.24
+Nodes (13): Aad of Iram (the pillared), People of Thamood, Event: Year of Sorrow, Early Meccan Phase (610-615 CE), Surah 72: Al-Jinn, Surah 86: At-Tariq, Surah 89: Al-Fajr, Surah 91: Ash-Shams (+5 more)
+
+### Community 10 - "Farewell Pilgrimage + Tawhid"
+Cohesion: 0.17
+Nodes (12): Asbab al-Nuzul: Farewell Pilgrimage at Arafat (10 AH / 632 CE), Scriptures of Abraham and Moses, Tawhid (oneness of God), The Iron Miracle: Surah 57 Al-Hadid, The Number 19 Pattern, Verse of Perfection of Religion (Farewell Pilgrimage), Surah 67: Al-Mulk, Surah 87: Al-Ala (+4 more)
+
+### Community 11 - "Early Mecca: Cave of Hira + Boycott"
 Cohesion: 0.20
-Nodes (11): Concept: First and last revelations - Al-Alaq (96) opens revelation, An-Nasr (110) closes it, Surah 96: Al-Alaq (The Clot), Concept: First revelation - 'Iqra' (Read) in the name of your Lord who created, Concept: 19-letter mathematical pattern - the first five verses contain 76 letters (19x4), Concept: Divine teaching through the pen - origin of literacy as sacred, Surah 97: Al-Qadr (The Night of Power), Concept: Descent of angels and the Spirit on the Night of Decree, Concept: Night of Decree (Laylat al-Qadr) - better than a thousand months (+3 more)
+Nodes (11): Cave of Hira (absolute temporal origin of the Quran), Boycott of Banu Hashim (616-619 CE), Event: Cave of Hira First Revelation, First Migration to Abyssinia (615 CE), Public Preaching Begins (613 CE), Middle Meccan Phase (615-619 CE), The People of the Cave: 309 Lunar = 300 Solar Years, Surah 46: Al-Ahqaf (+3 more)
 
-### Community 13 - "Divine Names (Allah, Ar-Rahman, Ar-Rahim)"
+### Community 12 - "Al-Samarrai's Linguistic Bayani School"
 Cohesion: 0.22
-Nodes (10): Medinan revelation period, Allah (God), Ar-Rahim (the Most Merciful), Ar-Rahman (the Most Gracious), Rabb (the Lord), Surah 1: Al-Fatiha (The Opening), Prayer of the Believers (Guidance to the Straight Path), The Seven Oft-Recited Verses (Sab'a al-Mathani) (+2 more)
+Nodes (10): Tafsir Bayani (rhetorical and linguistic precision), Tafsir Lughawi-Balaghi (linguistic-rhetorical analysis), Dr. Fadel Al-Samarrai, Ibn Ashur, I'jaz al-Quran (Inimitability), Makki and Madani Classification, The Ten Qira'at (Canonical Readings), Al-Tahrir wa al-Tanwir (+2 more)
 
-### Community 14 - "Night Vision & Banu Nadir"
-Cohesion: 0.22
-Nodes (9): Exile of the People of the Book (Banu Nadir mobilization), Extremely Powerful (Jibril teaching the revelation), Prophet's Night Vision (within two bows' length), Do Not Take Enemies as Allies (loyalty principle), Abraham (Ibrahim), Surah 51: Adh-Dhariyat (The Spreaders), Surah 53: An-Najm (The Star), Surah 59: Al-Hashr (The Exile) (+1 more)
+### Community 13 - "Special Patterns (Mu'awwidhatan, Refrain, Night of Decree)"
+Cohesion: 0.28
+Nodes (9): Al-Mu'awwidhatan (the two protective surahs), Night of Decree (Laylat al-Qadr), The Ar-Rahman Refrain: 31 Repetitions, Surah 96: Al-Alaq, Surah 97: Al-Qadr, Surah 108: Al-Kauthar, Surah 113: Al-Falaq, Surah 114: An-Nas (+1 more)
 
-### Community 15 - "Iron Miracle, Moon Splitting, Noah's Lament"
-Cohesion: 0.25
-Nodes (9): Inheritance of Prophethood through Noah and Abraham, Iron Descent (the Hadid miracle, atomic number 26), Monasticism Invention (rahbaniyya, not ordained by God), Noah's Lament (950 years of preaching to people), Splitting of the Moon (Inshiqaq al-Qamar), Noah (Nuh), Surah 54: Al-Qamar (The Moon), Surah 57: Al-Hadid (The Iron) (+1 more)
-
-### Community 16 - "Abraham's Family (Ibrahim, Ishaq, Ismail)"
-Cohesion: 0.32
-Nodes (8): Abraham (Ibrahim), Isaac (Ishaq), Ishmael (Ismail), The Resurrection of the Dead Town and the Birds, Abraham and Ishmael Raising the Kaaba, Abraham's Debate with the King (Nimrod), Verse 2:124: Abraham's Covenant and Imamate, Jacob (Yaqub)
-
-### Community 17 - "Hypocrites Warning & Late Medinan"
-Cohesion: 0.25
-Nodes (8): Hypocrites' Warning (Al-Munafiqun), Say What You Do (warning against hypocrisy in speech), Medina, Prophet Jesus (Isa), Moses (Musa), Surah 46: Al-Ahqaf (The Dunes), Surah 61: As-Saff (The Ranks), Surah 63: Al-Munafiqun (The Hypocrites)
-
-### Community 18 - "Abraham's Debate (Al-Anam)"
-Cohesion: 0.25
-Nodes (8): Iblis (Satan), Lot (Lut), Surah 6: Al-An'am (The Cattle), Abraham's debate with idolaters (stars, moon, sun), Cattle and dietary laws of the pagans refuted, Argument for pure monotheism against polytheism, Prophetic lineage of Abraham (18 prophets named), Surah 50: Qaf
-
-### Community 19 - "Divine Names Cross-Surah Hub"
-Cohesion: 0.43
-Nodes (7): Allah, Ar-Rahim (the Most Merciful), Ar-Rahman (the Most Gracious), Rabb (the Lord), The Ar-Rahman Refrain: 31 Repetitions, Bismillah: The 113 Occurrences, Theme: Worship and Devotion
-
-### Community 20 - "Moses-Pharaoh in Al-Baqara"
-Cohesion: 0.38
-Nodes (7): Pharaoh (Firaun), Gabriel (Jibril), Egypt (Misr), Moses (Musa), Bani Israel Narratives and Disobedience, The Cow of Bani Israel, Mount Sinai (Tur)
-
-### Community 21 - "Early Meccan Prophet Commands"
+### Community 14 - "Divine Names + Bismillah Pattern"
 Cohesion: 0.33
-Nodes (6): Arise and Warn (command to the cloaked one), Early Meccan Command to Preach (post-revelation onset), Night Prayer (Qiyam al-Layl, command to the enwrapped one), Hud, Surah 73: Al-Muzzammil (The Enwrapped), Surah 74: Al-Muddaththir (The Cloaked One)
+Nodes (6): Ar-Rahim (the Most Merciful), Ar-Rahman (the Most Gracious), Bismillah: The 113 Occurrences, Special: Ar-Rahman 31x refrain, Surah 55: Ar-Rahman, Surah 56: Al-Waqia
 
-### Community 22 - "Pure Monotheism (Al-Ikhlas + Al-A'la)"
-Cohesion: 0.33
-Nodes (6): Surah 87: Al-A'la (The Most High), Concept: Continuity with the scriptures of Abraham and Moses, Concept: 'Glorify the name of your Lord the Most High' (Sabbih ism Rabbika al-A'la), Surah 112: Al-Ikhlas (Sincerity / Pure Monotheism), Concept: Recitation tradition - equivalent in reward to one-third of the Quran, Concept: Pure monotheism (tawhid) - God is One, Absolute, neither begets nor is begotten
-
-### Community 23 - "Prophet Muhammad's Hijra Geography"
+### Community 15 - "Aisha Cluster (Slander, Light Verse)"
 Cohesion: 0.40
-Nodes (5): Gabriel (Jibril), Medina, Mecca (Makka), The Sacred Mosque (Makka), Muhammad
+Nodes (5): Asbab: The Slander of Aisha (Ifk), Asbab: Verse of Light, Aisha (wife of Prophet), Late Medinan phase (628-632 CE), Surah 24: An-Nur (The Light)
 
-### Community 24 - "Al-Baqara Pillars of Worship"
-Cohesion: 0.40
-Nodes (5): The Sacred Mosque (Makka), Fasting (Sawm) in Ramadan, Hajj Pilgrimage, Prayer (Salah), Change of Qibla to the Kaaba
-
-### Community 25 - "Marriage & Divorce Law (Al-Mujadila, At-Talaq)"
-Cohesion: 0.40
-Nodes (5): Divorce During Iddah (period of purity, witnessed), The Pleading Woman (Khawla bint Tha'laba complaint), Zihar Prohibition (forbidden estrangement of wife by likening to mother), Surah 58: Al-Mujadila (The Pleading Woman), Surah 65: At-Talaq (Divorce)
-
-### Community 26 - "Al-Baqara Closing Verses"
-Cohesion: 0.67
-Nodes (4): Allah, Ayat al-Kursi (Verse of the Throne), Closing Verses Amana al-Rasul, Rabb (the Lord)
-
-### Community 27 - "Al-Baqara Commercial Law (Riba, Debt)"
+### Community 16 - "Sayyid Qutb's Fi Zilal School"
 Cohesion: 0.50
-Nodes (4): Charity (Zakat and Sadaqah), Debt and Financial Contracts, Prohibition of Interest (Riba), Marriage and Divorce Rulings
+Nodes (4): Tafsir Adabi-Haraki (literary-activist), Sayyid Qutb, Fi Zilal al-Quran (In the Shade of the Quran), Milestones (Ma'alim fi al-Tariq)
 
-### Community 28 - "Surah At-Tahrim & Mary"
-Cohesion: 0.50
-Nodes (4): Prohibition of the Lawful (rebuke for ad-hoc abstention), Gabriel (Jibril), Mary (Maryam, mother of Jesus), Surah 66: At-Tahrim (The Prohibition)
-
-### Community 29 - "Year of the Elephant & Quraysh"
-Cohesion: 0.50
-Nodes (4): Surah 105: Al-Fil (The Elephant), Concept: People of the Elephant - Abraha's failed attack on Kaaba (year of the Prophet's birth), Concept: Quraysh's winter and summer trade caravans and the security of the Sacred House, Surah 106: Quraysh (The Tribe of the Prophet)
-
-### Community 30 - "Surah 98: Al-Bayinah (The Clear Evidence"
-Cohesion: 0.50
-Nodes (4): Surah 98: Al-Bayinah (The Clear Evidence), Concept: Clear Evidence (al-Bayyinah) brought to People of the Book and polytheists, Surah 109: Al-Kafirun (The Disbelievers), Concept: 'To you your way, to me mine' - statement of religious distinction without coercion
-
-### Community 31 - "Surah 104: Al-Humaza (The Slanderer)"
-Cohesion: 0.50
-Nodes (4): Surah 104: Al-Humaza (The Slanderer), Concept: Punishment for the slanderer and hoarder in al-Hutamah (the Crusher), Surah 111: Al-Masad (The Palm Fiber), Concept: Personal condemnation of Abu Lahab and his wife
-
-### Community 32 - "Verify News from a Troublemaker (anti-fi"
+### Community 17 - "Al-Sha'rawi's Khawatir Reflections"
 Cohesion: 0.67
-Nodes (3): Verify News from a Troublemaker (anti-fitnah principle), Voice-Lowering Etiquette before the Prophet, Surah 49: Al-Hujurat (The Inner Apartments)
+Nodes (3): Tafsir Khawatiri (devotional reflections), Sheikh Al-Sha'rawi, Khawatir al-Sha'rawi hawl al-Quran al-Karim
 
-### Community 33 - "Surah Al-Ankabut (The Spider)"
+### Community 18 - "Al-Qurtubi's Fiqhi Jurisprudence"
 Cohesion: 0.67
-Nodes (3): Surah Al-Ankabut (The Spider), Spider web as parable for false reliance on others than God, Trials and tests as proof of faith
+Nodes (3): Tafsir Fiqhi (jurisprudential tafsir), Al-Qurtubi, Al-Jami li-Ahkam al-Quran
 
-### Community 34 - "Surah Az-Zumar (The Crowds)"
+### Community 19 - "The Blind Man Incident (Abasa 80)"
 Cohesion: 0.67
-Nodes (3): Surah Az-Zumar (The Crowds), Tawaffa concept - God takes souls in death and sleep, Jesus tawaffa verse (3:55) reference
-
-### Community 35 - "Friday Congregation (Al-Jumua, weekly pr"
-Cohesion: 0.67
-Nodes (3): Friday Congregation (Al-Jumua, weekly prayer), Unlettered Messenger Teaching Scripture and Wisdom, Surah 62: Al-Jumua (Friday Congregation)
-
-### Community 36 - "Surah 76: Al-Insan (Man)"
-Cohesion: 0.67
-Nodes (3): Surah 76: Al-Insan (Man), Concept: Free will bounded by divine will, Concept: Paradise reward for the righteous who fed the needy
-
-### Community 37 - "Surah 80: Abasa (He Frowned)"
-Cohesion: 0.67
-Nodes (3): Surah 80: Abasa (He Frowned), Concept: Divine rebuke for ignoring the blind seeker (Ibn Umm Maktum), Concept: 'The Deafening Noise' (as-Sakhkhah) and fleeing kin
-
-### Community 38 - "Surah 83: Al-Mutaffifin (The Defrauders)"
-Cohesion: 0.67
-Nodes (3): Surah 83: Al-Mutaffifin (The Defrauders), Concept: Condemnation of those who give short measure and weight (defrauders), Concept: Sijjeen and Illiyyeen - registers of wicked and righteous
-
-### Community 39 - "Surah 108: Al-Kawthar (The Abundance)"
-Cohesion: 0.67
-Nodes (3): Surah 108: Al-Kawthar (The Abundance), Concept: Al-Kawthar - the abundance gifted to the Prophet, Concept: Shortest surah in the Quran - only 3 verses
+Nodes (3): Blind Man incident (Abdullah ibn Umm Maktum), Surah 80: Abasa, Theme: Nature and Signs
 
 ## Knowledge Gaps
-- **286 isolated node(s):** `John the Baptist (Yahya)`, `Hud`, `Legislation`, `Faith versus Disbelief and Hypocrisy`, `Divine Covenant` (+281 more)
+- **135 isolated node(s):** `Revelation Phase: Early Medinan (622-628 CE)`, `Allah`, `Ar-Rahman (the Most Gracious)`, `Ar-Rahim (the Most Merciful)`, `Rabb (the Lord)` (+130 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **46 thin communities (<3 nodes) omitted from report**, run `graphify query` to explore isolated nodes.
+- **8 thin communities (<3 nodes) omitted from report**, run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Moses versus Pharaoh extended narrative (plagues, exodus)` connect `Al-Baqara + Moses-Pharaoh` to `Meccan Revelation Period`, `Adam-Iblis & People of Heights`?**
-  _High betweenness centrality (0.124) - this node is a cross-community bridge._
-- **Why does `Surah 2: Al-Baqara (The Cow)` connect `Creation & Fall Narratives` to `Meccan Revelation Period`, `Abraham's Family (Ibrahim, Ishaq, Ismail)`, `Divine Names Cross-Surah Hub`, `Moses-Pharaoh in Al-Baqara`, `Prophet Muhammad's Hijra Geography`, `Al-Baqara Pillars of Worship`, `Al-Baqara Closing Verses`, `Al-Baqara Commercial Law (Riba, Debt)`?**
-  _High betweenness centrality (0.114) - this node is a cross-community bridge._
-- **Why does `Surah 20: Ta-Ha` connect `Meccan Revelation Period` to `Al-Baqara + Moses-Pharaoh`, `Creation & Fall Narratives`?**
-  _High betweenness centrality (0.090) - this node is a cross-community bridge._
-- **Are the 12 inferred relationships involving `Surah 2: Al-Baqara (The Cow)` (e.g. with `Faith versus Disbelief and Hypocrisy` and `Divine Covenant`) actually correct?**
-  _`Surah 2: Al-Baqara (The Cow)` has 12 INFERRED edges - model-reasoned connections that need verification._
-- **Are the 3 inferred relationships involving `Surah 7: Al-A'raf (The Heights)` (e.g. with `Salih and the people of Thamud (she-camel)` and `The golden calf and Aaron's stewardship`) actually correct?**
-  _`Surah 7: Al-A'raf (The Heights)` has 3 INFERRED edges - model-reasoned connections that need verification._
-- **Are the 2 inferred relationships involving `Surah 12: Yusuf (Joseph)` (e.g. with `Brothers of Joseph` and `The Aziz's wife (Potiphar's wife)`) actually correct?**
-  _`Surah 12: Yusuf (Joseph)` has 2 INFERRED edges - model-reasoned connections that need verification._
-- **Are the 7 inferred relationships involving `Surah 20: Ta-Ha` (e.g. with `Moses versus Pharaoh extended narrative (plagues, exodus)` and `Surah 10: Yunus (Jonah)`) actually correct?**
-  _`Surah 20: Ta-Ha` has 7 INFERRED edges - model-reasoned connections that need verification._
+- **Why does `Early Meccan Phase (610-615 CE)` connect `Year of Sorrow + Destroyed Nations (Aad, Thamud)` to `Divine Names Hub (Allah, Ar-Rahman, Ar-Rahim)`, `Pleading Woman + Farewell Pilgrimage`, `Late Meccan Eschatology`, `Historical Punishment Stories (Abu Lahab, Elephant, Trench)`, `Farewell Pilgrimage + Tawhid`, `Early Mecca: Cave of Hira + Boycott`, `Special Patterns (Mu'awwidhatan, Refrain, Night of Decree)`, `Divine Names + Bismillah Pattern`, `The Blind Man Incident (Abasa 80)`?**
+  _High betweenness centrality (0.100) - this node is a cross-community bridge._
+- **Why does `Legislation` connect `Battle of Uhud + Mubahala + Adam` to `Late Medinan: Hijab, Zaynab, Divine Names`, `Pleading Woman + Farewell Pilgrimage`, `Aisha Cluster (Slander, Light Verse)`?**
+  _High betweenness centrality (0.083) - this node is a cross-community bridge._
+- **Why does `Surah 8: Al-Anfal (The Spoils)` connect `Pleading Woman + Farewell Pilgrimage` to `Divine Names Hub (Allah, Ar-Rahman, Ar-Rahim)`, `Battle of Uhud + Mubahala + Adam`?**
+  _High betweenness centrality (0.075) - this node is a cross-community bridge._
+- **Are the 7 inferred relationships involving `Surah 2: Al-Baqara (The Cow)` (e.g. with `Bani Israel (Children of Israel)` and `Nimrod (king who disputed with Ibrahim)`) actually correct?**
+  _`Surah 2: Al-Baqara (The Cow)` has 7 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 2 inferred relationships involving `Surah 3: Aal-Imran (The Family of Imran)` (e.g. with `Surah 4: An-Nisaa' (The Women)` and `Surah 5: Al-Ma'ida (The Table Spread)`) actually correct?**
+  _`Surah 3: Aal-Imran (The Family of Imran)` has 2 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 2 inferred relationships involving `Surah 4: An-Nisaa' (The Women)` (e.g. with `Surah 3: Aal-Imran (The Family of Imran)` and `Surah 5: Al-Ma'ida (The Table Spread)`) actually correct?**
+  _`Surah 4: An-Nisaa' (The Women)` has 2 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 14 inferred relationships involving `Surah 9: At-Tawba (The Repentance)` (e.g. with `Repentance (Tawba)` and `Hypocrisy (Nifaq)`) actually correct?**
+  _`Surah 9: At-Tawba (The Repentance)` has 14 INFERRED edges - model-reasoned connections that need verification._

@@ -6,6 +6,9 @@
 - **Themes**: [Legislation](../themes/legislation.md)
 - **Named entities mentioned**: [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md), [Job (Ayyub)](../entities/prophet_ayyub.md), [David (Dawud)](../entities/prophet_dawud.md), [Iblis (Satan)](../entities/figure_iblis.md), [Abraham (Ibrahim)](../entities/prophet_ibrahim.md), [Jesus (Isa)](../entities/prophet_isa.md), [Isaac (Ishaq)](../entities/prophet_ishaq.md), [Ishmael (Ismail)](../entities/prophet_ismail.md), [Mary (Maryam, mother of Jesus)](../entities/figure_maryam.md), [Moses (Musa)](../entities/prophet_musa.md), [Noah (Nuh)](../entities/prophet_nuh.md), [Rabb (the Lord)](../entities/divine_rabb.md), [Mount Sinai (Tur)](../entities/place_sinai.md), [Jacob (Yaqub)](../entities/prophet_yaqub.md), [Jonah (Yunus)](../entities/prophet_yunus.md)
 
+- **Revelation order (chronological)**: #92 of 114
+- **Revelation phase**: [Early Medinan](../timeline/phase_early-medina.md) (622-628 CE, Year 1-6 AH)
+
 ## Verses
 
 ### Verse 4:0

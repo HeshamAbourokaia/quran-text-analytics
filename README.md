@@ -121,7 +121,19 @@ To regenerate after code changes: `/graphify --update` (incremental, only re-ext
 
 #### 2. Quranic content knowledge graph
 
-The same technique applied to the Quran itself. **536 nodes, 673 edges, 86 communities** generated from a 167-document markdown corpus covering every surah (Arabic + English), every major named entity (25 prophets + 6 other figures + 7 places + 4 divine attributes), every scholarly theme (10 thematic clusters), and 6 special structural patterns (Bismillah occurrences, Ar-Rahman refrain, Iron miracle, Number 19, Cave 309-years, longest-to-shortest arrangement).
+The same technique applied to the Quran itself. **439 nodes, 929 edges, 28 communities, 72 hyperedges** generated from a 215-document markdown corpus covering nine layers of Quranic knowledge:
+
+| Layer | Count | What it covers |
+|-------|-------|----------------|
+| `surahs/` | 114 | Every surah, full Arabic + English text, themes, entities, revelation phase metadata |
+| `entities/` | 36 | 25 prophets + 6 other figures (Mary, Pharaoh, Iblis, Gabriel, etc.) + 7 places + 4 divine attributes |
+| `themes/` | 10 | Scholarly thematic clusters (Faith, Legislation, Prophets, Judgment, Warning, Ethics, Worship, Nature, Community, Patience) |
+| `special/` | 6 | Distinctive structural patterns (Bismillah occurrences, Ar-Rahman refrain, Iron miracle, Number 19, Cave 309-years, longest-to-shortest arrangement) |
+| `timeline/` | 5 | The five revelation phases (Early/Middle/Late Mecca + Early/Late Medina) with CE and Hijri dates |
+| `events/` | 14 | Major historical events from Cave of Hira (610 CE) through the Farewell Pilgrimage (632 CE) |
+| `asbab_nuzul/` | 15 | Classical occasions of revelation (change of qibla, slander of Aisha, Pleading Woman, Verse of Perfection, etc.) |
+| `tafsir_traditions/` | 8 | The major tafsir scholars: Tabari, Ibn Kathir, Qurtubi, Sa'di, Ibn Ashur, Sha'rawi, Sayyid Qutb, Al-Samarrai |
+| `sciences/` | 6 | Ulum al-Quran disciplines (Asbab al-Nuzul methodology, Nasikh-Mansukh abrogation, Muhkam-Mutashabih, Makki-Madani classification, Qira'at canonical readings, I'jaz inimitability) |
 
 <p align="center">
   <img src="docs/screenshots/quran-knowledge-graph.png" alt="Knowledge graph of the Quran itself, 536 nodes, 86 thematic communities" width="800"/>
@@ -135,17 +147,20 @@ The same technique applied to the Quran itself. **536 nodes, 673 edges, 86 commu
 | [`quran_corpus/`](quran_corpus/) | Source corpus (167 markdown files) |
 | [`scripts/build_quran_corpus.py`](scripts/build_quran_corpus.py) | Corpus regeneration script (idempotent) |
 
-**Top god nodes** (surahs that bridge the most thematic clusters):
+**Top god nodes** (most-connected bridges in the graph):
 
-| Rank | Surah | Connections | Why it's the most connected |
-|------|-------|-------------|---------------------------|
-| 1 | Al-Baqara (The Cow) | 70 | The longest surah; touches every major theme (creation, law, prophets, Bani Israel, prayer, fasting, hajj, marriage, debt, riba, qibla) |
-| 2 | Al-A'raf (The Heights) | 21 | The extensive prophet-stories surah (Adam, Noah, Hud, Salih, Lot, Shu'ayb, Moses) |
-| 3 | Yusuf (Joseph) | 20 | Single-narrative arc surah; bridges prophets, Egypt, family conflict, divine providence |
-| 4 | Ta-Ha | 19 | Moses's call to prophethood, the staff and the snake, Pharaoh confrontation |
-| 5 | Hud | 19 | Five prophet-and-nation cycles in one surah |
-| 6 | Al-Kahf (The Cave) | 18 | Four narrative arcs (Cave Sleepers, Two Gardens, Moses-Khidr, Dhul-Qarnayn) |
-| 7 | Maryam (Mary) | 18 | The Mary surah; bridges Jewish and Christian narratives |
+| Rank | Node | Connections | Why it's the most connected |
+|------|------|-------------|---------------------------|
+| 1 | **Al-Baqara (The Cow)** | 49 | The longest surah; touches every major theme (creation, law, prophets, Bani Israel, prayer, fasting, hajj, marriage, debt, riba, qibla) |
+| 2 | **Early Meccan Phase (610-615 CE)** | 42 | The revelation phase that contains the most surahs; the temporal hub of the graph |
+| 3 | **Aal-Imran** | 31 | Family of Mary, Battle of Uhud, Mubahala with Najran Christians |
+| 4 | **An-Nisa'** (The Women) | 27 | Family law, inheritance, post-Uhud orphan/widow protections |
+| 5 | **At-Tawba** | 27 | The Tabuk expedition, declaration of immunity, hypocrites |
+| 6 | **Al-An'am** (The Cattle) | 26 | Abraham's debate, cattle dietary laws, prophetic lineage |
+| 7 | **Al-Ma'ida** (The Table Spread) | 24 | Christianity, food laws, Verse of Perfection (last legislative) |
+| 8 | **Al-A'raf** (The Heights) | 24 | Extensive prophet narratives (Adam, Noah, Hud, Salih, Lot, Shu'ayb, Moses) |
+| 9 | **Maryam** | 24 | Mary, Jesus, John the Baptist; bridges Jewish and Christian narratives |
+| 10 | **Middle Meccan Phase (615-619 CE)** | 24 | Second temporal hub: Isra-Mi'raj, Migration to Abyssinia, intensified opposition |
 
 **Sample surprising connections** the graph surfaced:
 
@@ -154,24 +169,41 @@ The same technique applied to the Quran itself. **536 nodes, 673 edges, 86 commu
 - `Surah 6 Al-An'am` (Cattle, Mecca) is thematically nearer to `Noah and the flood narrative` than to surrounding Meccan surahs
 - The `tawaffa verse` in Surah 39:42 (sleep / death of souls) is semantically tied to Surah 3:55 (Jesus's ascension), validating the linguistic-miracle reading captured in the tafsir insights
 
-**Top thematic communities** the graph clustered:
+**Top thematic communities** the graph clustered (post-enrichment, 28 communities total):
 
 | Community | Size | What it groups |
 |-----------|------|----------------|
-| Meccan Revelation Period | 67 | All early-Meccan creedal surahs |
-| Aal-Imran & Battle of Uhud | 41 | Surah 3 + the Uhud aftermath verses + family of Imran |
-| Juz Amma & Oath Surahs | 35 | The short late-juz surahs with oath openings |
-| Eschatology & Quran Bookends | 31 | Day-of-Judgment imagery + Al-Fatiha / An-Nas bookends |
-| Al-Baqara + Moses-Pharaoh | 29 | The longest surah's central Moses narrative |
-| Creation & Fall Narratives | 27 | Adam + Iblis + Pharaoh + the prophets-and-destroyed-nations arc |
-| Wisdom Prophets | 26 | David + Solomon + Job + Luqman (the practical-wisdom prophets) |
-| Al-Hajj: Pilgrimage & Embryology | 20 | Surah 22 + linked embryology verses in 23 |
-| Ar-Rahman Refrain & Judgment | 16 | The 31-times-repeated refrain anchor |
-| Treaty of Hudaybiyyah & Victory | 16 | Surah 48 + the rules-for-war-captives + sakinah cluster |
+| Late Medinan: Hijab, Zaynab, Divine Names | 65 | Late-period legal surahs + the asbab al-nuzul for hijab and Zaynab's marriage |
+| Divine Names Hub (Allah, Ar-Rahman, Ar-Rahim) | 62 | The most-cross-referenced entities in the graph |
+| Pleading Woman + Farewell Pilgrimage | 57 | Late-Medinan asbab cluster centered on Khawla bint Tha'laba and the Farewell sermon |
+| Battle of Uhud + Mubahala + Adam | 55 | Aal-Imran centric cluster with the Uhud aftermath verses and the Najran Christian debate |
+| Al-Baqara: Bani Israel, Adam, Ibrahim arcs | 50 | The longest surah's internal narrative arcs |
+| Asbab al-Nuzul Methodology | 18 | The classical occasions-of-revelation discipline and its key cases |
+| Late Meccan Eschatology | 16 | The detailed Day-of-Judgment surahs from the Late Mecca phase |
+| Historical Punishment Stories | 15 | Abu Lahab, People of the Elephant, People of the Trench, destroyed-nations narrative |
+| Tafsir Methodological Schools | 13 | bil-Mathur (transmitted), Muyassar (accessible), and the Israiliyyat critique |
+| Year of Sorrow + Destroyed Nations (Aad, Thamud) | 13 | The 619 CE death of Khadijah/Abu Talib + parallel pre-Islamic nations destroyed by God |
+| Farewell Pilgrimage + Tawhid | 12 | The 632 CE event + the doctrinal capstone surahs |
+| Early Mecca: Cave of Hira + Boycott | 11 | The first revelation + the social/economic boycott of Banu Hashim |
+| Al-Samarrai's Linguistic Bayani School | 10 | The tafsir tradition behind the app's Linguistic Miracle insights |
+| Special Patterns (Mu'awwidhatan, Refrain, Night of Decree) | 9 | The signature structural-numerical patterns |
+| Aisha Cluster (Slander, Light Verse) | 5 | Surah An-Nur centered on the al-Ifk incident |
 
-**Benchmark**: queries on this graph cost **14.2x fewer tokens** than naive grep over the corpus (35,733 tokens corpus -> ~2,508 tokens per query). For complex cross-thematic questions like "Where does the Quran address authentic-vs-fabricated leadership?" the reduction climbs to 48.7x.
+**Benchmark**: queries on this graph cost **3.5x fewer tokens** than naive grep (29,266 tokens corpus -> ~8,000 tokens per query). The reduction is lower than the code graph because the corpus is denser (more entities-per-node), but the *interpretive* value is higher: cross-thematic questions can now be answered with full historical and scholarly context in a single query.
 
-To regenerate after corpus changes: rerun `python3 scripts/build_quran_corpus.py` then `cd quran_corpus && /graphify --update`.
+**What questions this graph can now answer that the previous version couldn't:**
+- "Which surahs were revealed during/about the Battle of Uhud?" - traces via `revealed_about` edges to event nodes
+- "What did Ibn Kathir say about verses with weak asbab narrations?" - traces from scholar -> approach -> sciences -> asbab cluster
+- "Which late-Medinan surahs introduce new legal rulings?" - traces via revelation phase + legislation theme
+- "How does the Tawaffa verse (39:42) connect to Jesus's ascension (3:55)?" - direct `semantically_similar_to` edge surfaced by the agent during extraction
+- "Trace Moses from his birth in Surah 28 through his confrontation with Pharaoh across the entire mushaf" - via entity hub + narrates edges
+
+To regenerate after corpus changes:
+```bash
+python3 scripts/build_quran_corpus.py   # base layer (surahs + entities + themes + special)
+python3 scripts/enrich_quran_corpus.py  # historical + scholarly layers
+cd quran_corpus && /graphify --update   # incremental graphify on changes only
+```
 
 ## Screenshots
 

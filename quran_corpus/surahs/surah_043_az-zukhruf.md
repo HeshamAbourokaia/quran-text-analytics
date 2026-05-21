@@ -6,6 +6,9 @@
 - **Themes**: [Warning](../themes/warning.md)
 - **Named entities mentioned**: [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md), [Pharaoh (Firaun)](../entities/figure_firaun.md), [Iblis (Satan)](../entities/figure_iblis.md), [Abraham (Ibrahim)](../entities/prophet_ibrahim.md), [Jesus (Isa)](../entities/prophet_isa.md), [Mary (Maryam, mother of Jesus)](../entities/figure_maryam.md), [Egypt (Misr)](../entities/place_misr.md), [Moses (Musa)](../entities/prophet_musa.md), [Rabb (the Lord)](../entities/divine_rabb.md)
 
+- **Revelation order (chronological)**: #63 of 114
+- **Revelation phase**: [Middle Meccan](../timeline/phase_middle-mecca.md) (615-619 CE, Year 5-9 of Prophethood)
+
 ## Verses
 
 ### Verse 43:0

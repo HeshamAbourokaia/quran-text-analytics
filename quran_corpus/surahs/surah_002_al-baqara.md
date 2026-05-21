@@ -6,6 +6,9 @@
 - **Themes**: [Legislation](../themes/legislation.md)
 - **Named entities mentioned**: [Adam](../entities/prophet_adam.md), [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md), [David (Dawud)](../entities/prophet_dawud.md), [Pharaoh (Firaun)](../entities/figure_firaun.md), [Hud](../entities/prophet_hud.md), [Iblis (Satan)](../entities/figure_iblis.md), [Jesus (Isa)](../entities/prophet_isa.md), [Isaac (Ishaq)](../entities/prophet_ishaq.md), [Ishmael (Ismail)](../entities/prophet_ismail.md), [Gabriel (Jibril)](../entities/figure_jibril.md), [Mary (Maryam, mother of Jesus)](../entities/figure_maryam.md), [The Sacred Mosque (Makka)](../entities/place_masjid-al-haram.md), [Egypt (Misr)](../entities/place_misr.md), [Moses (Musa)](../entities/prophet_musa.md), [Rabb (the Lord)](../entities/divine_rabb.md), [Mount Sinai (Tur)](../entities/place_sinai.md), [John the Baptist (Yahya)](../entities/prophet_yahya.md), [Jacob (Yaqub)](../entities/prophet_yaqub.md)
 
+- **Revelation order (chronological)**: #87 of 114
+- **Revelation phase**: [Early Medinan](../timeline/phase_early-medina.md) (622-628 CE, Year 1-6 AH)
+
 ## Verses
 
 ### Verse 2:0

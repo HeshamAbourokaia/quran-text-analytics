@@ -6,6 +6,9 @@
 - **Themes**: [Legislation](../themes/legislation.md), [Community and Society](../themes/community.md)
 - **Named entities mentioned**: [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md)
 
+- **Revelation order (chronological)**: #106 of 114
+- **Revelation phase**: [Late Medinan](../timeline/phase_late-medina.md) (628-632 CE, Year 6-10 AH)
+
 ## Verses
 
 ### Verse 49:0

@@ -6,6 +6,9 @@
 - **Themes**: [Warning](../themes/warning.md), [Community and Society](../themes/community.md)
 - **Named entities mentioned**: [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Hud](../entities/prophet_hud.md), [Abraham (Ibrahim)](../entities/prophet_ibrahim.md), [Jesus (Isa)](../entities/prophet_isa.md), [Medina](../entities/place_madinah.md), [Madyan](../entities/place_madyan.md), [Mary (Maryam, mother of Jesus)](../entities/figure_maryam.md), [The Sacred Mosque (Makka)](../entities/place_masjid-al-haram.md), [Noah (Nuh)](../entities/prophet_nuh.md), [Rabb (the Lord)](../entities/divine_rabb.md)
 
+- **Revelation order (chronological)**: #113 of 114
+- **Revelation phase**: [Late Medinan](../timeline/phase_late-medina.md) (628-632 CE, Year 6-10 AH)
+
 ## Verses
 
 ### Verse 9:1

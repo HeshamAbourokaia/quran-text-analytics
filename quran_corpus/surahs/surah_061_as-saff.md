@@ -6,6 +6,9 @@
 - **Themes**: [Ethics and Character](../themes/ethics.md)
 - **Named entities mentioned**: [Allah](../entities/divine_allah.md), [Ar-Rahim (the Most Merciful)](../entities/divine_ar-rahim.md), [Ar-Rahman (the Most Gracious)](../entities/divine_ar-rahman.md), [Jesus (Isa)](../entities/prophet_isa.md), [Mary (Maryam, mother of Jesus)](../entities/figure_maryam.md), [Muhammad](../entities/prophet_muhammad.md), [Moses (Musa)](../entities/prophet_musa.md)
 
+- **Revelation order (chronological)**: #109 of 114
+- **Revelation phase**: [Late Medinan](../timeline/phase_late-medina.md) (628-632 CE, Year 6-10 AH)
+
 ## Verses
 
 ### Verse 61:0
