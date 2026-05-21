@@ -1,14 +1,16 @@
 # Quran Text Analytics
 
-> An interactive NLP and visualization platform for the Quranic corpus, 114 surahs, 6,236 verses, 77,449 words. Built with Vue 3, Plotly, and Electron, with an experimental LLM-vision-judged auto-tuning loop for chart quality.
+> A fully bilingual (Arabic + English) NLP and visualization platform for the Quranic corpus, 114 surahs, 6,236 verses, 77,449 words. Built with Vue 3, Plotly, and Electron, with an experimental LLM-vision-judged auto-tuning loop for chart quality.
 
 <p align="center">
-  <img src="docs/screenshots/hero-overview.png" alt="Quran Text Analytics overview" width="800"/>
+  <img src="docs/screenshots/hero-overview.png" alt="Quran Text Analytics overview (Arabic UI)" width="800"/>
 </p>
 
 <p align="center">
   <a href="#live-demo">Live demo</a> ·
+  <a href="#bilingual-by-design">Bilingual</a> ·
   <a href="#features">Features</a> ·
+  <a href="#screenshots">Screenshots</a> ·
   <a href="#architecture">Architecture</a> ·
   <a href="ROADMAP.md">Roadmap</a> ·
   <a href="#install">Install</a>
@@ -23,9 +25,28 @@
 | Web demo (read-only) | Planned (Phase 2) | _coming soon_ |
 | Desktop app (macOS universal) | Available | [Download v1.0](releases) |
 
+Deep-link any page in either language: `app.html?page=17&lang=en` opens the Advanced Analytics page in English, `?page=15&lang=ar` opens the concordance in Arabic.
+
 ## What it does
 
-A single-file Vue.js 3 application (~9,900 lines) that turns the Quranic corpus into 19 interactive pages of structured analytics. Bilingual Arabic/English throughout, no backend, runs as a desktop Electron app or static web build.
+A single-file Vue.js 3 application (~9,900 lines) that turns the Quranic corpus into 19 interactive pages of structured analytics. **Fully bilingual Arabic and English** throughout (see [Bilingual by design](#bilingual-by-design)), no backend, runs as a desktop Electron app or static web build.
+
+## Bilingual by design
+
+This is not a translation layer bolted onto an English app. Every single user-facing string, chart label, Plotly hover template, category badge, scholarly tafsir entry, search result, and navigation control is implemented in **both Arabic and English in parallel**, with a single runtime `lang` toggle that swaps the entire interface (including RTL/LTR text direction, RTL chart axis layout, and right-aligned typography for Arabic).
+
+The reason: as a native Arabic speaker now studying analytics in English, I think in both languages and wanted a tool that respected both, rather than forcing one to feel like the translated cousin of the other.
+
+| Layer | Arabic | English |
+|-------|--------|---------|
+| UI strings | Hand-authored Amiri-font Arabic | Hand-authored English |
+| Plotly chart hover templates | Bilingual via runtime template selection | Same |
+| Tafsir insights (74 entries) | Original Arabic + scholar attribution | Original English (not machine translated) |
+| Stories index, du'as, lessons | Full Arabic content | Full English content |
+| Text direction | RTL across charts, search, lists | LTR |
+| Search & concordance | Tashkeel-aware Arabic input via on-screen Arabic keyboard | Standard English input |
+
+See the [Screenshots](#screenshots) section below for the same pages rendered in both languages side by side.
 
 ## Features
 
@@ -68,10 +89,31 @@ A single-file Vue.js 3 application (~9,900 lines) that turns the Quranic corpus 
 
 ## Screenshots
 
-| NLP Explorer (page 18) | Concordance (page 15) | Numerical Insights (page 14) |
-|:---:|:---:|:---:|
-| ![NLP Explorer with word cloud](docs/screenshots/nlp-explorer.png) | ![KWIC concordance search](docs/screenshots/concordance.png) | ![Numerical pattern cards](docs/screenshots/tafsir-insights.png) |
-| Word cloud + N-gram explorer over the full corpus or a per-surah scope | Tashkeel-aware Arabic search with bilingual KWIC results | Verifiable numerical patterns (Bismillah counts, 19-multiples, abjad calculations) |
+The same page rendered in both languages. Every chart label, badge, hover template, and content card swaps via the runtime `lang` toggle. Notice the bidirectional layout: RTL/LTR text direction, chart axis flipping, and right-aligned vs left-aligned typography all swap together.
+
+### Advanced Analytics (page 17): hero stats, Did-You-Know carousel, Revelation Pulse chart
+
+| Arabic UI | English UI |
+|:---:|:---:|
+| ![Advanced Analytics in Arabic](docs/screenshots/hero-overview.png) | ![Advanced Analytics in English](docs/screenshots/hero-overview-en.png) |
+
+### NLP Explorer (page 18): word cloud + N-gram explorer
+
+| Arabic UI | English UI |
+|:---:|:---:|
+| ![NLP Explorer in Arabic](docs/screenshots/nlp-explorer.png) | ![NLP Explorer in English](docs/screenshots/nlp-explorer-en.png) |
+
+### Concordance (page 15): tashkeel-aware KWIC search
+
+| Arabic UI | English UI |
+|:---:|:---:|
+| ![Concordance in Arabic](docs/screenshots/concordance.png) | ![Concordance in English](docs/screenshots/concordance-en.png) |
+
+### Numerical Insights (page 14): verifiable Bismillah counts, 19-multiples, abjad patterns
+
+| Arabic UI | English UI |
+|:---:|:---:|
+| ![Numerical Insights in Arabic](docs/screenshots/tafsir-insights.png) | ![Numerical Insights in English](docs/screenshots/tafsir-insights-en.png) |
 
 ## Architecture
 
@@ -181,7 +223,11 @@ See [`autoresearch/README.md`](autoresearch/README.md) for full options.
 
 ## Author
 
-**Hesham (Sam) Abourokaia**: Data Scientist with 14+ years in insurance analytics, currently completing a Master of Business Analytics at Deakin University. Reach me on [LinkedIn](https://www.linkedin.com/in/heshamabourokaia/) or [GitHub](https://github.com/heshamrokaia).
+**Hesham (Sam) Abourokaia**, Data Scientist with 14+ years in insurance analytics, currently completing a Master of Business Analytics at Deakin University in Australia.
+
+Native Arabic speaker (Egyptian background) and fluent English (working and studying in English daily). This dual-language fluency is the reason the project was built bilingually from the first commit: every chart label, hover template, scholarly tafsir entry, and UI control swaps cleanly between Arabic and English via a runtime toggle, with proper RTL/LTR handling on both sides. It is not a translation layer, it is a parallel implementation.
+
+Reach me on [LinkedIn](https://www.linkedin.com/in/heshamabourokaia/) or [GitHub](https://github.com/heshamrokaia).
 
 ---
 

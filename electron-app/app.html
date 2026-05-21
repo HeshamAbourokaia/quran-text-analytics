@@ -5027,10 +5027,16 @@ window.__app = createApp({
     searchLiteral() { this.searchWord(); }
   },
   mounted() {
-    // Honor ?page=N URL parameter for deep-linking (e.g. app.html?page=17)
-    const urlPage = parseInt(new URLSearchParams(location.search).get('page'));
+    // Honor ?page=N and ?lang=ar|en URL parameters for deep-linking
+    // (e.g. app.html?page=17&lang=en)
+    const params = new URLSearchParams(location.search);
+    const urlPage = parseInt(params.get('page'));
     if (!isNaN(urlPage) && urlPage >= 0 && urlPage <= 18) {
       this.currentPage = urlPage;
+    }
+    const urlLang = params.get('lang');
+    if (urlLang === 'en' || urlLang === 'ar') {
+      this.lang = urlLang;
     }
     this.renderCharts();
     this.animatePage();
