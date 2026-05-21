@@ -132,7 +132,7 @@ function showInfo(nodeId) {
   }).join('');
   document.getElementById('info-content').innerHTML = `
     <div class="field"><b>${esc(n.label)}</b></div>
-    <div class="field">Type: ${esc(n._file_type || 'unknown')}</div>
+    <div class="field">النوع: ${({document:'وثيقة',concept:'مفهوم',image:'صورة',code:'برمجة',rationale:'تعليل',paper:'بحث'})[n._file_type]||esc(n._file_type||'مجهول')}</div>
     <div class="field">المجموعة: ${esc(n._community_name)}</div>
     <div class="field">المصدر: ${esc(n._source_file || '-')}</div>
     <div class="field">الدرجة: ${n._degree}</div>

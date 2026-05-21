@@ -522,6 +522,11 @@ def localize_html_ui(html_path):
     p = Path(html_path)
     text = p.read_text(encoding="utf-8")
 
+    # JavaScript inline file_type translator (used in Type: field)
+    # Maps file_type values to Arabic at render time
+    type_map_js = ("({document:'وثيقة',concept:'مفهوم',image:'صورة',"
+                   "code:'برمجة',rationale:'تعليل',paper:'بحث'})[n._file_type]||esc(n._file_type||'مجهول')")
+
     # UI string replacements
     replacements = [
         # Search box
@@ -536,6 +541,8 @@ def localize_html_ui(html_path):
         ('COMMUNITIES', 'المجموعات'),
         ('>Select All<', '>تحديد الكل<'),
         # Per-node info template fields (template literals, replaced inline)
+        ("Type: ${esc(n._file_type || 'unknown')}",
+         "النوع: ${" + type_map_js + "}"),
         ('Community: ${esc(n._community_name)}',
          'المجموعة: ${esc(n._community_name)}'),
         ('Source: ${esc(n._source_file || \'-\')}',
