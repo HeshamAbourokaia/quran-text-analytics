@@ -2772,13 +2772,14 @@ body {
         </div>
       </div>
 
-      <!-- The actual graph in an iframe -->
+      <!-- The actual graph in an iframe (swaps based on language) -->
       <div data-anim="section" style="max-width:1400px; margin:0 auto; padding:0 8px;">
         <iframe
-          src="quran_graph.html"
+          :src="lang === 'ar' ? 'quran_graph_ar.html' : 'quran_graph.html'"
+          :key="'graph-iframe-' + lang"
           style="width:100%; height:80vh; min-height:700px; border:1px solid #e2e8f0; border-radius:14px; box-shadow:0 6px 24px rgba(0,0,0,0.08); background:#0a0a18;"
           loading="lazy"
-          title="Quranic Knowledge Graph"></iframe>
+          :title="L('خريطة معرفة القرآن', 'Quranic Knowledge Graph')"></iframe>
       </div>
 
       <!-- Methodology / source note -->
