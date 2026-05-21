@@ -44,3 +44,7 @@ electron-app/data/topics.json
 # graphify internal state (tracked outputs: graph.html, graph.json, GRAPH_REPORT.md, manifest.json, cost.json)
 graphify-out/.graphify_*
 graphify-out/cache/
+
+# Quran content graph internal state
+quran_corpus/graphify-out/.graphify_*
+quran_corpus/graphify-out/cache/

@@ -119,16 +119,59 @@ A hybrid AST + Claude-subagent extraction of every Python file, Vue component, s
 
 To regenerate after code changes: `/graphify --update` (incremental, only re-extracts changed files).
 
-#### 2. Quranic content knowledge graph (planned, in progress)
+#### 2. Quranic content knowledge graph
 
-The same technique applied to the Quran itself: ~170 generated markdown documents covering every surah, every named entity (prophets, places, divine attributes), every scholarly theme, and the special patterns (Bismillah, refrains, numerical miracles). Will produce a graph where:
+The same technique applied to the Quran itself. **536 nodes, 673 edges, 86 communities** generated from a 167-document markdown corpus covering every surah (Arabic + English), every major named entity (25 prophets + 6 other figures + 7 places + 4 divine attributes), every scholarly theme (10 thematic clusters), and 6 special structural patterns (Bismillah occurrences, Ar-Rahman refrain, Iron miracle, Number 19, Cave 309-years, longest-to-shortest arrangement).
 
-- Communities cluster thematically (Stories of Moses, Day of Judgment, Mercy, Legislation, etc.)
-- "God nodes" surface the most-referenced concepts (Allah, Faith, the Hereafter, the Prophets)
-- Bridge nodes reveal verses that connect distant thematic clusters
-- Entity links let you jump from any prophet to every verse they appear in
+<p align="center">
+  <img src="docs/screenshots/quran-knowledge-graph.png" alt="Knowledge graph of the Quran itself, 536 nodes, 86 thematic communities" width="800"/>
+</p>
 
-This is the kind of structural understanding of the Quranic text that classical concordances took lifetimes to compile, generated in hours from existing source data. See `quran_corpus/` for the source documents and [`graphify-out-quran/`](graphify-out-quran/) for the rendered graph (once built).
+| Output | Purpose |
+|--------|---------|
+| [`quran_corpus/graphify-out/graph.html`](quran_corpus/graphify-out/graph.html) | Interactive force-directed graph of Quranic content |
+| [`quran_corpus/graphify-out/GRAPH_REPORT.md`](quran_corpus/graphify-out/GRAPH_REPORT.md) | Audit report: god surahs, surprising thematic bridges, suggested questions |
+| [`quran_corpus/graphify-out/graph.json`](quran_corpus/graphify-out/graph.json) | Raw graph data |
+| [`quran_corpus/`](quran_corpus/) | Source corpus (167 markdown files) |
+| [`scripts/build_quran_corpus.py`](scripts/build_quran_corpus.py) | Corpus regeneration script (idempotent) |
+
+**Top god nodes** (surahs that bridge the most thematic clusters):
+
+| Rank | Surah | Connections | Why it's the most connected |
+|------|-------|-------------|---------------------------|
+| 1 | Al-Baqara (The Cow) | 70 | The longest surah; touches every major theme (creation, law, prophets, Bani Israel, prayer, fasting, hajj, marriage, debt, riba, qibla) |
+| 2 | Al-A'raf (The Heights) | 21 | The extensive prophet-stories surah (Adam, Noah, Hud, Salih, Lot, Shu'ayb, Moses) |
+| 3 | Yusuf (Joseph) | 20 | Single-narrative arc surah; bridges prophets, Egypt, family conflict, divine providence |
+| 4 | Ta-Ha | 19 | Moses's call to prophethood, the staff and the snake, Pharaoh confrontation |
+| 5 | Hud | 19 | Five prophet-and-nation cycles in one surah |
+| 6 | Al-Kahf (The Cave) | 18 | Four narrative arcs (Cave Sleepers, Two Gardens, Moses-Khidr, Dhul-Qarnayn) |
+| 7 | Maryam (Mary) | 18 | The Mary surah; bridges Jewish and Christian narratives |
+
+**Sample surprising connections** the graph surfaced:
+
+- `Moses` narrates the conflict with `Pharaoh` across 17 surahs simultaneously
+- `Rabb (the Lord)` is the most-cross-referenced divine name (97 surahs) yet the analytics around it are scattered
+- `Surah 6 Al-An'am` (Cattle, Mecca) is thematically nearer to `Noah and the flood narrative` than to surrounding Meccan surahs
+- The `tawaffa verse` in Surah 39:42 (sleep / death of souls) is semantically tied to Surah 3:55 (Jesus's ascension), validating the linguistic-miracle reading captured in the tafsir insights
+
+**Top thematic communities** the graph clustered:
+
+| Community | Size | What it groups |
+|-----------|------|----------------|
+| Meccan Revelation Period | 67 | All early-Meccan creedal surahs |
+| Aal-Imran & Battle of Uhud | 41 | Surah 3 + the Uhud aftermath verses + family of Imran |
+| Juz Amma & Oath Surahs | 35 | The short late-juz surahs with oath openings |
+| Eschatology & Quran Bookends | 31 | Day-of-Judgment imagery + Al-Fatiha / An-Nas bookends |
+| Al-Baqara + Moses-Pharaoh | 29 | The longest surah's central Moses narrative |
+| Creation & Fall Narratives | 27 | Adam + Iblis + Pharaoh + the prophets-and-destroyed-nations arc |
+| Wisdom Prophets | 26 | David + Solomon + Job + Luqman (the practical-wisdom prophets) |
+| Al-Hajj: Pilgrimage & Embryology | 20 | Surah 22 + linked embryology verses in 23 |
+| Ar-Rahman Refrain & Judgment | 16 | The 31-times-repeated refrain anchor |
+| Treaty of Hudaybiyyah & Victory | 16 | Surah 48 + the rules-for-war-captives + sakinah cluster |
+
+**Benchmark**: queries on this graph cost **14.2x fewer tokens** than naive grep over the corpus (35,733 tokens corpus -> ~2,508 tokens per query). For complex cross-thematic questions like "Where does the Quran address authentic-vs-fabricated leadership?" the reduction climbs to 48.7x.
+
+To regenerate after corpus changes: rerun `python3 scripts/build_quran_corpus.py` then `cd quran_corpus && /graphify --update`.
 
 ## Screenshots
 

@@ -1,0 +1,837 @@
+{
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/README.md": {
+    "mtime": 1779372925.1622987,
+    "ast_hash": "690d21a78092712b86fb8a269cfbe621",
+    "semantic_hash": "690d21a78092712b86fb8a269cfbe621"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/special/iron-miracle-hadid.md": {
+    "mtime": 1779372925.1586022,
+    "ast_hash": "0d0e00c536e785de19b1e0f45756cd53",
+    "semantic_hash": "0d0e00c536e785de19b1e0f45756cd53"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/special/ar-rahman-refrain-31x.md": {
+    "mtime": 1779372925.158329,
+    "ast_hash": "f45218c29eab381734f0bb17807ee4d2",
+    "semantic_hash": "f45218c29eab381734f0bb17807ee4d2"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/special/number-19-pattern.md": {
+    "mtime": 1779372925.1589797,
+    "ast_hash": "fcce3327a611ec4d1ad178ad31b440e1",
+    "semantic_hash": "fcce3327a611ec4d1ad178ad31b440e1"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/special/cave-309-lunar-years.md": {
+    "mtime": 1779372925.1592531,
+    "ast_hash": "0ad9703ced6236f42c7c03db9be70367",
+    "semantic_hash": "0ad9703ced6236f42c7c03db9be70367"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/special/bismillah-113-occurrences.md": {
+    "mtime": 1779372925.1578894,
+    "ast_hash": "f058f887e5f7e41797c0cbd4513c0755",
+    "semantic_hash": "f058f887e5f7e41797c0cbd4513c0755"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/special/longest-shortest-arrangement.md": {
+    "mtime": 1779372925.1593962,
+    "ast_hash": "a6be4d56326635f67553713d0d721901",
+    "semantic_hash": "a6be4d56326635f67553713d0d721901"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_100_al-adiyat.md": {
+    "mtime": 1779372925.1379483,
+    "ast_hash": "4fafbd9f3226d29443dcc8c6f067e47a",
+    "semantic_hash": "4fafbd9f3226d29443dcc8c6f067e47a"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_077_al-mursalat.md": {
+    "mtime": 1779372925.0993655,
+    "ast_hash": "455997a972cf35e4587bfaaf1ebb2ede",
+    "semantic_hash": "455997a972cf35e4587bfaaf1ebb2ede"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_060_al-mumtahinah.md": {
+    "mtime": 1779372925.0607955,
+    "ast_hash": "84554dff71b2db3636edcace704167a2",
+    "semantic_hash": "84554dff71b2db3636edcace704167a2"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_073_al-muzzammil.md": {
+    "mtime": 1779372925.0877275,
+    "ast_hash": "9fa7c6f48fba3a4e4a84d2a8e1c17537",
+    "semantic_hash": "9fa7c6f48fba3a4e4a84d2a8e1c17537"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_004_an-nisaa.md": {
+    "mtime": 1779372924.759767,
+    "ast_hash": "a9fd26f7c87fa9a7d18eeed2da2649ec",
+    "semantic_hash": "a9fd26f7c87fa9a7d18eeed2da2649ec"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_064_at-taghabun.md": {
+    "mtime": 1779372925.0668178,
+    "ast_hash": "2306e2c48c95814a10ca253b7085f137",
+    "semantic_hash": "2306e2c48c95814a10ca253b7085f137"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_080_abasa.md": {
+    "mtime": 1779372925.1077065,
+    "ast_hash": "0ffd883b2c23f78bb3400613bc9abced",
+    "semantic_hash": "0ffd883b2c23f78bb3400613bc9abced"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_091_ash-shams.md": {
+    "mtime": 1779372925.1279373,
+    "ast_hash": "c7785c1074bb5f9e48e5c7ad6387e3a3",
+    "semantic_hash": "c7785c1074bb5f9e48e5c7ad6387e3a3"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_079_an-naziat.md": {
+    "mtime": 1779372925.1049962,
+    "ast_hash": "eff372a42e9afd271a09d961946a068a",
+    "semantic_hash": "eff372a42e9afd271a09d961946a068a"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_111_al-masad.md": {
+    "mtime": 1779372925.1470947,
+    "ast_hash": "c0b8d5c9cc4f992532ef6948badc10fc",
+    "semantic_hash": "c0b8d5c9cc4f992532ef6948badc10fc"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_092_al-lail.md": {
+    "mtime": 1779372925.1295736,
+    "ast_hash": "5058a3ed152ff7318d8a7f04217a10cb",
+    "semantic_hash": "5058a3ed152ff7318d8a7f04217a10cb"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_039_az-zumar.md": {
+    "mtime": 1779372924.9813385,
+    "ast_hash": "828f60f4310c946ded65aa2dd53f1ef4",
+    "semantic_hash": "828f60f4310c946ded65aa2dd53f1ef4"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_028_al-qasas.md": {
+    "mtime": 1779372924.929437,
+    "ast_hash": "e59402b6516c207a09068a935c471d01",
+    "semantic_hash": "e59402b6516c207a09068a935c471d01"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_022_al-hajj.md": {
+    "mtime": 1779372924.8907807,
+    "ast_hash": "117af423b3d747c3f5c220af37b7a8ab",
+    "semantic_hash": "117af423b3d747c3f5c220af37b7a8ab"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_050_qaf.md": {
+    "mtime": 1779372925.023587,
+    "ast_hash": "b276d6c9956b5f52fac8ef9cee4bfe73",
+    "semantic_hash": "b276d6c9956b5f52fac8ef9cee4bfe73"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_032_as-sajdah.md": {
+    "mtime": 1779372924.945588,
+    "ast_hash": "3806569c4fdf69c640b93cd8b9a14816",
+    "semantic_hash": "3806569c4fdf69c640b93cd8b9a14816"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_083_al-mutaffifin.md": {
+    "mtime": 1779372925.1139739,
+    "ast_hash": "e04a8cdd686e4ed6e175dadc3c34adb3",
+    "semantic_hash": "e04a8cdd686e4ed6e175dadc3c34adb3"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_052_at-tur.md": {
+    "mtime": 1779372925.0318444,
+    "ast_hash": "9bf96e2d372b29d08e05315f5c50edb6",
+    "semantic_hash": "9bf96e2d372b29d08e05315f5c50edb6"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_031_luqman.md": {
+    "mtime": 1779372924.943163,
+    "ast_hash": "d3044d1228a75fd4ab5cc13161fdcd3a",
+    "semantic_hash": "d3044d1228a75fd4ab5cc13161fdcd3a"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_042_ash-shura.md": {
+    "mtime": 1779372924.994021,
+    "ast_hash": "415d03867a28edbfd98d01031378084e",
+    "semantic_hash": "415d03867a28edbfd98d01031378084e"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_112_al-ikhlas.md": {
+    "mtime": 1779372925.1480227,
+    "ast_hash": "1cc3f065586a32f8749c33820acbd66a",
+    "semantic_hash": "1cc3f065586a32f8749c33820acbd66a"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_033_al-ahzab.md": {
+    "mtime": 1779372924.9505384,
+    "ast_hash": "2f79b154b3187558b3a62666198082b2",
+    "semantic_hash": "2f79b154b3187558b3a62666198082b2"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_025_al-furqan.md": {
+    "mtime": 1779372924.907162,
+    "ast_hash": "e87562edd446d5204c715635043058fd",
+    "semantic_hash": "e87562edd446d5204c715635043058fd"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_090_al-balad.md": {
+    "mtime": 1779372925.12643,
+    "ast_hash": "ec79404c8b44507f5323ad77772f51ba",
+    "semantic_hash": "ec79404c8b44507f5323ad77772f51ba"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_086_at-tariq.md": {
+    "mtime": 1779372925.1192985,
+    "ast_hash": "6d897bbce64eaa427980e070a4731a8b",
+    "semantic_hash": "6d897bbce64eaa427980e070a4731a8b"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_019_maryam.md": {
+    "mtime": 1779372924.870477,
+    "ast_hash": "74949b55c263eff9d4859733062ab047",
+    "semantic_hash": "74949b55c263eff9d4859733062ab047"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_023_al-muminun.md": {
+    "mtime": 1779372924.8977594,
+    "ast_hash": "935aff91c41cc88eb9d893ff387d60a7",
+    "semantic_hash": "935aff91c41cc88eb9d893ff387d60a7"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_095_at-tin.md": {
+    "mtime": 1779372925.1326227,
+    "ast_hash": "71959dcf5abee3fc177fa91433fb8633",
+    "semantic_hash": "71959dcf5abee3fc177fa91433fb8633"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_097_al-qadr.md": {
+    "mtime": 1779372925.1349058,
+    "ast_hash": "5af135785f37ae2902502be323231c67",
+    "semantic_hash": "5af135785f37ae2902502be323231c67"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_065_at-talaq.md": {
+    "mtime": 1779372925.068223,
+    "ast_hash": "3292eb0425035c7cb44c2600fd65e76c",
+    "semantic_hash": "3292eb0425035c7cb44c2600fd65e76c"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_087_al-ala.md": {
+    "mtime": 1779372925.1209168,
+    "ast_hash": "0c5a65288da657313c3ddd4cccb61324",
+    "semantic_hash": "0c5a65288da657313c3ddd4cccb61324"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_054_al-qamar.md": {
+    "mtime": 1779372925.0424957,
+    "ast_hash": "df8c2ad3004e2f770671d0fbfbcc9d0d",
+    "semantic_hash": "df8c2ad3004e2f770671d0fbfbcc9d0d"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_058_al-mujadilah.md": {
+    "mtime": 1779372925.057014,
+    "ast_hash": "55a0d7e32197b3179b38165b085f27fb",
+    "semantic_hash": "55a0d7e32197b3179b38165b085f27fb"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_009_al-tawba.md": {
+    "mtime": 1779372924.804971,
+    "ast_hash": "883107c628cbcfe6c2078e8dd4357d95",
+    "semantic_hash": "883107c628cbcfe6c2078e8dd4357d95"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_016_an-nahl.md": {
+    "mtime": 1779372924.8468397,
+    "ast_hash": "94e0e1e99699fcd850b21cb14256702c",
+    "semantic_hash": "94e0e1e99699fcd850b21cb14256702c"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_074_al-muddaththir.md": {
+    "mtime": 1779372925.0914068,
+    "ast_hash": "a49b8e14fa8e8c34608931be5224c146",
+    "semantic_hash": "a49b8e14fa8e8c34608931be5224c146"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_012_yusuf.md": {
+    "mtime": 1779372924.8262577,
+    "ast_hash": "e9bafc91e29bdc0564d51cf2a56f6ce1",
+    "semantic_hash": "e9bafc91e29bdc0564d51cf2a56f6ce1"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_017_al-israa.md": {
+    "mtime": 1779372924.8561406,
+    "ast_hash": "85d120190c0923db54488421ec9f954b",
+    "semantic_hash": "85d120190c0923db54488421ec9f954b"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_044_ad-dukhan.md": {
+    "mtime": 1779372925.005866,
+    "ast_hash": "363cba37816d0ba16f660b9f0ad90edf",
+    "semantic_hash": "363cba37816d0ba16f660b9f0ad90edf"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_069_al-haqqah.md": {
+    "mtime": 1779372925.0784845,
+    "ast_hash": "18821a839209ca03cb314a375996de9b",
+    "semantic_hash": "18821a839209ca03cb314a375996de9b"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_062_al-jumu-ah.md": {
+    "mtime": 1779372925.0637674,
+    "ast_hash": "7c56084859381a648d696c8e9f1abc9d",
+    "semantic_hash": "7c56084859381a648d696c8e9f1abc9d"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_046_al-ahqaf.md": {
+    "mtime": 1779372925.0124683,
+    "ast_hash": "e40f359bb3e422bbc7746057ea35927f",
+    "semantic_hash": "e40f359bb3e422bbc7746057ea35927f"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_068_al-qalam.md": {
+    "mtime": 1779372925.0750766,
+    "ast_hash": "e0a7b8542210cb0f68ae3d655fe58f4d",
+    "semantic_hash": "e0a7b8542210cb0f68ae3d655fe58f4d"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_089_al-fajr.md": {
+    "mtime": 1779372925.1248572,
+    "ast_hash": "179f53f773d4d314411681c0c5c6d0a7",
+    "semantic_hash": "179f53f773d4d314411681c0c5c6d0a7"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_109_al-kafirun.md": {
+    "mtime": 1779372925.1456263,
+    "ast_hash": "8b67b71aa90c323e508cf95666a2e95d",
+    "semantic_hash": "8b67b71aa90c323e508cf95666a2e95d"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_061_as-saff.md": {
+    "mtime": 1779372925.0623333,
+    "ast_hash": "e159af0f920956a31a6a685d1aa2f572",
+    "semantic_hash": "e159af0f920956a31a6a685d1aa2f572"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_099_az-zalzalah.md": {
+    "mtime": 1779372925.1367311,
+    "ast_hash": "7e02b2b5024afe9961a1973286e4c82e",
+    "semantic_hash": "7e02b2b5024afe9961a1973286e4c82e"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_102_al-takathur.md": {
+    "mtime": 1779372925.140141,
+    "ast_hash": "e82f6b25905984215687d4ef3f2fa326",
+    "semantic_hash": "e82f6b25905984215687d4ef3f2fa326"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_049_al-hujurat.md": {
+    "mtime": 1779372925.020294,
+    "ast_hash": "40b27390e162fccb4e3fb947aee91065",
+    "semantic_hash": "40b27390e162fccb4e3fb947aee91065"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_030_ar-rum.md": {
+    "mtime": 1779372924.940138,
+    "ast_hash": "5499df3ab804c6a59511362c7a60fe5c",
+    "semantic_hash": "5499df3ab804c6a59511362c7a60fe5c"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_020_ta-ha.md": {
+    "mtime": 1779372924.8788567,
+    "ast_hash": "374fad4668a80c88ace563cc94938f2e",
+    "semantic_hash": "374fad4668a80c88ace563cc94938f2e"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_078_an-naba.md": {
+    "mtime": 1779372925.1021707,
+    "ast_hash": "0c27d8ccb4b26695986498c58b67aac8",
+    "semantic_hash": "0c27d8ccb4b26695986498c58b67aac8"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_001_al-fatiha.md": {
+    "mtime": 1779372924.7167063,
+    "ast_hash": "bb9cc2b4a3f4f3e623e9f92105de6c11",
+    "semantic_hash": "bb9cc2b4a3f4f3e623e9f92105de6c11"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_057_al-hadid.md": {
+    "mtime": 1779372925.0549626,
+    "ast_hash": "5690dd90bef80d31b40fdd899375ec5c",
+    "semantic_hash": "5690dd90bef80d31b40fdd899375ec5c"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_043_az-zukhruf.md": {
+    "mtime": 1779372925.0009272,
+    "ast_hash": "9d1f74197ed8af3dfba01caf2f98dd06",
+    "semantic_hash": "9d1f74197ed8af3dfba01caf2f98dd06"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_107_al-ma-un.md": {
+    "mtime": 1779372925.1441658,
+    "ast_hash": "1d0d634f6fde9344534df14720238ca2",
+    "semantic_hash": "1d0d634f6fde9344534df14720238ca2"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_026_ash-shuara.md": {
+    "mtime": 1779372924.9183018,
+    "ast_hash": "c21085567b3200d562e74b05f01a0d16",
+    "semantic_hash": "c21085567b3200d562e74b05f01a0d16"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_101_al-qariah.md": {
+    "mtime": 1779372925.1391869,
+    "ast_hash": "9f67eee049bb7673db1bd2fad6a746aa",
+    "semantic_hash": "9f67eee049bb7673db1bd2fad6a746aa"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_081_at-takwir.md": {
+    "mtime": 1779372925.1097763,
+    "ast_hash": "ecf5b8d3be7770a9a9f47671809e1276",
+    "semantic_hash": "ecf5b8d3be7770a9a9f47671809e1276"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_002_al-baqara.md": {
+    "mtime": 1779372924.735095,
+    "ast_hash": "2a3de18e4689de8fa8ee92b567620406",
+    "semantic_hash": "2a3de18e4689de8fa8ee92b567620406"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_108_al-kauthar.md": {
+    "mtime": 1779372925.1447961,
+    "ast_hash": "85dbad11d3b3fd01615e3891fd803baf",
+    "semantic_hash": "85dbad11d3b3fd01615e3891fd803baf"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_006_al-an-am.md": {
+    "mtime": 1779372924.7784457,
+    "ast_hash": "ae53eb5f4e1d2df344d5058e760a3384",
+    "semantic_hash": "ae53eb5f4e1d2df344d5058e760a3384"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_110_an-nasr.md": {
+    "mtime": 1779372925.1462665,
+    "ast_hash": "e5bab1672a8a2553ba763f314e844e27",
+    "semantic_hash": "e5bab1672a8a2553ba763f314e844e27"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_015_al-hijr.md": {
+    "mtime": 1779372924.8391805,
+    "ast_hash": "beb2f7dbfc2c449ba5df7028964d8a9d",
+    "semantic_hash": "beb2f7dbfc2c449ba5df7028964d8a9d"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_045_al-jathiya.md": {
+    "mtime": 1779372925.0092642,
+    "ast_hash": "0f0973fdc9a6d07dd0ec4d6eb2ecca50",
+    "semantic_hash": "0f0973fdc9a6d07dd0ec4d6eb2ecca50"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_024_an-nur.md": {
+    "mtime": 1779372924.9022691,
+    "ast_hash": "c45a232cb10caa392c29180b79c62d46",
+    "semantic_hash": "c45a232cb10caa392c29180b79c62d46"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_085_al-buruj.md": {
+    "mtime": 1779372925.1179454,
+    "ast_hash": "30a49430976bf0426fd7c2f3142932fa",
+    "semantic_hash": "30a49430976bf0426fd7c2f3142932fa"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_072_al-jinn.md": {
+    "mtime": 1779372925.0855699,
+    "ast_hash": "66395d9cdc576fb1a69431516c43bb1d",
+    "semantic_hash": "66395d9cdc576fb1a69431516c43bb1d"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_063_al-munafiqun.md": {
+    "mtime": 1779372925.0651383,
+    "ast_hash": "b8297f1317373718992d270894243293",
+    "semantic_hash": "b8297f1317373718992d270894243293"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_070_al-ma-arij.md": {
+    "mtime": 1779372925.081436,
+    "ast_hash": "70dd383c84af9f1b7402bb903924c83b",
+    "semantic_hash": "70dd383c84af9f1b7402bb903924c83b"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_011_hud.md": {
+    "mtime": 1779372924.8192613,
+    "ast_hash": "e435339b0822ac8b41381bed70bfb6c3",
+    "semantic_hash": "e435339b0822ac8b41381bed70bfb6c3"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_013_ar-ra-d.md": {
+    "mtime": 1779372924.829937,
+    "ast_hash": "dae5e753560bdf7278d4b7163e03fa8c",
+    "semantic_hash": "dae5e753560bdf7278d4b7163e03fa8c"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_076_al-insan.md": {
+    "mtime": 1779372925.096157,
+    "ast_hash": "33a1cddce23a5a308fecf0b374521c22",
+    "semantic_hash": "33a1cddce23a5a308fecf0b374521c22"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_105_al-fil.md": {
+    "mtime": 1779372925.1424239,
+    "ast_hash": "20c1b0509397f3056123566e3c3838c5",
+    "semantic_hash": "20c1b0509397f3056123566e3c3838c5"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_040_ghafir.md": {
+    "mtime": 1779372924.9864728,
+    "ast_hash": "6946ac687b3b8a26057cf5ec8068307d",
+    "semantic_hash": "6946ac687b3b8a26057cf5ec8068307d"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_027_an-naml.md": {
+    "mtime": 1779372924.9237995,
+    "ast_hash": "80a42f6f26d93d2b73e326305cbabbf9",
+    "semantic_hash": "80a42f6f26d93d2b73e326305cbabbf9"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_051_az-zariyat.md": {
+    "mtime": 1779372925.0282996,
+    "ast_hash": "4c471e8a40e4e339229c1b94a8205c45",
+    "semantic_hash": "4c471e8a40e4e339229c1b94a8205c45"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_007_al-a-raf.md": {
+    "mtime": 1779372924.7916727,
+    "ast_hash": "fe2b153bd1f0f136bac33147811739e5",
+    "semantic_hash": "fe2b153bd1f0f136bac33147811739e5"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_053_an-najm.md": {
+    "mtime": 1779372925.037807,
+    "ast_hash": "952cc9df7e3c950117d8f70cf0a85c65",
+    "semantic_hash": "952cc9df7e3c950117d8f70cf0a85c65"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_034_saba.md": {
+    "mtime": 1779372924.9545515,
+    "ast_hash": "55177b43be4e4422d879fee1907d3667",
+    "semantic_hash": "55177b43be4e4422d879fee1907d3667"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_098_al-bayinah.md": {
+    "mtime": 1779372925.1359046,
+    "ast_hash": "d50fd20c732f601b124455738a939fba",
+    "semantic_hash": "d50fd20c732f601b124455738a939fba"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_103_al-asr.md": {
+    "mtime": 1779372925.1407368,
+    "ast_hash": "38eb1d886e9012a7001e143255f526d3",
+    "semantic_hash": "38eb1d886e9012a7001e143255f526d3"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_114_an-nas.md": {
+    "mtime": 1779372925.1497169,
+    "ast_hash": "fb9f1ce6e0dad3de1d0b303dba6d641d",
+    "semantic_hash": "fb9f1ce6e0dad3de1d0b303dba6d641d"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_094_ash-sharh.md": {
+    "mtime": 1779372925.1315682,
+    "ast_hash": "1a5fbff4e5135daff70b455420ebb0c1",
+    "semantic_hash": "1a5fbff4e5135daff70b455420ebb0c1"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_056_al-waqia.md": {
+    "mtime": 1779372925.0522442,
+    "ast_hash": "b641de2fd8e54d6c95ab4e2e41f21368",
+    "semantic_hash": "b641de2fd8e54d6c95ab4e2e41f21368"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_093_ad-duha.md": {
+    "mtime": 1779372925.1306503,
+    "ast_hash": "766b49f85a308423a6df981081d5d100",
+    "semantic_hash": "766b49f85a308423a6df981081d5d100"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_071_nuh.md": {
+    "mtime": 1779372925.0835476,
+    "ast_hash": "bd4c36ccbc335ab19e172713605b87a3",
+    "semantic_hash": "bd4c36ccbc335ab19e172713605b87a3"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_067_al-mulk.md": {
+    "mtime": 1779372925.0719142,
+    "ast_hash": "53b5974607adea0d0bd653d32f51b2e2",
+    "semantic_hash": "53b5974607adea0d0bd653d32f51b2e2"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_047_muhammad.md": {
+    "mtime": 1779372925.0153878,
+    "ast_hash": "e1c7e3b39be71dd7ed6eeffb18c4a81b",
+    "semantic_hash": "e1c7e3b39be71dd7ed6eeffb18c4a81b"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_003_aal-imran.md": {
+    "mtime": 1779372924.7478435,
+    "ast_hash": "b24dc5c8b98e4ace4c7d8e741321fb06",
+    "semantic_hash": "b24dc5c8b98e4ace4c7d8e741321fb06"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_082_al-infitar.md": {
+    "mtime": 1779372925.1113887,
+    "ast_hash": "61c84e849eea28877c8bb5c92e24ea1c",
+    "semantic_hash": "61c84e849eea28877c8bb5c92e24ea1c"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_010_yunus.md": {
+    "mtime": 1779372924.812011,
+    "ast_hash": "93b9e908358acb144ef414f381e8fd99",
+    "semantic_hash": "93b9e908358acb144ef414f381e8fd99"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_008_al-anfal.md": {
+    "mtime": 1779372924.7967882,
+    "ast_hash": "a99ec561dcff95fea0a21f6609d34905",
+    "semantic_hash": "a99ec561dcff95fea0a21f6609d34905"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_018_al-kahf.md": {
+    "mtime": 1779372924.8636146,
+    "ast_hash": "c77277d593ad6eef4ea91dde35ae5500",
+    "semantic_hash": "c77277d593ad6eef4ea91dde35ae5500"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_029_al-ankabut.md": {
+    "mtime": 1779372924.9343646,
+    "ast_hash": "c21a245787cbb6fda7c0595a9e7bbc4e",
+    "semantic_hash": "c21a245787cbb6fda7c0595a9e7bbc4e"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_041_fussilat.md": {
+    "mtime": 1779372924.9903128,
+    "ast_hash": "d6a084f7cb30cdfe87932e51acf0839c",
+    "semantic_hash": "d6a084f7cb30cdfe87932e51acf0839c"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_005_al-ma-ida.md": {
+    "mtime": 1779372924.768249,
+    "ast_hash": "afb85335da5d25b815c2b1bc6e7c9c45",
+    "semantic_hash": "afb85335da5d25b815c2b1bc6e7c9c45"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_088_al-ghashiyah.md": {
+    "mtime": 1779372925.122867,
+    "ast_hash": "275bf80f53089942c55921ef8ee3cc80",
+    "semantic_hash": "275bf80f53089942c55921ef8ee3cc80"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_096_al-alaq.md": {
+    "mtime": 1779372925.1340225,
+    "ast_hash": "584c41eaacecf08d97145096396bd4b9",
+    "semantic_hash": "584c41eaacecf08d97145096396bd4b9"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_104_al-humazah.md": {
+    "mtime": 1779372925.1415577,
+    "ast_hash": "372301ff5de5cab1a7a2880449d1d89d",
+    "semantic_hash": "372301ff5de5cab1a7a2880449d1d89d"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_021_al-anbiya.md": {
+    "mtime": 1779372924.8856447,
+    "ast_hash": "2ecfd53c83d1434ea0109b596c8f6068",
+    "semantic_hash": "2ecfd53c83d1434ea0109b596c8f6068"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_037_as-saffat.md": {
+    "mtime": 1779372924.9714432,
+    "ast_hash": "f40ae53d2a1ebccffff0e525b9566ba1",
+    "semantic_hash": "f40ae53d2a1ebccffff0e525b9566ba1"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_113_al-falaq.md": {
+    "mtime": 1779372925.148952,
+    "ast_hash": "fcab8454a5288d29763da8b7c9c6fdb9",
+    "semantic_hash": "fcab8454a5288d29763da8b7c9c6fdb9"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_084_al-inshiqaq.md": {
+    "mtime": 1779372925.1160533,
+    "ast_hash": "76c6c69a219f071660c7827849cc5a8e",
+    "semantic_hash": "76c6c69a219f071660c7827849cc5a8e"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_014_ibrahim.md": {
+    "mtime": 1779372924.833595,
+    "ast_hash": "f359de990f16afdf2f1d2f7a4c4b3501",
+    "semantic_hash": "f359de990f16afdf2f1d2f7a4c4b3501"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_055_ar-rahman.md": {
+    "mtime": 1779372925.04675,
+    "ast_hash": "be6ef0a382e8c4117ef5ad7660f228e8",
+    "semantic_hash": "be6ef0a382e8c4117ef5ad7660f228e8"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_106_quraish.md": {
+    "mtime": 1779372925.1433434,
+    "ast_hash": "ca7498031b74a4a430b74041a031d3a3",
+    "semantic_hash": "ca7498031b74a4a430b74041a031d3a3"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_048_al-fath.md": {
+    "mtime": 1779372925.018505,
+    "ast_hash": "81a02d00af1ed4bffff12887fc50b945",
+    "semantic_hash": "81a02d00af1ed4bffff12887fc50b945"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_036_yasin.md": {
+    "mtime": 1779372924.9625132,
+    "ast_hash": "8f5f3b46ad734bdea4d8ab5e7cc49881",
+    "semantic_hash": "8f5f3b46ad734bdea4d8ab5e7cc49881"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_075_al-qiyamah.md": {
+    "mtime": 1779372925.0939162,
+    "ast_hash": "787c03701c9c52891a4f84be4aef253f",
+    "semantic_hash": "787c03701c9c52891a4f84be4aef253f"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_066_at-tahrim.md": {
+    "mtime": 1779372925.0697083,
+    "ast_hash": "e429a84617d158b8ee8bffe99336950e",
+    "semantic_hash": "e429a84617d158b8ee8bffe99336950e"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_038_sad.md": {
+    "mtime": 1779372924.976429,
+    "ast_hash": "b4d719af5c3aa4ec3e45128b58abc610",
+    "semantic_hash": "b4d719af5c3aa4ec3e45128b58abc610"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_035_fatir.md": {
+    "mtime": 1779372924.9577842,
+    "ast_hash": "bbea569fb5d30f0bcd5db912692a75c8",
+    "semantic_hash": "bbea569fb5d30f0bcd5db912692a75c8"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/surahs/surah_059_al-hashr.md": {
+    "mtime": 1779372925.0589802,
+    "ast_hash": "3878f5ac906691247a71b36a035dc862",
+    "semantic_hash": "3878f5ac906691247a71b36a035dc862"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/themes/legislation.md": {
+    "mtime": 1779372925.155984,
+    "ast_hash": "41e2af379d827ebd580fe5dd12272c0e",
+    "semantic_hash": "41e2af379d827ebd580fe5dd12272c0e"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/themes/worship.md": {
+    "mtime": 1779372925.1570516,
+    "ast_hash": "73df3a6ed6124e771b836e69dbc7e05b",
+    "semantic_hash": "73df3a6ed6124e771b836e69dbc7e05b"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/themes/ethics.md": {
+    "mtime": 1779372925.1568518,
+    "ast_hash": "e505c4ac8382d8386f6213cfd391a9e8",
+    "semantic_hash": "e505c4ac8382d8386f6213cfd391a9e8"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/themes/community.md": {
+    "mtime": 1779372925.157495,
+    "ast_hash": "d6387a3ed56d9357362c13b96263a2c6",
+    "semantic_hash": "d6387a3ed56d9357362c13b96263a2c6"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/themes/nature.md": {
+    "mtime": 1779372925.15728,
+    "ast_hash": "b53217aad4ccec26fa870089d6e0256b",
+    "semantic_hash": "b53217aad4ccec26fa870089d6e0256b"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/themes/day-of-judgment.md": {
+    "mtime": 1779372925.1562629,
+    "ast_hash": "16b3d4c6bd55a227cee47a48cfcb5cd4",
+    "semantic_hash": "16b3d4c6bd55a227cee47a48cfcb5cd4"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/themes/patience.md": {
+    "mtime": 1779372925.157721,
+    "ast_hash": "e79fb185c7f1dd7305e327e96397e22c",
+    "semantic_hash": "e79fb185c7f1dd7305e327e96397e22c"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/themes/prophets-stories.md": {
+    "mtime": 1779372925.1560977,
+    "ast_hash": "4b839e7318268ac8f4250d75ba9bdd0d",
+    "semantic_hash": "4b839e7318268ac8f4250d75ba9bdd0d"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/themes/warning.md": {
+    "mtime": 1779372925.1565652,
+    "ast_hash": "a191a2530814784fd19e0e8a9cc3cd64",
+    "semantic_hash": "a191a2530814784fd19e0e8a9cc3cd64"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/themes/faith-monotheism.md": {
+    "mtime": 1779372925.1558743,
+    "ast_hash": "9d469217e1c260cd7d78692838ec5b6a",
+    "semantic_hash": "9d469217e1c260cd7d78692838ec5b6a"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/prophet_ismail.md": {
+    "mtime": 1779372925.1506665,
+    "ast_hash": "bfbbfd12fcf007aa40305ec62b0811be",
+    "semantic_hash": "bfbbfd12fcf007aa40305ec62b0811be"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/prophet_yusuf.md": {
+    "mtime": 1779372925.1509879,
+    "ast_hash": "39a2fe8e5d7c7d3e52e31d95cac184ef",
+    "semantic_hash": "39a2fe8e5d7c7d3e52e31d95cac184ef"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/prophet_dawud.md": {
+    "mtime": 1779372925.1515756,
+    "ast_hash": "6f59dbeff3c73e37ad39c263ac1be0e7",
+    "semantic_hash": "6f59dbeff3c73e37ad39c263ac1be0e7"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/prophet_yunus.md": {
+    "mtime": 1779372925.1518874,
+    "ast_hash": "ccb716761bee0c759abe1193a359a22f",
+    "semantic_hash": "ccb716761bee0c759abe1193a359a22f"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/prophet_shuayb.md": {
+    "mtime": 1779372925.1511948,
+    "ast_hash": "1098afd9e063e62a12f8927f68369f99",
+    "semantic_hash": "1098afd9e063e62a12f8927f68369f99"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/prophet_isa.md": {
+    "mtime": 1779372925.1522484,
+    "ast_hash": "e7c8fb4c3f6dd9a68d41dc0b1e7ee81e",
+    "semantic_hash": "e7c8fb4c3f6dd9a68d41dc0b1e7ee81e"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/prophet_adam.md": {
+    "mtime": 1779372925.1498704,
+    "ast_hash": "b4405b286a2a0fe0748fa76181b1b028",
+    "semantic_hash": "b4405b286a2a0fe0748fa76181b1b028"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/figure_jibril.md": {
+    "mtime": 1779372925.1531212,
+    "ast_hash": "97d5a775d265ff7b0102697ffd9b80b6",
+    "semantic_hash": "97d5a775d265ff7b0102697ffd9b80b6"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/divine_ar-rahim.md": {
+    "mtime": 1779372925.1552703,
+    "ast_hash": "158ce96ef9b465a18b88dc2c7dbf0e27",
+    "semantic_hash": "158ce96ef9b465a18b88dc2c7dbf0e27"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/figure_firaun.md": {
+    "mtime": 1779372925.1527424,
+    "ast_hash": "6815660b2860b32e1831c89d69c83185",
+    "semantic_hash": "6815660b2860b32e1831c89d69c83185"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/prophet_lut.md": {
+    "mtime": 1779372925.1505527,
+    "ast_hash": "27b98a93776da2875b05203994cfb706",
+    "semantic_hash": "27b98a93776da2875b05203994cfb706"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/prophet_dhul-kifl.md": {
+    "mtime": 1779372925.1514668,
+    "ast_hash": "8a4676609619a3431885b116921ae593",
+    "semantic_hash": "8a4676609619a3431885b116921ae593"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/prophet_yaqub.md": {
+    "mtime": 1779372925.1508858,
+    "ast_hash": "c704c579e5b059a48a0a7d6fb10c5387",
+    "semantic_hash": "c704c579e5b059a48a0a7d6fb10c5387"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/prophet_muhammad.md": {
+    "mtime": 1779372925.1523495,
+    "ast_hash": "1709d0206b2adcb31e5efd7f5138c42f",
+    "semantic_hash": "1709d0206b2adcb31e5efd7f5138c42f"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/prophet_hud.md": {
+    "mtime": 1779372925.1502721,
+    "ast_hash": "b855c72402907525e18980f69c1ca4ca",
+    "semantic_hash": "b855c72402907525e18980f69c1ca4ca"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/prophet_yahya.md": {
+    "mtime": 1779372925.1521306,
+    "ast_hash": "bbced0f21852ea5026bd9623877f772c",
+    "semantic_hash": "bbced0f21852ea5026bd9623877f772c"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/divine_rabb.md": {
+    "mtime": 1779372925.1557271,
+    "ast_hash": "eb812113c0093afbc89b430bd38115c5",
+    "semantic_hash": "eb812113c0093afbc89b430bd38115c5"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/prophet_ilyas.md": {
+    "mtime": 1779372925.1516705,
+    "ast_hash": "4917bf0fc04faa216491f62c2190b739",
+    "semantic_hash": "4917bf0fc04faa216491f62c2190b739"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/divine_ar-rahman.md": {
+    "mtime": 1779372925.1549387,
+    "ast_hash": "dcb3579d14fb46b03d786f935360b61c",
+    "semantic_hash": "dcb3579d14fb46b03d786f935360b61c"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/prophet_musa.md": {
+    "mtime": 1779372925.151367,
+    "ast_hash": "83f5a91c2fb04fcb0174806c4b592fb8",
+    "semantic_hash": "83f5a91c2fb04fcb0174806c4b592fb8"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/prophet_nuh.md": {
+    "mtime": 1779372925.150146,
+    "ast_hash": "a1bad129d95c28d4e7ecfed3a3d1c8b5",
+    "semantic_hash": "a1bad129d95c28d4e7ecfed3a3d1c8b5"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/figure_maryam.md": {
+    "mtime": 1779372925.1524715,
+    "ast_hash": "2957426038b91338ff080754d97d1671",
+    "semantic_hash": "2957426038b91338ff080754d97d1671"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/place_sinai.md": {
+    "mtime": 1779372925.1536906,
+    "ast_hash": "13362f8e0f63c5a495b7863c783a2e57",
+    "semantic_hash": "13362f8e0f63c5a495b7863c783a2e57"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/prophet_ayyub.md": {
+    "mtime": 1779372925.1510878,
+    "ast_hash": "fb6d244b753297799cab17636376a4ba",
+    "semantic_hash": "fb6d244b753297799cab17636376a4ba"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/figure_iblis.md": {
+    "mtime": 1779372925.1529224,
+    "ast_hash": "4b1418850f52ff1a1cd906c3c1f5d2cf",
+    "semantic_hash": "4b1418850f52ff1a1cd906c3c1f5d2cf"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/prophet_ibrahim.md": {
+    "mtime": 1779372925.1504266,
+    "ast_hash": "b00c73a97081fe1315e9dc7f75fb3ab2",
+    "semantic_hash": "b00c73a97081fe1315e9dc7f75fb3ab2"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/place_madinah.md": {
+    "mtime": 1779372925.1534257,
+    "ast_hash": "d9d0da7d243353c624993c3db91aeb2a",
+    "semantic_hash": "d9d0da7d243353c624993c3db91aeb2a"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/place_misr.md": {
+    "mtime": 1779372925.153816,
+    "ast_hash": "9ae6e2fd7e91531fc6b30bde28e25846",
+    "semantic_hash": "9ae6e2fd7e91531fc6b30bde28e25846"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/place_makka.md": {
+    "mtime": 1779372925.1532817,
+    "ast_hash": "ff1cbac6bce56ffa684f1dc1878dddd4",
+    "semantic_hash": "ff1cbac6bce56ffa684f1dc1878dddd4"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/divine_allah.md": {
+    "mtime": 1779372925.1545935,
+    "ast_hash": "b775ec46fcde7dd6603f24794fedc20b",
+    "semantic_hash": "b775ec46fcde7dd6603f24794fedc20b"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/place_masjid-al-haram.md": {
+    "mtime": 1779372925.1535597,
+    "ast_hash": "be5d5f135510b90a6ee6969d1440f145",
+    "semantic_hash": "be5d5f135510b90a6ee6969d1440f145"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/prophet_zakariya.md": {
+    "mtime": 1779372925.152015,
+    "ast_hash": "e25baf502e3a25d50e9c9db9e03889d5",
+    "semantic_hash": "e25baf502e3a25d50e9c9db9e03889d5"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/prophet_al-yasa.md": {
+    "mtime": 1779372925.1517775,
+    "ast_hash": "febe31cd174eaa3a955e68f75c44b141",
+    "semantic_hash": "febe31cd174eaa3a955e68f75c44b141"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/prophet_ishaq.md": {
+    "mtime": 1779372925.150779,
+    "ast_hash": "a8f00c71f5dc05943e1b6652e66e5880",
+    "semantic_hash": "a8f00c71f5dc05943e1b6652e66e5880"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/place_madyan.md": {
+    "mtime": 1779372925.1539543,
+    "ast_hash": "5149eeb43a195f7ba9a4b3de81aa2afd",
+    "semantic_hash": "5149eeb43a195f7ba9a4b3de81aa2afd"
+  },
+  "/Users/Hesham/Documents/quran-analytics/quran_corpus/entities/prophet_idris.md": {
+    "mtime": 1779372925.1499836,
+    "ast_hash": "d383d52c5d22a47ff76594fb02d8dc03",
+    "semantic_hash": "d383d52c5d22a47ff76594fb02d8dc03"
+  }
+}
