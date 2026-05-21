@@ -87,6 +87,31 @@ See the [Screenshots](#screenshots) section below for the same pages rendered in
 - Commits wins on the `autoresearch/radar` branch
 - See [`autoresearch/README.md`](autoresearch/README.md) for the experiment design
 
+### Experimental: Knowledge graph of the project (`graphify-out/`)
+
+The whole project, indexed as a navigable knowledge graph using [graphify](https://github.com/safishamsi/graphify). 631 nodes, 749 edges, 63 communities, generated from a hybrid pipeline (Python AST extraction for code + parallel Claude general-purpose subagents for docs, screenshots, and high-level Vue.js structure).
+
+<p align="center">
+  <img src="docs/screenshots/knowledge-graph.png" alt="Knowledge graph of the project, 631 nodes clustered into 63 communities" width="800"/>
+</p>
+
+| Output | Purpose |
+|--------|---------|
+| [`graphify-out/graph.html`](graphify-out/graph.html) | Interactive force-directed graph, open in any browser, click any node to inspect, filter by community |
+| [`graphify-out/GRAPH_REPORT.md`](graphify-out/GRAPH_REPORT.md) | Audit report: god nodes, surprising cross-community connections, suggested questions, hyperedges, per-community deep-dives |
+| [`graphify-out/graph.json`](graphify-out/graph.json) | Raw graph data for GraphRAG, agent retrieval, or Neo4j import |
+
+The top "god nodes" (most central abstractions) the graph surfaced:
+1. `run()` in `autoresearch/orchestrator.py`, 27 connections, the iteration loop's central bridge
+2. `Vue 3 Root Component` in `electron-app/app.html`, 26 connections, the app's single source of truth
+3. `app.html` (the 9,900-line single-file Vue app), 17 connections, the project's main artifact
+4. `tokenize_arabic()`, 16 connections, the linguistic backbone
+5. `RadarRenderer` (autoresearch), 14 connections, the chart-tuning subject
+
+Token-reduction benchmark: graphify queries cost **15.9x fewer tokens** than naive grep over the same corpus (42,066 tokens corpus → ~2,644 tokens per query).
+
+To regenerate after code changes: `/graphify --update` (incremental, only re-extracts changed files) or `graphify watch .` (auto-rebuild on save).
+
 ## Screenshots
 
 The same page rendered in both languages. Every chart label, badge, hover template, and content card swaps via the runtime `lang` toggle. Notice the bidirectional layout: RTL/LTR text direction, chart axis flipping, and right-aligned vs left-aligned typography all swap together.

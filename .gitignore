@@ -40,3 +40,7 @@ electron-app/_migrate_*.py
 # Phase 2 generated artifacts (will be regenerated)
 electron-app/data/embeddings.bin
 electron-app/data/topics.json
+
+# graphify internal state (tracked outputs: graph.html, graph.json, GRAPH_REPORT.md, manifest.json, cost.json)
+graphify-out/.graphify_*
+graphify-out/cache/

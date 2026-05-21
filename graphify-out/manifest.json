@@ -1,0 +1,202 @@
+{
+  "/Users/Hesham/Documents/quran-analytics/build_cinematic.py": {
+    "mtime": 1775192053.9035892,
+    "ast_hash": "817347b3f69cacb8b25de46b759d4608",
+    "semantic_hash": "817347b3f69cacb8b25de46b759d4608"
+  },
+  "/Users/Hesham/Documents/quran-analytics/serve.py": {
+    "mtime": 1775192121.655049,
+    "ast_hash": "1b8bc392c457470b0976f0adedd930f1",
+    "semantic_hash": "1b8bc392c457470b0976f0adedd930f1"
+  },
+  "/Users/Hesham/Documents/quran-analytics/enrich_data.py": {
+    "mtime": 1775191718.0906332,
+    "ast_hash": "7052b945826dfdffa70ccb060e8da7ef",
+    "semantic_hash": "7052b945826dfdffa70ccb060e8da7ef"
+  },
+  "/Users/Hesham/Documents/quran-analytics/app.py": {
+    "mtime": 1775179083.8722966,
+    "ast_hash": "d3bba506e23726bc0c06d96b31ab8fae",
+    "semantic_hash": "d3bba506e23726bc0c06d96b31ab8fae"
+  },
+  "/Users/Hesham/Documents/quran-analytics/update_all.py": {
+    "mtime": 1775199376.3612158,
+    "ast_hash": "de2af3f6399115df02417a47474383cc",
+    "semantic_hash": "de2af3f6399115df02417a47474383cc"
+  },
+  "/Users/Hesham/Documents/quran-analytics/autoresearch/eval_heuristic.py": {
+    "mtime": 1777603981.645898,
+    "ast_hash": "818a583803d182b00f74da4abdcbc2ee",
+    "semantic_hash": "818a583803d182b00f74da4abdcbc2ee"
+  },
+  "/Users/Hesham/Documents/quran-analytics/autoresearch/git_ops.py": {
+    "mtime": 1777603765.9606967,
+    "ast_hash": "a36edaabc9e7f00bc0518a98e94aea7c",
+    "semantic_hash": "a36edaabc9e7f00bc0518a98e94aea7c"
+  },
+  "/Users/Hesham/Documents/quran-analytics/autoresearch/render.py": {
+    "mtime": 1777603663.5030224,
+    "ast_hash": "c9985783d4f780a2aee2b4fc52b68f52",
+    "semantic_hash": "c9985783d4f780a2aee2b4fc52b68f52"
+  },
+  "/Users/Hesham/Documents/quran-analytics/autoresearch/smoke_test_app.py": {
+    "mtime": 1777603425.4536078,
+    "ast_hash": "5e422a1c742c589a4c66542f46ad222a",
+    "semantic_hash": "5e422a1c742c589a4c66542f46ad222a"
+  },
+  "/Users/Hesham/Documents/quran-analytics/autoresearch/eval_vision.py": {
+    "mtime": 1777603751.704989,
+    "ast_hash": "f42a73633e8f1a149442b1a07323fbe3",
+    "semantic_hash": "f42a73633e8f1a149442b1a07323fbe3"
+  },
+  "/Users/Hesham/Documents/quran-analytics/autoresearch/mutate.py": {
+    "mtime": 1777604439.1536086,
+    "ast_hash": "76dd42981323705bda0a426fbe252aed",
+    "semantic_hash": "76dd42981323705bda0a426fbe252aed"
+  },
+  "/Users/Hesham/Documents/quran-analytics/autoresearch/orchestrator.py": {
+    "mtime": 1777604439.1541097,
+    "ast_hash": "7657927546c7bb097e8680d7d1301dcc",
+    "semantic_hash": "7657927546c7bb097e8680d7d1301dcc"
+  },
+  "/Users/Hesham/Documents/quran-analytics/autoresearch/search_space.json": {
+    "mtime": 1777603126.0679326,
+    "ast_hash": "3917624541160c382dfcbbba95dc5a76",
+    "semantic_hash": "3917624541160c382dfcbbba95dc5a76"
+  },
+  "/Users/Hesham/Documents/quran-analytics/electron-app/_migrate_data.py": {
+    "mtime": 1778432391.1244915,
+    "ast_hash": "8b40d7abd9c8aa094b6d34264b05e9d9",
+    "semantic_hash": "8b40d7abd9c8aa094b6d34264b05e9d9"
+  },
+  "/Users/Hesham/Documents/quran-analytics/electron-app/quran_duas.js": {
+    "mtime": 1778432409.8857133,
+    "ast_hash": "a99b7e7e91adffff66963eb370e1de83",
+    "semantic_hash": "a99b7e7e91adffff66963eb370e1de83"
+  },
+  "/Users/Hesham/Documents/quran-analytics/electron-app/main.js": {
+    "mtime": 1775203208.2101448,
+    "ast_hash": "1441da6897baab8fae8bb706dbea6a20",
+    "semantic_hash": "1441da6897baab8fae8bb706dbea6a20"
+  },
+  "/Users/Hesham/Documents/quran-analytics/electron-app/package.json": {
+    "mtime": 1777382826.9169567,
+    "ast_hash": "8754f58fe78198020af9ca712c3b3934",
+    "semantic_hash": "8754f58fe78198020af9ca712c3b3934"
+  },
+  "/Users/Hesham/Documents/quran-analytics/electron-app/quran_tafsir_insights.js": {
+    "mtime": 1778432409.9022708,
+    "ast_hash": "de1536f5073d9ff83022618406f79089",
+    "semantic_hash": "de1536f5073d9ff83022618406f79089"
+  },
+  "/Users/Hesham/Documents/quran-analytics/electron-app/quran_stories_data.js": {
+    "mtime": 1778432409.8702233,
+    "ast_hash": "d5ef94ba3a9239333aa10440722a6000",
+    "semantic_hash": "d5ef94ba3a9239333aa10440722a6000"
+  },
+  "/Users/Hesham/Documents/quran-analytics/electron-app/quran_lessons.js": {
+    "mtime": 1778432409.862183,
+    "ast_hash": "463e25d3954389b520745162a2315d51",
+    "semantic_hash": "463e25d3954389b520745162a2315d51"
+  },
+  "/Users/Hesham/Documents/quran-analytics/electron-app/charts/configs/radar.baseline.json": {
+    "mtime": 1777603102.3453465,
+    "ast_hash": "a1d8a768dff5ee56ee7b345c384b6595",
+    "semantic_hash": "a1d8a768dff5ee56ee7b345c384b6595"
+  },
+  "/Users/Hesham/Documents/quran-analytics/electron-app/charts/configs/radar.json": {
+    "mtime": 1777604457.1980574,
+    "ast_hash": "a1d8a768dff5ee56ee7b345c384b6595",
+    "semantic_hash": "a1d8a768dff5ee56ee7b345c384b6595"
+  },
+  "/Users/Hesham/Documents/quran-analytics/.claude/launch.json": {
+    "mtime": 1775199418.5112176,
+    "ast_hash": "4328faa8ed5d3f099bcb64a8000efc85",
+    "semantic_hash": "4328faa8ed5d3f099bcb64a8000efc85"
+  },
+  "/Users/Hesham/Documents/quran-analytics/ARCHITECTURE.md": {
+    "mtime": 1779368935.622236,
+    "ast_hash": "d90f5ad42ff2fc6bfd9ab932c46e30fa",
+    "semantic_hash": "d90f5ad42ff2fc6bfd9ab932c46e30fa"
+  },
+  "/Users/Hesham/Documents/quran-analytics/README.md": {
+    "mtime": 1779370282.1158688,
+    "ast_hash": "d0a5bc3539646bd76dc8e098cf622499",
+    "semantic_hash": "d0a5bc3539646bd76dc8e098cf622499"
+  },
+  "/Users/Hesham/Documents/quran-analytics/ROADMAP.md": {
+    "mtime": 1779368935.6230402,
+    "ast_hash": "2bc82848697aba4754a701d786f5d915",
+    "semantic_hash": "2bc82848697aba4754a701d786f5d915"
+  },
+  "/Users/Hesham/Documents/quran-analytics/QuranAnalytics.html": {
+    "mtime": 1775211249.2898288,
+    "ast_hash": "8ae83f126884818d921fa90d86ca9817",
+    "semantic_hash": "8ae83f126884818d921fa90d86ca9817"
+  },
+  "/Users/Hesham/Documents/quran-analytics/autoresearch/README.md": {
+    "mtime": 1777604574.4556813,
+    "ast_hash": "a14c7685e6ec83f53a6262e61791101b",
+    "semantic_hash": "a14c7685e6ec83f53a6262e61791101b"
+  },
+  "/Users/Hesham/Documents/quran-analytics/autoresearch/rubric.md": {
+    "mtime": 1777603144.7953587,
+    "ast_hash": "a9cce9bbd91897f0caac3eb11f421026",
+    "semantic_hash": "a9cce9bbd91897f0caac3eb11f421026"
+  },
+  "/Users/Hesham/Documents/quran-analytics/electron-app/test_charts.html": {
+    "mtime": 1775220151.2197535,
+    "ast_hash": "e1eeacf6a8ba0b33c684898c2ddf6dac",
+    "semantic_hash": "e1eeacf6a8ba0b33c684898c2ddf6dac"
+  },
+  "/Users/Hesham/Documents/quran-analytics/electron-app/app.html": {
+    "mtime": 1779370098.2306209,
+    "ast_hash": "790afb888f2af01f29771c118f9e243b",
+    "semantic_hash": "790afb888f2af01f29771c118f9e243b"
+  },
+  "/Users/Hesham/Documents/quran-analytics/electron-app/icon.png": {
+    "mtime": 1775203244.0160148,
+    "ast_hash": "7c5c82405437700c8394f13801ed2d76",
+    "semantic_hash": "7c5c82405437700c8394f13801ed2d76"
+  },
+  "/Users/Hesham/Documents/quran-analytics/docs/screenshots/tafsir-insights.png": {
+    "mtime": 1779369365.6634295,
+    "ast_hash": "8c25544eff22c260f92b62662e3eab51",
+    "semantic_hash": "8c25544eff22c260f92b62662e3eab51"
+  },
+  "/Users/Hesham/Documents/quran-analytics/docs/screenshots/concordance.png": {
+    "mtime": 1779369365.479946,
+    "ast_hash": "798c84de178c2d4d1c63a66d144b73de",
+    "semantic_hash": "798c84de178c2d4d1c63a66d144b73de"
+  },
+  "/Users/Hesham/Documents/quran-analytics/docs/screenshots/concordance-en.png": {
+    "mtime": 1779370139.5796933,
+    "ast_hash": "b57bad75772d39e29686b04b186b9f41",
+    "semantic_hash": "b57bad75772d39e29686b04b186b9f41"
+  },
+  "/Users/Hesham/Documents/quran-analytics/docs/screenshots/nlp-explorer-en.png": {
+    "mtime": 1779370139.5096345,
+    "ast_hash": "ba124bc8282894f26204a6241faa1daa",
+    "semantic_hash": "ba124bc8282894f26204a6241faa1daa"
+  },
+  "/Users/Hesham/Documents/quran-analytics/docs/screenshots/hero-overview.png": {
+    "mtime": 1779369559.5862691,
+    "ast_hash": "5777b97c1d8ad1b877d4aae0aa52eb60",
+    "semantic_hash": "5777b97c1d8ad1b877d4aae0aa52eb60"
+  },
+  "/Users/Hesham/Documents/quran-analytics/docs/screenshots/hero-overview-en.png": {
+    "mtime": 1779370139.7571418,
+    "ast_hash": "6ea10edbe7ee16eb537da0fd8dbfde7b",
+    "semantic_hash": "6ea10edbe7ee16eb537da0fd8dbfde7b"
+  },
+  "/Users/Hesham/Documents/quran-analytics/docs/screenshots/nlp-explorer.png": {
+    "mtime": 1779369365.68273,
+    "ast_hash": "be514a648a98ce68d8f572b99d90a505",
+    "semantic_hash": "be514a648a98ce68d8f572b99d90a505"
+  },
+  "/Users/Hesham/Documents/quran-analytics/docs/screenshots/tafsir-insights-en.png": {
+    "mtime": 1779370139.647554,
+    "ast_hash": "2520dc85181f4e00e90577ebd28c8cf8",
+    "semantic_hash": "2520dc85181f4e00e90577ebd28c8cf8"
+  }
+}
