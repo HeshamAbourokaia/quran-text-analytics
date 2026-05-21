@@ -2723,6 +2723,73 @@ body {
       </div>
     </div>
 
+    <!-- ════════════ PAGE 23: KNOWLEDGE GRAPH ════════════ -->
+    <div v-if="currentPage===23">
+      <div class="hero">
+        <h1 data-anim="hero">🕸️ {{ L('خَرِيطَةُ المَعْرِفَةِ القُرْآنِيَّةِ', 'Quranic Knowledge Graph') }}</h1>
+        <p class="hero-sub" data-anim="hero">{{ L('٤٣٩ عقدة، ٩٢٩ علاقة، ٢٨ مجموعة موضوعية: السور والأنبياء والأحداث التاريخية والتفاسير والعلوم القرآنية في رسم واحد متفاعل', '439 nodes, 929 edges, 28 thematic communities: surahs, prophets, historical events, tafsir traditions, and Quranic sciences in one interactive map') }}</p>
+        <div class="hero-line" data-anim="hero"></div>
+      </div>
+
+      <!-- Hero stats grid -->
+      <div data-anim="section" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap:12px; max-width:1200px; margin:18px auto 22px; padding:0 8px;">
+        <div style="background:linear-gradient(135deg,#1B4332,#2D6A4F); color:white; border-radius:16px; padding:18px 12px; text-align:center; box-shadow:0 6px 24px rgba(27,67,50,0.25);">
+          <div style="font-size:1.6rem; margin-bottom:4px;">🕸️</div>
+          <div style="font-family:Amiri; font-size:1.7rem; font-weight:bold; line-height:1;">439</div>
+          <div style="font-family:Amiri; font-size:0.8rem; opacity:0.95;">{{ L('عُقْدَة', 'Nodes') }}</div>
+        </div>
+        <div style="background:linear-gradient(135deg,#312E81,#4338CA); color:white; border-radius:16px; padding:18px 12px; text-align:center; box-shadow:0 6px 24px rgba(67,56,202,0.25);">
+          <div style="font-size:1.6rem; margin-bottom:4px;">🔗</div>
+          <div style="font-family:Amiri; font-size:1.7rem; font-weight:bold; line-height:1;">929</div>
+          <div style="font-family:Amiri; font-size:0.8rem; opacity:0.95;">{{ L('عَلَاقَة', 'Edges') }}</div>
+        </div>
+        <div style="background:linear-gradient(135deg,#831843,#BE185D); color:white; border-radius:16px; padding:18px 12px; text-align:center; box-shadow:0 6px 24px rgba(190,24,93,0.25);">
+          <div style="font-size:1.6rem; margin-bottom:4px;">🎨</div>
+          <div style="font-family:Amiri; font-size:1.7rem; font-weight:bold; line-height:1;">28</div>
+          <div style="font-family:Amiri; font-size:0.8rem; opacity:0.95;">{{ L('مَجْمُوعَة', 'Communities') }}</div>
+        </div>
+        <div style="background:linear-gradient(135deg,#92400E,#D97706); color:white; border-radius:16px; padding:18px 12px; text-align:center; box-shadow:0 6px 24px rgba(217,119,6,0.25);">
+          <div style="font-size:1.6rem; margin-bottom:4px;">📄</div>
+          <div style="font-family:Amiri; font-size:1.7rem; font-weight:bold; line-height:1;">215</div>
+          <div style="font-family:Amiri; font-size:0.8rem; opacity:0.95;">{{ L('وَثِيقَة', 'Documents') }}</div>
+        </div>
+        <div style="background:linear-gradient(135deg,#0E7490,#0891B2); color:white; border-radius:16px; padding:18px 12px; text-align:center; box-shadow:0 6px 24px rgba(8,145,178,0.25);">
+          <div style="font-size:1.6rem; margin-bottom:4px;">⏳</div>
+          <div style="font-family:Amiri; font-size:1.7rem; font-weight:bold; line-height:1;">23</div>
+          <div style="font-family:Amiri; font-size:0.8rem; opacity:0.95;">{{ L('سَنَةَ وَحْي', 'Years of Revelation') }}</div>
+        </div>
+      </div>
+
+      <!-- Narrative description -->
+      <div data-anim="section" style="max-width:1100px; margin:0 auto 18px; padding:0 16px;">
+        <div style="background:linear-gradient(135deg,#1e1b4b,#312e81); border-radius:14px; padding:16px 22px; color:white;">
+          <p style="font-family:Amiri; font-size:0.95rem; margin:0 0 8px; opacity:0.95; line-height:1.6;">
+            {{ L('هذه الخريطة تعرض القرآن الكريم كرسم بياني متفاعل: ١١٤ سورة، و٢٥ نبياً، و١٤ حدثاً تاريخياً (من غار حراء إلى حجة الوداع)، و١٥ سبباً من أسباب النزول، و٨ مفسّرين كباراً (الطبري، ابن كثير، القرطبي، السعدي، ابن عاشور، الشعراوي، سيد قطب، السامرائي)، و٦ علوم قرآنية. كل عقدة قابلة للنقر، وكل علاقة تكشف صلة بين موضع وآخر.', 'This map renders the Quran as an interactive graph: 114 surahs, 25 prophets, 14 historical events (Cave of Hira to Farewell Pilgrimage), 15 occasions of revelation (asbab al-nuzul), 8 major tafsir scholars (Tabari, Ibn Kathir, Qurtubi, Sa\'di, Ibn Ashur, Sha\'rawi, Sayyid Qutb, Al-Samarrai), and 6 Quranic sciences. Click any node to inspect, filter by community, drag to rearrange.') }}
+          </p>
+          <p style="font-family:Amiri; font-size:0.85rem; margin:0; opacity:0.75; line-height:1.55;">
+            {{ L('🎯 جرّب: ابحث عن "موسى" لترى ٣٤ سورة تذكره · انقر على مجموعة "غار حراء + المقاطعة" لتعرف بداية الوحي · تتبّع كيف ترتبط آية التوفي (٣٩:٤٢) بآية رفع عيسى (٣:٥٥) دلالياً', '🎯 Try: search "Moses" to see 34 surahs that mention him · click the "Cave of Hira + Boycott" community to see how revelation began · trace how the Tawaffa verse (39:42) semantically links to Jesus\'s ascension (3:55)') }}
+          </p>
+        </div>
+      </div>
+
+      <!-- The actual graph in an iframe -->
+      <div data-anim="section" style="max-width:1400px; margin:0 auto; padding:0 8px;">
+        <iframe
+          src="quran_graph.html"
+          style="width:100%; height:80vh; min-height:700px; border:1px solid #e2e8f0; border-radius:14px; box-shadow:0 6px 24px rgba(0,0,0,0.08); background:#0a0a18;"
+          loading="lazy"
+          title="Quranic Knowledge Graph"></iframe>
+      </div>
+
+      <!-- Methodology / source note -->
+      <div data-anim="section" style="max-width:1100px; margin:18px auto 20px; padding:14px 22px; background:#fefce8; border:1px solid #fde68a; border-radius:12px;">
+        <p style="font-family:Amiri; font-size:0.85rem; color:#78350f; margin:0; line-height:1.7;">
+          <strong>{{ L('كيف بُنِيَت', 'How it was built') }}:</strong>
+          {{ L('تم توليد ٢١٥ وثيقة Markdown من النص القرآني والتراجم والتفاسير، ثم تشغيل graphify (أداة تحويل المجلدات إلى رسوم معرفة) باستخدام ٩ وكلاء Claude متوازين لاستخراج العقد والعلاقات. النتيجة: رسم بياني قابل للاستعلام يقلل تكلفة الأسئلة المعقدة بنسبة ٣.٥ ضعف مقارنة بالبحث النصي العادي.', '215 markdown documents were generated from the Quranic text, translations, scholarly tafsir, and historical sources, then graphify (a folder-to-knowledge-graph tool) was run using 9 parallel Claude agents to extract nodes and edges. The result: a queryable graph that reduces token cost for complex questions by 3.5x compared to naive text search.') }}
+        </p>
+      </div>
+    </div>
+
     <!-- ════════════ TAFSIR POPUP ════════════ -->
     <div v-if="tafsirActive" @click.self="tafsirActive = null"
       style="position:fixed; inset:0; background:rgba(0,0,0,0.55); z-index:9999; display:flex; align-items:center; justify-content:center; padding:20px; backdrop-filter:blur(4px);">
@@ -3018,6 +3085,7 @@ window.__app = createApp({
         { icon: '💎', ar: 'فِهْرِسُ الدُّرُوسِ', en: 'Lessons Index', section: 'library' },
         { icon: '🤲', ar: 'فِهْرِسُ الأَدْعِيَةِ', en: "Du'a Index", section: 'library' },
         { icon: '💡', ar: 'بَصَائِرُ قُرْآنِيَّةٌ', en: 'Scholarly Insights', section: 'library' },
+        { icon: '🕸️', ar: 'خَرِيطَةُ المَعْرِفَةِ', en: 'Knowledge Graph', section: 'library' },
       ],
       insights: [
         { icon: '📊', cat_ar: 'تَكْرَارُ الكَلِمَاتِ', cat_en: 'Word Frequency',
@@ -5031,7 +5099,7 @@ window.__app = createApp({
     // (e.g. app.html?page=17&lang=en)
     const params = new URLSearchParams(location.search);
     const urlPage = parseInt(params.get('page'));
-    if (!isNaN(urlPage) && urlPage >= 0 && urlPage <= 18) {
+    if (!isNaN(urlPage) && urlPage >= 0 && urlPage <= 23) {
       this.currentPage = urlPage;
     }
     const urlLang = params.get('lang');
