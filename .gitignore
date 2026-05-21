@@ -23,3 +23,20 @@ autoresearch/STOP
 # Editor
 .vscode/
 .idea/
+
+# Internal video artifacts (not part of the published product)
+working_videos/
+
+# Build/temp artifacts that shouldn't be tracked
+electron-app/dist/
+electron-app/*.app/
+*.app.backup
+.claude/
+
+# Internal pre-migration backups and one-off migration scripts
+electron-app/_backup_*/
+electron-app/_migrate_*.py
+
+# Phase 2 generated artifacts (will be regenerated)
+electron-app/data/embeddings.bin
+electron-app/data/topics.json
