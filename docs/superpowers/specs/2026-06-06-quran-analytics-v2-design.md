@@ -80,10 +80,16 @@ Two distinct things the user asked for: **the real Quran** (authoritative refere
 - **Morphology:** the Quranic Arabic Corpus (QAC) morphology dataset. Every word carries location, surface form, lemma, root, and part of speech. This is what makes lemma and root counting possible and what separates `malak` (angel) from `malik` (king) and `mulk` (dominion).
 
 ### 4.2 The video's Quran (the aligned Mushaf)
-- **Primary (interactive):** the canonical 604-page, 15-line Madani Mushaf in the Hafiz Osman hattat layout, which is the copy whose word alignments the video and Bediuzzaman describe (the "tawafuqlu" Mushaf). We source the word-to-(page, line) mapping from the QUL / QPC (King Fahd Complex) Madani Mushaf layout data. This drives the alignment explorer.
-- **Secondary (explainer):** Hafiz Hunsari's 11-line palindromic-letter Mushaf and the Quran Majeed Alfi of Lahore (21-line, every line begins with Alif, 221 pages). If exact word-level layout data can be sourced, they become interactive; otherwise they are narrative pages with reconstructed, clearly-labelled diagrams.
+- **Primary text-grid (interactive):** the canonical 604-page, 15-line Madani Mushaf in the Hafiz Osman hattat layout, which is the copy whose word alignments the video and Bediuzzaman describe (the "tawafuqlu" Mushaf). We source the word-to-(page, line) mapping from the QUL / QPC (King Fahd Complex) Madani Mushaf layout data. This drives the alignment explorer.
+- **Quran Majeed Alfi (the "Alifi" Mushaf) - first-class visual viewer.** The Lahore copy where every line of every page begins with the letter Alif (21 lines per page; the video cites 221 pages, a Super Big large-format edition). Its all-Alif effect is a property of the calligrapher's exact line-breaking and cannot be reconstructed from open text data, so it is realized as a **page-image viewer with an Alif-column highlight overlay**: actual scanned pages rendered in a flip viewer, with the leading-Alif of every line highlighted and an optional guide-line drawn down the right margin to show the alignment. Sourced from a legal scan of the matching edition (Internet Archive has full scans; exact edition to be pinned at build). See 4.4 for sourcing and licensing.
+- **Hafiz Hunsari (11-line palindrome) - explainer.** The 11-line Mushaf whose first letters read symmetrically top-to-bottom (Fa, Alif, Lam, Lam, Alif ... and mirrored). Realized as a narrative page with a reconstructed, clearly-labelled diagram of the letter symmetry, upgraded to a page-image viewer if a legal scan of that specific copy can be sourced.
 
-### 4.3 Provenance, licensing, validation
+### 4.3 Alifi Mushaf image sourcing and licensing
+- **Images:** scanned pages of the matching edition (e.g. the Internet Archive "Alifi / Ali Fil Quran" scan, or a cleaner scan of the 21-line Super Big edition if found). Pinned and checksummed like other sources. We confirm the edition matches the video before use.
+- **Overlay data:** because every line starts with Alif by construction, the overlay does not need per-word OCR; the Alif column is the page's right margin (RTL). A light per-page calibration (top/bottom margin, line pitch) lets the overlay draw the highlight and guide-line accurately. This calibration is stored as small JSON, not derived from the publisher's text.
+- **Licensing:** these are a publisher's print with no clear open license. Policy: **full page-image viewer in the offline Electron app** (personal, educational, non-redistributing); on the **public website, show a curated set of annotated sample pages with attribution and a link to the source/seller**, not the full Mushaf, unless a clearly-licensed or public-domain scan is secured. This is a deliberate, reversible default the owner can change.
+
+### 4.4 Provenance, licensing, validation
 - Each source is pinned to a specific version and checksummed at download. `data-manifest.json` records source name, version, URL, checksum, and license.
 - Licensing: QAC morphology (GNU / CC-BY style, requires attribution), Tanzil (its stated terms), QUL/QPC layout (open). Attribution surfaced in an in-app credits page.
 - **Hard invariants (build fails if any is false):** 114 surahs; 6,236 verses; total words within tolerance of ~77,430; 604 Mushaf pages; basmala handled once (no inflation); every token maps to a valid (page, line); morphology coverage = 100% of tokens. These gates directly prevent the v1 6,348 / 56,108 bugs.
@@ -129,7 +135,8 @@ Real page-grid renderer for the 604-page, 15-line Madani layout, right-to-left, 
 - **Long-range horizontal alignment:** the Qitmir example (p294 "and their dog" on line 7 aligns with "Qitmir" 141 pages later on line 7), with an edge-on closed-Mushaf schematic.
 - **Facing-page meaning answer:** Ashab al-Kahf "a day or part of a day" answered by "300 years and 9 more" on the opposite page (p294).
 - **Verse-pair gallery:** the four distant similar-meaning alignments p342/489, p71/511, p112/286, p219/415, each rendered with both pages and the aligned line highlighted.
-- **Three-Mushaf explainers:** Hafiz Osman (15-line, the shortest-surah-as-line / longest-verse-as-page measurement story, 600 pages, no verse split across pages), Hunsari (11-line palindrome of first letters), Quran Majeed Alfi (21-line all-Alif, 221 pages, 12 years, continuous fasting).
+- **Alifi Mushaf visual viewer:** a dedicated page for the Quran Majeed Alfi. Real scanned pages in a flip viewer, every line's leading Alif highlighted and a right-margin guide-line drawn to show the all-Alif alignment, plus the story (21-line, all-Alif, Lahore, 12 years, continuous fasting). Full pages offline; curated annotated sample pages on the public website (see 4.3).
+- **Three-Mushaf context:** Hafiz Osman (15-line, the shortest-surah-as-line / longest-verse-as-page measurement story, 600 pages, no verse split across pages), Hunsari (11-line palindrome of first letters, diagram or scan), and the Alifi viewer above, tied together as one "aligned Mushafs" section.
 - **Reverent honesty layer:** a standing note that these alignments are a property of this specific calligraphic Mushaf, beautifully realized, which is a different category of claim from the abstract-text counts. Framed respectfully.
 
 ## 7. Frontend structure
@@ -156,7 +163,8 @@ Component-based Vue. Shared components: `PageGrid`, `AlignmentOverlay`, `ClaimCa
 ## 11. Open questions and risks
 
 - Exact open dataset for word-level (page, line) positions in the 15-line Madani Mushaf must be pinned; if line-level granularity is partial, the alignment guides may need a one-time manual correction pass for the showcased pages.
-- Hunsari and Alfi layouts may not exist as open data; fallback is reconstructed diagrams labelled illustrative.
+- Hunsari layout may not exist as open data; fallback is a reconstructed diagram labelled illustrative.
+- The Alifi Mushaf is realized via page images (no open text layout reproduces the all-Alif effect). The exact edition matching the video (21-line, ~221-page Super Big) must be pinned; the Internet Archive scan found so far is 568 pages, a different edition. Scan licensing is unclear, so the public website ships curated annotated sample pages plus attribution rather than the full Mushaf unless a clearly-licensed scan is secured.
 - Bediuzzaman's totals use a specific counting definition (attached pronominal forms); we show both his definition and the strict lemma count to stay honest.
 
 ## 12. Attribution and licensing
