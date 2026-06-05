@@ -68,6 +68,16 @@ def main():
     }
     _write('manifest.json', manifest)
 
+    # also emit an inlined data module the offline frontend can load with no server
+    web_dir = os.path.join(os.path.dirname(__file__), '..', 'web')
+    os.makedirs(web_dir, exist_ok=True)
+    payload = {'stats': {'totals': stats, 'surahStats': surah_stats},
+               'claims': claim_rows, 'manifest': manifest}
+    with open(os.path.join(web_dir, 'data.js'), 'w', encoding='utf-8') as fh:
+        fh.write('window.QURAN_DATA = ')
+        json.dump(payload, fh, ensure_ascii=False, separators=(',', ':'))
+        fh.write(';\n')
+
     _scorecard(stats, claim_rows)
 
 def _write(name, obj):
