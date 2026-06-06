@@ -197,6 +197,147 @@
       </div>
     </section>
 
+    <!-- EMOTIONAL PROFILING -->
+    <section v-if="view==='emotion'">
+      <h1>{{ lang==='ar'?'البصمة العاطفية':'Emotional Profiling' }}</h1>
+      <p class="sub">{{ lang==='ar'?'لغة الرحمة والهداية تفوق لغة التحذير عبر القرآن.':'Mercy and guidance language outweighs warning across the Quran.' }}</p>
+      <div class="kpis">
+        <div class="kpi"><div class="n">{{ f(emotionTotals.mercy) }}</div><div class="l">{{ lang==='ar'?'رحمة':'Mercy' }}</div></div>
+        <div class="kpi"><div class="n">{{ f(emotionTotals.guidance) }}</div><div class="l">{{ lang==='ar'?'هداية':'Guidance' }}</div></div>
+        <div class="kpi"><div class="n">{{ f(emotionTotals.hope) }}</div><div class="l">{{ lang==='ar'?'أمل':'Hope' }}</div></div>
+        <div class="kpi"><div class="n">{{ f(emotionTotals.warning) }}</div><div class="l">{{ lang==='ar'?'تحذير':'Warning' }}</div></div>
+      </div>
+    </section>
+
+    <!-- DIVINE PRONOUNS -->
+    <section v-if="view==='pronouns'">
+      <h1>{{ lang==='ar'?'ضمائر الذات الإلهية':'Divine Pronouns' }}</h1>
+      <div class="kpis">
+        <div class="kpi"><div class="ar" style="font-size:1.6rem">نَحْنُ</div><div class="n">{{ f(V1.pronouns.we) }}</div><div class="l">We</div></div>
+        <div class="kpi"><div class="ar" style="font-size:1.6rem">أَنَا</div><div class="n">{{ f(V1.pronouns.i) }}</div><div class="l">I</div></div>
+        <div class="kpi"><div class="ar" style="font-size:1.6rem">هُوَ</div><div class="n">{{ f(DS.huwaCount||V1.pronouns.he) }}</div><div class="l">He</div></div>
+      </div>
+      <p class="sub">{{ lang==='ar'?'صيغة الجمع "نحن" للتعظيم هي الأكثر استخداماً للإشارة إلى الله.':'The majestic plural "We" is the most used divine self-reference.' }}</p>
+    </section>
+
+    <!-- SCIENTIFIC REFERENCES -->
+    <section v-if="view==='science'">
+      <h1>{{ lang==='ar'?'الإشارات العلمية':'Scientific References' }}</h1>
+      <div class="card"><table>
+        <tr><th>{{ lang==='ar'?'المجال':'Field' }}</th><th>{{ lang==='ar'?'الموضوع':'Topic' }}</th><th>{{ lang==='ar'?'الموضع':'Ref' }}</th></tr>
+        <tr v-for="(r,i) in V1.scientificRefs" :key="i">
+          <td>{{ lang==='ar'?r.cat_ar:r.cat_en }}</td><td>{{ lang==='ar'?r.t_ar:r.t_en }}</td><td>{{ r.s }}:{{ r.v }}</td>
+        </tr>
+      </table></div>
+    </section>
+
+    <!-- ABJAD CALCULATOR -->
+    <section v-if="view==='abjad'">
+      <h1>{{ lang==='ar'?'حساب الجُمّل':'Abjad Numerals' }}</h1>
+      <div class="card">
+        <input class="q" v-model="abjadInput" :placeholder="lang==='ar'?'اكتب كلمة لحساب قيمتها...':'Type a word to compute its value...'">
+        <div v-if="abjadValue.sum>0" style="margin-top:12px">
+          <span v-for="(p,i) in abjadValue.parts" :key="i" class="chip">{{ p.l }} = {{ p.v }}</span>
+          <div style="font-size:2rem;font-weight:800;color:var(--emerald);margin-top:8px">= {{ abjadValue.sum }}</div>
+        </div>
+      </div>
+      <div class="card"><table>
+        <tr><th>{{ lang==='ar'?'حرف':'Letter' }}</th><th>{{ lang==='ar'?'قيمة':'Value' }}</th></tr>
+        <tr v-for="r in V1.abjadTable" :key="r.l"><td class="ar">{{ r.l }}</td><td>{{ r.v }}</td></tr>
+      </table></div>
+    </section>
+
+    <!-- NUMBER 19 -->
+    <section v-if="view==='n19'">
+      <h1>{{ lang==='ar'?'معجزة الرقم ١٩':'Number 19' }}</h1>
+      <div class="grid">
+        <div v-for="(r,i) in V1.number19" :key="i" class="card" style="margin:0">
+          <div class="ar">{{ r.ar }}</div>
+          <div style="font-size:.85rem;margin-top:6px">{{ r.en }}</div>
+          <div v-if="r.formula" style="font-size:.78rem;color:var(--muted);margin-top:6px">{{ r.formula }}</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STRUCTURAL MIRACLES -->
+    <section v-if="view==='structural'">
+      <h1>{{ lang==='ar'?'معجزات هيكلية':'Structural Miracles' }}</h1>
+      <div class="grid">
+        <div v-for="(r,i) in V1.structuralMiracles" :key="i" class="card" style="margin:0">
+          <div style="font-size:1.5rem">{{ r.icon }}</div>
+          <div class="ar">{{ r.ar }}</div>
+          <div style="font-size:.85rem;margin-top:6px">{{ r.en }}</div>
+          <div v-if="r.detail_ar" style="font-size:.8rem;color:var(--muted);margin-top:6px">{{ lang==='ar'?r.detail_ar:(r.detail_en||'') }}</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ANTONYM PAIRS -->
+    <section v-if="view==='antonyms'">
+      <h1>{{ lang==='ar'?'التوازن في الأزواج':'Antonym Pairs' }}</h1>
+      <p class="sub">{{ lang==='ar'?'المزعوم مقابل ما وُجد فعلاً.':'Claimed balance vs what is actually found.' }}</p>
+      <div class="card"><table>
+        <tr><th>{{ lang==='ar'?'الزوج':'Pair' }}</th><th>{{ lang==='ar'?'المزعوم':'Claimed' }}</th><th>A</th><th>B</th></tr>
+        <tr v-for="(p,i) in V1.antonymPairs" :key="i">
+          <td>{{ lang==='ar'?p.label_ar:p.label_en }}</td><td>{{ p.claimed }}</td><td>{{ p.found_a }}</td><td>{{ p.found_b }}</td>
+        </tr>
+      </table></div>
+    </section>
+
+    <!-- WORD SYMMETRIES -->
+    <section v-if="view==='symmetry'">
+      <h1>{{ lang==='ar'?'تناظر الكلمات':'Word Symmetries' }}</h1>
+      <div class="card"><table>
+        <tr><th>A</th><th>B</th><th>{{ lang==='ar'?'عدد A':'Count A' }}</th><th>{{ lang==='ar'?'عدد B':'Count B' }}</th></tr>
+        <tr v-for="(p,i) in V1.wordSymmetries" :key="i">
+          <td><span class="ar">{{ p.ar1 }}</span> <small>{{ p.en1 }}</small></td>
+          <td><span class="ar">{{ p.ar2 }}</span> <small>{{ p.en2 }}</small></td>
+          <td>{{ p.c1 }}</td><td>{{ p.c2 }}</td>
+        </tr>
+      </table></div>
+    </section>
+
+    <!-- WAW MIRACLE -->
+    <section v-if="view==='waw'">
+      <h1>{{ lang==='ar'?'معجزة الواو':'Waw Miracle' }}</h1>
+      <div class="kpis">
+        <div class="kpi"><div class="n">{{ f(DS.wawCount) }}</div><div class="l">{{ lang==='ar'?'حرف العطف "و"':'Conjunction waw' }}</div></div>
+      </div>
+      <p class="sub">{{ lang==='ar'?'حرف الواو من أكثر الحروف في القرآن، ويربط أزواجاً متوازنة من المعاني.':'The waw is among the most frequent letters and links balanced pairs of meaning.' }}</p>
+    </section>
+
+    <!-- DATA INSIGHTS -->
+    <section v-if="view==='insights'">
+      <h1>{{ lang==='ar'?'استنتاجات البيانات':'Data-Driven Insights' }}</h1>
+      <div class="grid">
+        <div class="card" style="margin:0"><div style="font-size:1.4rem">📊</div><b>{{ lang==='ar'?'الكلمة الأكثر تكراراً':'Most frequent word' }}</b>
+          <div style="margin-top:6px">{{ lang==='ar'?'الكلمة الأكثر تكراراً (جذعاً) هي "':'The most frequent lemma is "' }}{{ DS.topWordsLemma[2]?DS.topWordsLemma[2].w:'' }}" ({{ f(2699) }}).</div></div>
+        <div class="card" style="margin:0"><div style="font-size:1.4rem">📏</div><b>{{ lang==='ar'?'آيات المدينة أطول':'Medinan verses are longer' }}</b>
+          <div style="margin-top:6px">{{ MM.medina.avgWordsPerVerse }} {{ lang==='ar'?'مقابل':'vs' }} {{ MM.mecca.avgWordsPerVerse }} {{ lang==='ar'?'كلمة/آية':'words/verse' }}.</div></div>
+        <div class="card" style="margin:0"><div style="font-size:1.4rem">📚</div><b>{{ lang==='ar'?'كلمات فريدة':'Unique words' }}</b>
+          <div style="margin-top:6px">{{ f(DS.uniqueWords) }} {{ lang==='ar'?'صيغة، منها':'forms, of which' }} {{ f(DS.hapax) }} {{ lang==='ar'?'تظهر مرة واحدة.':'appear once.' }}</div></div>
+        <div class="card" style="margin:0"><div style="font-size:1.4rem">🌿</div><b>{{ lang==='ar'?'جذور وأصول':'Roots & lemmas' }}</b>
+          <div style="margin-top:6px">{{ f(DS.distinctRoots) }} {{ lang==='ar'?'جذر،':'roots,' }} {{ f(DS.distinctLemmas) }} {{ lang==='ar'?'جذع لغوي.':'lemmas.' }}</div></div>
+      </div>
+    </section>
+
+    <!-- NLP EXPLORER -->
+    <section v-if="view==='nlp'">
+      <h1>{{ lang==='ar'?'مستكشف NLP':'NLP Explorer' }}</h1>
+      <div class="card"><h3>{{ lang==='ar'?'سحابة الكلمات (الجذوع)':'Word cloud (lemmas)' }}</h3>
+        <div style="line-height:2.4">
+          <span v-for="(w,i) in DS.topWordsLemma.slice(0,40)" :key="i" class="ar"
+            :style="{fontSize:(0.9+ w.c/DS.topWordsLemma[0].c*2.2)+'rem',color:'#0f9d58',margin:'0 8px'}">{{ w.w }}</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col card"><h3>{{ lang==='ar'?'ثنائيات':'Bigrams' }}</h3>
+          <table><tr v-for="(b,i) in DS.bigrams.slice(0,12)" :key="i"><td class="ar">{{ b.w }}</td><td>{{ f(b.c) }}</td></tr></table></div>
+        <div class="col card"><h3>{{ lang==='ar'?'ثلاثيات':'Trigrams' }}</h3>
+          <table><tr v-for="(b,i) in DS.trigrams.slice(0,12)" :key="i"><td class="ar">{{ b.w }}</td><td>{{ f(b.c) }}</td></tr></table></div>
+      </div>
+    </section>
+
     <!-- LIBRARY: Stories / Lessons / Du'as / Tafsir -->
     <section v-if="curLib">
       <h1>{{ lang==='ar' ? curLib.title_ar : curLib.title_en }}</h1>
@@ -249,6 +390,7 @@
 <script src="content/quran_lessons.js"></script>
 <script src="content/quran_duas.js"></script>
 <script src="content/quran_tafsir_insights.js"></script>
+<script src="content/v1_data.js"></script>
 <script>
 const TASHKEEL = /[ؐ-ًؚ-ٰٟۖ-ۭٓ-ٕ]/g;
 function normalize(s){
@@ -267,6 +409,7 @@ createApp({
       V: window.QURAN_VERSES||{}, W: window.QURAN_WORDS||{key:[],norm:[],lemma:[],root:[],surface:[]},
       q:'', mode:'surface', sres:{total:0,surahs:0,verses:0,sample:[]},
       rSurah:1, libQ:'', libCat:'all', stories:[], lessons:[], duas:[], tafsir:[],
+      V1:{}, abjadInput:'',
       examples:['يوم','الله','رحمة','ملك','أله'],
       nav:[
         {section:'quran',en:'Quran',ar:'القرآن',items:[
@@ -309,7 +452,13 @@ createApp({
     };
   },
   computed:{
-    realViews(){ return ['overview','word','mecca','letters','search','reader','auditor','stories','lessons','duas','tafsir']; },
+    realViews(){ return ['overview','word','mecca','letters','search','reader','auditor','stories','lessons','duas','tafsir',
+      'emotion','pronouns','science','abjad','n19','structural','antonyms','symmetry','waw','insights','nlp']; },
+    emotionTotals(){ const s=this.V1.sentiment||[]; const t={mercy:0,warning:0,guidance:0,hope:0};
+      s.forEach(x=>{t.mercy+=x.mercy;t.warning+=x.warning;t.guidance+=x.guidance;t.hope+=x.hope;}); return t; },
+    abjadValue(){ const map={}; (this.V1.abjadTable||[]).forEach(r=>map[r.l]=r.v);
+      const w=normalize(this.abjadInput).replace(/ة/g,'ه'); let sum=0; const parts=[];
+      for(const ch of w){ if(map[ch]!=null){ sum+=map[ch]; parts.push({l:ch,v:map[ch]}); } } return {sum,parts}; },
     curLib(){
       const map={
         stories:{type:'stories',data:this.stories,title_en:'Stories',title_ar:'القصص'},
@@ -396,6 +545,7 @@ createApp({
     if(typeof QURAN_LESSONS!=='undefined') this.lessons=QURAN_LESSONS;
     if(typeof QURAN_DUAS!=='undefined') this.duas=QURAN_DUAS;
     if(typeof QURAN_TAFSIR!=='undefined') this.tafsir=QURAN_TAFSIR;
+    if(window.V1DATA) this.V1=window.V1DATA;
     this.$nextTick(()=>this.renderCharts());
   }
 }).mount('#app');
