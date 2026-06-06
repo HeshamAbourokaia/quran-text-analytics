@@ -875,8 +875,12 @@ createApp({
     },
     go(id){ this.view=id; this.libQ=''; this.libCat='all'; if(id==='tawafuq') this.ensureMushaf(); if(id==='alifi') this.ensureAlifi(); this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); }); },
     afterCharts(){ this.$nextTick(()=>this.arabizeUI());
-      setTimeout(()=>this.resizeCharts(), 200);
-      [150,500,1100].forEach(d=>setTimeout(()=>{ this.arabizeCharts(); this.arabizeUI(); }, d)); },
+      if(this.lang==='ar') setTimeout(()=>this.rtlChartAxes(), 120);
+      setTimeout(()=>this.resizeCharts(), 260);
+      [200,560,1200].forEach(d=>setTimeout(()=>{ this.arabizeCharts(); this.arabizeUI(); }, d)); },
+    rtlChartAxes(){ if(this.lang!=='ar'||typeof Plotly==='undefined') return;
+      document.querySelectorAll('.chart').forEach(el=>{ if(el && el.layout && el.offsetParent){
+        try{ Plotly.relayout(el, {'yaxis.side':'right','xaxis.autorange':'reversed'}); }catch(e){} } }); },
     arabizeUI(){ if(this.lang!=='ar') return;
       const map={'0':'٠','1':'١','2':'٢','3':'٣','4':'٤','5':'٥','6':'٦','7':'٧','8':'٨','9':'٩'};
       document.querySelectorAll('main .kpi .n, main .metric .v, main .conf td, main .stat').forEach(el=>{
