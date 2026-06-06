@@ -387,6 +387,7 @@
 
       <div class="card" style="background:#fefce8;border-color:#fde68a;font-size:.82rem;color:#78350f">
         {{ lang==='ar'?'ملاحظة أمينة: هذه المدوّنة هي مصحف المدينة المعياري (مجمع الملك فهد، ٦٠٤ صفحات). أرقام الصفحات الشهيرة في الفيديو (مثل ٤٢٢) تعود لطبعة "المصحف التوافقي" بترقيم مختلف، لذا قد تظهر على صفحة أخرى هنا. ظاهرة التوافق نفسها حقيقية وقابلة للتصفّح.':'Honest note: this is the standard Madani Mushaf (King Fahd Complex, 604 pages). The famous page numbers in the video (e.g. 422) come from the tawafuqlu print with different pagination, so they may land on a different page here. The alignment phenomenon itself is real and browsable.' }}
+        <div style="margin-top:6px">{{ lang==='ar'?'الصفحة ٤٢٢ الشهيرة في الفيديو تعود لمصحف خسرو (Sandal 2026، الشكل ٨).':'The video\'s famous page 422 is from the Husrev Mushaf (Sandal 2026, Fig. 8).' }}</div>
       </div>
     </section>
 
@@ -394,6 +395,16 @@
     <section v-if="view==='alifi'">
       <h1>📕 {{ lang==='ar'?'مصحف ألفي (كل سطر يبدأ بألف)':'Alifi Mushaf (every line begins with Alif)' }} <span class="badge exact">NEW</span></h1>
       <p class="sub">{{ lang==='ar'?'مصحف من لاهور، ٢١ سطراً في كل صفحة، يبدأ كل سطر بحرف الألف. كتبه عالم في ١٢ عاماً صائماً.':'A Mushaf from Lahore: 21 lines per page, every single line begins with the letter Alif. Written by a scholar over 12 years of continuous fasting.' }}</p>
+
+      <div class="card" style="background:var(--emerald-bg);border-color:#bfe8d2">
+        <h3 style="margin-top:0">{{ lang==='ar'?'ما تم التحقق منه أكاديمياً':'What is academically verified' }}</h3>
+        <ul style="margin:0;padding-inline-start:20px;font-size:.9rem;line-height:1.7">
+          <li>{{ lang==='ar'?'مصحف الألف (K1): ٤٬٢٥٠ سطراً، تبدأ كلها بحرف الألف عدا سطر واحد (أول الفاتحة).':'Alifi Mushaf (K1): 4,250 lines, all beginning with Alif except one (the first line of Al-Fatiha).' }}</li>
+          <li>{{ lang==='ar'?'هناك ثلاثة مصاحف متناظرة: الألف (K1)، وخسرو (K2)، وحنصاري (K3).':'Three symmetric Mushafs are studied: Alifi (K1), Husrev (K2), and Hunsari (K3).' }}</li>
+          <li>{{ lang==='ar'?'صفحة ٤٢٢ الشهيرة (اصطفاف لفظ الجلالة) هي من مصحف خسرو، لا المصحف المدني المعياري.':'The famous "page 422" (aligned occurrences of Allah) is from the Husrev Mushaf, not the standard Madani print.' }}</li>
+        </ul>
+        <div style="font-size:.74rem;color:var(--muted);margin-top:8px">{{ lang==='ar'?'المصدر':'Source' }}: Sandal, H. H. (2026), <i>A Different Perspective on "the Challenge of the Qur'an"</i>, Indonesian Journal of Research in Islamic Studies 3(1), 33-60. CC BY-SA 4.0. (archive.org/details/symmetry-of-quran)</div>
+      </div>
 
       <div v-if="alifi && alifi.pages && alifi.pages.length">
         <div class="searchbar">
