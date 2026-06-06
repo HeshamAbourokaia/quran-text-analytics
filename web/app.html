@@ -46,7 +46,17 @@
     box-shadow:0 8px 22px rgba(15,60,45,.05);margin-bottom:16px}
   .row{display:flex;gap:16px;flex-wrap:wrap}
   .col{flex:1;min-width:280px}
-  .chart{width:100%;height:340px}
+  .chart{width:100%;min-height:340px}
+  .chartwrap{margin:6px 0 2px}
+  .chartnote{background:#eef7f2;border-inline-start:4px solid var(--emerald);border-radius:8px;
+    padding:10px 14px;margin-top:10px;font-size:.9rem;color:#1b4332;line-height:1.5}
+  .chartnote b{color:var(--emerald)}
+  /* Arabic = right-to-left like an Arabic book: nav on the right, text right-aligned */
+  .dir-rtl{direction:rtl}
+  .dir-rtl main{text-align:right}
+  .dir-rtl h1,.dir-rtl h3,.dir-rtl .sub,.dir-rtl .course,.dir-rtl p,.dir-rtl td,.dir-rtl th{text-align:right}
+  .dir-rtl .navitem .new{margin-inline-start:auto}
+  .dir-rtl table{direction:rtl}
   table{width:100%;border-collapse:collapse;font-size:.86rem}
   th,td{text-align:start;padding:7px 10px;border-bottom:1px solid var(--line)}
   th{color:var(--muted);font-weight:600;font-size:.74rem;text-transform:uppercase;letter-spacing:.05em}
@@ -96,7 +106,7 @@
 </style>
 </head>
 <body>
-<div id="app" class="layout" :class="{'dir-rtl': lang==='ar'}">
+<div id="app" class="layout" :class="{'dir-rtl': lang==='ar'}" :dir="lang==='ar'?'rtl':'ltr'">
   <aside class="side">
     <div class="brand">{{ lang==='ar' ? 'تحليلات القرآن' : 'Quran Analytics' }}<small>v2 · authoritative corpus</small></div>
     <div class="langtoggle">
@@ -158,6 +168,7 @@
     <section v-if="view==='mecca'">
       <h1>{{ lang==='ar' ? 'مكة والمدينة' : 'Mecca vs Medina' }}</h1>
       <div class="card"><div class="chart" id="mmChart"></div></div>
+      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'آيات المدينة أطول بنحو ١٫٨ مرة من آيات مكة، إذ كانت مرحلة التشريع.':'Medinan verses are about 1.8x longer than Meccan ones, reflecting the legislative phase.' }}</div>
       <div class="row">
         <div class="col card"><h3>🕋 {{ lang==='ar'?'مكية':'Meccan' }}</h3>
           <div class="kpis">
@@ -184,7 +195,7 @@
     <!-- WORD SEARCH -->
     <section v-if="view==='search'">
       <h1>{{ lang==='ar' ? 'بحث في الكلمات' : 'Word Search' }} <span class="badge exact">NEW</span></h1>
-      <p class="sub">{{ lang==='ar'?'ابحث حسب الصيغة أو الجذع أو الجذر — على المدوّنة الصرفية.':'Search by surface form, lemma, or root, over the morphology corpus.' }}</p>
+      <p class="sub">{{ lang==='ar'?'ابحث حسب الصيغة أو الجذع أو الجذر، على المدوّنة الصرفية.':'Search by surface form, lemma, or root, over the morphology corpus.' }}</p>
       <div class="searchbar">
         <input class="q" v-model="q" @input="runSearch" :placeholder="lang==='ar'?'اكتب كلمة...':'Type a word...'" />
         <div class="seg">
@@ -413,7 +424,7 @@
         <span style="font-weight:700">{{ lang==='ar'?'صفحة':'Page' }}
           <input type="number" min="1" max="604" v-model.number="tawPage" style="width:70px;padding:6px;border:1px solid var(--line);border-radius:8px;font-size:1rem"></span>
         <button class="seg" style="padding:8px 12px;cursor:pointer;border-radius:8px" @click="tawGoPage(Math.min(604,tawPage+1))">{{ lang==='ar'?'التالي':'Next' }} ›</button>
-        <span style="color:var(--muted)">{{ lang==='ar'?'مختار':'Selected' }}: <b class="ar" style="font-size:1.2rem">{{ tawSelLabel||'—' }}</b>
+        <span style="color:var(--muted)">{{ lang==='ar'?'مختار':'Selected' }}: <b class="ar" style="font-size:1.2rem">{{ tawSelLabel||'…' }}</b>
           <template v-if="tawSel"> · {{ lang==='ar'?'في هذه الصفحة':'on this page' }} ×{{ tawPageCount }}</template></span>
       </div>
       <div v-if="mushafLoading" class="stub">{{ lang==='ar'?'جارٍ تحميل المصحف...':'Loading the Mushaf...' }}</div>
@@ -510,33 +521,35 @@
     <!-- HIFZ OPTIMISER (Linear Programming) -->
     <section v-if="view==='hifz'">
       <div class="card">
-        <label style="font-weight:600">{{ lang==='ar'?'دقائق يومياً':'Minutes per day' }}: {{ hifzMins }}</label>
+        <label style="font-weight:600">{{ lang==='ar'?'دقائق يومياً':'Minutes per day' }}: {{ D(hifzMins) }}</label>
         <input type="range" min="10" max="240" step="5" v-model.number="hifzMins">
         <div class="metric">
-          <div class="m"><div class="v">{{ hifzLive.N.toFixed(1) }}</div><div class="k">{{ lang==='ar'?'سطر جديد/يوم':'new lines/day' }}</div></div>
-          <div class="m"><div class="v">{{ hifzLive.review }}</div><div class="k">{{ lang==='ar'?'مراجعة/يوم':'review lines/day' }}</div></div>
-          <div class="m"><div class="v">{{ hifzLive.years }}</div><div class="k">{{ lang==='ar'?'سنوات للختم':'years to finish' }}</div></div>
-          <div class="m"><div class="v">{{ hifzLive.shadow }}</div><div class="k">{{ lang==='ar'?'قيمة الدقيقة (سعر الظل)':'value of 1 min (shadow price)' }}</div></div>
+          <div class="m"><div class="v">{{ D(hifzLive.N.toFixed(1)) }}</div><div class="k">{{ lang==='ar'?'سطر جديد/يوم':'new lines/day' }}</div></div>
+          <div class="m"><div class="v">{{ D(hifzLive.review) }}</div><div class="k">{{ lang==='ar'?'مراجعة/يوم':'review lines/day' }}</div></div>
+          <div class="m"><div class="v">{{ D(hifzLive.years) }}</div><div class="k">{{ lang==='ar'?'سنوات للختم':'years to finish' }}</div></div>
+          <div class="m"><div class="v">{{ D(hifzLive.shadow) }}</div><div class="k">{{ lang==='ar'?'قيمة الدقيقة (سعر الظل)':'value of 1 min (shadow price)' }}</div></div>
         </div>
       </div>
       <div class="card"><div class="chart" id="hifzChart"></div></div>
+      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'كلما زادت دقائقك اليومية انخفض زمن الختم بشكل حادّ، وهذا ما يقيسه سعر الظل.':'More daily minutes sharply cut the years to finish, which is exactly what the shadow price measures.' }}</div>
       <p class="sub">{{ lang==='ar'?'سعر الظل هو المفهوم ذاته الذي نتعلّمه في نمذجة القرار: كل دقيقة إضافية يومياً تضيف هذا العدد من الأسطر الجديدة.':'The shadow price is the same concept from your decision-modelling unit: each extra minute per day buys this many more new lines (the dual value of the time-budget constraint).' }}</p>
     </section>
 
     <!-- MECCAN/MEDINAN CLASSIFIER (Logistic / ML) -->
     <section v-if="view==='classifier'">
       <div class="metric" v-if="AN.classifier">
-        <div class="m"><div class="v">{{ (AN.classifier.accuracy*100).toFixed(1) }}%</div><div class="k">{{ lang==='ar'?'دقة':'accuracy' }}</div></div>
-        <div class="m"><div class="v">{{ (AN.classifier.baseline*100).toFixed(1) }}%</div><div class="k">{{ lang==='ar'?'الأساس':'baseline' }}</div></div>
-        <div class="m"><div class="v">{{ AN.classifier.auc }}</div><div class="k">{{ lang==='ar'?'المساحة تحت المنحنى':'AUC' }}</div></div>
+        <div class="m"><div class="v">{{ D((AN.classifier.accuracy*100).toFixed(1)) }}%</div><div class="k">{{ lang==='ar'?'دقة':'accuracy' }}</div></div>
+        <div class="m"><div class="v">{{ D((AN.classifier.baseline*100).toFixed(1)) }}%</div><div class="k">{{ lang==='ar'?'الأساس':'baseline' }}</div></div>
+        <div class="m"><div class="v">{{ D(AN.classifier.auc) }}</div><div class="k">{{ lang==='ar'?'المساحة تحت المنحنى':'AUC' }}</div></div>
       </div>
       <div class="card" v-if="AN.classifier"><div class="chart" id="clfChart"></div></div>
+      <div class="chartnote" v-if="AN.classifier"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'الكلمات الزرقاء (الله، رسول، آمن) تدفع التنبؤ نحو «مدني»، والحمراء نحو «مكي».':'Blue words (Allah, Messenger, believed) push the prediction toward Medinan; red words push toward Meccan.' }}</div>
       <div class="row" v-if="AN.classifier">
         <div class="col card"><h3>{{ lang==='ar'?'مصفوفة الالتباس':'Confusion matrix' }}</h3>
           <table class="conf">
             <tr><th></th><th>{{ lang==='ar'?'تنبّأ مكي':'pred Meccan' }}</th><th>{{ lang==='ar'?'تنبّأ مدني':'pred Medinan' }}</th></tr>
-            <tr><th>{{ lang==='ar'?'مكي فعلاً':'actual Meccan' }}</th><td class="hit">{{ AN.classifier.confusion[0][0] }}</td><td class="miss">{{ AN.classifier.confusion[0][1] }}</td></tr>
-            <tr><th>{{ lang==='ar'?'مدني فعلاً':'actual Medinan' }}</th><td class="miss">{{ AN.classifier.confusion[1][0] }}</td><td class="hit">{{ AN.classifier.confusion[1][1] }}</td></tr>
+            <tr><th>{{ lang==='ar'?'مكي فعلاً':'actual Meccan' }}</th><td class="hit">{{ D(AN.classifier.confusion[0][0]) }}</td><td class="miss">{{ D(AN.classifier.confusion[0][1]) }}</td></tr>
+            <tr><th>{{ lang==='ar'?'مدني فعلاً':'actual Medinan' }}</th><td class="miss">{{ D(AN.classifier.confusion[1][0]) }}</td><td class="hit">{{ D(AN.classifier.confusion[1][1]) }}</td></tr>
           </table>
         </div>
         <div class="col card"><h3>{{ lang==='ar'?'أقوى مؤشرات مدني':'Top Medinan signals' }}</h3>
@@ -551,19 +564,20 @@
       <div class="card" v-if="AN.ttest">
         <h3>{{ lang==='ar'?'هل آيات المدينة أطول؟ (اختبار t)':'Are Medinan verses longer? (t-test)' }}</h3>
         <div class="metric">
-          <div class="m"><div class="v">{{ AN.ttest.meccanMean }}</div><div class="k">{{ lang==='ar'?'متوسط مكي':'Meccan mean' }}</div></div>
-          <div class="m"><div class="v">{{ AN.ttest.medinanMean }}</div><div class="k">{{ lang==='ar'?'متوسط مدني':'Medinan mean' }}</div></div>
-          <div class="m"><div class="v">{{ AN.ttest.t }}</div><div class="k">t</div></div>
-          <div class="m"><div class="v">{{ AN.ttest.p.toExponential(1) }}</div><div class="k">{{ lang==='ar'?'القيمة الاحتمالية':'p-value' }}</div></div>
+          <div class="m"><div class="v">{{ D(AN.ttest.meccanMean) }}</div><div class="k">{{ lang==='ar'?'متوسط مكي':'Meccan mean' }}</div></div>
+          <div class="m"><div class="v">{{ D(AN.ttest.medinanMean) }}</div><div class="k">{{ lang==='ar'?'متوسط مدني':'Medinan mean' }}</div></div>
+          <div class="m"><div class="v">{{ D(AN.ttest.t) }}</div><div class="k">t</div></div>
+          <div class="m"><div class="v">{{ D(AN.ttest.p.toExponential(1)) }}</div><div class="k">{{ lang==='ar'?'القيمة الاحتمالية':'p-value' }}</div></div>
         </div>
         <div class="chart" id="statChart"></div>
-        <p style="font-weight:600;color:var(--emerald)">{{ lang==='ar'?'النتيجة: آيات المدينة أطول بفارق ':'Result: Medinan verses are longer by ' }}{{ AN.ttest.diff }} {{ lang==='ar'?'كلمة، وهذا فرق دالّ إحصائياً عند مستوى ٥٪ (ثقة ٩٥٪ في الفرق: ':'words, a statistically significant difference at the 5% level (95% CI for the difference: ' }}{{ AN.ttest.ci[0] }}–{{ AN.ttest.ci[1] }}).</p>
+        <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'الفرق في الطول كبير وواضح، واحتمال أن يكون مصادفة ضئيل جداً.':'The length gap is large and clear, and the chance it is a coincidence is vanishingly small.' }}</div>
+        <p style="font-weight:600;color:var(--emerald)">{{ lang==='ar'?'النتيجة: آيات المدينة أطول بفارق ':'Result: Medinan verses are longer by ' }}{{ D(AN.ttest.diff) }} {{ lang==='ar'?'كلمة، وهذا فرق دالّ إحصائياً عند مستوى ٥٪ (فترة ثقة ٩٥٪ للفرق: من ':'words, a statistically significant difference at the 5% level (95% CI for the difference: ' }}{{ D(AN.ttest.ci[0]) }} {{ lang==='ar'?'إلى':'to' }} {{ D(AN.ttest.ci[1]) }}).</p>
       </div>
       <div class="card" v-if="AN.regression">
         <h3>{{ lang==='ar'?'انحدار خطّي: طول الآية':'Linear regression: verse length' }}</h3>
         <div class="metric">
-          <div class="m"><div class="v">{{ AN.regression.r2 }}</div><div class="k">R²</div></div>
-          <div class="m"><div class="v">+{{ AN.regression.coef.medinanDummy }}</div><div class="k">{{ lang==='ar'?'أثر مدني (كلمة)':'Medinan effect (words)' }}</div></div>
+          <div class="m"><div class="v">{{ D(AN.regression.r2) }}</div><div class="k">R²</div></div>
+          <div class="m"><div class="v">+{{ D(AN.regression.coef.medinanDummy) }}</div><div class="k">{{ lang==='ar'?'أثر مدني (كلمة)':'Medinan effect (words)' }}</div></div>
         </div>
         <p style="font-size:.84rem;color:var(--muted)">{{ lang==='ar'?'كون السورة مدنية يضيف نحو ٦ كلمات لطول الآية المتوقع.':'Being a Medinan surah adds about 6 words to a verse\'s expected length.' }}</p>
       </div>
@@ -572,28 +586,31 @@
     <!-- CLUSTERS & SIMILARITY (k-means + TF-IDF) -->
     <section v-if="view==='cluster'">
       <div class="card"><div class="chart" id="clusterChart"></div></div>
+      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'تنقسم السور إلى مجموعات طبيعية حسب طولها وأسلوبها، والنقاط المتجاورة متشابهة.':'Surahs fall into natural groups by length and style; dots that sit together are alike.' }}</div>
       <div class="card" v-if="AN.similarity">
         <h3>{{ lang==='ar'?'أقرب السور إلى':'Surahs most similar to' }}
           <select v-model.number="simSurah" style="padding:6px;border-radius:8px;border:1px solid var(--line)">
             <option v-for="s in DS.surahMeta" :key="s.n" :value="s.n">{{ s.n }}. {{ lang==='ar'?s.ar:s.en }}</option>
           </select></h3>
         <table><tr v-for="r in (AN.similarity[String(simSurah)]||[])" :key="r.n">
-          <td>{{ r.n }}. {{ surahName(r.n) }}</td><td>{{ (r.s*100).toFixed(0) }}%</td></tr></table>
+          <td>{{ D(r.n) }}. {{ surahName(r.n) }}</td><td>{{ D((r.s*100).toFixed(0)) }}%</td></tr></table>
       </div>
     </section>
 
     <!-- COINCIDENCE LENS + HIFZ MONTE CARLO -->
     <section v-if="view==='coincidence'">
       <div class="card"><div class="chart" id="coincChart"></div></div>
+      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'الأرقام الكبيرة نادرة الإصابة، فالتطابق عليها لافت؛ أما الأرقام الصغيرة فمزدحمة بكلمات كثيرة.':'Large numbers are rarely hit, so a match there is striking; small numbers are crowded with many words.' }}</div>
       <div class="card" v-if="AN.montecarlo && AN.montecarlo.hifzSim">
         <h3>{{ lang==='ar'?'محاكاة مونت كارلو لزمن الختم (١٬٠٠٠ تجربة)':'Hifz completion-time Monte Carlo (1,000 trials)' }}</h3>
         <div class="metric">
-          <div class="m"><div class="v">{{ AN.montecarlo.hifzSim.p5 }}</div><div class="k">{{ lang==='ar'?'الأسرع (٥٪)':'P5 days' }}</div></div>
-          <div class="m"><div class="v">{{ AN.montecarlo.hifzSim.p50 }}</div><div class="k">{{ lang==='ar'?'الوسيط (٥٠٪)':'P50 days' }}</div></div>
-          <div class="m"><div class="v">{{ AN.montecarlo.hifzSim.p95 }}</div><div class="k">{{ lang==='ar'?'الأبطأ (٩٥٪)':'P95 days' }}</div></div>
-          <div class="m"><div class="v">{{ AN.montecarlo.hifzSim.meanYears }}</div><div class="k">{{ lang==='ar'?'سنوات (متوسط)':'mean years' }}</div></div>
+          <div class="m"><div class="v">{{ D(AN.montecarlo.hifzSim.p5) }}</div><div class="k">{{ lang==='ar'?'الأسرع (٥٪)':'P5 days' }}</div></div>
+          <div class="m"><div class="v">{{ D(AN.montecarlo.hifzSim.p50) }}</div><div class="k">{{ lang==='ar'?'الوسيط (٥٠٪)':'P50 days' }}</div></div>
+          <div class="m"><div class="v">{{ D(AN.montecarlo.hifzSim.p95) }}</div><div class="k">{{ lang==='ar'?'الأبطأ (٩٥٪)':'P95 days' }}</div></div>
+          <div class="m"><div class="v">{{ D(AN.montecarlo.hifzSim.meanYears) }}</div><div class="k">{{ lang==='ar'?'سنوات (متوسط)':'mean years' }}</div></div>
         </div>
         <div class="chart" id="mcChart"></div>
+        <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'معظم الرحلات المحاكاة تنتهي قرب ٤ إلى ٥ سنوات حين تُحتسب الأيام المتعثّرة.':'Most simulated journeys finish around 4 to 5 years once missed days are counted.' }}</div>
       </div>
     </section>
 
@@ -615,7 +632,7 @@
             <div style="font-size:.8rem;color:var(--muted)">{{ it.topic_en }} · {{ it.verse_ref }}</div>
             <div class="verse" style="font-size:1.25rem;border:0;padding:8px 0;line-height:2">{{ it.verse_ar }}</div>
             <div style="font-size:.85rem">{{ lang==='ar'?it.insight_ar:it.insight_en }}</div>
-            <div style="font-size:.75rem;color:var(--teal);margin-top:6px">— {{ lang==='ar'?it.scholar_ar:it.scholar_en }}</div>
+            <div style="font-size:.75rem;color:var(--teal);margin-top:6px">{{ lang==='ar'?'بقلم: ':'by ' }}{{ lang==='ar'?it.scholar_ar:it.scholar_en }}</div>
           </template>
           <template v-else>
             <div class="ar">{{ it.ar }}</div>
@@ -832,8 +849,26 @@ createApp({
     }
   },
   methods:{
-    f(n){ return (n==null?0:n).toLocaleString(); },
-    go(id){ this.view=id; this.libQ=''; this.libCat='all'; if(id==='tawafuq') this.ensureMushaf(); if(id==='alifi') this.ensureAlifi(); this.$nextTick(()=>this.renderCharts()); },
+    D(x){ const s=String(x==null?'':x); return this.lang==='ar' ? s.replace(/[0-9]/g,d=>'٠١٢٣٤٥٦٧٨٩'[+d]) : s; },
+    f(n){ if(n==null)n=0; return this.D(n.toLocaleString('en-US')); },
+    arabizeCharts(){
+      if(this.lang!=='ar') return;
+      const map={'0':'٠','1':'١','2':'٢','3':'٣','4':'٤','5':'٥','6':'٦','7':'٧','8':'٨','9':'٩'};
+      document.querySelectorAll('.chart text').forEach(t=>{
+        if(/[0-9]/.test(t.textContent)) t.textContent = t.textContent.replace(/[0-9]/g,d=>map[d]);
+      });
+    },
+    go(id){ this.view=id; this.libQ=''; this.libCat='all'; if(id==='tawafuq') this.ensureMushaf(); if(id==='alifi') this.ensureAlifi(); this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); }); },
+    afterCharts(){ this.$nextTick(()=>this.arabizeUI()); setTimeout(()=>{ this.arabizeCharts(); this.resizeCharts(); this.arabizeUI(); }, 80); },
+    arabizeUI(){ if(this.lang!=='ar') return;
+      const map={'0':'٠','1':'١','2':'٢','3':'٣','4':'٤','5':'٥','6':'٦','7':'٧','8':'٨','9':'٩'};
+      document.querySelectorAll('main .kpi .n, main .metric .v, main .conf td, main .stat').forEach(el=>{
+        if(el.children.length===0 && /[0-9]/.test(el.textContent))
+          el.textContent = el.textContent.replace(/[0-9]/g,d=>map[d]);
+      });
+    },
+    resizeCharts(){ if(typeof Plotly==='undefined') return;
+      document.querySelectorAll('.chart').forEach(el=>{ if(el && el.offsetParent && el.layout) { try{ Plotly.Plots.resize(el); }catch(e){} } }); },
     ensureAlifi(){ if(this.alifi) return;
       fetch('content/alifi/manifest.json').then(r=>r.json()).then(d=>{ this.alifi=d; }).catch(()=>{ this.alifi={pages:[]}; }); },
     ensureMushaf(){ if(this.mushaf||this.mushafLoading) return; this.mushafLoading=true;
@@ -871,7 +906,9 @@ createApp({
     renderCharts(){
       if(typeof Plotly==='undefined') return;
       const isAr = this.lang==='ar';
-      const lay={plot_bgcolor:'rgba(0,0,0,0)',paper_bgcolor:'rgba(0,0,0,0)',margin:{t:20,r:10,b:40,l:50}};
+      const lay={plot_bgcolor:'rgba(0,0,0,0)',paper_bgcolor:'rgba(0,0,0,0)',autosize:true,
+        font:{size:13,family:'Inter,sans-serif'},margin:{t:48,r:24,b:84,l:66},
+        title:{font:{size:16}}};
       if(this.view==='overview' && document.getElementById('ovChart')){
         const sm=this.DS.surahMeta;
         const mk=sm.filter(s=>s.place==='Mecca'), md=sm.filter(s=>s.place==='Medina');
@@ -1001,14 +1038,15 @@ createApp({
       }
     }
   },
-  watch:{ lang(){ this.$nextTick(()=>this.renderCharts()); } },
+  watch:{ lang(){ this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); }); } },
   mounted(){
+    window.addEventListener('resize', ()=>this.resizeCharts());
     if(typeof QURAN_STORIES!=='undefined') this.stories=QURAN_STORIES;
     if(typeof QURAN_LESSONS!=='undefined') this.lessons=QURAN_LESSONS;
     if(typeof QURAN_DUAS!=='undefined') this.duas=QURAN_DUAS;
     if(typeof QURAN_TAFSIR!=='undefined') this.tafsir=QURAN_TAFSIR;
     if(window.V1DATA) this.V1=window.V1DATA;
-    this.$nextTick(()=>this.renderCharts());
+    this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); });
   }
 }).mount('#app');
 </script>
