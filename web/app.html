@@ -85,6 +85,8 @@
   .course{background:linear-gradient(135deg,#0f3b2e,#14302a);color:#eafaf2;border-radius:16px;padding:18px 22px;margin-bottom:18px}
   .course .tech{font-size:1.5rem;font-weight:800}
   .course .unit{font-size:.9rem;color:#8fd9be;margin-top:3px;font-weight:600}
+  .ccode{unicode-bidi:isolate;direction:ltr;display:inline-block;background:#0b2a20;color:#bff0d8;
+    border-radius:6px;padding:1px 8px;font-size:.78rem;font-weight:700;margin-inline-start:6px}
   .course .topic{font-size:.82rem;color:#cdeadf;margin-top:6px}
   .course .topic b{color:#fff}
   .explain{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0 4px}
@@ -114,7 +116,7 @@
     <!-- Analytics Lab: course reference + plain-English explainer (any lab view) -->
     <div v-if="labCur" class="course">
       <div class="tech">{{ labCur.technique }}</div>
-      <div class="unit">🎓 {{ labCur.unit }}</div>
+      <div class="unit">🎓 {{ labCur.unit }} <span class="ccode" dir="ltr">{{ labCur.code }}</span></div>
       <div class="topic"><b>{{ lang==='ar'?'المادة التي تُدرَّس فيها':'Taught in' }}:</b> {{ labCur.topic }}</div>
       <div class="explain">
         <div class="box"><span class="lab">{{ lang==='ar'?'ما هذا؟':'What is this?' }}</span>{{ labCur.what }}</div>
@@ -518,7 +520,7 @@
         </div>
       </div>
       <div class="card"><div class="chart" id="hifzChart"></div></div>
-      <p class="sub">{{ lang==='ar'?'سعر الظل هو نفس مفهوم MIS775: كل دقيقة إضافية يومياً تضيف هذا العدد من الأسطر الجديدة.':'The shadow price is the MIS775 concept: each extra minute per day buys this many more new lines, the dual value of the time-budget constraint.' }}</p>
+      <p class="sub">{{ lang==='ar'?'سعر الظل هو المفهوم ذاته الذي نتعلّمه في نمذجة القرار: كل دقيقة إضافية يومياً تضيف هذا العدد من الأسطر الجديدة.':'The shadow price is the same concept from your decision-modelling unit: each extra minute per day buys this many more new lines (the dual value of the time-budget constraint).' }}</p>
     </section>
 
     <!-- MECCAN/MEDINAN CLASSIFIER (Logistic / ML) -->
@@ -586,9 +588,9 @@
       <div class="card" v-if="AN.montecarlo && AN.montecarlo.hifzSim">
         <h3>{{ lang==='ar'?'محاكاة مونت كارلو لزمن الختم (١٬٠٠٠ تجربة)':'Hifz completion-time Monte Carlo (1,000 trials)' }}</h3>
         <div class="metric">
-          <div class="m"><div class="v">{{ AN.montecarlo.hifzSim.p5 }}</div><div class="k">{{ lang==='ar'?'P5 (يوم)':'P5 days' }}</div></div>
-          <div class="m"><div class="v">{{ AN.montecarlo.hifzSim.p50 }}</div><div class="k">{{ lang==='ar'?'P50 (يوم)':'P50 days' }}</div></div>
-          <div class="m"><div class="v">{{ AN.montecarlo.hifzSim.p95 }}</div><div class="k">{{ lang==='ar'?'P95 (يوم)':'P95 days' }}</div></div>
+          <div class="m"><div class="v">{{ AN.montecarlo.hifzSim.p5 }}</div><div class="k">{{ lang==='ar'?'الأسرع (٥٪)':'P5 days' }}</div></div>
+          <div class="m"><div class="v">{{ AN.montecarlo.hifzSim.p50 }}</div><div class="k">{{ lang==='ar'?'الوسيط (٥٠٪)':'P50 days' }}</div></div>
+          <div class="m"><div class="v">{{ AN.montecarlo.hifzSim.p95 }}</div><div class="k">{{ lang==='ar'?'الأبطأ (٩٥٪)':'P95 days' }}</div></div>
           <div class="m"><div class="v">{{ AN.montecarlo.hifzSim.meanYears }}</div><div class="k">{{ lang==='ar'?'سنوات (متوسط)':'mean years' }}</div></div>
         </div>
         <div class="chart" id="mcChart"></div>
@@ -670,57 +672,57 @@ createApp({
       AN:(D.analytics||{}), hifzMins:60, simSurah:2,
       labMeta:{
         hifz:{technique:'Linear Programming & Sensitivity Analysis',
-          unit:'MIS775 — Decision Modelling for Business Analytics',
+          code:'MIS775', unit:'Decision Modelling for Business Analytics',
           topic:'Optimisation with Excel Solver and shadow prices (Topics 1-2; Assignment 1 portfolio model)',
           what:'Linear programming finds the best decision when you have a goal and limits. Here we maximise the new lines memorised per day while staying inside a daily time budget and a rule that you must review enough to retain. The "shadow price" tells you what one extra resource (one more minute a day) is worth.',
           howToRead:'Drag the slider to set your daily minutes. The numbers re-solve instantly: how many new and review lines that buys, how many years to finish, and the value of one more minute. The curve shows finishing time dropping as you invest more minutes.'},
         classifier:{technique:'Logistic Regression / Classification (Machine Learning)',
-          unit:'MIS771 + MIS772 + MIS710 — Descriptive Analytics, Predictive Analytics, Machine Learning in Business',
+          code:'MIS771 · MIS772 · MIS710', unit:'Descriptive Analytics, Predictive Analytics, Machine Learning in Business',
           topic:'Classification, ROC/AUC, confusion matrix, cross-validation',
           what:'A classifier learns to label things from examples. Here it reads the words of each surah and predicts whether it was revealed in Mecca or Medina. It never sees the answer for the surahs it is tested on; it learns the pattern from the others.',
           howToRead:'Accuracy is how often it is right. The baseline is what you would get by always guessing the most common answer, so beating it means it learned something real. AUC near 1.0 is excellent. The confusion matrix shows correct (green) versus mistaken (amber) predictions, and the chips are the words that most signal a Medinan surah.'},
         stats:{technique:'Hypothesis Testing & Linear Regression',
-          unit:'MIS771 — Descriptive Analytics & Visualisation',
+          code:'MIS771', unit:'Descriptive Analytics & Visualisation',
           topic:'Two-sample t-test, confidence intervals, multiple regression (Assignments 1-2)',
           what:'A t-test asks whether a difference between two groups is real or could just be chance. Here: are Medinan verses genuinely longer than Meccan ones? Regression then models how verse length depends on several factors at once.',
           howToRead:'The p-value is the chance of seeing this difference if there were really none; a tiny p (here far below 0.05) means the difference is real, stated at the 5% significance level. The 95% confidence interval is the plausible range for the true difference. R-squared is how much of the variation the model explains.'},
         cluster:{technique:'k-means Clustering & PCA (Unsupervised Learning)',
-          unit:'MIS710 + MIS772 — Machine Learning in Business, Predictive Analytics',
+          code:'MIS710 · MIS772', unit:'Machine Learning in Business, Predictive Analytics',
           topic:'Clustering, dimensionality reduction (PCA), cosine similarity',
           what:'Clustering groups items that resemble each other without being told the groups in advance. PCA squashes many features down to two so we can plot them. Cosine similarity measures how alike two surahs are by their word profiles.',
           howToRead:'Each dot is a surah and its colour is the natural group it fell into; dots close together are similar. Pick a surah in the dropdown to see its nearest neighbours by word usage, with a similarity percentage.'},
         coincidence:{technique:'Monte Carlo Simulation & the Look-Elsewhere Effect',
-          unit:'MIS775 — Decision Modelling for Business Analytics',
+          code:'MIS775', unit:'Decision Modelling for Business Analytics',
           topic:'Simulation, probability distributions, risk analysis (Topics 7-9; Assignment 3)',
           what:'Monte Carlo runs thousands of "what if" trials to see the range of outcomes. It does two honest things here: it shows how common it is for some word to land on a notable number, so we do not over-read coincidences; and it simulates a real memorisation schedule with good and bad days to show how long finishing might actually take.',
           howToRead:'In the landscape chart, tall bars mean many words sit near that number (a match there is unremarkable); short bars at large numbers mean a match there is rare and noteworthy. The histogram shows the spread of finishing times across 1,000 simulated journeys; P5, P50 and P95 are the fast, typical and slow cases.'},
       },
       labMetaAr:{
         hifz:{technique:'البرمجة الخطية وتحليل الحساسية',
-          unit:'MIS775 — نمذجة القرار في تحليلات الأعمال',
+          code:'MIS775', unit:'نمذجة القرار في تحليلات الأعمال',
           topic:'التحسين باستخدام أداة الحل في إكسل وأسعار الظل (الموضوعان ١-٢؛ نموذج المحفظة في الواجب الأول)',
           what:'تجد البرمجة الخطية القرار الأمثل عندما يكون لديك هدف وقيود. هنا نُعظّم عدد الأسطر الجديدة التي تحفظها يومياً مع البقاء ضمن ميزانية وقت يومية وقاعدةٍ تُلزمك بمراجعةٍ كافية للتثبيت. و«سعر الظل» يخبرك بقيمة كل مورد إضافي، أي ماذا تساوي دقيقة إضافية في اليوم.',
           howToRead:'حرّك المؤشّر لتحديد دقائقك اليومية فتُحَلّ المسألة فوراً: كم سطراً جديداً ومراجعةً يشتري ذلك، وكم سنة تحتاج للختم، وقيمة كل دقيقة إضافية. ويُظهر المنحنى انخفاض زمن الختم كلما زادت الدقائق.'},
         classifier:{technique:'الانحدار اللوجستي والتصنيف (تعلّم الآلة)',
-          unit:'MIS771 + MIS772 + MIS710 — التحليلات الوصفية، والتحليلات التنبؤية، وتعلّم الآلة في الأعمال',
+          code:'MIS771 · MIS772 · MIS710', unit:'التحليلات الوصفية، والتحليلات التنبؤية، وتعلّم الآلة في الأعمال',
           topic:'التصنيف، والمنحنى ومساحته، ومصفوفة الالتباس، والتحقق المتقاطع',
           what:'يتعلّم المُصنِّف وضع التصنيفات من الأمثلة. هنا يقرأ كلمات كل سورة ويتنبّأ هل نزلت في مكة أم المدينة، دون أن يرى الإجابة للسور التي يُختبَر عليها، بل يتعلّم النمط من بقية السور.',
           howToRead:'الدقّة هي نسبة إصابته. وخط الأساس هو ما تحصل عليه لو خمّنت دائماً الإجابة الأكثر شيوعاً، فتجاوزه يعني أنه تعلّم شيئاً حقيقياً. وكلما اقتربت المساحة تحت المنحنى من واحد كان أفضل. وتُظهر مصفوفة الالتباس التنبؤات الصحيحة (بالأخضر) مقابل الخاطئة (بالكهرماني)، والكلمات المعروضة هي الأكثر دلالةً على السورة المدنية.'},
         stats:{technique:'اختبار الفرضيات والانحدار الخطي',
-          unit:'MIS771 — التحليلات الوصفية والتمثيل البصري',
+          code:'MIS771', unit:'التحليلات الوصفية والتمثيل البصري',
           topic:'الاختبار التائي لعيّنتين، وفترات الثقة، والانحدار المتعدّد (الواجبان ١-٢)',
           what:'يسأل الاختبار التائي: هل الفرق بين مجموعتين حقيقي أم قد يكون محض مصادفة؟ هنا: هل آيات المدينة أطول فعلاً من آيات مكة؟ ثم يُنمذِج الانحدار كيف يعتمد طول الآية على عدة عوامل معاً.',
           howToRead:'القيمة الاحتمالية هي احتمال رؤية هذا الفرق لو لم يكن هناك فرق حقيقي؛ وضآلتها هنا (أقل بكثير من ٠٫٠٥) تعني أن الفرق حقيقي عند مستوى دلالة ٥٪. وفترة الثقة ٩٥٪ هي المدى المعقول للفرق الحقيقي. ومعامل التحديد يبيّن كم من التباين يفسّره النموذج.'},
         cluster:{technique:'التجميع بالمتوسّطات وتحليل المكوّنات الرئيسية (تعلّم غير موجَّه)',
-          unit:'MIS710 + MIS772 — تعلّم الآلة في الأعمال، والتحليلات التنبؤية',
+          code:'MIS710 · MIS772', unit:'تعلّم الآلة في الأعمال، والتحليلات التنبؤية',
           topic:'التجميع العنقودي، وخفض الأبعاد، وتشابه جيب التمام',
           what:'يجمع التجميعُ العناصرَ المتشابهة دون إخباره بالمجموعات مسبقاً. ويضغط تحليلُ المكوّنات الرئيسية عدة خصائص إلى بُعدين كي نرسمها. ويقيس تشابهُ جيب التمام مدى تقارب سورتين حسب بصمة كلماتهما.',
           howToRead:'كل نقطة سورة، ولونها هو المجموعة التي انتمت إليها طبيعياً؛ والنقاط المتقاربة متشابهة. اختر سورة من القائمة لترى أقرب السور إليها في استخدام الكلمات مع نسبة التشابه.'},
         coincidence:{technique:'محاكاة مونت كارلو وأثر تعدّد الاحتمالات',
-          unit:'MIS775 — نمذجة القرار في تحليلات الأعمال',
+          code:'MIS775', unit:'نمذجة القرار في تحليلات الأعمال',
           topic:'المحاكاة، والتوزيعات الاحتمالية، وتحليل المخاطر (المواضيع ٧-٩؛ الواجب الثالث)',
           what:'تُجري محاكاة مونت كارلو آلاف التجارب الافتراضية لترى مدى تنوّع النتائج. وتفعل هنا أمرين بأمانة: تُظهر كم هو شائع أن تقع كلمةٌ ما على رقم بارز حتى لا نبالغ في قراءة المصادفات؛ وتُحاكي خطة حفظٍ واقعية بأيام جيدة وأخرى متعثّرة لتُظهر كم قد يستغرق الختم فعلاً.',
-          howToRead:'في رسم المشهد، الأعمدة العالية تعني أن كلمات كثيرة تقع قرب ذلك الرقم (فالتطابق هناك غير لافت)؛ والأعمدة القصيرة عند الأرقام الكبيرة تعني أن التطابق نادر وجدير بالملاحظة. ويُظهر المُدرَّج توزُّع أزمنة الختم عبر ١٬٠٠٠ رحلة محاكاة؛ وP5 وP50 وP95 هي الحالة السريعة والمتوسطة والبطيئة.'},
+          howToRead:'في رسم المشهد، الأعمدة العالية تعني أن كلمات كثيرة تقع قرب ذلك الرقم (فالتطابق هناك غير لافت)؛ والأعمدة القصيرة عند الأرقام الكبيرة تعني أن التطابق نادر وجدير بالملاحظة. ويُظهر المُدرَّج توزُّع أزمنة الختم عبر ١٬٠٠٠ رحلة محاكاة؛ والقيم عند الخُمس الأدنى والوسيط والخُمس الأعلى تمثّل الحالة السريعة والمتوسطة والبطيئة.'},
       },
       mushaf:null, mushafLoading:false, tawPage:1, tawSel:'', tawSelLabel:'',
       tawExamples:[{l:'الله',t:'الله'},{l:'رب',t:'رب'},{l:'رحمن',t:'الرحمن'}],
