@@ -78,6 +78,15 @@ def test_classifier_beats_baseline():
 def test_regression_medinan_positive():
     assert _AN['regression']['coef']['medinanDummy'] > 0
 
+def test_hifz_lp_matches_closed_form():
+    from pipeline import optimisation as opt
+    h = opt.build()
+    p = h['params']
+    expected_N = p['dailyMinutes'] / (p['tNew'] + p['tRev'] * p['rho'])
+    assert abs(h['solution']['newLinesPerDay'] - expected_N) < 1e-2
+    assert abs(h['shadowPriceMinute'] - 1.0 / (p['tNew'] + p['tRev'] * p['rho'])) < 1e-3
+    assert h['solution']['daysToFinish'] > 0
+
 def test_top_lemma_is_allah_among_content_words():
     # the most frequent *content* lemma (a Name of God) should be allah at 2699
     allah = next(x for x in _DS['topWordsLemma'] if x['c'] == 2699)
