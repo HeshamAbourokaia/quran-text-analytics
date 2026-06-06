@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Quran Text Analytics</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#0f2a23;--muted:#5b7a70;--line:#e3ede9;--emerald:#0f9d58;--emerald-bg:#e7f7ef;
+    --teal:#0891b2;--teal-bg:#e3f5f9;--amber:#c77700;--amber-bg:#fdf3e2;--card:#fff;--bg:#f2faf6;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg)}
+  .layout{display:flex;min-height:100vh}
+  /* sidebar */
+  .side{width:264px;flex:none;background:linear-gradient(180deg,#0f3b2e,#10261f);color:#dff3ea;
+    position:sticky;top:0;height:100vh;overflow-y:auto;padding:18px 12px}
+  .brand{font-weight:800;font-size:1.05rem;color:#fff;padding:6px 10px 2px}
+  .brand small{display:block;font-weight:400;font-size:.7rem;color:#8fd9be;letter-spacing:.12em;text-transform:uppercase}
+  .langbtn{margin:10px;background:#ffffff1a;border:1px solid #ffffff33;color:#dff3ea;border-radius:8px;
+    padding:5px 10px;font-size:.78rem;cursor:pointer}
+  .navgroup{margin-top:14px}
+  .navgroup .gl{font-size:.66rem;text-transform:uppercase;letter-spacing:.13em;color:#6fc1a3;padding:4px 12px}
+  .navitem{display:flex;align-items:center;gap:9px;padding:7px 12px;border-radius:9px;cursor:pointer;
+    font-size:.86rem;color:#cdeadf}
+  .navitem:hover{background:#ffffff14}
+  .navitem.active{background:#ffffff26;color:#fff;font-weight:600}
+  .navitem .ic{width:20px;text-align:center}
+  .navitem .new{margin-inline-start:auto;font-size:.58rem;background:#0f9d58;color:#fff;border-radius:5px;padding:1px 5px}
+  /* main */
+  main{flex:1;min-width:0;padding:30px 34px 80px}
+  h1{font-size:1.9rem;font-weight:800;margin:.1em 0 .15em;letter-spacing:-.02em}
+  .sub{color:var(--muted);max-width:720px}
+  .kpis{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 18px;min-width:128px;
+    box-shadow:0 6px 18px rgba(15,60,45,.05)}
+  .kpi .n{font-size:1.5rem;font-weight:800;color:var(--emerald)}
+  .kpi .l{font-size:.72rem;color:var(--muted);margin-top:2px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;
+    box-shadow:0 8px 22px rgba(15,60,45,.05);margin-bottom:16px}
+  .row{display:flex;gap:16px;flex-wrap:wrap}
+  .col{flex:1;min-width:280px}
+  .chart{width:100%;height:340px}
+  table{width:100%;border-collapse:collapse;font-size:.86rem}
+  th,td{text-align:start;padding:7px 10px;border-bottom:1px solid var(--line)}
+  th{color:var(--muted);font-weight:600;font-size:.74rem;text-transform:uppercase;letter-spacing:.05em}
+  .ar{font-family:Amiri,serif;font-size:1.3rem}
+  /* search */
+  .searchbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:8px 0 14px}
+  input.q{flex:1;min-width:240px;padding:12px 16px;border:2px solid var(--line);border-radius:12px;
+    font-size:1.2rem;font-family:Amiri,serif}
+  .seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .seg button{border:0;background:#fff;padding:9px 14px;font-size:.82rem;cursor:pointer;color:var(--muted)}
+  .seg button.on{background:var(--emerald);color:#fff;font-weight:600}
+  .chip{display:inline-block;background:#eef7f2;border:1px solid var(--line);border-radius:8px;padding:3px 9px;
+    margin:2px;font-family:Amiri,serif;font-size:1.05rem;cursor:pointer}
+  .verse{font-family:Amiri,serif;font-size:1.5rem;line-height:2.4;text-align:justify;direction:rtl;
+    padding:10px 6px;border-bottom:1px solid #f0f6f3}
+  .vk{font-family:Inter;font-size:.72rem;color:var(--muted);background:#eef7f2;border-radius:6px;padding:1px 7px;margin-inline-start:8px}
+  mark{background:#fff3bf;border-radius:4px;padding:0 2px}
+  .badge{font-size:.66rem;font-weight:700;padding:3px 8px;border-radius:999px}
+  .badge.exact{background:var(--emerald-bg);color:var(--emerald)}
+  .badge.parity{background:var(--teal-bg);color:var(--teal)}
+  .badge.differs{background:var(--amber-bg);color:var(--amber)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+  .stub{color:var(--muted);background:#fff;border:1px dashed var(--line);border-radius:14px;padding:26px;text-align:center}
+  .dir-rtl{direction:rtl}
+</style>
+</head>
+<body>
+<div id="app" class="layout" :class="{'dir-rtl': lang==='ar'}">
+  <aside class="side">
+    <div class="brand">{{ lang==='ar' ? 'تحليلات القرآن' : 'Quran Analytics' }}<small>v2 · authoritative corpus</small></div>
+    <button class="langbtn" @click="lang = lang==='ar'?'en':'ar'">{{ lang==='ar' ? 'English' : 'العربية' }}</button>
+    <div v-for="g in nav" :key="g.section" class="navgroup">
+      <div class="gl">{{ lang==='ar' ? g.ar : g.en }}</div>
+      <div v-for="it in g.items" :key="it.id" class="navitem" :class="{active: view===it.id}" @click="go(it.id)">
+        <span class="ic">{{ it.icon }}</span><span>{{ lang==='ar' ? it.ar : it.en }}</span>
+        <span v-if="it.new" class="new">NEW</span>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <!-- OVERVIEW -->
+    <section v-if="view==='overview'">
+      <h1>{{ lang==='ar' ? 'نظرة عامة' : 'Overview' }}</h1>
+      <p class="sub">{{ lang==='ar' ? 'مبني على مدوّنة القرآن الصرفية الموثوقة.' : 'Built on the authoritative Quranic Arabic Corpus morphology.' }}</p>
+      <div class="kpis">
+        <div class="kpi"><div class="n">{{ T.suras }}</div><div class="l">{{ lang==='ar'?'سورة':'Surahs' }}</div></div>
+        <div class="kpi"><div class="n">{{ f(T.verses) }}</div><div class="l">{{ lang==='ar'?'آية':'Verses' }}</div></div>
+        <div class="kpi"><div class="n">{{ f(T.words) }}</div><div class="l">{{ lang==='ar'?'كلمة':'Words' }}</div></div>
+        <div class="kpi"><div class="n">{{ f(DS.uniqueWords) }}</div><div class="l">{{ lang==='ar'?'كلمة فريدة':'Unique words' }}</div></div>
+        <div class="kpi"><div class="n">{{ f(DS.distinctLemmas) }}</div><div class="l">{{ lang==='ar'?'جذع لغوي':'Lemmas' }}</div></div>
+        <div class="kpi"><div class="n">{{ f(DS.distinctRoots) }}</div><div class="l">{{ lang==='ar'?'جذر':'Roots' }}</div></div>
+      </div>
+      <div class="card"><div class="chart" id="ovChart"></div></div>
+    </section>
+
+    <!-- WORD ANALYSIS -->
+    <section v-if="view==='word'">
+      <h1>{{ lang==='ar' ? 'تحليل الكلمات' : 'Word Analysis' }}</h1>
+      <p class="sub">{{ lang==='ar'?'أكثر الكلمات تكراراً حسب الصيغة والجذع والجذر.':'Most frequent words by surface form, lemma, and root.' }}</p>
+      <div class="card"><div class="chart" id="lemChart"></div></div>
+      <div class="row">
+        <div class="col card"><h3>{{ lang==='ar'?'حسب الجذر':'By root' }}</h3>
+          <table><tr v-for="r in DS.topRoots.slice(0,12)" :key="r.w"><td class="ar">{{ r.w }}</td><td>{{ f(r.c) }}</td></tr></table>
+        </div>
+        <div class="col card"><h3>{{ lang==='ar'?'حسب الصيغة':'By surface' }}</h3>
+          <table><tr v-for="r in DS.topWordsSurface.slice(0,12)" :key="r.w"><td class="ar">{{ r.w }}</td><td>{{ f(r.c) }}</td></tr></table>
+        </div>
+      </div>
+    </section>
+
+    <!-- MECCA VS MEDINA -->
+    <section v-if="view==='mecca'">
+      <h1>{{ lang==='ar' ? 'مكة والمدينة' : 'Mecca vs Medina' }}</h1>
+      <div class="row">
+        <div class="col card"><h3>🕋 {{ lang==='ar'?'مكية':'Meccan' }}</h3>
+          <div class="kpis">
+            <div class="kpi"><div class="n">{{ MM.mecca.surahs }}</div><div class="l">surahs</div></div>
+            <div class="kpi"><div class="n">{{ f(MM.mecca.verses) }}</div><div class="l">verses</div></div>
+            <div class="kpi"><div class="n">{{ MM.mecca.avgWordsPerVerse }}</div><div class="l">avg words/verse</div></div>
+          </div></div>
+        <div class="col card"><h3>🕌 {{ lang==='ar'?'مدنية':'Medinan' }}</h3>
+          <div class="kpis">
+            <div class="kpi"><div class="n">{{ MM.medina.surahs }}</div><div class="l">surahs</div></div>
+            <div class="kpi"><div class="n">{{ f(MM.medina.verses) }}</div><div class="l">verses</div></div>
+            <div class="kpi"><div class="n">{{ MM.medina.avgWordsPerVerse }}</div><div class="l">avg words/verse</div></div>
+          </div></div>
+      </div>
+      <p class="sub">{{ lang==='ar'?'الآيات المدنية أطول بنحو ١٫٨ مرة من المكية، لأن المدينة كانت مرحلة التشريع.':'Medinan verses are about 1.8x longer than Meccan ones, reflecting the shift to law and society.' }}</p>
+    </section>
+
+    <!-- LETTER FREQUENCY -->
+    <section v-if="view==='letters'">
+      <h1>{{ lang==='ar' ? 'تكرار الحروف' : 'Letter Frequency' }}</h1>
+      <div class="card"><div class="chart" id="letChart"></div></div>
+    </section>
+
+    <!-- WORD SEARCH -->
+    <section v-if="view==='search'">
+      <h1>{{ lang==='ar' ? 'بحث في الكلمات' : 'Word Search' }} <span class="badge exact">NEW</span></h1>
+      <p class="sub">{{ lang==='ar'?'ابحث حسب الصيغة أو الجذع أو الجذر — على المدوّنة الصرفية.':'Search by surface form, lemma, or root, over the morphology corpus.' }}</p>
+      <div class="searchbar">
+        <input class="q" v-model="q" @input="runSearch" :placeholder="lang==='ar'?'اكتب كلمة...':'Type a word...'" />
+        <div class="seg">
+          <button :class="{on:mode==='surface'}" @click="mode='surface';runSearch()">{{ lang==='ar'?'صيغة':'Surface' }}</button>
+          <button :class="{on:mode==='lemma'}" @click="mode='lemma';runSearch()">{{ lang==='ar'?'جذع':'Lemma' }}</button>
+          <button :class="{on:mode==='root'}" @click="mode='root';runSearch()">{{ lang==='ar'?'جذر':'Root' }}</button>
+        </div>
+      </div>
+      <div>
+        <span class="chip" v-for="ex in examples" :key="ex" @click="q=ex;runSearch()">{{ ex }}</span>
+      </div>
+      <div v-if="sres.total>0" class="kpis">
+        <div class="kpi"><div class="n">{{ f(sres.total) }}</div><div class="l">{{ lang==='ar'?'إجمالي':'Occurrences' }}</div></div>
+        <div class="kpi"><div class="n">{{ sres.surahs }}</div><div class="l">{{ lang==='ar'?'سور':'Surahs' }}</div></div>
+        <div class="kpi"><div class="n">{{ sres.verses }}</div><div class="l">{{ lang==='ar'?'آيات':'Verses' }}</div></div>
+      </div>
+      <div v-if="q && sres.total===0" class="stub">{{ lang==='ar'?'لا نتائج':'No matches' }}</div>
+      <div v-if="sres.total>0" class="card">
+        <h3>{{ lang==='ar'?'السياق':'Concordance' }} <span style="font-weight:400;color:var(--muted);font-size:.8rem">({{ lang==='ar'?'أول':'first' }} {{ sres.sample.length }})</span></h3>
+        <div v-for="vk in sres.sample" :key="vk" class="verse" v-html="highlight(vk)"></div>
+      </div>
+    </section>
+
+    <!-- READER -->
+    <section v-if="view==='reader'">
+      <h1>{{ lang==='ar' ? 'المصحف' : 'Quran Reader' }}</h1>
+      <div class="searchbar">
+        <select v-model.number="rSurah" @change="renderReader" style="padding:10px;border-radius:10px;border:1px solid var(--line);font-size:1rem">
+          <option v-for="s in DS.surahMeta" :key="s.n" :value="s.n">{{ s.n }}. {{ lang==='ar'?s.ar:s.en }} ({{ s.verses }})</option>
+        </select>
+      </div>
+      <div class="card">
+        <div v-for="v in readerVerses" :key="v.k" class="verse">{{ v.t }} <span class="vk">{{ v.k }}</span></div>
+      </div>
+    </section>
+
+    <!-- CLAIM AUDITOR -->
+    <section v-if="view==='auditor'">
+      <h1>{{ lang==='ar' ? 'مدقّق المزاعم' : 'Claim Auditor' }} <span class="badge exact">NEW</span></h1>
+      <p class="sub">{{ lang==='ar'?'المزعوم مقابل المحقّق مقابل البحث الساذج — لكل مزاعم العدد.':'Claimed vs verified vs naive search, for every word-count claim.' }}</p>
+      <div class="grid" style="margin-top:16px">
+        <div v-for="c in claims" :key="c.id" class="card" style="margin:0">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div><div class="ar">{{ c.ar }}</div><div style="font-size:.8rem;color:var(--muted)">{{ c.en }}</div></div>
+            <span class="badge" :class="cverdict(c)">{{ cbadge(c) }}</span>
+          </div>
+          <div class="kpis" style="margin:12px 0 4px">
+            <div class="kpi" style="min-width:90px"><div class="n" style="color:#6b7280">{{ f(c.claimed) }}</div><div class="l">claimed</div></div>
+            <div class="kpi" style="min-width:90px"><div class="n" :style="{color: c.verifiedLemma===c.claimed?'var(--emerald)':'var(--amber)'}">{{ f(c.verifiedLemma) }}</div><div class="l">verified</div></div>
+          </div>
+          <div style="font-size:.78rem;color:var(--muted)">{{ lang==='ar'?'بحث ساذج':'naive' }}: {{ f(c.rawSubstring) }} / {{ f(c.rawWholeWord) }}</div>
+          <div style="font-size:.82rem;color:#3a554c;margin-top:8px">{{ c.note_en }}</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STUB for not-yet-ported pages -->
+    <section v-if="stubView">
+      <h1>{{ lang==='ar' ? stubView.ar : stubView.en }}</h1>
+      <div class="stub">
+        {{ lang==='ar' ? 'هذه الصفحة قيد النقل إلى الإصدار الثاني على البيانات المصحّحة.' : 'This page is being ported into v2 on the corrected data.' }}
+        <div style="margin-top:8px;font-size:.8rem">{{ lang==='ar'?'المحتوى الأصلي محفوظ.':'Original content is preserved and queued.' }}</div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+<script src="data.js"></script>
+<script src="corpus.js"></script>
+<script src="words.js"></script>
+<script>
+const TASHKEEL = /[ؐ-ًؚ-ٰٟۖ-ۭٓ-ٕ]/g;
+function normalize(s){
+  if(!s) return '';
+  s = s.replace(/﻿/g,'').replace(TASHKEEL,'');
+  s = s.replace(/[ٱآأإ]/g,'ا').replace(/ى/g,'ي');
+  return s.trim();
+}
+const { createApp } = Vue;
+createApp({
+  data(){
+    const D = window.QURAN_DATA||{stats:{totals:{}},datasets:{},claims:[]};
+    return {
+      lang:'en', view:'overview',
+      T: D.stats.totals, DS: D.datasets, MM: D.datasets.meccaMedina||{mecca:{},medina:{}}, claims: D.claims,
+      V: window.QURAN_VERSES||{}, W: window.QURAN_WORDS||{key:[],norm:[],lemma:[],root:[],surface:[]},
+      q:'', mode:'surface', sres:{total:0,surahs:0,verses:0,sample:[]},
+      rSurah:1,
+      examples:['يوم','الله','رحمة','ملك','أله'],
+      nav:[
+        {section:'quran',en:'Quran',ar:'القرآن',items:[
+          {id:'overview',icon:'📖',en:'Overview',ar:'نظرة عامة'},
+          {id:'search',icon:'🔍',en:'Word Search',ar:'بحث',new:1},
+          {id:'reader',icon:'📜',en:'Reader',ar:'المصحف'},
+        ]},
+        {section:'stats',en:'Statistics',ar:'إحصاءات',items:[
+          {id:'word',icon:'📝',en:'Word Analysis',ar:'تحليل الكلمات'},
+          {id:'mecca',icon:'🗺️',en:'Mecca vs Medina',ar:'مكة والمدينة'},
+          {id:'letters',icon:'🔤',en:'Letter Frequency',ar:'تكرار الحروف'},
+          {id:'insights',icon:'📈',en:'Data Insights',ar:'استنتاجات'},
+          {id:'symmetry',icon:'🔄',en:'Word Symmetries',ar:'تناظر'},
+        ]},
+        {section:'linguistics',en:'Linguistics',ar:'لغويات',items:[
+          {id:'emotion',icon:'🎭',en:'Emotional Profiling',ar:'البصمة العاطفية'},
+          {id:'pronouns',icon:'👑',en:'Divine Pronouns',ar:'الضمائر'},
+          {id:'antonyms',icon:'⚖️',en:'Antonym Pairs',ar:'الأزواج'},
+          {id:'science',icon:'🔬',en:'Scientific Refs',ar:'إشارات علمية'},
+          {id:'advanced',icon:'📊',en:'Advanced Analytics',ar:'تحليلات متقدمة'},
+          {id:'nlp',icon:'🧠',en:'NLP Explorer',ar:'مستكشف NLP'},
+        ]},
+        {section:'miracles',en:'Miracles',ar:'إعجاز',items:[
+          {id:'auditor',icon:'✅',en:'Claim Auditor',ar:'مدقّق المزاعم',new:1},
+          {id:'waw',icon:'🌟',en:'Waw Miracle',ar:'معجزة الواو'},
+          {id:'abjad',icon:'🔢',en:'Abjad Numerals',ar:'حساب الجمّل'},
+          {id:'n19',icon:'⑲',en:'Number 19',ar:'الرقم ١٩'},
+          {id:'structural',icon:'🏛️',en:'Structural',ar:'هيكلية'},
+          {id:'tawafuq',icon:'📐',en:'Tawafuq Mushaf',ar:'توافق المصحف',new:1},
+          {id:'alifi',icon:'📕',en:'Alifi Mushaf',ar:'مصحف ألفي',new:1},
+        ]},
+        {section:'library',en:'Library',ar:'المكتبة',items:[
+          {id:'stories',icon:'📚',en:'Stories',ar:'القصص'},
+          {id:'lessons',icon:'💎',en:'Lessons',ar:'الدروس'},
+          {id:'duas',icon:'🤲',en:"Du'as",ar:'الأدعية'},
+          {id:'tafsir',icon:'💡',en:'Scholarly Insights',ar:'بصائر'},
+          {id:'kg',icon:'🕸️',en:'Knowledge Graph',ar:'خريطة المعرفة'},
+        ]},
+      ],
+    };
+  },
+  computed:{
+    realViews(){ return ['overview','word','mecca','letters','search','reader','auditor']; },
+    stubView(){
+      if(this.realViews.includes(this.view)) return null;
+      for(const g of this.nav){ const it=g.items.find(x=>x.id===this.view); if(it) return it; }
+      return null;
+    },
+    readerVerses(){
+      const out=[]; const n=this.rSurah;
+      const meta=this.DS.surahMeta.find(s=>s.n===n); if(!meta) return out;
+      for(let a=1;a<=meta.verses;a++){ const k=n+':'+a; if(this.V[k]) out.push({k:k,t:this.V[k]}); }
+      return out;
+    }
+  },
+  methods:{
+    f(n){ return (n==null?0:n).toLocaleString(); },
+    go(id){ this.view=id; this.$nextTick(()=>this.renderCharts()); },
+    cverdict(c){ if(c.verifiedLemma===c.claimed) return 'exact';
+      const p=this.claims.find(x=>x.id===c.pair); if(p&&p.verifiedLemma===c.verifiedLemma) return 'parity'; return 'differs'; },
+    cbadge(c){ const v=this.cverdict(c); return v==='exact'?'EXACT':v==='parity'?'PARITY':'DIFFERS'; },
+    runSearch(){
+      const W=this.W, q=normalize(this.q);
+      if(!q){ this.sres={total:0,surahs:0,verses:0,sample:[]}; return; }
+      let total=0; const suras=new Set(), verses=new Set(), sample=[];
+      for(let i=0;i<W.norm.length;i++){
+        let field = this.mode==='surface'?W.norm[i] : this.mode==='lemma'?W.lemma[i] : W.root[i];
+        let m = this.mode==='surface' ? field.includes(q) : field===q;
+        if(m){ total++; const k=W.key[i]; suras.add(k.split(':')[0]);
+          if(!verses.has(k)){ verses.add(k); if(sample.length<40) sample.push(k); } }
+      }
+      this.sres={total:total,surahs:suras.size,verses:verses.size,sample:sample};
+    },
+    highlight(vk){
+      const t=this.V[vk]||''; const q=normalize(this.q); if(!q) return t;
+      // highlight words whose normalized form contains/equals q
+      return t.split(' ').map(w=>{ const nw=normalize(w);
+        const hit = this.mode==='surface'? nw.includes(q): nw===q || nw.includes(q);
+        return hit? '<mark>'+w+'</mark>':w; }).join(' ') + ' <span class="vk">'+vk+'</span>';
+    },
+    renderReader(){ /* reactive via computed */ },
+    renderCharts(){
+      if(typeof Plotly==='undefined') return;
+      const lay={plot_bgcolor:'rgba(0,0,0,0)',paper_bgcolor:'rgba(0,0,0,0)',margin:{t:20,r:10,b:40,l:50}};
+      if(this.view==='overview' && document.getElementById('ovChart')){
+        const sm=this.DS.surahMeta;
+        const mk=sm.filter(s=>s.place==='Mecca'), md=sm.filter(s=>s.place==='Medina');
+        Plotly.newPlot('ovChart',[
+          {x:mk.map(s=>s.n),y:mk.map(s=>s.verses),type:'bar',name:'Mecca',marker:{color:'#B7094C'}},
+          {x:md.map(s=>s.n),y:md.map(s=>s.verses),type:'bar',name:'Medina',marker:{color:'#0891b2'}}
+        ],Object.assign({},lay,{height:320,barmode:'stack',xaxis:{title:'Surah'},yaxis:{title:'Verses'}}),{responsive:true});
+      }
+      if(this.view==='word' && document.getElementById('lemChart')){
+        const t=this.DS.topWordsLemma.slice(0,15).reverse();
+        Plotly.newPlot('lemChart',[{y:t.map(x=>x.w),x:t.map(x=>x.c),type:'bar',orientation:'h',marker:{color:'#0f9d58'},text:t.map(x=>x.c.toLocaleString()),textposition:'outside'}],
+          Object.assign({},lay,{height:430,yaxis:{tickfont:{family:'Amiri',size:16}},title:'Top lemmas'}),{responsive:true});
+      }
+      if(this.view==='letters' && document.getElementById('letChart')){
+        const t=this.DS.letterFreq;
+        Plotly.newPlot('letChart',[{x:t.map(x=>x.l),y:t.map(x=>x.c),type:'bar',marker:{color:'#10b981'}}],
+          Object.assign({},lay,{height:340,xaxis:{tickfont:{family:'Amiri',size:18}}}),{responsive:true});
+      }
+    }
+  },
+  mounted(){ this.$nextTick(()=>this.renderCharts()); }
+}).mount('#app');
+</script>
+</body>
+</html>

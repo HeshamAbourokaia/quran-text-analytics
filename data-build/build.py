@@ -81,6 +81,25 @@ def main():
         json.dump(payload, fh, ensure_ascii=False, separators=(',', ':'))
         fh.write(';\n')
 
+    # verse text for the Reader (Uthmani display) keyed "sura:aya"
+    with open(os.path.join(web_dir, 'corpus.js'), 'w', encoding='utf-8') as fh:
+        fh.write('window.QURAN_VERSES = ')
+        json.dump(corpus_json, fh, ensure_ascii=False, separators=(',', ':'))
+        fh.write(';\n')
+
+    # compact word index for surface/lemma/root search (parallel arrays)
+    widx = {'key': [], 'norm': [], 'lemma': [], 'root': [], 'surface': []}
+    for w in words:
+        widx['key'].append(f"{w['sura']}:{w['aya']}")
+        widx['norm'].append(w['norm'])
+        widx['lemma'].append(normalize(w['lemma']) if w['lemma'] else '')
+        widx['root'].append(normalize(w['root']) if w['root'] else '')
+        widx['surface'].append(w['surface'])
+    with open(os.path.join(web_dir, 'words.js'), 'w', encoding='utf-8') as fh:
+        fh.write('window.QURAN_WORDS = ')
+        json.dump(widx, fh, ensure_ascii=False, separators=(',', ':'))
+        fh.write(';\n')
+
     _scorecard(stats, claim_rows)
 
 def _write(name, obj):
