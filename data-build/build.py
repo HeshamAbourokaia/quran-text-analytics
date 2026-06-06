@@ -13,6 +13,7 @@ from pipeline import claims as claims_mod
 from pipeline import datasets as datasets_mod
 from pipeline import analytics as analytics_mod
 from pipeline import optimisation as optim_mod
+from pipeline import montecarlo as mc_mod
 
 OUT = os.path.join(os.path.dirname(__file__), 'out')
 DATA_VERSION = '2.0.0'
@@ -55,6 +56,7 @@ def main():
     datasets = datasets_mod.build(words, verses_display)
     analytics = analytics_mod.build(words, datasets['surahMeta'])
     analytics['hifz'] = optim_mod.build()
+    analytics['montecarlo'] = mc_mod.build(words)
 
     # emit
     corpus_json = {f"{s}:{a}": t for (s, a), t in verses_display.items()}

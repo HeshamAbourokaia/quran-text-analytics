@@ -87,6 +87,14 @@ def test_hifz_lp_matches_closed_form():
     assert abs(h['shadowPriceMinute'] - 1.0 / (p['tNew'] + p['tRev'] * p['rho'])) < 1e-3
     assert h['solution']['daysToFinish'] > 0
 
+def test_montecarlo_honest():
+    from pipeline import montecarlo as mc
+    m = mc.build(_WORDS)
+    land = {x['n']: x for x in m['coincidence']['landscape']}
+    assert land[7]['near'] > land[365]['near']      # small numbers crowded, large sparse
+    h = m['hifzSim']
+    assert h['p5'] <= h['p50'] <= h['p95'] and h['p5'] > 0
+
 def test_top_lemma_is_allah_among_content_words():
     # the most frequent *content* lemma (a Name of God) should be allah at 2699
     allah = next(x for x in _DS['topWordsLemma'] if x['c'] == 2699)
