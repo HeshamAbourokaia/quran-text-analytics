@@ -338,6 +338,14 @@
       </div>
     </section>
 
+    <!-- ADVANCED ANALYTICS -->
+    <section v-if="view==='advanced'">
+      <h1>{{ lang==='ar'?'تحليلات متقدمة':'Advanced Analytics' }}</h1>
+      <p class="sub">{{ lang==='ar'?'كل سورة كنقطة: الآيات مقابل الكلمات، ملوّنة بمكان النزول.':'Every surah as a point: verses vs words, coloured by revelation place.' }}</p>
+      <div class="card"><div class="chart" id="advScatter"></div></div>
+      <div class="card"><div class="chart" id="advLen"></div></div>
+    </section>
+
     <!-- KNOWLEDGE GRAPH -->
     <section v-if="view==='kg'">
       <h1>🕸️ {{ lang==='ar'?'خريطة المعرفة القرآنية':'Quranic Knowledge Graph' }}</h1>
@@ -475,7 +483,7 @@ createApp({
   },
   computed:{
     realViews(){ return ['overview','word','mecca','letters','search','reader','auditor','stories','lessons','duas','tafsir',
-      'emotion','pronouns','science','abjad','n19','structural','antonyms','symmetry','waw','insights','nlp','kg']; },
+      'emotion','pronouns','science','abjad','n19','structural','antonyms','symmetry','waw','insights','nlp','kg','advanced']; },
     emotionTotals(){ const s=this.V1.sentiment||[]; const t={mercy:0,warning:0,guidance:0,hope:0};
       s.forEach(x=>{t.mercy+=x.mercy;t.warning+=x.warning;t.guidance+=x.guidance;t.hope+=x.hope;}); return t; },
     abjadValue(){ const map={}; (this.V1.abjadTable||[]).forEach(r=>map[r.l]=r.v);
@@ -559,6 +567,18 @@ createApp({
         const t=this.DS.letterFreq;
         Plotly.newPlot('letChart',[{x:t.map(x=>x.l),y:t.map(x=>x.c),type:'bar',marker:{color:'#10b981'}}],
           Object.assign({},lay,{height:340,xaxis:{tickfont:{family:'Amiri',size:18}}}),{responsive:true});
+      }
+      if(this.view==='advanced' && document.getElementById('advScatter')){
+        const sm=this.DS.surahMeta;
+        const grp=p=>sm.filter(s=>s.place===p);
+        const trace=(p,c,nm)=>({x:grp(p).map(s=>s.verses),y:grp(p).map(s=>s.words),text:grp(p).map(s=>s.n+'. '+(this.lang==='ar'?s.ar:s.en)),
+          mode:'markers',type:'scatter',name:nm,marker:{color:c,size:9,opacity:.75}});
+        Plotly.newPlot('advScatter',[trace('Mecca','#B7094C','Mecca'),trace('Medina','#0891b2','Medina')],
+          Object.assign({},lay,{height:380,xaxis:{title:'Verses'},yaxis:{title:'Words'},legend:{orientation:'h',y:1.12}}),{responsive:true});
+        const byLen=sm.slice().sort((a,b)=>b.words/b.verses-a.words/a.verses).slice(0,20);
+        Plotly.newPlot('advLen',[{x:byLen.map(s=>this.lang==='ar'?s.ar:s.en),y:byLen.map(s=>+(s.words/s.verses).toFixed(1)),
+          type:'bar',marker:{color:'#0f9d58'}}],
+          Object.assign({},lay,{height:360,title:'Longest avg verse (words/verse)',xaxis:{tickangle:-40,tickfont:{size:10}}}),{responsive:true});
       }
     }
   },
