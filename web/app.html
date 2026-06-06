@@ -71,6 +71,17 @@
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
   .stub{color:var(--muted);background:#fff;border:1px dashed var(--line);border-radius:14px;padding:26px;text-align:center}
   .dir-rtl{direction:rtl}
+  .ubadge{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.04em;background:#1B4332;color:#bff0d8;
+    border-radius:999px;padding:3px 10px;margin-inline-start:8px;vertical-align:middle}
+  .metric{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
+  .metric .m{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 16px;text-align:center;min-width:110px}
+  .metric .m .v{font-size:1.4rem;font-weight:800;color:var(--emerald)}
+  .metric .m .k{font-size:.7rem;color:var(--muted);text-transform:uppercase}
+  .conf{border-collapse:collapse;margin-top:8px}
+  .conf td,.conf th{border:1px solid var(--line);padding:8px 14px;text-align:center}
+  .conf .hit{background:var(--emerald-bg);font-weight:700}
+  .conf .miss{background:var(--amber-bg)}
+  input[type=range]{width:100%;accent-color:var(--emerald)}
 </style>
 </head>
 <body>
@@ -474,6 +485,103 @@
       </div>
     </section>
 
+    <!-- HIFZ OPTIMISER (Linear Programming) -->
+    <section v-if="view==='hifz'">
+      <h1>🧮 {{ lang==='ar'?'مُحسِّن خطة الحفظ':'Hifz Plan Optimiser' }} <span class="ubadge">MIS775 · Linear Programming</span></h1>
+      <p class="sub">{{ lang==='ar'?'برنامج خطّي: نُعظّم الأسطر الجديدة يومياً ضمن ميزانية الوقت وقيد المراجعة. اسحب الميزانية ليُعاد الحل فوراً.':'A linear program: maximise new lines per day under a time budget and a review constraint. Drag the budget to re-solve live.' }}</p>
+      <div class="card">
+        <label style="font-weight:600">{{ lang==='ar'?'دقائق يومياً':'Minutes per day' }}: {{ hifzMins }}</label>
+        <input type="range" min="10" max="240" step="5" v-model.number="hifzMins">
+        <div class="metric">
+          <div class="m"><div class="v">{{ hifzLive.N.toFixed(1) }}</div><div class="k">{{ lang==='ar'?'سطر جديد/يوم':'new lines/day' }}</div></div>
+          <div class="m"><div class="v">{{ hifzLive.review }}</div><div class="k">{{ lang==='ar'?'مراجعة/يوم':'review lines/day' }}</div></div>
+          <div class="m"><div class="v">{{ hifzLive.years }}</div><div class="k">{{ lang==='ar'?'سنوات للختم':'years to finish' }}</div></div>
+          <div class="m"><div class="v">{{ hifzLive.shadow }}</div><div class="k">{{ lang==='ar'?'قيمة الدقيقة (سعر الظل)':'value of 1 min (shadow price)' }}</div></div>
+        </div>
+      </div>
+      <div class="card"><div class="chart" id="hifzChart"></div></div>
+      <p class="sub">{{ lang==='ar'?'سعر الظل هو نفس مفهوم MIS775: كل دقيقة إضافية يومياً تضيف هذا العدد من الأسطر الجديدة.':'The shadow price is the MIS775 concept: each extra minute per day buys this many more new lines, the dual value of the time-budget constraint.' }}</p>
+    </section>
+
+    <!-- MECCAN/MEDINAN CLASSIFIER (Logistic / ML) -->
+    <section v-if="view==='classifier'">
+      <h1>🤖 {{ lang==='ar'?'تصنيف مكي / مدني':'Meccan / Medinan Classifier' }} <span class="ubadge">MIS771·772·710 · ML</span></h1>
+      <p class="sub">{{ lang==='ar'?'انحدار لوجستي على متجهات TF-IDF للجذوع، يتنبأ بمكان النزول. تقييم بالتحقق المتقاطع.':'Logistic regression on lemma TF-IDF vectors predicting revelation place, scored by cross-validation.' }}</p>
+      <div class="metric" v-if="AN.classifier">
+        <div class="m"><div class="v">{{ (AN.classifier.accuracy*100).toFixed(1) }}%</div><div class="k">{{ lang==='ar'?'دقة':'accuracy' }}</div></div>
+        <div class="m"><div class="v">{{ (AN.classifier.baseline*100).toFixed(1) }}%</div><div class="k">{{ lang==='ar'?'الأساس':'baseline' }}</div></div>
+        <div class="m"><div class="v">{{ AN.classifier.auc }}</div><div class="k">AUC</div></div>
+      </div>
+      <div class="row" v-if="AN.classifier">
+        <div class="col card"><h3>{{ lang==='ar'?'مصفوفة الالتباس':'Confusion matrix' }}</h3>
+          <table class="conf">
+            <tr><th></th><th>{{ lang==='ar'?'تنبّأ مكي':'pred Meccan' }}</th><th>{{ lang==='ar'?'تنبّأ مدني':'pred Medinan' }}</th></tr>
+            <tr><th>{{ lang==='ar'?'مكي فعلاً':'actual Meccan' }}</th><td class="hit">{{ AN.classifier.confusion[0][0] }}</td><td class="miss">{{ AN.classifier.confusion[0][1] }}</td></tr>
+            <tr><th>{{ lang==='ar'?'مدني فعلاً':'actual Medinan' }}</th><td class="miss">{{ AN.classifier.confusion[1][0] }}</td><td class="hit">{{ AN.classifier.confusion[1][1] }}</td></tr>
+          </table>
+        </div>
+        <div class="col card"><h3>{{ lang==='ar'?'أقوى مؤشرات مدني':'Top Medinan signals' }}</h3>
+          <div><span class="chip" v-for="w in AN.classifier.topMedinan" :key="w.w">{{ w.w }}</span></div>
+          <p style="font-size:.82rem;color:var(--muted);margin-top:8px">{{ lang==='ar'?'لفظ الجلالة و«رسول» و«آمن» تميّز السور المدنية، كما هو معروف.':'Allah, Messenger, and believed mark Medinan surahs, as is well known.' }}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATISTICAL TESTS (Hypothesis testing + regression) -->
+    <section v-if="view==='stats'">
+      <h1>📐 {{ lang==='ar'?'اختبارات إحصائية':'Statistical Tests' }} <span class="ubadge">MIS771 · Inference</span></h1>
+      <div class="card" v-if="AN.ttest">
+        <h3>{{ lang==='ar'?'هل آيات المدينة أطول؟ (اختبار t)':'Are Medinan verses longer? (t-test)' }}</h3>
+        <div class="metric">
+          <div class="m"><div class="v">{{ AN.ttest.meccanMean }}</div><div class="k">{{ lang==='ar'?'متوسط مكي':'Meccan mean' }}</div></div>
+          <div class="m"><div class="v">{{ AN.ttest.medinanMean }}</div><div class="k">{{ lang==='ar'?'متوسط مدني':'Medinan mean' }}</div></div>
+          <div class="m"><div class="v">{{ AN.ttest.t }}</div><div class="k">t</div></div>
+          <div class="m"><div class="v">{{ AN.ttest.p.toExponential(1) }}</div><div class="k">p-value</div></div>
+        </div>
+        <p style="font-weight:600;color:var(--emerald)">{{ lang==='ar'?'النتيجة: آيات المدينة أطول بفارق ':'Result: Medinan verses are longer by ' }}{{ AN.ttest.diff }} {{ lang==='ar'?'كلمة، وهذا فرق دالّ إحصائياً عند مستوى ٥٪ (ثقة ٩٥٪ في الفرق: ':'words, a statistically significant difference at the 5% level (95% CI for the difference: ' }}{{ AN.ttest.ci[0] }}–{{ AN.ttest.ci[1] }}).</p>
+      </div>
+      <div class="card" v-if="AN.regression">
+        <h3>{{ lang==='ar'?'انحدار خطّي: طول الآية':'Linear regression: verse length' }}</h3>
+        <div class="metric">
+          <div class="m"><div class="v">{{ AN.regression.r2 }}</div><div class="k">R²</div></div>
+          <div class="m"><div class="v">+{{ AN.regression.coef.medinanDummy }}</div><div class="k">{{ lang==='ar'?'أثر مدني (كلمة)':'Medinan effect (words)' }}</div></div>
+        </div>
+        <p style="font-size:.84rem;color:var(--muted)">{{ lang==='ar'?'كون السورة مدنية يضيف نحو ٦ كلمات لطول الآية المتوقع.':'Being a Medinan surah adds about 6 words to a verse\'s expected length.' }}</p>
+      </div>
+    </section>
+
+    <!-- CLUSTERS & SIMILARITY (k-means + TF-IDF) -->
+    <section v-if="view==='cluster'">
+      <h1>🧩 {{ lang==='ar'?'العناقيد والتشابه':'Clusters & Similarity' }} <span class="ubadge">MIS710·772 · Unsupervised</span></h1>
+      <p class="sub">{{ lang==='ar'?'تجميع السور بـ k-means وعرضها بـ PCA، وإيجاد أقرب السور عبر تشابه TF-IDF.':'k-means clusters of surahs shown via PCA, and nearest surahs by TF-IDF cosine similarity.' }}</p>
+      <div class="card"><div class="chart" id="clusterChart"></div></div>
+      <div class="card" v-if="AN.similarity">
+        <h3>{{ lang==='ar'?'أقرب السور إلى':'Surahs most similar to' }}
+          <select v-model.number="simSurah" style="padding:6px;border-radius:8px;border:1px solid var(--line)">
+            <option v-for="s in DS.surahMeta" :key="s.n" :value="s.n">{{ s.n }}. {{ lang==='ar'?s.ar:s.en }}</option>
+          </select></h3>
+        <table><tr v-for="r in (AN.similarity[String(simSurah)]||[])" :key="r.n">
+          <td>{{ r.n }}. {{ surahName(r.n) }}</td><td>{{ (r.s*100).toFixed(0) }}%</td></tr></table>
+      </div>
+    </section>
+
+    <!-- COINCIDENCE LENS + HIFZ MONTE CARLO -->
+    <section v-if="view==='coincidence'">
+      <h1>🎲 {{ lang==='ar'?'عدسة المصادفة':'Coincidence Lens' }} <span class="ubadge">MIS775 · Monte Carlo</span></h1>
+      <p class="sub">{{ lang==='ar'?'كم كلمة تقع على كل رقم بارز؟ الأرقام الصغيرة مزدحمة، والكبيرة نادرة، لذا فالتطابق الدقيق على رقم كبير وذي معنى هو اللافت حقاً.':'How many words land on each notable number? Small numbers are crowded, large ones are rare, so an exact, meaningful match at a large number is what truly stands out.' }}</p>
+      <div class="card"><div class="chart" id="coincChart"></div></div>
+      <div class="card" v-if="AN.montecarlo && AN.montecarlo.hifzSim">
+        <h3>{{ lang==='ar'?'محاكاة مونت كارلو لزمن الختم (١٬٠٠٠ تجربة)':'Hifz completion-time Monte Carlo (1,000 trials)' }}</h3>
+        <div class="metric">
+          <div class="m"><div class="v">{{ AN.montecarlo.hifzSim.p5 }}</div><div class="k">P5 days</div></div>
+          <div class="m"><div class="v">{{ AN.montecarlo.hifzSim.p50 }}</div><div class="k">P50 days</div></div>
+          <div class="m"><div class="v">{{ AN.montecarlo.hifzSim.p95 }}</div><div class="k">P95 days</div></div>
+          <div class="m"><div class="v">{{ AN.montecarlo.hifzSim.meanYears }}</div><div class="k">{{ lang==='ar'?'سنوات (متوسط)':'mean years' }}</div></div>
+        </div>
+        <div class="chart" id="mcChart"></div>
+      </div>
+    </section>
+
     <!-- LIBRARY: Stories / Lessons / Du'as / Tafsir -->
     <section v-if="curLib">
       <h1>{{ lang==='ar' ? curLib.title_ar : curLib.title_en }}</h1>
@@ -546,6 +654,7 @@ createApp({
       q:'', mode:'surface', sres:{total:0,surahs:0,verses:0,sample:[]},
       rSurah:1, libQ:'', libCat:'all', stories:[], lessons:[], duas:[], tafsir:[],
       V1:{}, abjadInput:'',
+      AN:(D.analytics||{}), hifzMins:60, simSurah:2,
       mushaf:null, mushafLoading:false, tawPage:1, tawSel:'', tawSelLabel:'',
       tawExamples:[{l:'الله',t:'الله'},{l:'رب',t:'رب'},{l:'رحمن',t:'الرحمن'}],
       alifi:null, alifiPage:0, alifiOverlay:true,
@@ -582,6 +691,13 @@ createApp({
           {id:'tawafuq',icon:'📐',en:'Tawafuq Mushaf',ar:'توافق المصحف',new:1},
           {id:'alifi',icon:'📕',en:'Alifi Mushaf',ar:'مصحف ألفي',new:1},
         ]},
+        {section:'lab',en:'Analytics Lab',ar:'مختبر التحليلات',items:[
+          {id:'hifz',icon:'🧮',en:'Hifz Optimiser',ar:'مُحسِّن الحفظ',new:1},
+          {id:'classifier',icon:'🤖',en:'Meccan/Medinan ML',ar:'تصنيف مكي/مدني',new:1},
+          {id:'stats',icon:'📐',en:'Statistical Tests',ar:'اختبارات إحصائية',new:1},
+          {id:'cluster',icon:'🧩',en:'Clusters & Similarity',ar:'العناقيد والتشابه',new:1},
+          {id:'coincidence',icon:'🎲',en:'Coincidence Lens',ar:'عدسة المصادفة',new:1},
+        ]},
         {section:'library',en:'Library',ar:'المكتبة',items:[
           {id:'stories',icon:'📚',en:'Stories',ar:'القصص'},
           {id:'lessons',icon:'💎',en:'Lessons',ar:'الدروس'},
@@ -594,7 +710,13 @@ createApp({
   },
   computed:{
     realViews(){ return ['overview','word','mecca','letters','search','reader','auditor','stories','lessons','duas','tafsir',
-      'emotion','pronouns','science','abjad','n19','structural','antonyms','symmetry','waw','insights','nlp','kg','advanced','tawafuq','alifi']; },
+      'emotion','pronouns','science','abjad','n19','structural','antonyms','symmetry','waw','insights','nlp','kg','advanced','tawafuq','alifi','hifz','classifier','stats','cluster','coincidence']; },
+    hifzLive(){
+      const p=(this.AN.hifz&&this.AN.hifz.params)||{tNew:4,tRev:0.5,rho:10,totalLines:9060};
+      const N=this.hifzMins/(p.tNew+p.tRev*p.rho);
+      return {N:N, days:Math.round(p.totalLines/N), years:(p.totalLines/N/365).toFixed(1),
+        review:Math.round(p.rho*N), shadow:(1/(p.tNew+p.tRev*p.rho)).toFixed(3)};
+    },
     tawCurLines(){ return (this.mushaf && this.mushaf[this.tawPage]) ? this.mushaf[this.tawPage] : []; },
     tawPageCount(){ let c=0; this.tawCurLines.forEach(l=>(l.words||[]).forEach(w=>{ if(w.l && w.l===this.tawSel) c++; })); return c; },
     tawTopPages(){ if(!this.mushaf || !this.tawSel) return [];
@@ -648,6 +770,7 @@ createApp({
       fetch('content/mushaf.json').then(r=>r.json()).then(d=>{ this.mushaf=d; this.mushafLoading=false; })
         .catch(()=>{ this.mushafLoading=false; }); },
     tawPick(w){ if(!w.l) return; this.tawSel=w.l; this.tawSelLabel=w.t; },
+    surahName(n){ const s=(this.DS.surahMeta||[]).find(x=>x.n===n); return s?(this.lang==='ar'?s.ar:s.en):n; },
     kbAppend(ch){ this.q += ch; this.runSearch(); },
     kbBack(){ this.q = this.q.slice(0,-1); this.runSearch(); },
     kbClear(){ this.q=''; this.runSearch(); },
@@ -760,6 +883,35 @@ createApp({
           {x:c.map(x=>x.en),y:c.map(x=>x.claimed),type:'bar',name:isAr?'المزعوم':'Claimed',marker:{color:'#cbd5e1'}},
           {x:c.map(x=>x.en),y:c.map(x=>x.verifiedLemma),type:'bar',name:isAr?'المحقّق':'Verified',marker:{color:'#0f9d58'}}
         ],Object.assign({},lay,{height:380,barmode:'group',legend:{orientation:'h',y:1.1},xaxis:{tickangle:-35,tickfont:{size:9}}}),{responsive:true});
+      }
+      if(this.view==='hifz' && this.AN.hifz && document.getElementById('hifzChart')){
+        const g=this.AN.hifz.sensitivity;
+        Plotly.newPlot('hifzChart',[{x:g.map(r=>r.dailyMinutes),y:g.map(r=>r.daysToFinish),type:'scatter',mode:'lines+markers',
+          line:{color:'#0f9d58',width:3},marker:{size:8}}],
+          Object.assign({},lay,{height:320,title:isAr?'أيام للختم مقابل الدقائق اليومية':'Days to finish vs minutes/day',
+            xaxis:{title:isAr?'دقائق/يوم':'minutes/day'},yaxis:{title:isAr?'أيام':'days'}}),{responsive:true});
+      }
+      if(this.view==='cluster' && this.AN.clusters && document.getElementById('clusterChart')){
+        const cs=this.AN.clusters; const traces=[];
+        for(let k=0;k<(this.AN.k||4);k++){ const pts=cs.filter(c=>c.cluster===k);
+          traces.push({x:pts.map(p=>p.x),y:pts.map(p=>p.y),text:pts.map(p=>p.n+'. '+this.surahName(p.n)),
+            mode:'markers',type:'scatter',name:(isAr?'عنقود ':'Cluster ')+(k+1),marker:{size:9,opacity:.8}}); }
+        Plotly.newPlot('clusterChart',traces,Object.assign({},lay,{height:400,title:isAr?'عناقيد السور (PCA)':'Surah clusters (PCA)',
+          xaxis:{title:'PC1'},yaxis:{title:'PC2'},legend:{orientation:'h',y:1.12}}),{responsive:true});
+      }
+      if(this.view==='coincidence' && this.AN.montecarlo && document.getElementById('coincChart')){
+        const L=this.AN.montecarlo.coincidence.landscape;
+        Plotly.newPlot('coincChart',[
+          {x:L.map(r=>r.n),y:L.map(r=>r.near),type:'bar',name:isAr?'كلمات قريبة (±٥)':'words near (±5)',marker:{color:'#cbd5e1'}},
+          {x:L.map(r=>r.n),y:L.map(r=>r.exact),type:'bar',name:isAr?'تطابق تام':'exact',marker:{color:'#0f9d58'}}
+        ],Object.assign({},lay,{height:340,barmode:'overlay',yaxis:{type:'log',title:isAr?'عدد الكلمات (لوغاريتمي)':'words (log)'},
+          xaxis:{title:isAr?'الرقم البارز':'notable number'},legend:{orientation:'h',y:1.15}}),{responsive:true});
+        if(this.AN.montecarlo.hifzSim && document.getElementById('mcChart')){
+          const h=this.AN.montecarlo.hifzSim.hist;
+          Plotly.newPlot('mcChart',[{x:h.map(b=>b.day),y:h.map(b=>b.count),type:'bar',marker:{color:'#0891b2'}}],
+            Object.assign({},lay,{height:300,title:isAr?'توزيع أيام الختم':'Completion-day distribution',
+              xaxis:{title:isAr?'أيام':'days'},yaxis:{title:isAr?'تجارب':'trials'}}),{responsive:true});
+        }
       }
     }
   },
