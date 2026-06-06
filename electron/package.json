@@ -1,0 +1,27 @@
+{
+  "name": "quran-text-analytics",
+  "version": "2.0.0",
+  "description": "Quran Text Analytics - desktop shell for the offline web app",
+  "main": "main.js",
+  "author": "Hesham Abourokaia",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^30.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.hesham.qurananalytics",
+    "productName": "Quran Text Analytics",
+    "directories": { "output": "dist" },
+    "files": ["main.js", "server.js"],
+    "extraResources": [{ "from": "../web", "to": "web" }],
+    "mac": {
+      "target": "dmg",
+      "category": "public.app-category.education"
+    }
+  }
+}
