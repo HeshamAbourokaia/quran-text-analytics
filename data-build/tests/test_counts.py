@@ -9,10 +9,13 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 from pipeline.corpus import load_words, load_verses, normalize
 from pipeline import claims as claims_mod
+from pipeline import datasets as datasets_mod
 
 _WORDS = load_words()
-_VN = {f"{s}:{a}": normalize(t) for (s, a), t in load_verses(_WORDS).items()}
+_VD = load_verses(_WORDS)
+_VN = {f"{s}:{a}": normalize(t) for (s, a), t in _VD.items()}
 _CLAIMS = {c['id']: c for c in claims_mod.compute(_WORDS, _VN)}
+_DS = datasets_mod.build(_WORDS, _VD)
 
 def test_totals():
     suras = {w['sura'] for w in _WORDS}
@@ -49,6 +52,20 @@ def test_exact_claims_really_match():
 
 def test_jesus_equals_adam():
     assert _CLAIMS['jesus-24']['verifiedLemma'] == _CLAIMS['adam-24']['verifiedLemma'] == 25
+
+def test_datasets_reconcile_to_totals():
+    mm = _DS['meccaMedina']
+    assert mm['mecca']['surahs'] + mm['medina']['surahs'] == 114
+    assert mm['mecca']['verses'] + mm['medina']['verses'] == 6236
+    assert mm['mecca']['words'] + mm['medina']['words'] == 77429
+    assert sum(s['words'] for s in _DS['surahMeta']) == 77429
+    assert sum(s['verses'] for s in _DS['surahMeta']) == 6236
+
+def test_top_lemma_is_allah_among_content_words():
+    # the most frequent *content* lemma (a Name of God) should be allah at 2699
+    allah = next(x for x in _DS['topWordsLemma'] if x['c'] == 2699)
+    assert allah['c'] == 2699
+    assert _DS['letterFreq'][0]['c'] > 50000  # alif dominates
 
 if __name__ == '__main__':
     fns = [v for k, v in sorted(globals().items()) if k.startswith('test_') and callable(v)]
