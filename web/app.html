@@ -82,6 +82,15 @@
   .conf .hit{background:var(--emerald-bg);font-weight:700}
   .conf .miss{background:var(--amber-bg)}
   input[type=range]{width:100%;accent-color:var(--emerald)}
+  .course{background:linear-gradient(135deg,#0f3b2e,#14302a);color:#eafaf2;border-radius:16px;padding:18px 22px;margin-bottom:18px}
+  .course .tech{font-size:1.5rem;font-weight:800}
+  .course .unit{font-size:.9rem;color:#8fd9be;margin-top:3px;font-weight:600}
+  .course .topic{font-size:.82rem;color:#cdeadf;margin-top:6px}
+  .course .topic b{color:#fff}
+  .explain{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0 4px}
+  .explain .box{flex:1;min-width:260px;background:#ffffff14;border:1px solid #ffffff22;border-radius:12px;padding:12px 14px;font-size:.86rem;line-height:1.55}
+  .explain .box b{color:#fff}
+  .explain .box .lab{display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:#8fd9be;margin-bottom:4px}
 </style>
 </head>
 <body>
@@ -102,6 +111,17 @@
   </aside>
 
   <main>
+    <!-- Analytics Lab: course reference + plain-English explainer (any lab view) -->
+    <div v-if="labMeta[view]" class="course">
+      <div class="tech">{{ labMeta[view].technique }}</div>
+      <div class="unit">🎓 {{ labMeta[view].unit }}</div>
+      <div class="topic"><b>{{ lang==='ar'?'المادة التي تُدرَّس فيها':'Taught in' }}:</b> {{ labMeta[view].topic }}</div>
+      <div class="explain">
+        <div class="box"><span class="lab">{{ lang==='ar'?'ما هذا؟':'What is this?' }}</span>{{ labMeta[view].what }}</div>
+        <div class="box"><span class="lab">{{ lang==='ar'?'كيف تقرأ النتائج':'How to read the results' }}</span>{{ labMeta[view].howToRead }}</div>
+      </div>
+    </div>
+
     <!-- OVERVIEW -->
     <section v-if="view==='overview'">
       <h1>{{ lang==='ar' ? 'نظرة عامة' : 'Overview' }}</h1>
@@ -487,8 +507,6 @@
 
     <!-- HIFZ OPTIMISER (Linear Programming) -->
     <section v-if="view==='hifz'">
-      <h1>🧮 {{ lang==='ar'?'مُحسِّن خطة الحفظ':'Hifz Plan Optimiser' }} <span class="ubadge">MIS775 · Linear Programming</span></h1>
-      <p class="sub">{{ lang==='ar'?'برنامج خطّي: نُعظّم الأسطر الجديدة يومياً ضمن ميزانية الوقت وقيد المراجعة. اسحب الميزانية ليُعاد الحل فوراً.':'A linear program: maximise new lines per day under a time budget and a review constraint. Drag the budget to re-solve live.' }}</p>
       <div class="card">
         <label style="font-weight:600">{{ lang==='ar'?'دقائق يومياً':'Minutes per day' }}: {{ hifzMins }}</label>
         <input type="range" min="10" max="240" step="5" v-model.number="hifzMins">
@@ -505,13 +523,12 @@
 
     <!-- MECCAN/MEDINAN CLASSIFIER (Logistic / ML) -->
     <section v-if="view==='classifier'">
-      <h1>🤖 {{ lang==='ar'?'تصنيف مكي / مدني':'Meccan / Medinan Classifier' }} <span class="ubadge">MIS771·772·710 · ML</span></h1>
-      <p class="sub">{{ lang==='ar'?'انحدار لوجستي على متجهات TF-IDF للجذوع، يتنبأ بمكان النزول. تقييم بالتحقق المتقاطع.':'Logistic regression on lemma TF-IDF vectors predicting revelation place, scored by cross-validation.' }}</p>
       <div class="metric" v-if="AN.classifier">
         <div class="m"><div class="v">{{ (AN.classifier.accuracy*100).toFixed(1) }}%</div><div class="k">{{ lang==='ar'?'دقة':'accuracy' }}</div></div>
         <div class="m"><div class="v">{{ (AN.classifier.baseline*100).toFixed(1) }}%</div><div class="k">{{ lang==='ar'?'الأساس':'baseline' }}</div></div>
         <div class="m"><div class="v">{{ AN.classifier.auc }}</div><div class="k">AUC</div></div>
       </div>
+      <div class="card" v-if="AN.classifier"><div class="chart" id="clfChart"></div></div>
       <div class="row" v-if="AN.classifier">
         <div class="col card"><h3>{{ lang==='ar'?'مصفوفة الالتباس':'Confusion matrix' }}</h3>
           <table class="conf">
@@ -529,7 +546,6 @@
 
     <!-- STATISTICAL TESTS (Hypothesis testing + regression) -->
     <section v-if="view==='stats'">
-      <h1>📐 {{ lang==='ar'?'اختبارات إحصائية':'Statistical Tests' }} <span class="ubadge">MIS771 · Inference</span></h1>
       <div class="card" v-if="AN.ttest">
         <h3>{{ lang==='ar'?'هل آيات المدينة أطول؟ (اختبار t)':'Are Medinan verses longer? (t-test)' }}</h3>
         <div class="metric">
@@ -538,6 +554,7 @@
           <div class="m"><div class="v">{{ AN.ttest.t }}</div><div class="k">t</div></div>
           <div class="m"><div class="v">{{ AN.ttest.p.toExponential(1) }}</div><div class="k">p-value</div></div>
         </div>
+        <div class="chart" id="statChart"></div>
         <p style="font-weight:600;color:var(--emerald)">{{ lang==='ar'?'النتيجة: آيات المدينة أطول بفارق ':'Result: Medinan verses are longer by ' }}{{ AN.ttest.diff }} {{ lang==='ar'?'كلمة، وهذا فرق دالّ إحصائياً عند مستوى ٥٪ (ثقة ٩٥٪ في الفرق: ':'words, a statistically significant difference at the 5% level (95% CI for the difference: ' }}{{ AN.ttest.ci[0] }}–{{ AN.ttest.ci[1] }}).</p>
       </div>
       <div class="card" v-if="AN.regression">
@@ -552,8 +569,6 @@
 
     <!-- CLUSTERS & SIMILARITY (k-means + TF-IDF) -->
     <section v-if="view==='cluster'">
-      <h1>🧩 {{ lang==='ar'?'العناقيد والتشابه':'Clusters & Similarity' }} <span class="ubadge">MIS710·772 · Unsupervised</span></h1>
-      <p class="sub">{{ lang==='ar'?'تجميع السور بـ k-means وعرضها بـ PCA، وإيجاد أقرب السور عبر تشابه TF-IDF.':'k-means clusters of surahs shown via PCA, and nearest surahs by TF-IDF cosine similarity.' }}</p>
       <div class="card"><div class="chart" id="clusterChart"></div></div>
       <div class="card" v-if="AN.similarity">
         <h3>{{ lang==='ar'?'أقرب السور إلى':'Surahs most similar to' }}
@@ -567,8 +582,6 @@
 
     <!-- COINCIDENCE LENS + HIFZ MONTE CARLO -->
     <section v-if="view==='coincidence'">
-      <h1>🎲 {{ lang==='ar'?'عدسة المصادفة':'Coincidence Lens' }} <span class="ubadge">MIS775 · Monte Carlo</span></h1>
-      <p class="sub">{{ lang==='ar'?'كم كلمة تقع على كل رقم بارز؟ الأرقام الصغيرة مزدحمة، والكبيرة نادرة، لذا فالتطابق الدقيق على رقم كبير وذي معنى هو اللافت حقاً.':'How many words land on each notable number? Small numbers are crowded, large ones are rare, so an exact, meaningful match at a large number is what truly stands out.' }}</p>
       <div class="card"><div class="chart" id="coincChart"></div></div>
       <div class="card" v-if="AN.montecarlo && AN.montecarlo.hifzSim">
         <h3>{{ lang==='ar'?'محاكاة مونت كارلو لزمن الختم (١٬٠٠٠ تجربة)':'Hifz completion-time Monte Carlo (1,000 trials)' }}</h3>
@@ -655,6 +668,33 @@ createApp({
       rSurah:1, libQ:'', libCat:'all', stories:[], lessons:[], duas:[], tafsir:[],
       V1:{}, abjadInput:'',
       AN:(D.analytics||{}), hifzMins:60, simSurah:2,
+      labMeta:{
+        hifz:{technique:'Linear Programming & Sensitivity Analysis',
+          unit:'MIS775 — Decision Modelling for Business Analytics',
+          topic:'Optimisation with Excel Solver and shadow prices (Topics 1-2; Assignment 1 portfolio model)',
+          what:'Linear programming finds the best decision when you have a goal and limits. Here we maximise the new lines memorised per day while staying inside a daily time budget and a rule that you must review enough to retain. The "shadow price" tells you what one extra resource (one more minute a day) is worth.',
+          howToRead:'Drag the slider to set your daily minutes. The numbers re-solve instantly: how many new and review lines that buys, how many years to finish, and the value of one more minute. The curve shows finishing time dropping as you invest more minutes.'},
+        classifier:{technique:'Logistic Regression / Classification (Machine Learning)',
+          unit:'MIS771 + MIS772 + MIS710 — Descriptive Analytics, Predictive Analytics, Machine Learning in Business',
+          topic:'Classification, ROC/AUC, confusion matrix, cross-validation',
+          what:'A classifier learns to label things from examples. Here it reads the words of each surah and predicts whether it was revealed in Mecca or Medina. It never sees the answer for the surahs it is tested on; it learns the pattern from the others.',
+          howToRead:'Accuracy is how often it is right. The baseline is what you would get by always guessing the most common answer, so beating it means it learned something real. AUC near 1.0 is excellent. The confusion matrix shows correct (green) versus mistaken (amber) predictions, and the chips are the words that most signal a Medinan surah.'},
+        stats:{technique:'Hypothesis Testing & Linear Regression',
+          unit:'MIS771 — Descriptive Analytics & Visualisation',
+          topic:'Two-sample t-test, confidence intervals, multiple regression (Assignments 1-2)',
+          what:'A t-test asks whether a difference between two groups is real or could just be chance. Here: are Medinan verses genuinely longer than Meccan ones? Regression then models how verse length depends on several factors at once.',
+          howToRead:'The p-value is the chance of seeing this difference if there were really none; a tiny p (here far below 0.05) means the difference is real, stated at the 5% significance level. The 95% confidence interval is the plausible range for the true difference. R-squared is how much of the variation the model explains.'},
+        cluster:{technique:'k-means Clustering & PCA (Unsupervised Learning)',
+          unit:'MIS710 + MIS772 — Machine Learning in Business, Predictive Analytics',
+          topic:'Clustering, dimensionality reduction (PCA), cosine similarity',
+          what:'Clustering groups items that resemble each other without being told the groups in advance. PCA squashes many features down to two so we can plot them. Cosine similarity measures how alike two surahs are by their word profiles.',
+          howToRead:'Each dot is a surah and its colour is the natural group it fell into; dots close together are similar. Pick a surah in the dropdown to see its nearest neighbours by word usage, with a similarity percentage.'},
+        coincidence:{technique:'Monte Carlo Simulation & the Look-Elsewhere Effect',
+          unit:'MIS775 — Decision Modelling for Business Analytics',
+          topic:'Simulation, probability distributions, risk analysis (Topics 7-9; Assignment 3)',
+          what:'Monte Carlo runs thousands of "what if" trials to see the range of outcomes. It does two honest things here: it shows how common it is for some word to land on a notable number, so we do not over-read coincidences; and it simulates a real memorisation schedule with good and bad days to show how long finishing might actually take.',
+          howToRead:'In the landscape chart, tall bars mean many words sit near that number (a match there is unremarkable); short bars at large numbers mean a match there is rare and noteworthy. The histogram shows the spread of finishing times across 1,000 simulated journeys; P5, P50 and P95 are the fast, typical and slow cases.'},
+      },
       mushaf:null, mushafLoading:false, tawPage:1, tawSel:'', tawSelLabel:'',
       tawExamples:[{l:'الله',t:'الله'},{l:'رب',t:'رب'},{l:'رحمن',t:'الرحمن'}],
       alifi:null, alifiPage:0, alifiOverlay:true,
@@ -662,6 +702,13 @@ createApp({
       araKeys:'ابتثجحخدذرزسشصضطظعغفقكلمنهوي'.split(''),
       araKeys2:'ءآأإئؤةى'.split(''),
       nav:[
+        {section:'lab',en:'Analytics Lab',ar:'مختبر التحليلات',items:[
+          {id:'hifz',icon:'🧮',en:'Hifz Optimiser',ar:'مُحسِّن الحفظ',new:1},
+          {id:'classifier',icon:'🤖',en:'Meccan/Medinan ML',ar:'تصنيف مكي/مدني',new:1},
+          {id:'stats',icon:'📐',en:'Statistical Tests',ar:'اختبارات إحصائية',new:1},
+          {id:'cluster',icon:'🧩',en:'Clusters & Similarity',ar:'العناقيد والتشابه',new:1},
+          {id:'coincidence',icon:'🎲',en:'Coincidence Lens',ar:'عدسة المصادفة',new:1},
+        ]},
         {section:'quran',en:'Quran',ar:'القرآن',items:[
           {id:'overview',icon:'📖',en:'Overview',ar:'نظرة عامة'},
           {id:'search',icon:'🔍',en:'Word Search',ar:'بحث',new:1},
@@ -690,13 +737,6 @@ createApp({
           {id:'structural',icon:'🏛️',en:'Structural',ar:'هيكلية'},
           {id:'tawafuq',icon:'📐',en:'Tawafuq Mushaf',ar:'توافق المصحف',new:1},
           {id:'alifi',icon:'📕',en:'Alifi Mushaf',ar:'مصحف ألفي',new:1},
-        ]},
-        {section:'lab',en:'Analytics Lab',ar:'مختبر التحليلات',items:[
-          {id:'hifz',icon:'🧮',en:'Hifz Optimiser',ar:'مُحسِّن الحفظ',new:1},
-          {id:'classifier',icon:'🤖',en:'Meccan/Medinan ML',ar:'تصنيف مكي/مدني',new:1},
-          {id:'stats',icon:'📐',en:'Statistical Tests',ar:'اختبارات إحصائية',new:1},
-          {id:'cluster',icon:'🧩',en:'Clusters & Similarity',ar:'العناقيد والتشابه',new:1},
-          {id:'coincidence',icon:'🎲',en:'Coincidence Lens',ar:'عدسة المصادفة',new:1},
         ]},
         {section:'library',en:'Library',ar:'المكتبة',items:[
           {id:'stories',icon:'📚',en:'Stories',ar:'القصص'},
@@ -883,6 +923,22 @@ createApp({
           {x:c.map(x=>x.en),y:c.map(x=>x.claimed),type:'bar',name:isAr?'المزعوم':'Claimed',marker:{color:'#cbd5e1'}},
           {x:c.map(x=>x.en),y:c.map(x=>x.verifiedLemma),type:'bar',name:isAr?'المحقّق':'Verified',marker:{color:'#0f9d58'}}
         ],Object.assign({},lay,{height:380,barmode:'group',legend:{orientation:'h',y:1.1},xaxis:{tickangle:-35,tickfont:{size:9}}}),{responsive:true});
+      }
+      if(this.view==='classifier' && this.AN.classifier && document.getElementById('clfChart')){
+        const c=this.AN.classifier;
+        const med=c.topMedinan.slice(0,6), mec=c.topMeccan.slice(0,6);
+        const rows=mec.map(w=>({w:w.w,c:w.c})).concat(med.slice().reverse().map(w=>({w:w.w,c:w.c})));
+        Plotly.newPlot('clfChart',[{y:rows.map(r=>r.w),x:rows.map(r=>r.c),type:'bar',orientation:'h',
+          marker:{color:rows.map(r=>r.c>=0?'#0891b2':'#B7094C')},text:rows.map(r=>r.c),textposition:'outside'}],
+          Object.assign({},lay,{height:360,yaxis:{tickfont:{family:'Amiri',size:15}},
+            title:isAr?'أقوى الكلمات: مدني (أزرق) مقابل مكي (أحمر)':'Strongest words: Medinan (blue) vs Meccan (red)'}),{responsive:true});
+      }
+      if(this.view==='stats' && this.AN.ttest && document.getElementById('statChart')){
+        const t=this.AN.ttest;
+        Plotly.newPlot('statChart',[{x:[isAr?'مكي':'Meccan',isAr?'مدني':'Medinan'],y:[t.meccanMean,t.medinanMean],
+          type:'bar',marker:{color:['#B7094C','#0891b2']},text:[t.meccanMean,t.medinanMean],textposition:'outside'}],
+          Object.assign({},lay,{height:300,title:isAr?'متوسط طول الآية (كلمات)':'Mean verse length (words)',
+            yaxis:{title:isAr?'كلمات':'words'}}),{responsive:true});
       }
       if(this.view==='hifz' && this.AN.hifz && document.getElementById('hifzChart')){
         const g=this.AN.hifz.sensitivity;
