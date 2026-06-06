@@ -868,7 +868,8 @@ createApp({
       });
     },
     resizeCharts(){ if(typeof Plotly==='undefined') return;
-      document.querySelectorAll('.chart').forEach(el=>{ if(el && el.offsetParent && el.layout) { try{ Plotly.Plots.resize(el); }catch(e){} } }); },
+      document.querySelectorAll('.chart').forEach(el=>{ if(el && el.offsetParent && el.layout) { try{ Plotly.Plots.resize(el); }catch(e){} } });
+      if(this.lang==='ar') setTimeout(()=>this.arabizeCharts(), 60); },
     ensureAlifi(){ if(this.alifi) return;
       fetch('content/alifi/manifest.json').then(r=>r.json()).then(d=>{ this.alifi=d; }).catch(()=>{ this.alifi={pages:[]}; }); },
     ensureMushaf(){ if(this.mushaf||this.mushafLoading) return; this.mushafLoading=true;
