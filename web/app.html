@@ -101,6 +101,10 @@
   .course .unit{font-size:.9rem;color:#8fd9be;margin-top:3px;font-weight:600}
   .ccode{unicode-bidi:isolate;direction:ltr;display:inline-block;background:#0b2a20;color:#bff0d8;
     border-radius:6px;padding:1px 8px;font-size:.78rem;font-weight:700;margin-inline-start:6px}
+  .ccodear{display:inline-flex;flex-direction:column;align-items:center;background:#0b2a20;border-radius:8px;
+    padding:3px 10px;margin-inline-start:8px;vertical-align:middle;line-height:1.1}
+  .ccodear .acr{font-weight:800;font-size:1.05rem;letter-spacing:4px;color:#bff0d8}
+  .ccodear .acrnum{font-size:.85rem;color:#8fd9be;margin-top:1px}
   .course .topic{font-size:.82rem;color:#cdeadf;margin-top:6px}
   .course .topic b{color:#fff}
   .explain{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0 4px}
@@ -130,7 +134,10 @@
     <!-- Analytics Lab: course reference + plain-English explainer (any lab view) -->
     <div v-if="labCur" class="course">
       <div class="tech">{{ labCur.technique }}</div>
-      <div class="unit">🎓 {{ labCur.unit }} <span class="ccode" dir="ltr">{{ labCur.code }}</span></div>
+      <div class="unit">🎓 {{ labCur.unit }}
+        <span v-if="lang!=='ar'" class="ccode" dir="ltr">{{ labCur.code }}</span>
+        <span v-else class="ccodear"><span class="acr">م م ن</span><span class="acrnum">{{ arCodeNum(labCur.code) }}</span></span>
+      </div>
       <div class="topic"><b>{{ lang==='ar'?'المادة التي تُدرَّس فيها':'Taught in' }}:</b> {{ labCur.topic }}</div>
       <div class="explain">
         <div class="box"><span class="lab">{{ lang==='ar'?'ما هذا؟':'What is this?' }}</span>{{ labCur.what }}</div>
@@ -883,6 +890,7 @@ createApp({
         .catch(()=>{ this.mushafLoading=false; }); },
     tawPick(w){ if(!w.l) return; this.tawSel=w.l; this.tawSelLabel=w.t; },
     surahName(n){ const s=(this.DS.surahMeta||[]).find(x=>x.n===n); return s?(this.lang==='ar'?s.ar:s.en):n; },
+    arCodeNum(code){ return String(code||'').replace(/MIS/g,'').replace(/[0-9]/g,d=>'٠١٢٣٤٥٦٧٨٩'[+d]).trim(); },
     kbAppend(ch){ this.q += ch; this.runSearch(); },
     kbBack(){ this.q = this.q.slice(0,-1); this.runSearch(); },
     kbClear(){ this.q=''; this.runSearch(); },
