@@ -124,6 +124,7 @@
     <!-- MECCA VS MEDINA -->
     <section v-if="view==='mecca'">
       <h1>{{ lang==='ar' ? 'مكة والمدينة' : 'Mecca vs Medina' }}</h1>
+      <div class="card"><div class="chart" id="mmChart"></div></div>
       <div class="row">
         <div class="col card"><h3>🕋 {{ lang==='ar'?'مكية':'Meccan' }}</h3>
           <div class="kpis">
@@ -197,7 +198,8 @@
     <!-- CLAIM AUDITOR -->
     <section v-if="view==='auditor'">
       <h1>{{ lang==='ar' ? 'مدقّق المزاعم' : 'Claim Auditor' }} <span class="badge exact">NEW</span></h1>
-      <p class="sub">{{ lang==='ar'?'المزعوم مقابل المحقّق مقابل البحث الساذج — لكل مزاعم العدد.':'Claimed vs verified vs naive search, for every word-count claim.' }}</p>
+      <p class="sub">{{ lang==='ar'?'المزعوم مقابل المحقّق مقابل البحث الساذج - لكل مزاعم العدد.':'Claimed vs verified vs naive search, for every word-count claim.' }}</p>
+      <div class="card"><div class="chart" id="audChart"></div></div>
       <div class="grid" style="margin-top:16px">
         <div v-for="c in claims" :key="c.id" class="card" style="margin:0">
           <div style="display:flex;justify-content:space-between;align-items:center">
@@ -217,6 +219,7 @@
     <!-- EMOTIONAL PROFILING -->
     <section v-if="view==='emotion'">
       <h1>{{ lang==='ar'?'البصمة العاطفية':'Emotional Profiling' }}</h1>
+      <div class="card"><div class="chart" id="emoChart"></div></div>
       <p class="sub">{{ lang==='ar'?'لغة الرحمة والهداية تفوق لغة التحذير عبر القرآن.':'Mercy and guidance language outweighs warning across the Quran.' }}</p>
       <div class="kpis">
         <div class="kpi"><div class="n">{{ f(emotionTotals.mercy) }}</div><div class="l">{{ lang==='ar'?'رحمة':'Mercy' }}</div></div>
@@ -229,6 +232,7 @@
     <!-- DIVINE PRONOUNS -->
     <section v-if="view==='pronouns'">
       <h1>{{ lang==='ar'?'ضمائر الذات الإلهية':'Divine Pronouns' }}</h1>
+      <div class="card"><div class="chart" id="proChart"></div></div>
       <div class="kpis">
         <div class="kpi"><div class="ar" style="font-size:1.6rem">نَحْنُ</div><div class="n">{{ f(V1.pronouns.we) }}</div><div class="l">We</div></div>
         <div class="kpi"><div class="ar" style="font-size:1.6rem">أَنَا</div><div class="n">{{ f(V1.pronouns.i) }}</div><div class="l">I</div></div>
@@ -240,6 +244,7 @@
     <!-- SCIENTIFIC REFERENCES -->
     <section v-if="view==='science'">
       <h1>{{ lang==='ar'?'الإشارات العلمية':'Scientific References' }}</h1>
+      <div class="card"><div class="chart" id="sciChart"></div></div>
       <div class="card"><table>
         <tr><th>{{ lang==='ar'?'المجال':'Field' }}</th><th>{{ lang==='ar'?'الموضوع':'Topic' }}</th><th>{{ lang==='ar'?'الموضع':'Ref' }}</th></tr>
         <tr v-for="(r,i) in V1.scientificRefs" :key="i">
@@ -292,6 +297,7 @@
     <!-- ANTONYM PAIRS -->
     <section v-if="view==='antonyms'">
       <h1>{{ lang==='ar'?'التوازن في الأزواج':'Antonym Pairs' }}</h1>
+      <div class="card"><div class="chart" id="antChart"></div></div>
       <p class="sub">{{ lang==='ar'?'المزعوم مقابل ما وُجد فعلاً.':'Claimed balance vs what is actually found.' }}</p>
       <div class="card"><table>
         <tr><th>{{ lang==='ar'?'الزوج':'Pair' }}</th><th>{{ lang==='ar'?'المزعوم':'Claimed' }}</th><th>A</th><th>B</th></tr>
@@ -304,6 +310,7 @@
     <!-- WORD SYMMETRIES -->
     <section v-if="view==='symmetry'">
       <h1>{{ lang==='ar'?'تناظر الكلمات':'Word Symmetries' }}</h1>
+      <div class="card"><div class="chart" id="symChart"></div></div>
       <div class="card"><table>
         <tr><th>A</th><th>B</th><th>{{ lang==='ar'?'عدد A':'Count A' }}</th><th>{{ lang==='ar'?'عدد B':'Count B' }}</th></tr>
         <tr v-for="(p,i) in V1.wordSymmetries" :key="i">
@@ -341,6 +348,7 @@
     <!-- NLP EXPLORER -->
     <section v-if="view==='nlp'">
       <h1>{{ lang==='ar'?'مستكشف NLP':'NLP Explorer' }}</h1>
+      <div class="card"><div class="chart" id="biChart"></div></div>
       <div class="card"><h3>{{ lang==='ar'?'سحابة الكلمات (الجذوع)':'Word cloud (lemmas)' }}</h3>
         <div style="line-height:2.4">
           <span v-for="(w,i) in DS.topWordsLemma.slice(0,40)" :key="i" class="ar"
@@ -669,6 +677,7 @@ createApp({
     renderReader(){ /* reactive via computed */ },
     renderCharts(){
       if(typeof Plotly==='undefined') return;
+      const isAr = this.lang==='ar';
       const lay={plot_bgcolor:'rgba(0,0,0,0)',paper_bgcolor:'rgba(0,0,0,0)',margin:{t:20,r:10,b:40,l:50}};
       if(this.view==='overview' && document.getElementById('ovChart')){
         const sm=this.DS.surahMeta;
@@ -700,8 +709,61 @@ createApp({
           type:'bar',marker:{color:'#0f9d58'}}],
           Object.assign({},lay,{height:360,title:'Longest avg verse (words/verse)',xaxis:{tickangle:-40,tickfont:{size:10}}}),{responsive:true});
       }
+      if(this.view==='mecca' && document.getElementById('mmChart')){
+        const m=this.MM;
+        Plotly.newPlot('mmChart',[
+          {x:['Verses','Words'],y:[m.mecca.verses,m.mecca.words],type:'bar',name:isAr?'مكية':'Meccan',marker:{color:'#B7094C'}},
+          {x:['Verses','Words'],y:[m.medina.verses,m.medina.words],type:'bar',name:isAr?'مدنية':'Medinan',marker:{color:'#0891b2'}}
+        ],Object.assign({},lay,{height:320,barmode:'group',legend:{orientation:'h',y:1.15}}),{responsive:true});
+      }
+      if(this.view==='emotion' && document.getElementById('emoChart')){
+        const t=this.emotionTotals;
+        Plotly.newPlot('emoChart',[{x:[isAr?'رحمة':'Mercy',isAr?'هداية':'Guidance',isAr?'أمل':'Hope',isAr?'تحذير':'Warning'],
+          y:[t.mercy,t.guidance,t.hope,t.warning],type:'bar',marker:{color:['#0f9d58','#0891b2','#f59e0b','#B7094C']},
+          text:[t.mercy,t.guidance,t.hope,t.warning],textposition:'outside'}],Object.assign({},lay,{height:340}),{responsive:true});
+      }
+      if(this.view==='pronouns' && document.getElementById('proChart')){
+        const p=this.V1.pronouns||{};
+        Plotly.newPlot('proChart',[{x:['نحن / We','أنا / I','هو / He'],y:[p.we,p.i,this.DS.huwaCount||p.he],type:'bar',
+          marker:{color:'#1B4332'},text:[p.we,p.i,this.DS.huwaCount||p.he],textposition:'outside'}],
+          Object.assign({},lay,{height:300}),{responsive:true});
+      }
+      if(this.view==='antonyms' && document.getElementById('antChart')){
+        const a=this.V1.antonymPairs||[]; const lab=a.map(p=>isAr?p.label_ar:p.label_en);
+        Plotly.newPlot('antChart',[
+          {x:lab,y:a.map(p=>p.claimed),type:'bar',name:isAr?'المزعوم':'Claimed',marker:{color:'#cbd5e1'}},
+          {x:lab,y:a.map(p=>p.found_a),type:'bar',name:'A',marker:{color:'#0f9d58'}},
+          {x:lab,y:a.map(p=>p.found_b),type:'bar',name:'B',marker:{color:'#0891b2'}}
+        ],Object.assign({},lay,{height:360,barmode:'group',legend:{orientation:'h',y:1.12}}),{responsive:true});
+      }
+      if(this.view==='symmetry' && document.getElementById('symChart')){
+        const s=this.V1.wordSymmetries||[]; const lab=s.map(p=>p.en1+' / '+p.en2);
+        Plotly.newPlot('symChart',[
+          {x:lab,y:s.map(p=>p.c1),type:'bar',name:'A',marker:{color:'#0f9d58'}},
+          {x:lab,y:s.map(p=>p.c2),type:'bar',name:'B',marker:{color:'#0891b2'}}
+        ],Object.assign({},lay,{height:380,barmode:'group',legend:{orientation:'h',y:1.12},xaxis:{tickangle:-30,tickfont:{size:10}}}),{responsive:true});
+      }
+      if(this.view==='science' && document.getElementById('sciChart')){
+        const c=this.V1.sciCategories||[];
+        Plotly.newPlot('sciChart',[{x:c.map(x=>x.cat),y:c.map(x=>x.count),type:'bar',marker:{color:'#0891b2'},
+          text:c.map(x=>x.count),textposition:'outside'}],Object.assign({},lay,{height:360,xaxis:{tickangle:-30,tickfont:{size:10}}}),{responsive:true});
+      }
+      if(this.view==='nlp' && document.getElementById('biChart')){
+        const b=this.DS.bigrams.slice(0,12).reverse();
+        Plotly.newPlot('biChart',[{y:b.map(x=>x.w),x:b.map(x=>x.c),type:'bar',orientation:'h',marker:{color:'#10b981'},
+          text:b.map(x=>x.c),textposition:'outside'}],Object.assign({},lay,{height:400,yaxis:{tickfont:{family:'Amiri',size:15}},
+          title:isAr?'أكثر الثنائيات':'Top bigrams'}),{responsive:true});
+      }
+      if(this.view==='auditor' && document.getElementById('audChart')){
+        const c=this.claims;
+        Plotly.newPlot('audChart',[
+          {x:c.map(x=>x.en),y:c.map(x=>x.claimed),type:'bar',name:isAr?'المزعوم':'Claimed',marker:{color:'#cbd5e1'}},
+          {x:c.map(x=>x.en),y:c.map(x=>x.verifiedLemma),type:'bar',name:isAr?'المحقّق':'Verified',marker:{color:'#0f9d58'}}
+        ],Object.assign({},lay,{height:380,barmode:'group',legend:{orientation:'h',y:1.1},xaxis:{tickangle:-35,tickfont:{size:9}}}),{responsive:true});
+      }
     }
   },
+  watch:{ lang(){ this.$nextTick(()=>this.renderCharts()); } },
   mounted(){
     if(typeof QURAN_STORIES!=='undefined') this.stories=QURAN_STORIES;
     if(typeof QURAN_LESSONS!=='undefined') this.lessons=QURAN_LESSONS;
