@@ -61,6 +61,10 @@
   .dir-rtl .metric,.dir-rtl .kpis,.dir-rtl .row,.dir-rtl .grid{justify-content:flex-start}
   .dir-rtl .searchbar{justify-content:flex-start}
   .dir-rtl input.q,.dir-rtl .q{text-align:right}
+  /* authoritative root direction (set on <html> by applyDir) mirrors everything */
+  html[dir=rtl] body{text-align:right}
+  html[dir=rtl] .card,html[dir=rtl] main,html[dir=rtl] .course,html[dir=rtl] .stub{text-align:right}
+  html[dir=rtl] .chartnote{border-inline-start:4px solid var(--emerald);border-left:0}
   table{width:100%;border-collapse:collapse;font-size:.86rem}
   th,td{text-align:start;padding:7px 10px;border-bottom:1px solid var(--line)}
   th{color:var(--muted);font-weight:600;font-size:.74rem;text-transform:uppercase;letter-spacing:.05em}
@@ -533,7 +537,7 @@
     <section v-if="view==='hifz'">
       <div class="card">
         <label style="font-weight:600">{{ lang==='ar'?'دقائق يومياً':'Minutes per day' }}: {{ D(hifzMins) }}</label>
-        <input type="range" min="10" max="240" step="5" v-model.number="hifzMins">
+        <input type="range" min="10" max="240" step="5" v-model.number="hifzMins" :dir="lang==='ar'?'rtl':'ltr'">
         <div class="metric">
           <div class="m"><div class="v">{{ D(hifzLive.N.toFixed(1)) }}</div><div class="k">{{ lang==='ar'?'سطر جديد/يوم':'new lines/day' }}</div></div>
           <div class="m"><div class="v">{{ D(hifzLive.review) }}</div><div class="k">{{ lang==='ar'?'مراجعة/يوم':'review lines/day' }}</div></div>
@@ -891,6 +895,8 @@ createApp({
     tawPick(w){ if(!w.l) return; this.tawSel=w.l; this.tawSelLabel=w.t; },
     surahName(n){ const s=(this.DS.surahMeta||[]).find(x=>x.n===n); return s?(this.lang==='ar'?s.ar:s.en):n; },
     arCodeNum(code){ return String(code||'').replace(/MIS/g,'').replace(/[0-9]/g,d=>'٠١٢٣٤٥٦٧٨٩'[+d]).trim(); },
+    applyDir(){ const ar=this.lang==='ar'; const el=document.documentElement;
+      el.setAttribute('dir', ar?'rtl':'ltr'); el.setAttribute('lang', ar?'ar':'en'); },
     kbAppend(ch){ this.q += ch; this.runSearch(); },
     kbBack(){ this.q = this.q.slice(0,-1); this.runSearch(); },
     kbClear(){ this.q=''; this.runSearch(); },
@@ -1053,8 +1059,9 @@ createApp({
       }
     }
   },
-  watch:{ lang(){ this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); }); } },
+  watch:{ lang(v){ this.applyDir(); this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); }); } },
   mounted(){
+    this.applyDir();
     window.addEventListener('resize', ()=>this.resizeCharts());
     if(typeof QURAN_STORIES!=='undefined') this.stories=QURAN_STORIES;
     if(typeof QURAN_LESSONS!=='undefined') this.lessons=QURAN_LESSONS;
