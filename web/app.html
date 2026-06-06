@@ -197,6 +197,38 @@
       </div>
     </section>
 
+    <!-- LIBRARY: Stories / Lessons / Du'as / Tafsir -->
+    <section v-if="curLib">
+      <h1>{{ lang==='ar' ? curLib.title_ar : curLib.title_en }}</h1>
+      <div class="searchbar">
+        <input class="q" style="font-family:Inter;font-size:1rem" v-model="libQ" :placeholder="lang==='ar'?'بحث في المكتبة...':'Search the library...'">
+      </div>
+      <div style="margin-bottom:10px">
+        <span class="chip" style="font-family:Inter;font-size:.8rem" :class="{on:libCat==='all'}" :style="libCat==='all'?'background:var(--emerald);color:#fff':''" @click="libCat='all'">{{ lang==='ar'?'الكل':'All' }}</span>
+        <span class="chip" style="font-family:Inter;font-size:.8rem" v-for="c in libCats" :key="c" :style="libCat===c?'background:var(--emerald);color:#fff':''" @click="libCat=c">{{ c }}</span>
+      </div>
+      <div style="color:var(--muted);font-size:.8rem;margin-bottom:10px">{{ libFiltered.length }} {{ lang==='ar'?'عنصر':'items' }}</div>
+      <div class="grid">
+        <div v-for="it in libFiltered" :key="it.id" class="card" style="margin:0">
+          <template v-if="curLib.type==='tafsir'">
+            <div class="ar">{{ it.topic_ar }}</div>
+            <div style="font-size:.8rem;color:var(--muted)">{{ it.topic_en }} · {{ it.verse_ref }}</div>
+            <div class="verse" style="font-size:1.25rem;border:0;padding:8px 0;line-height:2">{{ it.verse_ar }}</div>
+            <div style="font-size:.85rem">{{ lang==='ar'?it.insight_ar:it.insight_en }}</div>
+            <div style="font-size:.75rem;color:var(--teal);margin-top:6px">— {{ lang==='ar'?it.scholar_ar:it.scholar_en }}</div>
+          </template>
+          <template v-else>
+            <div class="ar">{{ it.ar }}</div>
+            <div style="font-size:.8rem;color:var(--muted)">{{ it.en }}<span v-if="it.cat"> · {{ lang==='ar'?(it.cat_ar||it.cat):it.cat }}</span></div>
+            <div style="font-size:.85rem;margin-top:8px">{{ lang==='ar'?it.desc_ar:it.desc_en }}</div>
+            <div v-if="it.context_en" style="font-size:.8rem;color:var(--muted);margin-top:6px">{{ lang==='ar'?it.context_ar:it.context_en }}</div>
+            <div v-if="it.figures_en" style="font-size:.78rem;color:var(--teal);margin-top:6px">👤 {{ lang==='ar'?it.figures_ar:it.figures_en }}</div>
+            <div v-if="it.refs" style="font-size:.72rem;color:var(--muted);margin-top:6px">{{ Array.isArray(it.refs)?it.refs.join(', '):it.refs }}</div>
+          </template>
+        </div>
+      </div>
+    </section>
+
     <!-- STUB for not-yet-ported pages -->
     <section v-if="stubView">
       <h1>{{ lang==='ar' ? stubView.ar : stubView.en }}</h1>
@@ -213,6 +245,10 @@
 <script src="data.js"></script>
 <script src="corpus.js"></script>
 <script src="words.js"></script>
+<script src="content/quran_stories_data.js"></script>
+<script src="content/quran_lessons.js"></script>
+<script src="content/quran_duas.js"></script>
+<script src="content/quran_tafsir_insights.js"></script>
 <script>
 const TASHKEEL = /[ؐ-ًؚ-ٰٟۖ-ۭٓ-ٕ]/g;
 function normalize(s){
@@ -230,7 +266,7 @@ createApp({
       T: D.stats.totals, DS: D.datasets, MM: D.datasets.meccaMedina||{mecca:{},medina:{}}, claims: D.claims,
       V: window.QURAN_VERSES||{}, W: window.QURAN_WORDS||{key:[],norm:[],lemma:[],root:[],surface:[]},
       q:'', mode:'surface', sres:{total:0,surahs:0,verses:0,sample:[]},
-      rSurah:1,
+      rSurah:1, libQ:'', libCat:'all', stories:[], lessons:[], duas:[], tafsir:[],
       examples:['يوم','الله','رحمة','ملك','أله'],
       nav:[
         {section:'quran',en:'Quran',ar:'القرآن',items:[
@@ -273,7 +309,27 @@ createApp({
     };
   },
   computed:{
-    realViews(){ return ['overview','word','mecca','letters','search','reader','auditor']; },
+    realViews(){ return ['overview','word','mecca','letters','search','reader','auditor','stories','lessons','duas','tafsir']; },
+    curLib(){
+      const map={
+        stories:{type:'stories',data:this.stories,title_en:'Stories',title_ar:'القصص'},
+        lessons:{type:'lessons',data:this.lessons,title_en:'Lessons',title_ar:'الدروس'},
+        duas:{type:'duas',data:this.duas,title_en:"Du'as",title_ar:'الأدعية'},
+        tafsir:{type:'tafsir',data:this.tafsir,title_en:'Scholarly Insights',title_ar:'بصائر'},
+      };
+      return map[this.view]||null;
+    },
+    libCats(){ if(!this.curLib) return []; const s=new Set();
+      this.curLib.data.forEach(it=>{ if(it.cat) s.add(this.lang==='ar'?(it.cat_ar||it.cat):it.cat); }); return [...s]; },
+    libFiltered(){ if(!this.curLib) return []; const q=normalize(this.libQ).toLowerCase();
+      return this.curLib.data.filter(it=>{
+        const catLabel=this.lang==='ar'?(it.cat_ar||it.cat):it.cat;
+        if(this.libCat!=='all' && catLabel!==this.libCat) return false;
+        if(!q) return true;
+        const hay=normalize([it.ar,it.en,it.desc_ar,it.desc_en,it.topic_ar,it.topic_en,it.insight_en,it.verse_ref].filter(Boolean).join(' ')).toLowerCase();
+        return hay.includes(q);
+      });
+    },
     stubView(){
       if(this.realViews.includes(this.view)) return null;
       for(const g of this.nav){ const it=g.items.find(x=>x.id===this.view); if(it) return it; }
@@ -288,7 +344,7 @@ createApp({
   },
   methods:{
     f(n){ return (n==null?0:n).toLocaleString(); },
-    go(id){ this.view=id; this.$nextTick(()=>this.renderCharts()); },
+    go(id){ this.view=id; this.libQ=''; this.libCat='all'; this.$nextTick(()=>this.renderCharts()); },
     cverdict(c){ if(c.verifiedLemma===c.claimed) return 'exact';
       const p=this.claims.find(x=>x.id===c.pair); if(p&&p.verifiedLemma===c.verifiedLemma) return 'parity'; return 'differs'; },
     cbadge(c){ const v=this.cverdict(c); return v==='exact'?'EXACT':v==='parity'?'PARITY':'DIFFERS'; },
@@ -335,7 +391,13 @@ createApp({
       }
     }
   },
-  mounted(){ this.$nextTick(()=>this.renderCharts()); }
+  mounted(){
+    if(typeof QURAN_STORIES!=='undefined') this.stories=QURAN_STORIES;
+    if(typeof QURAN_LESSONS!=='undefined') this.lessons=QURAN_LESSONS;
+    if(typeof QURAN_DUAS!=='undefined') this.duas=QURAN_DUAS;
+    if(typeof QURAN_TAFSIR!=='undefined') this.tafsir=QURAN_TAFSIR;
+    this.$nextTick(()=>this.renderCharts());
+  }
 }).mount('#app');
 </script>
 </body>
