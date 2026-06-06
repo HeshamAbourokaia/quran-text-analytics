@@ -338,6 +338,28 @@
       </div>
     </section>
 
+    <!-- KNOWLEDGE GRAPH -->
+    <section v-if="view==='kg'">
+      <h1>🕸️ {{ lang==='ar'?'خريطة المعرفة القرآنية':'Quranic Knowledge Graph' }}</h1>
+      <p class="sub">{{ lang==='ar'?'٤٣٩ عقدة، ٩٢٩ علاقة، ٢٨ مجموعة موضوعية: السور والأنبياء والأحداث والتفاسير والعلوم في رسم واحد متفاعل.':'439 nodes, 929 edges, 28 thematic communities: surahs, prophets, events, tafsir, and sciences in one interactive map.' }}</p>
+      <div class="kpis">
+        <div class="kpi"><div class="n">439</div><div class="l">{{ lang==='ar'?'عقدة':'Nodes' }}</div></div>
+        <div class="kpi"><div class="n">929</div><div class="l">{{ lang==='ar'?'علاقة':'Edges' }}</div></div>
+        <div class="kpi"><div class="n">28</div><div class="l">{{ lang==='ar'?'مجموعة':'Communities' }}</div></div>
+        <div class="kpi"><div class="n">215</div><div class="l">{{ lang==='ar'?'وثيقة':'Documents' }}</div></div>
+        <div class="kpi"><div class="n">23</div><div class="l">{{ lang==='ar'?'سنة وحي':'Years' }}</div></div>
+      </div>
+      <div class="card" style="padding:0;overflow:hidden">
+        <iframe :src="(lang==='ar'?'content/quran_graph_ar.html':'content/quran_graph.html')"
+          :key="'kg-'+lang" style="width:100%;height:78vh;min-height:640px;border:0;background:#0a0a18"
+          loading="lazy" title="Quranic Knowledge Graph"></iframe>
+      </div>
+      <div class="card" style="background:#fefce8;border-color:#fde68a;font-size:.84rem;color:#78350f">
+        <b>{{ lang==='ar'?'كيف بُنيت':'How it was built' }}:</b>
+        {{ lang==='ar'?'٢١٥ وثيقة من النص والتراجم والتفاسير، ثم graphify لاستخراج العقد والعلاقات.':'215 markdown documents from the text, translations, and scholarly tafsir, then graphify extracted the nodes and edges.' }}
+      </div>
+    </section>
+
     <!-- LIBRARY: Stories / Lessons / Du'as / Tafsir -->
     <section v-if="curLib">
       <h1>{{ lang==='ar' ? curLib.title_ar : curLib.title_en }}</h1>
@@ -453,7 +475,7 @@ createApp({
   },
   computed:{
     realViews(){ return ['overview','word','mecca','letters','search','reader','auditor','stories','lessons','duas','tafsir',
-      'emotion','pronouns','science','abjad','n19','structural','antonyms','symmetry','waw','insights','nlp']; },
+      'emotion','pronouns','science','abjad','n19','structural','antonyms','symmetry','waw','insights','nlp','kg']; },
     emotionTotals(){ const s=this.V1.sentiment||[]; const t={mercy:0,warning:0,guidance:0,hope:0};
       s.forEach(x=>{t.mercy+=x.mercy;t.warning+=x.warning;t.guidance+=x.guidance;t.hope+=x.hope;}); return t; },
     abjadValue(){ const map={}; (this.V1.abjadTable||[]).forEach(r=>map[r.l]=r.v);
