@@ -16,8 +16,15 @@
     position:sticky;top:0;height:100vh;overflow-y:auto;padding:18px 12px}
   .brand{font-weight:800;font-size:1.05rem;color:#fff;padding:6px 10px 2px}
   .brand small{display:block;font-weight:400;font-size:.7rem;color:#8fd9be;letter-spacing:.12em;text-transform:uppercase}
-  .langbtn{margin:10px;background:#ffffff1a;border:1px solid #ffffff33;color:#dff3ea;border-radius:8px;
-    padding:5px 10px;font-size:.78rem;cursor:pointer}
+  .langtoggle{display:inline-flex;margin:10px;border:1px solid #ffffff33;border-radius:8px;overflow:hidden}
+  .langtoggle button{background:#ffffff10;border:0;color:#cdeadf;padding:6px 14px;font-size:.82rem;cursor:pointer;font-family:Amiri,Inter,sans-serif}
+  .langtoggle button.on{background:#ffffff33;color:#fff;font-weight:700}
+  .arakbd{margin-top:14px;display:flex;flex-wrap:wrap;gap:5px;max-width:760px}
+  .arakbd button{min-width:34px;padding:7px 9px;border:1px solid var(--line);background:#fff;border-radius:8px;
+    font-family:Amiri,serif;font-size:1.25rem;cursor:pointer;color:var(--ink)}
+  .arakbd button:hover{background:#eef7f2}
+  .arakbd .ctrl{font-family:Inter;font-size:.8rem;background:#fce8ee;color:var(--mecca,#B7094C);min-width:54px}
+  .arakbd .ctrl.space{min-width:90px}
   .navgroup{margin-top:14px}
   .navgroup .gl{font-size:.66rem;text-transform:uppercase;letter-spacing:.13em;color:#6fc1a3;padding:4px 12px}
   .navitem{display:flex;align-items:center;gap:9px;padding:7px 12px;border-radius:9px;cursor:pointer;
@@ -70,7 +77,10 @@
 <div id="app" class="layout" :class="{'dir-rtl': lang==='ar'}">
   <aside class="side">
     <div class="brand">{{ lang==='ar' ? 'تحليلات القرآن' : 'Quran Analytics' }}<small>v2 · authoritative corpus</small></div>
-    <button class="langbtn" @click="lang = lang==='ar'?'en':'ar'">{{ lang==='ar' ? 'English' : 'العربية' }}</button>
+    <div class="langtoggle">
+      <button :class="{on:lang==='en'}" @click="lang='en'">English</button>
+      <button :class="{on:lang==='ar'}" @click="lang='ar'">العربية</button>
+    </div>
     <div v-for="g in nav" :key="g.section" class="navgroup">
       <div class="gl">{{ lang==='ar' ? g.ar : g.en }}</div>
       <div v-for="it in g.items" :key="it.id" class="navitem" :class="{active: view===it.id}" @click="go(it.id)">
@@ -151,6 +161,13 @@
       </div>
       <div>
         <span class="chip" v-for="ex in examples" :key="ex" @click="q=ex;runSearch()">{{ ex }}</span>
+      </div>
+      <div class="arakbd">
+        <button v-for="k in araKeys" :key="k" @click="kbAppend(k)">{{ k }}</button>
+        <button v-for="k in araKeys2" :key="'x'+k" @click="kbAppend(k)" style="background:#fff7e6">{{ k }}</button>
+        <button class="ctrl space" @click="kbAppend(' ')">{{ lang==='ar'?'مسافة':'Space' }}</button>
+        <button class="ctrl" @click="kbBack()">⌫</button>
+        <button class="ctrl" @click="kbClear()">{{ lang==='ar'?'مسح':'Clear' }}</button>
       </div>
       <div v-if="sres.total>0" class="kpis">
         <div class="kpi"><div class="n">{{ f(sres.total) }}</div><div class="l">{{ lang==='ar'?'إجمالي':'Occurrences' }}</div></div>
@@ -525,6 +542,8 @@ createApp({
       tawExamples:[{l:'الله',t:'الله'},{l:'رب',t:'رب'},{l:'رحمن',t:'الرحمن'}],
       alifi:null, alifiPage:0, alifiOverlay:true,
       examples:['يوم','الله','رحمة','ملك','أله'],
+      araKeys:'ابتثجحخدذرزسشصضطظعغفقكلمنهوي'.split(''),
+      araKeys2:'ءآأإئؤةى'.split(''),
       nav:[
         {section:'quran',en:'Quran',ar:'القرآن',items:[
           {id:'overview',icon:'📖',en:'Overview',ar:'نظرة عامة'},
@@ -621,6 +640,9 @@ createApp({
       fetch('content/mushaf.json').then(r=>r.json()).then(d=>{ this.mushaf=d; this.mushafLoading=false; })
         .catch(()=>{ this.mushafLoading=false; }); },
     tawPick(w){ if(!w.l) return; this.tawSel=w.l; this.tawSelLabel=w.t; },
+    kbAppend(ch){ this.q += ch; this.runSearch(); },
+    kbBack(){ this.q = this.q.slice(0,-1); this.runSearch(); },
+    kbClear(){ this.q=''; this.runSearch(); },
     tawGoPage(p){ this.tawPage=p; },
     cverdict(c){ if(c.verifiedLemma===c.claimed) return 'exact';
       const p=this.claims.find(x=>x.id===c.pair); if(p&&p.verifiedLemma===c.verifiedLemma) return 'parity'; return 'differs'; },
