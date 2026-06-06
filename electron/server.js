@@ -32,7 +32,10 @@ function createStaticServer(root) {
       fs.readFile(filePath, (err, data) => {
         if (err) { res.writeHead(404); res.end('not found'); return; }
         const ext = path.extname(filePath).toLowerCase();
-        res.writeHead(200, { 'Content-Type': TYPES[ext] || 'application/octet-stream' });
+        res.writeHead(200, {
+          'Content-Type': TYPES[ext] || 'application/octet-stream',
+          'Cache-Control': 'no-store',   // always serve fresh data (no stale data.js)
+        });
         res.end(data);
       });
     } catch (e) {
