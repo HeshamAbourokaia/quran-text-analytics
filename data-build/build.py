@@ -11,6 +11,7 @@ import os, json, hashlib, sys
 from pipeline.corpus import load_words, load_verses, normalize, SRC
 from pipeline import claims as claims_mod
 from pipeline import datasets as datasets_mod
+from pipeline import analytics as analytics_mod
 
 OUT = os.path.join(os.path.dirname(__file__), 'out')
 DATA_VERSION = '2.0.0'
@@ -51,12 +52,14 @@ def main():
 
     claim_rows = claims_mod.compute(words, verses_norm)
     datasets = datasets_mod.build(words, verses_display)
+    analytics = analytics_mod.build(words, datasets['surahMeta'])
 
     # emit
     corpus_json = {f"{s}:{a}": t for (s, a), t in verses_display.items()}
     _write('corpus.json', corpus_json)
     _write('claims.json', claim_rows)
     _write('datasets.json', datasets)
+    _write('analytics.json', analytics)
     _write('stats.json', {'totals': stats, 'surahStats': surah_stats})
     manifest = {
         'dataVersion': DATA_VERSION,
@@ -75,7 +78,7 @@ def main():
     web_dir = os.path.join(os.path.dirname(__file__), '..', 'web')
     os.makedirs(web_dir, exist_ok=True)
     payload = {'stats': {'totals': stats, 'surahStats': surah_stats},
-               'claims': claim_rows, 'datasets': datasets, 'manifest': manifest}
+               'claims': claim_rows, 'datasets': datasets, 'analytics': analytics, 'manifest': manifest}
     with open(os.path.join(web_dir, 'data.js'), 'w', encoding='utf-8') as fh:
         fh.write('window.QURAN_DATA = ')
         json.dump(payload, fh, ensure_ascii=False, separators=(',', ':'))

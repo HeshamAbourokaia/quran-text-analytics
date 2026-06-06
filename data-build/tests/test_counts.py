@@ -10,6 +10,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 from pipeline.corpus import load_words, load_verses, normalize
 from pipeline import claims as claims_mod
 from pipeline import datasets as datasets_mod
+from pipeline import analytics as analytics_mod
 
 _WORDS = load_words()
 _VD = load_verses(_WORDS)
@@ -60,6 +61,22 @@ def test_datasets_reconcile_to_totals():
     assert mm['mecca']['words'] + mm['medina']['words'] == 77429
     assert sum(s['words'] for s in _DS['surahMeta']) == 77429
     assert sum(s['verses'] for s in _DS['surahMeta']) == 6236
+
+_AN = analytics_mod.build(_WORDS, _DS['surahMeta'])
+
+def test_ttest_medinan_longer():
+    t = _AN['ttest']
+    assert t['reject'] is True and t['p'] < 0.001
+    assert t['medinanMean'] > t['meccanMean']        # Medinan verses longer
+    assert t['ci'][0] > 0                              # CI of (Medinan - Meccan) excludes 0
+
+def test_classifier_beats_baseline():
+    c = _AN['classifier']
+    assert c['accuracy'] > c['baseline']               # learns something real
+    assert c['auc'] > 0.85
+
+def test_regression_medinan_positive():
+    assert _AN['regression']['coef']['medinanDummy'] > 0
 
 def test_top_lemma_is_allah_among_content_words():
     # the most frequent *content* lemma (a Name of God) should be allah at 2699
