@@ -112,13 +112,13 @@
 
   <main>
     <!-- Analytics Lab: course reference + plain-English explainer (any lab view) -->
-    <div v-if="labMeta[view]" class="course">
-      <div class="tech">{{ labMeta[view].technique }}</div>
-      <div class="unit">🎓 {{ labMeta[view].unit }}</div>
-      <div class="topic"><b>{{ lang==='ar'?'المادة التي تُدرَّس فيها':'Taught in' }}:</b> {{ labMeta[view].topic }}</div>
+    <div v-if="labCur" class="course">
+      <div class="tech">{{ labCur.technique }}</div>
+      <div class="unit">🎓 {{ labCur.unit }}</div>
+      <div class="topic"><b>{{ lang==='ar'?'المادة التي تُدرَّس فيها':'Taught in' }}:</b> {{ labCur.topic }}</div>
       <div class="explain">
-        <div class="box"><span class="lab">{{ lang==='ar'?'ما هذا؟':'What is this?' }}</span>{{ labMeta[view].what }}</div>
-        <div class="box"><span class="lab">{{ lang==='ar'?'كيف تقرأ النتائج':'How to read the results' }}</span>{{ labMeta[view].howToRead }}</div>
+        <div class="box"><span class="lab">{{ lang==='ar'?'ما هذا؟':'What is this?' }}</span>{{ labCur.what }}</div>
+        <div class="box"><span class="lab">{{ lang==='ar'?'كيف تقرأ النتائج':'How to read the results' }}</span>{{ labCur.howToRead }}</div>
       </div>
     </div>
 
@@ -526,7 +526,7 @@
       <div class="metric" v-if="AN.classifier">
         <div class="m"><div class="v">{{ (AN.classifier.accuracy*100).toFixed(1) }}%</div><div class="k">{{ lang==='ar'?'دقة':'accuracy' }}</div></div>
         <div class="m"><div class="v">{{ (AN.classifier.baseline*100).toFixed(1) }}%</div><div class="k">{{ lang==='ar'?'الأساس':'baseline' }}</div></div>
-        <div class="m"><div class="v">{{ AN.classifier.auc }}</div><div class="k">AUC</div></div>
+        <div class="m"><div class="v">{{ AN.classifier.auc }}</div><div class="k">{{ lang==='ar'?'المساحة تحت المنحنى':'AUC' }}</div></div>
       </div>
       <div class="card" v-if="AN.classifier"><div class="chart" id="clfChart"></div></div>
       <div class="row" v-if="AN.classifier">
@@ -552,7 +552,7 @@
           <div class="m"><div class="v">{{ AN.ttest.meccanMean }}</div><div class="k">{{ lang==='ar'?'متوسط مكي':'Meccan mean' }}</div></div>
           <div class="m"><div class="v">{{ AN.ttest.medinanMean }}</div><div class="k">{{ lang==='ar'?'متوسط مدني':'Medinan mean' }}</div></div>
           <div class="m"><div class="v">{{ AN.ttest.t }}</div><div class="k">t</div></div>
-          <div class="m"><div class="v">{{ AN.ttest.p.toExponential(1) }}</div><div class="k">p-value</div></div>
+          <div class="m"><div class="v">{{ AN.ttest.p.toExponential(1) }}</div><div class="k">{{ lang==='ar'?'القيمة الاحتمالية':'p-value' }}</div></div>
         </div>
         <div class="chart" id="statChart"></div>
         <p style="font-weight:600;color:var(--emerald)">{{ lang==='ar'?'النتيجة: آيات المدينة أطول بفارق ':'Result: Medinan verses are longer by ' }}{{ AN.ttest.diff }} {{ lang==='ar'?'كلمة، وهذا فرق دالّ إحصائياً عند مستوى ٥٪ (ثقة ٩٥٪ في الفرق: ':'words, a statistically significant difference at the 5% level (95% CI for the difference: ' }}{{ AN.ttest.ci[0] }}–{{ AN.ttest.ci[1] }}).</p>
@@ -586,9 +586,9 @@
       <div class="card" v-if="AN.montecarlo && AN.montecarlo.hifzSim">
         <h3>{{ lang==='ar'?'محاكاة مونت كارلو لزمن الختم (١٬٠٠٠ تجربة)':'Hifz completion-time Monte Carlo (1,000 trials)' }}</h3>
         <div class="metric">
-          <div class="m"><div class="v">{{ AN.montecarlo.hifzSim.p5 }}</div><div class="k">P5 days</div></div>
-          <div class="m"><div class="v">{{ AN.montecarlo.hifzSim.p50 }}</div><div class="k">P50 days</div></div>
-          <div class="m"><div class="v">{{ AN.montecarlo.hifzSim.p95 }}</div><div class="k">P95 days</div></div>
+          <div class="m"><div class="v">{{ AN.montecarlo.hifzSim.p5 }}</div><div class="k">{{ lang==='ar'?'P5 (يوم)':'P5 days' }}</div></div>
+          <div class="m"><div class="v">{{ AN.montecarlo.hifzSim.p50 }}</div><div class="k">{{ lang==='ar'?'P50 (يوم)':'P50 days' }}</div></div>
+          <div class="m"><div class="v">{{ AN.montecarlo.hifzSim.p95 }}</div><div class="k">{{ lang==='ar'?'P95 (يوم)':'P95 days' }}</div></div>
           <div class="m"><div class="v">{{ AN.montecarlo.hifzSim.meanYears }}</div><div class="k">{{ lang==='ar'?'سنوات (متوسط)':'mean years' }}</div></div>
         </div>
         <div class="chart" id="mcChart"></div>
@@ -695,6 +695,33 @@ createApp({
           what:'Monte Carlo runs thousands of "what if" trials to see the range of outcomes. It does two honest things here: it shows how common it is for some word to land on a notable number, so we do not over-read coincidences; and it simulates a real memorisation schedule with good and bad days to show how long finishing might actually take.',
           howToRead:'In the landscape chart, tall bars mean many words sit near that number (a match there is unremarkable); short bars at large numbers mean a match there is rare and noteworthy. The histogram shows the spread of finishing times across 1,000 simulated journeys; P5, P50 and P95 are the fast, typical and slow cases.'},
       },
+      labMetaAr:{
+        hifz:{technique:'البرمجة الخطية وتحليل الحساسية',
+          unit:'MIS775 — نمذجة القرار في تحليلات الأعمال',
+          topic:'التحسين باستخدام أداة الحل في إكسل وأسعار الظل (الموضوعان ١-٢؛ نموذج المحفظة في الواجب الأول)',
+          what:'تجد البرمجة الخطية القرار الأمثل عندما يكون لديك هدف وقيود. هنا نُعظّم عدد الأسطر الجديدة التي تحفظها يومياً مع البقاء ضمن ميزانية وقت يومية وقاعدةٍ تُلزمك بمراجعةٍ كافية للتثبيت. و«سعر الظل» يخبرك بقيمة كل مورد إضافي، أي ماذا تساوي دقيقة إضافية في اليوم.',
+          howToRead:'حرّك المؤشّر لتحديد دقائقك اليومية فتُحَلّ المسألة فوراً: كم سطراً جديداً ومراجعةً يشتري ذلك، وكم سنة تحتاج للختم، وقيمة كل دقيقة إضافية. ويُظهر المنحنى انخفاض زمن الختم كلما زادت الدقائق.'},
+        classifier:{technique:'الانحدار اللوجستي والتصنيف (تعلّم الآلة)',
+          unit:'MIS771 + MIS772 + MIS710 — التحليلات الوصفية، والتحليلات التنبؤية، وتعلّم الآلة في الأعمال',
+          topic:'التصنيف، والمنحنى ومساحته، ومصفوفة الالتباس، والتحقق المتقاطع',
+          what:'يتعلّم المُصنِّف وضع التصنيفات من الأمثلة. هنا يقرأ كلمات كل سورة ويتنبّأ هل نزلت في مكة أم المدينة، دون أن يرى الإجابة للسور التي يُختبَر عليها، بل يتعلّم النمط من بقية السور.',
+          howToRead:'الدقّة هي نسبة إصابته. وخط الأساس هو ما تحصل عليه لو خمّنت دائماً الإجابة الأكثر شيوعاً، فتجاوزه يعني أنه تعلّم شيئاً حقيقياً. وكلما اقتربت المساحة تحت المنحنى من واحد كان أفضل. وتُظهر مصفوفة الالتباس التنبؤات الصحيحة (بالأخضر) مقابل الخاطئة (بالكهرماني)، والكلمات المعروضة هي الأكثر دلالةً على السورة المدنية.'},
+        stats:{technique:'اختبار الفرضيات والانحدار الخطي',
+          unit:'MIS771 — التحليلات الوصفية والتمثيل البصري',
+          topic:'الاختبار التائي لعيّنتين، وفترات الثقة، والانحدار المتعدّد (الواجبان ١-٢)',
+          what:'يسأل الاختبار التائي: هل الفرق بين مجموعتين حقيقي أم قد يكون محض مصادفة؟ هنا: هل آيات المدينة أطول فعلاً من آيات مكة؟ ثم يُنمذِج الانحدار كيف يعتمد طول الآية على عدة عوامل معاً.',
+          howToRead:'القيمة الاحتمالية هي احتمال رؤية هذا الفرق لو لم يكن هناك فرق حقيقي؛ وضآلتها هنا (أقل بكثير من ٠٫٠٥) تعني أن الفرق حقيقي عند مستوى دلالة ٥٪. وفترة الثقة ٩٥٪ هي المدى المعقول للفرق الحقيقي. ومعامل التحديد يبيّن كم من التباين يفسّره النموذج.'},
+        cluster:{technique:'التجميع بالمتوسّطات وتحليل المكوّنات الرئيسية (تعلّم غير موجَّه)',
+          unit:'MIS710 + MIS772 — تعلّم الآلة في الأعمال، والتحليلات التنبؤية',
+          topic:'التجميع العنقودي، وخفض الأبعاد، وتشابه جيب التمام',
+          what:'يجمع التجميعُ العناصرَ المتشابهة دون إخباره بالمجموعات مسبقاً. ويضغط تحليلُ المكوّنات الرئيسية عدة خصائص إلى بُعدين كي نرسمها. ويقيس تشابهُ جيب التمام مدى تقارب سورتين حسب بصمة كلماتهما.',
+          howToRead:'كل نقطة سورة، ولونها هو المجموعة التي انتمت إليها طبيعياً؛ والنقاط المتقاربة متشابهة. اختر سورة من القائمة لترى أقرب السور إليها في استخدام الكلمات مع نسبة التشابه.'},
+        coincidence:{technique:'محاكاة مونت كارلو وأثر تعدّد الاحتمالات',
+          unit:'MIS775 — نمذجة القرار في تحليلات الأعمال',
+          topic:'المحاكاة، والتوزيعات الاحتمالية، وتحليل المخاطر (المواضيع ٧-٩؛ الواجب الثالث)',
+          what:'تُجري محاكاة مونت كارلو آلاف التجارب الافتراضية لترى مدى تنوّع النتائج. وتفعل هنا أمرين بأمانة: تُظهر كم هو شائع أن تقع كلمةٌ ما على رقم بارز حتى لا نبالغ في قراءة المصادفات؛ وتُحاكي خطة حفظٍ واقعية بأيام جيدة وأخرى متعثّرة لتُظهر كم قد يستغرق الختم فعلاً.',
+          howToRead:'في رسم المشهد، الأعمدة العالية تعني أن كلمات كثيرة تقع قرب ذلك الرقم (فالتطابق هناك غير لافت)؛ والأعمدة القصيرة عند الأرقام الكبيرة تعني أن التطابق نادر وجدير بالملاحظة. ويُظهر المُدرَّج توزُّع أزمنة الختم عبر ١٬٠٠٠ رحلة محاكاة؛ وP5 وP50 وP95 هي الحالة السريعة والمتوسطة والبطيئة.'},
+      },
       mushaf:null, mushafLoading:false, tawPage:1, tawSel:'', tawSelLabel:'',
       tawExamples:[{l:'الله',t:'الله'},{l:'رب',t:'رب'},{l:'رحمن',t:'الرحمن'}],
       alifi:null, alifiPage:0, alifiOverlay:true,
@@ -751,6 +778,7 @@ createApp({
   computed:{
     realViews(){ return ['overview','word','mecca','letters','search','reader','auditor','stories','lessons','duas','tafsir',
       'emotion','pronouns','science','abjad','n19','structural','antonyms','symmetry','waw','insights','nlp','kg','advanced','tawafuq','alifi','hifz','classifier','stats','cluster','coincidence']; },
+    labCur(){ const m=(this.lang==='ar'?this.labMetaAr:this.labMeta); return m[this.view]||null; },
     hifzLive(){
       const p=(this.AN.hifz&&this.AN.hifz.params)||{tNew:4,tRev:0.5,rho:10,totalLines:9060};
       const N=this.hifzMins/(p.tNew+p.tRev*p.rho);
