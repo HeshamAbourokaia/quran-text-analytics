@@ -54,9 +54,13 @@
   /* Arabic = right-to-left like an Arabic book: nav on the right, text right-aligned */
   .dir-rtl{direction:rtl}
   .dir-rtl main{text-align:right}
-  .dir-rtl h1,.dir-rtl h3,.dir-rtl .sub,.dir-rtl .course,.dir-rtl p,.dir-rtl td,.dir-rtl th{text-align:right}
+  .dir-rtl h1,.dir-rtl h3,.dir-rtl .sub,.dir-rtl .course,.dir-rtl p,.dir-rtl td,.dir-rtl th,
+  .dir-rtl .explain .box,.dir-rtl .chartnote,.dir-rtl label,.dir-rtl .stub,.dir-rtl .course .topic{text-align:right}
   .dir-rtl .navitem .new{margin-inline-start:auto}
   .dir-rtl table{direction:rtl}
+  .dir-rtl .metric,.dir-rtl .kpis,.dir-rtl .row,.dir-rtl .grid{justify-content:flex-start}
+  .dir-rtl .searchbar{justify-content:flex-start}
+  .dir-rtl input.q,.dir-rtl .q{text-align:right}
   table{width:100%;border-collapse:collapse;font-size:.86rem}
   th,td{text-align:start;padding:7px 10px;border-bottom:1px solid var(--line)}
   th{color:var(--muted);font-weight:600;font-size:.74rem;text-transform:uppercase;letter-spacing:.05em}
@@ -859,7 +863,9 @@ createApp({
       });
     },
     go(id){ this.view=id; this.libQ=''; this.libCat='all'; if(id==='tawafuq') this.ensureMushaf(); if(id==='alifi') this.ensureAlifi(); this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); }); },
-    afterCharts(){ this.$nextTick(()=>this.arabizeUI()); setTimeout(()=>{ this.arabizeCharts(); this.resizeCharts(); this.arabizeUI(); }, 80); },
+    afterCharts(){ this.$nextTick(()=>this.arabizeUI());
+      setTimeout(()=>this.resizeCharts(), 200);
+      [150,500,1100].forEach(d=>setTimeout(()=>{ this.arabizeCharts(); this.arabizeUI(); }, d)); },
     arabizeUI(){ if(this.lang!=='ar') return;
       const map={'0':'٠','1':'١','2':'٢','3':'٣','4':'٤','5':'٥','6':'٦','7':'٧','8':'٨','9':'٩'};
       document.querySelectorAll('main .kpi .n, main .metric .v, main .conf td, main .stat').forEach(el=>{
