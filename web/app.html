@@ -346,6 +346,50 @@
       <div class="card"><div class="chart" id="advLen"></div></div>
     </section>
 
+    <!-- TAWAFUQ MUSHAF EXPLORER -->
+    <section v-if="view==='tawafuq'">
+      <h1>📐 {{ lang==='ar'?'مستكشف توافق المصحف':'Tawafuq Mushaf Explorer' }} <span class="badge exact">NEW</span></h1>
+      <p class="sub">{{ lang==='ar'?'تصفّح المصحف المدني (٦٠٤ صفحات، ١٥ سطراً). اختر كلمة لإبراز كل مواضعها في الصفحة ورؤية اصطفافها.':'Browse the 604-page, 15-line Madani Mushaf. Pick a word to highlight every occurrence on the page and see how they align.' }}</p>
+      <div class="searchbar">
+        <button class="seg" style="padding:8px 12px;cursor:pointer;border-radius:8px" @click="tawGoPage(Math.max(1,tawPage-1))">‹ {{ lang==='ar'?'السابق':'Prev' }}</button>
+        <span style="font-weight:700">{{ lang==='ar'?'صفحة':'Page' }}
+          <input type="number" min="1" max="604" v-model.number="tawPage" style="width:70px;padding:6px;border:1px solid var(--line);border-radius:8px;font-size:1rem"></span>
+        <button class="seg" style="padding:8px 12px;cursor:pointer;border-radius:8px" @click="tawGoPage(Math.min(604,tawPage+1))">{{ lang==='ar'?'التالي':'Next' }} ›</button>
+        <span style="color:var(--muted)">{{ lang==='ar'?'مختار':'Selected' }}: <b class="ar" style="font-size:1.2rem">{{ tawSelLabel||'—' }}</b>
+          <template v-if="tawSel"> · {{ lang==='ar'?'في هذه الصفحة':'on this page' }} ×{{ tawPageCount }}</template></span>
+      </div>
+      <div v-if="mushafLoading" class="stub">{{ lang==='ar'?'جارٍ تحميل المصحف...':'Loading the Mushaf...' }}</div>
+
+      <div class="row" v-if="mushaf">
+        <div class="col card" style="flex:2;min-width:340px;background:#fffdf7">
+          <div v-for="(ln,li) in tawCurLines" :key="li" style="border-bottom:1px solid #f3eede;padding:6px 4px">
+            <div v-if="ln.type==='surah-header'" style="text-align:center;font-family:Amiri;font-size:1.3rem;color:var(--emerald);font-weight:700">{{ ln.text }}</div>
+            <div v-else-if="ln.type==='basmala'" style="text-align:center;font-family:Amiri;font-size:1.3rem;color:var(--muted)">{{ ln.text||'﷽' }}</div>
+            <div v-else style="direction:rtl;text-align:justify;font-family:Amiri;font-size:1.5rem;line-height:2.2">
+              <span v-for="(w,wi) in (ln.words||[])" :key="wi" @click="tawPick(w)"
+                :style="{cursor:'pointer',padding:'0 3px',borderRadius:'5px',
+                  background: (tawSel && w.l===tawSel)?'#0f9d58':'transparent',
+                  color: (tawSel && w.l===tawSel)?'#fff':'inherit'}">{{ w.t }} </span>
+            </div>
+          </div>
+        </div>
+        <div class="col card" style="flex:1;min-width:240px">
+          <h3>{{ lang==='ar'?'اختر كلمة':'Pick a word' }}</h3>
+          <div><span class="chip" v-for="ex in tawExamples" :key="ex.l" @click="tawSel=ex.l;tawSelLabel=ex.t">{{ ex.t }}</span></div>
+          <template v-if="tawSel">
+            <h3 style="margin-top:16px">{{ lang==='ar'?'أكثر الصفحات اصطفافاً':'Top pages by alignment' }}</h3>
+            <div style="color:var(--muted);font-size:.76rem;margin-bottom:6px">{{ lang==='ar'?'لـ':'for' }} <b class="ar">{{ tawSelLabel }}</b></div>
+            <table><tr v-for="tp in tawTopPages" :key="tp.p" @click="tawGoPage(tp.p)" style="cursor:pointer">
+              <td>{{ lang==='ar'?'صفحة':'p.' }} {{ tp.p }}</td><td>×{{ tp.c }}</td></tr></table>
+          </template>
+        </div>
+      </div>
+
+      <div class="card" style="background:#fefce8;border-color:#fde68a;font-size:.82rem;color:#78350f">
+        {{ lang==='ar'?'ملاحظة أمينة: هذه المدوّنة هي مصحف المدينة المعياري (مجمع الملك فهد، ٦٠٤ صفحات). أرقام الصفحات الشهيرة في الفيديو (مثل ٤٢٢) تعود لطبعة "المصحف التوافقي" بترقيم مختلف، لذا قد تظهر على صفحة أخرى هنا. ظاهرة التوافق نفسها حقيقية وقابلة للتصفّح.':'Honest note: this is the standard Madani Mushaf (King Fahd Complex, 604 pages). The famous page numbers in the video (e.g. 422) come from the tawafuqlu print with different pagination, so they may land on a different page here. The alignment phenomenon itself is real and browsable.' }}
+      </div>
+    </section>
+
     <!-- KNOWLEDGE GRAPH -->
     <section v-if="view==='kg'">
       <h1>🕸️ {{ lang==='ar'?'خريطة المعرفة القرآنية':'Quranic Knowledge Graph' }}</h1>
@@ -440,6 +484,8 @@ createApp({
       q:'', mode:'surface', sres:{total:0,surahs:0,verses:0,sample:[]},
       rSurah:1, libQ:'', libCat:'all', stories:[], lessons:[], duas:[], tafsir:[],
       V1:{}, abjadInput:'',
+      mushaf:null, mushafLoading:false, tawPage:1, tawSel:'', tawSelLabel:'',
+      tawExamples:[{l:'الله',t:'الله'},{l:'رب',t:'رب'},{l:'رحمن',t:'الرحمن'}],
       examples:['يوم','الله','رحمة','ملك','أله'],
       nav:[
         {section:'quran',en:'Quran',ar:'القرآن',items:[
@@ -483,7 +529,14 @@ createApp({
   },
   computed:{
     realViews(){ return ['overview','word','mecca','letters','search','reader','auditor','stories','lessons','duas','tafsir',
-      'emotion','pronouns','science','abjad','n19','structural','antonyms','symmetry','waw','insights','nlp','kg','advanced']; },
+      'emotion','pronouns','science','abjad','n19','structural','antonyms','symmetry','waw','insights','nlp','kg','advanced','tawafuq']; },
+    tawCurLines(){ return (this.mushaf && this.mushaf[this.tawPage]) ? this.mushaf[this.tawPage] : []; },
+    tawPageCount(){ let c=0; this.tawCurLines.forEach(l=>(l.words||[]).forEach(w=>{ if(w.l && w.l===this.tawSel) c++; })); return c; },
+    tawTopPages(){ if(!this.mushaf || !this.tawSel) return [];
+      const arr=[]; for(const p in this.mushaf){ let c=0;
+        this.mushaf[p].forEach(l=>(l.words||[]).forEach(w=>{ if(w.l===this.tawSel) c++; }));
+        if(c>0) arr.push({p:+p,c}); }
+      arr.sort((a,b)=>b.c-a.c||a.p-b.p); return arr.slice(0,12); },
     emotionTotals(){ const s=this.V1.sentiment||[]; const t={mercy:0,warning:0,guidance:0,hope:0};
       s.forEach(x=>{t.mercy+=x.mercy;t.warning+=x.warning;t.guidance+=x.guidance;t.hope+=x.hope;}); return t; },
     abjadValue(){ const map={}; (this.V1.abjadTable||[]).forEach(r=>map[r.l]=r.v);
@@ -523,7 +576,12 @@ createApp({
   },
   methods:{
     f(n){ return (n==null?0:n).toLocaleString(); },
-    go(id){ this.view=id; this.libQ=''; this.libCat='all'; this.$nextTick(()=>this.renderCharts()); },
+    go(id){ this.view=id; this.libQ=''; this.libCat='all'; if(id==='tawafuq') this.ensureMushaf(); this.$nextTick(()=>this.renderCharts()); },
+    ensureMushaf(){ if(this.mushaf||this.mushafLoading) return; this.mushafLoading=true;
+      fetch('content/mushaf.json').then(r=>r.json()).then(d=>{ this.mushaf=d; this.mushafLoading=false; })
+        .catch(()=>{ this.mushafLoading=false; }); },
+    tawPick(w){ if(!w.l) return; this.tawSel=w.l; this.tawSelLabel=w.t; },
+    tawGoPage(p){ this.tawPage=p; },
     cverdict(c){ if(c.verifiedLemma===c.claimed) return 'exact';
       const p=this.claims.find(x=>x.id===c.pair); if(p&&p.verifiedLemma===c.verifiedLemma) return 'parity'; return 'differs'; },
     cbadge(c){ const v=this.cverdict(c); return v==='exact'?'EXACT':v==='parity'?'PARITY':'DIFFERS'; },
