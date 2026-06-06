@@ -390,6 +390,32 @@
       </div>
     </section>
 
+    <!-- ALIFI MUSHAF VIEWER -->
+    <section v-if="view==='alifi'">
+      <h1>📕 {{ lang==='ar'?'مصحف ألفي (كل سطر يبدأ بألف)':'Alifi Mushaf (every line begins with Alif)' }} <span class="badge exact">NEW</span></h1>
+      <p class="sub">{{ lang==='ar'?'مصحف من لاهور، ٢١ سطراً في كل صفحة، يبدأ كل سطر بحرف الألف. كتبه عالم في ١٢ عاماً صائماً.':'A Mushaf from Lahore: 21 lines per page, every single line begins with the letter Alif. Written by a scholar over 12 years of continuous fasting.' }}</p>
+
+      <div v-if="alifi && alifi.pages && alifi.pages.length">
+        <div class="searchbar">
+          <button class="seg" style="padding:8px 12px;border-radius:8px;cursor:pointer" @click="alifiPage=Math.max(0,alifiPage-1)">‹</button>
+          <span style="font-weight:700">{{ lang==='ar'?'صفحة':'Page' }} {{ alifiPage+1 }} / {{ alifi.pages.length }}</span>
+          <button class="seg" style="padding:8px 12px;border-radius:8px;cursor:pointer" @click="alifiPage=Math.min(alifi.pages.length-1,alifiPage+1)">›</button>
+          <button class="seg" style="padding:8px 12px;border-radius:8px;cursor:pointer" :style="alifiOverlay?'background:var(--emerald);color:#fff':''" @click="alifiOverlay=!alifiOverlay">{{ lang==='ar'?'إبراز عمود الألف':'Alif column' }}</button>
+        </div>
+        <div class="card" style="position:relative;display:inline-block;max-width:720px">
+          <img :src="'content/alifi/'+alifi.pages[alifiPage]" style="width:100%;display:block;border-radius:8px">
+          <div v-if="alifiOverlay" style="position:absolute;top:6%;bottom:6%;right:7%;width:3px;background:rgba(15,157,88,.55);box-shadow:0 0 8px rgba(15,157,88,.5)"></div>
+        </div>
+      </div>
+
+      <div v-else class="stub" style="text-align:start">
+        <b>{{ lang==='ar'?'الصور غير محمّلة بعد':'Page scans not loaded yet' }}</b>
+        <p style="margin:8px 0">{{ lang==='ar'?'لم أجد نسخة موثوقة من هذا المصحف تحديداً للتحميل. المصدر الذي فحصته (archive.org) تبيّن أنه مصحف بتفسير أردي مختلف، وليس مصحف الألف، فلم أُدرجه حتى لا نعرض الكتاب الخطأ.':'I could not find a verified scan of this specific Mushaf to bundle. The source I checked (archive.org) turned out to be a different Quran with Urdu commentary, not the all-Alif Mushaf, so I did not include it rather than show the wrong book.' }}</p>
+        <p style="margin:8px 0">{{ lang==='ar'?'لعرضه: ضع صور الصفحات في content/alifi/ وأدرج أسماءها في manifest.json (مثل page-001.jpg). إن كانت لديك نسخة من طبعة لاهور (٢٢١ صفحة) فهي الأدق.':'To display it: drop page images into content/alifi/ and list their filenames in manifest.json (e.g. page-001.jpg). If you own the Lahore 21-line / 221-page edition, that is the exact one from the video.' }}</p>
+        <p style="margin:8px 0;color:var(--teal)">{{ lang==='ar'?'الواجهة جاهزة: تصفّح الصفحات + إبراز عمود الألف يعمل فور إضافة الصور.':'The viewer is ready: page navigation and the Alif-column overlay will work the moment scans are added.' }}</p>
+      </div>
+    </section>
+
     <!-- KNOWLEDGE GRAPH -->
     <section v-if="view==='kg'">
       <h1>🕸️ {{ lang==='ar'?'خريطة المعرفة القرآنية':'Quranic Knowledge Graph' }}</h1>
@@ -486,6 +512,7 @@ createApp({
       V1:{}, abjadInput:'',
       mushaf:null, mushafLoading:false, tawPage:1, tawSel:'', tawSelLabel:'',
       tawExamples:[{l:'الله',t:'الله'},{l:'رب',t:'رب'},{l:'رحمن',t:'الرحمن'}],
+      alifi:null, alifiPage:0, alifiOverlay:true,
       examples:['يوم','الله','رحمة','ملك','أله'],
       nav:[
         {section:'quran',en:'Quran',ar:'القرآن',items:[
@@ -529,7 +556,7 @@ createApp({
   },
   computed:{
     realViews(){ return ['overview','word','mecca','letters','search','reader','auditor','stories','lessons','duas','tafsir',
-      'emotion','pronouns','science','abjad','n19','structural','antonyms','symmetry','waw','insights','nlp','kg','advanced','tawafuq']; },
+      'emotion','pronouns','science','abjad','n19','structural','antonyms','symmetry','waw','insights','nlp','kg','advanced','tawafuq','alifi']; },
     tawCurLines(){ return (this.mushaf && this.mushaf[this.tawPage]) ? this.mushaf[this.tawPage] : []; },
     tawPageCount(){ let c=0; this.tawCurLines.forEach(l=>(l.words||[]).forEach(w=>{ if(w.l && w.l===this.tawSel) c++; })); return c; },
     tawTopPages(){ if(!this.mushaf || !this.tawSel) return [];
@@ -576,7 +603,9 @@ createApp({
   },
   methods:{
     f(n){ return (n==null?0:n).toLocaleString(); },
-    go(id){ this.view=id; this.libQ=''; this.libCat='all'; if(id==='tawafuq') this.ensureMushaf(); this.$nextTick(()=>this.renderCharts()); },
+    go(id){ this.view=id; this.libQ=''; this.libCat='all'; if(id==='tawafuq') this.ensureMushaf(); if(id==='alifi') this.ensureAlifi(); this.$nextTick(()=>this.renderCharts()); },
+    ensureAlifi(){ if(this.alifi) return;
+      fetch('content/alifi/manifest.json').then(r=>r.json()).then(d=>{ this.alifi=d; }).catch(()=>{ this.alifi={pages:[]}; }); },
     ensureMushaf(){ if(this.mushaf||this.mushafLoading) return; this.mushafLoading=true;
       fetch('content/mushaf.json').then(r=>r.json()).then(d=>{ this.mushaf=d; this.mushafLoading=false; })
         .catch(()=>{ this.mushafLoading=false; }); },
