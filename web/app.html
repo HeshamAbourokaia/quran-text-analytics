@@ -544,6 +544,36 @@
       </div>
     </section>
 
+    <!-- BI DASHBOARD (filters + live KPIs) -->
+    <section v-if="view==='dashboard'">
+      <div class="card">
+        <div class="searchbar">
+          <label>{{ lang==='ar'?'مكان النزول':'Revelation place' }}:
+            <select v-model="dashPlace" @change="refreshDash" style="padding:6px;border-radius:8px;border:1px solid var(--line)">
+              <option value="all">{{ lang==='ar'?'الكل':'All' }}</option>
+              <option value="Mecca">{{ lang==='ar'?'مكية':'Meccan' }}</option>
+              <option value="Medina">{{ lang==='ar'?'مدنية':'Medinan' }}</option>
+            </select></label>
+          <label>{{ lang==='ar'?'أدنى عدد آيات':'Min verses' }}: {{ D(dashMinVerses) }}
+            <input type="range" min="0" max="286" step="1" v-model.number="dashMinVerses" @input="refreshDash" :dir="lang==='ar'?'rtl':'ltr'" style="width:200px;vertical-align:middle"></label>
+          <label>{{ lang==='ar'?'ترتيب حسب':'Sort by' }}:
+            <select v-model="dashSort" @change="refreshDash" style="padding:6px;border-radius:8px;border:1px solid var(--line)">
+              <option value="n">{{ lang==='ar'?'رقم السورة':'Surah #' }}</option>
+              <option value="verses">{{ lang==='ar'?'الآيات':'Verses' }}</option>
+              <option value="words">{{ lang==='ar'?'الكلمات':'Words' }}</option>
+            </select></label>
+        </div>
+      </div>
+      <div class="metric">
+        <div class="m"><div class="v">{{ D(dashAgg.count) }}</div><div class="k">{{ lang==='ar'?'سور مطابقة':'surahs' }}</div></div>
+        <div class="m"><div class="v">{{ f(dashAgg.verses) }}</div><div class="k">{{ lang==='ar'?'آيات':'verses' }}</div></div>
+        <div class="m"><div class="v">{{ f(dashAgg.words) }}</div><div class="k">{{ lang==='ar'?'كلمات':'words' }}</div></div>
+        <div class="m"><div class="v">{{ D(dashAgg.avg) }}</div><div class="k">{{ lang==='ar'?'كلمة/آية':'words/verse' }}</div></div>
+      </div>
+      <div class="card"><div class="chart" id="dashChart"></div></div>
+      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'غيّر المرشّحات لترى الأرقام والرسم يتغيّران فوراً، تماماً كلوحة ذكاء أعمال حقيقية.':'Change the filters and watch the numbers and chart update instantly, just like a real BI dashboard.' }}</div>
+    </section>
+
     <!-- HIFZ OPTIMISER (Linear Programming) -->
     <section v-if="view==='hifz'">
       <div class="card">
@@ -713,7 +743,13 @@ createApp({
       rSurah:1, libQ:'', libCat:'all', stories:[], lessons:[], duas:[], tafsir:[],
       V1:{}, abjadInput:'',
       AN:(D.analytics||{}), hifzMins:60, simSurah:2,
+      dashPlace:'all', dashMinVerses:0, dashSort:'n',
       labMeta:{
+        dashboard:{technique:'Interactive BI Dashboard (filters + live KPIs)',
+          code:'MIS781', unit:'Business Intelligence & Database',
+          topic:'Dashboards, filtering, KPIs and drill-down',
+          what:'A business-intelligence dashboard lets you slice the data live: choose filters and every KPI and chart updates instantly. Here you filter all 114 surahs by where they were revealed and by length.',
+          howToRead:'Pick a revelation place and a minimum length. The cards recompute on the fly to show how many surahs match and their totals, and the chart redraws to just those surahs.'},
         hifz:{technique:'Linear Programming & Sensitivity Analysis',
           code:'MIS775', unit:'Decision Modelling for Business Analytics',
           topic:'Optimisation with Excel Solver and shadow prices (Topics 1-2; Assignment 1 portfolio model)',
@@ -741,6 +777,11 @@ createApp({
           howToRead:'In the landscape chart, tall bars mean many words sit near that number (a match there is unremarkable); short bars at large numbers mean a match there is rare and noteworthy. The histogram shows the spread of finishing times across 1,000 simulated journeys; P5, P50 and P95 are the fast, typical and slow cases.'},
       },
       labMetaAr:{
+        dashboard:{technique:'لوحة معلومات تفاعلية (مرشّحات ومؤشّرات حيّة)',
+          code:'MIS781', unit:'ذكاء الأعمال وقواعد البيانات',
+          topic:'لوحات المعلومات، والترشيح، والمؤشّرات، والتنقيب',
+          what:'تتيح لوحة ذكاء الأعمال تقطيع البيانات حيّاً: تختار المرشّحات فتتحدّث كل المؤشّرات والرسوم فوراً. هنا ترشّح السور الـ١١٤ حسب مكان النزول والطول.',
+          howToRead:'اختر مكان النزول وحدّاً أدنى للطول، فتُعاد المؤشّرات لحظياً لتُظهر عدد السور المطابقة ومجاميعها، ويُعاد رسم المخطط ليقتصر على تلك السور.'},
         hifz:{technique:'البرمجة الخطية وتحليل الحساسية',
           code:'MIS775', unit:'نمذجة القرار في تحليلات الأعمال',
           topic:'التحسين باستخدام أداة الحل في إكسل وأسعار الظل (الموضوعان ١-٢؛ نموذج المحفظة في الواجب الأول)',
@@ -775,6 +816,7 @@ createApp({
       araKeys2:'ءآأإئؤةى'.split(''),
       nav:[
         {section:'lab',en:'Analytics Lab',ar:'مختبر التحليلات',items:[
+          {id:'dashboard',icon:'📊',en:'BI Dashboard',ar:'لوحة المعلومات',new:1},
           {id:'hifz',icon:'🧮',en:'Hifz Optimiser',ar:'مُحسِّن الحفظ',new:1},
           {id:'classifier',icon:'🤖',en:'Meccan/Medinan ML',ar:'تصنيف مكي/مدني',new:1},
           {id:'stats',icon:'📐',en:'Statistical Tests',ar:'اختبارات إحصائية',new:1},
@@ -822,7 +864,12 @@ createApp({
   },
   computed:{
     realViews(){ return ['overview','word','mecca','letters','search','reader','auditor','stories','lessons','duas','tafsir',
-      'emotion','pronouns','science','abjad','n19','structural','antonyms','symmetry','waw','insights','nlp','kg','advanced','tawafuq','alifi','hifz','classifier','stats','cluster','coincidence']; },
+      'emotion','pronouns','science','abjad','n19','structural','antonyms','symmetry','waw','insights','nlp','kg','advanced','tawafuq','alifi','hifz','classifier','stats','cluster','coincidence','dashboard']; },
+    dashFiltered(){ let r=(this.DS.surahMeta||[]).filter(s=>
+        (this.dashPlace==='all'||s.place===this.dashPlace) && s.verses>=this.dashMinVerses);
+      const k=this.dashSort; r=r.slice().sort((a,b)=> k==='n'?a.n-b.n : b[k]-a[k]); return r; },
+    dashAgg(){ const r=this.dashFiltered, v=r.reduce((t,s)=>t+s.verses,0), w=r.reduce((t,s)=>t+s.words,0);
+      return {count:r.length, verses:v, words:w, avg:(v?(w/v):0).toFixed(1)}; },
     labCur(){ const m=(this.lang==='ar'?this.labMetaAr:this.labMeta); return m[this.view]||null; },
     hifzLive(){
       const p=(this.AN.hifz&&this.AN.hifz.params)||{tNew:4,tRev:0.5,rho:10,totalLines:9060};
@@ -892,6 +939,7 @@ createApp({
     rtlChartAxes(){ if(this.lang!=='ar'||typeof Plotly==='undefined') return;
       document.querySelectorAll('.chart').forEach(el=>{ if(el && el.layout && el.offsetParent){
         try{ Plotly.relayout(el, {'yaxis.side':'right','xaxis.autorange':'reversed'}); }catch(e){} } }); },
+    refreshDash(){ this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); }); },
     arabizeUI(){ if(this.lang!=='ar') return;
       const map={'0':'٠','1':'١','2':'٢','3':'٣','4':'٤','5':'٥','6':'٦','7':'٧','8':'٨','9':'٩'};
       document.querySelectorAll('main .kpi .n, main .metric .v, main .conf td, main .stat').forEach(el=>{
@@ -1042,6 +1090,14 @@ createApp({
           type:'bar',marker:{color:['#B7094C','#0891b2']},text:[t.meccanMean,t.medinanMean],textposition:'outside'}],
           Object.assign({},lay,{height:300,title:isAr?'متوسط طول الآية (كلمات)':'Mean verse length (words)',
             yaxis:{title:isAr?'كلمات':'words'}}),{responsive:true});
+      }
+      if(this.view==='dashboard' && document.getElementById('dashChart')){
+        const r=this.dashFiltered;
+        Plotly.newPlot('dashChart',[{x:r.map(s=>s.n),y:r.map(s=>s.verses),type:'bar',
+          marker:{color:r.map(s=>s.place==='Medina'?'#0891b2':'#B7094C')},
+          text:r.map(s=>(isAr?s.ar:s.en)),hovertemplate:'%{text}<br>%{y}<extra></extra>'}],
+          Object.assign({},lay,{height:380,title:isAr?'الآيات حسب السورة (مُرشَّح)':'Verses by surah (filtered)',
+            xaxis:{title:isAr?'رقم السورة':'Surah #'},yaxis:{title:isAr?'آيات':'verses'}}),{responsive:true});
       }
       if(this.view==='hifz' && this.AN.hifz && document.getElementById('hifzChart')){
         const g=this.AN.hifz.sensitivity;
