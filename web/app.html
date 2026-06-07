@@ -162,6 +162,7 @@
         <div class="kpi"><div class="n">{{ f(DS.distinctRoots) }}</div><div class="l">{{ lang==='ar'?'جذر':'Roots' }}</div></div>
       </div>
       <div class="card"><div class="chart" id="ovChart"></div></div>
+      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'عدد قليل من السور المدنية الطويلة (كالبقرة) يحمل معظم طول القرآن، ومعظم السور قصيرة.':'A few long Medinan surahs (like Al-Baqara) carry most of the Quran\'s length; most surahs are short.' }}</div>
     </section>
 
     <!-- WORD ANALYSIS -->
@@ -169,6 +170,7 @@
       <h1>{{ lang==='ar' ? 'تحليل الكلمات' : 'Word Analysis' }}</h1>
       <p class="sub">{{ lang==='ar'?'أكثر الكلمات تكراراً حسب الصيغة والجذع والجذر.':'Most frequent words by surface form, lemma, and root.' }}</p>
       <div class="card"><div class="chart" id="lemChart"></div></div>
+      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'بالعدّ حسب الجذع، لفظ الجلالة «الله» هو أكثر الكلمات المعنوية تكراراً.':'Counted by lemma, the name Allah is the most frequent content word.' }}</div>
       <div class="row">
         <div class="col card"><h3>{{ lang==='ar'?'حسب الجذر':'By root' }}</h3>
           <table><tr v-for="r in DS.topRoots.slice(0,12)" :key="r.w"><td class="ar">{{ r.w }}</td><td>{{ f(r.c) }}</td></tr></table>
@@ -205,6 +207,7 @@
     <section v-if="view==='letters'">
       <h1>{{ lang==='ar' ? 'تكرار الحروف' : 'Letter Frequency' }}</h1>
       <div class="card"><div class="chart" id="letChart"></div></div>
+      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'الألف واللام أكثر الحروف شيوعاً بفارق كبير، ولذلك تنتشر «ال» التعريف في كل مكان.':'Alif and Lam are by far the most common letters, which is why "al-" (the) appears everywhere.' }}</div>
     </section>
 
     <!-- WORD SEARCH -->
@@ -279,6 +282,7 @@
     <section v-if="view==='emotion'">
       <h1>{{ lang==='ar'?'البصمة العاطفية':'Emotional Profiling' }}</h1>
       <div class="card"><div class="chart" id="emoChart"></div></div>
+      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'لغة الرحمة والهداية تفوق لغة التحذير بفارق كبير عبر القرآن.':'Language of mercy and guidance far outweighs language of warning across the Quran.' }}</div>
       <p class="sub">{{ lang==='ar'?'لغة الرحمة والهداية تفوق لغة التحذير عبر القرآن.':'Mercy and guidance language outweighs warning across the Quran.' }}</p>
       <div class="kpis">
         <div class="kpi"><div class="n">{{ f(emotionTotals.mercy) }}</div><div class="l">{{ lang==='ar'?'رحمة':'Mercy' }}</div></div>
@@ -292,6 +296,7 @@
     <section v-if="view==='pronouns'">
       <h1>{{ lang==='ar'?'ضمائر الذات الإلهية':'Divine Pronouns' }}</h1>
       <div class="card"><div class="chart" id="proChart"></div></div>
+      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'صيغة الجمع للتعظيم «نحن» هي الأكثر استخداماً في إشارة القرآن إلى الله.':'The majestic plural "We" is the most-used way the Quran refers to God.' }}</div>
       <div class="kpis">
         <div class="kpi"><div class="ar" style="font-size:1.6rem">نَحْنُ</div><div class="n">{{ f(V1.pronouns.we) }}</div><div class="l">We</div></div>
         <div class="kpi"><div class="ar" style="font-size:1.6rem">أَنَا</div><div class="n">{{ f(V1.pronouns.i) }}</div><div class="l">I</div></div>
@@ -304,6 +309,7 @@
     <section v-if="view==='science'">
       <h1>{{ lang==='ar'?'الإشارات العلمية':'Scientific References' }}</h1>
       <div class="card"><div class="chart" id="sciChart"></div></div>
+      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'علم الكون والعالم الطبيعي يستحوذان على معظم الآيات التي يُستشهد بها في السياق العلمي.':'Cosmology and the natural world account for most of the often-cited verses in a scientific context.' }}</div>
       <div class="card"><table>
         <tr><th>{{ lang==='ar'?'المجال':'Field' }}</th><th>{{ lang==='ar'?'الموضوع':'Topic' }}</th><th>{{ lang==='ar'?'الموضع':'Ref' }}</th></tr>
         <tr v-for="(r,i) in V1.scientificRefs" :key="i">
@@ -357,6 +363,7 @@
     <section v-if="view==='antonyms'">
       <h1>{{ lang==='ar'?'التوازن في الأزواج':'Antonym Pairs' }}</h1>
       <div class="card"><div class="chart" id="antChart"></div></div>
+      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'قليل من الأزواج المتضادة يطابق العدد المتساوي المزعوم، فالتوازن أقل دقة مما يُشاع.':'Few antonym pairs land exactly on their claimed equal counts; the balance is looser than the popular claim.' }}</div>
       <p class="sub">{{ lang==='ar'?'المزعوم مقابل ما وُجد فعلاً.':'Claimed balance vs what is actually found.' }}</p>
       <div class="card"><table>
         <tr><th>{{ lang==='ar'?'الزوج':'Pair' }}</th><th>{{ lang==='ar'?'المزعوم':'Claimed' }}</th><th>A</th><th>B</th></tr>
@@ -370,6 +377,7 @@
     <section v-if="view==='symmetry'">
       <h1>{{ lang==='ar'?'تناظر الكلمات':'Word Symmetries' }}</h1>
       <div class="card"><div class="chart" id="symChart"></div></div>
+      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'بعض أزواج الكلمات متقاربة وكثير منها ليس كذلك، فمزاعم التناظر تحتاج تدقيقاً.':'Some word pairs match closely while many do not, so the symmetry claims need careful checking.' }}</div>
       <div class="card"><table>
         <tr><th>A</th><th>B</th><th>{{ lang==='ar'?'عدد A':'Count A' }}</th><th>{{ lang==='ar'?'عدد B':'Count B' }}</th></tr>
         <tr v-for="(p,i) in V1.wordSymmetries" :key="i">
@@ -408,6 +416,7 @@
     <section v-if="view==='nlp'">
       <h1>{{ lang==='ar'?'مستكشف NLP':'NLP Explorer' }}</h1>
       <div class="card"><div class="chart" id="biChart"></div></div>
+      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'أكثر العبارات الثنائية شيوعاً هي «إنّ الله» و«الذين آمنوا».':'The commonest two-word phrases are "inna Allah" (indeed, God) and "alladhina amanu" (those who believe).' }}</div>
       <div class="card"><h3>{{ lang==='ar'?'سحابة الكلمات (الجذوع)':'Word cloud (lemmas)' }}</h3>
         <div style="line-height:2.4">
           <span v-for="(w,i) in DS.topWordsLemma.slice(0,40)" :key="i" class="ar"
@@ -427,7 +436,9 @@
       <h1>{{ lang==='ar'?'تحليلات متقدمة':'Advanced Analytics' }}</h1>
       <p class="sub">{{ lang==='ar'?'كل سورة كنقطة: الآيات مقابل الكلمات، ملوّنة بمكان النزول.':'Every surah as a point: verses vs words, coloured by revelation place.' }}</p>
       <div class="card"><div class="chart" id="advScatter"></div></div>
+      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'كل نقطة سورة: زيادة الآيات تعني غالباً زيادة الكلمات، والسور المدنية تقع أعلى.':'Each dot is a surah: more verses usually means more words, and Medinan surahs sit higher.' }}</div>
       <div class="card"><div class="chart" id="advLen"></div></div>
+      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'هذه السور لديها أطول متوسط لطول الآية.':'These surahs have the longest average verse length.' }}</div>
     </section>
 
     <!-- TAWAFUQ MUSHAF EXPLORER -->
