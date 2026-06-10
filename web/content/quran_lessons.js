@@ -1,6 +1,6 @@
 const QURAN_LESSONS = [
   // ═══════════════════════════════════════════════════════════
-  // FAITH (إيمان) — 12 lessons
+  // FAITH (إيمان) - 12 lessons
   // ═══════════════════════════════════════════════════════════
   {
     id: 1,
@@ -31,7 +31,7 @@ const QURAN_LESSONS = [
     cat: 'faith',
     cat_ar: 'إِيمَانٌ',
     desc_ar: 'الإيمان بما غاب عن الحواس من أمور الآخرة والملائكة والقدر هو صفة المتقين التي بدأ بها القرآن وصف المؤمنين.',
-    desc_en: 'Believing in what lies beyond sensory perception — the Hereafter, angels, and divine decree — is the defining quality of the God-conscious, the very first attribute the Quran ascribes to the believers.',
+    desc_en: 'Believing in what lies beyond sensory perception - the Hereafter, angels, and divine decree - is the defining quality of the God-conscious, the very first attribute the Quran ascribes to the believers.',
     refs: ['2:3', '67:12', '21:49', '36:11', '50:33'],
     story: ''
   },
@@ -130,13 +130,13 @@ const QURAN_LESSONS = [
     cat: 'faith',
     cat_ar: 'إِيمَانٌ',
     desc_ar: 'الإيمان بيوم القيامة يدفع المؤمن للعمل الصالح ويمنعه من الظلم. يوم لا ينفع فيه مال ولا بنون إلا من أتى الله بقلب سليم.',
-    desc_en: 'Belief in the Day of Judgment motivates righteous action and deters injustice. A day when neither wealth nor children avail — only a sound heart before God.',
+    desc_en: 'Belief in the Day of Judgment motivates righteous action and deters injustice. A day when neither wealth nor children avail - only a sound heart before God.',
     refs: ['26:88-89', '99:6-8', '82:17-19', '101:6-11', '84:6'],
     story: ''
   },
 
   // ═══════════════════════════════════════════════════════════
-  // ETHICS (أخلاق) — 12 lessons
+  // ETHICS (أخلاق) - 12 lessons
   // ═══════════════════════════════════════════════════════════
   {
     id: 13,
@@ -189,7 +189,7 @@ const QURAN_LESSONS = [
     cat: 'ethics',
     cat_ar: 'أَخْلَاقٌ',
     desc_ar: 'العفو عند المقدرة من أعظم الأخلاق. والذين يعفون عن الناس والله يحب المحسنين.',
-    desc_en: 'Pardoning when one has the power to retaliate is among the noblest of traits. Those who pardon people — God loves those who do good.',
+    desc_en: 'Pardoning when one has the power to retaliate is among the noblest of traits. Those who pardon people - God loves those who do good.',
     refs: ['3:134', '42:40', '42:43', '7:199', '24:22'],
     story: 'يوسف'
   },
@@ -272,7 +272,7 @@ const QURAN_LESSONS = [
   },
 
   // ═══════════════════════════════════════════════════════════
-  // SOCIAL (مجتمع) — 10 lessons
+  // SOCIAL (مجتمع) - 10 lessons
   // ═══════════════════════════════════════════════════════════
   {
     id: 25,
@@ -347,7 +347,7 @@ const QURAN_LESSONS = [
     cat: 'social',
     cat_ar: 'مُجْتَمَعٌ',
     desc_ar: 'حماية الضعفاء واليتامى والمساكين مسؤولية المجتمع المسلم. وما لكم لا تقاتلون في سبيل الله والمستضعفين.',
-    desc_en: 'Protecting the vulnerable — orphans, the poor, and the oppressed — is a collective responsibility. Why should you not fight in the cause of God and the oppressed?',
+    desc_en: 'Protecting the vulnerable - orphans, the poor, and the oppressed - is a collective responsibility. Why should you not fight in the cause of God and the oppressed?',
     refs: ['4:75', '4:127', '93:9-10', '89:17-20', '2:220'],
     story: ''
   },
@@ -386,7 +386,7 @@ const QURAN_LESSONS = [
   },
 
   // ═══════════════════════════════════════════════════════════
-  // WORSHIP (عبادة) — 8 lessons
+  // WORSHIP (عبادة) - 8 lessons
   // ═══════════════════════════════════════════════════════════
   {
     id: 35,
@@ -428,7 +428,7 @@ const QURAN_LESSONS = [
     cat: 'worship',
     cat_ar: 'عِبَادَةٌ',
     desc_ar: 'الحج ركن من أركان الإسلام فرضه الله على المستطيع. وأذّن في الناس بالحج يأتوك رجالًا وعلى كل ضامر.',
-    desc_en: 'Hajj is a pillar of Islam, obligatory upon those who are able. Proclaim the pilgrimage to the people — they will come on foot and on every lean camel.',
+    desc_en: 'Hajj is a pillar of Islam, obligatory upon those who are able. Proclaim the pilgrimage to the people - they will come on foot and on every lean camel.',
     refs: ['3:97', '22:27-28', '2:196-197', '22:36-37'],
     story: 'إبراهيم'
   },
@@ -478,7 +478,7 @@ const QURAN_LESSONS = [
   },
 
   // ═══════════════════════════════════════════════════════════
-  // CHARACTER (شخصية) — 10 lessons
+  // CHARACTER (شخصية) - 10 lessons
   // ═══════════════════════════════════════════════════════════
   {
     id: 43,
@@ -531,7 +531,7 @@ const QURAN_LESSONS = [
     cat: 'character',
     cat_ar: 'شَخْصِيَّةٌ',
     desc_ar: 'كظم الغيظ والتحكم في الانفعالات من صفات المتقين. والكاظمين الغيظ والعافين عن الناس والله يحب المحسنين.',
-    desc_en: 'Suppressing anger and controlling emotions are qualities of the God-conscious. Those who restrain their anger and pardon people — God loves those who do good.',
+    desc_en: 'Suppressing anger and controlling emotions are qualities of the God-conscious. Those who restrain their anger and pardon people - God loves those who do good.',
     refs: ['3:134', '7:199-200', '41:34-36', '23:96'],
     story: ''
   },
@@ -592,7 +592,7 @@ const QURAN_LESSONS = [
   },
 
   // ═══════════════════════════════════════════════════════════
-  // CONSEQUENCES (عواقب) — 10 lessons
+  // CONSEQUENCES (عواقب) - 10 lessons
   // ═══════════════════════════════════════════════════════════
   {
     id: 53,
@@ -645,7 +645,7 @@ const QURAN_LESSONS = [
     cat: 'consequences',
     cat_ar: 'عَوَاقِبُ',
     desc_ar: 'الإيمان والعمل الصالح مفتاح السعادة في الدارين. من عمل صالحًا من ذكر أو أنثى وهو مؤمن فلنحيينه حياة طيبة.',
-    desc_en: 'Faith coupled with righteous deeds is the key to happiness in both worlds. Whoever does good, male or female, while being a believer — We will grant them a good life.',
+    desc_en: 'Faith coupled with righteous deeds is the key to happiness in both worlds. Whoever does good, male or female, while being a believer - We will grant them a good life.',
     refs: ['16:97', '10:62-64', '41:30-32', '13:28-29', '65:2-3'],
     story: ''
   },
@@ -706,7 +706,7 @@ const QURAN_LESSONS = [
   },
 
   // ═══════════════════════════════════════════════════════════
-  // KNOWLEDGE (علم) — 6 lessons
+  // KNOWLEDGE (علم) - 6 lessons
   // ═══════════════════════════════════════════════════════════
   {
     id: 63,
@@ -776,7 +776,7 @@ const QURAN_LESSONS = [
   },
 
   // ═══════════════════════════════════════════════════════════
-  // FAMILY (أسرة) — 8 lessons
+  // FAMILY (أسرة) - 8 lessons
   // ═══════════════════════════════════════════════════════════
   {
     id: 69,
@@ -785,7 +785,7 @@ const QURAN_LESSONS = [
     cat: 'family',
     cat_ar: 'أُسْرَةٌ',
     desc_ar: 'بر الوالدين قرنه الله بعبادته. وقضى ربك ألا تعبدوا إلا إياه وبالوالدين إحسانًا ولا تقل لهما أف.',
-    desc_en: 'Honoring parents is paired by God with His own worship. Your Lord has decreed that you worship none but Him and that you be excellent to parents — do not even say "uff" to them.',
+    desc_en: 'Honoring parents is paired by God with His own worship. Your Lord has decreed that you worship none but Him and that you be excellent to parents - do not even say "uff" to them.',
     refs: ['17:23-24', '31:14-15', '46:15', '29:8', '2:83'],
     story: ''
   },
@@ -807,7 +807,7 @@ const QURAN_LESSONS = [
     cat: 'family',
     cat_ar: 'أُسْرَةٌ',
     desc_ar: 'الزواج آية من آيات الله وسكن ومودة ورحمة بين الزوجين. هن لباس لكم وأنتم لباس لهن.',
-    desc_en: 'Marriage is one of God\'s signs — tranquility, affection, and mercy between spouses. They are a garment for you and you are a garment for them.',
+    desc_en: 'Marriage is one of God\'s signs - tranquility, affection, and mercy between spouses. They are a garment for you and you are a garment for them.',
     refs: ['30:21', '2:187', '4:19', '2:228', '4:34'],
     story: ''
   },

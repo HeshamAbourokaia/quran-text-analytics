@@ -1,6 +1,6 @@
 const QURAN_DUAS = [
   // ═══════════════════════════════════════════════════════════════
-  // PROPHET DUAS — أدعية الأنبياء (Supplications of the Prophets)
+  // PROPHET DUAS - أدعية الأنبياء (Supplications of the Prophets)
   // ═══════════════════════════════════════════════════════════════
 
   // ── Adam (آدم) ──
@@ -207,7 +207,7 @@ const QURAN_DUAS = [
     cat: 'prophet',
     cat_ar: 'أَدْعِيَةُ الأَنْبِيَاءِ',
     desc_ar: 'رَبِّ اجْعَلْ هَٰذَا بَلَدًا آمِنًا وَارْزُقْ أَهْلَهُ مِنَ الثَّمَرَاتِ مَنْ آمَنَ مِنْهُم بِاللَّهِ وَالْيَوْمِ الْآخِرِ',
-    desc_en: 'My Lord, make this a secure city and provide its people with fruits — whoever of them believes in Allah and the Last Day.',
+    desc_en: 'My Lord, make this a secure city and provide its people with fruits - whoever of them believes in Allah and the Last Day.',
     refs: ['2:126'],
     context_ar: 'دعاء إبراهيم أن يجعل الله مكة بلدًا آمنًا ويرزق أهلها',
     context_en: 'Ibrahim\'s prayer for Makkah to be a secure city with provision for its believing people'
@@ -371,7 +371,7 @@ const QURAN_DUAS = [
     cat: 'prophet',
     cat_ar: 'أَدْعِيَةُ الأَنْبِيَاءِ',
     desc_ar: 'وَاجْعَل لِّي وَزِيرًا مِّنْ أَهْلِي ۝ هَارُونَ أَخِي ۝ اشْدُدْ بِهِ أَزْرِي ۝ وَأَشْرِكْهُ فِي أَمْرِي',
-    desc_en: 'And appoint for me a minister from my family — Aaron, my brother. Increase through him my strength. And let him share my task.',
+    desc_en: 'And appoint for me a minister from my family - Aaron, my brother. Increase through him my strength. And let him share my task.',
     refs: ['20:29-32'],
     context_ar: 'طلب موسى من ربه أن يجعل هارون أخاه وزيرًا يعينه',
     context_en: 'Musa\'s request for God to appoint his brother Harun as his assistant'
@@ -636,7 +636,7 @@ const QURAN_DUAS = [
   },
 
   // ═══════════════════════════════════════════════════════════════
-  // BELIEVER DUAS — أدعية المؤمنين (Supplications of the Believers)
+  // BELIEVER DUAS - أدعية المؤمنين (Supplications of the Believers)
   // ═══════════════════════════════════════════════════════════════
   {
     id: 51,
@@ -729,7 +729,7 @@ const QURAN_DUAS = [
     cat: 'believer',
     cat_ar: 'أَدْعِيَةُ المُؤْمِنِينَ',
     desc_ar: 'رَبَّنَا مَا خَلَقْتَ هَٰذَا بَاطِلًا سُبْحَانَكَ فَقِنَا عَذَابَ النَّارِ ۝ رَبَّنَا إِنَّكَ مَن تُدْخِلِ النَّارَ فَقَدْ أَخْزَيْتَهُ ۖ وَمَا لِلظَّالِمِينَ مِنْ أَنصَارٍ ۝ رَّبَّنَا إِنَّنَا سَمِعْنَا مُنَادِيًا يُنَادِي لِلْإِيمَانِ أَنْ آمِنُوا بِرَبِّكُمْ فَآمَنَّا ۚ رَبَّنَا فَاغْفِرْ لَنَا ذُنُوبَنَا وَكَفِّرْ عَنَّا سَيِّئَاتِنَا وَتَوَفَّنَا مَعَ الْأَبْرَارِ ۝ رَبَّنَا وَآتِنَا مَا وَعَدتَّنَا عَلَىٰ رُسُلِكَ وَلَا تُخْزِنَا يَوْمَ الْقِيَامَةِ ۗ إِنَّكَ لَا تُخْلِفُ الْمِيعَادَ',
-    desc_en: 'Our Lord, You did not create this aimlessly; exalted are You, so protect us from the punishment of the Fire. Our Lord, indeed whoever You admit to the Fire — You have disgraced him, and for the wrongdoers there are no helpers. Our Lord, indeed we have heard a caller calling to faith saying "Believe in your Lord," and we have believed. Our Lord, so forgive us our sins and remove from us our misdeeds and cause us to die with the righteous. Our Lord, and grant us what You promised us through Your messengers and do not disgrace us on the Day of Resurrection. Indeed, You do not fail in Your promise.',
+    desc_en: 'Our Lord, You did not create this aimlessly; exalted are You, so protect us from the punishment of the Fire. Our Lord, indeed whoever You admit to the Fire - You have disgraced him, and for the wrongdoers there are no helpers. Our Lord, indeed we have heard a caller calling to faith saying "Believe in your Lord," and we have believed. Our Lord, so forgive us our sins and remove from us our misdeeds and cause us to die with the righteous. Our Lord, and grant us what You promised us through Your messengers and do not disgrace us on the Day of Resurrection. Indeed, You do not fail in Your promise.',
     refs: ['3:191-194'],
     context_ar: 'دعاء أولي الألباب الذين يتفكرون في خلق السماوات والأرض',
     context_en: 'Prayer of the people of understanding who reflect upon the creation of the heavens and earth'
@@ -773,7 +773,7 @@ const QURAN_DUAS = [
   {
     id: 62,
     ar: 'دعاء عباد الرحمن بالذرية',
-    en: 'Servants of the Most Merciful — prayer for family',
+    en: 'Servants of the Most Merciful - prayer for family',
     cat: 'believer',
     cat_ar: 'أَدْعِيَةُ المُؤْمِنِينَ',
     desc_ar: 'رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا',
@@ -928,7 +928,7 @@ const QURAN_DUAS = [
   },
 
   // ═══════════════════════════════════════════════════════════════
-  // PROTECTION DUAS — أدعية الاستعاذة (Seeking Refuge)
+  // PROTECTION DUAS - أدعية الاستعاذة (Seeking Refuge)
   // ═══════════════════════════════════════════════════════════════
   {
     id: 75,
@@ -939,8 +939,8 @@ const QURAN_DUAS = [
     desc_ar: 'قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ۝ مِن شَرِّ مَا خَلَقَ ۝ وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ ۝ وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ ۝ وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ',
     desc_en: 'Say, "I seek refuge in the Lord of daybreak, from the evil of that which He created, and from the evil of darkness when it settles, and from the evil of the blowers in knots, and from the evil of an envier when he envies."',
     refs: ['113:1-5'],
-    context_ar: 'سورة الفلق كاملة — للاستعاذة من الشرور',
-    context_en: 'The entire Surah Al-Falaq — seeking refuge from all forms of evil'
+    context_ar: 'سورة الفلق كاملة - للاستعاذة من الشرور',
+    context_en: 'The entire Surah Al-Falaq - seeking refuge from all forms of evil'
   },
   {
     id: 76,
@@ -949,10 +949,10 @@ const QURAN_DUAS = [
     cat: 'protection',
     cat_ar: 'أَدْعِيَةُ الاسْتِعَاذَةِ',
     desc_ar: 'قُلْ أَعُوذُ بِرَبِّ النَّاسِ ۝ مَلِكِ النَّاسِ ۝ إِلَٰهِ النَّاسِ ۝ مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ۝ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ ۝ مِنَ الْجِنَّةِ وَالنَّاسِ',
-    desc_en: 'Say, "I seek refuge in the Lord of mankind, the Sovereign of mankind, the God of mankind, from the evil of the retreating whisperer — who whispers in the breasts of mankind — from among the jinn and mankind."',
+    desc_en: 'Say, "I seek refuge in the Lord of mankind, the Sovereign of mankind, the God of mankind, from the evil of the retreating whisperer - who whispers in the breasts of mankind - from among the jinn and mankind."',
     refs: ['114:1-6'],
-    context_ar: 'سورة الناس كاملة — للاستعاذة من الوسوسة',
-    context_en: 'The entire Surah An-Nas — seeking refuge from the evil whisperer'
+    context_ar: 'سورة الناس كاملة - للاستعاذة من الوسوسة',
+    context_en: 'The entire Surah An-Nas - seeking refuge from the evil whisperer'
   },
   {
     id: 77,
@@ -992,7 +992,7 @@ const QURAN_DUAS = [
   },
 
   // ═══════════════════════════════════════════════════════════════
-  // FORGIVENESS DUAS — أدعية المغفرة (Seeking Forgiveness)
+  // FORGIVENESS DUAS - أدعية المغفرة (Seeking Forgiveness)
   // ═══════════════════════════════════════════════════════════════
   {
     id: 80,
@@ -1061,14 +1061,14 @@ const QURAN_DUAS = [
     cat: 'forgiveness',
     cat_ar: 'أَدْعِيَةُ المَغْفِرَةِ',
     desc_ar: 'وَالَّذِينَ إِذَا فَعَلُوا فَاحِشَةً أَوْ ظَلَمُوا أَنفُسَهُمْ ذَكَرُوا اللَّهَ فَاسْتَغْفَرُوا لِذُنُوبِهِمْ وَمَن يَغْفِرُ الذُّنُوبَ إِلَّا اللَّهُ',
-    desc_en: 'And those who, when they commit an immorality or wrong themselves, remember Allah and seek forgiveness for their sins — and who can forgive sins except Allah?',
+    desc_en: 'And those who, when they commit an immorality or wrong themselves, remember Allah and seek forgiveness for their sins - and who can forgive sins except Allah?',
     refs: ['3:135'],
     context_ar: 'صفة المؤمنين الذين يسارعون إلى الاستغفار بعد الذنب',
     context_en: 'Quality of the believers who hasten to seek forgiveness after sinning'
   },
 
   // ═══════════════════════════════════════════════════════════════
-  // GUIDANCE DUAS — أدعية الهداية (Seeking Guidance)
+  // GUIDANCE DUAS - أدعية الهداية (Seeking Guidance)
   // ═══════════════════════════════════════════════════════════════
   {
     id: 86,
@@ -1077,7 +1077,7 @@ const QURAN_DUAS = [
     cat: 'guidance',
     cat_ar: 'أَدْعِيَةُ الهِدَايَةِ',
     desc_ar: 'اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ ۝ صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ',
-    desc_en: 'Guide us to the straight path — the path of those upon whom You have bestowed favor, not of those who have earned Your anger or of those who are astray.',
+    desc_en: 'Guide us to the straight path - the path of those upon whom You have bestowed favor, not of those who have earned Your anger or of those who are astray.',
     refs: ['1:6-7'],
     context_ar: 'الدعاء الأعظم في سورة الفاتحة الذي يُقرأ في كل صلاة',
     context_en: 'The greatest du\'a in Surah Al-Fatihah, recited in every prayer'
@@ -1120,7 +1120,7 @@ const QURAN_DUAS = [
   },
 
   // ═══════════════════════════════════════════════════════════════
-  // PROVISION DUAS — أدعية الرزق والنعم (Provision and Blessings)
+  // PROVISION DUAS - أدعية الرزق والنعم (Provision and Blessings)
   // ═══════════════════════════════════════════════════════════════
   {
     id: 90,
@@ -1141,7 +1141,7 @@ const QURAN_DUAS = [
     cat: 'provision',
     cat_ar: 'أَدْعِيَةُ الرِّزْقِ وَالنِّعَمِ',
     desc_ar: 'رَبِّ اجْعَلْ هَٰذَا بَلَدًا آمِنًا وَارْزُقْ أَهْلَهُ مِنَ الثَّمَرَاتِ مَنْ آمَنَ مِنْهُم بِاللَّهِ وَالْيَوْمِ الْآخِرِ',
-    desc_en: 'My Lord, make this a secure city and provide its people with fruits — whoever of them believes in Allah and the Last Day.',
+    desc_en: 'My Lord, make this a secure city and provide its people with fruits - whoever of them believes in Allah and the Last Day.',
     refs: ['2:126'],
     context_ar: 'دعاء إبراهيم بالأمن والرزق لأهل مكة المؤمنين',
     context_en: 'Ibrahim\'s prayer for security and provision for the believing people of Makkah'
@@ -1172,7 +1172,7 @@ const QURAN_DUAS = [
   },
 
   // ═══════════════════════════════════════════════════════════════
-  // PRAISE DUAS — أدعية الحمد والثناء (Praise and Glorification)
+  // PRAISE DUAS - أدعية الحمد والثناء (Praise and Glorification)
   // ═══════════════════════════════════════════════════════════════
   {
     id: 94,
@@ -1181,7 +1181,7 @@ const QURAN_DUAS = [
     cat: 'praise',
     cat_ar: 'أَدْعِيَةُ الحَمْدِ وَالثَّنَاءِ',
     desc_ar: 'الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ ۝ الرَّحْمَٰنِ الرَّحِيمِ ۝ مَالِكِ يَوْمِ الدِّينِ',
-    desc_en: 'All praise is due to Allah, Lord of the worlds — the Entirely Merciful, the Especially Merciful — Sovereign of the Day of Recompense.',
+    desc_en: 'All praise is due to Allah, Lord of the worlds - the Entirely Merciful, the Especially Merciful - Sovereign of the Day of Recompense.',
     refs: ['1:2-4'],
     context_ar: 'افتتاحية القرآن الكريم بحمد الله وثنائه',
     context_en: 'The opening of the Noble Quran with praise and glorification of God'
@@ -1219,8 +1219,8 @@ const QURAN_DUAS = [
     desc_ar: 'لَّا إِلَٰهَ إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ',
     desc_en: 'There is no deity except You; exalted are You. Indeed, I have been of the wrongdoers.',
     refs: ['21:87'],
-    context_ar: 'تسبيح يونس في بطن الحوت — أعظم أدعية الكرب',
-    context_en: 'Yunus\'s glorification inside the whale — one of the greatest prayers in distress'
+    context_ar: 'تسبيح يونس في بطن الحوت - أعظم أدعية الكرب',
+    context_en: 'Yunus\'s glorification inside the whale - one of the greatest prayers in distress'
   },
   {
     id: 98,
@@ -1229,10 +1229,10 @@ const QURAN_DUAS = [
     cat: 'praise',
     cat_ar: 'أَدْعِيَةُ الحَمْدِ وَالثَّنَاءِ',
     desc_ar: 'اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ',
-    desc_en: 'Allah — there is no deity except Him, the Ever-Living, the Sustainer of existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great.',
+    desc_en: 'Allah - there is no deity except Him, the Ever-Living, the Sustainer of existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great.',
     refs: ['2:255'],
-    context_ar: 'آية الكرسي — أعظم آية في القرآن للحفظ والثناء على الله',
-    context_en: 'Ayat Al-Kursi — the greatest verse in the Quran, praising God\'s sovereignty'
+    context_ar: 'آية الكرسي - أعظم آية في القرآن للحفظ والثناء على الله',
+    context_en: 'Ayat Al-Kursi - the greatest verse in the Quran, praising God\'s sovereignty'
   },
   {
     id: 99,
@@ -1243,8 +1243,8 @@ const QURAN_DUAS = [
     desc_ar: 'قُلْ هُوَ اللَّهُ أَحَدٌ ۝ اللَّهُ الصَّمَدُ ۝ لَمْ يَلِدْ وَلَمْ يُولَدْ ۝ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ',
     desc_en: 'Say, "He is Allah, the One. Allah, the Eternal Refuge. He neither begets nor is born. Nor is there to Him any equivalent."',
     refs: ['112:1-4'],
-    context_ar: 'سورة الإخلاص — تعدل ثلث القرآن في التوحيد وتمجيد الله',
-    context_en: 'Surah Al-Ikhlas — equivalent to one-third of the Quran in declaring God\'s oneness'
+    context_ar: 'سورة الإخلاص - تعدل ثلث القرآن في التوحيد وتمجيد الله',
+    context_en: 'Surah Al-Ikhlas - equivalent to one-third of the Quran in declaring God\'s oneness'
   },
   {
     id: 100,
@@ -1265,7 +1265,7 @@ const QURAN_DUAS = [
     cat: 'praise',
     cat_ar: 'أَدْعِيَةُ الحَمْدِ وَالثَّنَاءِ',
     desc_ar: 'رَبَّنَا وَأَدْخِلْهُمْ جَنَّاتِ عَدْنٍ الَّتِي وَعَدتَّهُمْ وَمَن صَلَحَ مِنْ آبَائِهِمْ وَأَزْوَاجِهِمْ وَذُرِّيَّاتِهِمْ ۚ إِنَّكَ أَنتَ الْعَزِيزُ الْحَكِيمُ ۝ وَقِهِمُ السَّيِّئَاتِ ۚ وَمَن تَقِ السَّيِّئَاتِ يَوْمَئِذٍ فَقَدْ رَحِمْتَهُ ۚ وَذَٰلِكَ هُوَ الْفَوْزُ الْعَظِيمُ',
-    desc_en: 'Our Lord, and admit them to gardens of perpetual residence which You have promised them and whoever was righteous among their fathers, their spouses, and their offspring. Indeed, it is You who is the Exalted in Might, the Wise. And protect them from the evil consequences of their deeds. And he whom You protect from evil consequences that Day — You will have given him mercy. And that is the great attainment.',
+    desc_en: 'Our Lord, and admit them to gardens of perpetual residence which You have promised them and whoever was righteous among their fathers, their spouses, and their offspring. Indeed, it is You who is the Exalted in Might, the Wise. And protect them from the evil consequences of their deeds. And he whom You protect from evil consequences that Day - You will have given him mercy. And that is the great attainment.',
     refs: ['40:8-9'],
     context_ar: 'تتمة دعاء الملائكة حملة العرش بإدخال المؤمنين وأهلهم الجنة',
     context_en: 'Continuation of the Throne-bearing angels\' prayer for believers and their families to enter Paradise'
@@ -1319,7 +1319,7 @@ const QURAN_DUAS = [
     cat: 'prophet',
     cat_ar: 'أَدْعِيَةُ الأَنْبِيَاءِ',
     desc_ar: 'وَلَا تُخْزِنِي يَوْمَ يُبْعَثُونَ ۝ يَوْمَ لَا يَنفَعُ مَالٌ وَلَا بَنُونَ ۝ إِلَّا مَنْ أَتَى اللَّهَ بِقَلْبٍ سَلِيمٍ',
-    desc_en: 'And do not disgrace me on the Day they are all resurrected — the Day when there will not benefit anyone wealth or children, but only one who comes to Allah with a sound heart.',
+    desc_en: 'And do not disgrace me on the Day they are all resurrected - the Day when there will not benefit anyone wealth or children, but only one who comes to Allah with a sound heart.',
     refs: ['26:87-89'],
     context_ar: 'دعاء إبراهيم بأن لا يُخزى يوم القيامة',
     context_en: 'Ibrahim\'s prayer asking not to be humiliated on the Day of Resurrection'
@@ -1425,7 +1425,7 @@ const QURAN_DUAS = [
   {
     id: 114,
     ar: 'دعاء أصحاب الكهف عند الاستيقاظ',
-    en: 'People of the Cave — after waking up',
+    en: 'People of the Cave - after waking up',
     cat: 'believer',
     cat_ar: 'أَدْعِيَةُ المُؤْمِنِينَ',
     desc_ar: 'رَبَّنَا آتِنَا مِن لَّدُنكَ رَحْمَةً وَهَيِّئْ لَنَا مِنْ أَمْرِنَا رَشَدًا',
@@ -1613,8 +1613,8 @@ const QURAN_DUAS = [
     desc_ar: 'رَبِّ ابْنِ لِي عِندَكَ بَيْتًا فِي الْجَنَّةِ وَنَجِّنِي مِن فِرْعَوْنَ وَعَمَلِهِ وَنَجِّنِي مِنَ الْقَوْمِ الظَّالِمِينَ',
     desc_en: 'My Lord, build for me near You a house in Paradise and save me from Pharaoh and his deeds and save me from the wrongdoing people.',
     refs: ['66:11'],
-    context_ar: 'دعاء آسية امرأة فرعون — ضُرب بها مثل للمؤمنين',
-    context_en: 'Prayer of Asiyah, Pharaoh\'s wife — set as an example for the believers'
+    context_ar: 'دعاء آسية امرأة فرعون - ضُرب بها مثل للمؤمنين',
+    context_en: 'Prayer of Asiyah, Pharaoh\'s wife - set as an example for the believers'
   },
   {
     id: 129,
@@ -1747,8 +1747,8 @@ const QURAN_DUAS = [
     desc_ar: 'إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ',
     desc_en: 'Indeed we belong to Allah, and indeed to Him we will return.',
     refs: ['2:156'],
-    context_ar: 'ذكر الله عند المصيبة والموت — جزاؤهم صلوات من ربهم ورحمة',
-    context_en: 'Remembrance of God upon calamity and death — rewarded with blessings and mercy from their Lord'
+    context_ar: 'ذكر الله عند المصيبة والموت - جزاؤهم صلوات من ربهم ورحمة',
+    context_en: 'Remembrance of God upon calamity and death - rewarded with blessings and mercy from their Lord'
   },
   {
     id: 140,
@@ -1759,8 +1759,8 @@ const QURAN_DUAS = [
     desc_ar: 'لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ',
     desc_en: 'There is no deity except Allah alone.',
     refs: ['37:35', '47:19'],
-    context_ar: 'كلمة التوحيد — أساس الدين والدعاء',
-    context_en: 'The declaration of monotheism — the foundation of faith and supplication'
+    context_ar: 'كلمة التوحيد - أساس الدين والدعاء',
+    context_en: 'The declaration of monotheism - the foundation of faith and supplication'
   },
   {
     id: 141,
@@ -1851,7 +1851,7 @@ const QURAN_DUAS = [
   {
     id: 148,
     ar: 'دعاء عباد الرحمن بالصلاح',
-    en: 'Servants of the Most Merciful — complete supplication',
+    en: 'Servants of the Most Merciful - complete supplication',
     cat: 'believer',
     cat_ar: 'أَدْعِيَةُ المُؤْمِنِينَ',
     desc_ar: 'وَالَّذِينَ يَقُولُونَ رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا',
@@ -1893,7 +1893,7 @@ const QURAN_DUAS = [
     desc_ar: 'سُبْحَانَ رَبِّكَ رَبِّ الْعِزَّةِ عَمَّا يَصِفُونَ ۝ وَسَلَامٌ عَلَى الْمُرْسَلِينَ ۝ وَالْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ',
     desc_en: 'Exalted is your Lord, the Lord of Might, above what they describe. And peace upon the messengers. And praise to Allah, Lord of the worlds.',
     refs: ['37:180', '37:181', '37:182'],
-    context_ar: 'خاتمة سورة الصافات — تنزيه الله عن كل نقص وسلام على الأنبياء وحمد لله رب العالمين',
-    context_en: 'Closing verses of Surah As-Saffat — glorifying God above all imperfection, sending peace upon the messengers, and praising the Lord of all worlds'
+    context_ar: 'خاتمة سورة الصافات - تنزيه الله عن كل نقص وسلام على الأنبياء وحمد لله رب العالمين',
+    context_en: 'Closing verses of Surah As-Saffat - glorifying God above all imperfection, sending peace upon the messengers, and praising the Lord of all worlds'
   }
 ];

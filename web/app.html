@@ -4,6 +4,27 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Quran Text Analytics</title>
+<meta name="description" content="Interactive analytics for the Quran: 114 surahs, 6,236 verses and 77,429 words, covering word and root frequencies, Meccan and Medinan comparisons, letter statistics and a claim auditor." />
+<link rel="canonical" href="https://heshamrokaia.github.io/quran-text-analytics/app.html" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<meta name="theme-color" content="#0f3b2e" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://heshamrokaia.github.io/quran-text-analytics/app.html" />
+<meta property="og:title" content="Quran Text Analytics" />
+<meta property="og:description" content="114 surahs, 6,236 verses, 77,429 words. Interactive charts for word frequencies, roots, Mecca vs Medina, letter statistics and a claim auditor. English and Arabic." />
+<meta property="og:image" content="https://heshamrokaia.github.io/quran-text-analytics/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="en_AU" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Quran Text Analytics" />
+<meta name="twitter:description" content="114 surahs, 6,236 verses, 77,429 words. Interactive charts for word frequencies, roots, Mecca vs Medina, letter statistics and a claim auditor. English and Arabic." />
+<meta name="twitter:image" content="https://heshamrokaia.github.io/quran-text-analytics/og-image.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com">
+<link rel="preconnect" href="https://cdn.plot.ly">
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
   :root{--ink:#0f2a23;--muted:#5b7a70;--line:#e3ede9;--emerald:#0f9d58;--emerald-bg:#e7f7ef;
@@ -30,9 +51,10 @@
   .navitem{display:flex;align-items:center;gap:9px;padding:7px 12px;border-radius:9px;cursor:pointer;
     font-size:.86rem;color:#cdeadf}
   .navitem:hover{background:#ffffff14}
+  .navitem:focus-visible{outline:2px solid #8fd9be;outline-offset:-2px}
   .navitem.active{background:#ffffff26;color:#fff;font-weight:600}
   .navitem .ic{width:20px;text-align:center}
-  .navitem .new{margin-inline-start:auto;font-size:.58rem;background:#0f9d58;color:#fff;border-radius:5px;padding:1px 5px}
+  .navitem .new{margin-inline-start:auto;font-size:.58rem;background:#0a7a42;color:#fff;border-radius:5px;padding:1px 5px}
   /* main */
   main{flex:1;min-width:0;padding:30px 34px 80px}
   h1{font-size:1.9rem;font-weight:800;margin:.1em 0 .15em;letter-spacing:-.02em}
@@ -115,19 +137,50 @@
   .explain .box{flex:1;min-width:260px;background:#ffffff14;border:1px solid #ffffff22;border-radius:12px;padding:12px 14px;font-size:.86rem;line-height:1.55}
   .explain .box b{color:#fff}
   .explain .box .lab{display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:#8fd9be;margin-bottom:4px}
+  /* phone layout: rules below apply only at 920px and under; desktop is untouched */
+  .menubtn{display:none}
+  .backdrop{display:none}
+  @media (max-width:920px){
+    body{overflow-x:hidden}
+    .menubtn{display:flex;position:fixed;top:12px;inset-inline-start:12px;z-index:1002;
+      width:44px;height:44px;align-items:center;justify-content:center;
+      background:#0f3b2e;color:#fff;border:1px solid #ffffff2e;border-radius:12px;
+      font-size:1.25rem;cursor:pointer;box-shadow:0 4px 14px rgba(15,60,45,.35)}
+    .backdrop{display:block;position:fixed;inset:0;background:rgba(8,28,21,.55);z-index:1000}
+    .side{position:fixed;top:0;bottom:0;inset-inline-start:0;height:100vh;height:100dvh;
+      width:264px;max-width:82vw;z-index:1001;padding:64px 12px 24px;
+      transform:translateX(-100%);transition:transform .25s ease;overscroll-behavior:contain}
+    html[dir=rtl] .side,.dir-rtl .side{transform:translateX(100%)}
+    .side.open,html[dir=rtl] .side.open,.dir-rtl .side.open{transform:translateX(0);box-shadow:0 0 36px rgba(0,0,0,.4)}
+    main{padding:64px 16px 60px}
+    .row{flex-direction:column}
+    .col{min-width:0 !important}
+    .kpi{flex:1 1 calc(50% - 6px);min-width:0;padding:11px 12px}
+    .metric .m{flex:1 1 calc(50% - 5px);min-width:0;padding:9px 10px}
+    .card{padding:14px;overflow-x:auto}
+    .grid{grid-template-columns:1fr}
+    .arakbd{gap:4px}
+    .arakbd button{min-width:29px;padding:6px 6px;font-size:1.1rem}
+    input.q{min-width:0;flex:1 1 100%}
+    h1{font-size:1.45rem}
+    .verse{font-size:1.3rem;line-height:2.1}
+    .chart{min-height:0}
+  }
 </style>
 </head>
 <body>
 <div id="app" class="layout" :class="{'dir-rtl': lang==='ar'}" :dir="lang==='ar'?'rtl':'ltr'">
-  <aside class="side">
+  <button class="menubtn" type="button" @click="sideOpen=!sideOpen" :aria-expanded="sideOpen?'true':'false'" :aria-label="lang==='ar'?'القائمة':'Menu'">{{ sideOpen?'✕':'☰' }}</button>
+  <div v-if="sideOpen" class="backdrop" @click="sideOpen=false"></div>
+  <aside class="side" :class="{open:sideOpen}">
     <div class="brand">{{ lang==='ar' ? 'تحليلات القرآن' : 'Quran Analytics' }}<small>v2 · authoritative corpus</small></div>
     <div class="langtoggle">
-      <button :class="{on:lang==='en'}" @click="lang='en'">English</button>
-      <button :class="{on:lang==='ar'}" @click="lang='ar'">العربية</button>
+      <button :class="{on:lang==='en'}" :aria-pressed="lang==='en'" @click="lang='en'">English</button>
+      <button :class="{on:lang==='ar'}" :aria-pressed="lang==='ar'" lang="ar" @click="lang='ar'">العربية</button>
     </div>
     <div v-for="g in nav" :key="g.section" class="navgroup">
       <div class="gl">{{ lang==='ar' ? g.ar : g.en }}</div>
-      <div v-for="it in g.items" :key="it.id" class="navitem" :class="{active: view===it.id}" @click="go(it.id)">
+      <div v-for="it in g.items" :key="it.id" class="navitem" :class="{active: view===it.id}" role="button" tabindex="0" :aria-current="view===it.id ? 'page' : null" @click="go(it.id)" @keydown.enter="go(it.id)" @keydown.space.prevent="go(it.id)">
         <span class="ic">{{ it.icon }}</span><span>{{ lang==='ar' ? it.ar : it.en }}</span>
         <span v-if="it.new" class="new">NEW</span>
       </div>
@@ -713,17 +766,18 @@
   </main>
 </div>
 
-<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
-<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
-<script src="data.js"></script>
-<script src="corpus.js"></script>
-<script src="words.js"></script>
-<script src="content/quran_stories_data.js"></script>
-<script src="content/quran_lessons.js"></script>
-<script src="content/quran_duas.js"></script>
-<script src="content/quran_tafsir_insights.js"></script>
-<script src="content/v1_data.js"></script>
+<script defer src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+<script defer src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+<script defer src="data.js"></script>
+<script defer src="corpus.js"></script>
+<script defer src="words.js"></script>
+<script defer src="content/quran_stories_data.js"></script>
+<script defer src="content/quran_lessons.js"></script>
+<script defer src="content/quran_duas.js"></script>
+<script defer src="content/quran_tafsir_insights.js"></script>
+<script defer src="content/v1_data.js"></script>
 <script>
+window.addEventListener('DOMContentLoaded', function(){
 const TASHKEEL = /[ؐ-ًؚ-ٰٟۖ-ۭٓ-ٕ]/g;
 function normalize(s){
   if(!s) return '';
@@ -736,7 +790,7 @@ createApp({
   data(){
     const D = window.QURAN_DATA||{stats:{totals:{}},datasets:{},claims:[]};
     return {
-      lang:'en', view:'overview',
+      lang:'en', view:'overview', sideOpen:false,
       T: D.stats.totals, DS: D.datasets, MM: D.datasets.meccaMedina||{mecca:{},medina:{}}, claims: D.claims,
       V: window.QURAN_VERSES||{}, W: window.QURAN_WORDS||{key:[],norm:[],lemma:[],root:[],surface:[]},
       q:'', mode:'surface', sres:{total:0,surahs:0,verses:0,sample:[]},
@@ -931,7 +985,7 @@ createApp({
         if(/[0-9]/.test(t.textContent)) t.textContent = t.textContent.replace(/[0-9]/g,d=>map[d]);
       });
     },
-    go(id){ this.view=id; this.libQ=''; this.libCat='all'; if(id==='tawafuq') this.ensureMushaf(); if(id==='alifi') this.ensureAlifi(); this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); }); },
+    go(id){ this.view=id; this.sideOpen=false; this.libQ=''; this.libCat='all'; if(id==='tawafuq') this.ensureMushaf(); if(id==='alifi') this.ensureAlifi(); this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); }); },
     afterCharts(){ this.$nextTick(()=>this.arabizeUI());
       if(this.lang==='ar') setTimeout(()=>this.rtlChartAxes(), 120);
       setTimeout(()=>this.resizeCharts(), 260);
@@ -990,9 +1044,10 @@ createApp({
     renderCharts(){
       if(typeof Plotly==='undefined') return;
       const isAr = this.lang==='ar';
+      const mob = window.innerWidth < 480;
       const lay={plot_bgcolor:'rgba(0,0,0,0)',paper_bgcolor:'rgba(0,0,0,0)',autosize:true,
-        font:{size:13,family:'Inter,sans-serif'},margin:{t:48,r:24,b:84,l:66},
-        title:{font:{size:16}}};
+        font:{size:mob?11:13,family:'Inter,sans-serif'},margin:{t:mob?40:48,r:mob?16:24,b:mob?60:84,l:mob?48:66},
+        title:{font:{size:mob?14:16}}};
       if(this.view==='overview' && document.getElementById('ovChart')){
         const sm=this.DS.surahMeta;
         const mk=sm.filter(s=>s.place==='Mecca'), md=sm.filter(s=>s.place==='Medina');
@@ -1003,8 +1058,8 @@ createApp({
       }
       if(this.view==='word' && document.getElementById('lemChart')){
         const t=this.DS.topWordsLemma.slice(0,15).reverse();
-        Plotly.newPlot('lemChart',[{y:t.map(x=>x.w),x:t.map(x=>x.c),type:'bar',orientation:'h',marker:{color:'#0f9d58'},text:t.map(x=>x.c.toLocaleString()),textposition:'outside'}],
-          Object.assign({},lay,{height:430,yaxis:{tickfont:{family:'Amiri',size:16}},title:'Top lemmas'}),{responsive:true});
+        Plotly.newPlot('lemChart',[{y:t.map(x=>x.w),x:t.map(x=>x.c),type:'bar',orientation:'h',marker:{color:'#0f9d58'},text:t.map(x=>x.c.toLocaleString()),textposition:'outside',cliponaxis:false}],
+          Object.assign({},lay,{height:430,xaxis:{range:[0,Math.max(...t.map(x=>x.c))*1.25]},yaxis:{tickfont:{family:'Amiri',size:16}},title:'Top lemmas'}),{responsive:true});
       }
       if(this.view==='letters' && document.getElementById('letChart')){
         const t=this.DS.letterFreq;
@@ -1034,13 +1089,13 @@ createApp({
         const t=this.emotionTotals;
         Plotly.newPlot('emoChart',[{x:[isAr?'رحمة':'Mercy',isAr?'هداية':'Guidance',isAr?'أمل':'Hope',isAr?'تحذير':'Warning'],
           y:[t.mercy,t.guidance,t.hope,t.warning],type:'bar',marker:{color:['#0f9d58','#0891b2','#f59e0b','#B7094C']},
-          text:[t.mercy,t.guidance,t.hope,t.warning],textposition:'outside'}],Object.assign({},lay,{height:340}),{responsive:true});
+          text:[t.mercy,t.guidance,t.hope,t.warning],textposition:'outside',cliponaxis:false}],Object.assign({},lay,{height:340,yaxis:{range:[0,Math.max(t.mercy,t.guidance,t.hope,t.warning)*1.18]}}),{responsive:true});
       }
       if(this.view==='pronouns' && document.getElementById('proChart')){
         const p=this.V1.pronouns||{};
         Plotly.newPlot('proChart',[{x:['نحن / We','أنا / I','هو / He'],y:[p.we,p.i,this.DS.huwaCount||p.he],type:'bar',
-          marker:{color:'#1B4332'},text:[p.we,p.i,this.DS.huwaCount||p.he],textposition:'outside'}],
-          Object.assign({},lay,{height:300}),{responsive:true});
+          marker:{color:'#1B4332'},text:[p.we,p.i,this.DS.huwaCount||p.he],textposition:'outside',cliponaxis:false}],
+          Object.assign({},lay,{height:300,yaxis:{range:[0,Math.max(p.we||0,p.i||0,(this.DS.huwaCount||p.he)||0)*1.18]}}),{responsive:true});
       }
       if(this.view==='antonyms' && document.getElementById('antChart')){
         const a=this.V1.antonymPairs||[]; const lab=a.map(p=>isAr?p.label_ar:p.label_en);
@@ -1060,12 +1115,12 @@ createApp({
       if(this.view==='science' && document.getElementById('sciChart')){
         const c=this.V1.sciCategories||[];
         Plotly.newPlot('sciChart',[{x:c.map(x=>x.cat),y:c.map(x=>x.count),type:'bar',marker:{color:'#0891b2'},
-          text:c.map(x=>x.count),textposition:'outside'}],Object.assign({},lay,{height:360,xaxis:{tickangle:-30,tickfont:{size:10}}}),{responsive:true});
+          text:c.map(x=>x.count),textposition:'outside',cliponaxis:false}],Object.assign({},lay,{height:360,yaxis:{range:[0,Math.max(...c.map(x=>x.count))*1.18]},xaxis:{tickangle:-30,tickfont:{size:10}}}),{responsive:true});
       }
       if(this.view==='nlp' && document.getElementById('biChart')){
         const b=this.DS.bigrams.slice(0,12).reverse();
         Plotly.newPlot('biChart',[{y:b.map(x=>x.w),x:b.map(x=>x.c),type:'bar',orientation:'h',marker:{color:'#10b981'},
-          text:b.map(x=>x.c),textposition:'outside'}],Object.assign({},lay,{height:400,yaxis:{tickfont:{family:'Amiri',size:15}},
+          text:b.map(x=>x.c),textposition:'outside',cliponaxis:false}],Object.assign({},lay,{height:400,xaxis:{range:[0,Math.max(...b.map(x=>x.c))*1.22]},yaxis:{tickfont:{family:'Amiri',size:15}},
           title:isAr?'أكثر الثنائيات':'Top bigrams'}),{responsive:true});
       }
       if(this.view==='auditor' && document.getElementById('audChart')){
@@ -1073,29 +1128,30 @@ createApp({
         Plotly.newPlot('audChart',[
           {x:c.map(x=>x.en),y:c.map(x=>x.claimed),type:'bar',name:isAr?'المزعوم':'Claimed',marker:{color:'#cbd5e1'}},
           {x:c.map(x=>x.en),y:c.map(x=>x.verifiedLemma),type:'bar',name:isAr?'المحقّق':'Verified',marker:{color:'#0f9d58'}}
-        ],Object.assign({},lay,{height:380,barmode:'group',legend:{orientation:'h',y:1.1},xaxis:{tickangle:-35,tickfont:{size:9}}}),{responsive:true});
+        ],Object.assign({},lay,{height:380,barmode:'group',legend:{orientation:'h',y:1.1},xaxis:{tickangle:-35,tickfont:{size:10}}}),{responsive:true});
       }
       if(this.view==='classifier' && this.AN.classifier && document.getElementById('clfChart')){
         const c=this.AN.classifier;
         const med=c.topMedinan.slice(0,6), mec=c.topMeccan.slice(0,6);
         const rows=mec.map(w=>({w:w.w,c:w.c})).concat(med.slice().reverse().map(w=>({w:w.w,c:w.c})));
-        Plotly.newPlot('clfChart',[{y:rows.map(r=>r.w),x:rows.map(r=>r.c),type:'bar',orientation:'h',
-          marker:{color:rows.map(r=>r.c>=0?'#0891b2':'#B7094C')},text:rows.map(r=>r.c),textposition:'outside'}],
-          Object.assign({},lay,{height:360,yaxis:{tickfont:{family:'Amiri',size:15}},
+        const cv=rows.map(r=>r.c), cmax=Math.max(...cv), cmin=Math.min(...cv), cpad=(cmax-cmin)*0.18;
+        Plotly.newPlot('clfChart',[{y:rows.map(r=>r.w),x:cv,type:'bar',orientation:'h',
+          marker:{color:rows.map(r=>r.c>=0?'#0891b2':'#B7094C')},text:rows.map(r=>r.c),textposition:'outside',cliponaxis:false}],
+          Object.assign({},lay,{height:360,margin:{t:48,r:44,b:84,l:80},xaxis:{range:[cmin-cpad,cmax+cpad]},yaxis:{tickfont:{family:'Amiri',size:15}},
             title:isAr?'أقوى الكلمات: مدني (أزرق) مقابل مكي (أحمر)':'Strongest words: Medinan (blue) vs Meccan (red)'}),{responsive:true});
       }
       if(this.view==='stats' && this.AN.ttest && document.getElementById('statChart')){
         const t=this.AN.ttest;
         Plotly.newPlot('statChart',[{x:[isAr?'مكي':'Meccan',isAr?'مدني':'Medinan'],y:[t.meccanMean,t.medinanMean],
-          type:'bar',marker:{color:['#B7094C','#0891b2']},text:[t.meccanMean,t.medinanMean],textposition:'outside'}],
+          type:'bar',marker:{color:['#B7094C','#0891b2']},text:[t.meccanMean,t.medinanMean],textposition:'outside',cliponaxis:false}],
           Object.assign({},lay,{height:300,title:isAr?'متوسط طول الآية (كلمات)':'Mean verse length (words)',
-            yaxis:{title:isAr?'كلمات':'words'}}),{responsive:true});
+            yaxis:{title:isAr?'كلمات':'words',range:[0,Math.max(t.meccanMean,t.medinanMean)*1.2]}}),{responsive:true});
       }
       if(this.view==='dashboard' && document.getElementById('dashChart')){
         const r=this.dashFiltered;
         Plotly.newPlot('dashChart',[{x:r.map(s=>s.n),y:r.map(s=>s.verses),type:'bar',
           marker:{color:r.map(s=>s.place==='Medina'?'#0891b2':'#B7094C')},
-          text:r.map(s=>(isAr?s.ar:s.en)),hovertemplate:'%{text}<br>%{y}<extra></extra>'}],
+          text:r.map(s=>(isAr?s.ar:s.en)),textposition:'none',hovertemplate:'%{text}<br>%{y}<extra></extra>'}],
           Object.assign({},lay,{height:380,title:isAr?'الآيات حسب السورة (مُرشَّح)':'Verses by surah (filtered)',
             xaxis:{title:isAr?'رقم السورة':'Surah #'},yaxis:{title:isAr?'آيات':'verses'}}),{responsive:true});
       }
@@ -1142,6 +1198,7 @@ createApp({
     this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); });
   }
 }).mount('#app');
+});
 </script>
 </body>
 </html>
