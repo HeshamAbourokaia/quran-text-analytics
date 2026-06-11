@@ -10,6 +10,14 @@ When rewriting or drafting text where comparisons matter, use this style:
 
 Reference verbs: dwarfs, eclipses, overshadows, swallows, buries, drowns out, towers over, wipes out.
 
+The three-step recipe:
+
+1. Find a sentence comparing two sizes: "A is much bigger than B."
+2. Ask: what does a huge thing physically DO to a tiny thing? (shadow it, swallow it, bury it, drown it...)
+3. Rewrite as: "A [that verb]s B."
+
+That's the whole magic. It's one of the most common tricks in headlines and sports commentary ("United's spending dwarfs the entire league's").
+
 ### Drafted messages (SMS, emails, listings replies)
 
 - No em dashes or long dashes.
