@@ -298,7 +298,7 @@ The shipped release focuses on descriptive analytics. Phase 2 extends into appli
 ### Desktop (macOS)
 
 ```bash
-git clone https://github.com/heshamrokaia/quran-text-analytics
+git clone https://github.com/HeshamAbourokaia/quran-text-analytics
 cd quran-text-analytics/electron-app
 nvm use 20    # requires Node 20
 npm install
@@ -345,7 +345,7 @@ See [`autoresearch/README.md`](autoresearch/README.md) for full options.
 
 Native Arabic speaker (Egyptian background) and fluent English (working and studying in English daily). This dual-language fluency is the reason the project was built bilingually from the first commit: every chart label, hover template, scholarly tafsir entry, and UI control swaps cleanly between Arabic and English via a runtime toggle, with proper RTL/LTR handling on both sides. It is not a translation layer, it is a parallel implementation.
 
-Reach me on [LinkedIn](https://www.linkedin.com/in/heshamabourokaia/) or [GitHub](https://github.com/heshamrokaia).
+Reach me on [LinkedIn](https://www.linkedin.com/in/heshamabourokaia/) or [GitHub](https://github.com/HeshamAbourokaia).
 
 ---
 
