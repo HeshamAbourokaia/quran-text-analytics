@@ -1,0 +1,220 @@
+// Words Translation Can't Carry / كلمات تعجز الترجمة عنها
+// Quranic Arabic words whose single English rendering flattens a layered meaning.
+// Each entry: the word, its root, the fan of competing translations, and the meaning it actually carries.
+// Concept inspired by a video from Arabic101. Quranic facts rest on classical lexicography and tafsir.
+
+const QURAN_UNTRANSLATABLE_INTRO = {
+  en: "A language does not just describe the world; it shapes what you can notice in it. In 2004 a study of the Piraha, an Amazonian people whose language has no exact words for numbers, found that adults could not reliably copy a row of seven stones from memory. Without a word for 'seven', the mind struggled to hold the exact idea. Flip that around: when a language holds a word for a concept so precise that no other language ever built a container for it, speakers of every other language are left in the same position, missing something they cannot even name. Classical Arabic, and the Quran in particular, is full of such words. A single term can carry meanings that take an English paragraph to approach, and even then something is left behind. The words below are a few of them. Each is a reminder that a translation gives you what one human understood, while the Arabic gives you the word itself.",
+  ar: "اللُّغة لا تَصِف العالَم فحسب، بل تُشكِّل ما يُمكنك أن تُلاحظه فيه. ففي عام 2004 وجدت دراسةٌ على قبيلة (البيراها) في الأمازون، وهي قبيلةٌ لا تملك لغتُها كلماتٍ دقيقةً للأعداد، أنّ البالغين منهم لم يستطيعوا أن يُعيدوا ترتيب صفٍّ من سبع حصياتٍ من الذاكرة بدقّة. فمن دون كلمةٍ تعني (سبعة) عجَز العقلُ عن الإمساك بالفكرة بدقّة. والعكسُ صحيح: حين تملك لغةٌ كلمةً لمعنًى من الدقّة بحيث لم تصنع له لغةٌ أخرى وعاءً، يبقى المتحدّثون بكلِّ لغةٍ سواها في الموقف نفسه، يفوتهم شيءٌ لا يستطيعون حتى تسميته. والعربيةُ الفصحى، والقرآنُ خاصّةً، مليئةٌ بمثل هذه الكلمات. فالكلمةُ الواحدة قد تحمل معانيَ تحتاج فقرةً كاملةً بالإنجليزية لتُقاربها، ويبقى بعد ذلك ما يتعذّر نقله. والكلماتُ أدناه نماذجُ منها، تُذكّرنا بأنّ الترجمة تمنحك ما فهِمه إنسانٌ واحد، بينما تمنحك العربيةُ الكلمةَ نفسها.",
+  credit_en: "Concept inspired by a video from Arabic101.",
+  credit_ar: "الفكرةُ مستوحاةٌ من مقطعٍ لقناة Arabic101."
+};
+
+const QURAN_UNTRANSLATABLE = [
+  {
+    id: 1,
+    word_ar: 'الصَّمَد',
+    translit: 'as-Samad',
+    root_ar: 'ص م د',
+    cat: 'Divine Names', cat_ar: 'أَسْمَاءُ اللهِ',
+    verse_ref: '112:2',
+    verse_ar: 'ٱللَّهُ ٱلصَّمَدُ',
+    translations: [
+      'Sahih International: "the Eternal Refuge"',
+      'The Clear Quran: "the Sustainer needed by all"',
+      'Mufti Taqi Usmani: "Besought of all, needing none"',
+      'Abdel Haleem: "the eternal"',
+      'Yusuf Ali: "the Eternal, Absolute"',
+      'Ahmad Raza Khan: "the Independent, needing none"',
+      'Arberry: "the Everlasting Refuge"',
+      'Talal Itani: "the Absolute"'
+    ],
+    meaning_en: "The One who is eternal, with no beginning and no end. The ultimate destination every creature turns to in need, while He needs nothing from anyone. He neither eats nor drinks, cannot be reduced or penetrated, has no weakness and no absence. He is the master of all creation, sought by all and dependent on none. A full English paragraph barely reaches what a single two-syllable word holds.",
+    meaning_ar: "هو الباقي الذي لا بدايةَ له ولا نهاية، الذي تقصِده الخلائقُ كلُّها في حوائجها وهو غنيٌّ عن كلِّ أحد. لا يأكل ولا يشرب، لا يتجزّأ ولا يُنال، لا ضعفَ فيه ولا غياب، سيّدُ الخلق الذي يَصمُد إليه كلُّ شيءٍ ولا يفتقر إلى شيء. كلمةٌ من مقطعين تختزل ما تعجز عنه فقرةٌ كاملة بأيِّ لغةٍ أخرى.",
+    root_insight_en: "The root s-m-d carries two senses: a lord whom people turn to for every need, and something solid with no hollow inside. Both meet in the divine name: the One sought by all, perfect with no gap and no want.",
+    root_insight_ar: "يدور جذر (ص م د) على معنيين: السيّدُ الذي يُقصَد في الحوائج، والمُصمَتُ الذي لا جوفَ له. ويجتمع المعنيان في الاسم الإلهي: المقصودُ في كلِّ حاجة، الكاملُ الذي لا نقصَ فيه ولا فراغ.",
+    source_en: "Classical tafsir (Ibn Kathir, al-Tabari) and Lane's Lexicon",
+    source_ar: "التفاسير الكلاسيكية (ابن كثير والطبري) ومعجم لين"
+  },
+  {
+    id: 2,
+    word_ar: 'فِتْنَة',
+    translit: 'fitnah',
+    root_ar: 'ف ت ن',
+    cat: 'Trial & Flourishing', cat_ar: 'ابْتِلَاءٌ وَنَمَاءٌ',
+    verse_ref: '29:2',
+    verse_ar: 'أَحَسِبَ ٱلنَّاسُ أَن يُتْرَكُوٓا۟ أَن يَقُولُوٓا۟ ءَامَنَّا وَهُمْ لَا يُفْتَنُونَ',
+    translations: ['trial', 'test', 'temptation', 'affliction', 'persecution', 'discord', 'sedition', 'enchantment'],
+    meaning_en: "Fitnah is not a simple pass-or-fail exam. Its oldest sense comes from metalwork: thrusting raw gold or silver into fierce fire, not to destroy it but to burn off the dirt and impurities until only the pure metal is left. So a trial in the Quran both sorts people and refines them. Met with patience and contentment with God's decree, the heat of hardship can burn away a person's flaws and reveal the pure gold inside. The same word carries at least eleven shades across the Quran, from temptation and discord to persecution and the very burning of fire.",
+    meaning_ar: "ليست الفتنةُ مجرّدَ اختبارٍ ينجح فيه المرءُ أو يرسُب. أصلُ معناها من صناعة المعادن: إدخالُ الذهب أو الفضّة الخام في نارٍ شديدة، لا لإتلافها بل لإذابة ما عَلِق بها من شوائبَ حتى يبقى المعدنُ خالصًا. فالابتلاءُ في القرآن يفرز الناسَ ويُنقّيهم في آنٍ واحد؛ فإذا قُوبِل بالصبر والرضا بقضاء الله، أحرقَ حرُّ الشدّةِ عيوبَ النفس وأظهر ما فيها من ذهبٍ خالص. وتحمل الكلمةُ نفسها أكثر من أحدَ عشرَ معنًى في القرآن، من الإغراء والفُرقة إلى الاضطهاد وإحراق النار.",
+    root_insight_en: "Arabic lexicographers trace f-t-n to the phrase 'fatantu al-fiddata wa al-dhahab', meaning 'I assayed the silver and gold by melting them to separate the bad from the good'. The trial is, at its root, a refining fire.",
+    root_insight_ar: "يردّ علماءُ اللغة جذرَ (ف ت ن) إلى قولهم: «فتنتُ الفضّةَ والذهبَ»، أي أذبتُهما بالنار لأميّزَ رديئَهما من جيّدهما. فالفتنةُ في أصلها نارٌ تُنقّي وتمحّص.",
+    source_en: "Lane's Lexicon; Ibn Kathir on Surah al-Ankabut",
+    source_ar: "معجم لين؛ تفسير ابن كثير لسورة العنكبوت"
+  },
+  {
+    id: 3,
+    word_ar: 'رَحْمَة',
+    translit: 'rahmah',
+    root_ar: 'ر ح م',
+    cat: 'Mercy & Forbearance', cat_ar: 'رَحْمَةٌ وَحِلْمٌ',
+    verse_ref: '21:107',
+    verse_ar: 'وَمَآ أَرْسَلْنَٰكَ إِلَّا رَحْمَةً لِّلْعَٰلَمِينَ',
+    translations: ['mercy', 'compassion', 'grace', 'kindness', 'clemency'],
+    meaning_en: "In English, mercy is mostly about restraint: I had the power to harm you and chose not to, the way a judge spares a guilty party or a victor spares a defeated enemy. The Arabic rahmah does not come from courtrooms or battlefields. It is built on the root of rahim, the mother's womb, an environment of total protection, nourishment, and unconditional care for a fragile life that can do nothing for itself. So when God calls Himself ar-Rahman, He is not only saying 'I will not punish you while I can'. He is promising complete envelopment, provision, and tenderness even when you are utterly helpless. Translating that life-giving care as simply 'mercy' is like staring at seven stones and writing 'a lot'.",
+    meaning_ar: "الرحمةُ في الإنجليزية غالبًا معنى الكفّ: كان بوسعي أن أُؤذيك فاخترتُ ألّا أفعل، كما يعفو القاضي عن مذنبٍ أو المنتصِرُ عن عدوٍّ مهزوم. أمّا (الرحمة) في العربية فلا تأتي من قاعات المحاكم ولا من ساحات الحرب، بل تُبنى على جذر (الرَّحِم)، رحمِ الأمّ: بيئةٌ من الحماية التامّة والغذاء والرعاية غير المشروطة لكائنٍ ضعيفٍ لا حيلةَ له. فحين يُسمّي اللهُ نفسه (الرحمن) فهو لا يقول فقط: «لن أعاقبك مع قدرتي»، بل يَعِد بإحاطةٍ كاملةٍ ورزقٍ وحنانٍ حتى وأنت في غاية العجز. وترجمةُ هذا الحنان المُحيي بكلمة «رحمة» فحسب كمن ينظر إلى سبع حصياتٍ فيكتب: «كثير».",
+    root_insight_en: "Rahmah and rahim (the womb) share the same three letters. The womb is the Arabic mind's picture of mercy: shelter, feeding, and care given freely to one who cannot earn or repay it.",
+    root_insight_ar: "تشترك (الرحمة) و(الرَّحِم) في الحروف الثلاثة نفسها. والرحِمُ هو صورةُ الرحمة في الذهن العربي: مأوًى وغذاءٌ ورعايةٌ تُبذَل بلا مقابلٍ لمن لا يملك أن يكسبها أو يردّها.",
+    source_en: "Classical lexicography; the rahmah and rahim relationship in tafsir",
+    source_ar: "المعاجم الكلاسيكية؛ علاقةُ الرحمة بالرحِم في التفسير"
+  },
+  {
+    id: 4,
+    word_ar: 'تَقْوَىٰ',
+    translit: 'taqwa',
+    root_ar: 'و ق ي',
+    cat: 'Faith & Devotion', cat_ar: 'إِيمَانٌ وَعِبَادَةٌ',
+    verse_ref: '49:13',
+    verse_ar: 'يَٰٓأَيُّهَا ٱلنَّاسُ إِنَّا خَلَقْنَٰكُم مِّن ذَكَرٍ وَأُنثَىٰ وَجَعَلْنَٰكُمْ شُعُوبًا وَقَبَآئِلَ لِتَعَارَفُوٓا۟ إِنَّ أَكْرَمَكُمْ عِندَ ٱللَّهِ أَتْقَىٰكُمْ',
+    translations: ['piety', 'God-consciousness', 'fear of God', 'righteousness', 'mindfulness of God'],
+    meaning_en: "Often shrunk to 'fear of God', taqwa is really about protection. It comes from wiqayah, a shield. To have taqwa is to place a guard between yourself and everything that would harm your relationship with God, staying so aware of Him that the awareness shapes every choice. It is not trembling dread but alert, protective care: walking through life the way you would pick your way across a thorn field, lifting your garment so nothing snags you.",
+    meaning_ar: "كثيرًا ما تُختزَل التقوى في «الخوف من الله»، وهي في حقيقتها وقايةٌ وحماية. أصلُها من (الوِقاية)، أي التُّرس الذي يَقي. فأن تتّقيَ اللهَ معناه أن تجعل بينك وبين كلِّ ما يضرُّ علاقتَك به حاجزًا يقيك، وأن تظلَّ على وعيٍ به سبحانه يوجّه كلَّ اختيار. ليست رعبًا مرتجفًا بل حذرٌ يقظٌ ورعاية، كمن يمشي في أرضٍ ذات شوكٍ فيرفع ثوبه لئلّا يَعلَق به.",
+    root_insight_en: "The root w-q-y means to guard, shield, or protect, and wiqayah is a protective cover. Taqwa is the active state of shielding oneself from God's displeasure through obedience, not a passive fear.",
+    root_insight_ar: "جذر (و ق ي) معناه الصونُ والحمايةُ والاتّقاء، و(الوِقاية) ما يُستتَر به ويُحتمى. فالتقوى حالٌ فاعلة: أن يقيَ العبدُ نفسَه سخطَ الله بالطاعة، لا خوفًا سلبيًّا.",
+    source_en: "Ibn Manzur, Lisan al-Arab; classical tafsir",
+    source_ar: "ابن منظور، لسان العرب؛ التفاسير الكلاسيكية"
+  },
+  {
+    id: 5,
+    word_ar: 'صَبْر',
+    translit: 'sabr',
+    root_ar: 'ص ب ر',
+    cat: 'Trial & Flourishing', cat_ar: 'ابْتِلَاءٌ وَنَمَاءٌ',
+    verse_ref: '2:153',
+    verse_ar: 'يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ ٱسْتَعِينُوا۟ بِٱلصَّبْرِ وَٱلصَّلَوٰةِ إِنَّ ٱللَّهَ مَعَ ٱلصَّٰبِرِينَ',
+    translations: ['patience', 'perseverance', 'endurance', 'steadfastness', 'forbearance', 'self-restraint'],
+    meaning_en: "Sabr is not passive waiting. The root means to bind, confine, or hold something firmly in place, so sabr is actively restraining the self, holding it steady on the right path when everything pulls the other way. Arabs also called the bitter desert aloe 'sabbar' because it survives and even thrives in harsh, dry ground. That is the full picture: not merely enduring a hard season, but holding firm and flourishing through its bitterness.",
+    meaning_ar: "ليس الصبرُ انتظارًا سلبيًّا. أصلُ الجذر هو الحبسُ والقيدُ وإمساكُ الشيء بثبات، فالصبرُ حبسُ النفس وكفُّها وتثبيتُها على الطريق المستقيم حين يجذبها كلُّ شيءٍ إلى خلافه. وقد سمّى العربُ صبّارَ الصحراء المرَّ (الصَّبِر) لأنه يصمد بل يزدهر في الأرض القاحلة الجافّة. وتلك هي الصورةُ الكاملة: ليس مجرّدَ احتمالِ زمنٍ صعب، بل الثباتُ والنماءُ رغمَ مرارته.",
+    root_insight_en: "Lexicographers give s-b-r the core sense of binding, confining, or withholding. The aloe plant (sabbar), bitter yet hardy in drought, carries the same root and the same lesson.",
+    root_insight_ar: "يجعل اللغويون لجذر (ص ب ر) معنى الحبسِ والكفِّ والمنع. ونباتُ الصبر (الصبّار) المرُّ الذي يقوى في الجفاف يحمل الجذرَ نفسه والدرسَ نفسه.",
+    source_en: "Classical lexicography; Quranic Arabic Corpus",
+    source_ar: "المعاجم الكلاسيكية؛ مدوّنة القرآن اللغوية"
+  },
+  {
+    id: 6,
+    word_ar: 'خُشُوع',
+    translit: "khushu'",
+    root_ar: 'خ ش ع',
+    cat: 'Faith & Devotion', cat_ar: 'إِيمَانٌ وَعِبَادَةٌ',
+    verse_ref: '23:2',
+    verse_ar: 'ٱلَّذِينَ هُمْ فِى صَلَاتِهِمْ خَٰشِعُونَ',
+    translations: ['humility', 'submissiveness', 'reverence', 'devotion', 'humble focus'],
+    meaning_en: "Khushu is humility you can see. The root means to sink low, become still, and grow quiet, the same word the Quran uses for parched, lifeless land that lies low and bare. In prayer it is the heart standing before its Lord in submission while the limbs fall still, so the inner stillness shows on the outside. Not just 'humility' as an attitude, but a settling of both heart and body before God.",
+    meaning_ar: "الخشوعُ تواضعٌ يُرى أثرُه. أصلُ الجذر: الانخفاضُ والسكونُ والهدوء، وهو الوصفُ نفسه الذي يُطلقه القرآن على الأرض الهامدة الواطئة الجرداء. وهو في الصلاة قيامُ القلب بين يدي ربه خاضعًا بينما تسكن الجوارح، فينعكس سكونُ الباطن على الظاهر. ليس مجرّدَ «تواضعٍ» شعورًا، بل استقرارُ القلب والبدن معًا بين يدي الله.",
+    root_insight_en: "The root kh-sh-' means to lower, be still, and be subdued. The Quran even describes barren earth as 'khashi'ah', stripped and quiet, the same posture asked of the worshipper.",
+    root_insight_ar: "جذر (خ ش ع) معناه الانخفاضُ والسكونُ والذلّ. حتى الأرض القاحلة يصفها القرآن بأنها (خاشعة): هامدةٌ ساكنة، وهي الهيئةُ نفسها المطلوبة من المصلّي.",
+    source_en: "Ibn Kathir on Surah al-Mu'minun; classical lexicography",
+    source_ar: "ابن كثير في سورة المؤمنون؛ المعاجم الكلاسيكية"
+  },
+  {
+    id: 7,
+    word_ar: 'فَلَاح',
+    translit: 'falah',
+    root_ar: 'ف ل ح',
+    cat: 'Trial & Flourishing', cat_ar: 'ابْتِلَاءٌ وَنَمَاءٌ',
+    verse_ref: '23:1',
+    verse_ar: 'قَدْ أَفْلَحَ ٱلْمُؤْمِنُونَ',
+    translations: ['success', 'prosperity', 'salvation', 'felicity', 'deliverance', 'victory'],
+    meaning_en: "The word every Muslim hears five times a day in the call to prayer ('hayya ala al-falah') shares its root with 'fallah', a farmer. Falaha means to plough, to split open the earth. A farmer splits the soil, plants, waters, waits, then harvests. So falah is success earned the way a crop is grown: by cleaving through hard ground and patient cultivation. It is not luck or a one-off win but the flowering of sustained, faithful effort, in this life and the next.",
+    meaning_ar: "الكلمةُ التي يسمعها كلُّ مسلمٍ خمسَ مرّاتٍ يوميًّا في الأذان «حيَّ على الفلاح» تشترك في جذرها مع (الفلّاح)، أي الزارع. و(فلَح) معناه شقُّ الأرض وحرثُها. فالفلّاحُ يشقّ التربةَ ويزرع ويسقي وينتظر ثم يحصد. والفلاحُ إذًا نجاحٌ يُنال كما يُنال الزرع: بشقّ الأرض الصلبة والكدِّ الصبور. ليس حظًّا ولا مكسبًا عابرًا، بل ثمرةَ جهدٍ متّصلٍ مخلصٍ في الدنيا والآخرة.",
+    root_insight_en: "Falaha means to furrow, cleave, or split the earth; the farmer (fallah) is named for splitting soil to plant. Success in the Quran borrows that image: you break through and cultivate to reap.",
+    root_insight_ar: "(فلَح) معناه الحرثُ والشقُّ وفلْقُ الأرض، و(الفلّاح) سُمّي بذلك لأنه يشقّ التربةَ ليزرع. والفلاحُ في القرآن يستعير هذه الصورة: تشقُّ وتغرس لتحصد.",
+    source_en: "Classical Arabic lexicography (Lisan al-Arab)",
+    source_ar: "المعاجم العربية الكلاسيكية (لسان العرب)"
+  },
+  {
+    id: 8,
+    word_ar: 'بَرَكَة',
+    translit: 'barakah',
+    root_ar: 'ب ر ك',
+    cat: 'Trial & Flourishing', cat_ar: 'ابْتِلَاءٌ وَنَمَاءٌ',
+    verse_ref: '7:96',
+    verse_ar: 'وَلَوْ أَنَّ أَهْلَ ٱلْقُرَىٰٓ ءَامَنُوا۟ وَٱتَّقَوْا۟ لَفَتَحْنَا عَلَيْهِم بَرَكَٰتٍ مِّنَ ٱلسَّمَآءِ وَٱلْأَرْضِ',
+    translations: ['blessing', 'abundance', 'benediction', 'divine favour', 'grace'],
+    meaning_en: "Barakah is far more than a one-time blessing. Its root means to kneel down, the way a camel lowers itself to settle and stay in one place; the related 'birkah' is a pool where water gathers and remains. So barakah is good that settles, stays, and keeps giving: a little that does not run out, time that stretches further than it should, provision that quietly multiplies. Not a sudden windfall but fixed, continuous, growing good that God attaches to a thing.",
+    meaning_ar: "البركةُ أوسعُ كثيرًا من نعمةٍ عابرة. أصلُ الجذر هو البروك، كما يبرُك البعيرُ فيستقرّ ويثبت في مكانه؛ ومنه (البِركة) وهي مجتمعُ الماء الذي يثبت ويبقى. فالبركةُ خيرٌ يستقرّ ويدوم ويظلُّ يُعطي: قليلٌ لا ينفد، ووقتٌ يتّسع أكثرَ مما ينبغي، ورزقٌ ينمو في هدوء. ليست عطاءً مفاجئًا، بل خيرٌ ثابتٌ متّصلٌ نامٍ يضعه اللهُ في الشيء.",
+    root_insight_en: "B-r-k means to kneel and settle (as a camel does), giving the sense of stability and permanence; 'birkah', a standing pool, comes from the same root. Barakah is good that stays put and increases.",
+    root_insight_ar: "جذر (ب ر ك) معناه البروكُ والاستقرار (كبروك البعير)، فيفيد الثباتَ والدوام؛ ومنه (البِركة) وهي مستقرُّ الماء. فالبركةُ خيرٌ يثبت ويزيد.",
+    source_en: "Classical lexicography; root analyses of b-r-k",
+    source_ar: "المعاجم الكلاسيكية؛ تحليلُ جذر (ب ر ك)"
+  },
+  {
+    id: 9,
+    word_ar: 'حِلْم',
+    translit: 'hilm',
+    root_ar: 'ح ل م',
+    cat: 'Mercy & Forbearance', cat_ar: 'رَحْمَةٌ وَحِلْمٌ',
+    verse_ref: '2:225',
+    verse_ar: 'لَّا يُؤَاخِذُكُمُ ٱللَّهُ بِٱللَّغْوِ فِىٓ أَيْمَٰنِكُمْ وَلَٰكِن يُؤَاخِذُكُم بِمَا كَسَبَتْ قُلُوبُكُمْ وَٱللَّهُ غَفُورٌ حَلِيمٌ',
+    translations: ['forbearance', 'clemency', 'gentleness', 'patience', 'self-mastery'],
+    meaning_en: "Hilm is the calm, deliberate restraint of someone fully able to punish who chooses composure instead. It is not weakness or inability; it is power held under control. When God names Himself al-Halim, it means He sees every offence, has full power to seize the wrongdoer at once, yet gives time, conceals faults, and does not rush to punish. Curiously, the same root gives the word for a dream (hulm) and for reaching maturity, hinting at a mind that is settled, composed, and grown up.",
+    meaning_ar: "الحِلمُ ضبطٌ هادئٌ متأنٍّ ممّن يقدر تمامًا على العقوبة فيختار الرزانةَ بدلًا منها. ليس ضعفًا ولا عجزًا، بل قوّةٌ ممسوكةٌ بزمامها. وحين يُسمّي اللهُ نفسه (الحليم) فمعناه أنه يرى كلَّ زلّة، وله كمالُ القدرة على الأخذ في الحال، ومع ذلك يُمهل ويستر ولا يُعاجل بالعقوبة. ومن طريف اللغة أنّ الجذر نفسه يُعطي كلمة (الحُلْم) أي الرؤيا، و(بلوغَ الحُلُم) أي النضج، في إشارةٍ إلى عقلٍ رزينٍ متّزنٍ ناضج.",
+    root_insight_en: "The root h-l-m links forbearance with both 'dream' and 'reaching maturity', painting hilm as the settled composure of a mature, unhurried mind that controls its own power.",
+    root_insight_ar: "يربط جذر (ح ل م) بين الأناة وبين (الحُلْم) أي الرؤيا و(بلوغ الحُلُم) أي النضج، فيرسم الحِلمَ رزانةَ العقل الناضج المتّزن الذي يملك زمامَ قوته.",
+    source_en: "Classical tafsir on the divine name al-Halim",
+    source_ar: "التفاسير الكلاسيكية في اسم الله (الحليم)"
+  },
+  {
+    id: 10,
+    word_ar: 'تَوَكُّل',
+    translit: 'tawakkul',
+    root_ar: 'و ك ل',
+    cat: 'Faith & Devotion', cat_ar: 'إِيمَانٌ وَعِبَادَةٌ',
+    verse_ref: '65:3',
+    verse_ar: 'وَمَن يَتَوَكَّلْ عَلَى ٱللَّهِ فَهُوَ حَسْبُهُۥٓ إِنَّ ٱللَّهَ بَٰلِغُ أَمْرِهِۦ',
+    translations: ['trust', 'reliance', 'dependence on God', 'putting one\'s affairs in God\'s hands'],
+    meaning_en: "Tawakkul is often read as 'trust', but it is more specific. It comes from 'wakil', an agent you appoint to handle a matter on your behalf. To do tawakkul is to appoint God as the One in charge of your outcome. That is why it never means folding your arms and doing nothing: you tie your camel, take every real means, and then hand the result to the One who controls results. Active effort, with a heart at rest about what you cannot control.",
+    meaning_ar: "كثيرًا ما يُفهَم التوكلُ بمعنى «الثقة»، وهو أدقُّ من ذلك. أصلُه من (الوكيل)، وهو من تُوكِّله ليتولّى أمرًا عنك. فأن تتوكّل على الله معناه أن تجعله سبحانه هو المتولّيَ لنتيجتك. ولذلك لا يعني قطُّ كفَّ اليد عن العمل: تعقِل ناقتك، وتأخذ بكلِّ الأسباب الحقيقية، ثم تُسلّم النتيجةَ لمن بيده النتائج. سعيٌ فاعلٌ وقلبٌ مطمئنٌّ تجاه ما لا تملكه.",
+    root_insight_en: "Wakil means an appointed agent or guardian; tawakkul is the act of making God your wakil for an affair, entrusting the outcome while still taking the means.",
+    root_insight_ar: "(الوكيل) هو المُفوَّض المتولّي؛ والتوكلُ أن تجعل اللهَ وكيلَك في الأمر، فتُفوّض النتيجةَ إليه مع الأخذ بالأسباب.",
+    source_en: "Classical tafsir; Lisan al-Arab",
+    source_ar: "التفاسير الكلاسيكية؛ لسان العرب"
+  },
+  {
+    id: 11,
+    word_ar: 'فُرْقَان',
+    translit: 'furqan',
+    root_ar: 'ف ر ق',
+    cat: 'Revelation', cat_ar: 'الْوَحْيُ',
+    verse_ref: '25:1',
+    verse_ar: 'تَبَارَكَ ٱلَّذِى نَزَّلَ ٱلْفُرْقَانَ عَلَىٰ عَبْدِهِۦ لِيَكُونَ لِلْعَٰلَمِينَ نَذِيرًا',
+    translations: ['the criterion', 'the distinguisher', 'the standard', 'that which separates truth from falsehood', 'the decisive proof'],
+    meaning_en: "Furqan, one of the Quran's own names for itself, comes from 'faraqa', to separate or split apart. It is not just a 'criterion' in the dry sense of a checklist. It is the faculty and the scripture that cleaves truth from falsehood and right from wrong, leaving a clear line between them where there had been confusion. To receive furqan is to be given the power to tell apart what was once tangled together.",
+    meaning_ar: "(الفرقان) أحدُ أسماء القرآن لنفسه، وهو من (فرَق) أي فصَل وميّز وقطَع. وليس مجرّدَ «معيارٍ» جامدٍ كقائمة فحص، بل هو الملَكةُ والكتابُ الذي يفصل الحقَّ عن الباطل والصوابَ عن الخطأ، فيترك بينهما خطًّا واضحًا حيث كان اللبس. وأن تُؤتى الفرقانَ أن تُمنح القدرةَ على تمييز ما كان مختلطًا متشابكًا.",
+    root_insight_en: "F-r-q means to separate, divide, or distinguish. The Quran calls itself al-Furqan because it draws a clear dividing line between truth and falsehood.",
+    root_insight_ar: "جذر (ف ر ق) معناه الفصلُ والتفريقُ والتمييز. وسمّى القرآن نفسه (الفرقان) لأنه يرسم خطًّا فاصلًا واضحًا بين الحق والباطل.",
+    source_en: "Classical tafsir on Surah al-Furqan",
+    source_ar: "التفاسير الكلاسيكية في سورة الفرقان"
+  },
+  {
+    id: 12,
+    word_ar: 'ذِكْر',
+    translit: 'dhikr',
+    root_ar: 'ذ ك ر',
+    cat: 'Faith & Devotion', cat_ar: 'إِيمَانٌ وَعِبَادَةٌ',
+    verse_ref: '13:28',
+    verse_ar: 'ٱلَّذِينَ ءَامَنُوا۟ وَتَطْمَئِنُّ قُلُوبُهُم بِذِكْرِ ٱللَّهِ أَلَا بِذِكْرِ ٱللَّهِ تَطْمَئِنُّ ٱلْقُلُوبُ',
+    translations: ['remembrance', 'mention', 'reminder', 'invocation', 'keeping in mind'],
+    meaning_en: "Dhikr holds two acts in one word: to remember inwardly and to mention aloud. The Quran uses it for the heart that keeps God present and for the tongue that speaks His name, because in Arabic the two are inseparable, what fills the heart rises to the tongue. So dhikr is not a private feeling alone, nor a spoken formula alone, but a continuous state where remembrance and speech feed each other, and by it 'hearts find rest'.",
+    meaning_ar: "يجمع (الذكرُ) فعلين في كلمةٍ واحدة: الاستحضارَ في القلب والنطقَ باللسان. ويستعمله القرآن للقلب الذي يبقى اللهُ حاضرًا فيه وللّسان الذي ينطق باسمه، لأنهما في العربية لا ينفصلان؛ فما امتلأ به القلبُ جرى به اللسان. فالذكرُ ليس شعورًا خفيًّا وحده، ولا صيغةً منطوقةً وحدها، بل حالٌ متّصلةٌ يغذّي فيها الاستحضارُ والقولُ أحدُهما الآخر، وبه (تطمئنُّ القلوب).",
+    root_insight_en: "The root dh-k-r covers both remembering and mentioning, inner recall and outward speech, so dhikr binds heart and tongue into a single practice.",
+    root_insight_ar: "جذر (ذ ك ر) يشمل التذكُّرَ والذِّكر، الاستحضارَ الباطنَ والنطقَ الظاهر، فيجمع الذكرُ القلبَ واللسانَ في عملٍ واحد.",
+    source_en: "Classical tafsir on Surah al-Ra'd; lexical roots",
+    source_ar: "التفاسير الكلاسيكية في سورة الرعد؛ جذور الكلمة"
+  }
+];
+
+if (typeof window !== 'undefined') {
+  window.QURAN_UNTRANSLATABLE = QURAN_UNTRANSLATABLE;
+  window.QURAN_UNTRANSLATABLE_INTRO = QURAN_UNTRANSLATABLE_INTRO;
+}

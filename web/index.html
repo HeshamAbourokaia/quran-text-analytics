@@ -3,167 +3,407 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Quran Text Analytics - Claim Auditor</title>
-<meta name="description" content="Famous Quran word-count claims checked against the Quranic Arabic Corpus, with verified lemma counts across 114 surahs, 6,236 verses and 77,429 words." />
+<title>Quran Text Analytics</title>
+<meta name="description" content="Interactive analytics over the full Quranic Arabic Corpus: 114 surahs, 6,236 verses and 77,429 morphologically tagged words, with a claim auditor, machine learning lab and bilingual interface." />
 <link rel="canonical" href="https://heshamabourokaia.github.io/quran-text-analytics/" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-<meta name="theme-color" content="#0f3b2e" />
+<meta name="theme-color" content="#060f0b" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://heshamabourokaia.github.io/quran-text-analytics/" />
-<meta property="og:title" content="Quran Text Analytics - Claim Auditor" />
-<meta property="og:description" content="Every famous word-count claim, checked against the real Quran corpus: the claimed figure, the verified lemma count, and what a naive search returns. Nothing hidden." />
+<meta property="og:title" content="Quran Text Analytics" />
+<meta property="og:description" content="The Quran, measured. 114 surahs, 6,236 verses, 77,429 words. Interactive charts, a machine learning lab, word search and a claim auditor. English and Arabic." />
 <meta property="og:image" content="https://heshamabourokaia.github.io/quran-text-analytics/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:locale" content="en_AU" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Quran Text Analytics - Claim Auditor" />
-<meta name="twitter:description" content="Every famous word-count claim, checked against the real Quran corpus: the claimed figure, the verified lemma count, and what a naive search returns. Nothing hidden." />
+<meta name="twitter:title" content="Quran Text Analytics" />
+<meta name="twitter:description" content="The Quran, measured. 114 surahs, 6,236 verses, 77,429 words. Interactive charts, a machine learning lab, word search and a claim auditor. English and Arabic." />
 <meta name="twitter:image" content="https://heshamabourokaia.github.io/quran-text-analytics/og-image.png" />
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#0f2a23; --muted:#5b7a70; --line:#e3ede9;
-    --emerald:#0f9d58; --emerald-bg:#e7f7ef;
-    --teal:#0891b2; --teal-bg:#e3f5f9;
-    --amber:#c77700; --amber-bg:#fdf3e2;
-    --card:#ffffff;
+    --ink:#0b1512;--ink-2:#33403b;--muted:#66736e;
+    --line:rgba(11,33,24,.11);--line-soft:rgba(11,33,24,.07);
+    --emerald:#0da564;--emerald-deep:#067647;--emerald-bg:#e6f7ee;
+    --teal:#0d96b0;--teal-bg:#e3f4f8;--amber:#b97c10;--amber-bg:#fcf3e0;
+    --card:#fff;--bg:#f5f8f6;
+    --shadow-1:0 1px 2px rgba(8,24,17,.04),0 4px 14px rgba(8,24,17,.05);
+    --shadow-2:0 2px 4px rgba(8,24,17,.05),0 18px 44px -14px rgba(8,24,17,.16);
+    --ease:cubic-bezier(.22,.8,.26,1);
   }
   *{box-sizing:border-box}
-  body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);
-    background:linear-gradient(160deg,#f3fbf7 0%,#eef7fb 55%,#f6f3fb 100%);min-height:100vh}
-  .wrap{max-width:1180px;margin:0 auto;padding:32px 20px 80px}
-  header.hero{text-align:center;margin-bottom:8px}
-  .kicker{letter-spacing:.18em;text-transform:uppercase;font-size:.72rem;color:var(--muted);font-weight:600}
-  h1{font-size:2.3rem;margin:.2em 0 .1em;font-weight:800;letter-spacing:-.02em}
-  .sub{color:var(--muted);font-size:1.02rem;max-width:680px;margin:0 auto}
-  .stats{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:26px 0 6px}
-  .stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 22px;min-width:150px;
-    box-shadow:0 6px 20px rgba(15,60,45,.05);text-align:center}
-  .stat .n{font-size:1.7rem;font-weight:800;color:var(--emerald)}
-  .stat .l{font-size:.78rem;color:var(--muted);margin-top:2px}
-  .fix{font-size:.75rem;color:var(--muted);text-align:center;margin:4px 0 26px}
-  .fix b{color:var(--amber)}
-  .legend{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:22px;font-size:.82rem;color:var(--muted)}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  ::selection{background:#0da564;color:#fff}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+
+  /* ── top nav ── */
+  .topnav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
+    padding:12px clamp(18px,4vw,40px);
+    background:rgba(6,15,11,.55);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);
+    border-bottom:1px solid rgba(255,255,255,.06)}
+  .navbrand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;font-size:.95rem;letter-spacing:-.01em;text-decoration:none}
+  .glyph{width:30px;height:30px;border-radius:8px;flex:none;
+    background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path fill="white" d="M30.5 20.1c-3.8-2.7-9-4.1-14.5-4.1-.9 0-1.5.7-1.5 1.5v25.4c0 .8.6 1.5 1.5 1.5 5.2 0 10.1 1.4 13.6 3.8.3.2.6.3.9.3V20.1z"/><path fill="white" d="M33.5 20.1c3.8-2.7 9-4.1 14.5-4.1.9 0 1.5.7 1.5 1.5v25.4c0 .8-.6 1.5-1.5 1.5-5.2 0-10.1 1.4-13.6 3.8-.3.2-.6.3-.9.3V20.1z"/></svg>') center/18px 18px no-repeat,
+      linear-gradient(135deg,#0fb56d,#067647);
+    box-shadow:0 4px 12px -2px rgba(13,165,100,.5)}
+  .navlinks{display:flex;align-items:center;gap:22px;font-size:.84rem}
+  .navlinks a{color:#bcd9cb;text-decoration:none;transition:color .2s}
+  .navlinks a:hover{color:#fff}
+  .navcta{background:linear-gradient(135deg,#0fb56d,#067647);color:#fff !important;font-weight:600;
+    padding:8px 18px;border-radius:99px;box-shadow:0 6px 16px -4px rgba(13,165,100,.55);transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
+  .navcta:hover{transform:translateY(-1px);box-shadow:0 10px 22px -4px rgba(13,165,100,.65)}
+
+  /* ── hero ── */
+  .hero{position:relative;overflow:hidden;color:#fff;padding:140px clamp(18px,5vw,48px) 0;
+    background:linear-gradient(180deg,#040a07 0%,#060f0b 55%,#081410 100%)}
+  .aurora{position:absolute;border-radius:50%;filter:blur(90px);opacity:.4;pointer-events:none}
+  .aurora.a1{width:560px;height:560px;background:#0da564;top:-180px;left:-120px;animation:drift1 16s ease-in-out infinite alternate}
+  .aurora.a2{width:480px;height:480px;background:#0d96b0;top:-80px;right:-140px;animation:drift2 19s ease-in-out infinite alternate}
+  .aurora.a3{width:420px;height:420px;background:#8a6a12;bottom:-220px;left:38%;opacity:.22;animation:drift1 22s ease-in-out infinite alternate-reverse}
+  @keyframes drift1{from{transform:translate(0,0) scale(1)}to{transform:translate(70px,40px) scale(1.12)}}
+  @keyframes drift2{from{transform:translate(0,0) scale(1)}to{transform:translate(-60px,50px) scale(1.08)}}
+  .watermark{position:absolute;top:30px;right:-40px;font-family:Amiri,serif;font-size:clamp(10rem,22vw,20rem);
+    color:rgba(255,255,255,.045);line-height:1;pointer-events:none;user-select:none}
+  .heroinner{position:relative;max-width:1080px;margin:0 auto;text-align:center}
+  .kicker{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:600;letter-spacing:.22em;
+    text-transform:uppercase;color:#7fcfa9;background:rgba(13,165,100,.12);border:1px solid rgba(13,165,100,.3);
+    border-radius:99px;padding:7px 16px}
+  .hero h1{font-size:clamp(2.6rem,2rem + 4vw,4.6rem);font-weight:800;letter-spacing:-.04em;line-height:1.04;margin:26px 0 0}
+  .hero h1 .grad{display:block;background:linear-gradient(95deg,#34d399 5%,#0fb56d 40%,#22b8cf 90%);
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .herosub{color:#9fb8ad;font-size:clamp(1rem,.95rem + .35vw,1.22rem);line-height:1.65;max-width:640px;margin:22px auto 0}
+  .ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:34px 0 0}
+  .btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;font-size:.98rem;
+    padding:14px 30px;border-radius:99px;transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
+  .btn.primary{background:linear-gradient(135deg,#0fb56d,#067647);color:#fff;
+    box-shadow:0 12px 30px -8px rgba(13,165,100,.65),inset 0 1px 0 rgba(255,255,255,.2)}
+  .btn.primary:hover{transform:translateY(-2px);box-shadow:0 18px 38px -8px rgba(13,165,100,.75),inset 0 1px 0 rgba(255,255,255,.2)}
+  .btn.ghost{color:#d7eee2;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.04)}
+  .btn.ghost:hover{background:rgba(255,255,255,.09);transform:translateY(-2px)}
+  .herostats{display:flex;gap:clamp(18px,4vw,56px);justify-content:center;flex-wrap:wrap;margin:46px 0 0}
+  .hstat{text-align:center}
+  .hstat .n{font-size:clamp(1.7rem,1.4rem + 1.4vw,2.6rem);font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums;
+    background:linear-gradient(135deg,#5eead4,#0fb56d);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hstat .l{font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#76928a;margin-top:4px}
+  .shotwrap{position:relative;max-width:1020px;margin:64px auto -2px;perspective:1400px}
+  .shot{border-radius:18px 18px 0 0;border:1px solid rgba(255,255,255,.14);border-bottom:0;overflow:hidden;
+    transform:rotateX(7deg);transform-origin:bottom;transition:transform 1s var(--ease);
+    box-shadow:0 -10px 80px -20px rgba(13,165,100,.35),0 40px 120px -40px rgba(0,0,0,.8)}
+  .shotwrap.in .shot{transform:rotateX(2.5deg)}
+  .shotbar{display:flex;align-items:center;gap:6px;background:#101e17;padding:11px 16px;border-bottom:1px solid rgba(255,255,255,.07)}
+  .shotbar i{width:10px;height:10px;border-radius:50%;background:#2c4438}
+  .shotbar i:first-child{background:#e0604f}.shotbar i:nth-child(2){background:#dfa63f}.shotbar i:nth-child(3){background:#52b15f}
+  .shotbar span{margin-inline:auto;font-size:.7rem;color:#76928a;background:rgba(255,255,255,.06);border-radius:6px;padding:3px 26px}
+
+  /* ── sections ── */
+  section.feat,section.claims{padding:96px clamp(18px,5vw,48px)}
+  .inner{max-width:1120px;margin:0 auto}
+  .sechead{text-align:center;max-width:680px;margin:0 auto 54px}
+  .sechead .kicker{color:var(--emerald-deep);background:var(--emerald-bg);border-color:rgba(13,165,100,.25)}
+  .sechead h2{font-size:clamp(1.9rem,1.5rem + 1.8vw,3rem);font-weight:800;letter-spacing:-.035em;line-height:1.1;margin:20px 0 14px}
+  .sechead p{color:var(--muted);font-size:1.04rem;line-height:1.65;margin:0}
+
+  /* bento */
+  .bento{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+  .tile{background:var(--card);border:1px solid var(--line-soft);border-radius:24px;padding:30px;
+    box-shadow:var(--shadow-1);transition:transform .35s var(--ease),box-shadow .35s var(--ease);overflow:hidden;position:relative}
+  .tile:hover{transform:translateY(-4px);box-shadow:var(--shadow-2)}
+  .tile h3{margin:0 0 8px;font-size:1.22rem;font-weight:700;letter-spacing:-.02em}
+  .tile p{margin:0;color:var(--muted);font-size:.92rem;line-height:1.6}
+  .tile .big{font-size:1.5rem}
+  .t-lab{grid-column:span 4}
+  .t-search{grid-column:span 2}
+  .t-bilingual{grid-column:span 2}
+  .t-graph{grid-column:span 2}
+  .t-reader{grid-column:span 2}
+  .tile.dark{color:#eafaf2;border-color:rgba(255,255,255,.07);
+    background:
+      radial-gradient(520px 280px at 8% -40%,rgba(13,165,100,.4),transparent 62%),
+      radial-gradient(420px 280px at 100% 130%,rgba(13,150,176,.25),transparent 60%),
+      linear-gradient(135deg,#0b231a,#081410)}
+  .tile.dark p{color:#9fb8ad}
+  .minibars{display:flex;align-items:flex-end;gap:9px;height:96px;margin-top:26px}
+  .minibars i{flex:1;border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,#34d399,#067647);
+    transform:scaleY(.1);transform-origin:bottom;transition:transform .8s var(--ease)}
+  .minibars i:nth-child(2n){background:linear-gradient(180deg,#22b8cf,#0d96b0)}
+  .in .minibars i{transform:scaleY(1)}
+  .in .minibars i:nth-child(1){transition-delay:.05s}.in .minibars i:nth-child(2){transition-delay:.12s}
+  .in .minibars i:nth-child(3){transition-delay:.19s}.in .minibars i:nth-child(4){transition-delay:.26s}
+  .in .minibars i:nth-child(5){transition-delay:.33s}.in .minibars i:nth-child(6){transition-delay:.4s}
+  .in .minibars i:nth-child(7){transition-delay:.47s}.in .minibars i:nth-child(8){transition-delay:.54s}
+  .keycaps{display:flex;flex-wrap:wrap;gap:7px;margin-top:24px}
+  .keycaps b{font-family:Amiri,serif;font-weight:400;font-size:1.3rem;background:#f4f8f5;border:1px solid var(--line);
+    border-radius:9px;padding:6px 13px;box-shadow:0 1.5px 0 rgba(8,24,17,.12)}
+  .pillpair{display:inline-flex;background:#edf2ef;border:1px solid var(--line-soft);border-radius:11px;padding:3px;gap:2px;margin-top:24px}
+  .pillpair span{padding:8px 18px;border-radius:8px;font-size:.86rem;color:var(--muted)}
+  .pillpair span.on{background:#fff;color:var(--ink);font-weight:600;box-shadow:0 1px 4px rgba(8,24,17,.14)}
+  .pillpair span.ar{font-family:Amiri,serif}
+  .net{margin-top:18px;width:100%;height:120px}
+  .net circle{fill:#34d399}
+  .net line{stroke:rgba(94,234,212,.35);stroke-width:1}
+  .bism{font-family:Amiri,serif;font-size:1.7rem;text-align:center;margin-top:30px;color:var(--ink);direction:rtl}
+  .verseline{font-size:.78rem;color:var(--muted);text-align:center;margin-top:6px}
+
+  /* claims (preserved auditor, restyled) */
+  section.claims{background:linear-gradient(180deg,#eef4f0,var(--bg) 30%)}
+  .legend{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin:0 0 26px;font-size:.82rem;color:var(--muted)}
   .legend span{display:inline-flex;align-items:center;gap:6px}
   .dot{width:10px;height:10px;border-radius:50%}
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;
-    box-shadow:0 8px 26px rgba(15,60,45,.06);transition:transform .15s,box-shadow .15s}
-  .card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(15,60,45,.10)}
-  .card.exact{border-top:4px solid var(--emerald)}
-  .card.parity{border-top:4px solid var(--teal)}
-  .card.differs{border-top:4px solid var(--amber)}
+  .card{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:22px;
+    box-shadow:var(--shadow-1);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+  .card:hover{transform:translateY(-3px);box-shadow:var(--shadow-2)}
+  .card.exact{border-top:3px solid var(--emerald)}
+  .card.parity{border-top:3px solid var(--teal)}
+  .card.differs{border-top:3px solid var(--amber)}
   .ctop{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
   .word-ar{font-family:Amiri,serif;font-size:2rem;line-height:1.1;color:var(--ink)}
   .word-en{font-size:.86rem;color:var(--muted);margin-top:2px}
-  .badge{font-size:.68rem;font-weight:700;padding:4px 9px;border-radius:999px;white-space:nowrap}
-  .badge.exact{background:var(--emerald-bg);color:var(--emerald)}
+  .badge{font-size:.66rem;font-weight:700;letter-spacing:.03em;padding:4px 10px;border-radius:999px;white-space:nowrap}
+  .badge.exact{background:var(--emerald-bg);color:var(--emerald-deep)}
   .badge.parity{background:var(--teal-bg);color:var(--teal)}
   .badge.differs{background:var(--amber-bg);color:var(--amber)}
   .nums{display:flex;gap:10px;margin:16px 0 6px}
-  .num{flex:1;text-align:center;border:1px solid var(--line);border-radius:12px;padding:10px 6px}
-  .num .v{font-size:1.5rem;font-weight:800}
-  .num .k{font-size:.66rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:2px}
+  .num{flex:1;text-align:center;border:1px solid var(--line-soft);border-radius:14px;padding:11px 6px;background:#fcfdfc}
+  .num .v{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .num .k{font-size:.64rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-top:2px}
   .num.claimed .v{color:#6b7280}
-  .num.verified .v{color:var(--emerald)}
+  .num.verified .v{color:var(--emerald-deep)}
   .num.verified.off .v{color:var(--amber)}
   .raw{font-size:.74rem;color:var(--muted);text-align:center;margin-top:2px}
-  .note{font-size:.84rem;color:#3a554c;line-height:1.5;margin-top:12px}
+  .note{font-size:.84rem;color:#3a554c;line-height:1.55;margin-top:12px}
   .more{margin-top:12px;font-size:.78rem;color:var(--teal);cursor:pointer;user-select:none;font-weight:600}
   .audit{margin-top:10px;display:flex;flex-wrap:wrap;gap:5px}
-  .ref{font-size:.7rem;background:#f1f7f4;border:1px solid var(--line);border-radius:6px;padding:2px 6px;color:var(--muted)}
+  .ref{font-size:.7rem;background:#f1f7f4;border:1px solid var(--line-soft);border-radius:6px;padding:2px 6px;color:var(--muted)}
   .pairtag{font-size:.68rem;color:var(--teal);margin-top:8px}
-  footer{margin-top:40px;text-align:center;font-size:.74rem;color:var(--muted)}
+  .fix{font-size:.78rem;color:var(--muted);text-align:center;margin:18px 0 0}
+  .fix b{color:var(--amber)}
+
+  /* footer */
+  footer{background:#060f0b;color:#76928a;padding:54px clamp(18px,5vw,48px);text-align:center;font-size:.82rem;line-height:1.7}
+  footer a{color:#7fcfa9;text-decoration:none}
+  footer a:hover{color:#fff}
+  .footbrand{display:flex;align-items:center;justify-content:center;gap:10px;color:#fff;font-weight:700;margin-bottom:14px}
+
+  /* reveal on scroll */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    .aurora{animation:none}
+    .minibars i{transform:none;transition:none}
+    .shot{transform:none;transition:none}
+    html{scroll-behavior:auto}
+  }
+  @media (max-width:860px){
+    .t-lab,.t-search,.t-bilingual,.t-graph,.t-reader{grid-column:span 6}
+    .navlinks a.plain{display:none}
+    .watermark{display:none}
+    .hero{padding-top:108px}
+    .shotwrap{margin-top:44px}
+  }
 </style>
 </head>
 <body>
-<div id="app" class="wrap">
-  <header class="hero">
-    <div class="kicker">Quran Text Analytics &middot; v2</div>
-    <h1>Claim Auditor</h1>
-    <p class="sub">Every famous word-count claim, checked against the real Quran corpus. We show the
-      <b>claimed</b> figure, the <b>verified</b> count by lemma, and what a <b>naive search</b> returns. Nothing hidden.</p>
-    <p style="margin:22px 0 0">
-      <a href="app.html" style="display:inline-block;background:var(--emerald);color:#fff;text-decoration:none;font-weight:700;font-size:.95rem;padding:13px 30px;border-radius:12px;box-shadow:0 8px 22px rgba(15,157,88,.28)">Open the full analytics app &rsaquo;</a>
-    </p>
-    <p style="font-size:.78rem;color:var(--muted);margin:10px 0 0">Word frequencies, roots, Mecca vs Medina, letter statistics, stories and more, in English and Arabic.</p>
-  </header>
 
-  <div class="stats">
-    <div class="stat"><div class="n">{{ stats.totals.suras }}</div><div class="l">Surahs</div></div>
-    <div class="stat"><div class="n">{{ fmt(stats.totals.verses) }}</div><div class="l">Verses</div></div>
-    <div class="stat"><div class="n">{{ fmt(stats.totals.words) }}</div><div class="l">Words</div></div>
+<nav class="topnav">
+  <a class="navbrand" href="./"><span class="glyph"></span>Quran Text Analytics</a>
+  <div class="navlinks">
+    <a class="plain" href="#features">Features</a>
+    <a class="plain" href="#claims">Claim Auditor</a>
+    <a class="navcta" href="app.html">Open the app</a>
   </div>
-  <div class="fix">Built on the Quranic Arabic Corpus morphology. The old app showed <b>6,348 verses / 56,108 words</b> - both corrected here.</div>
+</nav>
 
-  <div class="legend">
-    <span><span class="dot" style="background:var(--emerald)"></span> Verified matches the claim exactly</span>
-    <span><span class="dot" style="background:var(--teal)"></span> Parity holds (pair is equal)</span>
-    <span><span class="dot" style="background:var(--amber)"></span> Differs / depends on counting method</span>
-  </div>
-
-  <div class="grid">
-    <div v-for="c in claims" :key="c.id" class="card" :class="verdict(c)">
-      <div class="ctop">
-        <div>
-          <div class="word-ar">{{ c.ar }}</div>
-          <div class="word-en">{{ c.en }}</div>
-        </div>
-        <div class="badge" :class="verdict(c)">{{ badge(c) }}</div>
-      </div>
-
-      <div class="nums">
-        <div class="num claimed"><div class="v">{{ fmt(c.claimed) }}</div><div class="k">Claimed</div></div>
-        <div class="num verified" :class="{off: c.verifiedLemma !== c.claimed}">
-          <div class="v">{{ fmt(c.verifiedLemma) }}</div><div class="k">Verified</div>
-        </div>
-      </div>
-      <div class="raw">naive search: {{ fmt(c.rawSubstring) }} substring &middot; {{ fmt(c.rawWholeWord) }} whole-word</div>
-
-      <div v-if="c.pair && pairEqual(c)" class="pairtag">= its pair ({{ pairName(c) }}) - the symmetry holds</div>
-
-      <div class="note">{{ c.note_en }}</div>
-
-      <div class="more" @click="toggle(c.id)">{{ open[c.id] ? 'Hide' : 'Show' }} the {{ c.verifiedLemma }} verses &rsaquo;</div>
-      <div v-if="open[c.id]" class="audit">
-        <span class="ref" v-for="r in c.audit.slice(0,40)" :key="r[0]+':'+r[1]">{{ r[0] }}:{{ r[1] }}</span>
-        <span v-if="c.audit.length>40" class="ref">+{{ c.audit.length-40 }} more</span>
+<header class="hero">
+  <div class="aurora a1"></div><div class="aurora a2"></div><div class="aurora a3"></div>
+  <div class="watermark">&#1649;&#1604;&#1618;&#1602;&#1615;&#1585;&#1618;&#1570;&#1606;</div>
+  <div class="heroinner">
+    <span class="kicker">Authoritative corpus analytics</span>
+    <h1>The Quran, measured.<span class="grad">Every word. Every root. Verified.</span></h1>
+    <p class="herosub">Interactive analytics over the full Quranic Arabic Corpus: morphology-level search,
+      a machine learning lab, statistical tests and a claim auditor. In English and Arabic, in your browser.</p>
+    <div class="ctas">
+      <a class="btn primary" href="app.html">Open the app &rsaquo;</a>
+      <a class="btn ghost" href="#claims">Audit the famous claims</a>
+    </div>
+    <div class="herostats">
+      <div class="hstat"><div class="n" data-count="114">0</div><div class="l">Surahs</div></div>
+      <div class="hstat"><div class="n" data-count="6236">0</div><div class="l">Verses</div></div>
+      <div class="hstat"><div class="n" data-count="77429">0</div><div class="l">Words</div></div>
+      <div class="hstat"><div class="n" data-count="38">0</div><div class="l">Interactive pages</div></div>
+    </div>
+    <div class="shotwrap reveal">
+      <div class="shot">
+        <div class="shotbar"><i></i><i></i><i></i><span>heshamabourokaia.github.io/quran-text-analytics</span></div>
+        <img src="shot-app.png" alt="The Quran Text Analytics app: dark sidebar with analytics pages, corpus totals and a verses-per-surah chart" width="1440" height="900" loading="eager" />
       </div>
     </div>
   </div>
+</header>
 
-  <footer>
-    Data: Quranic Arabic Corpus morphology (lemma + root + POS). Counts are computed live from the corpus and pinned by tests.
-  </footer>
-</div>
+<section class="feat" id="features">
+  <div class="inner">
+    <div class="sechead reveal">
+      <span class="kicker">What is inside</span>
+      <h2>Built like an instrument,<br>not a brochure.</h2>
+      <p>Every number on this site is computed live from the corpus in your browser and pinned by tests. Nothing is hand-typed, nothing is hidden.</p>
+    </div>
+    <div class="bento">
+      <div class="tile dark t-lab reveal">
+        <h3 class="big">The Analytics Lab</h3>
+        <p>Six working studios: logistic regression that tells Meccan from Medinan surahs, k-means and PCA clustering,
+           hypothesis testing, Monte Carlo simulation, a linear-programming memorisation optimiser and a live BI dashboard with filters.</p>
+        <div class="minibars"><i style="height:38%"></i><i style="height:62%"></i><i style="height:45%"></i><i style="height:88%"></i><i style="height:30%"></i><i style="height:72%"></i><i style="height:55%"></i><i style="height:96%"></i></div>
+      </div>
+      <div class="tile t-search reveal">
+        <h3>Word Search</h3>
+        <p>Search by surface form, lemma or root, with a full on-screen Arabic keyboard and a highlighted concordance.</p>
+        <div class="keycaps"><b>&#1602;</b><b>&#1585;</b><b>&#1570;</b><b>&#1606;</b><b style="font-family:Inter;font-size:.8rem;color:#c81e5b;background:#fdeef3">&#8920;</b></div>
+      </div>
+      <div class="tile t-bilingual reveal">
+        <h3>Fully bilingual</h3>
+        <p>One tap flips the entire app into Arabic: right-to-left layout, mirrored charts, Arabic-Indic numerals.</p>
+        <div class="pillpair"><span>English</span><span class="on ar">&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;</span></div>
+      </div>
+      <div class="tile dark t-graph reveal">
+        <h3>Knowledge graph</h3>
+        <p>439 nodes and 929 edges link surahs, prophets, events and tafsir into one interactive map with 28 communities.</p>
+        <svg class="net" viewBox="0 0 300 120" aria-hidden="true">
+          <line x1="40" y1="60" x2="110" y2="28"/><line x1="40" y1="60" x2="100" y2="92"/><line x1="110" y1="28" x2="180" y2="50"/>
+          <line x1="100" y1="92" x2="180" y2="50"/><line x1="180" y1="50" x2="250" y2="26"/><line x1="180" y1="50" x2="244" y2="88"/>
+          <line x1="110" y1="28" x2="250" y2="26"/><line x1="100" y1="92" x2="244" y2="88"/>
+          <circle cx="40" cy="60" r="7"/><circle cx="110" cy="28" r="5"/><circle cx="100" cy="92" r="6"/>
+          <circle cx="180" cy="50" r="9"/><circle cx="250" cy="26" r="5"/><circle cx="244" cy="88" r="6"/>
+        </svg>
+      </div>
+      <div class="tile t-reader reveal">
+        <h3>Reader</h3>
+        <p>The full mushaf, verse by verse, in Uthmani script with the Amiri typeface.</p>
+        <div class="bism">&#1576;&#1616;&#1587;&#1618;&#1605;&#1616; &#1649;&#1604;&#1604;&#1614;&#1617;&#1607;&#1616; &#1649;&#1604;&#1585;&#1614;&#1617;&#1581;&#1618;&#1605;&#1614;&#1648;&#1606;&#1616; &#1649;&#1604;&#1585;&#1614;&#1617;&#1581;&#1616;&#1610;&#1605;&#1616;</div>
+        <div class="verseline">1:1</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
-<script src="data.js"></script>
+<section class="claims" id="claims">
+  <div class="inner" id="app">
+    <div class="sechead reveal">
+      <span class="kicker">Claim auditor</span>
+      <h2>Famous claims, audited.</h2>
+      <p>Every famous word-count claim, checked against the real corpus. We show the <b>claimed</b> figure,
+         the <b>verified</b> count by lemma, and what a <b>naive search</b> returns. Nothing hidden.</p>
+    </div>
+
+    <div class="legend">
+      <span><span class="dot" style="background:var(--emerald)"></span> Verified matches the claim exactly</span>
+      <span><span class="dot" style="background:var(--teal)"></span> Parity holds (pair is equal)</span>
+      <span><span class="dot" style="background:var(--amber)"></span> Differs / depends on counting method</span>
+    </div>
+
+    <div class="grid">
+      <div v-for="c in claims" :key="c.id" class="card" :class="verdict(c)">
+        <div class="ctop">
+          <div>
+            <div class="word-ar">{{ c.ar }}</div>
+            <div class="word-en">{{ c.en }}</div>
+          </div>
+          <div class="badge" :class="verdict(c)">{{ badge(c) }}</div>
+        </div>
+
+        <div class="nums">
+          <div class="num claimed"><div class="v">{{ fmt(c.claimed) }}</div><div class="k">Claimed</div></div>
+          <div class="num verified" :class="{off: c.verifiedLemma !== c.claimed}">
+            <div class="v">{{ fmt(c.verifiedLemma) }}</div><div class="k">Verified</div>
+          </div>
+        </div>
+        <div class="raw">naive search: {{ fmt(c.rawSubstring) }} substring &middot; {{ fmt(c.rawWholeWord) }} whole-word</div>
+
+        <div v-if="c.pair && pairEqual(c)" class="pairtag">= its pair ({{ pairName(c) }}) - the symmetry holds</div>
+
+        <div class="note">{{ c.note_en }}</div>
+
+        <div class="more" @click="toggle(c.id)">{{ open[c.id] ? 'Hide' : 'Show' }} the {{ c.verifiedLemma }} verses &rsaquo;</div>
+        <div v-if="open[c.id]" class="audit">
+          <span class="ref" v-for="r in c.audit.slice(0,40)" :key="r[0]+':'+r[1]">{{ r[0] }}:{{ r[1] }}</span>
+          <span v-if="c.audit.length>40" class="ref">+{{ c.audit.length-40 }} more</span>
+        </div>
+      </div>
+    </div>
+    <div class="fix">Built on the Quranic Arabic Corpus morphology. The old app showed <b>6,348 verses / 56,108 words</b> - both corrected here.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="footbrand"><span class="glyph"></span>Quran Text Analytics</div>
+  Data: Quranic Arabic Corpus morphology (lemma, root and part of speech).
+  Counts are computed live from the corpus and pinned by tests.<br>
+  <a href="app.html">Open the app</a> &nbsp;&middot;&nbsp; <a href="https://github.com/heshamrokaia/quran-text-analytics">View the source on GitHub</a>
+</footer>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js" defer></script>
+<script src="data.js" defer></script>
 <script>
-const { createApp } = Vue;
-createApp({
-  data(){
-    const D = window.QURAN_DATA || {claims:[],stats:{totals:{}}};
-    return { claims: D.claims, stats: D.stats, open:{} };
-  },
-  methods:{
-    fmt(n){ return (n==null?0:n).toLocaleString(); },
-    toggle(id){ this.open[id] = !this.open[id]; },
-    byId(id){ return this.claims.find(x=>x.id===id); },
-    verdict(c){
-      if(c.verifiedLemma === c.claimed) return 'exact';
-      if(c.pair && this.pairEqual(c)) return 'parity';
-      return 'differs';
+window.addEventListener('DOMContentLoaded', function(){
+  const { createApp } = Vue;
+  createApp({
+    data(){
+      const D = window.QURAN_DATA || {claims:[],stats:{totals:{}}};
+      return { claims: D.claims, stats: D.stats, open:{} };
     },
-    badge(c){
-      const v = this.verdict(c);
-      return v==='exact' ? 'EXACT' : v==='parity' ? 'PARITY' : 'DIFFERS';
-    },
-    pairEqual(c){ const p=this.byId(c.pair); return p && p.verifiedLemma===c.verifiedLemma; },
-    pairName(c){ const p=this.byId(c.pair); return p? p.en : ''; }
-  }
-}).mount('#app');
+    methods:{
+      fmt(n){ return (n==null?0:n).toLocaleString(); },
+      toggle(id){ this.open[id] = !this.open[id]; },
+      byId(id){ return this.claims.find(x=>x.id===id); },
+      verdict(c){
+        if(c.verifiedLemma === c.claimed) return 'exact';
+        if(c.pair && this.pairEqual(c)) return 'parity';
+        return 'differs';
+      },
+      badge(c){
+        const v = this.verdict(c);
+        return v==='exact' ? 'EXACT' : v==='parity' ? 'PARITY' : 'DIFFERS';
+      },
+      pairEqual(c){ const p=this.byId(c.pair); return p && p.verifiedLemma===c.verifiedLemma; },
+      pairName(c){ const p=this.byId(c.pair); return p? p.en : ''; }
+    }
+  }).mount('#app');
+
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // reveal on scroll
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.18});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // animated counters
+  const fmt = n => Math.round(n).toLocaleString();
+  const co = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting) return;
+      co.unobserve(e.target);
+      const el = e.target, target = +el.dataset.count;
+      if(reduced){ el.textContent = fmt(target); return; }
+      const t0 = performance.now(), dur = 1300;
+      const tick = (t)=>{
+        const p = Math.min((t - t0)/dur, 1);
+        el.textContent = fmt(target * (1 - Math.pow(1 - p, 3)));
+        if(p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    });
+  },{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(el=>co.observe(el));
+});
 </script>
 </body>
 </html>
