@@ -141,6 +141,8 @@
   .row{display:flex;gap:18px;flex-wrap:wrap}
   .col{flex:1;min-width:280px}
   .chart{width:100%;min-height:340px}
+  .cloudwrap{display:flex;flex-wrap:wrap;direction:rtl;justify-content:center;align-items:baseline;
+    gap:10px 22px;padding:18px 8px 10px;color:#0f9d58}
   .chartwrap{margin:6px 0 2px}
   .chartnote{background:linear-gradient(135deg,#eefaf3,#f5fbf8);border:1px solid rgba(13,165,100,.15);border-inline-start:3px solid var(--emerald);
     border-radius:12px;padding:13px 18px;margin-top:12px;font-size:.92rem;color:#173c2c;line-height:1.6}
@@ -179,6 +181,9 @@
     margin:2px;font-family:Amiri,serif;font-size:1.05rem;cursor:pointer;box-shadow:0 1px 2px rgba(8,24,17,.05);
     transition:transform .2s var(--ease),box-shadow .2s var(--ease),border-color .2s var(--ease),color .2s var(--ease)}
   .chip:hover{border-color:var(--emerald);color:var(--emerald-deep);transform:translateY(-1px);box-shadow:0 4px 10px rgba(13,165,100,.16)}
+  .vblock{margin-bottom:6px}
+  .verse-en{direction:ltr;text-align:left;font-size:.95rem;color:#3f5a50;line-height:1.65;
+    padding:6px 12px;margin:2px 0 14px;border-inline-start:3px solid rgba(13,165,100,.35);background:#f4faf7;border-radius:8px}
   .verse{font-family:Amiri,serif;font-size:1.55rem;line-height:2.5;text-align:justify;direction:rtl;
     padding:12px 8px;border-bottom:1px solid #f0f5f2;border-radius:8px;transition:background .15s ease}
   .verse:hover{background:#fafdfb}
@@ -435,9 +440,15 @@
         <select v-model.number="rSurah" @change="renderReader" style="padding:10px;border-radius:10px;border:1px solid var(--line);font-size:1rem">
           <option v-for="s in DS.surahMeta" :key="s.n" :value="s.n">{{ s.n }}. {{ lang==='ar'?s.ar:s.en }} ({{ s.verses }})</option>
         </select>
+        <div class="seg">
+          <button :class="{on:showTrans}" :aria-pressed="showTrans" @click="showTrans=!showTrans">{{ lang==='ar'?'الترجمة الإنجليزية':'English translation' }}</button>
+        </div>
       </div>
       <div class="card">
-        <div v-for="v in readerVerses" :key="v.k" class="verse">{{ v.t }} <span class="vk">{{ v.k }}</span></div>
+        <div v-for="v in readerVerses" :key="v.k" class="vblock">
+          <div class="verse">{{ v.t }} <span class="vk">{{ v.k }}</span></div>
+          <div v-if="showTrans && EN[v.k]" class="verse-en">{{ v.k }} &middot; {{ EN[v.k] }}</div>
+        </div>
       </div>
     </section>
 
@@ -524,7 +535,7 @@
       <div class="grid">
         <div v-for="(r,i) in V1.number19" :key="i" class="card" style="margin:0">
           <div class="ar">{{ r.ar }}</div>
-          <div style="font-size:.85rem;margin-top:6px">{{ r.en }}</div>
+          <div v-if="lang!=='ar'" style="font-size:.85rem;margin-top:6px">{{ r.en }}</div>
           <div v-if="r.formula" style="font-size:.78rem;color:var(--muted);margin-top:6px">{{ r.formula }}</div>
         </div>
       </div>
@@ -537,7 +548,7 @@
         <div v-for="(r,i) in V1.structuralMiracles" :key="i" class="card" style="margin:0">
           <div style="font-size:1.5rem">{{ r.icon }}</div>
           <div class="ar">{{ r.ar }}</div>
-          <div style="font-size:.85rem;margin-top:6px">{{ r.en }}</div>
+          <div v-if="lang!=='ar'" style="font-size:.85rem;margin-top:6px">{{ r.en }}</div>
           <div v-if="r.detail_ar" style="font-size:.8rem;color:var(--muted);margin-top:6px">{{ lang==='ar'?r.detail_ar:(r.detail_en||'') }}</div>
         </div>
       </div>
@@ -582,9 +593,10 @@
       <div class="card"><div class="chart" id="biChart"></div></div>
       <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'أكثر العبارات الثنائية شيوعاً هي «إنّ الله» و«الذين آمنوا».':'The commonest two-word phrases are "inna Allah" (indeed, God) and "alladhina amanu" (those who believe).' }}</div>
       <div class="card"><h3>{{ lang==='ar'?'سحابة الكلمات (الجذوع)':'Word cloud (lemmas)' }}</h3>
-        <div style="line-height:2.4">
+        <div class="cloudwrap">
           <span v-for="(w,i) in DS.topWordsLemma.slice(0,40)" :key="i" class="ar"
-            :style="{fontSize:(0.9+ w.c/DS.topWordsLemma[0].c*2.2)+'rem',color:'#0f9d58',margin:'0 8px'}">{{ w.w }}</span>
+            :style="{fontSize:(0.85+ Math.sqrt(w.c/DS.topWordsLemma[0].c)*1.7)+'rem',opacity:(0.55+ Math.sqrt(w.c/DS.topWordsLemma[0].c)*0.45)}"
+            :title="f(w.c)">{{ w.w }}</span>
         </div>
       </div>
       <div class="row">
@@ -678,11 +690,9 @@
         </div>
       </div>
 
-      <div v-else class="stub" style="text-align:start">
-        <b>{{ lang==='ar'?'الصور غير محمّلة بعد':'Page scans not loaded yet' }}</b>
-        <p style="margin:8px 0">{{ lang==='ar'?'لم أجد نسخة موثوقة من هذا المصحف تحديداً للتحميل. المصدر الذي فحصته (archive.org) تبيّن أنه مصحف بتفسير أردي مختلف، وليس مصحف الألف، فلم أُدرجه حتى لا نعرض الكتاب الخطأ.':'I could not find a verified scan of this specific Mushaf to bundle. The source I checked (archive.org) turned out to be a different Quran with Urdu commentary, not the all-Alif Mushaf, so I did not include it rather than show the wrong book.' }}</p>
-        <p style="margin:8px 0">{{ lang==='ar'?'لعرضه: ضع صور الصفحات في content/alifi/ وأدرج أسماءها في manifest.json (مثل page-001.jpg). إن كانت لديك نسخة من طبعة لاهور (٢٢١ صفحة) فهي الأدق.':'To display it: drop page images into content/alifi/ and list their filenames in manifest.json (e.g. page-001.jpg). If you own the Lahore 21-line / 221-page edition, that is the exact one from the video.' }}</p>
-        <p style="margin:8px 0;color:var(--teal)">{{ lang==='ar'?'الواجهة جاهزة: تصفّح الصفحات + إبراز عمود الألف يعمل فور إضافة الصور.':'The viewer is ready: page navigation and the Alif-column overlay will work the moment scans are added.' }}</p>
+      <div v-else class="card" style="text-align:start">
+        <b>{{ lang==='ar'?'عارض الصفحات':'Page viewer' }}</b>
+        <p style="margin:8px 0;color:var(--muted)">{{ lang==='ar'?'يجري حاليًا توثيق نسخةٍ مصورةٍ معتمدة من طبعة لاهور ذات الواحد والعشرين سطرًا، وستظهر صفحاتها هنا فور اكتمال التوثيق، مع إبرازٍ بصري لعمود الألف في أول كل سطر. وإلى ذلك الحين تلخص اللوحة أعلاه ما ثبت أكاديميًا عن هذا المصحف.':'A verified facsimile of the Lahore 21-line edition is currently being sourced and authenticated. Its pages will appear here once ready, with a visual highlight on the Alif column that opens every line. Until then, the panel above summarises what has been academically verified about this mushaf.' }}</p>
       </div>
     </section>
 
@@ -853,7 +863,7 @@
         <div v-for="it in libFiltered" :key="it.id" class="card" style="margin:0">
           <template v-if="curLib.type==='tafsir'">
             <div class="ar">{{ it.topic_ar }}</div>
-            <div style="font-size:.8rem;color:var(--muted)">{{ it.topic_en }} · {{ it.verse_ref }}</div>
+            <div style="font-size:.8rem;color:var(--muted)"><span v-if="lang!=='ar'">{{ it.topic_en }} · </span>{{ it.verse_ref }}</div>
             <div class="verse" style="font-size:1.25rem;border:0;padding:8px 0;line-height:2">{{ it.verse_ar }}</div>
             <div style="font-size:.85rem">{{ lang==='ar'?it.insight_ar:it.insight_en }}</div>
             <div style="font-size:.75rem;color:var(--teal);margin-top:6px">{{ lang==='ar'?'بقلم: ':'by ' }}{{ lang==='ar'?it.scholar_ar:it.scholar_en }}</div>
@@ -876,7 +886,7 @@
           </template>
           <template v-else>
             <div class="ar">{{ it.ar }}</div>
-            <div style="font-size:.8rem;color:var(--muted)">{{ it.en }}<span v-if="it.cat"> · {{ lang==='ar'?(it.cat_ar||it.cat):it.cat }}</span></div>
+            <div style="font-size:.8rem;color:var(--muted)"><span v-if="lang!=='ar'">{{ it.en }}</span><span v-if="it.cat"><span v-if="lang!=='ar'"> · </span>{{ lang==='ar'?(it.cat_ar||it.cat):it.cat }}</span></div>
             <div style="font-size:.85rem;margin-top:8px">{{ lang==='ar'?it.desc_ar:it.desc_en }}</div>
             <div v-if="it.context_en" style="font-size:.8rem;color:var(--muted);margin-top:6px">{{ lang==='ar'?it.context_ar:it.context_en }}</div>
             <div v-if="it.figures_en" style="font-size:.78rem;color:var(--teal);margin-top:6px">👤 {{ lang==='ar'?it.figures_ar:it.figures_en }}</div>
@@ -890,8 +900,8 @@
     <section v-if="stubView">
       <h1>{{ lang==='ar' ? stubView.ar : stubView.en }}</h1>
       <div class="stub">
-        {{ lang==='ar' ? 'هذه الصفحة قيد النقل إلى الإصدار الثاني على البيانات المصحّحة.' : 'This page is being ported into v2 on the corrected data.' }}
-        <div style="margin-top:8px;font-size:.8rem">{{ lang==='ar'?'المحتوى الأصلي محفوظ.':'Original content is preserved and queued.' }}</div>
+        {{ lang==='ar' ? 'هذا القسم في طريقه إليك.' : 'This section is on its way.' }}
+        
       </div>
     </section>
   </main>
@@ -901,6 +911,7 @@
 <script defer src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 <script defer src="data.js"></script>
 <script defer src="corpus.js"></script>
+<script defer src="translation_en.js"></script>
 <script defer src="words.js"></script>
 <script defer src="content/quran_stories_data.js"></script>
 <script defer src="content/quran_lessons.js"></script>
@@ -926,8 +937,8 @@ createApp({
       T: D.stats.totals, DS: D.datasets, MM: D.datasets.meccaMedina||{mecca:{},medina:{}}, claims: D.claims,
       V: window.QURAN_VERSES||{}, W: window.QURAN_WORDS||{key:[],norm:[],lemma:[],root:[],surface:[]},
       q:'', mode:'surface', sres:{total:0,surahs:0,verses:0,sample:[]},
-      rSurah:1, libQ:'', libCat:'all', stories:[], lessons:[], duas:[], tafsir:[], untranslatable:[], untranslatableIntro:{},
-      V1:{}, abjadInput:'',
+      rSurah:1, EN:{}, showTrans:(new URLSearchParams(location.search).get('lang')!=='ar'), libQ:'', libCat:'all', stories:[], lessons:[], duas:[], tafsir:[], untranslatable:[], untranslatableIntro:{},
+      V1:{}, abjadInput:'الله',
       AN:(D.analytics||{}), hifzMins:60, simSurah:2,
       dashPlace:'all', dashMinVerses:0, dashSort:'n',
       labMeta:{
@@ -1345,7 +1356,7 @@ createApp({
       }
     }
   },
-  watch:{ lang(v){ this.applyDir(); this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); }); } },
+  watch:{ lang(v){ this.applyDir(); this.showTrans = (v!=='ar'); this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); }); } },
   mounted(){
     const wantView = new URLSearchParams(location.search).get('view');
     if(wantView && this.realViews.includes(wantView)){
@@ -1362,6 +1373,7 @@ createApp({
     if(typeof QURAN_UNTRANSLATABLE!=='undefined') this.untranslatable=QURAN_UNTRANSLATABLE;
     if(typeof QURAN_UNTRANSLATABLE_INTRO!=='undefined') this.untranslatableIntro=QURAN_UNTRANSLATABLE_INTRO;
     if(window.V1DATA) this.V1=window.V1DATA;
+    if(window.QURAN_EN) this.EN=window.QURAN_EN;
     this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); });
   }
 }).mount('#app');
