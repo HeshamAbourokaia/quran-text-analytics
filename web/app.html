@@ -45,6 +45,7 @@
   .layout{display:flex;min-height:100vh}
   /* sidebar */
   .side{width:272px;flex:none;color:#d7eee2;position:sticky;top:0;height:100vh;overflow-y:auto;
+    display:flex;flex-direction:column;
     padding:22px 14px 28px;
     background:
       radial-gradient(420px 260px at 18% -60px,rgba(13,165,100,.22),transparent 65%),
@@ -73,8 +74,6 @@
   .arakbd button:active{transform:translateY(1.5px);box-shadow:none}
   .arakbd .ctrl{font-family:Inter;font-size:.8rem;background:#fdeef3;color:#c81e5b;min-width:54px}
   .arakbd .ctrl.space{min-width:90px}
-  .navgroup{margin-top:20px}
-  .navgroup .gl{font-size:.63rem;font-weight:600;text-transform:uppercase;letter-spacing:.17em;color:rgba(127,207,169,.78);padding:4px 14px 6px}
   .navitem{display:flex;align-items:center;gap:10px;padding:8px 13px;border-radius:10px;cursor:pointer;
     font-size:.875rem;color:#a9c4b7;transition:background .2s var(--ease),color .2s var(--ease),transform .2s var(--ease)}
   .navitem:hover{background:rgba(255,255,255,.07);color:#fff;transform:translateX(2px)}
@@ -82,10 +81,40 @@
   .navitem:focus-visible{outline:2px solid #8fd9be;outline-offset:-2px}
   .navitem.active{background:linear-gradient(135deg,#0da564,#077a4b);color:#fff;font-weight:600;
     box-shadow:0 8px 20px -6px rgba(13,165,100,.55),inset 0 1px 0 rgba(255,255,255,.18)}
-  .navitem .ic{width:20px;text-align:center}
-  .navitem .new{margin-inline-start:auto;font-size:.56rem;font-weight:700;letter-spacing:.06em;
-    background:rgba(52,211,153,.16);color:#5eead4;border:1px solid rgba(94,234,212,.28);border-radius:99px;padding:2px 7px}
-  .navitem.active .new{background:rgba(255,255,255,.2);color:#fff;border-color:rgba(255,255,255,.3)}
+  .navitem .ic{width:20px;flex:none;display:inline-flex;align-items:center;justify-content:center}
+  .navitem .ic svg{width:17px;height:17px;display:block}
+  .mainnav{margin-top:18px;display:flex;flex-direction:column;gap:3px}
+  .mainnav .navitem{padding:10px 13px;font-size:.9rem}
+  .sidefoot{margin-top:auto;padding:22px 14px 4px;font-size:.72rem;line-height:1.6;color:rgba(169,196,183,.65)}
+  /* sub-tabs inside a hub */
+  .subtabs{display:flex;flex-wrap:wrap;gap:4px;margin:0 0 26px;background:#fff;border:1px solid var(--line-soft);
+    border-radius:14px;padding:5px;box-shadow:var(--shadow-1);width:fit-content;max-width:100%}
+  .subtabs button{border:0;background:transparent;color:var(--muted);font-family:inherit;font-size:.85rem;font-weight:600;
+    padding:8px 14px;border-radius:10px;cursor:pointer;white-space:nowrap;transition:all .2s var(--ease)}
+  .subtabs button:hover{color:var(--ink);background:#f0f6f2}
+  .subtabs button.on{background:linear-gradient(135deg,#0da564,#077a4b);color:#fff;box-shadow:0 6px 14px -6px rgba(13,165,100,.5)}
+  /* home hero */
+  .homehero{position:relative;padding:26px 0 4px}
+  .homemark{position:absolute;inset-inline-end:-10px;top:-54px;font-family:Amiri,serif;font-size:8.5rem;font-weight:700;
+    color:rgba(13,165,100,.06);pointer-events:none;user-select:none;line-height:1;white-space:nowrap}
+  .homet{font-size:clamp(2.3rem,1.55rem+2.5vw,3.7rem);margin:.05em 0 .18em;letter-spacing:-.035em}
+  .homesub{color:var(--muted);font-size:1.08rem;line-height:1.75;max-width:660px}
+  .homecta{display:flex;gap:12px;margin:24px 0 8px;flex-wrap:wrap}
+  .homecta button{font-family:inherit;border-radius:12px;padding:13px 24px;font-size:.95rem;cursor:pointer;
+    transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
+  .homecta .primary{background:linear-gradient(135deg,#0da564,#067647);color:#fff;border:0;font-weight:700;
+    box-shadow:0 10px 24px -8px rgba(13,165,100,.55)}
+  .homecta .primary:hover{transform:translateY(-2px);box-shadow:0 14px 30px -8px rgba(13,165,100,.6)}
+  .homecta .ghost{background:#fff;color:var(--ink);border:1px solid var(--line);font-weight:600}
+  .homecta .ghost:hover{transform:translateY(-2px);box-shadow:var(--shadow-2)}
+  .homegrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(238px,1fr));gap:14px;margin-top:28px}
+  .homecard{cursor:pointer;margin:0}
+  .homecard .ic{display:inline-flex;width:40px;height:40px;border-radius:11px;background:var(--emerald-bg);
+    color:var(--emerald-deep);align-items:center;justify-content:center;margin-bottom:12px}
+  .homecard .ic svg{width:20px;height:20px}
+  .homecard b{display:block;font-size:1rem;margin-bottom:6px;letter-spacing:-.01em}
+  .homecard p{margin:0;font-size:.86rem;color:var(--muted);line-height:1.6}
+  .homefoot{margin-top:30px;font-size:.85rem;color:var(--muted)}
   /* main */
   main{flex:1 1 auto;min-width:0;max-width:1240px;margin-inline:auto;padding:48px clamp(28px,4.5vw,64px) 96px}
   main>section,main>.course{animation:pageIn .5s var(--ease) both}
@@ -240,24 +269,54 @@
       <button :class="{on:lang==='en'}" :aria-pressed="lang==='en'" @click="lang='en'">English</button>
       <button :class="{on:lang==='ar'}" :aria-pressed="lang==='ar'" lang="ar" @click="lang='ar'">العربية</button>
     </div>
-    <div v-for="g in nav" :key="g.section" class="navgroup">
-      <div class="gl">{{ lang==='ar' ? g.ar : g.en }}</div>
-      <div v-for="it in g.items" :key="it.id" class="navitem" :class="{active: view===it.id}" role="button" tabindex="0" :aria-current="view===it.id ? 'page' : null" @click="go(it.id)" @keydown.enter="go(it.id)" @keydown.space.prevent="go(it.id)">
-        <span class="ic">{{ it.icon }}</span><span>{{ lang==='ar' ? it.ar : it.en }}</span>
-        <span v-if="it.new" class="new">NEW</span>
+    <nav class="mainnav" :aria-label="lang==='ar'?'الأقسام':'Sections'">
+      <div v-for="h in nav" :key="h.id" class="navitem" :class="{active: curHub && curHub.id===h.id}" role="button" tabindex="0" :aria-current="curHub && curHub.id===h.id ? 'page' : null" @click="go(h.items[0].id)" @keydown.enter="go(h.items[0].id)" @keydown.space.prevent="go(h.items[0].id)">
+        <span class="ic" v-html="h.icon"></span><span>{{ lang==='ar' ? h.ar : h.en }}</span>
       </div>
-    </div>
+    </nav>
+    <div class="sidefoot">{{ lang==='ar' ? 'كل رقم يُحسب مباشرة من المدونة في متصفحك.' : 'Every number is computed live from the corpus in your browser.' }}</div>
   </aside>
 
   <main>
-    <!-- Analytics Lab: course reference + plain-English explainer (any lab view) -->
+    <!-- Sub-tabs for the active hub -->
+    <nav v-if="curTabs.length" class="subtabs" :aria-label="lang==='ar'?'تبويبات القسم':'Section tabs'">
+      <button v-for="t in curTabs" :key="t.id" :class="{on:view===t.id}" :aria-pressed="view===t.id" @click="go(t.id)">{{ lang==='ar' ? t.ar : t.en }}</button>
+    </nav>
+
+    <!-- HOME -->
+    <section v-if="view==='home'" class="home">
+      <div class="homehero">
+        <div class="homemark" aria-hidden="true">ٱلْقُرْآن</div>
+        <h1 class="homet">{{ lang==='ar' ? 'القرآن، بالأرقام.' : 'The Quran, measured.' }}</h1>
+        <p class="homesub">{{ lang==='ar'
+          ? 'تحليلات تفاعلية مبنية على مدونة القرآن العربية الصرفية: بحث على مستوى الصرف، ومختبر تحليلات، ومدقق للمزاعم العددية، وقراءة للمصحف. كل رقم يُحسب مباشرة في متصفحك، لا شيء مكتوب باليد.'
+          : 'Interactive analytics built on the Quranic Arabic Corpus: morphology-level search, a working analytics lab, a claim auditor and a mushaf reader. Every number is computed live in your browser; nothing is hand-typed.' }}</p>
+        <div class="homecta">
+          <button class="primary" @click="go('auditor')">{{ lang==='ar' ? 'دقّق المزاعم الشهيرة' : 'Audit the famous claims' }}</button>
+          <button class="ghost" @click="go('overview')">{{ lang==='ar' ? 'استكشف البيانات' : 'Explore the data' }}</button>
+        </div>
+        <div class="kpis">
+          <div class="kpi"><div class="n">{{ T.suras }}</div><div class="l">{{ lang==='ar'?'سورة':'Surahs' }}</div></div>
+          <div class="kpi"><div class="n">{{ f(T.verses) }}</div><div class="l">{{ lang==='ar'?'آية':'Verses' }}</div></div>
+          <div class="kpi"><div class="n">{{ f(T.words) }}</div><div class="l">{{ lang==='ar'?'كلمة':'Words' }}</div></div>
+          <div class="kpi"><div class="n">{{ f(DS.distinctRoots) }}</div><div class="l">{{ lang==='ar'?'جذر':'Roots' }}</div></div>
+        </div>
+      </div>
+      <div class="homegrid">
+        <div v-for="h in nav.filter(x=>x.id!=='homeHub')" :key="'hc-'+h.id" class="card homecard" role="button" tabindex="0" @click="go(h.items[0].id)" @keydown.enter="go(h.items[0].id)" @keydown.space.prevent="go(h.items[0].id)">
+          <span class="ic" v-html="h.icon"></span>
+          <b>{{ lang==='ar' ? h.ar : h.en }}</b>
+          <p>{{ lang==='ar' ? h.blurb_ar : h.blurb_en }}</p>
+        </div>
+      </div>
+      <p class="homefoot">{{ lang==='ar'
+        ? 'مبني على مدونة القرآن العربية الصرفية (الجذع والجذر وأقسام الكلام). يعمل بالعربية والإنجليزية.'
+        : 'Built on the Quranic Arabic Corpus morphology (lemma, root and part of speech). Fully bilingual, English and Arabic.' }}</p>
+    </section>
+
+    <!-- Analytics Lab: plain-English explainer (any lab view) -->
     <div v-if="labCur" class="course">
       <div class="tech">{{ labCur.technique }}</div>
-      <div class="unit">🎓 {{ labCur.unit }}
-        <span v-if="lang!=='ar'" class="ccode" dir="ltr">{{ labCur.code }}</span>
-        <span v-else class="ccodear"><span class="acr">م م ن</span><span class="acrnum">{{ arCodeNum(labCur.code) }}</span></span>
-      </div>
-      <div class="topic"><b>{{ lang==='ar'?'المادة التي تُدرَّس فيها':'Taught in' }}:</b> {{ labCur.topic }}</div>
       <div class="explain">
         <div class="box"><span class="lab">{{ lang==='ar'?'ما هذا؟':'What is this?' }}</span>{{ labCur.what }}</div>
         <div class="box"><span class="lab">{{ lang==='ar'?'كيف تقرأ النتائج':'How to read the results' }}</span>{{ labCur.howToRead }}</div>
@@ -278,6 +337,16 @@
       </div>
       <div class="card"><div class="chart" id="ovChart"></div></div>
       <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'عدد قليل من السور المدنية الطويلة (كالبقرة) يحمل معظم طول القرآن، ومعظم السور قصيرة.':'A few long Medinan surahs (like Al-Baqara) carry most of the Quran\'s length; most surahs are short.' }}</div>
+      <div class="grid" style="margin-top:16px">
+        <div class="card" style="margin:0"><b>{{ lang==='ar'?'الكلمة الأكثر تكراراً':'Most frequent word' }}</b>
+          <div style="margin-top:6px">{{ lang==='ar'?'الكلمة الأكثر تكراراً (جذعاً) هي "':'The most frequent lemma is "' }}{{ DS.topWordsLemma[2]?DS.topWordsLemma[2].w:'' }}" ({{ f(2699) }}).</div></div>
+        <div class="card" style="margin:0"><b>{{ lang==='ar'?'آيات المدينة أطول':'Medinan verses are longer' }}</b>
+          <div style="margin-top:6px">{{ MM.medina.avgWordsPerVerse }} {{ lang==='ar'?'مقابل':'vs' }} {{ MM.mecca.avgWordsPerVerse }} {{ lang==='ar'?'كلمة/آية':'words/verse' }}.</div></div>
+        <div class="card" style="margin:0"><b>{{ lang==='ar'?'كلمات فريدة':'Unique words' }}</b>
+          <div style="margin-top:6px">{{ f(DS.uniqueWords) }} {{ lang==='ar'?'صيغة، منها':'forms, of which' }} {{ f(DS.hapax) }} {{ lang==='ar'?'تظهر مرة واحدة.':'appear once.' }}</div></div>
+        <div class="card" style="margin:0"><b>{{ lang==='ar'?'جذور وأصول':'Roots & lemmas' }}</b>
+          <div style="margin-top:6px">{{ f(DS.distinctRoots) }} {{ lang==='ar'?'جذر،':'roots,' }} {{ f(DS.distinctLemmas) }} {{ lang==='ar'?'جذع لغوي.':'lemmas.' }}</div></div>
+      </div>
     </section>
 
     <!-- WORD ANALYSIS -->
@@ -304,15 +373,15 @@
       <div class="row">
         <div class="col card"><h3>🕋 {{ lang==='ar'?'مكية':'Meccan' }}</h3>
           <div class="kpis">
-            <div class="kpi"><div class="n">{{ MM.mecca.surahs }}</div><div class="l">surahs</div></div>
-            <div class="kpi"><div class="n">{{ f(MM.mecca.verses) }}</div><div class="l">verses</div></div>
-            <div class="kpi"><div class="n">{{ MM.mecca.avgWordsPerVerse }}</div><div class="l">avg words/verse</div></div>
+            <div class="kpi"><div class="n">{{ MM.mecca.surahs }}</div><div class="l">{{ lang==='ar'?'سورة':'surahs' }}</div></div>
+            <div class="kpi"><div class="n">{{ f(MM.mecca.verses) }}</div><div class="l">{{ lang==='ar'?'آية':'verses' }}</div></div>
+            <div class="kpi"><div class="n">{{ MM.mecca.avgWordsPerVerse }}</div><div class="l">{{ lang==='ar'?'متوسط كلمات/آية':'avg words/verse' }}</div></div>
           </div></div>
         <div class="col card"><h3>🕌 {{ lang==='ar'?'مدنية':'Medinan' }}</h3>
           <div class="kpis">
-            <div class="kpi"><div class="n">{{ MM.medina.surahs }}</div><div class="l">surahs</div></div>
-            <div class="kpi"><div class="n">{{ f(MM.medina.verses) }}</div><div class="l">verses</div></div>
-            <div class="kpi"><div class="n">{{ MM.medina.avgWordsPerVerse }}</div><div class="l">avg words/verse</div></div>
+            <div class="kpi"><div class="n">{{ MM.medina.surahs }}</div><div class="l">{{ lang==='ar'?'سورة':'surahs' }}</div></div>
+            <div class="kpi"><div class="n">{{ f(MM.medina.verses) }}</div><div class="l">{{ lang==='ar'?'آية':'verses' }}</div></div>
+            <div class="kpi"><div class="n">{{ MM.medina.avgWordsPerVerse }}</div><div class="l">{{ lang==='ar'?'متوسط كلمات/آية':'avg words/verse' }}</div></div>
           </div></div>
       </div>
       <p class="sub">{{ lang==='ar'?'الآيات المدنية أطول بنحو ١٫٨ مرة من المكية، لأن المدينة كانت مرحلة التشريع.':'Medinan verses are about 1.8x longer than Meccan ones, reflecting the shift to law and society.' }}</p>
@@ -327,7 +396,7 @@
 
     <!-- WORD SEARCH -->
     <section v-if="view==='search'">
-      <h1>{{ lang==='ar' ? 'بحث في الكلمات' : 'Word Search' }} <span class="badge exact">NEW</span></h1>
+      <h1>{{ lang==='ar' ? 'بحث في الكلمات' : 'Word Search' }}</h1>
       <p class="sub">{{ lang==='ar'?'ابحث حسب الصيغة أو الجذع أو الجذر، على المدوّنة الصرفية.':'Search by surface form, lemma, or root, over the morphology corpus.' }}</p>
       <div class="searchbar">
         <input class="q" v-model="q" @input="runSearch" :placeholder="lang==='ar'?'اكتب كلمة...':'Type a word...'" />
@@ -374,21 +443,21 @@
 
     <!-- CLAIM AUDITOR -->
     <section v-if="view==='auditor'">
-      <h1>{{ lang==='ar' ? 'مدقّق المزاعم' : 'Claim Auditor' }} <span class="badge exact">NEW</span></h1>
+      <h1>{{ lang==='ar' ? 'مدقّق المزاعم' : 'Claim Auditor' }}</h1>
       <p class="sub">{{ lang==='ar'?'المزعوم مقابل المحقّق مقابل البحث الساذج - لكل مزاعم العدد.':'Claimed vs verified vs naive search, for every word-count claim.' }}</p>
       <div class="card"><div class="chart" id="audChart"></div></div>
       <div class="grid" style="margin-top:16px">
         <div v-for="c in claims" :key="c.id" class="card" style="margin:0">
           <div style="display:flex;justify-content:space-between;align-items:center">
-            <div><div class="ar">{{ c.ar }}</div><div style="font-size:.8rem;color:var(--muted)">{{ c.en }}</div></div>
+            <div><div class="ar">{{ c.ar }}</div><div v-if="lang!=='ar'" style="font-size:.8rem;color:var(--muted)">{{ c.en }}</div></div>
             <span class="badge" :class="cverdict(c)">{{ cbadge(c) }}</span>
           </div>
           <div class="kpis" style="margin:12px 0 4px">
-            <div class="kpi" style="min-width:90px"><div class="n" style="color:#6b7280">{{ f(c.claimed) }}</div><div class="l">claimed</div></div>
-            <div class="kpi" style="min-width:90px"><div class="n" :style="{color: c.verifiedLemma===c.claimed?'var(--emerald)':'var(--amber)'}">{{ f(c.verifiedLemma) }}</div><div class="l">verified</div></div>
+            <div class="kpi" style="min-width:90px"><div class="n" style="color:#6b7280">{{ f(c.claimed) }}</div><div class="l">{{ lang==='ar'?'المزعوم':'claimed' }}</div></div>
+            <div class="kpi" style="min-width:90px"><div class="n" :style="{color: c.verifiedLemma===c.claimed?'var(--emerald)':'var(--amber)'}">{{ f(c.verifiedLemma) }}</div><div class="l">{{ lang==='ar'?'المحقّق':'verified' }}</div></div>
           </div>
           <div style="font-size:.78rem;color:var(--muted)">{{ lang==='ar'?'بحث ساذج':'naive' }}: {{ f(c.rawSubstring) }} / {{ f(c.rawWholeWord) }}</div>
-          <div style="font-size:.82rem;color:#3a554c;margin-top:8px">{{ c.note_en }}</div>
+          <div style="font-size:.82rem;color:#3a554c;margin-top:8px">{{ lang==='ar' ? (claimNotesAr[c.id]||c.note_en) : c.note_en }}</div>
         </div>
       </div>
     </section>
@@ -413,9 +482,9 @@
       <div class="card"><div class="chart" id="proChart"></div></div>
       <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'صيغة الجمع للتعظيم «نحن» هي الأكثر استخداماً في إشارة القرآن إلى الله.':'The majestic plural "We" is the most-used way the Quran refers to God.' }}</div>
       <div class="kpis">
-        <div class="kpi"><div class="ar" style="font-size:1.6rem">نَحْنُ</div><div class="n">{{ f(V1.pronouns.we) }}</div><div class="l">We</div></div>
-        <div class="kpi"><div class="ar" style="font-size:1.6rem">أَنَا</div><div class="n">{{ f(V1.pronouns.i) }}</div><div class="l">I</div></div>
-        <div class="kpi"><div class="ar" style="font-size:1.6rem">هُوَ</div><div class="n">{{ f(DS.huwaCount||V1.pronouns.he) }}</div><div class="l">He</div></div>
+        <div class="kpi"><div class="ar" style="font-size:1.6rem">نَحْنُ</div><div class="n">{{ f(V1.pronouns.we) }}</div><div class="l">{{ lang==='ar'?'نحن':'We' }}</div></div>
+        <div class="kpi"><div class="ar" style="font-size:1.6rem">أَنَا</div><div class="n">{{ f(V1.pronouns.i) }}</div><div class="l">{{ lang==='ar'?'أنا':'I' }}</div></div>
+        <div class="kpi"><div class="ar" style="font-size:1.6rem">هُوَ</div><div class="n">{{ f(DS.huwaCount||V1.pronouns.he) }}</div><div class="l">{{ lang==='ar'?'هو':'He' }}</div></div>
       </div>
       <p class="sub">{{ lang==='ar'?'صيغة الجمع "نحن" للتعظيم هي الأكثر استخداماً للإشارة إلى الله.':'The majestic plural "We" is the most used divine self-reference.' }}</p>
     </section>
@@ -474,57 +543,37 @@
       </div>
     </section>
 
-    <!-- ANTONYM PAIRS -->
-    <section v-if="view==='antonyms'">
-      <h1>{{ lang==='ar'?'التوازن في الأزواج':'Antonym Pairs' }}</h1>
-      <div class="card"><div class="chart" id="antChart"></div></div>
-      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'قليل من الأزواج المتضادة يطابق العدد المتساوي المزعوم، فالتوازن أقل دقة مما يُشاع.':'Few antonym pairs land exactly on their claimed equal counts; the balance is looser than the popular claim.' }}</div>
-      <p class="sub">{{ lang==='ar'?'المزعوم مقابل ما وُجد فعلاً.':'Claimed balance vs what is actually found.' }}</p>
-      <div class="card"><table>
-        <tr><th>{{ lang==='ar'?'الزوج':'Pair' }}</th><th>{{ lang==='ar'?'المزعوم':'Claimed' }}</th><th>A</th><th>B</th></tr>
-        <tr v-for="(p,i) in V1.antonymPairs" :key="i">
-          <td>{{ lang==='ar'?p.label_ar:p.label_en }}</td><td>{{ p.claimed }}</td><td>{{ p.found_a }}</td><td>{{ p.found_b }}</td>
-        </tr>
-      </table></div>
-    </section>
-
-    <!-- WORD SYMMETRIES -->
+    <!-- WORD PAIRS & BALANCE (merged Word Symmetries + Antonym Pairs + Waw) -->
     <section v-if="view==='symmetry'">
-      <h1>{{ lang==='ar'?'تناظر الكلمات':'Word Symmetries' }}</h1>
-      <div class="card"><div class="chart" id="symChart"></div></div>
-      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'بعض أزواج الكلمات متقاربة وكثير منها ليس كذلك، فمزاعم التناظر تحتاج تدقيقاً.':'Some word pairs match closely while many do not, so the symmetry claims need careful checking.' }}</div>
-      <div class="card"><table>
-        <tr><th>A</th><th>B</th><th>{{ lang==='ar'?'عدد A':'Count A' }}</th><th>{{ lang==='ar'?'عدد B':'Count B' }}</th></tr>
-        <tr v-for="(p,i) in V1.wordSymmetries" :key="i">
-          <td><span class="ar">{{ p.ar1 }}</span> <small>{{ p.en1 }}</small></td>
-          <td><span class="ar">{{ p.ar2 }}</span> <small>{{ p.en2 }}</small></td>
-          <td>{{ p.c1 }}</td><td>{{ p.c2 }}</td>
-        </tr>
-      </table></div>
-    </section>
-
-    <!-- WAW MIRACLE -->
-    <section v-if="view==='waw'">
-      <h1>{{ lang==='ar'?'معجزة الواو':'Waw Miracle' }}</h1>
+      <h1>{{ lang==='ar'?'توازن الأزواج':'Word Pairs & Balance' }}</h1>
+      <p class="sub">{{ lang==='ar'?'الأعداد المتداولة لأزواج الكلمات المتقابلة، وما يُظهره العدّ الفعلي على المدونة.':'The widely cited counts for opposing word pairs, next to what an actual count over the corpus shows.' }}</p>
+      <div class="card"><div class="chart" id="antChart"></div></div>
+      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'قليل من الأزواج يطابق العدد المتساوي المزعوم عند العدّ الفعلي، فالتوازن أقل إحكاماً مما يُشاع، وبعضه يصمد بجدارة.':'Under an actual count, only some pairs land on the claimed equal totals; the balance is looser than the popular claim, though a few pairs do hold.' }}</div>
+      <div class="row">
+        <div class="col card"><h3>{{ lang==='ar'?'الأعداد المتداولة':'As widely cited' }}</h3>
+          <p class="sub" style="font-size:.85rem;margin-top:0">{{ lang==='ar'?'هذه الأعداد كما تتداولها الكتب والمواقع، وليست نتيجة عدّنا.':'These are the counts as circulated in books and websites, not the result of our own count.' }}</p>
+          <table>
+            <tr><th>{{ lang==='ar'?'الزوج':'Pair' }}</th><th>{{ lang==='ar'?'العدد المتداول':'Cited count' }}</th></tr>
+            <tr v-for="(p,i) in V1.wordSymmetries" :key="i">
+              <td><span class="ar">{{ p.ar1 }}</span> <small v-if="lang!=='ar'">{{ p.en1 }}</small> / <span class="ar">{{ p.ar2 }}</span> <small v-if="lang!=='ar'">{{ p.en2 }}</small></td>
+              <td>{{ p.c1 }} = {{ p.c2 }}</td>
+            </tr>
+          </table>
+        </div>
+        <div class="col card"><h3>{{ lang==='ar'?'العدّ الفعلي':'What we actually find' }}</h3>
+          <p class="sub" style="font-size:.85rem;margin-top:0">{{ lang==='ar'?'عدّ مباشر على نص المدونة للأزواج الخمسة الأشهر.':'A direct count over the corpus text for the five most-cited pairs.' }}</p>
+          <table>
+            <tr><th>{{ lang==='ar'?'الزوج':'Pair' }}</th><th>{{ lang==='ar'?'المزعوم':'Claimed' }}</th><th>{{ lang==='ar'?'الأول':'First' }}</th><th>{{ lang==='ar'?'الثاني':'Second' }}</th></tr>
+            <tr v-for="(p,i) in V1.antonymPairs" :key="'a'+i">
+              <td>{{ lang==='ar'?p.label_ar:p.label_en }}</td><td>{{ p.claimed }}</td><td>{{ p.found_a }}</td><td>{{ p.found_b }}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
       <div class="kpis">
-        <div class="kpi"><div class="n">{{ f(DS.wawCount) }}</div><div class="l">{{ lang==='ar'?'حرف العطف "و"':'Conjunction waw' }}</div></div>
+        <div class="kpi"><div class="n">{{ f(DS.wawCount) }}</div><div class="l">{{ lang==='ar'?'حرف العطف «و»':'Conjunction waw' }}</div></div>
       </div>
-      <p class="sub">{{ lang==='ar'?'حرف الواو من أكثر الحروف في القرآن، ويربط أزواجاً متوازنة من المعاني.':'The waw is among the most frequent letters and links balanced pairs of meaning.' }}</p>
-    </section>
-
-    <!-- DATA INSIGHTS -->
-    <section v-if="view==='insights'">
-      <h1>{{ lang==='ar'?'استنتاجات البيانات':'Data-Driven Insights' }}</h1>
-      <div class="grid">
-        <div class="card" style="margin:0"><div style="font-size:1.4rem">📊</div><b>{{ lang==='ar'?'الكلمة الأكثر تكراراً':'Most frequent word' }}</b>
-          <div style="margin-top:6px">{{ lang==='ar'?'الكلمة الأكثر تكراراً (جذعاً) هي "':'The most frequent lemma is "' }}{{ DS.topWordsLemma[2]?DS.topWordsLemma[2].w:'' }}" ({{ f(2699) }}).</div></div>
-        <div class="card" style="margin:0"><div style="font-size:1.4rem">📏</div><b>{{ lang==='ar'?'آيات المدينة أطول':'Medinan verses are longer' }}</b>
-          <div style="margin-top:6px">{{ MM.medina.avgWordsPerVerse }} {{ lang==='ar'?'مقابل':'vs' }} {{ MM.mecca.avgWordsPerVerse }} {{ lang==='ar'?'كلمة/آية':'words/verse' }}.</div></div>
-        <div class="card" style="margin:0"><div style="font-size:1.4rem">📚</div><b>{{ lang==='ar'?'كلمات فريدة':'Unique words' }}</b>
-          <div style="margin-top:6px">{{ f(DS.uniqueWords) }} {{ lang==='ar'?'صيغة، منها':'forms, of which' }} {{ f(DS.hapax) }} {{ lang==='ar'?'تظهر مرة واحدة.':'appear once.' }}</div></div>
-        <div class="card" style="margin:0"><div style="font-size:1.4rem">🌿</div><b>{{ lang==='ar'?'جذور وأصول':'Roots & lemmas' }}</b>
-          <div style="margin-top:6px">{{ f(DS.distinctRoots) }} {{ lang==='ar'?'جذر،':'roots,' }} {{ f(DS.distinctLemmas) }} {{ lang==='ar'?'جذع لغوي.':'lemmas.' }}</div></div>
-      </div>
+      <p class="sub">{{ lang==='ar'?'حرف الواو من أكثر الحروف وروداً في القرآن، وهو الذي يصل كثيراً من هذه الأزواج المتقابلة في الآيات نفسها.':'The conjunction waw is among the most frequent words in the Quran, and it is what links many of these opposing pairs inside the same verses.' }}</p>
     </section>
 
     <!-- NLP EXPLORER -->
@@ -558,7 +607,7 @@
 
     <!-- TAWAFUQ MUSHAF EXPLORER -->
     <section v-if="view==='tawafuq'">
-      <h1>📐 {{ lang==='ar'?'مستكشف توافق المصحف':'Tawafuq Mushaf Explorer' }} <span class="badge exact">NEW</span></h1>
+      <h1>{{ lang==='ar'?'مستكشف توافق المصحف':'Tawafuq Mushaf Explorer' }}</h1>
       <p class="sub">{{ lang==='ar'?'تصفّح المصحف المدني (٦٠٤ صفحات، ١٥ سطراً). اختر كلمة لإبراز كل مواضعها في الصفحة ورؤية اصطفافها.':'Browse the 604-page, 15-line Madani Mushaf. Pick a word to highlight every occurrence on the page and see how they align.' }}</p>
       <div class="searchbar">
         <button class="seg" style="padding:8px 12px;cursor:pointer;border-radius:8px" @click="tawGoPage(Math.max(1,tawPage-1))">‹ {{ lang==='ar'?'السابق':'Prev' }}</button>
@@ -603,7 +652,7 @@
 
     <!-- ALIFI MUSHAF VIEWER -->
     <section v-if="view==='alifi'">
-      <h1>📕 {{ lang==='ar'?'مصحف ألفي (كل سطر يبدأ بألف)':'Alifi Mushaf (every line begins with Alif)' }} <span class="badge exact">NEW</span></h1>
+      <h1>{{ lang==='ar'?'مصحف ألفي (كل سطر يبدأ بألف)':'Alifi Mushaf (every line begins with Alif)' }}</h1>
       <p class="sub">{{ lang==='ar'?'مصحف من لاهور، ٢١ سطراً في كل صفحة، يبدأ كل سطر بحرف الألف. كتبه عالم في ١٢ عاماً صائماً.':'A Mushaf from Lahore: 21 lines per page, every single line begins with the letter Alif. Written by a scholar over 12 years of continuous fasting.' }}</p>
 
       <div class="card" style="background:var(--emerald-bg);border-color:#bfe8d2">
@@ -639,7 +688,7 @@
 
     <!-- KNOWLEDGE GRAPH -->
     <section v-if="view==='kg'">
-      <h1>🕸️ {{ lang==='ar'?'خريطة المعرفة القرآنية':'Quranic Knowledge Graph' }}</h1>
+      <h1>{{ lang==='ar'?'خريطة المعرفة القرآنية':'Quranic Knowledge Graph' }}</h1>
       <p class="sub">{{ lang==='ar'?'٤٣٩ عقدة، ٩٢٩ علاقة، ٢٨ مجموعة موضوعية: السور والأنبياء والأحداث والتفاسير والعلوم في رسم واحد متفاعل.':'439 nodes, 929 edges, 28 thematic communities: surahs, prophets, events, tafsir, and sciences in one interactive map.' }}</p>
       <div class="kpis">
         <div class="kpi"><div class="n">439</div><div class="l">{{ lang==='ar'?'عقدة':'Nodes' }}</div></div>
@@ -655,7 +704,7 @@
       </div>
       <div class="card" style="background:#fefce8;border-color:#fde68a;font-size:.84rem;color:#78350f">
         <b>{{ lang==='ar'?'كيف بُنيت':'How it was built' }}:</b>
-        {{ lang==='ar'?'٢١٥ وثيقة من النص والتراجم والتفاسير، ثم graphify لاستخراج العقد والعلاقات.':'215 markdown documents from the text, translations, and scholarly tafsir, then graphify extracted the nodes and edges.' }}
+        {{ lang==='ar'?'٢١٥ وثيقة من النص والتراجم والتفاسير، استُخرجت منها العقد والعلاقات آلياً.':'215 documents from the text, translations, and scholarly tafsir, with the nodes and edges extracted automatically.' }}
       </div>
     </section>
 
@@ -703,7 +752,7 @@
       </div>
       <div class="card"><div class="chart" id="hifzChart"></div></div>
       <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'كلما زادت دقائقك اليومية انخفض زمن الختم بشكل حادّ، وهذا ما يقيسه سعر الظل.':'More daily minutes sharply cut the years to finish, which is exactly what the shadow price measures.' }}</div>
-      <p class="sub">{{ lang==='ar'?'سعر الظل هو المفهوم ذاته الذي نتعلّمه في نمذجة القرار: كل دقيقة إضافية يومياً تضيف هذا العدد من الأسطر الجديدة.':'The shadow price is the same concept from your decision-modelling unit: each extra minute per day buys this many more new lines (the dual value of the time-budget constraint).' }}</p>
+      <p class="sub">{{ lang==='ar'?'سعر الظل: كل دقيقة إضافية يومياً تضيف هذا العدد من الأسطر الجديدة.':'The shadow price: each extra minute per day buys this many more new lines (the dual value of the time-budget constraint).' }}</p>
     </section>
 
     <!-- MECCAN/MEDINAN CLASSIFIER (Logistic / ML) -->
@@ -873,7 +922,7 @@ createApp({
   data(){
     const D = window.QURAN_DATA||{stats:{totals:{}},datasets:{},claims:[]};
     return {
-      lang:(new URLSearchParams(location.search).get('lang')==='ar'?'ar':'en'), view:'overview', sideOpen:false,
+      lang:(new URLSearchParams(location.search).get('lang')==='ar'?'ar':'en'), view:'home', sideOpen:false,
       T: D.stats.totals, DS: D.datasets, MM: D.datasets.meccaMedina||{mecca:{},medina:{}}, claims: D.claims,
       V: window.QURAN_VERSES||{}, W: window.QURAN_WORDS||{key:[],norm:[],lemma:[],root:[],surface:[]},
       q:'', mode:'surface', sres:{total:0,surahs:0,verses:0,sample:[]},
@@ -883,65 +932,41 @@ createApp({
       dashPlace:'all', dashMinVerses:0, dashSort:'n',
       labMeta:{
         dashboard:{technique:'Interactive BI Dashboard (filters + live KPIs)',
-          code:'MIS781', unit:'Business Intelligence & Database',
-          topic:'Dashboards, filtering, KPIs and drill-down',
           what:'A business-intelligence dashboard lets you slice the data live: choose filters and every KPI and chart updates instantly. Here you filter all 114 surahs by where they were revealed and by length.',
           howToRead:'Pick a revelation place and a minimum length. The cards recompute on the fly to show how many surahs match and their totals, and the chart redraws to just those surahs.'},
         hifz:{technique:'Linear Programming & Sensitivity Analysis',
-          code:'MIS775', unit:'Decision Modelling for Business Analytics',
-          topic:'Optimisation with Excel Solver and shadow prices (Topics 1-2; Assignment 1 portfolio model)',
           what:'Linear programming finds the best decision when you have a goal and limits. Here we maximise the new lines memorised per day while staying inside a daily time budget and a rule that you must review enough to retain. The "shadow price" tells you what one extra resource (one more minute a day) is worth.',
           howToRead:'Drag the slider to set your daily minutes. The numbers re-solve instantly: how many new and review lines that buys, how many years to finish, and the value of one more minute. The curve shows finishing time dropping as you invest more minutes.'},
         classifier:{technique:'Logistic Regression / Classification (Machine Learning)',
-          code:'MIS771 · MIS772 · MIS710', unit:'Descriptive Analytics, Predictive Analytics, Machine Learning in Business',
-          topic:'Classification, ROC/AUC, confusion matrix, cross-validation',
           what:'A classifier learns to label things from examples. Here it reads the words of each surah and predicts whether it was revealed in Mecca or Medina. It never sees the answer for the surahs it is tested on; it learns the pattern from the others.',
           howToRead:'Accuracy is how often it is right. The baseline is what you would get by always guessing the most common answer, so beating it means it learned something real. AUC near 1.0 is excellent. The confusion matrix shows correct (green) versus mistaken (amber) predictions, and the chips are the words that most signal a Medinan surah.'},
         stats:{technique:'Hypothesis Testing & Linear Regression',
-          code:'MIS771', unit:'Descriptive Analytics & Visualisation',
-          topic:'Two-sample t-test, confidence intervals, multiple regression (Assignments 1-2)',
           what:'A t-test asks whether a difference between two groups is real or could just be chance. Here: are Medinan verses genuinely longer than Meccan ones? Regression then models how verse length depends on several factors at once.',
           howToRead:'The p-value is the chance of seeing this difference if there were really none; a tiny p (here far below 0.05) means the difference is real, stated at the 5% significance level. The 95% confidence interval is the plausible range for the true difference. R-squared is how much of the variation the model explains.'},
         cluster:{technique:'k-means Clustering & PCA (Unsupervised Learning)',
-          code:'MIS710 · MIS772', unit:'Machine Learning in Business, Predictive Analytics',
-          topic:'Clustering, dimensionality reduction (PCA), cosine similarity',
           what:'Clustering groups items that resemble each other without being told the groups in advance. PCA squashes many features down to two so we can plot them. Cosine similarity measures how alike two surahs are by their word profiles.',
           howToRead:'Each dot is a surah and its colour is the natural group it fell into; dots close together are similar. Pick a surah in the dropdown to see its nearest neighbours by word usage, with a similarity percentage.'},
         coincidence:{technique:'Monte Carlo Simulation & the Look-Elsewhere Effect',
-          code:'MIS775', unit:'Decision Modelling for Business Analytics',
-          topic:'Simulation, probability distributions, risk analysis (Topics 7-9; Assignment 3)',
           what:'Monte Carlo runs thousands of "what if" trials to see the range of outcomes. It does two honest things here: it shows how common it is for some word to land on a notable number, so we do not over-read coincidences; and it simulates a real memorisation schedule with good and bad days to show how long finishing might actually take.',
           howToRead:'In the landscape chart, tall bars mean many words sit near that number (a match there is unremarkable); short bars at large numbers mean a match there is rare and noteworthy. The histogram shows the spread of finishing times across 1,000 simulated journeys; P5, P50 and P95 are the fast, typical and slow cases.'},
       },
       labMetaAr:{
         dashboard:{technique:'لوحة معلومات تفاعلية (مرشّحات ومؤشّرات حيّة)',
-          code:'MIS781', unit:'ذكاء الأعمال وقواعد البيانات',
-          topic:'لوحات المعلومات، والترشيح، والمؤشّرات، والتنقيب',
           what:'تتيح لوحة ذكاء الأعمال تقطيع البيانات حيّاً: تختار المرشّحات فتتحدّث كل المؤشّرات والرسوم فوراً. هنا ترشّح السور الـ١١٤ حسب مكان النزول والطول.',
           howToRead:'اختر مكان النزول وحدّاً أدنى للطول، فتُعاد المؤشّرات لحظياً لتُظهر عدد السور المطابقة ومجاميعها، ويُعاد رسم المخطط ليقتصر على تلك السور.'},
         hifz:{technique:'البرمجة الخطية وتحليل الحساسية',
-          code:'MIS775', unit:'نمذجة القرار في تحليلات الأعمال',
-          topic:'التحسين باستخدام أداة الحل في إكسل وأسعار الظل (الموضوعان ١-٢؛ نموذج المحفظة في الواجب الأول)',
           what:'تجد البرمجة الخطية القرار الأمثل عندما يكون لديك هدف وقيود. هنا نُعظّم عدد الأسطر الجديدة التي تحفظها يومياً مع البقاء ضمن ميزانية وقت يومية وقاعدةٍ تُلزمك بمراجعةٍ كافية للتثبيت. و«سعر الظل» يخبرك بقيمة كل مورد إضافي، أي ماذا تساوي دقيقة إضافية في اليوم.',
           howToRead:'حرّك المؤشّر لتحديد دقائقك اليومية فتُحَلّ المسألة فوراً: كم سطراً جديداً ومراجعةً يشتري ذلك، وكم سنة تحتاج للختم، وقيمة كل دقيقة إضافية. ويُظهر المنحنى انخفاض زمن الختم كلما زادت الدقائق.'},
         classifier:{technique:'الانحدار اللوجستي والتصنيف (تعلّم الآلة)',
-          code:'MIS771 · MIS772 · MIS710', unit:'التحليلات الوصفية، والتحليلات التنبؤية، وتعلّم الآلة في الأعمال',
-          topic:'التصنيف، والمنحنى ومساحته، ومصفوفة الالتباس، والتحقق المتقاطع',
           what:'يتعلّم المُصنِّف وضع التصنيفات من الأمثلة. هنا يقرأ كلمات كل سورة ويتنبّأ هل نزلت في مكة أم المدينة، دون أن يرى الإجابة للسور التي يُختبَر عليها، بل يتعلّم النمط من بقية السور.',
           howToRead:'الدقّة هي نسبة إصابته. وخط الأساس هو ما تحصل عليه لو خمّنت دائماً الإجابة الأكثر شيوعاً، فتجاوزه يعني أنه تعلّم شيئاً حقيقياً. وكلما اقتربت المساحة تحت المنحنى من واحد كان أفضل. وتُظهر مصفوفة الالتباس التنبؤات الصحيحة (بالأخضر) مقابل الخاطئة (بالكهرماني)، والكلمات المعروضة هي الأكثر دلالةً على السورة المدنية.'},
         stats:{technique:'اختبار الفرضيات والانحدار الخطي',
-          code:'MIS771', unit:'التحليلات الوصفية والتمثيل البصري',
-          topic:'الاختبار التائي لعيّنتين، وفترات الثقة، والانحدار المتعدّد (الواجبان ١-٢)',
           what:'يسأل الاختبار التائي: هل الفرق بين مجموعتين حقيقي أم قد يكون محض مصادفة؟ هنا: هل آيات المدينة أطول فعلاً من آيات مكة؟ ثم يُنمذِج الانحدار كيف يعتمد طول الآية على عدة عوامل معاً.',
           howToRead:'القيمة الاحتمالية هي احتمال رؤية هذا الفرق لو لم يكن هناك فرق حقيقي؛ وضآلتها هنا (أقل بكثير من ٠٫٠٥) تعني أن الفرق حقيقي عند مستوى دلالة ٥٪. وفترة الثقة ٩٥٪ هي المدى المعقول للفرق الحقيقي. ومعامل التحديد يبيّن كم من التباين يفسّره النموذج.'},
         cluster:{technique:'التجميع بالمتوسّطات وتحليل المكوّنات الرئيسية (تعلّم غير موجَّه)',
-          code:'MIS710 · MIS772', unit:'تعلّم الآلة في الأعمال، والتحليلات التنبؤية',
-          topic:'التجميع العنقودي، وخفض الأبعاد، وتشابه جيب التمام',
           what:'يجمع التجميعُ العناصرَ المتشابهة دون إخباره بالمجموعات مسبقاً. ويضغط تحليلُ المكوّنات الرئيسية عدة خصائص إلى بُعدين كي نرسمها. ويقيس تشابهُ جيب التمام مدى تقارب سورتين حسب بصمة كلماتهما.',
           howToRead:'كل نقطة سورة، ولونها هو المجموعة التي انتمت إليها طبيعياً؛ والنقاط المتقاربة متشابهة. اختر سورة من القائمة لترى أقرب السور إليها في استخدام الكلمات مع نسبة التشابه.'},
         coincidence:{technique:'محاكاة مونت كارلو وأثر تعدّد الاحتمالات',
-          code:'MIS775', unit:'نمذجة القرار في تحليلات الأعمال',
-          topic:'المحاكاة، والتوزيعات الاحتمالية، وتحليل المخاطر (المواضيع ٧-٩؛ الواجب الثالث)',
           what:'تُجري محاكاة مونت كارلو آلاف التجارب الافتراضية لترى مدى تنوّع النتائج. وتفعل هنا أمرين بأمانة: تُظهر كم هو شائع أن تقع كلمةٌ ما على رقم بارز حتى لا نبالغ في قراءة المصادفات؛ وتُحاكي خطة حفظٍ واقعية بأيام جيدة وأخرى متعثّرة لتُظهر كم قد يستغرق الختم فعلاً.',
           howToRead:'في رسم المشهد، الأعمدة العالية تعني أن كلمات كثيرة تقع قرب ذلك الرقم (فالتطابق هناك غير لافت)؛ والأعمدة القصيرة عند الأرقام الكبيرة تعني أن التطابق نادر وجدير بالملاحظة. ويُظهر المُدرَّج توزُّع أزمنة الختم عبر ١٬٠٠٠ رحلة محاكاة؛ والقيم عند الخُمس الأدنى والوسيط والخُمس الأعلى تمثّل الحالة السريعة والمتوسطة والبطيئة.'},
       },
@@ -949,60 +974,113 @@ createApp({
       tawExamples:[{l:'الله',t:'الله'},{l:'رب',t:'رب'},{l:'رحمن',t:'الرحمن'}],
       alifi:null, alifiPage:0, alifiOverlay:true,
       examples:['يوم','الله','رحمة','ملك','أله'],
+      claimNotesAr:{
+        'day-365':'العدّ بالجذع يشمل كل الصيغ. والرقم المتداول ٣٦٥ يعدّ الاسم المفرد فقط، ويُسقط المثنى وكلمة «يومئذ» المدمجة وصيغ الإضافة.',
+        'month-12':'العدّ بالجذع يشمل كل الصيغ. والرقم ١٢ يعدّ الاسم المفرد فقط، ويُسقط الجمع «أشهر» والمثنى.',
+        'devil-88':'مطابق بالجذع: المفرد والجمع يشتركان في الجذع ومجموعهما ٨٨. ولاحظ أن البحث النصي الساذج عن «شيطان» يجد صفراً لأن الرسم العثماني يكتبها «شيطن».',
+        'angel-88':'مطابق بالجذع. يفصل الصرفُ «مَلَك» (٨٨) عن «مُلْك» و«مَلِك»، وهو ما لا يستطيعه البحث النصي، ولذلك يبدو العدّ الساذج خاطئاً.',
+        'hell-77':'مطابق بالجذع. «جهنم» اسم علم لا لبس فيه.',
+        'paradise-77':'جذع «جنة» يعني أيضاً «حديقة»، فيتجاوز مجموعه ٧٧ بكثير. والرقم ٧٧ يعدّ معنى الجنة فقط، وهذا يحتاج وسماً دلالياً للمعنى.',
+        'man-24':'جذع «رجل» بعد فصله عن «رِجل» بمعنى القدم. ومزاعم تساوي الرجل والمرأة عند ٢٤ لا تصمد عند العدّ بالجذع.',
+        'woman-24':'جذع «امرأة». لا يساوي عدّ الرجل، وليس ٢٤.',
+        'jesus-24':'جذع «عيسى» يساوي «آدم». التعادل صحيح، لكن الرقم ٢٥ لا ٢٤.',
+        'adam-24':'جذع «آدم» يساوي «عيسى». التعادل صحيح، والرقم ٢٥ لا ٢٤.',
+        'allah-2806':'العدّ المعياري لاسم الجلالة في هذه المدونة ٢٦٩٩. ورقم ٢٨٠٦ يعتمد اصطلاحاً أوسع في العدّ.',
+        'rabb-846':'جذع «ربّ» يشمل صيغ الإضافة (ربي، ربك، ربهم). والرقم ٨٤٦ يعدّ مجموعة أضيق.',
+      },
       araKeys:'ابتثجحخدذرزسشصضطظعغفقكلمنهوي'.split(''),
       araKeys2:'ءآأإئؤةى'.split(''),
       nav:[
-        {section:'lab',en:'Analytics Lab',ar:'مختبر التحليلات',items:[
-          {id:'dashboard',icon:'📊',en:'BI Dashboard',ar:'لوحة المعلومات',new:1},
-          {id:'hifz',icon:'🧮',en:'Hifz Optimiser',ar:'مُحسِّن الحفظ',new:1},
-          {id:'classifier',icon:'🤖',en:'Meccan/Medinan ML',ar:'تصنيف مكي/مدني',new:1},
-          {id:'stats',icon:'📐',en:'Statistical Tests',ar:'اختبارات إحصائية',new:1},
-          {id:'cluster',icon:'🧩',en:'Clusters & Similarity',ar:'العناقيد والتشابه',new:1},
-          {id:'coincidence',icon:'🎲',en:'Coincidence Lens',ar:'عدسة المصادفة',new:1},
-        ]},
-        {section:'quran',en:'Quran',ar:'القرآن',items:[
-          {id:'overview',icon:'📖',en:'Overview',ar:'نظرة عامة'},
-          {id:'search',icon:'🔍',en:'Word Search',ar:'بحث',new:1},
-          {id:'reader',icon:'📜',en:'Reader',ar:'المصحف'},
-        ]},
-        {section:'stats',en:'Statistics',ar:'إحصاءات',items:[
-          {id:'word',icon:'📝',en:'Word Analysis',ar:'تحليل الكلمات'},
-          {id:'mecca',icon:'🗺️',en:'Mecca vs Medina',ar:'مكة والمدينة'},
-          {id:'letters',icon:'🔤',en:'Letter Frequency',ar:'تكرار الحروف'},
-          {id:'insights',icon:'📈',en:'Data Insights',ar:'استنتاجات'},
-          {id:'symmetry',icon:'🔄',en:'Word Symmetries',ar:'تناظر'},
-        ]},
-        {section:'linguistics',en:'Linguistics',ar:'لغويات',items:[
-          {id:'emotion',icon:'🎭',en:'Emotional Profiling',ar:'البصمة العاطفية'},
-          {id:'pronouns',icon:'👑',en:'Divine Pronouns',ar:'الضمائر'},
-          {id:'antonyms',icon:'⚖️',en:'Antonym Pairs',ar:'الأزواج'},
-          {id:'science',icon:'🔬',en:'Scientific Refs',ar:'إشارات علمية'},
-          {id:'advanced',icon:'📊',en:'Advanced Analytics',ar:'تحليلات متقدمة'},
-          {id:'nlp',icon:'🧠',en:'NLP Explorer',ar:'مستكشف NLP'},
-        ]},
-        {section:'miracles',en:'Miracles',ar:'إعجاز',items:[
-          {id:'auditor',icon:'✅',en:'Claim Auditor',ar:'مدقّق المزاعم',new:1},
-          {id:'waw',icon:'🌟',en:'Waw Miracle',ar:'معجزة الواو'},
-          {id:'abjad',icon:'🔢',en:'Abjad Numerals',ar:'حساب الجمّل'},
-          {id:'n19',icon:'⑲',en:'Number 19',ar:'الرقم ١٩'},
-          {id:'structural',icon:'🏛️',en:'Structural',ar:'هيكلية'},
-          {id:'tawafuq',icon:'📐',en:'Tawafuq Mushaf',ar:'توافق المصحف',new:1},
-          {id:'alifi',icon:'📕',en:'Alifi Mushaf',ar:'مصحف ألفي',new:1},
-        ]},
-        {section:'library',en:'Library',ar:'المكتبة',items:[
-          {id:'stories',icon:'📚',en:'Stories',ar:'القصص'},
-          {id:'lessons',icon:'💎',en:'Lessons',ar:'الدروس'},
-          {id:'duas',icon:'🤲',en:"Du'as",ar:'الأدعية'},
-          {id:'tafsir',icon:'💡',en:'Scholarly Insights',ar:'بصائر'},
-          {id:'untranslatable',icon:'💠',en:'Untranslatable Words',ar:'كلمات تعجز الترجمة',new:1},
-          {id:'kg',icon:'🕸️',en:'Knowledge Graph',ar:'خريطة المعرفة'},
-        ]},
+        {id:'homeHub',
+          icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M6 10.5V20h12v-9.5"/></svg>',
+          en:'Home',ar:'الرئيسية',
+          blurb_en:'',blurb_ar:'',
+          items:[{id:'home',en:'Home',ar:'الرئيسية'}]},
+        {id:'auditorHub',
+          icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 2.8v5.4c0 4.4-2.9 7.4-7 9-4.1-1.6-7-4.6-7-9V5.8z"/><path d="M9 12l2 2 4-4.5"/></svg>',
+          en:'Claim Auditor',ar:'مدقّق المزاعم',
+          blurb_en:'Every famous word-count claim, checked live against the real corpus.',
+          blurb_ar:'كل مزاعم العدّ الشهيرة، مُدقّقة مباشرة على المدونة الحقيقية.',
+          items:[{id:'auditor',en:'Claim Auditor',ar:'مدقّق المزاعم'}]},
+        {id:'explore',
+          icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M5 20V11"/><path d="M11 20V4"/><path d="M17 20v-6"/><path d="M3 20h18"/></svg>',
+          en:'Explore',ar:'استكشف',
+          blurb_en:'Charts and statistics across words, letters, revelation and themes.',
+          blurb_ar:'رسوم وإحصاءات للكلمات والحروف والنزول والموضوعات.',
+          items:[
+            {id:'overview',en:'Overview',ar:'نظرة عامة'},
+            {id:'word',en:'Words',ar:'الكلمات'},
+            {id:'letters',en:'Letters',ar:'الحروف'},
+            {id:'mecca',en:'Mecca vs Medina',ar:'مكة والمدينة'},
+            {id:'emotion',en:'Emotion',ar:'البصمة العاطفية'},
+            {id:'pronouns',en:'Pronouns',ar:'الضمائر'},
+            {id:'science',en:'Science',ar:'إشارات علمية'},
+            {id:'advanced',en:'Big Picture',ar:'الصورة الكبرى'},
+          ]},
+        {id:'searchHub',
+          icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg>',
+          en:'Search & NLP',ar:'البحث واللغة',
+          blurb_en:'Find any word by form, lemma or root, with a live concordance.',
+          blurb_ar:'ابحث عن أي كلمة بالصيغة أو الجذع أو الجذر مع كشّاف سياقي حيّ.',
+          items:[
+            {id:'search',en:'Word Search',ar:'بحث'},
+            {id:'nlp',en:'NLP Explorer',ar:'مستكشف اللغة'},
+          ]},
+        {id:'readerHub',
+          icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5c2.6-1.4 5.2-1.4 8 .3 2.8-1.7 5.4-1.7 8-.3v13c-2.6-1.4-5.2-1.4-8 .3-2.8-1.7-5.4-1.7-8-.3z"/><path d="M12 5.8v13"/></svg>',
+          en:'Reader',ar:'المصحف',
+          blurb_en:'The full mushaf in Uthmani script, plus two page-alignment explorers.',
+          blurb_ar:'المصحف كاملاً بالرسم العثماني مع مستكشفَي توافقٍ للصفحات.',
+          items:[
+            {id:'reader',en:'Reader',ar:'القراءة'},
+            {id:'tawafuq',en:'Tawafuq',ar:'توافق'},
+            {id:'alifi',en:'Alifi',ar:'مصحف ألفي'},
+          ]},
+        {id:'patterns',
+          icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M9.5 4 7.5 20"/><path d="M16.5 4l-2 16"/><path d="M5 9.5h15"/><path d="M4 14.5h15"/></svg>',
+          en:'Patterns & Numbers',ar:'أنماط وأرقام',
+          blurb_en:'Word pairs, abjad values and number patterns, verified honestly.',
+          blurb_ar:'أزواج الكلمات وحساب الجمّل وأنماط الأرقام بتدقيق أمين.',
+          items:[
+            {id:'symmetry',en:'Word Pairs',ar:'توازن الأزواج'},
+            {id:'abjad',en:'Abjad',ar:'حساب الجمّل'},
+            {id:'n19',en:'Number 19',ar:'الرقم ١٩'},
+            {id:'structural',en:'Structure',ar:'هيكلية'},
+          ]},
+        {id:'lab',
+          icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v6.2L4.6 18.6A1.6 1.6 0 0 0 6 21h12a1.6 1.6 0 0 0 1.4-2.4L14 9.2V3"/><path d="M8.5 3h7"/><path d="M7.5 15h9"/></svg>',
+          en:'Analytics Lab',ar:'مختبر التحليلات',
+          blurb_en:'Six working studios: machine learning, statistics, simulation and optimisation.',
+          blurb_ar:'ستة استوديوهات عاملة: تعلّم الآلة والإحصاء والمحاكاة والتحسين.',
+          items:[
+            {id:'dashboard',en:'BI Dashboard',ar:'لوحة المعلومات'},
+            {id:'hifz',en:'Hifz Optimiser',ar:'مُحسِّن الحفظ'},
+            {id:'classifier',en:'Revelation Classifier',ar:'تصنيف مكي/مدني'},
+            {id:'stats',en:'Statistical Tests',ar:'اختبارات إحصائية'},
+            {id:'cluster',en:'Clusters',ar:'العناقيد'},
+            {id:'coincidence',en:'Coincidence Lens',ar:'عدسة المصادفة'},
+          ]},
+        {id:'library',
+          icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3v16H5z"/><path d="M10 4h3v16h-3z"/><path d="M15.2 5.2l3.4-.9 4 14.6-3.4.9z" transform="scale(0.92) translate(1 1)"/></svg>',
+          en:'Library',ar:'المكتبة',
+          blurb_en:"Stories, lessons, du'as, scholarly insights and a knowledge graph.",
+          blurb_ar:'قصص ودروس وأدعية وبصائر وخريطة معرفة.',
+          items:[
+            {id:'stories',en:'Stories',ar:'القصص'},
+            {id:'lessons',en:'Lessons',ar:'الدروس'},
+            {id:'duas',en:"Du'as",ar:'الأدعية'},
+            {id:'tafsir',en:'Insights',ar:'بصائر'},
+            {id:'untranslatable',en:'Untranslatable',ar:'كلمات تعجز الترجمة'},
+            {id:'kg',en:'Knowledge Graph',ar:'خريطة المعرفة'},
+          ]},
       ],
     };
   },
   computed:{
-    realViews(){ return ['overview','word','mecca','letters','search','reader','auditor','stories','lessons','duas','tafsir','untranslatable',
-      'emotion','pronouns','science','abjad','n19','structural','antonyms','symmetry','waw','insights','nlp','kg','advanced','tawafuq','alifi','hifz','classifier','stats','cluster','coincidence','dashboard']; },
+    realViews(){ return ['home','overview','word','mecca','letters','search','reader','auditor','stories','lessons','duas','tafsir','untranslatable',
+      'emotion','pronouns','science','abjad','n19','structural','symmetry','nlp','kg','advanced','tawafuq','alifi','hifz','classifier','stats','cluster','coincidence','dashboard']; },
+    curHub(){ return this.nav.find(h=>h.items.some(i=>i.id===this.view)) || null; },
+    curTabs(){ return (this.curHub && this.curHub.items.length>1) ? this.curHub.items : []; },
     dashFiltered(){ let r=(this.DS.surahMeta||[]).filter(s=>
         (this.dashPlace==='all'||s.place===this.dashPlace) && s.verses>=this.dashMinVerses);
       const k=this.dashSort; r=r.slice().sort((a,b)=> k==='n'?a.n-b.n : b[k]-a[k]); return r; },
@@ -1096,7 +1174,6 @@ createApp({
         .catch(()=>{ this.mushafLoading=false; }); },
     tawPick(w){ if(!w.l) return; this.tawSel=w.l; this.tawSelLabel=w.t; },
     surahName(n){ const s=(this.DS.surahMeta||[]).find(x=>x.n===n); return s?(this.lang==='ar'?s.ar:s.en):n; },
-    arCodeNum(code){ return String(code||'').replace(/MIS/g,'').replace(/[0-9]/g,d=>'٠١٢٣٤٥٦٧٨٩'[+d]).trim(); },
     applyDir(){ const ar=this.lang==='ar'; const el=document.documentElement;
       el.setAttribute('dir', ar?'rtl':'ltr'); el.setAttribute('lang', ar?'ar':'en'); },
     kbAppend(ch){ this.q += ch; this.runSearch(); },
@@ -1105,7 +1182,9 @@ createApp({
     tawGoPage(p){ this.tawPage=p; },
     cverdict(c){ if(c.verifiedLemma===c.claimed) return 'exact';
       const p=this.claims.find(x=>x.id===c.pair); if(p&&p.verifiedLemma===c.verifiedLemma) return 'parity'; return 'differs'; },
-    cbadge(c){ const v=this.cverdict(c); return v==='exact'?'EXACT':v==='parity'?'PARITY':'DIFFERS'; },
+    cbadge(c){ const v=this.cverdict(c);
+      if(this.lang==='ar') return v==='exact'?'مطابق':v==='parity'?'تعادل':'مختلف';
+      return v==='exact'?'EXACT':v==='parity'?'PARITY':'DIFFERS'; },
     runSearch(){
       const W=this.W, q=normalize(this.q);
       if(!q){ this.sres={total:0,surahs:0,verses:0,sample:[]}; return; }
@@ -1137,9 +1216,9 @@ createApp({
         const sm=this.DS.surahMeta;
         const mk=sm.filter(s=>s.place==='Mecca'), md=sm.filter(s=>s.place==='Medina');
         Plotly.newPlot('ovChart',[
-          {x:mk.map(s=>s.n),y:mk.map(s=>s.verses),type:'bar',name:'Mecca',marker:{color:'#B7094C'}},
-          {x:md.map(s=>s.n),y:md.map(s=>s.verses),type:'bar',name:'Medina',marker:{color:'#0891b2'}}
-        ],Object.assign({},lay,{height:320,barmode:'stack',xaxis:{title:'Surah'},yaxis:{title:'Verses'}}),{responsive:true});
+          {x:mk.map(s=>s.n),y:mk.map(s=>s.verses),type:'bar',name:isAr?'مكية':'Mecca',marker:{color:'#B7094C'}},
+          {x:md.map(s=>s.n),y:md.map(s=>s.verses),type:'bar',name:isAr?'مدنية':'Medina',marker:{color:'#0891b2'}}
+        ],Object.assign({},lay,{height:320,barmode:'stack',xaxis:{title:isAr?'السورة':'Surah'},yaxis:{title:isAr?'آيات':'Verses'}}),{responsive:true});
       }
       if(this.view==='word' && document.getElementById('lemChart')){
         const t=this.DS.topWordsLemma.slice(0,15).reverse();
@@ -1156,18 +1235,18 @@ createApp({
         const grp=p=>sm.filter(s=>s.place===p);
         const trace=(p,c,nm)=>({x:grp(p).map(s=>s.verses),y:grp(p).map(s=>s.words),text:grp(p).map(s=>s.n+'. '+(this.lang==='ar'?s.ar:s.en)),
           mode:'markers',type:'scatter',name:nm,marker:{color:c,size:9,opacity:.75}});
-        Plotly.newPlot('advScatter',[trace('Mecca','#B7094C','Mecca'),trace('Medina','#0891b2','Medina')],
-          Object.assign({},lay,{height:380,xaxis:{title:'Verses'},yaxis:{title:'Words'},legend:{orientation:'h',y:1.12}}),{responsive:true});
+        Plotly.newPlot('advScatter',[trace('Mecca','#B7094C',isAr?'مكية':'Mecca'),trace('Medina','#0891b2',isAr?'مدنية':'Medina')],
+          Object.assign({},lay,{height:380,xaxis:{title:isAr?'آيات':'Verses'},yaxis:{title:isAr?'كلمات':'Words'},legend:{orientation:'h',y:1.12}}),{responsive:true});
         const byLen=sm.slice().sort((a,b)=>b.words/b.verses-a.words/a.verses).slice(0,20);
         Plotly.newPlot('advLen',[{x:byLen.map(s=>this.lang==='ar'?s.ar:s.en),y:byLen.map(s=>+(s.words/s.verses).toFixed(1)),
           type:'bar',marker:{color:'#0f9d58'}}],
-          Object.assign({},lay,{height:360,title:'Longest avg verse (words/verse)',xaxis:{tickangle:-40,tickfont:{size:10}}}),{responsive:true});
+          Object.assign({},lay,{height:360,title:isAr?'أطول متوسط آية (كلمة/آية)':'Longest avg verse (words/verse)',xaxis:{tickangle:-40,tickfont:isAr?{family:'Amiri',size:12}:{size:10}}}),{responsive:true});
       }
       if(this.view==='mecca' && document.getElementById('mmChart')){
         const m=this.MM;
         Plotly.newPlot('mmChart',[
-          {x:['Verses','Words'],y:[m.mecca.verses,m.mecca.words],type:'bar',name:isAr?'مكية':'Meccan',marker:{color:'#B7094C'}},
-          {x:['Verses','Words'],y:[m.medina.verses,m.medina.words],type:'bar',name:isAr?'مدنية':'Medinan',marker:{color:'#0891b2'}}
+          {x:[isAr?'آيات':'Verses',isAr?'كلمات':'Words'],y:[m.mecca.verses,m.mecca.words],type:'bar',name:isAr?'مكية':'Meccan',marker:{color:'#B7094C'}},
+          {x:[isAr?'آيات':'Verses',isAr?'كلمات':'Words'],y:[m.medina.verses,m.medina.words],type:'bar',name:isAr?'مدنية':'Medinan',marker:{color:'#0891b2'}}
         ],Object.assign({},lay,{height:320,barmode:'group',legend:{orientation:'h',y:1.15}}),{responsive:true});
       }
       if(this.view==='emotion' && document.getElementById('emoChart')){
@@ -1178,28 +1257,23 @@ createApp({
       }
       if(this.view==='pronouns' && document.getElementById('proChart')){
         const p=this.V1.pronouns||{};
-        Plotly.newPlot('proChart',[{x:['نحن / We','أنا / I','هو / He'],y:[p.we,p.i,this.DS.huwaCount||p.he],type:'bar',
+        Plotly.newPlot('proChart',[{x:isAr?['نحن','أنا','هو']:['نحن / We','أنا / I','هو / He'],y:[p.we,p.i,this.DS.huwaCount||p.he],type:'bar',
           marker:{color:'#1B4332'},text:[p.we,p.i,this.DS.huwaCount||p.he],textposition:'outside',cliponaxis:false}],
           Object.assign({},lay,{height:300,yaxis:{range:[0,Math.max(p.we||0,p.i||0,(this.DS.huwaCount||p.he)||0)*1.18]}}),{responsive:true});
       }
-      if(this.view==='antonyms' && document.getElementById('antChart')){
+      if(this.view==='symmetry' && document.getElementById('antChart')){
         const a=this.V1.antonymPairs||[]; const lab=a.map(p=>isAr?p.label_ar:p.label_en);
         Plotly.newPlot('antChart',[
           {x:lab,y:a.map(p=>p.claimed),type:'bar',name:isAr?'المزعوم':'Claimed',marker:{color:'#cbd5e1'}},
-          {x:lab,y:a.map(p=>p.found_a),type:'bar',name:'A',marker:{color:'#0f9d58'}},
-          {x:lab,y:a.map(p=>p.found_b),type:'bar',name:'B',marker:{color:'#0891b2'}}
+          {x:lab,y:a.map(p=>p.found_a),type:'bar',name:isAr?'الأول (فعلي)':'First (found)',marker:{color:'#0f9d58'}},
+          {x:lab,y:a.map(p=>p.found_b),type:'bar',name:isAr?'الثاني (فعلي)':'Second (found)',marker:{color:'#0891b2'}}
         ],Object.assign({},lay,{height:360,barmode:'group',legend:{orientation:'h',y:1.12}}),{responsive:true});
-      }
-      if(this.view==='symmetry' && document.getElementById('symChart')){
-        const s=this.V1.wordSymmetries||[]; const lab=s.map(p=>p.en1+' / '+p.en2);
-        Plotly.newPlot('symChart',[
-          {x:lab,y:s.map(p=>p.c1),type:'bar',name:'A',marker:{color:'#0f9d58'}},
-          {x:lab,y:s.map(p=>p.c2),type:'bar',name:'B',marker:{color:'#0891b2'}}
-        ],Object.assign({},lay,{height:380,barmode:'group',legend:{orientation:'h',y:1.12},xaxis:{tickangle:-30,tickfont:{size:10}}}),{responsive:true});
       }
       if(this.view==='science' && document.getElementById('sciChart')){
         const c=this.V1.sciCategories||[];
-        Plotly.newPlot('sciChart',[{x:c.map(x=>x.cat),y:c.map(x=>x.count),type:'bar',marker:{color:'#0891b2'},
+        const sciAr={'Cosmology':'علم الكون','Embryology':'علم الأجنة','Geology':'الجيولوجيا','Oceanography':'علوم البحار','Atmospheric Science':'الغلاف الجوي','Neuroscience':'علم الأعصاب','Zoology':'علم الحيوان','Astronomy':'الفلك','Hydrology':'علم المياه','Metallurgy':'علم المعادن','Botany':'علم النبات','Biology':'الأحياء','Medicine':'الطب','Physics':'الفيزياء','Geography':'الجغرافيا'};
+        const catLab=x=>{ if(!isAr) return x.cat; const parts=x.cat.split(' '); const name=parts.slice(1).join(' '); return parts[0]+' '+(sciAr[name]||name); };
+        Plotly.newPlot('sciChart',[{x:c.map(catLab),y:c.map(x=>x.count),type:'bar',marker:{color:'#0891b2'},
           text:c.map(x=>x.count),textposition:'outside',cliponaxis:false}],Object.assign({},lay,{height:360,yaxis:{range:[0,Math.max(...c.map(x=>x.count))*1.18]},xaxis:{tickangle:-30,tickfont:{size:10}}}),{responsive:true});
       }
       if(this.view==='nlp' && document.getElementById('biChart')){
@@ -1209,11 +1283,11 @@ createApp({
           title:isAr?'أكثر الثنائيات':'Top bigrams'}),{responsive:true});
       }
       if(this.view==='auditor' && document.getElementById('audChart')){
-        const c=this.claims;
+        const c=this.claims; const clab=c.map(x=>isAr?x.ar:x.en);
         Plotly.newPlot('audChart',[
-          {x:c.map(x=>x.en),y:c.map(x=>x.claimed),type:'bar',name:isAr?'المزعوم':'Claimed',marker:{color:'#cbd5e1'}},
-          {x:c.map(x=>x.en),y:c.map(x=>x.verifiedLemma),type:'bar',name:isAr?'المحقّق':'Verified',marker:{color:'#0f9d58'}}
-        ],Object.assign({},lay,{height:380,barmode:'group',legend:{orientation:'h',y:1.1},xaxis:{tickangle:-35,tickfont:{size:10}}}),{responsive:true});
+          {x:clab,y:c.map(x=>x.claimed),type:'bar',name:isAr?'المزعوم':'Claimed',marker:{color:'#cbd5e1'}},
+          {x:clab,y:c.map(x=>x.verifiedLemma),type:'bar',name:isAr?'المحقّق':'Verified',marker:{color:'#0f9d58'}}
+        ],Object.assign({},lay,{height:380,barmode:'group',legend:{orientation:'h',y:1.1},xaxis:{tickangle:-35,tickfont:isAr?{family:'Amiri',size:13}:{size:10}}}),{responsive:true});
       }
       if(this.view==='classifier' && this.AN.classifier && document.getElementById('clfChart')){
         const c=this.AN.classifier;
@@ -1273,6 +1347,12 @@ createApp({
   },
   watch:{ lang(v){ this.applyDir(); this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); }); } },
   mounted(){
+    const wantView = new URLSearchParams(location.search).get('view');
+    if(wantView && this.realViews.includes(wantView)){
+      this.view = wantView;
+      if(wantView==='tawafuq') this.ensureMushaf();
+      if(wantView==='alifi') this.ensureAlifi();
+    }
     this.applyDir();
     window.addEventListener('resize', ()=>this.resizeCharts());
     if(typeof QURAN_STORIES!=='undefined') this.stories=QURAN_STORIES;

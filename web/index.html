@@ -192,6 +192,14 @@
   footer a:hover{color:#fff}
   .footbrand{display:flex;align-items:center;justify-content:center;gap:10px;color:#fff;font-weight:700;margin-bottom:14px}
 
+  /* language toggle */
+  .langpill{display:inline-flex;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:99px;padding:3px;gap:2px}
+  .langpill button{background:transparent;border:0;color:#bcd9cb;padding:5px 13px;font-size:.8rem;cursor:pointer;
+    font-family:Amiri,Inter,sans-serif;border-radius:99px;transition:all .25s var(--ease)}
+  .langpill button.on{background:#fff;color:#0b231a;font-weight:700}
+  html[dir=rtl] .watermark{right:auto;left:-40px}
+  html[dir=rtl] .herosub,html[dir=rtl] .sechead p,html[dir=rtl] .tile p{line-height:1.85}
+
   /* reveal on scroll */
   .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
   .reveal.in{opacity:1;transform:none}
@@ -214,11 +222,15 @@
 <body>
 
 <nav class="topnav">
-  <a class="navbrand" href="./"><span class="glyph"></span>Quran Text Analytics</a>
+  <a class="navbrand" href="./"><span class="glyph"></span><span data-i18n="brand">Quran Text Analytics</span></a>
   <div class="navlinks">
-    <a class="plain" href="#features">Features</a>
-    <a class="plain" href="#claims">Claim Auditor</a>
-    <a class="navcta" href="app.html">Open the app</a>
+    <a class="plain" href="#features" data-i18n="nav.features">Features</a>
+    <a class="plain" href="#claims" data-i18n="nav.claims">Claim Auditor</a>
+    <span class="langpill" role="group" aria-label="Language">
+      <button type="button" id="lang-en" class="on" aria-pressed="true">English</button>
+      <button type="button" id="lang-ar" lang="ar" aria-pressed="false">العربية</button>
+    </span>
+    <a class="navcta applink" href="app.html" data-i18n="nav.open">Open the app</a>
   </div>
 </nav>
 
@@ -226,19 +238,19 @@
   <div class="aurora a1"></div><div class="aurora a2"></div><div class="aurora a3"></div>
   <div class="watermark">&#1649;&#1604;&#1618;&#1602;&#1615;&#1585;&#1618;&#1570;&#1606;</div>
   <div class="heroinner">
-    <span class="kicker">Authoritative corpus analytics</span>
-    <h1>The Quran, measured.<span class="grad">Every word. Every root. Verified.</span></h1>
-    <p class="herosub">Interactive analytics over the full Quranic Arabic Corpus: morphology-level search,
+    <span class="kicker" data-i18n="kicker">Authoritative corpus analytics</span>
+    <h1><span data-i18n="h1a">The Quran, measured.</span><span class="grad" data-i18n="h1b">Every word. Every root. Verified.</span></h1>
+    <p class="herosub" data-i18n="herosub">Interactive analytics over the full Quranic Arabic Corpus: morphology-level search,
       a machine learning lab, statistical tests and a claim auditor. In English and Arabic, in your browser.</p>
     <div class="ctas">
-      <a class="btn primary" href="app.html">Open the app &rsaquo;</a>
-      <a class="btn ghost" href="#claims">Audit the famous claims</a>
+      <a class="btn primary applink" href="app.html" data-i18n="cta1">Open the app &rsaquo;</a>
+      <a class="btn ghost" href="#claims" data-i18n="cta2">Audit the famous claims</a>
     </div>
     <div class="herostats">
-      <div class="hstat"><div class="n" data-count="114">0</div><div class="l">Surahs</div></div>
-      <div class="hstat"><div class="n" data-count="6236">0</div><div class="l">Verses</div></div>
-      <div class="hstat"><div class="n" data-count="77429">0</div><div class="l">Words</div></div>
-      <div class="hstat"><div class="n" data-count="38">0</div><div class="l">Interactive pages</div></div>
+      <div class="hstat"><div class="n" data-count="114">0</div><div class="l" data-i18n="stat.surahs">Surahs</div></div>
+      <div class="hstat"><div class="n" data-count="6236">0</div><div class="l" data-i18n="stat.verses">Verses</div></div>
+      <div class="hstat"><div class="n" data-count="77429">0</div><div class="l" data-i18n="stat.words">Words</div></div>
+      <div class="hstat"><div class="n" data-count="1651">0</div><div class="l" data-i18n="stat.roots">Roots</div></div>
     </div>
     <div class="shotwrap reveal">
       <div class="shot">
@@ -252,30 +264,30 @@
 <section class="feat" id="features">
   <div class="inner">
     <div class="sechead reveal">
-      <span class="kicker">What is inside</span>
-      <h2>Built like an instrument,<br>not a brochure.</h2>
-      <p>Every number on this site is computed live from the corpus in your browser and pinned by tests. Nothing is hand-typed, nothing is hidden.</p>
+      <span class="kicker" data-i18n="feat.kicker">What is inside</span>
+      <h2 data-i18n-html="feat.h2">Built like an instrument,<br>not a brochure.</h2>
+      <p data-i18n="feat.p">Every number on this site is computed live from the corpus in your browser and pinned by tests. Nothing is hand-typed, nothing is hidden.</p>
     </div>
     <div class="bento">
       <div class="tile dark t-lab reveal">
-        <h3 class="big">The Analytics Lab</h3>
-        <p>Six working studios: logistic regression that tells Meccan from Medinan surahs, k-means and PCA clustering,
+        <h3 class="big" data-i18n="lab.h3">The Analytics Lab</h3>
+        <p data-i18n="lab.p">Six working studios: logistic regression that tells Meccan from Medinan surahs, k-means and PCA clustering,
            hypothesis testing, Monte Carlo simulation, a linear-programming memorisation optimiser and a live BI dashboard with filters.</p>
         <div class="minibars"><i style="height:38%"></i><i style="height:62%"></i><i style="height:45%"></i><i style="height:88%"></i><i style="height:30%"></i><i style="height:72%"></i><i style="height:55%"></i><i style="height:96%"></i></div>
       </div>
       <div class="tile t-search reveal">
-        <h3>Word Search</h3>
-        <p>Search by surface form, lemma or root, with a full on-screen Arabic keyboard and a highlighted concordance.</p>
+        <h3 data-i18n="search.h3">Word Search</h3>
+        <p data-i18n="search.p">Search by surface form, lemma or root, with a full on-screen Arabic keyboard and a highlighted concordance.</p>
         <div class="keycaps"><b>&#1602;</b><b>&#1585;</b><b>&#1570;</b><b>&#1606;</b><b style="font-family:Inter;font-size:.8rem;color:#c81e5b;background:#fdeef3">&#8920;</b></div>
       </div>
       <div class="tile t-bilingual reveal">
-        <h3>Fully bilingual</h3>
-        <p>One tap flips the entire app into Arabic: right-to-left layout, mirrored charts, Arabic-Indic numerals.</p>
+        <h3 data-i18n="bi.h3">Fully bilingual</h3>
+        <p data-i18n="bi.p">One tap flips the entire app into Arabic: right-to-left layout, mirrored charts, Arabic-Indic numerals.</p>
         <div class="pillpair"><span>English</span><span class="on ar">&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;</span></div>
       </div>
       <div class="tile dark t-graph reveal">
-        <h3>Knowledge graph</h3>
-        <p>439 nodes and 929 edges link surahs, prophets, events and tafsir into one interactive map with 28 communities.</p>
+        <h3 data-i18n="kg.h3">Knowledge graph</h3>
+        <p data-i18n="kg.p">439 nodes and 929 edges link surahs, prophets, events and tafsir into one interactive map with 28 communities.</p>
         <svg class="net" viewBox="0 0 300 120" aria-hidden="true">
           <line x1="40" y1="60" x2="110" y2="28"/><line x1="40" y1="60" x2="100" y2="92"/><line x1="110" y1="28" x2="180" y2="50"/>
           <line x1="100" y1="92" x2="180" y2="50"/><line x1="180" y1="50" x2="250" y2="26"/><line x1="180" y1="50" x2="244" y2="88"/>
@@ -285,8 +297,8 @@
         </svg>
       </div>
       <div class="tile t-reader reveal">
-        <h3>Reader</h3>
-        <p>The full mushaf, verse by verse, in Uthmani script with the Amiri typeface.</p>
+        <h3 data-i18n="reader.h3">Reader</h3>
+        <p data-i18n="reader.p">The full mushaf, verse by verse, in Uthmani script with the Amiri typeface.</p>
         <div class="bism">&#1576;&#1616;&#1587;&#1618;&#1605;&#1616; &#1649;&#1604;&#1604;&#1614;&#1617;&#1607;&#1616; &#1649;&#1604;&#1585;&#1614;&#1617;&#1581;&#1618;&#1605;&#1614;&#1648;&#1606;&#1616; &#1649;&#1604;&#1585;&#1614;&#1617;&#1581;&#1616;&#1610;&#1605;&#1616;</div>
         <div class="verseline">1:1</div>
       </div>
@@ -297,16 +309,16 @@
 <section class="claims" id="claims">
   <div class="inner" id="app">
     <div class="sechead reveal">
-      <span class="kicker">Claim auditor</span>
-      <h2>Famous claims, audited.</h2>
-      <p>Every famous word-count claim, checked against the real corpus. We show the <b>claimed</b> figure,
+      <span class="kicker" data-i18n="cl.kicker">Claim auditor</span>
+      <h2 data-i18n="cl.h2">Famous claims, audited.</h2>
+      <p data-i18n-html="cl.p">Every famous word-count claim, checked against the real corpus. We show the <b>claimed</b> figure,
          the <b>verified</b> count by lemma, and what a <b>naive search</b> returns. Nothing hidden.</p>
     </div>
 
     <div class="legend">
-      <span><span class="dot" style="background:var(--emerald)"></span> Verified matches the claim exactly</span>
-      <span><span class="dot" style="background:var(--teal)"></span> Parity holds (pair is equal)</span>
-      <span><span class="dot" style="background:var(--amber)"></span> Differs / depends on counting method</span>
+      <span><span class="dot" style="background:var(--emerald)"></span> <span data-i18n="leg1">Verified matches the claim exactly</span></span>
+      <span><span class="dot" style="background:var(--teal)"></span> <span data-i18n="leg2">Parity holds (pair is equal)</span></span>
+      <span><span class="dot" style="background:var(--amber)"></span> <span data-i18n="leg3">Differs / depends on counting method</span></span>
     </div>
 
     <div class="grid">
@@ -314,39 +326,41 @@
         <div class="ctop">
           <div>
             <div class="word-ar">{{ c.ar }}</div>
-            <div class="word-en">{{ c.en }}</div>
+            <div class="word-en" v-if="lang!=='ar'">{{ c.en }}</div>
           </div>
           <div class="badge" :class="verdict(c)">{{ badge(c) }}</div>
         </div>
 
         <div class="nums">
-          <div class="num claimed"><div class="v">{{ fmt(c.claimed) }}</div><div class="k">Claimed</div></div>
+          <div class="num claimed"><div class="v">{{ fmt(c.claimed) }}</div><div class="k">{{ lang==='ar'?'المزعوم':'Claimed' }}</div></div>
           <div class="num verified" :class="{off: c.verifiedLemma !== c.claimed}">
-            <div class="v">{{ fmt(c.verifiedLemma) }}</div><div class="k">Verified</div>
+            <div class="v">{{ fmt(c.verifiedLemma) }}</div><div class="k">{{ lang==='ar'?'المحقّق':'Verified' }}</div>
           </div>
         </div>
-        <div class="raw">naive search: {{ fmt(c.rawSubstring) }} substring &middot; {{ fmt(c.rawWholeWord) }} whole-word</div>
+        <div class="raw" v-if="lang!=='ar'">naive search: {{ fmt(c.rawSubstring) }} substring &middot; {{ fmt(c.rawWholeWord) }} whole-word</div>
+        <div class="raw" v-else>بحث ساذج: {{ fmt(c.rawSubstring) }} ضمن النص &middot; {{ fmt(c.rawWholeWord) }} كلمة كاملة</div>
 
-        <div v-if="c.pair && pairEqual(c)" class="pairtag">= its pair ({{ pairName(c) }}) - the symmetry holds</div>
+        <div v-if="c.pair && pairEqual(c) && lang!=='ar'" class="pairtag">= its pair ({{ pairName(c) }}) - the symmetry holds</div>
+        <div v-if="c.pair && pairEqual(c) && lang==='ar'" class="pairtag">= زوجه ({{ pairName(c) }})، والتعادل قائم</div>
 
-        <div class="note">{{ c.note_en }}</div>
+        <div class="note">{{ lang==='ar' ? (notesAr[c.id]||c.note_en) : c.note_en }}</div>
 
-        <div class="more" @click="toggle(c.id)">{{ open[c.id] ? 'Hide' : 'Show' }} the {{ c.verifiedLemma }} verses &rsaquo;</div>
+        <div class="more" @click="toggle(c.id)" v-if="lang!=='ar'">{{ open[c.id] ? 'Hide' : 'Show' }} the {{ c.verifiedLemma }} verses &rsaquo;</div>
+        <div class="more" @click="toggle(c.id)" v-else>{{ open[c.id] ? 'أخفِ' : 'أظهر' }} الآيات ({{ fmt(c.verifiedLemma) }}) &lsaquo;</div>
         <div v-if="open[c.id]" class="audit">
           <span class="ref" v-for="r in c.audit.slice(0,40)" :key="r[0]+':'+r[1]">{{ r[0] }}:{{ r[1] }}</span>
           <span v-if="c.audit.length>40" class="ref">+{{ c.audit.length-40 }} more</span>
         </div>
       </div>
     </div>
-    <div class="fix">Built on the Quranic Arabic Corpus morphology. The old app showed <b>6,348 verses / 56,108 words</b> - both corrected here.</div>
   </div>
 </section>
 
 <footer>
-  <div class="footbrand"><span class="glyph"></span>Quran Text Analytics</div>
-  Data: Quranic Arabic Corpus morphology (lemma, root and part of speech).
-  Counts are computed live from the corpus and pinned by tests.<br>
-  <a href="app.html">Open the app</a> &nbsp;&middot;&nbsp; <a href="https://github.com/heshamrokaia/quran-text-analytics">View the source on GitHub</a>
+  <div class="footbrand"><span class="glyph"></span><span data-i18n="brand">Quran Text Analytics</span></div>
+  <span data-i18n="foot.data">Data: Quranic Arabic Corpus morphology (lemma, root and part of speech).
+  Counts are computed live from the corpus and pinned by tests.</span><br>
+  <a href="app.html" class="applink" data-i18n="foot.open">Open the app</a> &nbsp;&middot;&nbsp; <a href="https://github.com/HeshamAbourokaia/quran-text-analytics" data-i18n="foot.src">View the source on GitHub</a>
 </footer>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js" defer></script>
@@ -357,10 +371,26 @@ window.addEventListener('DOMContentLoaded', function(){
   createApp({
     data(){
       const D = window.QURAN_DATA || {claims:[],stats:{totals:{}}};
-      return { claims: D.claims, stats: D.stats, open:{} };
+      return { claims: D.claims, stats: D.stats, open:{},
+        lang: (new URLSearchParams(location.search).get('lang')==='ar'?'ar':'en'),
+        notesAr:{
+          'day-365':'العدّ بالجذع يشمل كل الصيغ. والرقم المتداول ٣٦٥ يعدّ الاسم المفرد فقط، ويُسقط المثنى وكلمة «يومئذ» المدمجة وصيغ الإضافة.',
+          'month-12':'العدّ بالجذع يشمل كل الصيغ. والرقم ١٢ يعدّ الاسم المفرد فقط، ويُسقط الجمع «أشهر» والمثنى.',
+          'devil-88':'مطابق بالجذع: المفرد والجمع يشتركان في الجذع ومجموعهما ٨٨. ولاحظ أن البحث النصي الساذج عن «شيطان» يجد صفراً لأن الرسم العثماني يكتبها «شيطن».',
+          'angel-88':'مطابق بالجذع. يفصل الصرفُ «مَلَك» (٨٨) عن «مُلْك» و«مَلِك»، وهو ما لا يستطيعه البحث النصي، ولذلك يبدو العدّ الساذج خاطئاً.',
+          'hell-77':'مطابق بالجذع. «جهنم» اسم علم لا لبس فيه.',
+          'paradise-77':'جذع «جنة» يعني أيضاً «حديقة»، فيتجاوز مجموعه ٧٧ بكثير. والرقم ٧٧ يعدّ معنى الجنة فقط، وهذا يحتاج وسماً دلالياً للمعنى.',
+          'man-24':'جذع «رجل» بعد فصله عن «رِجل» بمعنى القدم. ومزاعم تساوي الرجل والمرأة عند ٢٤ لا تصمد عند العدّ بالجذع.',
+          'woman-24':'جذع «امرأة». لا يساوي عدّ الرجل، وليس ٢٤.',
+          'jesus-24':'جذع «عيسى» يساوي «آدم». التعادل صحيح، لكن الرقم ٢٥ لا ٢٤.',
+          'adam-24':'جذع «آدم» يساوي «عيسى». التعادل صحيح، والرقم ٢٥ لا ٢٤.',
+          'allah-2806':'العدّ المعياري لاسم الجلالة في هذه المدونة ٢٦٩٩. ورقم ٢٨٠٦ يعتمد اصطلاحاً أوسع في العدّ.',
+          'rabb-846':'جذع «ربّ» يشمل صيغ الإضافة (ربي، ربك، ربهم). والرقم ٨٤٦ يعدّ مجموعة أضيق.'
+        } };
     },
+    mounted(){ window.__vueSetLang = (l)=>{ this.lang = l; }; },
     methods:{
-      fmt(n){ return (n==null?0:n).toLocaleString(); },
+      fmt(n){ return (n==null?0:n).toLocaleString(this.lang==='ar'?'ar-EG':'en-AU'); },
       toggle(id){ this.open[id] = !this.open[id]; },
       byId(id){ return this.claims.find(x=>x.id===id); },
       verdict(c){
@@ -370,10 +400,11 @@ window.addEventListener('DOMContentLoaded', function(){
       },
       badge(c){
         const v = this.verdict(c);
+        if(this.lang==='ar') return v==='exact' ? 'مطابق' : v==='parity' ? 'تعادل' : 'مختلف';
         return v==='exact' ? 'EXACT' : v==='parity' ? 'PARITY' : 'DIFFERS';
       },
       pairEqual(c){ const p=this.byId(c.pair); return p && p.verifiedLemma===c.verifiedLemma; },
-      pairName(c){ const p=this.byId(c.pair); return p? p.en : ''; }
+      pairName(c){ const p=this.byId(c.pair); return p ? (this.lang==='ar' ? p.ar : p.en) : ''; }
     }
   }).mount('#app');
 
@@ -403,6 +434,76 @@ window.addEventListener('DOMContentLoaded', function(){
     });
   },{threshold:.6});
   document.querySelectorAll('[data-count]').forEach(el=>co.observe(el));
+
+  // ── bilingual landing ──
+  const I18N = {
+    'brand':        {en:'Quran Text Analytics', ar:'تحليلات نص القرآن'},
+    'nav.features': {en:'Features', ar:'المزايا'},
+    'nav.claims':   {en:'Claim Auditor', ar:'مدقّق المزاعم'},
+    'nav.open':     {en:'Open the app', ar:'افتح التطبيق'},
+    'kicker':       {en:'Authoritative corpus analytics', ar:'تحليلات على المدونة الموثوقة'},
+    'h1a':          {en:'The Quran, measured.', ar:'القرآن، بالأرقام.'},
+    'h1b':          {en:'Every word. Every root. Verified.', ar:'كل كلمة. كل جذر. بتحقيق.'},
+    'herosub':      {en:'Interactive analytics over the full Quranic Arabic Corpus: morphology-level search, a machine learning lab, statistical tests and a claim auditor. In English and Arabic, in your browser.',
+                     ar:'تحليلات تفاعلية على مدونة القرآن العربية الصرفية كاملة: بحث على مستوى الصرف، ومختبر تعلم آلة، واختبارات إحصائية، ومدقق للمزاعم العددية. بالعربية والإنجليزية، في متصفحك.'},
+    'cta1':         {en:'Open the app \u203a', ar:'افتح التطبيق \u2039'},
+    'cta2':         {en:'Audit the famous claims', ar:'دقّق المزاعم الشهيرة'},
+    'stat.surahs':  {en:'Surahs', ar:'سورة'},
+    'stat.verses':  {en:'Verses', ar:'آية'},
+    'stat.words':   {en:'Words', ar:'كلمة'},
+    'stat.roots':   {en:'Roots', ar:'جذر'},
+    'feat.kicker':  {en:'What is inside', ar:'ماذا في الداخل'},
+    'feat.h2':      {en:'Built like an instrument,<br>not a brochure.', ar:'صُنع كأداة قياس،<br>لا كنشرة دعائية.', html:1},
+    'feat.p':       {en:'Every number on this site is computed live from the corpus in your browser and pinned by tests. Nothing is hand-typed, nothing is hidden.',
+                     ar:'كل رقم في هذا الموقع يُحسب مباشرة من المدونة في متصفحك وتثبّته اختبارات. لا شيء مكتوب باليد، ولا شيء مخفي.'},
+    'lab.h3':       {en:'The Analytics Lab', ar:'مختبر التحليلات'},
+    'lab.p':        {en:'Six working studios: logistic regression that tells Meccan from Medinan surahs, k-means and PCA clustering, hypothesis testing, Monte Carlo simulation, a linear-programming memorisation optimiser and a live BI dashboard with filters.',
+                     ar:'ستة استوديوهات عاملة: انحدار لوجستي يميز السور المكية من المدنية، وتجميع وتحليل مكونات رئيسية، واختبار فرضيات، ومحاكاة مونت كارلو، ومُحسِّن حفظ بالبرمجة الخطية، ولوحة معلومات حية بالمرشحات.'},
+    'search.h3':    {en:'Word Search', ar:'بحث في الكلمات'},
+    'search.p':     {en:'Search by surface form, lemma or root, with a full on-screen Arabic keyboard and a highlighted concordance.',
+                     ar:'ابحث بالصيغة أو الجذع أو الجذر، مع لوحة مفاتيح عربية كاملة على الشاشة وكشّاف سياقي مُظلَّل.'},
+    'bi.h3':        {en:'Fully bilingual', ar:'بلغتين بالكامل'},
+    'bi.p':         {en:'One tap flips the entire app into Arabic: right-to-left layout, mirrored charts, Arabic-Indic numerals.',
+                     ar:'لمسة واحدة تقلب التطبيق كله إلى العربية: تخطيط من اليمين إلى اليسار، ورسوم معكوسة، وأرقام عربية مشرقية.'},
+    'kg.h3':        {en:'Knowledge graph', ar:'خريطة المعرفة'},
+    'kg.p':         {en:'439 nodes and 929 edges link surahs, prophets, events and tafsir into one interactive map with 28 communities.',
+                     ar:'٤٣٩ عقدة و٩٢٩ علاقة تربط السور والأنبياء والأحداث والتفسير في خريطة تفاعلية واحدة من ٢٨ مجتمعاً.'},
+    'reader.h3':    {en:'Reader', ar:'المصحف'},
+    'reader.p':     {en:'The full mushaf, verse by verse, in Uthmani script with the Amiri typeface.',
+                     ar:'المصحف كاملاً، آية آية، بالرسم العثماني وخط أميري.'},
+    'cl.kicker':    {en:'Claim auditor', ar:'مدقّق المزاعم'},
+    'cl.h2':        {en:'Famous claims, audited.', ar:'المزاعم الشهيرة، تحت التدقيق.'},
+    'cl.p':         {en:'Every famous word-count claim, checked against the real corpus. We show the <b>claimed</b> figure, the <b>verified</b> count by lemma, and what a <b>naive search</b> returns. Nothing hidden.',
+                     ar:'كل مزاعم عدّ الكلمات الشهيرة، مُختبَرة على المدونة الحقيقية. نعرض الرقم <b>المزعوم</b>، والعدّ <b>المحقّق</b> بالجذع، وما يعيده <b>البحث الساذج</b>. لا شيء مخفي.', html:1},
+    'leg1':         {en:'Verified matches the claim exactly', ar:'المحقّق يطابق المزعوم تماماً'},
+    'leg2':         {en:'Parity holds (pair is equal)', ar:'التعادل قائم (الزوجان متساويان)'},
+    'leg3':         {en:'Differs / depends on counting method', ar:'مختلف، أو يعتمد على طريقة العدّ'},
+    'foot.data':    {en:'Data: Quranic Arabic Corpus morphology (lemma, root and part of speech). Counts are computed live from the corpus and pinned by tests.',
+                     ar:'البيانات: مدونة القرآن العربية الصرفية (الجذع والجذر وأقسام الكلام). الأرقام تُحسب مباشرة من المدونة وتثبّتها اختبارات.'},
+    'foot.open':    {en:'Open the app', ar:'افتح التطبيق'},
+    'foot.src':     {en:'View the source on GitHub', ar:'المصدر على GitHub'}
+  };
+  function applyLang(l){
+    document.documentElement.lang = (l==='ar'?'ar':'en');
+    document.documentElement.dir  = (l==='ar'?'rtl':'ltr');
+    document.querySelectorAll('[data-i18n]').forEach(el=>{
+      const d = I18N[el.dataset.i18n]; if(d) el.textContent = d[l] || d.en;
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el=>{
+      const d = I18N[el.dataset.i18nHtml]; if(d) el.innerHTML = d[l] || d.en;
+    });
+    document.querySelectorAll('a.applink').forEach(a=>{ a.href = l==='ar' ? 'app.html?lang=ar' : 'app.html'; });
+    const be=document.getElementById('lang-en'), ba=document.getElementById('lang-ar');
+    if(be&&ba){ be.classList.toggle('on', l!=='ar'); ba.classList.toggle('on', l==='ar');
+      be.setAttribute('aria-pressed', l!=='ar'); ba.setAttribute('aria-pressed', l==='ar'); }
+    const u = new URL(location.href);
+    if(l==='ar') u.searchParams.set('lang','ar'); else u.searchParams.delete('lang');
+    history.replaceState(null,'',u);
+    if(window.__vueSetLang) window.__vueSetLang(l);
+  }
+  document.getElementById('lang-en').addEventListener('click', ()=>applyLang('en'));
+  document.getElementById('lang-ar').addEventListener('click', ()=>applyLang('ar'));
+  if(new URLSearchParams(location.search).get('lang')==='ar') applyLang('ar');
 });
 </script>
 </body>
