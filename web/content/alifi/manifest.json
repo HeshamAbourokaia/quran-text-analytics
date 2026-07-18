@@ -1,1 +1,30 @@
-{"edition":"","pages":[],"note":"Add page images as content/alifi/page-001.jpg ... and list filenames in pages[]"}
+{
+ "edition": "Alifi Mushaf (Lahore) - authenticated sample pages",
+ "pages": [
+  {
+   "file": "page-014.jpg",
+   "label": "14"
+  },
+  {
+   "file": "page-015.jpg",
+   "label": "15"
+  },
+  {
+   "file": "page-016.jpg",
+   "label": "16"
+  },
+  {
+   "file": "page-033.jpg",
+   "label": "33"
+  },
+  {
+   "file": "page-034.jpg",
+   "label": "34"
+  },
+  {
+   "file": "page-127.jpg",
+   "label": "127"
+  }
+ ],
+ "attribution": "Page photographs reproduced from Sandal, H. H. (2026), 'A Different Perspective on the Challenge of the Qur'an', Indonesian Journal of Research in Islamic Studies 3(1), 33-60, CC BY-SA 4.0 (archive.org/details/symmetry-of-quran)."
+}
