@@ -182,6 +182,8 @@
     transition:transform .2s var(--ease),box-shadow .2s var(--ease),border-color .2s var(--ease),color .2s var(--ease)}
   .chip:hover{border-color:var(--emerald);color:var(--emerald-deep);transform:translateY(-1px);box-shadow:0 4px 10px rgba(13,165,100,.16)}
   .vblock{margin-bottom:6px}
+  .transnote{direction:ltr;text-align:left;font-size:.72rem;color:var(--muted);margin-top:14px;padding-top:10px;border-top:1px solid var(--line-soft)}
+  .dir-rtl .transnote{direction:rtl;text-align:right}
   .verse-en{direction:ltr;text-align:left;font-size:.95rem;color:#3f5a50;line-height:1.65;
     padding:6px 12px;margin:2px 0 14px;border-inline-start:3px solid rgba(13,165,100,.35);background:#f4faf7;border-radius:8px}
   .verse{font-family:Amiri,serif;font-size:1.55rem;line-height:2.5;text-align:justify;direction:rtl;
@@ -410,6 +412,9 @@
           <button :class="{on:mode==='lemma'}" @click="mode='lemma';runSearch()">{{ lang==='ar'?'جذع':'Lemma' }}</button>
           <button :class="{on:mode==='root'}" @click="mode='root';runSearch()">{{ lang==='ar'?'جذر':'Root' }}</button>
         </div>
+        <div class="seg">
+          <button :class="{on:showTrans}" :aria-pressed="showTrans" @click="showTrans=!showTrans">{{ lang==='ar'?'الترجمة':'Translation' }}</button>
+        </div>
       </div>
       <div>
         <span class="chip" v-for="ex in examples" :key="ex" @click="q=ex;runSearch()">{{ ex }}</span>
@@ -429,7 +434,10 @@
       <div v-if="q && sres.total===0" class="stub">{{ lang==='ar'?'لا نتائج':'No matches' }}</div>
       <div v-if="sres.total>0" class="card">
         <h3>{{ lang==='ar'?'السياق':'Concordance' }} <span style="font-weight:400;color:var(--muted);font-size:.8rem">({{ lang==='ar'?'أول':'first' }} {{ sres.sample.length }})</span></h3>
-        <div v-for="vk in sres.sample" :key="vk" class="verse" v-html="highlight(vk)"></div>
+        <div v-for="vk in sres.sample" :key="vk" class="vblock">
+          <div class="verse" v-html="highlight(vk)"></div>
+          <div v-if="showTrans && EN[vk]" class="verse-en">{{ vk }} &middot; {{ EN[vk] }}</div>
+        </div>
       </div>
     </section>
 
@@ -449,6 +457,9 @@
           <div class="verse">{{ v.t }} <span class="vk">{{ v.k }}</span></div>
           <div v-if="showTrans && EN[v.k]" class="verse-en">{{ v.k }} &middot; {{ EN[v.k] }}</div>
         </div>
+        <div v-if="showTrans" class="transnote">{{ lang==='ar'
+          ? 'الترجمة الإنجليزية: محمد مرمدوك بكتهول، «معاني القرآن المجيد» (١٩٣٠)، ملكية عامة. النص الرقمي المدقق من مشروع تنزيل.'
+          : 'English translation: M. M. Pickthall, The Meaning of the Glorious Koran (1930), public domain. Verse-aligned digital text from the Tanzil Project.' }}</div>
       </div>
     </section>
 
