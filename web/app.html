@@ -274,7 +274,7 @@
         <span class="ic" v-html="h.icon"></span><span>{{ lang==='ar' ? h.ar : h.en }}</span>
       </div>
     </nav>
-    <div class="sidefoot">{{ lang==='ar' ? 'كل رقم يُحسب مباشرة من المدونة في متصفحك.' : 'Every number is computed live from the corpus in your browser.' }}</div>
+    <div class="sidefoot">{{ lang==='ar' ? 'كل الأرقام تُحسب لحظيًا من المدونة داخل متصفحك.' : 'Every number is computed live from the corpus in your browser.' }}</div>
   </aside>
 
   <main>
@@ -287,12 +287,12 @@
     <section v-if="view==='home'" class="home">
       <div class="homehero">
         <div class="homemark" aria-hidden="true">ٱلْقُرْآن</div>
-        <h1 class="homet">{{ lang==='ar' ? 'القرآن، بالأرقام.' : 'The Quran, measured.' }}</h1>
+        <h1 class="homet">{{ lang==='ar' ? 'القرآن بالأرقام.' : 'The Quran, measured.' }}</h1>
         <p class="homesub">{{ lang==='ar'
-          ? 'تحليلات تفاعلية مبنية على مدونة القرآن العربية الصرفية: بحث على مستوى الصرف، ومختبر تحليلات، ومدقق للمزاعم العددية، وقراءة للمصحف. كل رقم يُحسب مباشرة في متصفحك، لا شيء مكتوب باليد.'
+          ? 'منصة تفاعلية تقوم على المدونة الصرفية للقرآن الكريم، تجمع بين البحث الصرفي الدقيق ومختبر تحليلاتٍ عامل وتدقيق الأعداد المتداولة وقراءة المصحف كاملًا. وكل رقم تراه هنا يُحسب لحظيًا من المدونة داخل متصفحك، من غير أي إدخال يدوي.'
           : 'Interactive analytics built on the Quranic Arabic Corpus: morphology-level search, a working analytics lab, a claim auditor and a mushaf reader. Every number is computed live in your browser; nothing is hand-typed.' }}</p>
         <div class="homecta">
-          <button class="primary" @click="go('auditor')">{{ lang==='ar' ? 'دقّق المزاعم الشهيرة' : 'Audit the famous claims' }}</button>
+          <button class="primary" @click="go('auditor')">{{ lang==='ar' ? 'دقّق الأعداد المتداولة' : 'Audit the famous claims' }}</button>
           <button class="ghost" @click="go('overview')">{{ lang==='ar' ? 'استكشف البيانات' : 'Explore the data' }}</button>
         </div>
         <div class="kpis">
@@ -310,7 +310,7 @@
         </div>
       </div>
       <p class="homefoot">{{ lang==='ar'
-        ? 'مبني على مدونة القرآن العربية الصرفية (الجذع والجذر وأقسام الكلام). يعمل بالعربية والإنجليزية.'
+        ? 'بُنيت المنصة على المدونة الصرفية للقرآن الكريم بجذوعها وجذورها وأقسام كلامها، وهي تعمل كاملةً بالعربية والإنجليزية.'
         : 'Built on the Quranic Arabic Corpus morphology (lemma, root and part of speech). Fully bilingual, English and Arabic.' }}</p>
     </section>
 
@@ -444,7 +444,7 @@
     <!-- CLAIM AUDITOR -->
     <section v-if="view==='auditor'">
       <h1>{{ lang==='ar' ? 'مدقّق المزاعم' : 'Claim Auditor' }}</h1>
-      <p class="sub">{{ lang==='ar'?'المزعوم مقابل المحقّق مقابل البحث الساذج - لكل مزاعم العدد.':'Claimed vs verified vs naive search, for every word-count claim.' }}</p>
+      <p class="sub">{{ lang==='ar'?'نقارن في كل مزعمٍ عددي بين الرقم المزعوم والعدِّ المحقَّق وما يعيده البحث الساذج.':'Claimed vs verified vs naive search, for every word-count claim.' }}</p>
       <div class="card"><div class="chart" id="audChart"></div></div>
       <div class="grid" style="margin-top:16px">
         <div v-for="c in claims" :key="c.id" class="card" style="margin:0">
@@ -546,12 +546,12 @@
     <!-- WORD PAIRS & BALANCE (merged Word Symmetries + Antonym Pairs + Waw) -->
     <section v-if="view==='symmetry'">
       <h1>{{ lang==='ar'?'توازن الأزواج':'Word Pairs & Balance' }}</h1>
-      <p class="sub">{{ lang==='ar'?'الأعداد المتداولة لأزواج الكلمات المتقابلة، وما يُظهره العدّ الفعلي على المدونة.':'The widely cited counts for opposing word pairs, next to what an actual count over the corpus shows.' }}</p>
+      <p class="sub">{{ lang==='ar'?'نعرض هنا الأعداد المتداولة لأزواج الكلمات المتقابلة، وإلى جوارها ما يُظهره العدُّ الفعلي على المدونة.':'The widely cited counts for opposing word pairs, next to what an actual count over the corpus shows.' }}</p>
       <div class="card"><div class="chart" id="antChart"></div></div>
-      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'قليل من الأزواج يطابق العدد المتساوي المزعوم عند العدّ الفعلي، فالتوازن أقل إحكاماً مما يُشاع، وبعضه يصمد بجدارة.':'Under an actual count, only some pairs land on the claimed equal totals; the balance is looser than the popular claim, though a few pairs do hold.' }}</div>
+      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'عند العدّ الفعلي لا يصمد على التساوي إلا قليلٌ من الأزواج، فالتوازن أقل إحكامًا مما يُشاع، وإن ظل بعضه ثابتًا بجدارة.':'Under an actual count, only some pairs land on the claimed equal totals; the balance is looser than the popular claim, though a few pairs do hold.' }}</div>
       <div class="row">
         <div class="col card"><h3>{{ lang==='ar'?'الأعداد المتداولة':'As widely cited' }}</h3>
-          <p class="sub" style="font-size:.85rem;margin-top:0">{{ lang==='ar'?'هذه الأعداد كما تتداولها الكتب والمواقع، وليست نتيجة عدّنا.':'These are the counts as circulated in books and websites, not the result of our own count.' }}</p>
+          <p class="sub" style="font-size:.85rem;margin-top:0">{{ lang==='ar'?'ننقل هذه الأعداد كما تتداولها الكتب والمواقع، لا كما أظهرها عدُّنا.':'These are the counts as circulated in books and websites, not the result of our own count.' }}</p>
           <table>
             <tr><th>{{ lang==='ar'?'الزوج':'Pair' }}</th><th>{{ lang==='ar'?'العدد المتداول':'Cited count' }}</th></tr>
             <tr v-for="(p,i) in V1.wordSymmetries" :key="i">
@@ -561,7 +561,7 @@
           </table>
         </div>
         <div class="col card"><h3>{{ lang==='ar'?'العدّ الفعلي':'What we actually find' }}</h3>
-          <p class="sub" style="font-size:.85rem;margin-top:0">{{ lang==='ar'?'عدّ مباشر على نص المدونة للأزواج الخمسة الأشهر.':'A direct count over the corpus text for the five most-cited pairs.' }}</p>
+          <p class="sub" style="font-size:.85rem;margin-top:0">{{ lang==='ar'?'عددنا الأزواج الخمسة الأشهر عدًّا مباشرًا على نص المدونة.':'A direct count over the corpus text for the five most-cited pairs.' }}</p>
           <table>
             <tr><th>{{ lang==='ar'?'الزوج':'Pair' }}</th><th>{{ lang==='ar'?'المزعوم':'Claimed' }}</th><th>{{ lang==='ar'?'الأول':'First' }}</th><th>{{ lang==='ar'?'الثاني':'Second' }}</th></tr>
             <tr v-for="(p,i) in V1.antonymPairs" :key="'a'+i">
@@ -975,18 +975,18 @@ createApp({
       alifi:null, alifiPage:0, alifiOverlay:true,
       examples:['يوم','الله','رحمة','ملك','أله'],
       claimNotesAr:{
-        'day-365':'العدّ بالجذع يشمل كل الصيغ. والرقم المتداول ٣٦٥ يعدّ الاسم المفرد فقط، ويُسقط المثنى وكلمة «يومئذ» المدمجة وصيغ الإضافة.',
-        'month-12':'العدّ بالجذع يشمل كل الصيغ. والرقم ١٢ يعدّ الاسم المفرد فقط، ويُسقط الجمع «أشهر» والمثنى.',
-        'devil-88':'مطابق بالجذع: المفرد والجمع يشتركان في الجذع ومجموعهما ٨٨. ولاحظ أن البحث النصي الساذج عن «شيطان» يجد صفراً لأن الرسم العثماني يكتبها «شيطن».',
-        'angel-88':'مطابق بالجذع. يفصل الصرفُ «مَلَك» (٨٨) عن «مُلْك» و«مَلِك»، وهو ما لا يستطيعه البحث النصي، ولذلك يبدو العدّ الساذج خاطئاً.',
-        'hell-77':'مطابق بالجذع. «جهنم» اسم علم لا لبس فيه.',
-        'paradise-77':'جذع «جنة» يعني أيضاً «حديقة»، فيتجاوز مجموعه ٧٧ بكثير. والرقم ٧٧ يعدّ معنى الجنة فقط، وهذا يحتاج وسماً دلالياً للمعنى.',
-        'man-24':'جذع «رجل» بعد فصله عن «رِجل» بمعنى القدم. ومزاعم تساوي الرجل والمرأة عند ٢٤ لا تصمد عند العدّ بالجذع.',
-        'woman-24':'جذع «امرأة». لا يساوي عدّ الرجل، وليس ٢٤.',
-        'jesus-24':'جذع «عيسى» يساوي «آدم». التعادل صحيح، لكن الرقم ٢٥ لا ٢٤.',
-        'adam-24':'جذع «آدم» يساوي «عيسى». التعادل صحيح، والرقم ٢٥ لا ٢٤.',
-        'allah-2806':'العدّ المعياري لاسم الجلالة في هذه المدونة ٢٦٩٩. ورقم ٢٨٠٦ يعتمد اصطلاحاً أوسع في العدّ.',
-        'rabb-846':'جذع «ربّ» يشمل صيغ الإضافة (ربي، ربك، ربهم). والرقم ٨٤٦ يعدّ مجموعة أضيق.',
+        'day-365':'يشمل العدُّ بالجذع كلَّ صيغ الكلمة، أما الرقم المتداول ٣٦٥ فيقتصر على الاسم المفرد، ويُسقط المثنى وكلمة «يومئذ» المدمجة وصيغ الإضافة.',
+        'month-12':'يشمل العدُّ بالجذع كلَّ الصيغ، أما الرقم ١٢ فيقتصر على الاسم المفرد، ويُسقط الجمع «أشهر» والمثنى.',
+        'devil-88':'العدُّ مطابق بالجذع، فالمفرد والجمع يشتركان في الجذع نفسه ومجموعهما ٨٨. ومن الطريف أن البحث النصي الساذج عن «شيطان» لا يجد شيئًا، لأن الرسم العثماني يكتبها «شيطن».',
+        'angel-88':'العدُّ مطابق بالجذع، إذ يفصل التحليلُ الصرفي «مَلَك» (٨٨) عن «مُلْك» و«مَلِك»، وهو ما يعجز عنه البحث النصي، ولهذا يبدو العدُّ الساذج خاطئًا.',
+        'hell-77':'العدُّ مطابق بالجذع، فكلمة «جهنم» اسم علمٍ لا لبس فيه.',
+        'paradise-77':'جذع «جنة» يحمل أيضًا معنى «الحديقة»، ولذلك يتجاوز مجموعه ٧٧ بكثير، أما الرقم ٧٧ فيقتصر على معنى الجنة وحده، وهو تمييز يحتاج وسمًا دلاليًا للمعاني.',
+        'man-24':'عددنا جذع «رجل» بعد فصله عن «رِجل» بمعنى القدم، وتبيّن أن مزاعم تساوي الرجل والمرأة عند ٢٤ لا تصمد أمام العدّ بالجذع.',
+        'woman-24':'عددنا جذع «امرأة»، فلم يساوِ عدَّ الرجل، ولم يكن ٢٤.',
+        'jesus-24':'يتساوى جذع «عيسى» مع جذع «آدم» فعلًا، فالتعادل صحيح، غير أن الرقم ٢٥ لا ٢٤.',
+        'adam-24':'يتساوى جذع «آدم» مع جذع «عيسى» فعلًا، فالتعادل صحيح، غير أن الرقم ٢٥ لا ٢٤.',
+        'allah-2806':'العدُّ المعياري لاسم الجلالة في هذه المدونة ٢٦٩٩، أما رقم ٢٨٠٦ فيقوم على اصطلاحٍ أوسع في العدّ.',
+        'rabb-846':'يشمل جذع «ربّ» صيغ الإضافة كلها (ربي، ربك، ربهم)، أما الرقم ٨٤٦ فيعدّ مجموعة أضيق منها.',
       },
       araKeys:'ابتثجحخدذرزسشصضطظعغفقكلمنهوي'.split(''),
       araKeys2:'ءآأإئؤةى'.split(''),
@@ -1000,13 +1000,13 @@ createApp({
           icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 2.8v5.4c0 4.4-2.9 7.4-7 9-4.1-1.6-7-4.6-7-9V5.8z"/><path d="M9 12l2 2 4-4.5"/></svg>',
           en:'Claim Auditor',ar:'مدقّق المزاعم',
           blurb_en:'Every famous word-count claim, checked live against the real corpus.',
-          blurb_ar:'كل مزاعم العدّ الشهيرة، مُدقّقة مباشرة على المدونة الحقيقية.',
+          blurb_ar:'نعيد عدَّ ما يتداوله الناس عن كلمات القرآن، رقمًا رقمًا، على المدونة نفسها.',
           items:[{id:'auditor',en:'Claim Auditor',ar:'مدقّق المزاعم'}]},
         {id:'explore',
           icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M5 20V11"/><path d="M11 20V4"/><path d="M17 20v-6"/><path d="M3 20h18"/></svg>',
           en:'Explore',ar:'استكشف',
           blurb_en:'Charts and statistics across words, letters, revelation and themes.',
-          blurb_ar:'رسوم وإحصاءات للكلمات والحروف والنزول والموضوعات.',
+          blurb_ar:'رسومٌ وإحصاءات تغطي الكلمات والحروف ومواضع النزول وموضوعات السور.',
           items:[
             {id:'overview',en:'Overview',ar:'نظرة عامة'},
             {id:'word',en:'Words',ar:'الكلمات'},
@@ -1021,7 +1021,7 @@ createApp({
           icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg>',
           en:'Search & NLP',ar:'البحث واللغة',
           blurb_en:'Find any word by form, lemma or root, with a live concordance.',
-          blurb_ar:'ابحث عن أي كلمة بالصيغة أو الجذع أو الجذر مع كشّاف سياقي حيّ.',
+          blurb_ar:'ابحث عن أي كلمة بصيغتها أو جذعها أو جذرها، وطالع مواضعها في كشّافٍ سياقيٍّ حيّ.',
           items:[
             {id:'search',en:'Word Search',ar:'بحث'},
             {id:'nlp',en:'NLP Explorer',ar:'مستكشف اللغة'},
@@ -1030,7 +1030,7 @@ createApp({
           icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5c2.6-1.4 5.2-1.4 8 .3 2.8-1.7 5.4-1.7 8-.3v13c-2.6-1.4-5.2-1.4-8 .3-2.8-1.7-5.4-1.7-8-.3z"/><path d="M12 5.8v13"/></svg>',
           en:'Reader',ar:'المصحف',
           blurb_en:'The full mushaf in Uthmani script, plus two page-alignment explorers.',
-          blurb_ar:'المصحف كاملاً بالرسم العثماني مع مستكشفَي توافقٍ للصفحات.',
+          blurb_ar:'اقرأ المصحف كاملًا بالرسم العثماني، مع مستكشفَين لتوافق الكلمات على الصفحات.',
           items:[
             {id:'reader',en:'Reader',ar:'القراءة'},
             {id:'tawafuq',en:'Tawafuq',ar:'توافق'},
@@ -1040,7 +1040,7 @@ createApp({
           icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M9.5 4 7.5 20"/><path d="M16.5 4l-2 16"/><path d="M5 9.5h15"/><path d="M4 14.5h15"/></svg>',
           en:'Patterns & Numbers',ar:'أنماط وأرقام',
           blurb_en:'Word pairs, abjad values and number patterns, verified honestly.',
-          blurb_ar:'أزواج الكلمات وحساب الجمّل وأنماط الأرقام بتدقيق أمين.',
+          blurb_ar:'أزواج الكلمات المتقابلة وحساب الجُمّل وأنماط الأرقام، معروضةً بتدقيقٍ أمين.',
           items:[
             {id:'symmetry',en:'Word Pairs',ar:'توازن الأزواج'},
             {id:'abjad',en:'Abjad',ar:'حساب الجمّل'},
@@ -1051,7 +1051,7 @@ createApp({
           icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v6.2L4.6 18.6A1.6 1.6 0 0 0 6 21h12a1.6 1.6 0 0 0 1.4-2.4L14 9.2V3"/><path d="M8.5 3h7"/><path d="M7.5 15h9"/></svg>',
           en:'Analytics Lab',ar:'مختبر التحليلات',
           blurb_en:'Six working studios: machine learning, statistics, simulation and optimisation.',
-          blurb_ar:'ستة استوديوهات عاملة: تعلّم الآلة والإحصاء والمحاكاة والتحسين.',
+          blurb_ar:'ست أدواتٍ عاملة تجمع تعلّم الآلة والإحصاء والمحاكاة والتحسين على نص القرآن.',
           items:[
             {id:'dashboard',en:'BI Dashboard',ar:'لوحة المعلومات'},
             {id:'hifz',en:'Hifz Optimiser',ar:'مُحسِّن الحفظ'},
@@ -1064,7 +1064,7 @@ createApp({
           icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3v16H5z"/><path d="M10 4h3v16h-3z"/><path d="M15.2 5.2l3.4-.9 4 14.6-3.4.9z" transform="scale(0.92) translate(1 1)"/></svg>',
           en:'Library',ar:'المكتبة',
           blurb_en:"Stories, lessons, du'as, scholarly insights and a knowledge graph.",
-          blurb_ar:'قصص ودروس وأدعية وبصائر وخريطة معرفة.',
+          blurb_ar:'قصص الأنبياء ودروس السور وأدعية القرآن وبصائر العلماء، تتوّجها خريطة معرفة تفاعلية.',
           items:[
             {id:'stories',en:'Stories',ar:'القصص'},
             {id:'lessons',en:'Lessons',ar:'الدروس'},
