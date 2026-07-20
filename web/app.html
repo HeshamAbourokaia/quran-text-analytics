@@ -158,6 +158,30 @@
   .dir-rtl .searchbar{justify-content:flex-start}
   .dir-rtl input.q,.dir-rtl .q{text-align:right}
   /* authoritative root direction (set on <html> by applyDir) mirrors everything */
+  .reader-view .card{padding-inline-end:70px}
+  @media (max-width:640px){ .reader-view .card{padding-inline-end:58px} }
+  /* Reader scroll control: move the page without touching the mushaf */
+  .readnav{position:fixed;inset-inline-end:8px;top:50%;transform:translateY(-50%);z-index:60;
+    display:flex;flex-direction:column;align-items:center;gap:8px;
+    background:rgba(255,255,255,.94);border:1px solid var(--line);border-radius:999px;
+    padding:8px 6px;box-shadow:0 6px 22px rgba(8,24,17,.14);backdrop-filter:blur(6px)}
+  .rn-btn{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:#fff;
+    color:var(--emerald-deep);font-size:13px;line-height:1;cursor:pointer;flex:none;
+    display:flex;align-items:center;justify-content:center}
+  .rn-btn:active{background:var(--emerald-bg)}
+  .rn-rail{position:relative;width:14px;height:34vh;max-height:280px;min-height:120px;
+    border-radius:999px;background:var(--emerald-bg);cursor:pointer;touch-action:none;flex:none;
+    border:1px solid var(--line)}
+  .rn-fill{position:absolute;left:0;right:0;top:0;border-radius:999px;background:rgba(13,165,100,.28)}
+  .rn-thumb{position:absolute;left:50%;width:22px;height:22px;margin-left:-11px;margin-top:-11px;
+    border-radius:50%;background:var(--emerald);border:2px solid #fff;
+    box-shadow:0 2px 8px rgba(8,24,17,.28);pointer-events:none}
+  @media (max-width:640px){
+    .readnav{inset-inline-end:4px;padding:6px 4px;gap:6px}
+    .rn-btn{width:34px;height:34px}
+    .rn-rail{width:12px;height:30vh}
+  }
+  @media print{ .readnav{display:none} }
   html[dir=rtl] body{text-align:right}
   html[dir=rtl] .card,html[dir=rtl] main,html[dir=rtl] .course,html[dir=rtl] .stub{text-align:right}
   html[dir=rtl] .chartnote{border-inline-start:4px solid var(--emerald);border-left:0}
@@ -442,7 +466,7 @@
     </section>
 
     <!-- READER -->
-    <section v-if="view==='reader'">
+    <section v-if="view==='reader'" class="reader-view">
       <h1>{{ lang==='ar' ? 'المصحف' : 'Quran Reader' }}</h1>
       <div class="searchbar">
         <select v-model.number="rSurah" @change="renderReader" style="padding:10px;border-radius:10px;border:1px solid var(--line);font-size:1rem">
@@ -462,6 +486,20 @@
           : 'English translation: M. M. Pickthall, The Meaning of the Glorious Koran (1930), public domain. Verse-aligned digital text from the Tanzil Project.' }}</div>
       </div>
     </section>
+
+    <!-- Reader scroll control: lets you move the page without touching the mushaf text -->
+    <div class="readnav" v-if="view==='reader'" role="group"
+         :aria-label="lang==='ar' ? 'التنقل في الصفحة دون لمس النص' : 'Scroll the page without touching the text'">
+      <button class="rn-btn" @click="pageScroll(-1)"
+              :aria-label="lang==='ar'?'أعلى':'Up'" :title="lang==='ar'?'أعلى':'Up'">&#9650;</button>
+      <div class="rn-rail" ref="rnRail" @pointerdown="railStart"
+           :aria-label="lang==='ar'?'شريط التمرير':'Scroll bar'">
+        <div class="rn-fill" :style="{ height: scrollPct + '%' }"></div>
+        <div class="rn-thumb" :style="{ top: scrollPct + '%' }"></div>
+      </div>
+      <button class="rn-btn" @click="pageScroll(1)"
+              :aria-label="lang==='ar'?'أسفل':'Down'" :title="lang==='ar'?'أسفل':'Down'">&#9660;</button>
+    </div>
 
     <!-- CLAIM AUDITOR -->
     <section v-if="view==='auditor'">
@@ -951,7 +989,7 @@ createApp({
       T: D.stats.totals, DS: D.datasets, MM: D.datasets.meccaMedina||{mecca:{},medina:{}}, claims: D.claims,
       V: window.QURAN_VERSES||{}, W: window.QURAN_WORDS||{key:[],norm:[],lemma:[],root:[],surface:[]},
       q:'', mode:'surface', sres:{total:0,surahs:0,verses:0,sample:[]},
-      rSurah:1, EN:{}, showTrans:(new URLSearchParams(location.search).get('lang')!=='ar'), libQ:'', libCat:'all', stories:[], lessons:[], duas:[], tafsir:[], untranslatable:[], untranslatableIntro:{},
+      rSurah:1, scrollPct:0, railDragging:false, EN:{}, showTrans:(new URLSearchParams(location.search).get('lang')!=='ar'), libQ:'', libCat:'all', stories:[], lessons:[], duas:[], tafsir:[], untranslatable:[], untranslatableIntro:{},
       V1:{}, abjadInput:'الله',
       AN:(D.analytics||{}), hifzMins:60, simSurah:2,
       dashPlace:'all', dashMinVerses:0, dashSort:'n',
@@ -1164,6 +1202,39 @@ createApp({
     }
   },
   methods:{
+    onPageScroll(){
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      this.scrollPct = h > 0 ? Math.min(100, Math.max(0, (window.scrollY / h) * 100)) : 0;
+    },
+    pageScroll(dir){
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollBy({ top: dir * Math.round(window.innerHeight * 0.8), behavior: reduce ? 'auto' : 'smooth' });
+      setTimeout(this.onPageScroll, 60);
+      setTimeout(this.onPageScroll, 600);
+    },
+    railTo(clientY){
+      const rail = this.$refs.rnRail; if(!rail) return;
+      const r = rail.getBoundingClientRect();
+      const frac = Math.min(1, Math.max(0, (clientY - r.top) / r.height));
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      window.scrollTo({ top: frac * h });
+      this.onPageScroll();
+    },
+    railStart(e){
+      e.preventDefault();
+      this.railDragging = true;
+      this.railTo(e.clientY);
+      const move = ev => { if(this.railDragging){ ev.preventDefault(); this.railTo(ev.clientY); } };
+      const stop = () => {
+        this.railDragging = false;
+        window.removeEventListener('pointermove', move);
+        window.removeEventListener('pointerup', stop);
+        window.removeEventListener('pointercancel', stop);
+      };
+      window.addEventListener('pointermove', move, { passive:false });
+      window.addEventListener('pointerup', stop);
+      window.addEventListener('pointercancel', stop);
+    },
     D(x){ const s=String(x==null?'':x); return this.lang==='ar' ? s.replace(/[0-9]/g,d=>'٠١٢٣٤٥٦٧٨٩'[+d]) : s; },
     f(n){ if(n==null)n=0; return this.D(n.toLocaleString('en-US')); },
     arabizeCharts(){
@@ -1372,6 +1443,9 @@ createApp({
   },
   watch:{ lang(v){ this.applyDir(); this.showTrans = (v!=='ar'); this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); }); } },
   mounted(){
+    window.addEventListener('scroll', this.onPageScroll, { passive:true });
+    window.addEventListener('resize', this.onPageScroll);
+    this.onPageScroll();
     const wantView = new URLSearchParams(location.search).get('view');
     if(wantView && this.realViews.includes(wantView)){
       this.view = wantView;
