@@ -118,7 +118,25 @@
   /* main */
   main{flex:1 1 auto;min-width:0;max-width:1240px;margin-inline:auto;padding:48px clamp(28px,4.5vw,64px) 96px}
   main>section,main>.course{animation:pageIn .5s var(--ease) both}
-  @media (prefers-reduced-motion:reduce){main>section,main>.course,.kpis .kpi{animation:none !important}}
+  /* micro-interactions: cards arrive in sequence, taps give a small press, the active icon pops, charts fade in */
+  .grid>.card,.homegrid>.card{animation:pageIn .55s var(--ease) both}
+  .grid>.card:nth-child(2),.homegrid>.card:nth-child(2){animation-delay:.04s}
+  .grid>.card:nth-child(3),.homegrid>.card:nth-child(3){animation-delay:.08s}
+  .grid>.card:nth-child(4),.homegrid>.card:nth-child(4){animation-delay:.12s}
+  .grid>.card:nth-child(5),.homegrid>.card:nth-child(5){animation-delay:.16s}
+  .grid>.card:nth-child(6),.homegrid>.card:nth-child(6){animation-delay:.2s}
+  .grid>.card:nth-child(n+7),.homegrid>.card:nth-child(n+7){animation-delay:.24s}
+  button,.navitem,.homecard{-webkit-tap-highlight-color:transparent}
+  .homecta button:active,.subtabs button:active,.langtoggle button:active,.navitem:active,.homecard:active{transform:scale(.97)}
+  .homecard .ic{transition:transform .4s var(--ease),background .4s var(--ease)}
+  .homecard:hover .ic{transform:rotate(-8deg) scale(1.08);background:#d2efdf}
+  .navitem.active .ic{animation:icPop .5s var(--ease)}
+  @keyframes icPop{0%{transform:scale(.6)}60%{transform:scale(1.18)}100%{transform:none}}
+  .subtabs button.on{animation:tabOn .35s var(--ease)}
+  @keyframes tabOn{from{transform:scale(.94)}to{transform:none}}
+  .chart{animation:chartIn .7s ease both .1s}
+  @keyframes chartIn{from{opacity:0}to{opacity:1}}
+  @media (prefers-reduced-motion:reduce){main>section,main>.course,.kpis .kpi,.grid>.card,.homegrid>.card,.navitem.active .ic,.subtabs button.on,.chart{animation:none !important}}
   h1{font-size:clamp(1.9rem,1.45rem + 1.4vw,2.7rem);font-weight:800;margin:.05em 0 .2em;letter-spacing:-.033em;line-height:1.08}
   .sub{color:var(--muted);max-width:680px;font-size:1.02rem;line-height:1.65}
   .kpis{display:flex;flex-wrap:wrap;gap:14px;margin:26px 0}
@@ -1272,7 +1290,7 @@ createApp({
       });
     },
     go(id){ this.view=id; this.sideOpen=false; this.libQ=''; this.libCat='all'; if(id==='tawafuq') this.ensureMushaf(); if(id==='alifi') this.ensureAlifi(); this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); }); },
-    afterCharts(){ this.$nextTick(()=>{ this.arabizeUI(); this.showActiveTab(); });
+    afterCharts(){ this.$nextTick(()=>{ this.arabizeUI(); this.showActiveTab(); this.countKpis(); });
       setTimeout(()=>this.resizeCharts(), 260);
       [200,560,1200].forEach(d=>setTimeout(()=>{ this.arabizeCharts(); this.arabizeUI(); }, d)); },
     // On phones the section tabs are one swipeable row; bring the current tab into view.
@@ -1281,11 +1299,31 @@ createApp({
       const tr=tabs.getBoundingClientRect(), br=b.getBoundingClientRect();
       tabs.scrollLeft += (br.left+br.width/2) - (tr.left+tr.width/2); },
     refreshDash(){ this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); }); },
-    arabizeUI(){ if(this.lang!=='ar') return;
-      const map={'0':'٠','1':'١','2':'٢','3':'٣','4':'٤','5':'٥','6':'٦','7':'٧','8':'٨','9':'٩'};
+    // count the headline numbers up from zero once per visit; edits the text node Vue owns, then restores its exact text
+    countKpis(){
+      if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const AR='٠١٢٣٤٥٦٧٨٩';
+      document.querySelectorAll('main .kpis .kpi .n').forEach(el=>{
+        const node=el.firstChild; if(!node || node.nodeType!==3 || el._counted) return;
+        const final=node.nodeValue, plain=final.replace(/[٠-٩]/g,d=>AR.indexOf(d)).replace(/[,٬]/g,'');
+        if(!/^\d+$/.test(plain.trim())) return;
+        const target=+plain, arab=/[٠-٩]/.test(final), sep=final.includes('٬')?'٬':(final.includes(',')?',':'');
+        if(target<10) return;
+        el._counted=true;
+        const show=v=>{ let t=String(Math.round(v)); if(sep) t=t.replace(/\B(?=(\d{3})+(?!\d))/g,sep); return arab?t.replace(/\d/g,d=>AR[d]):t; };
+        const t0=performance.now(), dur=1000; let last=null;
+        const tick=now=>{ const k=Math.min(1,(now-t0)/dur);
+          if(el.firstChild!==node || (last!==null && node.nodeValue!==last)) return;   // Vue re-rendered it: leave its text alone
+          node.nodeValue = last = (k<1 ? show(target*(1-Math.pow(1-k,3))) : final); if(k<1) requestAnimationFrame(tick); };
+        requestAnimationFrame(tick);
+      });
+    },
+    // numbers Vue renders as raw values keep Western digits; swap them in place (both ways) so a language change is never stale
+    arabizeUI(){ const AR='٠١٢٣٤٥٦٧٨٩', toAr=this.lang==='ar';
       document.querySelectorAll('main .kpi .n, main .metric .v, main .conf td, main .stat').forEach(el=>{
-        if(el.children.length===0 && /[0-9]/.test(el.textContent))
-          el.textContent = el.textContent.replace(/[0-9]/g,d=>map[d]);
+        const node=el.firstChild; if(el.children.length || !node || node.nodeType!==3) return;
+        const v = toAr ? node.nodeValue.replace(/[0-9]/g,d=>AR[d]) : node.nodeValue.replace(/[٠-٩]/g,d=>AR.indexOf(d));
+        if(v!==node.nodeValue) node.nodeValue=v;
       });
     },
     resizeCharts(){ if(typeof Plotly==='undefined') return;
@@ -1510,9 +1548,11 @@ createApp({
     window.addEventListener('scroll', this.onPageScroll, { passive:true });
     window.addEventListener('resize', this.onPageScroll);
     this.onPageScroll();
-    const wantView = new URLSearchParams(location.search).get('view');
+    const qs = new URLSearchParams(location.search), wantView = qs.get('view');
     if(wantView && this.realViews.includes(wantView)){
       this.view = wantView;
+      const wantSurah = Number(qs.get('s'));
+      if(wantView==='reader' && Number.isInteger(wantSurah) && wantSurah>=1 && wantSurah<=114) this.rSurah = wantSurah;
       if(wantView==='tawafuq') this.ensureMushaf();
       if(wantView==='alifi') this.ensureAlifi();
     }
