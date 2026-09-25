@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>graphify - graphify-out/graph.html</title>
 <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
 <style>
@@ -41,6 +42,13 @@
   .legend-cb:checked::after, #select-all-cb:checked::after { content: ''; position: absolute; left: 3.5px; top: 1px; width: 4px; height: 7px; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg); }
   #select-all-cb:indeterminate { background: #4E79A7; border-color: #4E79A7; }
   #select-all-cb:indeterminate::after { content: ''; position: absolute; left: 2px; top: 5px; width: 8px; height: 2px; background: #fff; border: none; transform: none; }
+  /* narrow screens (the app embeds this page in a phone-width frame): graph on top, panel underneath */
+  @media (max-width: 640px) {
+    body { flex-direction: column; }
+    #graph { flex: 1 1 auto; min-height: 0; }
+    #sidebar { width: 100%; height: 42%; flex: none; border-left: 0; border-top: 1px solid #2a2a4e; }
+    #info-panel { min-height: 0; }
+  }
 </style>
 </head>
 <body>
