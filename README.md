@@ -22,10 +22,10 @@
 
 | Surface | Status | Link |
 |---------|--------|------|
-| Web demo (read-only) | Planned (Phase 2) | _coming soon_ |
+| Web app (desktop and mobile) | Live | [heshamabourokaia.github.io/quran-text-analytics](https://heshamabourokaia.github.io/quran-text-analytics/) |
 | Desktop app (macOS universal) | Available | [Download v1.0](releases) |
 
-Deep-link any page in either language: `app.html?page=17&lang=en` opens the Advanced Analytics page in English, `?page=15&lang=ar` opens the concordance in Arabic.
+Deep-link any page in either language: [`app.html?view=advanced&lang=en`](https://heshamabourokaia.github.io/quran-text-analytics/app.html?view=advanced&lang=en) opens the Advanced Analytics page in English, [`app.html?view=search&lang=ar`](https://heshamabourokaia.github.io/quran-text-analytics/app.html?view=search&lang=ar) opens the Word Search concordance in Arabic.
 
 ## What it does
 
