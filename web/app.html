@@ -56,7 +56,7 @@
   .side::-webkit-scrollbar{width:8px}
   .side::-webkit-scrollbar-thumb{background:rgba(255,255,255,.14);border-radius:99px}
   .brand{font-weight:800;font-size:1.12rem;letter-spacing:-.02em;color:#fff;padding:8px 12px 2px}
-  .brand::before{content:"";display:block;width:36px;height:36px;border-radius:10px;margin-bottom:10px;
+  .brand::before,.tbrand::before{content:"";display:block;width:36px;height:36px;border-radius:10px;margin-bottom:10px;
     background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path fill="white" d="M30.5 20.1c-3.8-2.7-9-4.1-14.5-4.1-.9 0-1.5.7-1.5 1.5v25.4c0 .8.6 1.5 1.5 1.5 5.2 0 10.1 1.4 13.6 3.8.3.2.6.3.9.3V20.1z"/><path fill="white" d="M33.5 20.1c3.8-2.7 9-4.1 14.5-4.1.9 0 1.5.7 1.5 1.5v25.4c0 .8-.6 1.5-1.5 1.5-5.2 0-10.1 1.4-13.6 3.8-.3.2-.6.3-.9.3V20.1z"/></svg>') center/22px 22px no-repeat,
       linear-gradient(135deg,#0fb56d,#067647);
     box-shadow:0 8px 18px -4px rgba(13,165,100,.5),inset 0 1px 0 rgba(255,255,255,.25)}
@@ -141,6 +141,9 @@
   .row{display:flex;gap:18px;flex-wrap:wrap}
   .col{flex:1;min-width:280px}
   .chart{width:100%;min-height:340px}
+  /* Plotly lays out and measures labels assuming left-to-right text; under the Arabic page's dir=rtl it
+     misplaced tick labels and its automargin under-sized them. The mirroring is done on the axes instead. */
+  .chart,#js-plotly-tester{direction:ltr}
   .cloudwrap{display:flex;flex-wrap:wrap;direction:rtl;justify-content:center;align-items:baseline;
     gap:10px 22px;padding:18px 8px 10px;color:#0f9d58}
   .chartwrap{margin:6px 0 2px}
@@ -259,31 +262,51 @@
   .explain .box b{color:#fff}
   .explain .box .lab{display:block;font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:#7fcfa9;margin-bottom:5px}
   /* phone layout: rules below apply only at 920px and under; desktop is untouched */
-  .menubtn{display:none}
+  .topbar{display:none}
   .backdrop{display:none}
   @media (max-width:920px){
     body{overflow-x:hidden}
-    .menubtn{display:flex;position:fixed;top:12px;inset-inline-start:12px;z-index:1002;
-      width:44px;height:44px;align-items:center;justify-content:center;
-      background:rgba(9,28,20,.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-      color:#fff;border:1px solid rgba(255,255,255,.16);border-radius:13px;
-      font-size:1.25rem;cursor:pointer;box-shadow:0 6px 18px rgba(5,18,12,.4)}
+    /* app bar: menu, name and a one-tap language switch */
+    .topbar{display:flex;position:fixed;top:0;left:0;right:0;z-index:1003;height:56px;align-items:center;gap:10px;
+      padding:0 12px;color:#fff;background:rgba(8,24,17,.94);
+      backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(255,255,255,.08);box-shadow:0 6px 20px -8px rgba(5,18,12,.45)}
+    .menubtn{display:flex;flex:none;width:40px;height:40px;align-items:center;justify-content:center;
+      background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.14);border-radius:12px;
+      font-size:1.15rem;cursor:pointer}
+    .tbrand{display:flex;align-items:center;gap:9px;min-width:0;font-weight:800;font-size:1rem;letter-spacing:-.02em;white-space:nowrap}
+    .tbrand span{min-width:0;overflow:hidden;text-overflow:ellipsis}
+    .tbrand::before{flex:none;width:28px;height:28px;border-radius:8px;margin:0;background-size:18px 18px,auto}
+    .tlang{margin-inline-start:auto;flex:none;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);
+      color:#e3f3ea;border-radius:999px;padding:6px 14px;font-family:Amiri,Inter,sans-serif;font-size:.9rem;cursor:pointer}
     .backdrop{display:block;position:fixed;inset:0;background:rgba(8,28,21,.55);z-index:1000}
     .side{position:fixed;top:0;bottom:0;inset-inline-start:0;height:100vh;height:100dvh;
-      width:264px;max-width:82vw;z-index:1001;padding:64px 12px 24px;
+      width:264px;max-width:82vw;z-index:1001;padding:68px 12px 24px;
       transform:translateX(-100%);transition:transform .25s ease;overscroll-behavior:contain}
     html[dir=rtl] .side,.dir-rtl .side{transform:translateX(100%)}
     .side.open,html[dir=rtl] .side.open,.dir-rtl .side.open{transform:translateX(0);box-shadow:0 0 36px rgba(0,0,0,.4)}
-    main{padding:64px 16px 60px}
+    main{padding:76px 16px 60px}
+    /* section tabs: one swipeable row pinned under the app bar, not a wrapped block */
+    .subtabs{position:sticky;top:56px;z-index:40;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;
+      width:auto;max-width:none;margin:-20px -16px 20px;padding:8px 16px;border-radius:0;border-width:0 0 1px;
+      background:rgba(255,255,255,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:none}
+    .subtabs::-webkit-scrollbar{display:none}
+    .subtabs button{flex:none;padding:8px 13px}
     .row{flex-direction:column}
     .col{min-width:0 !important}
-    .kpi{flex:1 1 calc(50% - 6px);min-width:0;padding:11px 12px}
-    .metric .m{flex:1 1 calc(50% - 5px);min-width:0;padding:9px 10px}
+    /* stats two to a row; the old flex-basis plus gap came to more than 100%, so every card wrapped alone */
+    .kpis,.metric{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    .kpis>.kpi:last-child:nth-child(odd),.metric>.m:last-child:nth-child(odd){grid-column:1/-1}
+    .kpi{min-width:0;padding:12px 14px}
+    .kpi .n{font-size:1.55rem}
+    .metric .m{min-width:0;padding:10px 8px}
     .card{padding:14px;overflow-x:auto}
     .grid{grid-template-columns:1fr}
+    .course{padding:22px 18px;border-radius:20px}
+    .explain .box{min-width:0;flex-basis:100%}
     .arakbd{gap:4px}
     .arakbd button{min-width:29px;padding:6px 6px;font-size:1.1rem}
-    input.q{min-width:0;flex:1 1 100%}
+    input.q{min-width:0;flex:1 1 100%;width:100%}
     h1{font-size:1.45rem}
     .verse{font-size:1.3rem;line-height:2.1}
     .chart{min-height:0}
@@ -292,7 +315,11 @@
 </head>
 <body>
 <div id="app" class="layout" :class="{'dir-rtl': lang==='ar'}" :dir="lang==='ar'?'rtl':'ltr'">
-  <button class="menubtn" type="button" @click="sideOpen=!sideOpen" :aria-expanded="sideOpen?'true':'false'" :aria-label="lang==='ar'?'القائمة':'Menu'">{{ sideOpen?'✕':'☰' }}</button>
+  <header class="topbar">
+    <button class="menubtn" type="button" @click="sideOpen=!sideOpen" :aria-expanded="sideOpen?'true':'false'" :aria-label="lang==='ar'?'القائمة':'Menu'">{{ sideOpen?'✕':'☰' }}</button>
+    <div class="tbrand"><span>{{ lang==='ar' ? 'تحليلات القرآن' : 'Quran Analytics' }}</span></div>
+    <button class="tlang" type="button" :lang="lang==='ar'?'en':'ar'" @click="lang = lang==='ar' ? 'en' : 'ar'">{{ lang==='ar' ? 'English' : 'العربية' }}</button>
+  </header>
   <div v-if="sideOpen" class="backdrop" @click="sideOpen=false"></div>
   <aside class="side" :class="{open:sideOpen}">
     <div class="brand">{{ lang==='ar' ? 'تحليلات القرآن' : 'Quran Analytics' }}<small>v2 · authoritative corpus</small></div>
@@ -1245,13 +1272,14 @@ createApp({
       });
     },
     go(id){ this.view=id; this.sideOpen=false; this.libQ=''; this.libCat='all'; if(id==='tawafuq') this.ensureMushaf(); if(id==='alifi') this.ensureAlifi(); this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); }); },
-    afterCharts(){ this.$nextTick(()=>this.arabizeUI());
-      if(this.lang==='ar') setTimeout(()=>this.rtlChartAxes(), 120);
+    afterCharts(){ this.$nextTick(()=>{ this.arabizeUI(); this.showActiveTab(); });
       setTimeout(()=>this.resizeCharts(), 260);
       [200,560,1200].forEach(d=>setTimeout(()=>{ this.arabizeCharts(); this.arabizeUI(); }, d)); },
-    rtlChartAxes(){ if(this.lang!=='ar'||typeof Plotly==='undefined') return;
-      document.querySelectorAll('.chart').forEach(el=>{ if(el && el.layout && el.offsetParent){
-        try{ Plotly.relayout(el, {'yaxis.side':'right','xaxis.autorange':'reversed'}); }catch(e){} } }); },
+    // On phones the section tabs are one swipeable row; bring the current tab into view.
+    showActiveTab(){ const tabs=document.querySelector('.subtabs'), b=tabs&&tabs.querySelector('button.on');
+      if(!b || tabs.scrollWidth<=tabs.clientWidth) return;
+      const tr=tabs.getBoundingClientRect(), br=b.getBoundingClientRect();
+      tabs.scrollLeft += (br.left+br.width/2) - (tr.left+tr.width/2); },
     refreshDash(){ this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); }); },
     arabizeUI(){ if(this.lang!=='ar') return;
       const map={'0':'٠','1':'١','2':'٢','3':'٣','4':'٤','5':'٥','6':'٦','7':'٧','8':'٨','9':'٩'};
@@ -1308,135 +1336,171 @@ createApp({
       const lay={plot_bgcolor:'rgba(0,0,0,0)',paper_bgcolor:'rgba(0,0,0,0)',autosize:true,
         font:{size:mob?11:12.5,family:'Inter,sans-serif',color:'#4a564f'},margin:{t:mob?40:48,r:mob?16:24,b:mob?60:84,l:mob?48:66},
         title:{font:{size:mob?14:15,color:'#0b1512'}}};
+      // Touch screens have no hover, so Plotly pins its toolbar over chart titles and legends; hide it there.
+      const touch = mob || (window.matchMedia && matchMedia('(hover: none)').matches);
+      const cfg=touch ? {responsive:true,displayModeBar:false} : {responsive:true};   // desktop keeps the hover toolbar
+      // Phones: category charts with long labels turn into horizontal bars so every label stays readable.
+      const flip=tr=>Object.assign({},tr,{x:tr.y,y:tr.x,orientation:'h'});
+      const hLay=(rows,per,extra)=>Object.assign({},lay,{height:70+rows*per,
+        margin:Object.assign({},lay.margin,{l:8,b:36}),yaxis:{automargin:true,autorange:'reversed',tickfont:{size:11}}},extra);
+      // Arabic: every chart is drawn right-to-left from the start (value axis on the right, x mirrored, margins
+      // swapped). Mirroring afterwards with a relayout kept the old margins, which cut long labels off at the edge.
+      const rtl=L=>(!isAr || (L.yaxis&&L.yaxis.side==='right')) ? L : Object.assign({},L,{
+        margin:Object.assign({},L.margin,{l:L.margin.r,r:L.margin.l}),
+        yaxis:Object.assign({},L.yaxis,{side:'right'}),
+        xaxis:Object.assign({},L.xaxis,L.xaxis&&L.xaxis.range ? {range:L.xaxis.range.slice().reverse()} : {autorange:'reversed'})});
+      const newPlot=(id,data,L)=>Plotly.newPlot(id,data,rtl(L),cfg);
       if(this.view==='overview' && document.getElementById('ovChart')){
         const sm=this.DS.surahMeta;
         const mk=sm.filter(s=>s.place==='Mecca'), md=sm.filter(s=>s.place==='Medina');
-        Plotly.newPlot('ovChart',[
+        newPlot('ovChart',[
           {x:mk.map(s=>s.n),y:mk.map(s=>s.verses),type:'bar',name:isAr?'مكية':'Mecca',marker:{color:'#B7094C'}},
           {x:md.map(s=>s.n),y:md.map(s=>s.verses),type:'bar',name:isAr?'مدنية':'Medina',marker:{color:'#0891b2'}}
-        ],Object.assign({},lay,{height:320,barmode:'stack',xaxis:{title:isAr?'السورة':'Surah'},yaxis:{title:isAr?'آيات':'Verses'}}),{responsive:true});
+        ],Object.assign({},lay,{height:320,barmode:'stack',xaxis:{title:isAr?'السورة':'Surah'},yaxis:{title:isAr?'آيات':'Verses'}}));
       }
       if(this.view==='word' && document.getElementById('lemChart')){
         const t=this.DS.topWordsLemma.slice(0,15).reverse();
-        Plotly.newPlot('lemChart',[{y:t.map(x=>x.w),x:t.map(x=>x.c),type:'bar',orientation:'h',marker:{color:'#0f9d58'},text:t.map(x=>x.c.toLocaleString()),textposition:'outside',cliponaxis:false}],
-          Object.assign({},lay,{height:430,xaxis:{range:[0,Math.max(...t.map(x=>x.c))*1.25]},yaxis:{tickfont:{family:'Amiri',size:16}},title:'Top lemmas'}),{responsive:true});
+        newPlot('lemChart',[{y:t.map(x=>x.w),x:t.map(x=>x.c),type:'bar',orientation:'h',marker:{color:'#0f9d58'},text:t.map(x=>x.c.toLocaleString()),textposition:'outside',cliponaxis:false}],
+          Object.assign({},lay,{height:430,xaxis:{range:[0,Math.max(...t.map(x=>x.c))*1.25]},yaxis:{tickfont:{family:'Amiri',size:16}},title:'Top lemmas'}));
       }
       if(this.view==='letters' && document.getElementById('letChart')){
         const t=this.DS.letterFreq;
-        Plotly.newPlot('letChart',[{x:t.map(x=>x.l),y:t.map(x=>x.c),type:'bar',marker:{color:'#10b981'}}],
-          Object.assign({},lay,{height:340,xaxis:{tickfont:{family:'Amiri',size:18}}}),{responsive:true});
+        newPlot('letChart',[{x:t.map(x=>x.l),y:t.map(x=>x.c),type:'bar',marker:{color:'#10b981'}}],
+          Object.assign({},lay,{height:340,xaxis:{tickfont:{family:'Amiri',size:18}}}));
       }
       if(this.view==='advanced' && document.getElementById('advScatter')){
         const sm=this.DS.surahMeta;
         const grp=p=>sm.filter(s=>s.place===p);
         const trace=(p,c,nm)=>({x:grp(p).map(s=>s.verses),y:grp(p).map(s=>s.words),text:grp(p).map(s=>s.n+'. '+(this.lang==='ar'?s.ar:s.en)),
           mode:'markers',type:'scatter',name:nm,marker:{color:c,size:9,opacity:.75}});
-        Plotly.newPlot('advScatter',[trace('Mecca','#B7094C',isAr?'مكية':'Mecca'),trace('Medina','#0891b2',isAr?'مدنية':'Medina')],
-          Object.assign({},lay,{height:380,xaxis:{title:isAr?'آيات':'Verses'},yaxis:{title:isAr?'كلمات':'Words'},legend:{orientation:'h',y:1.12}}),{responsive:true});
+        newPlot('advScatter',[trace('Mecca','#B7094C',isAr?'مكية':'Mecca'),trace('Medina','#0891b2',isAr?'مدنية':'Medina')],
+          Object.assign({},lay,{height:380,xaxis:{title:isAr?'آيات':'Verses'},yaxis:{title:isAr?'كلمات':'Words'},legend:{orientation:'h',y:1.12}}));
         const byLen=sm.slice().sort((a,b)=>b.words/b.verses-a.words/a.verses).slice(0,20);
-        Plotly.newPlot('advLen',[{x:byLen.map(s=>this.lang==='ar'?s.ar:s.en),y:byLen.map(s=>+(s.words/s.verses).toFixed(1)),
-          type:'bar',marker:{color:'#0f9d58'}}],
-          Object.assign({},lay,{height:360,title:isAr?'أطول متوسط آية (كلمة/آية)':'Longest avg verse (words/verse)',xaxis:{tickangle:-40,tickfont:isAr?{family:'Amiri',size:12}:{size:10}}}),{responsive:true});
+        const lenTr={x:byLen.map(s=>this.lang==='ar'?s.ar:s.en),y:byLen.map(s=>+(s.words/s.verses).toFixed(1)),
+          type:'bar',marker:{color:'#0f9d58'}};
+        const lenTitle=isAr?'أطول متوسط آية (كلمة/آية)':'Longest avg verse (words/verse)';
+        newPlot('advLen',[mob?flip(lenTr):lenTr],
+          mob ? hLay(byLen.length,22,{title:lenTitle,yaxis:{automargin:true,autorange:'reversed',tickfont:isAr?{family:'Amiri',size:13}:{size:11}}})
+              : Object.assign({},lay,{height:360,title:lenTitle,xaxis:{tickangle:-40,tickfont:isAr?{family:'Amiri',size:12}:{size:10}}}));
       }
       if(this.view==='mecca' && document.getElementById('mmChart')){
         const m=this.MM;
-        Plotly.newPlot('mmChart',[
+        newPlot('mmChart',[
           {x:[isAr?'آيات':'Verses',isAr?'كلمات':'Words'],y:[m.mecca.verses,m.mecca.words],type:'bar',name:isAr?'مكية':'Meccan',marker:{color:'#B7094C'}},
           {x:[isAr?'آيات':'Verses',isAr?'كلمات':'Words'],y:[m.medina.verses,m.medina.words],type:'bar',name:isAr?'مدنية':'Medinan',marker:{color:'#0891b2'}}
-        ],Object.assign({},lay,{height:320,barmode:'group',legend:{orientation:'h',y:1.15}}),{responsive:true});
+        ],Object.assign({},lay,{height:320,barmode:'group',legend:{orientation:'h',y:1.15}}));
       }
       if(this.view==='emotion' && document.getElementById('emoChart')){
         const t=this.emotionTotals;
-        Plotly.newPlot('emoChart',[{x:[isAr?'رحمة':'Mercy',isAr?'هداية':'Guidance',isAr?'أمل':'Hope',isAr?'تحذير':'Warning'],
+        newPlot('emoChart',[{x:[isAr?'رحمة':'Mercy',isAr?'هداية':'Guidance',isAr?'أمل':'Hope',isAr?'تحذير':'Warning'],
           y:[t.mercy,t.guidance,t.hope,t.warning],type:'bar',marker:{color:['#0f9d58','#0891b2','#f59e0b','#B7094C']},
-          text:[t.mercy,t.guidance,t.hope,t.warning],textposition:'outside',cliponaxis:false}],Object.assign({},lay,{height:340,yaxis:{range:[0,Math.max(t.mercy,t.guidance,t.hope,t.warning)*1.18]}}),{responsive:true});
+          text:[t.mercy,t.guidance,t.hope,t.warning],textposition:'outside',cliponaxis:false}],Object.assign({},lay,{height:340,yaxis:{range:[0,Math.max(t.mercy,t.guidance,t.hope,t.warning)*1.18]}}));
       }
       if(this.view==='pronouns' && document.getElementById('proChart')){
         const p=this.V1.pronouns||{};
-        Plotly.newPlot('proChart',[{x:isAr?['نحن','أنا','هو']:['نحن / We','أنا / I','هو / He'],y:[p.we,p.i,this.DS.huwaCount||p.he],type:'bar',
+        newPlot('proChart',[{x:isAr?['نحن','أنا','هو']:['نحن / We','أنا / I','هو / He'],y:[p.we,p.i,this.DS.huwaCount||p.he],type:'bar',
           marker:{color:'#1B4332'},text:[p.we,p.i,this.DS.huwaCount||p.he],textposition:'outside',cliponaxis:false}],
-          Object.assign({},lay,{height:300,yaxis:{range:[0,Math.max(p.we||0,p.i||0,(this.DS.huwaCount||p.he)||0)*1.18]}}),{responsive:true});
+          Object.assign({},lay,{height:300,yaxis:{range:[0,Math.max(p.we||0,p.i||0,(this.DS.huwaCount||p.he)||0)*1.18]}}));
       }
       if(this.view==='symmetry' && document.getElementById('antChart')){
         const a=this.V1.antonymPairs||[]; const lab=a.map(p=>isAr?p.label_ar:p.label_en);
-        Plotly.newPlot('antChart',[
+        const antTr=[
           {x:lab,y:a.map(p=>p.claimed),type:'bar',name:isAr?'المزعوم':'Claimed',marker:{color:'#cbd5e1'}},
           {x:lab,y:a.map(p=>p.found_a),type:'bar',name:isAr?'الأول (فعلي)':'First (found)',marker:{color:'#0f9d58'}},
           {x:lab,y:a.map(p=>p.found_b),type:'bar',name:isAr?'الثاني (فعلي)':'Second (found)',marker:{color:'#0891b2'}}
-        ],Object.assign({},lay,{height:360,barmode:'group',legend:{orientation:'h',y:1.12}}),{responsive:true});
+        ];
+        newPlot('antChart',mob?antTr.map(flip):antTr,
+          mob ? hLay(a.length,52,{barmode:'group',legend:{orientation:'h',x:0,y:1,yanchor:'bottom'},yaxis:{automargin:true,autorange:'reversed',tickfont:isAr?{family:'Amiri',size:13}:{size:11}}})
+              : Object.assign({},lay,{height:360,barmode:'group',legend:{orientation:'h',y:1.12}}));
       }
       if(this.view==='science' && document.getElementById('sciChart')){
         const c=this.V1.sciCategories||[];
         const sciAr={'Cosmology':'علم الكون','Embryology':'علم الأجنة','Geology':'الجيولوجيا','Oceanography':'علوم البحار','Atmospheric Science':'الغلاف الجوي','Neuroscience':'علم الأعصاب','Zoology':'علم الحيوان','Astronomy':'الفلك','Hydrology':'علم المياه','Metallurgy':'علم المعادن','Botany':'علم النبات','Biology':'الأحياء','Medicine':'الطب','Physics':'الفيزياء','Geography':'الجغرافيا'};
         const catLab=x=>{ if(!isAr) return x.cat; const parts=x.cat.split(' '); const name=parts.slice(1).join(' '); return parts[0]+' '+(sciAr[name]||name); };
-        Plotly.newPlot('sciChart',[{x:c.map(catLab),y:c.map(x=>x.count),type:'bar',marker:{color:'#0891b2'},
-          text:c.map(x=>x.count),textposition:'outside',cliponaxis:false}],Object.assign({},lay,{height:360,yaxis:{range:[0,Math.max(...c.map(x=>x.count))*1.18]},xaxis:{tickangle:-30,tickfont:{size:10}}}),{responsive:true});
+        const sciTr={x:c.map(catLab),y:c.map(x=>x.count),type:'bar',marker:{color:'#0891b2'},
+          text:c.map(x=>x.count),textposition:'outside',cliponaxis:false};
+        const sciMax=Math.max(...c.map(x=>x.count))*1.18;
+        newPlot('sciChart',[mob?flip(sciTr):sciTr],
+          mob ? hLay(c.length,26,{xaxis:{range:[0,sciMax]}})
+              : Object.assign({},lay,{height:360,yaxis:{range:[0,sciMax]},xaxis:{tickangle:-30,tickfont:{size:10}}}));
       }
       if(this.view==='nlp' && document.getElementById('biChart')){
         const b=this.DS.bigrams.slice(0,12).reverse();
-        Plotly.newPlot('biChart',[{y:b.map(x=>x.w),x:b.map(x=>x.c),type:'bar',orientation:'h',marker:{color:'#10b981'},
-          text:b.map(x=>x.c),textposition:'outside',cliponaxis:false}],Object.assign({},lay,{height:400,xaxis:{range:[0,Math.max(...b.map(x=>x.c))*1.22]},yaxis:{tickfont:{family:'Amiri',size:15}},
-          title:isAr?'أكثر الثنائيات':'Top bigrams'}),{responsive:true});
+        newPlot('biChart',[{y:b.map(x=>x.w),x:b.map(x=>x.c),type:'bar',orientation:'h',marker:{color:'#10b981'},
+          text:b.map(x=>x.c),textposition:'outside',cliponaxis:false}],Object.assign({},lay,{height:400,xaxis:{range:[0,Math.max(...b.map(x=>x.c))*1.22]},yaxis:{automargin:true,tickfont:{family:'Amiri',size:15}},
+          title:isAr?'أكثر الثنائيات':'Top bigrams'}));
       }
       if(this.view==='auditor' && document.getElementById('audChart')){
         const c=this.claims; const clab=c.map(x=>isAr?x.ar:x.en);
-        Plotly.newPlot('audChart',[
+        const audTr=[
           {x:clab,y:c.map(x=>x.claimed),type:'bar',name:isAr?'المزعوم':'Claimed',marker:{color:'#cbd5e1'}},
           {x:clab,y:c.map(x=>x.verifiedLemma),type:'bar',name:isAr?'المحقّق':'Verified',marker:{color:'#0f9d58'}}
-        ],Object.assign({},lay,{height:380,barmode:'group',legend:{orientation:'h',y:1.1},xaxis:{tickangle:-35,tickfont:isAr?{family:'Amiri',size:13}:{size:10}}}),{responsive:true});
+        ];
+        newPlot('audChart',mob?audTr.map(flip):audTr,
+          mob ? hLay(c.length,40,{barmode:'group',legend:{orientation:'h',x:0,y:1,yanchor:'bottom'},yaxis:{automargin:true,autorange:'reversed',tickfont:isAr?{family:'Amiri',size:14}:{size:11}}})
+              : Object.assign({},lay,{height:380,barmode:'group',legend:{orientation:'h',y:1.1},xaxis:{tickangle:-35,tickfont:isAr?{family:'Amiri',size:13}:{size:10}}}));
       }
       if(this.view==='classifier' && this.AN.classifier && document.getElementById('clfChart')){
         const c=this.AN.classifier;
         const med=c.topMedinan.slice(0,6), mec=c.topMeccan.slice(0,6);
         const rows=mec.map(w=>({w:w.w,c:w.c})).concat(med.slice().reverse().map(w=>({w:w.w,c:w.c})));
         const cv=rows.map(r=>r.c), cmax=Math.max(...cv), cmin=Math.min(...cv), cpad=(cmax-cmin)*0.18;
-        Plotly.newPlot('clfChart',[{y:rows.map(r=>r.w),x:cv,type:'bar',orientation:'h',
+        const clfTitle=isAr?'أقوى الكلمات: مدني (أزرق) مقابل مكي (أحمر)':'Strongest words: Medinan (blue) vs Meccan (red)';
+        const clfLay=Object.assign({},lay,{height:360,margin:{t:48,r:44,b:84,l:80},xaxis:{range:[cmin-cpad,cmax+cpad]},yaxis:{tickfont:{family:'Amiri',size:15}},
+            title:clfTitle},
+            // phones: title on two lines, labels sized to fit, and room beside zero for the Meccan values
+            mob?{height:400,margin:{t:66,r:40,b:44,l:8},xaxis:{range:[cmin-cpad*2.4,cmax+cpad]},yaxis:{automargin:true,tickfont:{family:'Amiri',size:15}},
+              title:clfTitle.replace(': ',':<br>')}:{});
+        newPlot('clfChart',[{y:rows.map(r=>r.w),x:cv,type:'bar',orientation:'h',
           marker:{color:rows.map(r=>r.c>=0?'#0891b2':'#B7094C')},text:rows.map(r=>r.c),textposition:'outside',cliponaxis:false}],
-          Object.assign({},lay,{height:360,margin:{t:48,r:44,b:84,l:80},xaxis:{range:[cmin-cpad,cmax+cpad]},yaxis:{tickfont:{family:'Amiri',size:15}},
-            title:isAr?'أقوى الكلمات: مدني (أزرق) مقابل مكي (أحمر)':'Strongest words: Medinan (blue) vs Meccan (red)'}),{responsive:true});
+          clfLay);
       }
       if(this.view==='stats' && this.AN.ttest && document.getElementById('statChart')){
         const t=this.AN.ttest;
-        Plotly.newPlot('statChart',[{x:[isAr?'مكي':'Meccan',isAr?'مدني':'Medinan'],y:[t.meccanMean,t.medinanMean],
+        newPlot('statChart',[{x:[isAr?'مكي':'Meccan',isAr?'مدني':'Medinan'],y:[t.meccanMean,t.medinanMean],
           type:'bar',marker:{color:['#B7094C','#0891b2']},text:[t.meccanMean,t.medinanMean],textposition:'outside',cliponaxis:false}],
           Object.assign({},lay,{height:300,title:isAr?'متوسط طول الآية (كلمات)':'Mean verse length (words)',
-            yaxis:{title:isAr?'كلمات':'words',range:[0,Math.max(t.meccanMean,t.medinanMean)*1.2]}}),{responsive:true});
+            yaxis:{title:isAr?'كلمات':'words',range:[0,Math.max(t.meccanMean,t.medinanMean)*1.2]}}));
       }
       if(this.view==='dashboard' && document.getElementById('dashChart')){
         const r=this.dashFiltered;
-        Plotly.newPlot('dashChart',[{x:r.map(s=>s.n),y:r.map(s=>s.verses),type:'bar',
+        newPlot('dashChart',[{x:r.map(s=>s.n),y:r.map(s=>s.verses),type:'bar',
           marker:{color:r.map(s=>s.place==='Medina'?'#0891b2':'#B7094C')},
           text:r.map(s=>(isAr?s.ar:s.en)),textposition:'none',hovertemplate:'%{text}<br>%{y}<extra></extra>'}],
           Object.assign({},lay,{height:380,title:isAr?'الآيات حسب السورة (مُرشَّح)':'Verses by surah (filtered)',
-            xaxis:{title:isAr?'رقم السورة':'Surah #'},yaxis:{title:isAr?'آيات':'verses'}}),{responsive:true});
+            xaxis:{title:isAr?'رقم السورة':'Surah #'},yaxis:{title:isAr?'آيات':'verses'}}));
       }
       if(this.view==='hifz' && this.AN.hifz && document.getElementById('hifzChart')){
         const g=this.AN.hifz.sensitivity;
-        Plotly.newPlot('hifzChart',[{x:g.map(r=>r.dailyMinutes),y:g.map(r=>r.daysToFinish),type:'scatter',mode:'lines+markers',
+        newPlot('hifzChart',[{x:g.map(r=>r.dailyMinutes),y:g.map(r=>r.daysToFinish),type:'scatter',mode:'lines+markers',
           line:{color:'#0f9d58',width:3},marker:{size:8}}],
           Object.assign({},lay,{height:320,title:isAr?'أيام للختم مقابل الدقائق اليومية':'Days to finish vs minutes/day',
-            xaxis:{title:isAr?'دقائق/يوم':'minutes/day'},yaxis:{title:isAr?'أيام':'days'}}),{responsive:true});
+            xaxis:{title:isAr?'دقائق/يوم':'minutes/day'},yaxis:{title:isAr?'أيام':'days'}}));
       }
       if(this.view==='cluster' && this.AN.clusters && document.getElementById('clusterChart')){
         const cs=this.AN.clusters; const traces=[];
         for(let k=0;k<(this.AN.k||4);k++){ const pts=cs.filter(c=>c.cluster===k);
           traces.push({x:pts.map(p=>p.x),y:pts.map(p=>p.y),text:pts.map(p=>p.n+'. '+this.surahName(p.n)),
             mode:'markers',type:'scatter',name:(isAr?'عنقود ':'Cluster ')+(k+1),marker:{size:9,opacity:.8}}); }
-        Plotly.newPlot('clusterChart',traces,Object.assign({},lay,{height:400,title:isAr?'عناقيد السور (PCA)':'Surah clusters (PCA)',
-          xaxis:{title:'PC1'},yaxis:{title:'PC2'},legend:{orientation:'h',y:1.12}}),{responsive:true});
+        const clTitle=isAr?'عناقيد السور (PCA)':'Surah clusters (PCA)';
+        newPlot('clusterChart',traces,Object.assign({},lay,{height:400,title:clTitle,
+          xaxis:{title:'PC1'},yaxis:{title:'PC2'},legend:{orientation:'h',y:1.12}},
+          // phones: the legend wraps to two rows, so pin the title to the top and sit the legend under it
+          mob?{margin:Object.assign({},lay.margin,{t:86}),title:{text:clTitle,y:.985,yanchor:'top',font:lay.title.font},
+            legend:{orientation:'h',x:0,y:1.02,yanchor:'bottom'}}:{}));
       }
       if(this.view==='coincidence' && this.AN.montecarlo && document.getElementById('coincChart')){
         const L=this.AN.montecarlo.coincidence.landscape;
-        Plotly.newPlot('coincChart',[
+        newPlot('coincChart',[
           {x:L.map(r=>r.n),y:L.map(r=>r.near),type:'bar',name:isAr?'كلمات قريبة (±٥)':'words near (±5)',marker:{color:'#cbd5e1'}},
           {x:L.map(r=>r.n),y:L.map(r=>r.exact),type:'bar',name:isAr?'تطابق تام':'exact',marker:{color:'#0f9d58'}}
         ],Object.assign({},lay,{height:340,barmode:'overlay',yaxis:{type:'log',title:isAr?'عدد الكلمات (لوغاريتمي)':'words (log)'},
-          xaxis:{title:isAr?'الرقم البارز':'notable number'},legend:{orientation:'h',y:1.15}}),{responsive:true});
+          xaxis:{title:isAr?'الرقم البارز':'notable number'},legend:{orientation:'h',y:1.15}}));
         if(this.AN.montecarlo.hifzSim && document.getElementById('mcChart')){
           const h=this.AN.montecarlo.hifzSim.hist;
-          Plotly.newPlot('mcChart',[{x:h.map(b=>b.day),y:h.map(b=>b.count),type:'bar',marker:{color:'#0891b2'}}],
+          newPlot('mcChart',[{x:h.map(b=>b.day),y:h.map(b=>b.count),type:'bar',marker:{color:'#0891b2'}}],
             Object.assign({},lay,{height:300,title:isAr?'توزيع أيام الختم':'Completion-day distribution',
-              xaxis:{title:isAr?'أيام':'days'},yaxis:{title:isAr?'تجارب':'trials'}}),{responsive:true});
+              xaxis:{title:isAr?'أيام':'days'},yaxis:{title:isAr?'تجارب':'trials'}}));
         }
       }
     }

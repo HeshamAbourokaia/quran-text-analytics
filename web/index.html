@@ -40,7 +40,7 @@
   body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);
     -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
   ::selection{background:#0da564;color:#fff}
-  img{max-width:100%;display:block}
+  img{max-width:100%;height:auto;display:block}
   a{color:inherit}
 
   /* ── top nav ── */
@@ -156,7 +156,7 @@
   .legend{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin:0 0 26px;font-size:.82rem;color:var(--muted)}
   .legend span{display:inline-flex;align-items:center;gap:6px}
   .dot{width:10px;height:10px;border-radius:50%}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(330px,100%),1fr));gap:18px}
   .card{background:var(--card);border:1px solid var(--line-soft);border-radius:20px;padding:22px;
     box-shadow:var(--shadow-1);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
   .card:hover{transform:translateY(-3px);box-shadow:var(--shadow-2)}
@@ -216,6 +216,25 @@
     .watermark{display:none}
     .hero{padding-top:108px}
     .shotwrap{margin-top:44px}
+  }
+  /* phones: a compact header (one language button, the CTA on one line), stats in a 2x2 grid, tighter sections */
+  @media (max-width:560px){
+    .topnav{padding:10px 14px}
+    .navbrand{gap:8px;font-size:.88rem;line-height:1.15}
+    .glyph{width:28px;height:28px}
+    .navlinks{gap:8px}
+    .langpill button.on{display:none}
+    .navcta{padding:7px 14px;font-size:.8rem;white-space:nowrap}
+    .hero{padding-top:96px}
+    .kicker{letter-spacing:.14em;padding:6px 12px}
+    .herostats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 12px;max-width:340px;margin:40px auto 0}
+    .shotwrap{margin-top:36px}
+    .shot{border-radius:12px 12px 0 0}
+    .shotbar span{min-width:0;padding:3px 12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    section.feat,section.claims{padding:64px 16px}
+    .sechead{margin-bottom:34px}
+    .tile{padding:24px 22px;border-radius:20px}
+    footer{padding:44px 18px}
   }
 </style>
 </head>
