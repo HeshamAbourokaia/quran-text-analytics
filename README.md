@@ -278,7 +278,8 @@ See [ARCHITECTURE.md](ARCHITECTURE.md) for the detailed deep-dive.
 |-------|------------|
 | UI framework | Vue.js 3 (single-file app, no build step) |
 | Charts | Plotly.js 2.27 |
-| Animation | GSAP 3.12 |
+| Animation | GSAP 3.15 with ScrollTrigger and SplitText (landing page scroll story) |
+| 3D | three.js r170: the landing page draws every one of the 6,236 verses as a point and re-arranges them as you scroll |
 | Desktop | Electron 28 (universal Intel + ARM Mac binary) |
 | Data preprocessing | Python 3 (pandas, openpyxl) |
 | AutoResearch evaluator | Anthropic Claude Sonnet 4.5 (Vision API) |
