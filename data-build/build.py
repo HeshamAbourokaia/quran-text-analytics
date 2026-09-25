@@ -52,6 +52,12 @@ def main():
         d['verses'].add(w['aya']); d['words'] += 1
     surah_stats = {s: {'verses': len(d['verses']), 'words': d['words']} for s, d in surah_stats.items()}
 
+    # words in every verse, one list per surah in mushaf order (the landing page plots each verse)
+    per_verse = {}
+    for w in words:
+        per_verse[(w['sura'], w['aya'])] = per_verse.get((w['sura'], w['aya']), 0) + 1
+    verse_words = [[per_verse[(s, a)] for a in sorted(a for (t, a) in per_verse if t == s)] for s in suras]
+
     claim_rows = claims_mod.compute(words, verses_norm)
     datasets = datasets_mod.build(words, verses_display)
     analytics = analytics_mod.build(words, datasets['surahMeta'])
@@ -81,7 +87,7 @@ def main():
     # also emit an inlined data module the offline frontend can load with no server
     web_dir = os.path.join(os.path.dirname(__file__), '..', 'web')
     os.makedirs(web_dir, exist_ok=True)
-    payload = {'stats': {'totals': stats, 'surahStats': surah_stats},
+    payload = {'stats': {'totals': stats, 'surahStats': surah_stats, 'verseWords': verse_words},
                'claims': claim_rows, 'datasets': datasets, 'analytics': analytics, 'manifest': manifest}
     with open(os.path.join(web_dir, 'data.js'), 'w', encoding='utf-8') as fh:
         fh.write('window.QURAN_DATA = ')
