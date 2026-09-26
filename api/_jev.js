@@ -5,19 +5,31 @@
 // decides things like which word a claim is about or which page a question belongs to.
 'use strict';
 
-const JEV_URL = process.env.JEV_URL || 'https://api.typesafe.ai/v1/systemone';
-const JEV_MODEL = process.env.JEV_MODEL || 'jev-latest';
+const TYPESAFE_URL = 'https://api.typesafe.ai/v1/systemone';
+const GATEWAY_URL = 'https://ai-gateway.vercel.sh/typesafe/v1/systemone';
+
+// Where Jev is asked, and with which credential. A TypeSafe key goes to TypeSafe's own API. Without
+// one, Vercel's AI Gateway serves the same API: with an AI Gateway key, or on Vercel with no key at
+// all, signed in with the project's OIDC token. That token only ever goes to the gateway, whatever
+// JEV_URL says. null when none of these is available.
+function jevAccess({ oidcToken } = {}, env = process.env) {
+  if (env.TYPESAFE_API_KEY) return { url: env.JEV_URL || TYPESAFE_URL, model: env.JEV_MODEL || 'jev-latest', key: env.TYPESAFE_API_KEY };
+  if (env.AI_GATEWAY_API_KEY) return { url: env.JEV_URL || GATEWAY_URL, model: env.JEV_MODEL || 'typesafe-ai/jev', key: env.AI_GATEWAY_API_KEY };
+  const oidc = oidcToken || env.VERCEL_OIDC_TOKEN;
+  if (oidc) return { url: GATEWAY_URL, model: env.JEV_MODEL || 'typesafe-ai/jev', key: oidc };
+  return null;
+}
 
 const choice = (instructions, criteria) => ({ type: 'choice', instructions, criteria });
 const yesNo = (instructions, yes, no) => ({ type: 'noul', instructions, criteria: { true: yes, false: no } });
 
 // One request, one answer per question key.
-async function callJev(state, questions, { apiKey = process.env.TYPESAFE_API_KEY, timeoutMs = 8000 } = {}) {
-  if (!apiKey) throw Object.assign(new Error('TYPESAFE_API_KEY is not set'), { status: 503 });
-  const res = await fetch(JEV_URL, {
+async function callJev(state, questions, { access = jevAccess(), timeoutMs = 8000 } = {}) {
+  if (!access) throw Object.assign(new Error('no TYPESAFE_API_KEY, AI_GATEWAY_API_KEY or Vercel OIDC token'), { status: 503, unconfigured: true });
+  const res = await fetch(access.url, {
     method: 'POST',
-    headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ model: JEV_MODEL, state, questions }),
+    headers: { Authorization: `Bearer ${access.key}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ model: access.model, state, questions }),
     signal: AbortSignal.timeout(timeoutMs),
   });
   if (!res.ok) {
@@ -169,4 +181,4 @@ function buildRequest(body) {
   } };
 }
 
-module.exports = { callJev, parseAnswer, buildRequest, choice, yesNo, DESTINATIONS, CATEGORIES, LIMITS, JEV_URL, JEV_MODEL };
+module.exports = { callJev, jevAccess, parseAnswer, buildRequest, choice, yesNo, DESTINATIONS, CATEGORIES, LIMITS, TYPESAFE_URL, GATEWAY_URL };
