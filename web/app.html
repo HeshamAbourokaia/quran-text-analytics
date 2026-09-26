@@ -329,6 +329,66 @@
     .verse{font-size:1.3rem;line-height:2.1}
     .chart{min-height:0}
   }
+  /* Jev features: claim checker, search hints, ask the site, situation finder */
+  .claimcheck h3,.sitcard h3{margin:0 0 4px}
+  .ccsub{margin:0 0 12px;color:var(--muted);font-size:.9rem;line-height:1.6}
+  .ccform,.askbox,.sitform{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .ccform input.q,.sitform input.q{margin:0}
+  .ccbtn{border:0;border-radius:12px;padding:13px 22px;font:inherit;font-weight:700;color:#fff;cursor:pointer;
+    background:linear-gradient(135deg,#0da564,#067647);box-shadow:0 8px 20px -8px rgba(13,165,100,.55);transition:transform .2s var(--ease)}
+  .ccbtn:disabled{opacity:.5;cursor:default}
+  .ccbtn:not(:disabled):hover{transform:translateY(-1px)}
+  .ccex{margin-top:10px}
+  .chip.small{font-family:inherit;font-size:.8rem;padding:4px 10px}
+  .jevnote{margin-top:10px;font-size:.76rem;color:var(--muted);line-height:1.55}
+  .jevline{margin-top:12px;font-size:.82rem;color:#35534a;background:#f1f7f4;border-radius:10px;padding:8px 12px;line-height:1.6}
+  .ccres{margin-top:16px}
+  .ccword{border-top:1px solid var(--line-soft);padding-top:14px;margin-top:14px}
+  .ccword:first-child{border-top:0;margin-top:0;padding-top:0}
+  .cchead{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .ccar{font-family:Amiri,serif;font-size:2rem;line-height:1.6}
+  .ccgloss{font-weight:600;color:var(--ink-2)}
+  .ccfrom,.ccmuted{font-size:.8rem;color:var(--muted)}
+  .ccsenses{margin:6px 0 4px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+  .ccsense{font:inherit;font-size:.8rem;background:#fff;border:1px solid var(--line);border-radius:10px;padding:5px 10px;cursor:pointer;transition:border-color .2s,background .2s}
+  .ccsense .ar{font-family:Amiri,serif;font-size:1.05rem}
+  .ccsense.on{border-color:var(--emerald);background:var(--emerald-bg);color:var(--emerald-deep);font-weight:600}
+  .ccnums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:12px 0 8px}
+  .ccnum{border:1px solid var(--line-soft);border-radius:14px;padding:12px 10px;text-align:center;background:#fbfcfb;transition:border-color .3s,box-shadow .3s}
+  .ccnum .v{font-size:1.6rem;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .ccnum .k{font-size:.72rem;font-weight:700;color:var(--ink-2);margin-top:2px}
+  .ccnum .d{font-size:.68rem;color:var(--muted);margin-top:3px;line-height:1.45}
+  .ccnum.implied{border-color:rgba(13,150,176,.45);box-shadow:0 0 0 3px rgba(13,150,176,.10)}
+  .ccnum.match{border-color:var(--emerald);background:var(--emerald-bg)}
+  .ccnum.match .v{color:var(--emerald-deep)}
+  .ccverdict{font-size:.9rem;line-height:1.6;padding:8px 12px;border-radius:10px;background:#f6f8f7}
+  .ccverdict.ok{background:var(--emerald-bg);color:var(--emerald-deep)}
+  .ccverdict.mid{background:var(--teal-bg);color:#0b6e82}
+  .ccverdict.bad{background:var(--amber-bg);color:#8a5a06}
+  .cclink{margin-top:8px;border:0;background:none;padding:0;font:inherit;font-size:.82rem;font-weight:600;color:var(--teal);cursor:pointer}
+  .ccpair{margin-top:14px;font-size:.9rem;font-weight:600;color:var(--ink-2)}
+  .segn{display:inline-block;margin-inline-start:6px;font-size:.72rem;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+  .seg button.on .segn{color:var(--emerald-deep)}
+  .shint{margin:-6px 0 14px;font-size:.84rem;color:#35534a;line-height:1.9}
+  .shint .ar{font-family:Amiri,serif;font-size:1.15rem}
+  .shsense{display:inline-block;margin-inline-end:12px;white-space:nowrap}
+  .shsense .en,.ccsense .en{margin-inline-start:5px}
+  .shsense .n,.ccsense .n{display:inline-block;margin-inline-start:6px;padding:0 7px;border-radius:8px;background:rgba(13,150,176,.10);font-size:.75rem;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.6}
+  .chip .n{margin-inline-start:5px;opacity:.7}
+  .ccnum .o{margin-top:6px;padding:3px 6px;border-radius:8px;background:var(--amber-bg);color:#8a5a06;font-size:.66rem;line-height:1.4}
+  .askbox{margin:18px 0 0;max-width:660px}
+  .askbox input.q{min-width:0}
+  .askres{margin-top:10px;max-width:660px;font-size:.9rem;line-height:1.7}
+  .askres .go{border:0;border-radius:10px;padding:7px 14px;margin-inline-start:6px;font:inherit;font-size:.82rem;font-weight:700;color:#fff;cursor:pointer;background:var(--emerald)}
+  .sitcard{margin:0 0 14px;border-inline-start:3px solid var(--emerald)}
+  .safety{margin-top:12px;background:#fff4f2;border:1px solid #f2c6bd;color:#6e2a1d;border-radius:12px;padding:12px 14px;font-size:.88rem;line-height:1.7}
+  .safety a{color:#9b2c16;font-weight:700}
+  @media (max-width:640px){
+    .ccnums{gap:6px}
+    .ccnum{padding:10px 6px}
+    .ccnum .v{font-size:1.3rem}
+    .ccform .ccbtn,.askbox .ccbtn,.sitform .ccbtn{flex:1 1 100%}
+  }
 </style>
 </head>
 <body>
@@ -371,6 +431,24 @@
           <button class="primary" @click="go('auditor')">{{ lang==='ar' ? 'دقّق الأعداد المتداولة' : 'Audit the famous claims' }}</button>
           <button class="ghost" @click="go('overview')">{{ lang==='ar' ? 'استكشف البيانات' : 'Explore the data' }}</button>
         </div>
+        <form class="askbox" @submit.prevent="askSite">
+          <input class="q" v-model="ask.text" maxlength="200" :placeholder="lang==='ar' ? 'اسأل الموقع: قصة يوسف، دعاءٌ للقلق، سورة الكهف…' : 'Ask the site: the story of Yusuf, a du’a for anxiety, surah Al-Kahf…'" :aria-label="lang==='ar' ? 'اسأل الموقع' : 'Ask the site'">
+          <button type="submit" class="ccbtn" :disabled="ask.busy || !ask.text.trim()">{{ ask.busy ? (lang==='ar' ? 'لحظة…' : 'Thinking…') : (lang==='ar' ? 'اسأل' : 'Ask') }}</button>
+        </form>
+        <div v-if="ask.res" class="askres" aria-live="polite">
+          <div v-if="ask.res.crisis" class="safety" role="alert">{{ safety.text }} <a href="https://findahelpline.com" target="_blank" rel="noopener">{{ safety.link }}</a></div>
+          <template v-else-if="ask.res.offTopic">{{ lang==='ar' ? 'يبدو أن هذا السؤال لا يتعلق بالقرآن. جرّب سؤالًا عن سورة أو كلمة أو قصة.' : 'That doesn’t look like a question about the Quran. Try asking about a surah, a word or a story.' }}</template>
+          <template v-else-if="ask.res.top">
+            {{ lang==='ar' ? 'أفضل صفحة لذلك:' : 'Best place for that:' }} <b>{{ askLabel(ask.res.top) }}</b>
+            <button type="button" class="go" @click="followAsk(ask.res.top)">{{ lang==='ar' ? 'افتح ‹' : 'Open ›' }}</button>
+          </template>
+          <template v-else-if="!ask.res.crisis">{{ lang==='ar' ? 'لم نجد صفحةً مناسبة. جرّب كلماتٍ أخرى أو تصفّح الأقسام أدناه.' : 'Nothing matched. Try other words, or browse the sections below.' }}</template>
+          <div v-if="ask.res.alts && ask.res.alts.length && !ask.res.offTopic" style="margin-top:4px">{{ ask.res.crisis ? (lang==='ar' ? 'أدعية الأنبياء في شدّتهم:' : 'Prayers the prophets made in hard times:') : (lang==='ar' ? 'أو:' : 'Or:') }} <span class="chip small" v-for="a in ask.res.alts" :key="a.view" @click="followAsk(a)">{{ askLabel(a) }}</span></div>
+          <div v-if="ask.res.via==='jev'" class="jevnote">{{ lang==='ar' ? 'اختار Jev هذه الصفحة' : 'Jev picked this page' }}<span v-if="ask.res.conf!=null"> ({{ pct(ask.res.conf) }})</span>.</div>
+          <div v-else-if="ask.res.jevAgrees" class="jevnote">{{ lang==='ar' ? 'ويوافق Jev على هذا الاختيار.' : 'Jev agrees.' }}</div>
+          <div v-else-if="ask.res.jevError" class="jevnote">{{ lang==='ar' ? 'لم يُجب Jev، فاستعملنا المطابقة العادية.' : 'Jev didn’t answer, so this uses plain matching.' }}</div>
+        </div>
+        <div v-if="jevOn" class="jevnote" style="max-width:660px">{{ lang==='ar' ? 'حين لا تكفي المطابقة، يُرسَل سؤالك إلى Jev من TypeSafe ليختار الصفحة.' : 'When plain matching isn’t enough, your question is sent to TypeSafe’s Jev to pick the page.' }}</div>
         <div class="kpis">
           <div class="kpi"><div class="n">{{ T.suras }}</div><div class="l">{{ lang==='ar'?'سورة':'Surahs' }}</div></div>
           <div class="kpi"><div class="n">{{ f(T.verses) }}</div><div class="l">{{ lang==='ar'?'آية':'Verses' }}</div></div>
@@ -477,13 +555,18 @@
       <div class="searchbar">
         <input class="q" v-model="q" @input="runSearch" :placeholder="lang==='ar'?'اكتب كلمة...':'Type a word...'" />
         <div class="seg">
-          <button :class="{on:mode==='surface'}" @click="mode='surface';runSearch()">{{ lang==='ar'?'صيغة':'Surface' }}</button>
-          <button :class="{on:mode==='lemma'}" @click="mode='lemma';runSearch()">{{ lang==='ar'?'جذع':'Lemma' }}</button>
-          <button :class="{on:mode==='root'}" @click="mode='root';runSearch()">{{ lang==='ar'?'جذر':'Root' }}</button>
+          <button :class="{on:mode==='surface'}" @click="mode='surface';runSearch()">{{ lang==='ar'?'صيغة':'Surface' }}<span class="segn" v-if="searchModes">{{ f(searchModes.surface) }}</span></button>
+          <button :class="{on:mode==='lemma'}" @click="mode='lemma';runSearch()">{{ lang==='ar'?'جذع':'Lemma' }}<span class="segn" v-if="searchModes">{{ f(searchModes.lemma) }}</span></button>
+          <button :class="{on:mode==='root'}" @click="mode='root';runSearch()">{{ lang==='ar'?'جذر':'Root' }}<span class="segn" v-if="searchModes">{{ f(searchModes.root) }}</span></button>
         </div>
         <div class="seg">
           <button :class="{on:showTrans}" :aria-pressed="showTrans" @click="showTrans=!showTrans">{{ lang==='ar'?'الترجمة':'Translation' }}</button>
         </div>
+      </div>
+      <div v-if="searchHint" class="shint">
+        <template v-if="searchHint.type==='spelling'">{{ lang==='ar' ? 'في المصحف تُكتب هذه الكلمة هكذا:' : 'The mushaf spells this word differently. Try:' }} <span class="chip" v-for="s in searchHint.forms" :key="s" @click="q=s;runSearch()">{{ s }}</span></template>
+        <template v-else>«<span class="ar" lang="ar">{{ searchHint.norm }}</span>» {{ lang==='ar' ? 'رسمٌ يجمع أكثر من كلمةٍ معجمية، والبحث بالجذع يعدّها معًا:' : 'is the spelling of more than one dictionary word, and a lemma search counts them together:' }}
+          <span v-for="v in searchHint.senses" :key="v.w" class="shsense"><bdi class="ar" lang="ar">{{ v.w }}</bdi><span class="en" v-if="v.en && lang!=='ar'">{{ v.en }}</span><span class="n">{{ f(v.n) }}</span></span></template>
       </div>
       <div>
         <span class="chip" v-for="ex in examples" :key="ex" @click="q=ex;runSearch()">{{ ex }}</span>
@@ -550,6 +633,45 @@
     <section v-if="view==='auditor'">
       <h1>{{ lang==='ar' ? 'مدقّق المزاعم' : 'Claim Auditor' }}</h1>
       <p class="sub">{{ lang==='ar'?'نقارن في كل مزعمٍ عددي بين الرقم المزعوم والعدِّ المحقَّق وما يعيده البحث الساذج.':'Claimed vs verified vs naive search, for every word-count claim.' }}</p>
+      <div class="card claimcheck">
+        <h3>{{ lang==='ar' ? 'دقّق أي زعمٍ بنفسك' : 'Check any claim' }}</h3>
+        <p class="ccsub">{{ lang==='ar' ? 'الصق زعمًا عن عدد مرات ورود كلمةٍ في القرآن، بالعربية أو بالإنجليزية، فنجد الكلمة ونعدّها بثلاث طرق.' : 'Paste a claim about how often a word appears in the Quran, in English or Arabic. We find the word and count it three ways.' }}</p>
+        <form class="ccform" @submit.prevent="checkClaim">
+          <input class="q" v-model="cc.text" maxlength="400" :placeholder="lang==='ar' ? 'مثال: كلمة الدنيا وردت ١١٥ مرة' : 'e.g. The word day appears 365 times'" :aria-label="lang==='ar' ? 'الزعم' : 'Claim'">
+          <button type="submit" class="ccbtn" :disabled="cc.busy || !cc.text.trim()">{{ cc.busy ? (lang==='ar' ? 'لحظة…' : 'Checking…') : (lang==='ar' ? 'دقّق' : 'Check') }}</button>
+        </form>
+        <div class="ccex"><span class="chip small" v-for="ex in ccExamples" :key="ex" @click="cc.text=ex;checkClaim()">{{ ex }}</span></div>
+        <div v-if="jevOn" class="jevnote">{{ lang==='ar' ? 'يُرسَل نص الزعم إلى Jev من TypeSafe ليقرّر أيّ كلمةٍ وأيّ طريقة عدٍّ يقصد. الأرقام نفسها تأتي دائمًا من المدونة.' : 'Your text is sent to TypeSafe’s Jev to decide which word and which way of counting the claim means. The numbers themselves always come from the corpus.' }}</div>
+        <div v-if="cc.res" class="ccres" aria-live="polite">
+          <div v-if="cc.res.crisis" class="safety" role="alert">{{ safety.text }} <a href="https://findahelpline.com" target="_blank" rel="noopener">{{ safety.link }}</a></div>
+          <div v-else-if="!cc.res.words.length" class="stub" style="padding:16px">{{ lang==='ar' ? 'لم نتعرّف على كلمةٍ في هذا النص. اكتب الكلمة بالعربية، أو باسمٍ إنجليزي شائع مثل day أو angel.' : 'We couldn’t find a word we know in that text. Try the word in Arabic, or a common English name like day or angel.' }}</div>
+          <template v-else>
+            <div v-for="(w,wi) in cc.res.words" :key="wi" class="ccword">
+              <div class="cchead">
+                <span class="ccar" lang="ar">{{ ccOpt(w).sense || ccOpt(w).norm }}</span>
+                <span class="ccgloss" v-if="ccGloss(w)">{{ ccGloss(w) }}</span>
+                <span class="ccfrom" v-if="w.source==='ar' && w.respelled && w.form">{{ lang==='ar' ? 'رسمها في المصحف:' : 'written in the mushaf as' }} <span lang="ar" style="font-family:Amiri,serif;font-size:1.1rem">{{ w.form }}</span></span>
+              </div>
+              <div v-if="w.options.length>1" class="ccsenses">
+                <span class="ccmuted">{{ lang==='ar' ? 'هذا الرسم يجمع أكثر من كلمة، فاختر المقصودة:' : 'This spelling covers more than one word. Pick the one the claim means:' }}</span>
+                <button v-for="(o,oi) in w.options" :key="oi" type="button" class="ccsense" :class="{on: oi===w.pick}" :aria-pressed="oi===w.pick" @click="w.pick=oi"><bdi class="ar" lang="ar">{{ o.sense || o.norm }}</bdi><span class="en" v-if="senseEn(o) && lang!=='ar'">{{ senseEn(o) }}</span><span class="n">{{ f(ccSenseCount(o)) }}</span></button>
+              </div>
+              <div class="ccnums">
+                <div v-for="m in ccMethods(w)" :key="m.key" class="ccnum" :class="{match:m.match, implied:m.implied}">
+                  <div class="v">{{ m.value==null ? '—' : f(m.value) }}</div>
+                  <div class="k">{{ m.label }}</div>
+                  <div class="d">{{ m.detail }}</div>
+                  <div class="o" v-if="m.note">{{ m.note }}</div>
+                </div>
+              </div>
+              <div class="ccverdict" :class="ccVerdict(w).tone">{{ ccVerdict(w).text }}</div>
+              <button type="button" class="cclink" @click="ccOpenSearch(w)">{{ lang==='ar' ? 'اعرض كل مواضعها ‹' : 'See every place it occurs ›' }}</button>
+            </div>
+            <div v-if="cc.res.words.length===2" class="ccpair">{{ ccParity }}</div>
+            <div v-if="ccJevLine" class="jevline">{{ ccJevLine }}</div>
+          </template>
+        </div>
+      </div>
       <div class="card"><div class="chart" id="audChart"></div></div>
       <div class="grid" style="margin-top:16px">
         <div v-for="c in claims" :key="c.id" class="card" style="margin:0">
@@ -578,6 +700,14 @@
         <div class="kpi"><div class="n">{{ f(emotionTotals.guidance) }}</div><div class="l">{{ lang==='ar'?'هداية':'Guidance' }}</div></div>
         <div class="kpi"><div class="n">{{ f(emotionTotals.hope) }}</div><div class="l">{{ lang==='ar'?'أمل':'Hope' }}</div></div>
         <div class="kpi"><div class="n">{{ f(emotionTotals.warning) }}</div><div class="l">{{ lang==='ar'?'تحذير':'Warning' }}</div></div>
+      </div>
+      <div class="card" v-if="jevTone">
+        <h3>{{ lang==='ar' ? 'قراءةٌ ثانية من Jev' : 'A second reading from Jev' }}</h3>
+        <p class="ccsub">{{ lang==='ar' ? 'قرأ Jev من TypeSafe مطلع كل سورة واختار نبرتها الغالبة. الأرقام أعلاه تعدّ كلمات، وهذه تحكم على المقاطع.' : 'TypeSafe’s Jev read the opening of every surah and chose its main tone. The numbers above count words; this judges whole passages.' }}</p>
+        <div class="kpis">
+          <div class="kpi" v-for="t in ['mercy','guidance','hope','warning']" :key="t"><div class="n">{{ f(jevTone.c[t]) }}</div><div class="l">{{ toneLabel(t) }}</div></div>
+        </div>
+        <div class="jevnote">{{ lang==='ar' ? 'عدد السور بحسب النبرة الغالبة على مطلعها' : 'Number of surahs by the main tone of their opening' }} · {{ jevTone.model }} · {{ jevTone.date }}</div>
       </div>
     </section>
 
@@ -884,6 +1014,24 @@
           <p style="font-size:.82rem;color:var(--muted);margin-top:8px">{{ lang==='ar'?'لفظ الجلالة و«رسول» و«آمن» تميّز السور المدنية، كما هو معروف.':'Allah, Messenger, and believed mark Medinan surahs, as is well known.' }}</p>
         </div>
       </div>
+      <div class="card" v-if="jevRev">
+        <h3>{{ lang==='ar' ? 'رأيٌ ثانٍ من Jev' : 'A second opinion from Jev' }}</h3>
+        <p class="ccsub">{{ lang==='ar' ? 'قرأ Jev من TypeSafe مطلع كل سورة وحكم: مكية أم مدنية. هذا حكمُ نموذجٍ لغوي على الأسلوب، لا فتوى في أسباب النزول.' : 'TypeSafe’s Jev read the opening of every surah and judged: Meccan or Medinan? This is a language model’s judgement of style, not a ruling on when a surah was revealed.' }}</p>
+        <div class="metric">
+          <div class="m"><div class="v">{{ D(jevRev.pct.toFixed(1)) }}%</div><div class="k">{{ lang==='ar' ? 'يوافق التصنيف المعتمد' : 'agrees with the standard label' }}</div></div>
+          <div class="m"><div class="v">{{ D(jevRev.n) }}</div><div class="k">{{ lang==='ar' ? 'سورة' : 'surahs' }}</div></div>
+        </div>
+        <table class="conf">
+          <tr><th></th><th>{{ lang==='ar'?'Jev: مكي':'Jev: Meccan' }}</th><th>{{ lang==='ar'?'Jev: مدني':'Jev: Medinan' }}</th></tr>
+          <tr><th>{{ lang==='ar'?'مكي':'Meccan' }}</th><td class="hit">{{ D(jevRev.conf.meccan.meccan) }}</td><td class="miss">{{ D(jevRev.conf.meccan.medinan) }}</td></tr>
+          <tr><th>{{ lang==='ar'?'مدني':'Medinan' }}</th><td class="miss">{{ D(jevRev.conf.medinan.meccan) }}</td><td class="hit">{{ D(jevRev.conf.medinan.medinan) }}</td></tr>
+        </table>
+        <div v-if="jevRev.dis.length" style="margin-top:12px">
+          <div class="ccmuted">{{ lang==='ar' ? 'حيث يخالف Jev التصنيف المعتمد:' : 'Where Jev disagrees with the standard label:' }}</div>
+          <span class="chip small" v-for="it in jevRev.dis.slice(0,24)" :key="it.n" @click="rSurah=it.n;go('reader')">{{ surahName(it.n) }} ({{ D(it.n) }}) · {{ it.pred==='medinan' ? (lang==='ar'?'مدني':'Medinan') : (lang==='ar'?'مكي':'Meccan') }}<span class="n" v-if="it.confidence!=null">{{ pct(it.confidence) }}</span></span>
+        </div>
+        <div class="jevnote">{{ jevRev.model }} · {{ jevRev.date }}</div>
+      </div>
     </section>
 
     <!-- STATISTICAL TESTS (Hypothesis testing + regression) -->
@@ -948,6 +1096,23 @@
         <div style="font-size:.88rem;line-height:1.85">{{ lang==='ar'?untranslatableIntro.ar:untranslatableIntro.en }}</div>
         <div style="font-size:.72rem;color:var(--muted);margin-top:8px;font-style:italic">{{ lang==='ar'?untranslatableIntro.credit_ar:untranslatableIntro.credit_en }}</div>
       </div>
+      <div v-if="curLib.type==='duas' || curLib.type==='lessons'" class="card sitcard">
+        <h3>{{ curLib.type==='duas' ? (lang==='ar' ? 'دعاءٌ لحالك' : 'A du’a for how you feel') : (lang==='ar' ? 'درسٌ لموقفك' : 'A lesson for where you are') }}</h3>
+        <p class="ccsub">{{ lang==='ar' ? 'صِف حالك أو ما تمرّ به في جملة، فنعرض لك ما يناسبه.' : 'Describe how you feel or what you’re going through in a sentence, and we’ll show what fits.' }}</p>
+        <form class="sitform" @submit.prevent="findSituation">
+          <input class="q" style="font-family:Inter;font-size:1rem" v-model="sit.text" maxlength="300" :placeholder="curLib.type==='duas' ? (lang==='ar' ? 'مثال: أشعر بالقلق من الغد' : 'e.g. I’m anxious about tomorrow') : (lang==='ar' ? 'مثال: أغضب بسرعة' : 'e.g. I lose my temper too easily')" :aria-label="lang==='ar' ? 'صِف حالك' : 'Describe your situation'">
+          <button type="submit" class="ccbtn" :disabled="sit.busy || !sit.text.trim()">{{ sit.busy ? (lang==='ar' ? 'لحظة…' : 'Finding…') : (lang==='ar' ? 'اعرض' : 'Find') }}</button>
+        </form>
+        <div v-if="sit.res && sit.res.crisis" class="safety" role="alert">{{ safety.text }} <a href="https://findahelpline.com" target="_blank" rel="noopener">{{ safety.link }}</a></div>
+        <div v-if="sit.res && sit.res.cat" class="askres" aria-live="polite">
+          {{ lang==='ar' ? 'نعرض لك:' : 'Showing:' }} <b>{{ sitCatLabel }}</b>
+          <span class="ccmuted" v-if="sit.res.via==='jev'">· {{ lang==='ar' ? 'اختارها Jev' : 'picked by Jev' }}<span v-if="sit.res.conf!=null"> ({{ pct(sit.res.conf) }})</span></span>
+          <span class="ccmuted" v-else-if="sit.res.matched && sit.res.matched.length">· {{ lang==='ar' ? 'لأنك ذكرت' : 'because you mentioned' }} “{{ sit.res.matched.slice(0,2).join('”, “') }}”<span v-if="sit.res.jevAgrees"> · {{ lang==='ar' ? 'ويوافق Jev' : 'Jev agrees' }}</span></span>
+          <button type="button" class="cclink" style="margin-inline-start:8px" @click="clearSituation">{{ lang==='ar' ? 'عرض الكل' : 'Show all' }}</button>
+        </div>
+        <div v-else-if="sit.res && !sit.res.crisis" class="askres ccmuted">{{ sit.res.offTopic ? (lang==='ar' ? 'لم نفهم الحال المقصودة. صِفها بكلماتٍ أخرى.' : 'We couldn’t tell what situation that is. Try describing it another way.') : (lang==='ar' ? 'لم نجد تطابقًا قريبًا، فتصفّح الأصناف أدناه.' : 'No close match. Browse the categories below.') }}</div>
+        <div v-if="jevOn" class="jevnote">{{ lang==='ar' ? 'يُرسَل وصفك إلى Jev من TypeSafe ليختار الصنف، إلا إذا ذكرتَ إيذاء نفسك فلا يُرسَل.' : 'Your description is sent to TypeSafe’s Jev to pick the category, except when it mentions self-harm, which is never sent.' }}</div>
+      </div>
       <div class="searchbar">
         <input class="q" style="font-family:Inter;font-size:1rem" v-model="libQ" :placeholder="lang==='ar'?'بحث في المكتبة...':'Search the library...'">
       </div>
@@ -1010,6 +1175,10 @@
 <script defer src="corpus.js"></script>
 <script defer src="translation_en.js"></script>
 <script defer src="words.js"></script>
+<script defer src="lemma-variants.js"></script>
+<script defer src="config.js"></script>
+<script defer src="jev-client.js"></script>
+<script defer src="content/jev-data.js"></script>
 <script defer src="content/quran_stories_data.js"></script>
 <script defer src="content/quran_lessons.js"></script>
 <script defer src="content/quran_duas.js"></script>
@@ -1025,6 +1194,9 @@ function normalize(s){
   s = s.replace(/[ٱآأإ]/g,'ا').replace(/ى/g,'ي');
   return s.trim();
 }
+const JEV = window.QTA_JEV || null;
+let JIX = null;   // word index for the claim checker and search hints; built on first use, outside Vue's reactivity
+const jix = () => JIX || (JIX = JEV && window.QURAN_WORDS ? JEV.makeIndex(window.QURAN_WORDS, window.QURAN_LEMMA_VARIANTS, window.QURAN_FORM_SENSES) : null);
 const { createApp } = Vue;
 createApp({
   data(){
@@ -1036,6 +1208,8 @@ createApp({
       q:'', mode:'surface', sres:{total:0,surahs:0,verses:0,sample:[]},
       rSurah:1, scrollPct:0, railDragging:false, EN:{}, showTrans:(new URLSearchParams(location.search).get('lang')!=='ar'), libQ:'', libCat:'all', stories:[], lessons:[], duas:[], tafsir:[], untranslatable:[], untranslatableIntro:{},
       V1:{}, abjadInput:'الله',
+      jevOn: !!(JEV && JEV.endpoint()), JD: window.QTA_JEV_DATA||{},
+      cc:{text:'', busy:false, res:null}, ask:{text:'', busy:false, res:null}, sit:{text:'', busy:false, res:null},
       AN:(D.analytics||{}), hifzMins:60, simSurah:2,
       dashPlace:'all', dashMinVerses:0, dashSort:'n',
       labMeta:{
@@ -1185,6 +1359,47 @@ createApp({
     };
   },
   computed:{
+    safety(){ return this.lang==='ar'
+      ? {text:'إن كانت تراودك أفكارٌ بإنهاء حياتك أو إيذاء نفسك، فأرجوك اطلب المساعدة الآن: اتصل برقم الطوارئ في بلدك، أو بخط مساندةٍ نفسية، أو تحدّث إلى شخصٍ تثق به. لستَ وحدك، وتستحق الدعم.', link:'ابحث عن خط مساندة في بلدك'}
+      : {text:'If you’re having thoughts of ending your life or hurting yourself, please reach out for help now: call your local emergency number or a crisis line, or talk to someone you trust. You’re not alone, and you deserve support.', link:'Find a helpline in your country'}; },
+    ccExamples(){ return this.lang==='ar'
+      ? ['كلمة الدنيا وردت ١١٥ مرة', 'الملائكة والشياطين ٨٨ مرة لكلٍّ منهما', 'اليوم ذُكر ٣٦٥ مرة', 'الحياة والموت ١٤٥ مرة']
+      : ['The word day appears 365 times', 'Angels and devils are each mentioned 88 times', 'The world and the hereafter both appear 115 times', 'Man and woman appear 24 times each']; },
+    ccParity(){ const r=this.cc.res; if(!r || r.words.length!==2) return '';
+      const ar=this.lang==='ar', imp=this.ccImplied(), rows=r.words.map(w=>this.ccMethods(w));
+      const val=(i,k)=>rows[i].find(m=>m.key===k).value, eqKeys=['form','lemma','root'].filter(k=>val(0,k)!=null && val(0,k)===val(1,k));
+      const a=this.f(val(0,imp)), b=this.f(val(1,imp));
+      if(eqKeys.includes(imp)) return ar ? `عند العدّ ${this.methodName(imp)}: ${a} و${b}، أي متساويتان.` : `Counting ${this.methodName(imp)}: ${a} and ${b}, so they are equal.`;
+      if(eqKeys.length) return ar ? `عند العدّ ${this.methodName(imp)}: ${a} و${b}، غير متساويتين. تتساويان فقط عند العدّ ${eqKeys.map(this.methodName).join(' أو ')}.` : `Counting ${this.methodName(imp)}: ${a} and ${b}, not equal. They are equal only when counting ${eqKeys.map(this.methodName).join(' or ')}.`;
+      return ar ? `عند العدّ ${this.methodName(imp)}: ${a} و${b}. لا تتساويان بأي طريقة عدٍّ معيارية.` : `Counting ${this.methodName(imp)}: ${a} and ${b}. They are not equal under any standard way of counting.`; },
+    ccJevLine(){ const r=this.cc.res, ar=this.lang==='ar'; if(!r) return '';
+      if(r.jevError) return ar ? 'لم يُجب Jev، فاستعملنا المطابقة العادية.' : 'Jev didn’t answer, so this uses plain matching.';
+      if(r.offTopic) return ar ? 'لا يرى Jev في هذا النص زعمًا عن عدد مرات ورود كلمة. الأرقام أدناه للكلمات التي وجدناها.' : 'Jev doesn’t read this as a claim about how often a word occurs. The counts are for the words we found.';
+      if(r.via!=='jev') return '';
+      const w=r.words[0], raw=w ? (this.ccOpt(w).sense||this.ccOpt(w).norm) : '', lab=ar ? raw : '\u2068'+raw+'\u2069', conf=r.wordConf!=null ? ' ('+this.pct(r.wordConf)+')' : '';
+      const word = r.jevWord==='applied' ? (ar ? `قرأ Jev الزعم على أنه عن «${lab}»${conf}.` : `Jev read this as a claim about ${lab}${conf}.`)
+        : r.jevWord==='agrees' ? (ar ? `ويوافق Jev على أن الزعم عن «${lab}».` : `Jev agrees the claim is about ${lab}.`)
+        : r.jevWord==='unsure' ? (ar ? 'لم يكن Jev متأكدًا من الكلمة المقصودة، فعرضنا أكثرها ورودًا.' : 'Jev wasn’t sure which word the claim means, so the most frequent one is shown.') : '';
+      const how = r.method ? (ar ? `وقرأه على أنه عدٌّ ${this.methodName(this.ccImplied())}.` : `It read the claim as counting ${this.methodName(this.ccImplied())}.`)
+        : (ar ? 'ولا يحدّد الزعم طريقة العدّ، فاعتمدنا كل صيغ الكلمة.' : 'The claim doesn’t say how it counts, so all forms of the word are used.');
+      return word ? word + ' ' + how : how; },
+    searchModes(){ const ix=jix(); if(!ix || !normalize(this.q)) return null; return JEV.modeCounts(ix, this.q); },
+    searchHint(){ const ix=jix(), q=normalize(this.q); if(!ix || !q) return null;
+      const c=JEV.modeCounts(ix, q);
+      if(!c.surface && !c.lemma && !c.root){ const forms=JEV.mushafSpelling(ix, q); return forms ? {type:'spelling', forms} : null; }
+      const vars=ix.VAR[q];
+      if(vars && c.lemma) return {type:'homograph', norm:q, senses: vars.map(v=>({w:v[0], n:v[1], en:this.senseEn({norm:q, sense:v[0]})}))};
+      return null; },
+    sitCatLabel(){ const r=this.sit.res; if(!r || !r.cat || !this.curLib) return ''; const it=this.curLib.data.find(x=>x.cat===r.cat); return it ? (this.lang==='ar' ? (it.cat_ar||it.cat) : this.catName(it.cat)) : r.cat; },
+    jevRev(){ const R=this.JD && this.JD.revelation, meta=this.DS.surahMeta||[]; if(!R || !Array.isArray(R.items) || !R.items.length) return null;
+      const place={}; meta.forEach(m=>{ place[m.n] = m.place==='Medina' ? 'medinan' : 'meccan'; });
+      const conf={meccan:{meccan:0,medinan:0}, medinan:{meccan:0,medinan:0}}, dis=[]; let agree=0, n=0;
+      R.items.forEach(it=>{ const t=place[it.n]; if(!t || !(it.pred in conf[t])) return; n++; conf[t][it.pred]++; if(t===it.pred) agree++; else dis.push(it); });
+      if(!n) return null;
+      return {n, agree, pct: agree/n*100, conf, dis: dis.sort((a,b)=>(b.confidence||0)-(a.confidence||0)), model:R.model||'', date:R.date||''}; },
+    jevTone(){ const T=this.JD && this.JD.tone; if(!T || !Array.isArray(T.items) || !T.items.length) return null;
+      const c={mercy:0, guidance:0, hope:0, warning:0}; T.items.forEach(it=>{ if(it.tone in c) c[it.tone]++; });
+      return {c, n:T.items.length, model:T.model||'', date:T.date||''}; },
     realViews(){ return ['home','overview','word','mecca','letters','search','reader','auditor','stories','lessons','duas','tafsir','untranslatable',
       'emotion','pronouns','science','abjad','n19','structural','symmetry','nlp','kg','advanced','tawafuq','alifi','hifz','classifier','stats','cluster','coincidence','dashboard']; },
     curHub(){ return this.nav.find(h=>h.items.some(i=>i.id===this.view)) || null; },
@@ -1280,6 +1495,116 @@ createApp({
       window.addEventListener('pointerup', stop);
       window.addEventListener('pointercancel', stop);
     },
+    // ---- Jev features ----
+    pct(x){ return this.D(Math.round(x*100)) + (this.lang==='ar' ? '٪' : '%'); },
+    senseEn(o){ const m=JEV && JEV.optionLabel(o).match(/\(([^)]+)\)$/); return m ? m[1] : ''; },
+    ccOpt(w){ return w.options[w.pick] || w.options[0]; },
+    ccGloss(w){ if(this.lang==='ar') return ''; return this.senseEn(this.ccOpt(w)) || (w.source==='en' ? w.text : ''); },
+    ccSenseCount(o){ return JEV.countOption(jix(), o, null).lemma; },
+    ccImplied(){ const r=this.cc.res, map={exact_form:'form', all_forms:'lemma', whole_root:'root'}; return (r && map[r.method]) || 'lemma'; },
+    methodName(k){ const ar=this.lang==='ar'; return ({form: ar?'بالرسم نفسه':'exactly as written', lemma: ar?'بكل صيغ الكلمة':'all forms of the word', root: ar?'بالجذر كله':'the whole root'})[k]; },
+    ccMethods(w){
+      const o=this.ccOpt(w), c=JEV.countOption(jix(), o, w.form), nums=(this.cc.res && this.cc.res.numbers) || [], imp=this.ccImplied(), ar=this.lang==='ar';
+      const form=c.formText, iso=x=>'\u2068'+x+'\u2069';   // keep Arabic runs from reordering the English around them
+      const note=c.formOthers ? (ar ? `منها ${this.f(c.formOthers)} لكلماتٍ أخرى تُكتب هكذا` : `${this.f(c.formOthers)} of these are other words spelled the same way`) : '';
+      return [
+        {key:'form', value:c.form, label: ar?'بالرسم نفسه':'Exactly as written', detail: ar ? `«${form}» وحدها أو بعد و، ف، ب، ل، ال` : `“${iso(form)}” alone or after ${iso('و، ف، ب، ل')} or ${iso('ال')}`, note},
+        {key:'lemma', value:c.lemma, label: ar?'بكل صيغ الكلمة':'All forms of the word', detail: ar ? 'المفرد والجمع ومع الضمائر' : 'singular, plural, with pronouns attached'},
+        {key:'root', value:c.rootCount, label: ar?'بالجذر كله':'The whole root', detail: c.root ? c.root.split('').join(' ') : (ar?'بلا جذر':'no root')},
+      ].map(m=>({...m, match: m.value!=null && nums.includes(m.value), implied: m.key===imp}));
+    },
+    ccVerdict(w){
+      const ar=this.lang==='ar', n=this.cc.res.numbers[0], ms=this.ccMethods(w), imp=this.ccImplied();
+      if(n==null) return {tone:'', text: ar ? 'لم نجد رقمًا في الزعم، وهذه أعداد الكلمة.' : 'There’s no number in the claim, so here are the counts.'};
+      const impM=ms.find(m=>m.key===imp), hits=ms.filter(m=>m.match);
+      if(impM.match) return {tone:'ok', text: ar ? `صحيح: عددها ${this.methodName(imp)} ${this.f(n)} بالضبط.` : `Holds: counting ${this.methodName(imp)}, it is exactly ${this.f(n)}.`};
+      if(hits.length) return {tone:'mid', text: ar ? `يصحّ الرقم ${this.f(n)} فقط عند العدّ ${hits.map(h=>this.methodName(h.key)).join(' أو ')}، أما العدّ ${this.methodName(imp)} فيعطي ${this.f(impM.value)}.` : `${this.f(n)} only holds when counting ${hits.map(h=>this.methodName(h.key)).join(' or ')}. Counting ${this.methodName(imp)} gives ${this.f(impM.value)}.`};
+      const near=ms.filter(m=>m.value!=null).sort((a,b)=>Math.abs(a.value-n)-Math.abs(b.value-n))[0];
+      return {tone:'bad', text: ar ? `لا توجد طريقة عدٍّ معيارية تعطي ${this.f(n)}. أقربها العدّ ${this.methodName(near.key)}: ${this.f(near.value)}.` : `No standard way of counting gives ${this.f(n)}. The closest is counting ${this.methodName(near.key)}: ${this.f(near.value)}.`};
+    },
+    async checkClaim(){
+      const text=this.cc.text.trim(), ix=jix(); if(!text || !ix) return;
+      const p=JEV.parseClaim(ix, text), crisis=JEV.crisis(text);
+      this.cc.res={text, numbers:p.numbers, words:crisis ? [] : p.words, crisis, via:'local', method:null, offTopic:false, jevError:false, wordConf:null, jevWord:null};
+      const R=this.cc.res;
+      if(crisis || !p.words.length || !this.jevOn) return;   // never send someone's words about self-harm anywhere
+      const w0=R.words[0];
+      const candidates = w0.options.length>1 ? w0.options.map((o,i)=>({id:'c'+i, label:JEV.optionLabel(o).slice(0,80)})) : [];
+      this.cc.busy=true;
+      const r=await JEV.decide({kind:'claim', text, candidates});
+      this.cc.busy=false;
+      if(this.cc.res!==R || !r) return;
+      if(!r.ok){ R.jevError=true; return; }
+      R.via='jev';
+      if(r.on_topic===false){ R.offTopic=true; return; }
+      const a=r.answers||{};
+      if(candidates.length && a.word){
+        const i=/^c\d+$/.test(a.word.value) ? +a.word.value.slice(1) : -1;
+        if(i===w0.pick) R.jevWord='agrees';
+        else if(w0.options[i] && JEV.trust(a.word, 'c'+w0.pick)){ w0.pick=i; R.wordConf=a.word.confidence; R.jevWord='applied'; }
+        else R.jevWord='unsure';
+      }
+      if(a.method && ['exact_form','all_forms','whole_root'].includes(a.method.value) && JEV.trust(a.method, 'all_forms')) R.method=a.method.value;
+    },
+    ccOpenSearch(w){ const o=this.ccOpt(w); this.q=o.norm; this.mode='lemma'; this.go('search'); this.$nextTick(()=>this.runSearch()); },
+    askLabel(t){ const ar=this.lang==='ar';
+      if(t.view==='reader' && t.s) return (ar?'سورة ':'Surah ') + this.surahName(t.s) + ' (' + this.D(t.s) + ')';
+      if(t.view==='search' && t.q) return (ar?'البحث عن ':'Search for ') + '«' + t.q + '»';
+      if(t.view==='auditor' && t.claim) return ar ? 'مدقّق المزاعم، مع زعمك' : 'The Claim Auditor, with your claim';
+      for(const g of this.nav){ const it=g.items.find(x=>x.id===t.view); if(it) return ar?it.ar:it.en; }
+      return t.view; },
+    async askSite(){
+      const text=this.ask.text.trim(); if(!text) return;
+      if(JEV.crisis(text)){ this.ask.res={crisis:true, top:null, alts:[{view:'duas', cat:'prophet'}], via:'local'}; return; }   // never sent anywhere
+      const loc=JEV.routeLocal(text, jix(), this.DS.surahMeta||[]);
+      const top = loc.shortcut || (loc.ranked[0] ? {view:loc.ranked[0].view} : null);
+      this.ask.res={top, alts: loc.ranked.filter(x=>!top || x.view!==top.view).slice(0,3).map(x=>({view:x.view})), via:'local', offTopic:false, jevError:false, jevAgrees:false, conf:null};
+      const R=this.ask.res;
+      if(!this.jevOn || loc.shortcut) return;   // a surah, a claim or a single word needs no judgement
+      this.ask.busy=true;
+      const r=await JEV.decide({kind:'route', text});
+      this.ask.busy=false;
+      if(this.ask.res!==R || !r) return;
+      if(!r.ok){ R.jevError=true; return; }
+      if(r.on_topic===false){ if(!R.top) R.offTopic=true; return; }
+      const page=r.answers && r.answers.page, v=page && page.value;
+      if(!v || !this.realViews.includes(v)) return;
+      if(R.top && R.top.view===v){ R.jevAgrees=true; return; }
+      if(!JEV.trust(page, R.top ? R.top.view : null)){ if(R.top.view!==v) R.alts=[{view:v}, ...R.alts.filter(x=>x.view!==v)].slice(0,3); return; }
+      if(R.top && R.top.view!==v) R.alts.unshift(R.top);
+      R.top={view:v}; R.alts=R.alts.filter(x=>x.view!==v).slice(0,3); R.via='jev'; R.conf=page.confidence;
+    },
+    followAsk(t){
+      if(t.view==='reader' && t.s) this.rSurah=t.s;
+      if(t.view==='search' && t.q){ this.q=t.q; this.mode='surface'; }
+      if(t.view==='auditor' && t.claim) this.cc.text=t.claim;
+      this.go(t.view);
+      if(t.view==='search') this.$nextTick(()=>this.runSearch());
+      if(t.view==='auditor' && t.claim) this.$nextTick(()=>this.checkClaim());
+      if(t.cat) this.$nextTick(()=>{ const it=this.curLib && this.curLib.data.find(x=>x.cat===t.cat); if(it) this.libCat = this.lang==='ar' ? (it.cat_ar||it.cat) : it.cat; });
+    },
+    catName(c){ return ({protection:'Protection', forgiveness:'Forgiveness', guidance:'Guidance', provision:'Provision', praise:'Praise', believer:'Prayers of the believers', prophet:'Prayers of the prophets',
+      faith:'Faith', ethics:'Ethics', social:'Society', worship:'Worship', character:'Character', consequences:'Consequences', knowledge:'Knowledge', family:'Family'})[c] || c; },
+    toneLabel(t){ const ar=this.lang==='ar'; return ({mercy: ar?'رحمة':'Mercy', guidance: ar?'هداية':'Guidance', hope: ar?'أمل':'Hope', warning: ar?'تحذير':'Warning'})[t]; },
+    applySitCat(){ const R=this.sit.res; if(!R || !R.cat || !this.curLib) return; const it=this.curLib.data.find(x=>x.cat===R.cat); if(!it) return;
+      this.libCat = this.lang==='ar' ? (it.cat_ar||it.cat) : it.cat; this.libQ=''; },
+    clearSituation(){ this.sit.res=null; this.libCat='all'; },
+    async findSituation(){
+      const text=this.sit.text.trim(), lib=this.curLib && this.curLib.type; if(!text || !['duas','lessons'].includes(lib)) return;
+      const crisis=JEV.crisis(text), loc=JEV.situationLocal(text, lib);
+      const cat = loc.length ? loc[0].cat : (crisis && lib==='duas' ? 'prophet' : null);
+      this.sit.res={crisis, cat, matched: loc.length ? loc[0].matched : [], via:'local', offTopic:false, jevAgrees:false, conf:null};
+      const R=this.sit.res; if(cat) this.applySitCat(); else { this.libCat='all'; }
+      if(!this.jevOn || crisis) return;   // never send someone's words about self-harm anywhere
+      this.sit.busy=true;
+      const r=await JEV.decide({kind:'situation', lib, text});
+      this.sit.busy=false;
+      if(this.sit.res!==R || !r || !r.ok) return;
+      if(r.on_topic===false){ if(!R.cat) R.offTopic=true; return; }
+      const ans=r.answers && r.answers.category, c=ans && ans.value;
+      if(c && c===R.cat){ R.jevAgrees=true; return; }
+      if(c && this.curLib.data.some(x=>x.cat===c) && JEV.trust(ans, R.cat)){ R.cat=c; R.via='jev'; R.conf=ans.confidence; R.matched=[]; this.applySitCat(); }
+    },
     D(x){ const s=String(x==null?'':x); return this.lang==='ar' ? s.replace(/[0-9]/g,d=>'٠١٢٣٤٥٦٧٨٩'[+d]) : s; },
     f(n){ if(n==null)n=0; return this.D(n.toLocaleString('en-US')); },
     arabizeCharts(){
@@ -1289,7 +1614,7 @@ createApp({
         if(/[0-9]/.test(t.textContent)) t.textContent = t.textContent.replace(/[0-9]/g,d=>map[d]);
       });
     },
-    go(id){ this.view=id; this.sideOpen=false; this.libQ=''; this.libCat='all'; if(id==='tawafuq') this.ensureMushaf(); if(id==='alifi') this.ensureAlifi(); this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); }); },
+    go(id){ this.view=id; this.sideOpen=false; this.libQ=''; this.libCat='all'; this.sit.res=null; if(id==='tawafuq') this.ensureMushaf(); if(id==='alifi') this.ensureAlifi(); this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); }); },
     afterCharts(){ this.$nextTick(()=>{ this.arabizeUI(); this.showActiveTab(); this.countKpis(); });
       setTimeout(()=>this.resizeCharts(), 260);
       [200,560,1200].forEach(d=>setTimeout(()=>{ this.arabizeCharts(); this.arabizeUI(); }, d)); },
@@ -1543,7 +1868,7 @@ createApp({
       }
     }
   },
-  watch:{ lang(v){ this.applyDir(); this.showTrans = (v!=='ar'); this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); }); } },
+  watch:{ lang(v){ this.applyDir(); this.showTrans = (v!=='ar'); this.applySitCat(); this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); }); } },
   mounted(){
     window.addEventListener('scroll', this.onPageScroll, { passive:true });
     window.addEventListener('resize', this.onPageScroll);
@@ -1555,6 +1880,8 @@ createApp({
       if(wantView==='reader' && Number.isInteger(wantSurah) && wantSurah>=1 && wantSurah<=114) this.rSurah = wantSurah;
       if(wantView==='tawafuq') this.ensureMushaf();
       if(wantView==='alifi') this.ensureAlifi();
+      const wantClaim = qs.get('claim');
+      if(wantView==='auditor' && wantClaim){ this.cc.text = wantClaim.slice(0,400); this.$nextTick(()=>this.checkClaim()); }
     }
     this.applyDir();
     window.addEventListener('resize', ()=>this.resizeCharts());
