@@ -43,6 +43,16 @@ const tests = {
     assert.equal(c.formOthers, 55, 'only 10 of the 65 words written ملك are angel (checked against the corpus)');
     assert.deepEqual(J.judge(c, 88).exact.includes('lemma'), true);
   },
+  'a written form sheds every leading clitic, but never part of the word itself'() {
+    const form = t => J.parseClaim(ix, t).words[0].form;
+    assert.equal(form('والملك ٤٨'), 'ملك', 'stacked clitics come off together');
+    assert.equal(form('الملك ٤٨'), 'ملك');
+    assert.equal(form('الله ٢٦٩٩'), 'الله', 'not له ("to him")');
+    assert.equal(form('بالله ١٣٩'), 'الله');
+    assert.equal(form('والله ٢٤٠'), 'الله');
+    const c = t => { const w = J.parseClaim(ix, t).words[0]; return J.countOption(ix, w.options[w.pick], w.form).form; };
+    assert.equal(c('والملك ٤٨'), c('الملك ٤٨'), 'the conjunction does not change the count');
+  },
   'English words are counted as the mushaf writes them'() {
     const devil = first('devils appear 88 times').c;
     assert.deepEqual([devil.formText, devil.form, devil.formOthers], ['شيطن', 68, 0]);
