@@ -8,6 +8,7 @@
 //           check. Nothing on the site changes automatically.
 //
 //   TYPESAFE_API_KEY=... node data-build/jev/run-batch.js              (both jobs, real Jev)
+//   AI_GATEWAY_API_KEY=... node data-build/jev/run-batch.js            (the same, through Vercel's AI Gateway)
 //   node data-build/jev/run-batch.js --dry-run                         (how many calls a run would make)
 //   node data-build/jev/run-batch.js --jobs tags --limit 5             (a sample; written under cache/sample/)
 //   node data-build/jev/run-batch.js --mock                            (mock Jev; writes under cache/, never web/)
@@ -90,11 +91,12 @@ function libraryItems() {
 // ---- asking Jev, with a cache and retries ----
 
 function makeAsker({ mock, concurrency }) {
-  const { callJev, JEV_MODEL } = require('../../api/_jev');
+  const { callJev, jevAccess } = require('../../api/_jev');
+  const model = (jevAccess() || {}).model || 'jev-latest';
   const dir = path.join(CACHE, mock ? 'mock' : 'real');
   fs.mkdirSync(dir, { recursive: true });
   const stats = { asked: 0, cached: 0, failed: 0, tokens: 0 };
-  const keyOf = (state, questions) => crypto.createHash('sha256').update(JSON.stringify({ model: JEV_MODEL, state, questions })).digest('hex');
+  const keyOf = (state, questions) => crypto.createHash('sha256').update(JSON.stringify({ model, state, questions })).digest('hex');
   const sleep = ms => new Promise(r => setTimeout(r, ms));
   async function ask(state, questions, { dryRun } = {}) {
     const file = path.join(dir, keyOf(state, questions) + '.json');
@@ -223,8 +225,8 @@ async function main() {
     mockServer = await require('./mock-jev').start(0);
     process.env.JEV_URL = `http://127.0.0.1:${mockServer.address().port}/v1/systemone`;
     process.env.TYPESAFE_API_KEY = process.env.TYPESAFE_API_KEY || 'mock';
-  } else if (!args.dryRun && !process.env.TYPESAFE_API_KEY) {
-    console.error('Set TYPESAFE_API_KEY in the environment first (or use --mock / --dry-run). Never commit the key.');
+  } else if (!args.dryRun && !require('../../api/_jev').jevAccess()) {
+    console.error('Set TYPESAFE_API_KEY or AI_GATEWAY_API_KEY in the environment first (or use --mock / --dry-run). Never commit the key.');
     process.exit(2);
   }
   const asker = makeAsker(args);

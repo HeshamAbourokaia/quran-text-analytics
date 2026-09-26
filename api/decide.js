@@ -1,9 +1,10 @@
-// POST /api/decide: the site's only door to Jev. It holds the TypeSafe key server-side and will only
-// ask the fixed questions defined in _jev.js (claim, route, situation), so the key can't be used as a
-// general-purpose classifier. Deploy on Vercel with TYPESAFE_API_KEY set; see "Jev features" in the README.
+// POST /api/decide: the site's only door to Jev. It holds the credential server-side and will only
+// ask the fixed questions defined in _jev.js (claim, route, situation), so it can't be used as a
+// general-purpose classifier. Deployed on Vercel it needs no key: it reaches Jev through Vercel's AI
+// Gateway with the project's OIDC token (or TYPESAFE_API_KEY, if set); see "Jev features" in the README.
 'use strict';
 
-const { callJev, buildRequest } = require('./_jev');
+const { callJev, jevAccess, buildRequest } = require('./_jev');
 
 const ALLOWED = (process.env.ALLOWED_ORIGINS || 'https://heshamabourokaia.github.io')
   .split(',').map(s => s.trim()).filter(Boolean);
@@ -60,13 +61,14 @@ module.exports = async function handler(req, res) {
   if (built.error) return send(res, 400, { ok: false, error: built.error });
 
   try {
-    const { answers, model } = await callJev(built.state, built.questions);
+    const access = jevAccess({ oidcToken: req.headers['x-vercel-oidc-token'] });
+    const { answers, model } = await callJev(built.state, built.questions, { access });
     const topic = answers.on_topic;
     if (topic && topic.probability < OFF_TOPIC_BELOW) return send(res, 200, { ok: true, kind: built.kind, on_topic: false, model });
     delete answers.on_topic;
     return send(res, 200, { ok: true, kind: built.kind, on_topic: true, answers, model });
   } catch (e) {
-    const status = e.status === 503 ? 503 : 502;
+    const status = e.unconfigured ? 503 : 502;
     console.error('jev error', e.status || '', e.message, e.detail || '');
     return send(res, status, { ok: false, error: status === 503 ? 'Jev is not configured' : 'Jev is unavailable right now' });
   }

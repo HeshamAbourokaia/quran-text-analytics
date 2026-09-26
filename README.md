@@ -221,22 +221,33 @@ The site is a static page, and everything below works with plain matching in the
 
 Jev replaces what plain matching found only when the two agree, when plain matching found nothing, or when Jev is reasonably sure (confidence 0.5 or more); otherwise its pick is offered as an alternative.
 
-**Privacy and safety.** With Jev on, the text typed into the claim, ask and situation boxes is sent to the site's `/api/decide` function and from there to TypeSafe; each box says so. A description that mentions self-harm is never sent anywhere: the page shows a note with a link to [find a helpline](https://findahelpline.com) instead. With `jevEndpoint` empty (the default), nothing leaves the browser.
+**Privacy and safety.** With Jev on, the text typed into the claim, ask and situation boxes is sent to the site's `/api/decide` function on Vercel and from there to TypeSafe's Jev (through Vercel's AI Gateway, unless a TypeSafe key is set); each box says so. A description that mentions self-harm is never sent anywhere: the page shows a note with a link to [find a helpline](https://findahelpline.com) instead. With `jevEndpoint` empty (the default), nothing leaves the browser.
 
 ### Turning it on
 
-1. Import this repository as a project on [Vercel](https://vercel.com). `vercel.json` serves `web/` as the site and `api/decide.js` as the function; there is no build step.
-2. In the Vercel project's **Settings → Environment Variables**, add `TYPESAFE_API_KEY` (your TypeSafe key) and `ALLOWED_ORIGINS` (the site's origin, for example `https://heshamabourokaia.github.io`; separate several with commas). Optional: `RATE_LIMIT_PER_MINUTE` (default 30 per IP address) and `JEV_MODEL` (default `jev-latest`). Keep the key there only: never commit it or paste it anywhere else.
-3. Set a spend limit on your TypeSafe account. The per-IP rate limit is kept per serverless instance, so it is a speed bump, not a cap.
-4. Put the function's URL in `web/config.js`, for example `window.QTA_CONFIG = { jevEndpoint: 'https://your-project.vercel.app/api/decide' };`, and push. GitHub Pages redeploys and the features switch on.
+1. Import this repository as a project on [Vercel](https://vercel.com), with the framework preset **Other**. `vercel.json` serves `web/` as the site and `api/decide.js` as the function; there is no build step and no key to add.
+2. On Vercel the function reaches Jev through [Vercel's AI Gateway](https://vercel.com/docs/ai-gateway/sdks-and-apis/typesafe), signed in with the project's own OIDC token, so calls are billed to the Vercel account as AI Gateway usage. Set an [AI Gateway budget](https://vercel.com/docs/ai-gateway/observability-and-spend/budgets): the per-IP rate limit is kept per serverless instance, so it is a speed bump, not a cap.
+3. Put the function's URL in `web/config.js`, for example `window.QTA_CONFIG = { jevEndpoint: 'https://your-project.vercel.app/api/decide' };`, and push. GitHub Pages redeploys and the features switch on.
 
-The endpoint can only ask the three fixed kinds of question in `api/_jev.js` (claim, route, situation), rejects other origins, caps the text length, and answers only "off topic" for text that isn't about the Quran, so the key can't be used as a general-purpose classifier. The request and answer shapes follow TypeSafe's documentation; `parseAnswer` in `api/_jev.js` is the one place to adjust if the live API differs.
+Optional settings, in the Vercel project's **Settings → Environment Variables**:
+
+| Variable | Default | What it does |
+|---|---|---|
+| `TYPESAFE_API_KEY` | not set | A key from a TypeSafe account ([console.typesafe.ai](https://console.typesafe.ai), Settings → Keys). When set, Jev is asked on TypeSafe's own API instead of the gateway, and billed there. |
+| `AI_GATEWAY_API_KEY` | not set | An AI Gateway key, for running the function or the batch jobs outside Vercel |
+| `ALLOWED_ORIGINS` | `https://heshamabourokaia.github.io` | The sites allowed to call the function, separated by commas |
+| `RATE_LIMIT_PER_MINUTE` | 30 | Requests per IP address per minute |
+| `JEV_MODEL` | `typesafe-ai/jev` on the gateway, `jev-latest` on TypeSafe | Which Jev model to ask |
+
+Keep any key there only: never commit it or paste it anywhere else.
+
+The endpoint can only ask the three fixed kinds of question in `api/_jev.js` (claim, route, situation), rejects other origins, caps the text length, and answers only "off topic" for text that isn't about the Quran, so it can't be used as a general-purpose classifier. The request and answer shapes follow TypeSafe's documentation, which the gateway serves unchanged; `parseAnswer` in `api/_jev.js` is the one place to adjust if the live API differs.
 
 ### Batch jobs
 
 ```bash
 node data-build/jev/run-batch.js --dry-run            # how many Jev calls a run needs (341 for everything)
-TYPESAFE_API_KEY=... node data-build/jev/run-batch.js # surahs + tags
+AI_GATEWAY_API_KEY=... node data-build/jev/run-batch.js # surahs + tags (or TYPESAFE_API_KEY=...)
 ```
 
 This writes `web/content/jev-data.js` (shown in the Classifier and Emotion views) and `data-build/reports/jev-tag-review.md`. Each surah is one call that asks both questions. Answers are cached in `data-build/jev/cache/` (gitignored), so a re-run only pays for new questions. Use `--jobs surahs` or `--jobs tags` for one job and `--limit N` for a sample.
