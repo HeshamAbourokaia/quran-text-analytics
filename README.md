@@ -10,6 +10,7 @@
   <a href="#live-demo">Live demo</a> ·
   <a href="#bilingual-by-design">Bilingual</a> ·
   <a href="#features">Features</a> ·
+  <a href="#jev-features-optional">Jev features</a> ·
   <a href="#screenshots">Screenshots</a> ·
   <a href="#architecture">Architecture</a> ·
   <a href="ROADMAP.md">Roadmap</a> ·
@@ -205,6 +206,53 @@ python3 scripts/enrich_quran_corpus.py  # historical + scholarly layers
 cd quran_corpus && /graphify --update   # incremental graphify on changes only
 ```
 
+## Jev features (optional)
+
+The site is a static page, and everything below works with plain matching in the browser. When a Jev endpoint is configured, a few judgement calls also go to [TypeSafe's Jev](https://typesafe.ai), which answers typed questions (yes/no, pick one) about a piece of text with probabilities instead of prose. Every number the site shows still comes from the corpus; Jev only decides things like which word a claim means.
+
+| Feature | Where | Without Jev | With Jev |
+|---|---|---|---|
+| **Check any claim** | Claim Auditor | Finds the word in an English or Arabic claim (modern or mushaf spelling) and counts it three ways: exactly as written, all forms of the word, the whole root. Says which count, if any, gives the claimed number, and how many "as written" hits are other words with the same spelling | Also decides which word the claim means when a spelling covers several (ملك: angel, king, dominion) and which way of counting it implies |
+| **Search hints** | Word Search | Each mode button shows its count; suggests the mushaf spelling when a modern one finds nothing (الملائكة → الملئكة); splits a spelling into the dictionary words it covers | No Jev call |
+| **Ask the site** | Home | Surah names, claims and single words go straight to their page; other questions are matched by keywords | Picks the page for open questions, and says when a question isn't about the Quran |
+| **A du'a or lesson for how you feel** | Du'as, Lessons | Keyword matching to a category | Picks the category from a description in your own words |
+| **Second opinions** | Classifier, Emotion | Hidden | Jev's Meccan/Medinan and tone judgements for the opening of every surah, from a batch run |
+| **Library tag review** | `data-build/reports/` | Not available | A maintainer report of du'as and lessons whose category Jev disagrees with. Nothing on the site changes from it |
+
+Jev replaces what plain matching found only when the two agree, when plain matching found nothing, or when Jev is reasonably sure (confidence 0.5 or more); otherwise its pick is offered as an alternative.
+
+**Privacy and safety.** With Jev on, the text typed into the claim, ask and situation boxes is sent to the site's `/api/decide` function and from there to TypeSafe; each box says so. A description that mentions self-harm is never sent anywhere: the page shows a note with a link to [find a helpline](https://findahelpline.com) instead. With `jevEndpoint` empty (the default), nothing leaves the browser.
+
+### Turning it on
+
+1. Import this repository as a project on [Vercel](https://vercel.com). `vercel.json` serves `web/` as the site and `api/decide.js` as the function; there is no build step.
+2. In the Vercel project's **Settings → Environment Variables**, add `TYPESAFE_API_KEY` (your TypeSafe key) and `ALLOWED_ORIGINS` (the site's origin, for example `https://heshamabourokaia.github.io`; separate several with commas). Optional: `RATE_LIMIT_PER_MINUTE` (default 30 per IP address) and `JEV_MODEL` (default `jev-latest`). Keep the key there only: never commit it or paste it anywhere else.
+3. Set a spend limit on your TypeSafe account. The per-IP rate limit is kept per serverless instance, so it is a speed bump, not a cap.
+4. Put the function's URL in `web/config.js`, for example `window.QTA_CONFIG = { jevEndpoint: 'https://your-project.vercel.app/api/decide' };`, and push. GitHub Pages redeploys and the features switch on.
+
+The endpoint can only ask the three fixed kinds of question in `api/_jev.js` (claim, route, situation), rejects other origins, caps the text length, and answers only "off topic" for text that isn't about the Quran, so the key can't be used as a general-purpose classifier. The request and answer shapes follow TypeSafe's documentation; `parseAnswer` in `api/_jev.js` is the one place to adjust if the live API differs.
+
+### Batch jobs
+
+```bash
+node data-build/jev/run-batch.js --dry-run            # how many Jev calls a run needs (341 for everything)
+TYPESAFE_API_KEY=... node data-build/jev/run-batch.js # surahs + tags
+```
+
+This writes `web/content/jev-data.js` (shown in the Classifier and Emotion views) and `data-build/reports/jev-tag-review.md`. Each surah is one call that asks both questions. Answers are cached in `data-build/jev/cache/` (gitignored), so a re-run only pays for new questions. Use `--jobs surahs` or `--jobs tags` for one job and `--limit N` for a sample.
+
+### Developing without a key
+
+```bash
+node data-build/jev/mock-jev.js &     # a stand-in for Jev on :8788
+JEV_URL=http://127.0.0.1:8788/v1/systemone TYPESAFE_API_KEY=test node data-build/jev/dev-server.js
+# open http://localhost:8000/app.html: config.js is served with the endpoint switched on
+node data-build/jev/test-client.js && node data-build/jev/test-endpoint.js
+node data-build/jev/run-batch.js --mock   # writes under data-build/jev/cache/mock only
+```
+
+The mock answers by keyword overlap and labels itself `jev-mock`; its output is refused anywhere under `web/` or `data-build/reports/`.
+
 ## Screenshots
 
 The same page rendered in both languages. Every chart label, badge, hover template, and content card swaps via the runtime `lang` toggle. Notice the bidirectional layout: RTL/LTR text direction, chart axis flipping, and right-aligned vs left-aligned typography all swap together.
@@ -280,6 +328,7 @@ See [ARCHITECTURE.md](ARCHITECTURE.md) for the detailed deep-dive.
 | Charts | Plotly.js 2.27 |
 | Animation | GSAP 3.15 with ScrollTrigger and SplitText (landing page scroll story) |
 | 3D | three.js r170: the landing page draws every one of the 6,236 verses as a point and re-arranges them as you scroll |
+| Judgement calls (optional) | TypeSafe Jev through one Vercel function (`api/decide.js`); see [Jev features](#jev-features-optional) |
 | Desktop | Electron 28 (universal Intel + ARM Mac binary) |
 | Data preprocessing | Python 3 (pandas, openpyxl) |
 | AutoResearch evaluator | Anthropic Claude Sonnet 4.5 (Vision API) |
