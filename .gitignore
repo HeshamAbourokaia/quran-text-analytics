@@ -48,3 +48,6 @@ graphify-out/cache/
 # Quran content graph internal state
 quran_corpus/graphify-out/.graphify_*
 quran_corpus/graphify-out/cache/
+
+# Jev batch answers (cached so re-runs don't pay twice; mock output lives here too)
+data-build/jev/cache/
