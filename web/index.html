@@ -3,23 +3,26 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Quran Text Analytics</title>
+<title>Daleel · The Quran, measured</title>
 <meta name="description" content="Interactive analytics over the full Quranic Arabic Corpus: 114 surahs, 6,236 verses and 77,429 morphologically tagged words, with a claim auditor, machine learning lab and bilingual interface." />
-<link rel="canonical" href="https://heshamabourokaia.github.io/quran-text-analytics/" />
+<link rel="canonical" href="https://quran-daleel.vercel.app/" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<meta name="application-name" content="Daleel" />
+<meta name="apple-mobile-web-app-title" content="Daleel" />
 <meta name="theme-color" content="#040a07" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://heshamabourokaia.github.io/quran-text-analytics/" />
-<meta property="og:title" content="Quran Text Analytics" />
+<meta property="og:url" content="https://quran-daleel.vercel.app/" />
+<meta property="og:site_name" content="Daleel" />
+<meta property="og:title" content="Daleel · The Quran, measured" />
 <meta property="og:description" content="The Quran, measured. 114 surahs, 6,236 verses, 77,429 words. Interactive charts, a machine learning lab, word search and a claim auditor. English and Arabic." />
-<meta property="og:image" content="https://heshamabourokaia.github.io/quran-text-analytics/og-image.png" />
+<meta property="og:image" content="https://quran-daleel.vercel.app/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:locale" content="en_AU" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Quran Text Analytics" />
+<meta name="twitter:title" content="Daleel · The Quran, measured" />
 <meta name="twitter:description" content="The Quran, measured. 114 surahs, 6,236 verses, 77,429 words. Interactive charts, a machine learning lab, word search and a claim auditor. English and Arabic." />
-<meta name="twitter:image" content="https://heshamabourokaia.github.io/quran-text-analytics/og-image.png" />
+<meta name="twitter:image" content="https://quran-daleel.vercel.app/og-image.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -405,6 +408,8 @@
   footer a{color:var(--emerald);text-decoration:none}
   footer a:hover{color:#fff}
   .footbrand{display:flex;align-items:center;justify-content:center;gap:10px;color:#fff;font-weight:600;margin-bottom:14px}
+  .bname{font-family:var(--serif);font-weight:400;font-size:1.5rem;line-height:1;letter-spacing:.01em}
+  html[lang=ar] .bname{font-family:var(--ar-display);font-size:1.45rem;letter-spacing:0}
 
   /* ── responsive ── */
   @media (max-width:1020px){
@@ -477,7 +482,7 @@
 <div class="progress" aria-hidden="true"><i></i></div>
 
 <nav class="topnav">
-  <a class="navbrand" href="./"><span class="glyph"></span><span data-i18n="brand">Quran Text Analytics</span></a>
+  <a class="navbrand" href="./"><span class="glyph"></span><span class="bname" data-i18n="brand">Daleel</span></a>
   <div class="navlinks">
     <a class="plain" href="#tour" data-i18n="nav.tour">The tour</a>
     <a class="plain" href="#claims" data-i18n="nav.claims">Claim auditor</a>
@@ -754,7 +759,7 @@
 </main>
 
 <footer>
-  <div class="footbrand"><span class="glyph"></span><span data-i18n="brand">Quran Text Analytics</span></div>
+  <div class="footbrand"><span class="glyph"></span><span class="bname" data-i18n="brand">Daleel</span></div>
   <span data-i18n="foot.data">Data: Quranic Arabic Corpus morphology (lemma, root and part of speech). Counts are computed live from the corpus and pinned by tests.</span><br>
   <a href="app.html" class="applink" data-i18n="foot.open">Open the app</a> &nbsp;&middot;&nbsp; <a href="https://github.com/HeshamAbourokaia/quran-text-analytics" data-i18n="foot.src">View the source on GitHub</a>
 </footer>
@@ -809,7 +814,7 @@ const fill = str => str.replace(/\{(\w+)\}/g, (m, k) => (k in NUM ? (typeof NUM[
 const arCount = (n, one, two, few, many) => (n === 1 ? one : n === 2 ? two : (n % 100 >= 3 && n % 100 <= 10) ? nf(n) + ' ' + few : nf(n) + ' ' + many);
 
 const I18N = {
-  'brand':      {en:'Quran Text Analytics', ar:'تحليلات نص القرآن'},
+  'brand':      {en:'Daleel', ar:'دليل'},
   'skip':       {en:'Skip to the tour', ar:'انتقل إلى الجولة'},
   'nav.tour':   {en:'The tour', ar:'الجولة'},
   'nav.claims': {en:'Claim auditor', ar:'مدقّق المزاعم'},

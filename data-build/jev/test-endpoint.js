@@ -92,6 +92,14 @@ const tests = {
     const { jevAccess, GATEWAY_URL } = require('../../api/_jev');
     assert.equal(jevAccess({ oidcToken: 'o' }, { JEV_URL: 'https://elsewhere.example/v1/systemone' }).url, GATEWAY_URL);
   },
+  'batch answers are cached under one name whichever route asks'() {
+    const { jevAccess } = require('../../api/_jev');
+    const { cacheModel } = require('./run-batch');
+    const keyless = cacheModel(jevAccess({}, {}), {});
+    assert.equal(cacheModel(jevAccess({}, { AI_GATEWAY_API_KEY: 'g' }), {}), keyless);
+    assert.equal(cacheModel(jevAccess({}, { TYPESAFE_API_KEY: 't' }), {}), keyless);
+    assert.equal(cacheModel(null, { JEV_MODEL: 'jev-2026-09' }), 'jev-2026-09');
+  },
   async 'without a key the endpoint asks AI Gateway with the OIDC token Vercel sends it'() {
     const saved = process.env.TYPESAFE_API_KEY, realFetch = globalThis.fetch;
     let seen = null;
