@@ -9,7 +9,7 @@
 //
 //   TYPESAFE_API_KEY=... node data-build/jev/run-batch.js              (both jobs, real Jev)
 //   node data-build/jev/run-batch.js --dry-run                         (how many calls a run would make)
-//   node data-build/jev/run-batch.js --jobs tags --limit 5             (a few items of one job)
+//   node data-build/jev/run-batch.js --jobs tags --limit 5             (a sample; written under cache/sample/)
 //   node data-build/jev/run-batch.js --mock                            (mock Jev; writes under cache/, never web/)
 //
 // Every answer is cached in data-build/jev/cache/ (gitignored), so a re-run only pays for questions
@@ -38,9 +38,11 @@ function parseArgs(argv) {
     else throw new Error(`unknown option ${k}`);
   }
   for (const j of a.jobs) if (!['surahs', 'tags'].includes(j)) throw new Error(`unknown job ${j} (use surahs, tags)`);
-  const mockDir = path.join(CACHE, 'mock');
-  a.out = a.out || (a.mock ? path.join(mockDir, 'jev-data.js') : path.join(WEB, 'content', 'jev-data.js'));
-  a.report = a.report || (a.mock ? path.join(mockDir, 'jev-tag-review.md') : path.join(ROOT, 'data-build', 'reports', 'jev-tag-review.md'));
+  // A mock run or a --limit sample never lands on the site's data or the maintainer report unless you name
+  // the output yourself: a sample would replace the full results with a few surahs.
+  const scratch = a.mock ? path.join(CACHE, 'mock') : a.limit !== Infinity ? path.join(CACHE, 'sample') : null;
+  a.out = a.out || (scratch ? path.join(scratch, 'jev-data.js') : path.join(WEB, 'content', 'jev-data.js'));
+  a.report = a.report || (scratch ? path.join(scratch, 'jev-tag-review.md') : path.join(ROOT, 'data-build', 'reports', 'jev-tag-review.md'));
   if (a.mock && (a.out.startsWith(WEB + path.sep) || a.report.startsWith(path.join(ROOT, 'data-build', 'reports')))) {
     throw new Error('mock answers are not real results: write them outside web/ and data-build/reports/');
   }
@@ -247,7 +249,7 @@ async function main() {
       if (args.jobs.includes('surahs')) writeJevData(args.out, data);
       console.log(`Jev calls: ${s.asked} new, ${s.cached} from cache, ${s.failed} failed${s.tokens ? `, ${s.tokens} tokens` : ''}`);
       if (args.jobs.includes('surahs')) console.log(`wrote ${path.relative(ROOT, args.out)}`);
-      if (args.limit !== Infinity && !args.mock) console.log('note: --limit was used, so the results cover only part of the Quran and library');
+      if (args.limit !== Infinity && !args.mock) console.log('note: --limit was used, so these results cover only part of the Quran and library');
     }
   } finally {
     if (mockServer) mockServer.close();

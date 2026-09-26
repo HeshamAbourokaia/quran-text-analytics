@@ -47,6 +47,12 @@
   a{color:inherit}
   :focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
   [v-cloak]{display:none}
+  /* landing -> app, app -> landing: the pages cross-fade instead of cutting (where the browser can) */
+  @view-transition{navigation:auto}
+  ::view-transition-old(root){animation:vtOut .45s var(--ease) both}
+  ::view-transition-new(root){animation:vtIn .8s var(--ease) both}
+  @keyframes vtOut{to{opacity:0}}
+  @keyframes vtIn{from{opacity:0}}
 
   /* ── fixed layers: sky glow, particle canvas, chart labels, grain ── */
   .sky{position:fixed;inset:0;z-index:0;pointer-events:none;
@@ -455,6 +461,7 @@
     .wlist li{grid-template-columns:4.4rem minmax(0,1fr) 2.8rem;gap:10px}
   }
   @media (prefers-reduced-motion:reduce){
+    ::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none !important}
     .pulse::after,.hint i::after,.ref{animation:none}
     *{transition-duration:.01ms !important}
   }

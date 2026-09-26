@@ -228,9 +228,18 @@
   // What an Arabic token in a claim refers to: the lemmas the corpus gives that written form (most
   // frequent first) and the form as the mushaf writes it, without leading clitics.
   const byCount = m => [...m.entries()].sort((a, b) => b[1] - a[1]).map(e => e[0]);
+  // Leading clitics come off longest first (والملك -> ملك, like الملك), but only while what is left is the same
+  // dictionary word: الله stays الله rather than becoming له ("to him").
   function stripClitic(ix, surf) {
-    for (const p of PREFIXES) if (p && surf.startsWith(p) && surf.length - p.length >= 2 && ix.surfCount.has(surf.slice(p.length))) return surf.slice(p.length);
-    return surf;
+    const own = ix.surfLemmas.get(surf);
+    let best = surf;
+    for (const p of PREFIXES) {
+      if (!p || !surf.startsWith(p) || surf.length - p.length < 2) continue;
+      const rest = surf.slice(p.length), theirs = ix.surfLemmas.get(rest);
+      if (!ix.surfCount.has(rest) || (own && theirs && ![...own.keys()].some(l => theirs.has(l)))) continue;
+      if (rest.length < best.length) best = rest;
+    }
+    return best;
   }
   // The dictionary words a set of written forms stand for: voweled senses where the index knows them.
   function sensesOf(ix, surfs) {
