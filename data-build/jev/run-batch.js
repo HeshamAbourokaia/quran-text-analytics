@@ -90,9 +90,16 @@ function libraryItems() {
 
 // ---- asking Jev, with a cache and retries ----
 
+// The model name answers are cached under. The gateway's typesafe-ai/jev is TypeSafe's jev-latest, so
+// both routes share one entry, and a --dry-run without a key counts against the same entries.
+function cacheModel(access, env = process.env) {
+  const m = (access && access.model) || env.JEV_MODEL || 'jev-latest';
+  return m === 'typesafe-ai/jev' ? 'jev-latest' : m;
+}
+
 function makeAsker({ mock, concurrency }) {
   const { callJev, jevAccess } = require('../../api/_jev');
-  const model = (jevAccess() || {}).model || 'jev-latest';
+  const model = cacheModel(jevAccess());
   const dir = path.join(CACHE, mock ? 'mock' : 'real');
   fs.mkdirSync(dir, { recursive: true });
   const stats = { asked: 0, cached: 0, failed: 0, tokens: 0 };
@@ -259,4 +266,4 @@ async function main() {
 }
 
 if (require.main === module) main().catch(e => { console.error(e.message || e); process.exit(1); });
-module.exports = { parseArgs, surahExcerpts, libraryItems, tagReport, readJevData, SURAH_QUESTIONS };
+module.exports = { parseArgs, surahExcerpts, libraryItems, tagReport, readJevData, SURAH_QUESTIONS, cacheModel };
