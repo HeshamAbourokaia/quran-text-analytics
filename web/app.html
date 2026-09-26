@@ -3,6 +3,11 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<script>
+// The old GitHub Pages address forwards to the site's home, keeping the page, the language and any deep link.
+if (location.hostname === 'heshamabourokaia.github.io')
+  location.replace('https://quran-daleel.vercel.app' + location.pathname.replace(/^\/quran-text-analytics/, '') + location.search + location.hash);
+</script>
 <title>Daleel · Quran text analytics</title>
 <meta name="description" content="Interactive analytics for the Quran: 114 surahs, 6,236 verses and 77,429 words, covering word and root frequencies, Meccan and Medinan comparisons, letter statistics and a claim auditor." />
 <link rel="canonical" href="https://quran-daleel.vercel.app/app.html" />
@@ -26,7 +31,6 @@
 <meta name="twitter:image" content="https://quran-daleel.vercel.app/og-image.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://unpkg.com">
 <link rel="preconnect" href="https://cdn.plot.ly">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -58,6 +62,15 @@
   :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
   a{color:var(--emerald)}
   [v-cloak]{visibility:hidden}
+  #boot{position:fixed;inset:0;z-index:40;display:grid;place-items:center;align-content:center;gap:18px;pointer-events:none;transition:opacity .45s ease}
+  #boot.gone{opacity:0}
+  #boot .glyph{width:46px;height:46px;border-radius:14px;background-size:26px 26px,auto;animation:bootpulse 1.6s ease-in-out infinite}
+  #boot p{margin:0;max-width:340px;padding:0 24px;text-align:center;color:var(--on-dark-2);font-size:.92rem;line-height:1.6;pointer-events:auto}
+  #boot p button{margin-top:12px;font:inherit;font-weight:600;color:#04140d;background:var(--gold);border:0;border-radius:99px;padding:9px 18px}
+  @keyframes bootpulse{50%{transform:scale(.9);opacity:.6}}
+  .chart:empty{border-radius:14px;background:linear-gradient(100deg,rgba(255,255,255,.02) 30%,rgba(255,255,255,.06) 50%,rgba(255,255,255,.02) 70%) 0 0/300% 100%;animation:chartwait 1.4s linear infinite}
+  @keyframes chartwait{to{background-position:-100% 0}}
+  .nocharts .chart:empty{animation:none;background:none}
   button{font-family:inherit}
 
   /* landing -> app, app -> landing: the pages cross-fade instead of cutting (where the browser can) */
@@ -543,6 +556,31 @@
 <canvas id="gl" aria-hidden="true"></canvas>
 <div class="progress" aria-hidden="true"><i></i></div>
 <div id="tip" role="tooltip" hidden></div>
+<div id="boot" role="status"><span class="glyph" aria-hidden="true"></span><p id="bootmsg" hidden></p></div>
+<script>
+// If the app hasn't started after 12 seconds, or a script fails first, say so instead of showing a blank page.
+(function () {
+  var failed = '';
+  function show() {
+    if (window.__appUp) return;
+    var ar = /[?&]lang=ar\b/.test(location.search), m = document.getElementById('bootmsg');
+    m.hidden = false;
+    m.innerHTML = (ar ? 'لم يكتمل تحميل «دليل». تحقّق من الاتصال ثم أعد المحاولة.' : 'Daleel is taking too long to load. Check your connection and try again.')
+      + (failed ? '<br><small>' + failed.replace(/[<>&]/g, '') + '</small>' : '')
+      + '<br><button type="button" onclick="location.reload()">' + (ar ? 'أعد المحاولة' : 'Try again') + '</button>';
+  }
+  window.addEventListener('error', function (e) {
+    if (window.__appUp) return;
+    var t = e.target;
+    if (t && t.tagName === 'SCRIPT') {   // one of the site's own scripts didn't arrive (a CDN extra like GSAP is optional)
+      if (t.src.indexOf(location.origin) === 0) { failed = 'Could not load ' + t.src.split('/').pop(); show(); }
+      return;
+    }
+    if (e.message) failed = e.message;   // shown only if the app never starts
+  }, true);
+  setTimeout(show, 12000);
+})();
+</script>
 <div id="app" class="layout" v-cloak :class="{'dir-rtl': lang==='ar'}" :dir="lang==='ar'?'rtl':'ltr'">
   <header class="topbar">
     <button class="menubtn" type="button" @click="sideOpen=!sideOpen" :aria-expanded="sideOpen?'true':'false'" :aria-label="lang==='ar'?'القائمة':'Menu'">{{ sideOpen?'✕':'☰' }}</button>
@@ -737,13 +775,17 @@
         <div class="kpi"><div class="n">{{ sres.surahs }}</div><div class="l">{{ lang==='ar'?'سور':'Surahs' }}</div></div>
         <div class="kpi"><div class="n">{{ sres.verses }}</div><div class="l">{{ lang==='ar'?'آيات':'Verses' }}</div></div>
       </div>
-      <div v-if="q && sres.total===0" class="stub">{{ lang==='ar'?'لا نتائج':'No matches' }}</div>
+      <div v-if="q && !ready.words" class="stub">{{ lang==='ar'?'جارٍ تحميل فهرس الكلمات…':'Loading the word index…' }}</div>
+      <div v-else-if="q && sres.total===0" class="stub">{{ lang==='ar'?'لا نتائج':'No matches' }}</div>
       <div v-if="sres.total>0" class="card">
         <h3>{{ lang==='ar'?'السياق':'Concordance' }} <span style="font-weight:400;color:var(--muted);font-size:.8rem">({{ lang==='ar'?'أول':'first' }} {{ sres.sample.length }})</span></h3>
-        <div v-for="vk in sres.sample" :key="vk" class="vblock">
-          <div class="verse" v-html="highlight(vk)"></div>
-          <div v-if="showTrans && EN[vk]" class="verse-en">{{ vk }} &middot; {{ EN[vk] }}</div>
-        </div>
+        <div v-if="!ready.verses" class="stub">{{ lang==='ar'?'جارٍ تحميل نص الآيات…':'Loading the verse text…' }}</div>
+        <template v-else>
+          <div v-for="vk in sres.sample" :key="vk" class="vblock">
+            <div class="verse" v-html="highlight(vk)"></div>
+            <div v-if="showTrans && EN[vk]" class="verse-en">{{ vk }} &middot; {{ EN[vk] }}</div>
+          </div>
+        </template>
       </div>
     </section>
 
@@ -759,6 +801,7 @@
         </div>
       </div>
       <div class="card">
+        <div v-if="!ready.verses" class="stub">{{ lang==='ar'?'جارٍ تحميل نص المصحف…':'Loading the text of the Quran…' }}</div>
         <div v-for="v in readerVerses" :key="v.k" class="vblock">
           <div class="verse">{{ v.t }} <span class="vk">{{ v.k }}</span></div>
           <div v-if="showTrans && EN[v.k]" class="verse-en">{{ v.k }} &middot; {{ EN[v.k] }}</div>
@@ -1318,15 +1361,12 @@
   </main>
 </div>
 
-<script defer src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
-<script defer src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<!-- Only what the first screen needs loads before the app starts. The verse text, translation, word
+     index and chart library (most of the page's weight) load right after it, see LAZY below. -->
+<script defer src="vendor/vue.global.prod.js"></script>
+<script async id="gsapjs" src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
 <script defer src="data.js"></script>
 <script defer src="sky.js"></script>
-<script defer src="corpus.js"></script>
-<script defer src="translation_en.js"></script>
-<script defer src="words.js"></script>
-<script defer src="lemma-variants.js"></script>
 <script defer src="config.js"></script>
 <script defer src="jev-client.js"></script>
 <script defer src="content/jev-data.js"></script>
@@ -1354,6 +1394,17 @@ const SKY = () => window.QTA_SKY || null;                        // the verse fi
 let SKYKEYS = null, REVEAL = null;
 let JIX = null;   // word index for the claim checker and search hints; built on first use, outside Vue's reactivity
 const jix = () => JIX || (JIX = JEV && window.QURAN_WORDS ? JEV.makeIndex(window.QURAN_WORDS, window.QURAN_LEMMA_VARIANTS, window.QURAN_FORM_SENSES) : null);
+// The verse text and translation, the word index and the chart library are most of the page's weight
+// (about 2.5 MB compressed). They load after the app is on screen, what the current page needs first,
+// so a phone never waits on a blank page for all of it.
+const LAZY = { verses:['corpus.js','translation_en.js'], words:['words.js','lemma-variants.js'], plotly:['https://cdn.plot.ly/plotly-2.27.0.min.js'] };
+const NEEDS = { search:['words','verses'], auditor:['words'], reader:['verses'], home:['words'] };
+const lazyP = {};
+const addScript = src => new Promise((ok, fail) => { const el=document.createElement('script'); el.src=src;
+  el.onload=ok; el.onerror=()=>fail(new Error('could not load '+src)); document.head.appendChild(el); });
+const need = key => lazyP[key] || (lazyP[key] = LAZY[key].reduce((p, src) => p.then(() => addScript(src)), Promise.resolve())
+  .catch(e => { delete lazyP[key]; throw e; }));
+let PFX = false;   // pointer effects are set up once, when GSAP is there
 const { createApp } = Vue;
 createApp({
   data(){
@@ -1362,6 +1413,7 @@ createApp({
       lang:(new URLSearchParams(location.search).get('lang')==='ar'?'ar':'en'), view:'home', sideOpen:false,
       T: D.stats.totals, DS: D.datasets, MM: D.datasets.meccaMedina||{mecca:{},medina:{}}, claims: D.claims,
       V: window.QURAN_VERSES||{}, W: window.QURAN_WORDS||{key:[],norm:[],lemma:[],root:[],surface:[]},
+      ready:{ verses:!!window.QURAN_VERSES, words:!!window.QURAN_WORDS, plotly:typeof Plotly!=='undefined' },
       q:'', mode:'surface', sres:{total:0,surahs:0,verses:0,sample:[]},
       rSurah:1, scrollPct:0, railDragging:false, EN:{}, showTrans:(new URLSearchParams(location.search).get('lang')!=='ar'), libQ:'', libCat:'all', stories:[], lessons:[], duas:[], tafsir:[], untranslatable:[], untranslatableIntro:{},
       V1:{}, abjadInput:'الله',
@@ -1545,8 +1597,8 @@ createApp({
       const how = r.method ? (ar ? `وقرأه على أنه عدٌّ ${this.methodName(this.ccImplied())}.` : `It read the claim as counting ${this.methodName(this.ccImplied())}.`)
         : (ar ? 'ولا يحدّد الزعم طريقة العدّ، فاعتمدنا كل صيغ الكلمة.' : 'The claim doesn’t say how it counts, so all forms of the word are used.');
       return word ? word + ' ' + how : how; },
-    searchModes(){ const ix=jix(); if(!ix || !normalize(this.q)) return null; return JEV.modeCounts(ix, this.q); },
-    searchHint(){ const ix=jix(), q=normalize(this.q); if(!ix || !q) return null;
+    searchModes(){ if(!this.ready.words) return null; const ix=jix(); if(!ix || !normalize(this.q)) return null; return JEV.modeCounts(ix, this.q); },
+    searchHint(){ if(!this.ready.words) return null; const ix=jix(), q=normalize(this.q); if(!ix || !q) return null;
       const c=JEV.modeCounts(ix, q);
       if(!c.surface && !c.lemma && !c.root){ const forms=JEV.mushafSpelling(ix, q); return forms ? {type:'spelling', forms} : null; }
       const vars=ix.VAR[q];
@@ -1687,6 +1739,7 @@ createApp({
       return {tone:'bad', text: ar ? `لا توجد طريقة عدٍّ معيارية تعطي ${this.f(n)}. أقربها العدّ ${this.methodName(near.key)}: ${this.f(near.value)}.` : `No standard way of counting gives ${this.f(n)}. The closest is counting ${this.methodName(near.key)}: ${this.f(near.value)}.`};
     },
     async checkClaim(){
+      if(!this.ready.words && this.cc.text.trim()){ this.cc.busy=true; await this.load('words'); this.cc.busy=false; }
       const text=this.cc.text.trim(), ix=jix(); if(!text || !ix) return;
       const p=JEV.parseClaim(ix, text), crisis=JEV.crisis(text);
       this.cc.res={text, numbers:p.numbers, words:crisis ? [] : p.words, crisis, via:'local', method:null, offTopic:false, jevError:false, wordConf:null, jevWord:null};
@@ -1719,6 +1772,7 @@ createApp({
       return t.view; },
     async askSite(){
       const text=this.ask.text.trim(); if(!text) return;
+      if(!this.ready.words){ this.ask.busy=true; await this.load('words'); this.ask.busy=false; }
       if(JEV.crisis(text)){ this.ask.res={crisis:true, top:null, alts:[{view:'duas', cat:'prophet'}], via:'local'}; return; }   // never sent anywhere
       const loc=JEV.routeLocal(text, jix(), this.DS.surahMeta||[]);
       const top = loc.shortcut || (loc.ranked[0] ? {view:loc.ranked[0].view} : null);
@@ -1779,6 +1833,7 @@ createApp({
       });
     },
     go(id){ const changed=id!==this.view;
+      (NEEDS[id]||[]).forEach(k=>this.load(k));
       this.view=id; this.sideOpen=false; this.libQ=''; this.libCat='all'; this.sit.res=null;
       if(id==='tawafuq') this.ensureMushaf(); if(id==='alifi') this.ensureAlifi();
       if(changed){ window.scrollTo(0,0); if(!FINE && navigator.vibrate) try{ navigator.vibrate(6); }catch(e){} }
@@ -1828,9 +1883,25 @@ createApp({
         .from('.home .askbox',{y:24,autoAlpha:0,duration:1.1},.76)
         .from('.homehero .kpis .kpi',{y:30,autoAlpha:0,duration:1.1,stagger:.08},.84);
     },
+    // ---- data that loads after the first screen ----
+    load(key){   // resolves true once the data is here, false if it couldn't be fetched (tried again next time)
+      return need(key).then(()=>{ if(!this.ready[key]) this.arrived(key); return true; },
+        ()=>{ if(key==='plotly') document.documentElement.classList.add('nocharts'); return false; });
+    },
+    arrived(key){
+      this.ready[key]=true;
+      if(key==='words'){ this.W=window.QURAN_WORDS; JIX=null; if(this.q) this.runSearch(); }
+      if(key==='verses'){ this.V=window.QURAN_VERSES||{}; if(window.QURAN_EN) this.EN=window.QURAN_EN; }
+      if(key==='plotly') this.$nextTick(()=>{ this.renderCharts(); this.arabizeUI(); });
+    },
+    // everything in the background, what this page needs first
+    warm(){
+      const order=[...(NEEDS[this.view]||[]), 'plotly', 'words', 'verses'].filter((k,i,a)=>a.indexOf(k)===i);
+      order.reduce((p,k)=>p.then(()=>this.load(k)), Promise.resolve());
+    },
     // desktop: primary buttons lean toward the pointer; tiles tilt and carry a spotlight
     setupPointerFx(){
-      const G=window.gsap; if(!G || !FINE || REDUCED) return;
+      const G=window.gsap; if(!G || !FINE || REDUCED || PFX) return; PFX=true;
       const mag=el=>el._mag||(el._mag={x:G.quickTo(el,'x',{duration:.6,ease:'power3'}),y:G.quickTo(el,'y',{duration:.6,ease:'power3'})});
       const tilt=el=>el._tilt||(el._tilt={rx:G.quickTo(el,'rotationX',{duration:.7,ease:'power3'}),ry:G.quickTo(el,'rotationY',{duration:.7,ease:'power3'})});
       let m0=null, t0=null;
@@ -1902,6 +1973,7 @@ createApp({
       if(this.lang==='ar') return v==='exact'?'مطابق':v==='parity'?'تعادل':'مختلف';
       return v==='exact'?'EXACT':v==='parity'?'PARITY':'DIFFERS'; },
     runSearch(){
+      if(!this.ready.words){ this.load('words'); return; }   // runs again when the index arrives
       const W=this.W, q=normalize(this.q);
       if(!q){ this.sres={total:0,surahs:0,verses:0,sample:[]}; SKYKEYS=null; if(this.view==='search') this.syncSky(); return; }
       let total=0; const suras=new Set(), verses=new Set(), sample=[];
@@ -1924,7 +1996,7 @@ createApp({
     },
     renderReader(){ /* reactive via computed */ },
     renderCharts(){
-      if(typeof Plotly==='undefined') return;
+      if(typeof Plotly==='undefined'){ this.load('plotly'); return; }   // drawn when it arrives
       const isAr = this.lang==='ar';
       const mob = window.innerWidth < 480;
       // the night palette: Meccan gold and Medinan green, as the landing page's verse points
@@ -2136,6 +2208,10 @@ createApp({
     const sky=SKY(); if(sky) sky.setLang(this.lang);
     window.addEventListener('sky:read', e=>{ const n=e.detail && e.detail.surah; if(n>=1 && n<=114){ this.rSurah=n; this.go('reader'); } });
     this.setupPointerFx();
+    if(!window.gsap){ const g=document.getElementById('gsapjs'); if(g) g.addEventListener('load', ()=>this.setupPointerFx()); }
+    window.__appUp=true;
+    const boot=document.getElementById('boot'); if(boot){ boot.classList.add('gone'); setTimeout(()=>boot.remove(), 500); }
+    this.warm();
     this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); this.enterView(true); });
   }
 }).mount('#app');
