@@ -779,10 +779,13 @@ if (location.hostname === 'heshamabourokaia.github.io')
       <div v-else-if="q && sres.total===0" class="stub">{{ lang==='ar'?'لا نتائج':'No matches' }}</div>
       <div v-if="sres.total>0" class="card">
         <h3>{{ lang==='ar'?'السياق':'Concordance' }} <span style="font-weight:400;color:var(--muted);font-size:.8rem">({{ lang==='ar'?'أول':'first' }} {{ sres.sample.length }})</span></h3>
-        <div v-for="vk in sres.sample" :key="vk" class="vblock">
-          <div class="verse" v-html="highlight(vk)"></div>
-          <div v-if="showTrans && EN[vk]" class="verse-en">{{ vk }} &middot; {{ EN[vk] }}</div>
-        </div>
+        <div v-if="!ready.verses" class="stub">{{ lang==='ar'?'جارٍ تحميل نص الآيات…':'Loading the verse text…' }}</div>
+        <template v-else>
+          <div v-for="vk in sres.sample" :key="vk" class="vblock">
+            <div class="verse" v-html="highlight(vk)"></div>
+            <div v-if="showTrans && EN[vk]" class="verse-en">{{ vk }} &middot; {{ EN[vk] }}</div>
+          </div>
+        </template>
       </div>
     </section>
 
