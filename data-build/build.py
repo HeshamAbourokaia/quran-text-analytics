@@ -14,6 +14,7 @@ from pipeline import datasets as datasets_mod
 from pipeline import analytics as analytics_mod
 from pipeline import optimisation as optim_mod
 from pipeline import montecarlo as mc_mod
+from pipeline import lemma_variants as lemma_variants_mod
 
 OUT = os.path.join(os.path.dirname(__file__), 'out')
 DATA_VERSION = '2.0.0'
@@ -112,8 +113,18 @@ def main():
         fh.write('window.QURAN_WORDS = ')
         json.dump(widx, fh, ensure_ascii=False, separators=(',', ':'))
         fh.write(';\n')
+    write_lemma_variants(words, web_dir)
 
     _scorecard(stats, claim_rows)
+
+def write_lemma_variants(words, web_dir):
+    """Homograph tables the claim checker uses to keep e.g. angel/king/dominion apart."""
+    with open(os.path.join(web_dir, 'lemma-variants.js'), 'w', encoding='utf-8') as fh:
+        fh.write('window.QURAN_LEMMA_VARIANTS = ')
+        json.dump(lemma_variants_mod.build(words), fh, ensure_ascii=False, separators=(',', ':'))
+        fh.write(';\nwindow.QURAN_FORM_SENSES = ')
+        json.dump(lemma_variants_mod.form_senses(words), fh, ensure_ascii=False, separators=(',', ':'))
+        fh.write(';\n')
 
 def _write(name, obj):
     with open(os.path.join(OUT, name), 'w', encoding='utf-8') as fh:
