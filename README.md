@@ -1,9 +1,11 @@
-# Quran Text Analytics
+# Daleel · Quran Text Analytics
+
+**Daleel** (دليل) is Arabic for *evidence*, and for *guide*: check any claim about the Quran's words against the corpus itself, then find your way through the text.
 
 > A fully bilingual (Arabic + English) NLP and visualization platform for the Quranic corpus, 114 surahs, 6,236 verses, 77,449 words. Built with Vue 3, Plotly, and Electron, with an experimental LLM-vision-judged auto-tuning loop for chart quality.
 
 <p align="center">
-  <img src="docs/screenshots/hero-overview.png" alt="Quran Text Analytics overview (Arabic UI)" width="800"/>
+  <img src="docs/screenshots/hero-overview.png" alt="Daleel overview (Arabic UI)" width="800"/>
 </p>
 
 <p align="center">

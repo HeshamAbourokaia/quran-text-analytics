@@ -3,14 +3,17 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Quran Text Analytics</title>
+<title>Daleel · Quran text analytics</title>
 <meta name="description" content="Interactive analytics for the Quran: 114 surahs, 6,236 verses and 77,429 words, covering word and root frequencies, Meccan and Medinan comparisons, letter statistics and a claim auditor." />
 <link rel="canonical" href="https://heshamabourokaia.github.io/quran-text-analytics/app.html" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<meta name="application-name" content="Daleel" />
+<meta name="apple-mobile-web-app-title" content="Daleel" />
 <meta name="theme-color" content="#040a07" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://heshamabourokaia.github.io/quran-text-analytics/app.html" />
-<meta property="og:title" content="Quran Text Analytics" />
+<meta property="og:site_name" content="Daleel" />
+<meta property="og:title" content="Daleel · The Quran, measured" />
 <meta property="og:description" content="114 surahs, 6,236 verses, 77,429 words. Interactive charts for word frequencies, roots, Mecca vs Medina, letter statistics and a claim auditor. English and Arabic." />
 <meta property="og:image" content="https://heshamabourokaia.github.io/quran-text-analytics/og-image.png" />
 <meta property="og:image:width" content="1200" />
@@ -18,7 +21,7 @@
 <meta property="og:locale" content="en_AU" />
 <meta property="og:locale:alternate" content="ar_AR" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Quran Text Analytics" />
+<meta name="twitter:title" content="Daleel · The Quran, measured" />
 <meta name="twitter:description" content="114 surahs, 6,236 verses, 77,429 words. Interactive charts for word frequencies, roots, Mecca vs Medina, letter statistics and a claim auditor. English and Arabic." />
 <meta name="twitter:image" content="https://heshamabourokaia.github.io/quran-text-analytics/og-image.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -100,6 +103,9 @@
   .brand{display:flex;align-items:center;gap:11px;padding:4px 8px;color:#fff;font-weight:600;font-size:.98rem;letter-spacing:-.01em;text-decoration:none;line-height:1.2}
   .brand small{display:block;margin-top:3px;font-weight:600;font-size:.6rem;color:var(--emerald);letter-spacing:.2em;text-transform:uppercase}
   html[lang=ar] .brand small{letter-spacing:0;font-size:.74rem}
+  .bname{display:block;font-family:var(--serif);font-weight:400;font-size:1.55rem;line-height:1;letter-spacing:.01em}
+  html[lang=ar] .bname{font-family:var(--ar-display);font-size:1.5rem;letter-spacing:0}
+  .tbrand .bname{font-size:1.4rem}
   .glyph{width:32px;height:32px;border-radius:10px;flex:none;
     background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path fill="white" d="M30.5 20.1c-3.8-2.7-9-4.1-14.5-4.1-.9 0-1.5.7-1.5 1.5v25.4c0 .8.6 1.5 1.5 1.5 5.2 0 10.1 1.4 13.6 3.8.3.2.6.3.9.3V20.1z"/><path fill="white" d="M33.5 20.1c3.8-2.7 9-4.1 14.5-4.1.9 0 1.5.7 1.5 1.5v25.4c0 .8-.6 1.5-1.5 1.5-5.2 0-10.1 1.4-13.6 3.8-.3.2-.6.3-.9.3V20.1z"/></svg>') center/19px 19px no-repeat,
       linear-gradient(135deg,#0fb56d,#067647);
@@ -540,12 +546,12 @@
 <div id="app" class="layout" v-cloak :class="{'dir-rtl': lang==='ar'}" :dir="lang==='ar'?'rtl':'ltr'">
   <header class="topbar">
     <button class="menubtn" type="button" @click="sideOpen=!sideOpen" :aria-expanded="sideOpen?'true':'false'" :aria-label="lang==='ar'?'القائمة':'Menu'">{{ sideOpen?'✕':'☰' }}</button>
-    <a class="tbrand" :href="landingHref"><span class="glyph" aria-hidden="true"></span><span>{{ lang==='ar' ? 'تحليلات القرآن' : 'Quran Analytics' }}</span></a>
+    <a class="tbrand" :href="landingHref"><span class="glyph" aria-hidden="true"></span><span class="bname">{{ lang==='ar' ? 'دليل' : 'Daleel' }}</span></a>
     <button class="tlang" type="button" :lang="lang==='ar'?'en':'ar'" @click="lang = lang==='ar' ? 'en' : 'ar'">{{ lang==='ar' ? 'English' : 'العربية' }}</button>
   </header>
   <div v-if="sideOpen" class="backdrop" @click="sideOpen=false"></div>
   <aside class="side" :class="{open:sideOpen}">
-    <a class="brand" :href="landingHref"><span class="glyph" aria-hidden="true"></span><span>{{ lang==='ar' ? 'تحليلات القرآن' : 'Quran Analytics' }}<small>{{ lang==='ar' ? 'القرآن بالأرقام' : 'The Quran, measured' }}</small></span></a>
+    <a class="brand" :href="landingHref"><span class="glyph" aria-hidden="true"></span><span><b class="bname">{{ lang==='ar' ? 'دليل' : 'Daleel' }}</b><small>{{ lang==='ar' ? 'القرآن بالأرقام' : 'The Quran, measured' }}</small></span></a>
     <div class="langtoggle">
       <button :class="{on:lang==='en'}" :aria-pressed="lang==='en'" @click="lang='en'">English</button>
       <button :class="{on:lang==='ar'}" :aria-pressed="lang==='ar'" lang="ar" @click="lang='ar'">العربية</button>
