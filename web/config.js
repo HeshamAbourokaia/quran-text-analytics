@@ -7,7 +7,7 @@
   const host = location.hostname;
   window.QTA_CONFIG = {
     jevEndpoint: host.endsWith('.vercel.app') ? '/api/decide'
-      : host.endsWith('.github.io') ? 'https://quran-text-analytics.vercel.app/api/decide'
+      : host.endsWith('.github.io') ? 'https://quran-daleel.vercel.app/api/decide'
       : '',
   };
 })();
