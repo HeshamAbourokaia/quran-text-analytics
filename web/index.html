@@ -3,6 +3,11 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<script>
+// The old GitHub Pages address forwards to the site's home, keeping the page, the language and any deep link.
+if (location.hostname === 'heshamabourokaia.github.io')
+  location.replace('https://quran-daleel.vercel.app' + location.pathname.replace(/^\/quran-text-analytics/, '') + location.search + location.hash);
+</script>
 <title>Daleel · The Quran, measured</title>
 <meta name="description" content="Interactive analytics over the full Quranic Arabic Corpus: 114 surahs, 6,236 verses and 77,429 morphologically tagged words, with a claim auditor, machine learning lab and bilingual interface." />
 <link rel="canonical" href="https://quran-daleel.vercel.app/" />
@@ -767,7 +772,7 @@
 <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
-<script defer src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+<script defer src="vendor/vue.global.prod.js"></script>
 <script defer src="data.js"></script>
 <script>
 window.addEventListener('DOMContentLoaded', function () {
