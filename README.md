@@ -222,14 +222,14 @@ The site is a static page, and everything below works with plain matching in the
 | **Second opinions** | Classifier, Emotion | Hidden | Jev's Meccan/Medinan and tone judgements for the opening of every surah, from a batch run |
 | **Library tag review** | `data-build/reports/` | Not available | A maintainer report of du'as and lessons whose category Jev disagrees with. Nothing on the site changes from it |
 
-Jev replaces what plain matching found only when the two agree, when plain matching found nothing, or when Jev is reasonably sure (confidence 0.5 or more); otherwise its pick is offered as an alternative.
+Jev replaces what plain matching found only when the two agree, when plain matching found nothing, or when Jev is reasonably sure (confidence 0.5 or more); otherwise its pick is offered as an alternative. If Jev can't be reached or refuses a call, the box shows the plain-matching result as if Jev were off, and the rest of the visit doesn't ask it again.
 
 **Privacy and safety.** With Jev on, the text typed into the claim, ask and situation boxes is sent to the site's `/api/decide` function on Vercel and from there to TypeSafe's Jev (through Vercel's AI Gateway, unless a TypeSafe key is set); each box says so. A description that mentions self-harm is never sent anywhere: the page shows a note with a link to [find a helpline](https://findahelpline.com) instead. With `jevEndpoint` empty (the default), nothing leaves the browser.
 
 ### Turning it on
 
 1. Import this repository as a project on [Vercel](https://vercel.com), with the framework preset **Other**. `vercel.json` serves `web/` as the site and `api/decide.js` as the function; there is no build step and no key to add.
-2. On Vercel the function reaches Jev through [Vercel's AI Gateway](https://vercel.com/docs/ai-gateway/sdks-and-apis/typesafe), signed in with the project's own OIDC token, so calls are billed to the Vercel account as AI Gateway usage. Set an [AI Gateway budget](https://vercel.com/docs/ai-gateway/observability-and-spend/budgets): the per-IP rate limit is kept per serverless instance, so it is a speed bump, not a cap.
+2. On Vercel the function reaches Jev through [Vercel's AI Gateway](https://vercel.com/docs/ai-gateway/sdks-and-apis/typesafe), signed in with the project's own OIDC token, so calls are billed to the Vercel account as AI Gateway usage. Jev isn't covered by the gateway's free monthly credit (its free launch promotion ended on 26 September 2026), so it answers only once the account has paid AI Gateway credit. Until then the gateway refuses every call and the site quietly carries on with plain matching, without a message, and stops asking Jev for the rest of the visit. With credit, set an [AI Gateway budget](https://vercel.com/docs/ai-gateway/observability-and-spend/budgets): the per-IP rate limit is kept per serverless instance, so it is a speed bump, not a cap.
 3. Put the function's URL in `web/config.js`, for example `window.QTA_CONFIG = { jevEndpoint: 'https://your-project.vercel.app/api/decide' };`, and push. GitHub Pages redeploys and the features switch on.
 
 Optional settings, in the Vercel project's **Settings → Environment Variables**:
