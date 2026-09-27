@@ -1748,8 +1748,9 @@ createApp({
       this.cc.busy=true;
       const r=await JEV.decide({kind:'claim', text, candidates});
       this.cc.busy=false;
-      if(this.cc.res!==R || !r) return;
-      if(!r.ok){ this.jevDown(); return; }
+      if(!r) return;
+      if(!r.ok){ this.jevDown(); return; }   // even if a newer question has replaced this one
+      if(this.cc.res!==R) return;
       R.via='jev';
       if(r.on_topic===false){ R.offTopic=true; return; }
       const a=r.answers||{};
@@ -1780,8 +1781,9 @@ createApp({
       this.ask.busy=true;
       const r=await JEV.decide({kind:'route', text});
       this.ask.busy=false;
-      if(this.ask.res!==R || !r) return;
+      if(!r) return;
       if(!r.ok){ this.jevDown(); return; }
+      if(this.ask.res!==R) return;
       if(r.on_topic===false){ if(!R.top) R.offTopic=true; return; }
       const page=r.answers && r.answers.page, v=page && page.value;
       if(!v || !this.realViews.includes(v)) return;
@@ -1815,8 +1817,9 @@ createApp({
       this.sit.busy=true;
       const r=await JEV.decide({kind:'situation', lib, text});
       this.sit.busy=false;
-      if(this.sit.res!==R || !r) return;
+      if(!r) return;
       if(!r.ok){ this.jevDown(); return; }
+      if(this.sit.res!==R) return;
       if(r.on_topic===false){ if(!R.cat) R.offTopic=true; return; }
       const ans=r.answers && r.answers.category, c=ans && ans.value;
       if(c && c===R.cat){ R.jevAgrees=true; return; }
