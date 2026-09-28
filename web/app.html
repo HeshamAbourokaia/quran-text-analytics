@@ -636,7 +636,6 @@ if (location.hostname === 'heshamabourokaia.github.io')
           <div v-if="ask.res.alts && ask.res.alts.length && !ask.res.offTopic" style="margin-top:4px">{{ ask.res.crisis ? (lang==='ar' ? 'أدعية الأنبياء في شدّتهم:' : 'Prayers the prophets made in hard times:') : (lang==='ar' ? 'أو:' : 'Or:') }} <span class="chip small" v-for="a in ask.res.alts" :key="a.view" @click="followAsk(a)">{{ askLabel(a) }}</span></div>
           <div v-if="ask.res.via==='jev'" class="jevnote">{{ lang==='ar' ? 'اختار Jev هذه الصفحة' : 'Jev picked this page' }}<span v-if="ask.res.conf!=null"> ({{ pct(ask.res.conf) }})</span>.</div>
           <div v-else-if="ask.res.jevAgrees" class="jevnote">{{ lang==='ar' ? 'ويوافق Jev على هذا الاختيار.' : 'Jev agrees.' }}</div>
-          <div v-else-if="ask.res.jevError" class="jevnote">{{ lang==='ar' ? 'لم يُجب Jev، فاستعملنا المطابقة العادية.' : 'Jev didn’t answer, so this uses plain matching.' }}</div>
         </div>
         <div v-if="jevOn" class="jevnote" style="max-width:660px">{{ lang==='ar' ? 'حين لا تكفي المطابقة، يُرسَل سؤالك إلى Jev من TypeSafe ليختار الصفحة.' : 'When plain matching isn’t enough, your question is sent to TypeSafe’s Jev to pick the page.' }}</div>
         <div class="kpis">
@@ -1587,7 +1586,6 @@ createApp({
       if(eqKeys.length) return ar ? `عند العدّ ${this.methodName(imp)}: ${a} و${b}، غير متساويتين. تتساويان فقط عند العدّ ${eqKeys.map(this.methodName).join(' أو ')}.` : `Counting ${this.methodName(imp)}: ${a} and ${b}, not equal. They are equal only when counting ${eqKeys.map(this.methodName).join(' or ')}.`;
       return ar ? `عند العدّ ${this.methodName(imp)}: ${a} و${b}. لا تتساويان بأي طريقة عدٍّ معيارية.` : `Counting ${this.methodName(imp)}: ${a} and ${b}. They are not equal under any standard way of counting.`; },
     ccJevLine(){ const r=this.cc.res, ar=this.lang==='ar'; if(!r) return '';
-      if(r.jevError) return ar ? 'لم يُجب Jev، فاستعملنا المطابقة العادية.' : 'Jev didn’t answer, so this uses plain matching.';
       if(r.offTopic) return ar ? 'لا يرى Jev في هذا النص زعمًا عن عدد مرات ورود كلمة. الأرقام أدناه للكلمات التي وجدناها.' : 'Jev doesn’t read this as a claim about how often a word occurs. The counts are for the words we found.';
       if(r.via!=='jev') return '';
       const w=r.words[0], raw=w ? (this.ccOpt(w).sense||this.ccOpt(w).norm) : '', lab=ar ? raw : '\u2068'+raw+'\u2069', conf=r.wordConf!=null ? ' ('+this.pct(r.wordConf)+')' : '';
@@ -1742,7 +1740,7 @@ createApp({
       if(!this.ready.words && this.cc.text.trim()){ this.cc.busy=true; await this.load('words'); this.cc.busy=false; }
       const text=this.cc.text.trim(), ix=jix(); if(!text || !ix) return;
       const p=JEV.parseClaim(ix, text), crisis=JEV.crisis(text);
-      this.cc.res={text, numbers:p.numbers, words:crisis ? [] : p.words, crisis, via:'local', method:null, offTopic:false, jevError:false, wordConf:null, jevWord:null};
+      this.cc.res={text, numbers:p.numbers, words:crisis ? [] : p.words, crisis, via:'local', method:null, offTopic:false, wordConf:null, jevWord:null};
       const R=this.cc.res;
       if(crisis || !p.words.length || !this.jevOn) return;   // never send someone's words about self-harm anywhere
       const w0=R.words[0];
@@ -1750,8 +1748,9 @@ createApp({
       this.cc.busy=true;
       const r=await JEV.decide({kind:'claim', text, candidates});
       this.cc.busy=false;
-      if(this.cc.res!==R || !r) return;
-      if(!r.ok){ R.jevError=true; return; }
+      if(!r) return;
+      if(!r.ok){ this.jevDown(); return; }   // even if a newer question has replaced this one
+      if(this.cc.res!==R) return;
       R.via='jev';
       if(r.on_topic===false){ R.offTopic=true; return; }
       const a=r.answers||{};
@@ -1776,14 +1775,15 @@ createApp({
       if(JEV.crisis(text)){ this.ask.res={crisis:true, top:null, alts:[{view:'duas', cat:'prophet'}], via:'local'}; return; }   // never sent anywhere
       const loc=JEV.routeLocal(text, jix(), this.DS.surahMeta||[]);
       const top = loc.shortcut || (loc.ranked[0] ? {view:loc.ranked[0].view} : null);
-      this.ask.res={top, alts: loc.ranked.filter(x=>!top || x.view!==top.view).slice(0,3).map(x=>({view:x.view})), via:'local', offTopic:false, jevError:false, jevAgrees:false, conf:null};
+      this.ask.res={top, alts: loc.ranked.filter(x=>!top || x.view!==top.view).slice(0,3).map(x=>({view:x.view})), via:'local', offTopic:false, jevAgrees:false, conf:null};
       const R=this.ask.res;
       if(!this.jevOn || loc.shortcut) return;   // a surah, a claim or a single word needs no judgement
       this.ask.busy=true;
       const r=await JEV.decide({kind:'route', text});
       this.ask.busy=false;
-      if(this.ask.res!==R || !r) return;
-      if(!r.ok){ R.jevError=true; return; }
+      if(!r) return;
+      if(!r.ok){ this.jevDown(); return; }
+      if(this.ask.res!==R) return;
       if(r.on_topic===false){ if(!R.top) R.offTopic=true; return; }
       const page=r.answers && r.answers.page, v=page && page.value;
       if(!v || !this.realViews.includes(v)) return;
@@ -1817,7 +1817,9 @@ createApp({
       this.sit.busy=true;
       const r=await JEV.decide({kind:'situation', lib, text});
       this.sit.busy=false;
-      if(this.sit.res!==R || !r || !r.ok) return;
+      if(!r) return;
+      if(!r.ok){ this.jevDown(); return; }
+      if(this.sit.res!==R) return;
       if(r.on_topic===false){ if(!R.cat) R.offTopic=true; return; }
       const ans=r.answers && r.answers.category, c=ans && ans.value;
       if(c && c===R.cat){ R.jevAgrees=true; return; }
@@ -1883,6 +1885,9 @@ createApp({
         .from('.home .askbox',{y:24,autoAlpha:0,duration:1.1},.76)
         .from('.homehero .kpis .kpi',{y:30,autoAlpha:0,duration:1.1,stagger:.08},.84);
     },
+    // Jev refused or couldn't be reached (without AI Gateway credit it refuses every call): carry on with
+    // plain matching without saying so, and don't ask again this visit.
+    jevDown(){ this.jevOn=false; },
     // ---- data that loads after the first screen ----
     load(key){   // resolves true once the data is here, false if it couldn't be fetched (tried again next time)
       return need(key).then(()=>{ if(!this.ready[key]) this.arrived(key); return true; },
