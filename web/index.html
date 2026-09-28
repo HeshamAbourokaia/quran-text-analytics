@@ -95,6 +95,15 @@ if (location.hostname === 'heshamabourokaia.github.io')
   #vizlabels .pl b{display:block;font-family:var(--ar-display);font-weight:400;font-size:1.5rem;line-height:1.5;color:var(--on-dark)}
   #vizlabels .pl i{display:block;font-style:normal;font-size:.76rem;font-variant-numeric:tabular-nums}
   #vizlabels .pl .ok{color:var(--emerald)} #vizlabels .pl .off{color:var(--gold)}
+  /* the sky of roots: letters on the larger circles; the vocabulary map: links and the two cities */
+  #vizlabels .rt{transform:translate(-50%,-50%);text-align:center;line-height:1.1;text-shadow:0 0 12px rgba(4,10,7,.95),0 0 3px rgba(4,10,7,.9)}
+  #vizlabels .rt b{display:block;font-family:var(--ar-display);font-weight:400;color:#fff}
+  #vizlabels .rt i{display:block;font-style:normal;font-size:.62rem;color:var(--on-dark-2);font-variant-numeric:tabular-nums;margin-top:2px}
+  #vizlabels .map line{stroke-width:.8}
+  #vizlabels .map .e0{stroke:rgba(233,185,95,.2)} #vizlabels .map .e1{stroke:rgba(52,211,153,.26)} #vizlabels .map .ex{stroke:rgba(255,255,255,.09)}
+  #vizlabels .reg{font-size:.66rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;transform:translate(-50%,-100%)}
+  html[lang=ar] #vizlabels .reg{letter-spacing:0;font-size:.82rem}
+  #vizlabels .reg.mec{color:var(--gold)} #vizlabels .reg.med{color:var(--emerald)}
   .grain{position:fixed;inset:0;z-index:70;pointer-events:none;opacity:.05;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
   main,footer{position:relative;z-index:2}
@@ -316,12 +325,14 @@ if (location.hostname === 'heshamabourokaia.github.io')
   .claims .more-cta{text-align:center;margin:48px 0 0}
 
   /* the claim theater: four scroll steps over the verse field, each with a tally of claimed against counted */
-  #claims{padding-bottom:0}
-  #claims .sechead{margin-bottom:0;text-shadow:0 2px 30px rgba(4,10,7,.9)}
+  #claims,#lab{padding-bottom:0}
+  #claims .sechead,#lab .sechead{margin-bottom:0;text-shadow:0 2px 30px rgba(4,10,7,.9)}
   @media (min-width:1100px),(min-width:761px) and (min-aspect-ratio:20/23){   /* beside the panels, the heading keeps to their side so the first scene can gather next to it */
-    #claims .sechead{text-align:start;margin-inline:0;max-width:min(520px,36vw)}
-    #claims .sechead .sub{margin-inline:0}
+    #claims .sechead,#lab .sechead{text-align:start;margin-inline:0;max-width:min(520px,36vw)}
+    #claims .sechead .sub,#lab .sechead .sub{margin-inline:0}
   }
+  /* with WebGL the coincidence grid is drawn by the verse field itself; the canvas keeps its place */
+  html.gl .dots canvas{visibility:hidden}
   #claim-cards .sechead h3{font-size:clamp(2rem,1.3rem + 2.4vw,3.4rem);margin:.28em 0 0}
   .panel h3{font-size:clamp(2rem,1.4rem + 2vw,3rem);margin:.3em 0 .45em}
   .panel .ayah.word{font-size:2rem;line-height:1.5;margin-bottom:2px}
@@ -338,12 +349,15 @@ if (location.hostname === 'heshamabourokaia.github.io')
   .tn.ok{border-color:rgba(52,211,153,.3)} .tn.ok b{color:var(--emerald);text-shadow:0 0 18px rgba(52,211,153,.4)}
   .tn.off{border-color:rgba(233,185,95,.3)} .tn.off b{color:var(--gold);text-shadow:0 0 18px rgba(233,185,95,.4)}
   /* a portrait tablet stacks the theater like a phone: the scene above, the panel below */
+  /* the sky of roots gathers late (clear of the root demo above), so its step runs longer */
+  .rstory .step{min-height:140vh;min-height:140svh}
   @media (min-width:761px) and (max-width:1099px) and (max-aspect-ratio:20/23){
-    .cstory .step{min-height:100vh;min-height:100svh;align-items:flex-end;justify-content:center;padding-bottom:5svh}
-    .cstory .panel{max-width:640px;width:100%}
+    .cstory .step,.mstory .step{min-height:100vh;min-height:100svh}
+    .cstory .step,.rstory .step,.mstory .step{align-items:flex-end;justify-content:center;padding-bottom:5svh}
+    .cstory .panel,.rstory .panel,.mstory .panel{max-width:640px;width:100%}
   }
   /* without WebGL the steps close up into a plain run of panels */
-  html.no-gl .cstory .step{min-height:0;padding-block:22px}
+  html.no-gl .cstory .step,html.no-gl .rstory .step,html.no-gl .mstory .step{min-height:0;padding-block:22px}
 
   /* ── coincidence explorer ── */
   .split2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);gap:clamp(34px,5vw,86px);align-items:center}
@@ -508,7 +522,8 @@ if (location.hostname === 'heshamabourokaia.github.io')
     #vizlabels .pl b{font-size:1.15rem}
     #vizlabels .pl i{font-size:.68rem}
     html[lang=ar] .panel p{line-height:1.8}
-    #s3 .legend{display:none}
+    #s3 .legend,#m1 .legend{display:none}
+    .rstory .step{min-height:125vh;min-height:125svh}
     .panel .hint{margin-top:14px}
     .frow{grid-template-columns:minmax(0,1fr) auto;gap:8px 14px}
     .fbar{grid-column:1/-1;grid-row:2}
@@ -548,7 +563,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
 <a class="skip" href="#tour" data-i18n="skip">Skip to the tour</a>
 <div class="sky" aria-hidden="true"></div>
 <canvas id="gl" aria-hidden="true"></canvas>
-<div id="vizlabels" aria-hidden="true"><div class="vl bars"></div><div class="vl split"></div><div class="vl cal"></div><div class="vl bal"></div><div class="vl nm"></div></div>
+<div id="vizlabels" aria-hidden="true"><div class="vl bars"></div><div class="vl split"></div><div class="vl cal"></div><div class="vl bal"></div><div class="vl nm"></div><div class="vl roots"></div><div class="vl map"></div></div>
 <div class="grain" aria-hidden="true"></div>
 <div id="tip" hidden></div>
 <div class="progress" aria-hidden="true"><i></i></div>
@@ -642,6 +657,19 @@ if (location.hostname === 'heshamabourokaia.github.io')
       </ul>
     </div>
     <p class="fnote rv" data-i18n="fn.note">8,619 written forms occur only once.</p>
+  </div>
+</section>
+
+<!-- the sky of roots: the field shares itself out among the most-used roots, each circle sized by its count -->
+<section class="story rstory" id="rstory">
+  <div class="step" id="r1">
+    <div class="panel rv">
+      <span class="ayah word" lang="ar" aria-hidden="true">جُذور</span>
+      <p class="kick" data-i18n="r1.k">The 60 most-used roots</p>
+      <h3 class="display" data-i18n="r1.h">A sky of roots.</h3>
+      <p data-i18n="r1.p">Each circle is one root, sized by how often words from that root occur.</p>
+      <p class="hint"><i aria-hidden="true"></i><span class="chint" data-i18n="r.hint" data-tap="r.tap">Hover a circle to see its root.</span></p>
+    </div>
   </div>
 </section>
 
@@ -774,6 +802,25 @@ if (location.hostname === 'heshamabourokaia.github.io')
       <h2 class="display" data-i18n="lab.h">A model can tell Mecca from Medina.</h2>
       <p class="sub" data-i18n="lab.pp">A logistic regression reads nothing but word frequencies.</p>
     </header>
+  </div>
+</section>
+
+<!-- the vocabulary map: each surah a disc of its verses, placed only by which surahs share its words -->
+<section class="story mstory" id="mstory">
+  <div class="step" id="m1">
+    <div class="panel rv">
+      <span class="ayah word" lang="ar" aria-hidden="true">المفردات</span>
+      <p class="kick" data-i18n="m1.k">Closest in vocabulary</p>
+      <h3 class="display" data-i18n="m1.h">Linked by their words alone.</h3>
+      <p data-i18n="m1.p">Each surah is linked to the five whose words are closest.</p>
+      <div class="legend"><span><i class="dot gold"></i><span data-i18n="meccan">Meccan</span></span><span><i class="dot green"></i><span data-i18n="medinan">Medinan</span></span></div>
+      <p class="hint"><i aria-hidden="true"></i><span class="chint" data-i18n="s1.hint" data-tap="s1.tap">Hover a point to see its verse; click to read it.</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="sec lab cards" id="lab-cards">
+  <div class="wrap">
     <div class="labgrid">
       <div class="lcard ring rv">
         <div class="ringwrap">
@@ -940,8 +987,14 @@ D.claims.forEach(c => { CLAIM[c.id] = c; });
     angC: ang.claimed, angV: ang.verifiedLemma, devV: dev.verifiedLemma,
     hellC: hell.claimed, hellV: hell.verifiedLemma, parC: par.claimed, parV: par.verifiedLemma,
     godC: god.claimed, godV: god.verifiedLemma, godVs: new Set(god.audit.map(r => r[0] + ':' + r[1])).size });
+  // the sky of roots: how much of the text the sixty most-used roots cover
+  const rsum = D.datasets.topRoots.reduce((a, r) => a + r.c, 0);
+  NUM.rootsN = D.datasets.topRoots.length; NUM.rootsSum = rsum; NUM.rootsShare = rsum / D.stats.totals.words * 100;
+  // the vocabulary map: surahs whose closest surah in vocabulary was revealed in the same city
+  const SM = D.datasets.surahMeta, SIM = D.analytics.similarity || {};
+  NUM.nnSame = SM.filter((m, i) => SIM[i + 1] && SIM[i + 1][0] && SM[SIM[i + 1][0].n - 1].place === m.place).length;
 })();
-const DEC = { mecAvg: 1, medAvg: 1, t: 1, acc: 1, base: 1, auc: 2 };
+const DEC = { mecAvg: 1, medAvg: 1, t: 1, acc: 1, base: 1, auc: 2, rootsShare: 1 };
 const loc = () => (lang === 'ar' ? 'ar-EG' : 'en-US');
 const nf = (n, d) => Number(n).toLocaleString(loc(), { minimumFractionDigits: d || 0, maximumFractionDigits: d || 0 });
 const digits = s => (lang === 'ar' ? String(s).replace(/\d/g, c => '٠١٢٣٤٥٦٧٨٩'[c]) : String(s));
@@ -1032,6 +1085,16 @@ const I18N = {
   'tl.cl':      {en:'claimed', ar:'المزعوم'},
   'tl.co':      {en:'counted', ar:'المحقَّق'},
   'cal.over':   {en:'{dayX} left over', ar:'يبقى {dayX}'},
+  'r1.k':       {en:'The {rootsN} most-used roots', ar:'الجذور الـ{rootsN} الأكثر ورودًا'},
+  'r1.h':       {en:'A sky of roots.', ar:'سماءٌ من الجذور.'},
+  'r1.p':       {en:'Each circle is one root, sized by how often words from that root occur. These {rootsN} roots alone make up {rootsShare}% of the text, {rootsSum} of its {words} words. The largest, {topRoot}, is the root of the name Allah.',
+                 ar:'كل دائرةٍ جذرٌ واحد، وحجمها بقدر ما ترد كلماتُ ذلك الجذر. وهذه الجذور الـ{rootsN} وحدها تشكّل {rootsShare}٪ من النص، أي {rootsSum} كلمة من {words}. وأكبرها {topRoot}، جذر اسم الجلالة.'},
+  'r.hint':     {en:'Hover a circle to see its root.', ar:'مرِّر المؤشر فوق دائرةٍ لتعرف جذرها.'},
+  'r.tap':      {en:'Tap a circle to see its root.', ar:'المس دائرةً لتعرف جذرها.'},
+  'm1.k':       {en:'Closest in vocabulary', ar:'الأقرب في المفردات'},
+  'm1.h':       {en:'Linked by their words alone.', ar:'تتقارب السور بكلماتها وحدها.'},
+  'm1.p':       {en:'Each surah is linked to the five whose words are closest (TF-IDF over lemmas), and the links pull like springs. Nothing here knows where a surah was revealed, yet the Medinan surahs gather together: for {nnSame} of the {surahs} surahs, the closest surah in vocabulary comes from the same city.',
+                 ar:'رُبطت كل سورةٍ بالسور الخمس الأقرب إليها في كلماتها (TF-IDF على الجذوع)، وتشدّها الروابط كالنوابض. ولا شيء هنا يعرف أين نزلت السورة، ومع ذلك تجتمع السور المدنية معًا: ففي {nnSame} سورة من {surahs}، كانت أقربُ السور إليها في المفردات من صنفها نفسه، مكيةً أو مدنية.'},
   'nm.cap':     {en:'{godV} mentions · {godVs} verses', ar:'{godV} مرة · في {godVs} آية'},
   'co.k':       {en:'Why matching numbers are easy to find', ar:'لماذا يسهل العثور على أعدادٍ متطابقة'},
   'co.h':       {en:'Pick any number. Some words will land on it.', ar:'اختر أي عدد، وستجد كلماتٍ تقع عليه.'},
@@ -1095,7 +1158,7 @@ const I18N = {
 };
 const T = key => { const d = I18N[key]; return d ? fill(d[lang] || d.en) : key; };
 const buzz = ms => { try { if (navigator.vibrate) navigator.vibrate(ms); } catch (e) { /* not supported */ } };
-if (!fine) { $('#hinttext').dataset.i18n = 's1.tap'; $$('.chint').forEach(e => { e.dataset.i18n = 'c.tap'; }); }
+if (!fine) { $('#hinttext').dataset.i18n = 's1.tap'; $$('.chint').forEach(e => { e.dataset.i18n = e.dataset.tap || 'c.tap'; }); }
 const appHref = view => { const q = new URLSearchParams(); if (view) q.set('view', view); if (lang === 'ar') q.set('lang', 'ar'); const s = q.toString(); return 'app.html' + (s ? '?' + s : ''); };
 
 // ── claims auditor (Vue), mounted before any animation touches its DOM ──
@@ -1696,6 +1759,165 @@ async function initScene() {
     layoutName(); buildTheaterLabels();
   }
 
+  // ── scenes for the sections below: 5 the sky of roots, 6 the coincidence grid, 7 the vocabulary map ──
+  const mix3 = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t];
+  const addScene = (sc, side, occ, ref, cc, dl) => { TH.push(sc); SIDE.push(side); OCC.push(occ); REF.push(ref); CP.push(new Float32Array(N * 3)); CC.push(cc); CDL.push(dl); return TH.length - 1; };
+
+  // 5 · the most-used roots: every point of the field shared out in proportion to each root's count (largest remainders),
+  // so each circle's area follows how often words from its root occur
+  const RT = D.datasets.topRoots, RSUM = RT.reduce((a, r) => a + r.c, 0), rootCnt = RT.map(r => Math.floor(N * r.c / RSUM));
+  RT.map((r, k) => [N * r.c / RSUM - rootCnt[k], k]).sort((a, b) => b[0] - a[0])
+    .slice(0, N - rootCnt.reduce((a, b) => a + b, 0)).forEach(([, k]) => { rootCnt[k]++; });
+  const S_ROOTS = (() => {
+    const side = new Int8Array(N).fill(-1), occ = new Int16Array(N), ref = new Int16Array(N).fill(-1), cc = new Float32Array(N * 3), dl = new Float32Array(N);
+    let q = 0;
+    rootCnt.forEach((m, k) => { for (let j = 0; j < m; j++, q++) { const n = pool[q]; side[n] = k; occ[n] = j; } });
+    for (let n = 0; n < N; n++) {
+      const k = side[n]; if (k < 0) continue;
+      const t = Math.pow(k / (RT.length - 1), .6), c = t < .5 ? mix3(WARM, AMBER, t * 2) : mix3(AMBER, EMER, t * 2 - 1), b = .88 + jit2[n] * .24;
+      cc[3 * n] = Math.min(1, c[0] * b); cc[3 * n + 1] = Math.min(1, c[1] * b); cc[3 * n + 2] = Math.min(1, c[2] * b);
+      dl[n] = k / (RT.length - 1) * .55 + jit[n] * .45;   // the largest roots gather first
+    }
+    return addScene({ kind: 'roots', boost: 3 }, side, occ, ref, cc, dl);
+  })();
+  // circle packing in unit space, done once: circles sized by count, pressed together around the centre
+  const rootPack = (() => {
+    const k = RT.length, r = RT.map(o => Math.sqrt(o.c / RSUM)), x = new Float64Array(k), y = new Float64Array(k);
+    for (let i = 0; i < k; i++) { const a = i * GA, d = .12 * Math.sqrt(i + .5); x[i] = d * Math.cos(a); y[i] = d * Math.sin(a); }
+    for (let it = 0; it < 500; it++) {
+      for (let i = 0; i < k; i++) { x[i] *= .994; y[i] *= .994; }
+      for (let i = 0; i < k; i++) for (let j = i + 1; j < k; j++) {
+        const dx = x[j] - x[i], dy = y[j] - y[i], d = Math.hypot(dx, dy) || 1e-6, m = (r[i] + r[j]) * 1.06;
+        if (d < m) { const o = (m - d) / d, wi = r[j] * r[j] / (r[i] * r[i] + r[j] * r[j]);
+          x[i] -= dx * o * wi; y[i] -= dy * o * wi; x[j] += dx * o * (1 - wi); y[j] += dy * o * (1 - wi); }
+      }
+    }
+    let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+    for (let i = 0; i < k; i++) { x0 = Math.min(x0, x[i] - r[i]); x1 = Math.max(x1, x[i] + r[i]); y0 = Math.min(y0, y[i] - r[i]); y1 = Math.max(y1, y[i] + r[i]); }
+    return { x, y, r, x0, x1, y0, y1 };
+  })();
+  let rootsInfo = null;
+  function layoutRoots() {
+    const f = tf(), P = rootPack, dir = mirror ? -1 : 1;
+    const s = Math.min((f.x1 - f.x0) * W / (P.x1 - P.x0), (f.y1 - f.y0) * H / (P.y1 - P.y0)) * .96;
+    const cx = wx(mx((f.x0 + f.x1) / 2)), cy = wy((f.y0 + f.y1) / 2), ox = (P.x0 + P.x1) / 2, oy = (P.y0 + P.y1) / 2;
+    const X = k => cx + dir * (P.x[k] - ox) * s, Y = k => cy - (P.y[k] - oy) * s, side = SIDE[S_ROOTS], occ = OCC[S_ROOTS], p = CP[S_ROOTS];
+    rootsInfo = RT.map((o, k) => ({ fx: X(k) / W + .5, fy: .5 - Y(k) / H, rpx: P.r[k] * s * innerHeight / H }));
+    // a circle large enough to be labelled keeps its points in a ring, leaving the centre for its letters
+    const hole = rootsInfo.map(q => (q.rpx >= 30 ? .55 : 0));
+    for (let n = 0; n < N; n++) {
+      const k = side[n]; if (k < 0) continue;
+      const j = occ[n], h2 = hole[k] * hole[k], rho = P.r[k] * s * .93 * Math.sqrt(h2 + (1 - h2) * (j + .5) / rootCnt[k]), a = j * GA + k * 1.7;
+      p[3 * n] = X(k) + rho * Math.cos(a); p[3 * n + 1] = Y(k) + rho * Math.sin(a); p[3 * n + 2] = (jz[n] - .5) * .4;
+    }
+  }
+  // short English meanings for the roots, shown in the tooltip
+  const RG = { 'أله': 'god', 'قول': 'say', 'كون': 'be', 'ربب': 'lord', 'أمن': 'believe; safety', 'علم': 'know', 'قوم': 'people; stand', 'أيي': 'sign, verse; which',
+    'أتي': 'come; bring', 'كفر': 'disbelieve', 'بين': 'make clear; between', 'شيأ': 'thing; will', 'رسل': 'send; messenger', 'يوم': 'day', 'أرض': 'earth',
+    'سمو': 'sky; name', 'كلل': 'all, every', 'عذب': 'punish', 'عمل': 'do, deed', 'جعل': 'make, place', 'رحم': 'mercy', 'أنس': 'people, humankind', 'رأي': 'see',
+    'كتب': 'write; book', 'هدي': 'guide', 'ظلم': 'wrong, oppress', 'نفس': 'soul, self', 'قبل': 'before; accept', 'نزل': 'send down', 'ذكر': 'remember, mention',
+    'حقق': 'truth, right', 'كذب': 'lie, deny', 'جيأ': 'come', 'عبد': 'worship; servant', 'أخذ': 'take', 'خلق': 'create', 'وقي': 'guard, be mindful', 'أخر': 'other; last',
+    'أمر': 'command; matter', 'بعد': 'after', 'غفر': 'forgive', 'ولي': 'ally, guardian; turn', 'دعو': 'call, pray', 'حكم': 'judge; wisdom', 'ملك': 'own, rule',
+    'جنن': 'garden; jinn', 'عند': 'with, near', 'خير': 'good', 'نور': 'light', 'حسن': 'good, beautiful', 'ضلل': 'go astray', 'حيي': 'life', 'سمع': 'hear',
+    'بني': 'son; build', 'خرج': 'go out', 'صلح': 'righteous', 'سبل': 'way, path', 'تبع': 'follow', 'قتل': 'kill, fight', 'مثل': 'likeness, example' };
+  const spaced = w => w.split('').join(' ');
+  function tipRoot(n) {
+    const k = SIDE[S_ROOTS][n], o = RT[k], g = lang === 'ar' ? '' : RG[o.w];
+    return '<b lang="ar">' + spaced(o.w) + '</b>' + (g ? ' <span class="k">' + g + '</span>' : '') + '<br>' +
+      (lang === 'ar' ? nf(o.c) + ' كلمة · المرتبة ' + nf(k + 1) + ' من ' + nf(RT.length) : nf(o.c) + ' words · #' + (k + 1) + ' of ' + RT.length);
+  }
+
+  // 6 · the coincidence grid: one point per lemma, laid over the explorer's figure and lit by the chosen number.
+  // It reads the explorer's own state (dg), so the canvas it replaces and the points always agree.
+  const NL = Math.min(NUM.lemmas, N), lvE = new Float32Array(N), lvN = new Float32Array(N), inv = new Int32Array(NL);
+  let lastPerm = null;
+  const S_LEMMA = (() => {
+    const side = new Int8Array(N).fill(-1), occ = new Int16Array(N), ref = new Int16Array(N).fill(-1), dl = new Float32Array(N);
+    for (let g = 0; g < NL; g++) { const n = pool[N - 1 - g]; side[n] = 0; occ[n] = g; dl[n] = jit[n]; }
+    return addScene({ kind: 'lemma', boost: 1, bst: new Float32Array(N).fill(1.7), emf: new Float32Array(N).fill(.15), hover: false },
+      side, occ, ref, new Float32Array(N * 3), dl);
+  })();
+  const LBASE = [.62, .8, .72], LGOLD = [1, .78, .4], LTEAL = [.24, .8, .88];
+  function prepLemma(dt) {
+    const sc = TH[S_LEMMA], side = SIDE[S_LEMMA], occ = OCC[S_LEMMA], p = CP[S_LEMMA], cc = CC[S_LEMMA];
+    const r = dg.c.getBoundingClientRect(), cols = dg.cols, cell = dg.cell, iw = innerWidth, ih = innerHeight;
+    if (dg.perm !== lastPerm) { lastPerm = dg.perm; inv.fill(1 << 30); if (lastPerm) for (let i = 0; i < Math.min(lastPerm.length, NL); i++) inv[lastPerm[i]] = i; }
+    const ne = Math.round(dg.near * dg.p), ex = Math.round(dg.exact * dg.p), k = reduced ? 1 : 1 - Math.exp(-dt * 7);
+    for (let n = 0; n < N; n++) {
+      if (side[n] < 0) continue;
+      const g = occ[n], n3 = 3 * n, px = r.left + (g % cols + .5) * cell, py = r.top + (Math.floor(g / cols) + .5) * cell;
+      p[n3] = (px / iw - .5) * W; p[n3 + 1] = (.5 - py / ih) * H; p[n3 + 2] = 0;
+      const rk = inv[g], tE = rk < ex ? 1 : 0, tN = !tE && rk < ne ? 1 : 0;
+      lvE[n] += (tE - lvE[n]) * k; lvN[n] += (tN - lvN[n]) * k;
+      const e = lvE[n], q = lvN[n], b = Math.max(0, 1 - e - q);
+      cc[n3] = LBASE[0] * b + LGOLD[0] * e + LTEAL[0] * q; cc[n3 + 1] = LBASE[1] * b + LGOLD[1] * e + LTEAL[1] * q; cc[n3 + 2] = LBASE[2] * b + LGOLD[2] * e + LTEAL[2] * q;
+      sc.bst[n] = 1.7 + 2.6 * e + 1.1 * q; sc.emf[n] = .15 + .85 * Math.max(e, .8 * q);
+    }
+  }
+
+  // 7 · the vocabulary map: each surah a disc of its own verses, placed only by which surahs share its words
+  // (each linked to its five nearest by lemma TF-IDF, links pulling like springs). The layout never sees where a
+  // surah was revealed; the finished picture is only turned so the two cities sit side by side.
+  const S_MAP = (() => {
+    const side = new Int8Array(N), occ = new Int16Array(N), ref = new Int16Array(N), dl = new Float32Array(N);
+    for (let n = 0; n < N; n++) { occ[n] = ver[n]; ref[n] = n; dl[n] = sur[n] / 113 * .6 + jit[n] * .4; }
+    return addScene({ kind: 'map', boost: 2.4 }, side, occ, ref, col, dl);
+  })();
+  let vocab = null, mapInfo = null;
+  function vocabLayout() {
+    const SIM = AN.similarity || {}, n = VW.length, E = new Map();
+    for (let i = 1; i <= n; i++) for (const o of (SIM[i] || [])) {
+      const a = Math.min(i, o.n) - 1, b = Math.max(i, o.n) - 1, key = a * 256 + b;
+      E.set(key, Math.max(E.get(key) || 0, o.s));
+    }
+    const edges = [...E].map(([key, s]) => [key >> 8, key & 255, s]);
+    const rad = META.map(m => .018 + .05 * Math.sqrt(m.verses / maxV)), x = new Float64Array(n), y = new Float64Array(n), kk = .12, IT = 600;
+    for (let i = 0; i < n; i++) { const a = i * GA, r = .45 * Math.sqrt((i + .5) / n); x[i] = r * Math.cos(a); y[i] = r * Math.sin(a); }
+    const fx = new Float64Array(n), fy = new Float64Array(n);
+    for (let it = 0; it < IT; it++) {
+      const T = .05 * (1 - it / IT) + .002; fx.fill(0); fy.fill(0);
+      for (let i = 0; i < n; i++) for (let j = i + 1; j < n; j++) {   // everyone pushes everyone apart, and discs do not overlap
+        const dx = x[i] - x[j], dy = y[i] - y[j], d = Math.hypot(dx, dy) || 1e-4, minD = rad[i] + rad[j] + .006;
+        const f = kk * kk / d + (d < minD ? (minD - d) * 4 : 0);
+        fx[i] += dx / d * f; fy[i] += dy / d * f; fx[j] -= dx / d * f; fy[j] -= dy / d * f;
+      }
+      for (const [a, b, s] of edges) {   // each link pulls in proportion to how close the two vocabularies are
+        const dx = x[a] - x[b], dy = y[a] - y[b], d = Math.hypot(dx, dy) || 1e-4, f = d * d / kk * s * 1.6;
+        fx[a] -= dx / d * f; fy[a] -= dy / d * f; fx[b] += dx / d * f; fy[b] += dy / d * f;
+      }
+      for (let i = 0; i < n; i++) {
+        fx[i] -= x[i] * .8; fy[i] -= y[i] * .8;
+        const l = Math.hypot(fx[i], fy[i]) || 1; x[i] += fx[i] / l * Math.min(l, T); y[i] += fy[i] / l * Math.min(l, T);
+      }
+    }
+    // turn the finished map so the Meccan surahs sit at the start and the Medinan at the end (a rotation only)
+    const c = [[0, 0, 0], [0, 0, 0]];
+    for (let i = 0; i < n; i++) { const m = META[i].place === 'Medina' ? 1 : 0; c[m][0] += x[i]; c[m][1] += y[i]; c[m][2]++; }
+    const ang = Math.atan2(c[1][1] / c[1][2] - c[0][1] / c[0][2], c[1][0] / c[1][2] - c[0][0] / c[0][2]), ca = Math.cos(-ang), sa = Math.sin(-ang);
+    let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+    for (let i = 0; i < n; i++) {
+      const X = x[i] * ca - y[i] * sa, Y = x[i] * sa + y[i] * ca; x[i] = X; y[i] = Y;
+      x0 = Math.min(x0, X - rad[i]); x1 = Math.max(x1, X + rad[i]); y0 = Math.min(y0, Y - rad[i]); y1 = Math.max(y1, Y + rad[i]);
+    }
+    return { x, y, rad, edges, x0, x1, y0, y1 };
+  }
+  function layoutMap() {
+    const p = CP[S_MAP];
+    if (!vocab) {   // until the layout is worked out, the map's points wait in the field
+      p.set(L[3]); mapInfo = null; return;
+    }
+    const f = tf(), V = vocab, dir = mirror ? -1 : 1;
+    const s = Math.min((f.x1 - f.x0) * W / (V.x1 - V.x0), (f.y1 - f.y0) * H / (V.y1 - V.y0)) * .96;
+    const cx = wx(mx((f.x0 + f.x1) / 2)), cy = wy((f.y0 + f.y1) / 2), ox = (V.x0 + V.x1) / 2, oy = (V.y0 + V.y1) / 2;
+    const X = k => cx + dir * (V.x[k] - ox) * s, Y = k => cy - (V.y[k] - oy) * s;
+    for (let n = 0; n < N; n++) {
+      const k = sur[n], j = ver[n], rho = V.rad[k] * s * .92 * Math.sqrt((j + .5) / VW[k].length), a = j * GA + k;
+      p[3 * n] = X(k) + rho * Math.cos(a); p[3 * n + 1] = Y(k) + rho * Math.sin(a); p[3 * n + 2] = (jz[n] - .5) * .4;
+    }
+    const pxu = innerHeight / H;
+    mapInfo = { sx: META.map((m, k) => (X(k) / W + .5) * innerWidth), sy: META.map((m, k) => (.5 - Y(k) / H) * innerHeight), r: META.map((m, k) => V.rad[k] * s * pxu) };
+  }
+
   // chart labels live in the page, placed with the same fractions as the points
   const vlBars = $('#vizlabels .bars'), vlSplit = $('#vizlabels .split');
   const place = (cls, text, fx, fy, extra) => '<span class="' + cls + '" style="left:' + (fx * 100).toFixed(2) + '%;top:' + (fy * 100).toFixed(2) + '%;' + (extra || '') + '">' + text + '</span>';
@@ -1723,7 +1945,7 @@ async function initScene() {
     vlSplit.innerHTML = html;
   }
   // the theater's labels: month names over the year, the scale itself (SVG, redrawn as the beam moves), captions
-  const vlCal = $('#vizlabels .cal'), vlBal = $('#vizlabels .bal'), vlNm = $('#vizlabels .nm');
+  const vlCal = $('#vizlabels .cal'), vlBal = $('#vizlabels .bal'), vlNm = $('#vizlabels .nm'), vlRoots = $('#vizlabels .roots'), vlMap = $('#vizlabels .map');
   let balEls = null;
   const gloss = c => c.en.replace(/\s*\(.*\)\s*/, '');
   function buildTheaterLabels() {
@@ -1743,8 +1965,27 @@ async function initScene() {
     const f = tf().name;
     vlNm.innerHTML = nameInfo ? place('halo', '', mx(f.cx), f.cy, 'width:' + (nameInfo.w * 150).toFixed(2) + '%;height:' + (nameInfo.h * 150).toFixed(2) + '%') +
       place('cap', T('nm.cap'), mx(f.cx), nameInfo.bottom + (mob ? .02 : .035), 'transform:translateX(-50%)') : '';
+    // the sky of roots: the letters sit on every circle large enough to hold them, the count on the largest
+    vlRoots.innerHTML = rootsInfo ? RT.map((o, k) => {
+      const q = rootsInfo[k]; if (q.rpx < 30) return '';
+      return place('rt', '<b lang="ar">' + spaced(o.w) + '</b>' + (q.rpx >= 44 ? '<i>' + nf(o.c) + '</i>' : ''), q.fx, q.fy,
+        'font-size:' + Math.min(1.5, .5 + q.rpx / 95).toFixed(2) + 'rem');
+    }).join('') : '';
+    // the vocabulary map: each link as a faint line (tinted when both surahs share a city), and the two cities named
+    if (mapInfo) {
+      const { sx, sy, r } = mapInfo, cls = (a, b) => (META[a].place !== META[b].place ? 'ex' : META[a].place === 'Medina' ? 'e1' : 'e0');
+      let svg = '<svg>';
+      vocab.edges.forEach(([a, b]) => { svg += '<line class="' + cls(a, b) + '" x1="' + sx[a].toFixed(1) + '" y1="' + sy[a].toFixed(1) + '" x2="' + sx[b].toFixed(1) + '" y2="' + sy[b].toFixed(1) + '"/>'; });
+      svg += '</svg>';
+      [['Mecca', 'mec', 'meccan'], ['Medina', 'med', 'medinan']].forEach(([pl, c, key]) => {
+        let x = 0, top = Infinity, m = 0;
+        META.forEach((mm, k) => { if (mm.place !== pl) return; x += sx[k]; m++; top = Math.min(top, sy[k] - r[k]); });
+        if (m) svg += place('reg ' + c, T(key), x / m / innerWidth, (top - 10) / innerHeight);
+      });
+      vlMap.innerHTML = svg;
+    } else vlMap.innerHTML = '';
   }
-  function relayout() { layoutBars(); layoutSplit(); layoutDust(); layoutWord(); layoutTheater(); buildLabels(); buildTheaterLabels(); }
+  function relayout() { layoutBars(); layoutSplit(); layoutDust(); layoutWord(); layoutTheater(); layoutRoots(); layoutMap(); buildLabels(); buildTheaterLabels(); }
   function resize(force) {
     const w = innerWidth, h = innerHeight;
     if (!force && w === lastW && Math.abs(h - lastH) < 120) return;
@@ -1758,10 +1999,13 @@ async function initScene() {
   let rz = 0;
   window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => resize(false), 150); });
   mirror = lang === 'ar'; resize(true); sampleWord(); sampleName();
+  // the vocabulary map's layout takes a few tens of milliseconds, so it is worked out once the page has settled
+  setTimeout(() => { vocab = vocabLayout(); layoutMap(); buildTheaterLabels(); }, 400);
 
   // scroll → stage (0 galaxy, 1 surah columns, 2 verse lengths, 3 dust, 4 the word)
   const els = { s1: $('#s1'), s2: $('#s2'), s3: $('#s3'), roots: $('#roots'), read: $('#read'),
-    c1: $('#c1'), c2: $('#c2'), c3: $('#c3'), c4: $('#c4'), cards: $('#claim-cards') };
+    c1: $('#c1'), c2: $('#c2'), c3: $('#c3'), c4: $('#c4'), cards: $('#claim-cards'),
+    r1: $('#r1'), claims: $('#claims'), m1: $('#m1'), labCards: $('#lab-cards') };
   const prog = (el, a, b) => { const r = el.getBoundingClientRect(), vh = innerHeight; return clamp((vh * a - r.top) / (vh * (a - b)), 0, 1); };
   const lerp = (a, b, t) => a + (b - a) * t;
   const ease = t => (t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
@@ -1777,8 +2021,21 @@ async function initScene() {
     o[0] = g.cx + x * g.cr - y * g.sr; o[1] = g.cy + x * g.sr + y * g.cr; o[2] = z;
   }
 
-  // ── the theater, laid over the field: 0 and 5 are the plain field, 1 the year, 2 and 3 the scale, 4 the Name ──
-  let cS = 0, cSnap = 0, cFade = 1, tWas = false, hs = 0;
+  // ── scenes laid over the field, each driven by its own run of scroll steps (a track) ──
+  // seq lists the scenes a track passes through, 0 being the plain field; only one track plays at a time.
+  // The claims: 1 the year, 2 and 3 the scale, 4 the Name. Then the roots, the coincidence grid and the vocabulary map.
+  let cFade = 1, tWas = false, hs = 0, hg = -1, tAct = null;
+  const lemmaAt = () => {   // the coincidence grid follows its figure: gathering as it rises into view, leaving as it scrolls away
+    const r = dg.c.getBoundingClientRect(), vh = innerHeight;
+    return clamp((vh * .98 - r.top) / (vh * .45), 0, 1) + clamp((vh * .3 - r.bottom) / (vh * .3), 0, 1);
+  };
+  const TRK = [
+    { seq: [0, 1, 2, 3, 4, 0], at: () => prog(els.c1, .9, .35) + prog(els.c2, .9, .35) + prog(els.c3, .9, .35) + prog(els.c4, .9, .35) + prog(els.cards, .9, .35) },
+    { seq: [0, S_ROOTS, 0], at: () => prog(els.r1, .55, .05) + prog(els.claims, .9, .35) },
+    { seq: [0, S_LEMMA, 0], at: lemmaAt },
+    { seq: [0, S_MAP, 0], at: () => prog(els.m1, .9, .35) + prog(els.labCards, .9, .35) },
+  ].map(t => Object.assign(t, { p: 0, snap: 0 }));
+  const CLAIMS = TRK[0];
   const KC = .6, oA = [0, 0, 0], oB = [0, 0, 0], pan = [[0, 0], [0, 0]], bal = { th: 0, om: 0 };
   function panAt() {   // pan 0 hangs on the reading-start side; a positive angle lowers pan 1
     const dir = mirror ? -1 : 1, c = Math.cos(bal.th), s = Math.sin(bal.th);
@@ -1790,11 +2047,12 @@ async function initScene() {
     else { o[0] = p[n3]; o[1] = p[n3 + 1]; }
     o[2] = p[n3 + 2];
   }
-  function theater(dt) {
-    const A = Math.min(Math.floor(cS), 4), cf = cS - A, B = A + 1;
-    const sA = A >= 1 ? SIDE[A] : null, sB = B <= 4 ? SIDE[B] : null;
-    const balA = A >= 1 && TH[A].kind === 'bal', balB = B <= 4 && TH[B].kind === 'bal';
-    const bA = A >= 1 ? TH[A].boost : 1, bB = B <= 4 ? TH[B].boost : 1;
+  function theater(dt, t) {
+    const i = Math.min(Math.floor(t.p), t.seq.length - 2), cf = t.p - i, A = t.seq[i], B = t.seq[i + 1];
+    const tA = A ? TH[A] : null, tB = B ? TH[B] : null, sA = A ? SIDE[A] : null, sB = B ? SIDE[B] : null;
+    const balA = !!tA && tA.kind === 'bal', balB = !!tB && tB.kind === 'bal', nameA = !!tA && tA.kind === 'name';
+    if (A === S_LEMMA || B === S_LEMMA) prepLemma(dt);
+    const hk = hs && hg >= 0 ? hs : 0;   // a hovered root lights its whole circle
     let w0 = 0, w1 = 0;
     panAt();
     for (let n = 0; n < N; n++) {
@@ -1806,7 +2064,9 @@ async function initScene() {
       if (kB >= 0) { sceneAt(B, n, oB); qx = oB[0]; qy = oB[1]; qz = oB[2]; }
       const tt = clamp((cf - KC * (kB >= 0 ? CDL[B][n] : CDL[A][n])) / (1 - KC), 0, 1), e = ease(tt);
       const cA = kA >= 0 ? CC[A] : col, cB = kB >= 0 ? CC[B] : col;
-      if (A === 4 && kB < 0) {
+      const bA = kA >= 0 ? (tA.bst ? tA.bst[n] : tA.boost) : 1, bB = kB >= 0 ? (tB.bst ? tB.bst[n] : tB.boost) : 1;
+      const fA = kA >= 0 && tA.emf ? tA.emf[n] : 1, fB = kB >= 0 && tB.emf ? tB.emf[n] : 1;
+      if (nameA && kB < 0) {
         // the Name is never scattered: it dims evenly where it stands, and its points return to the field unseen
         const t4 = clamp((cf - .3 * jit[n]) / .7, 0, 1), stay = t4 < .5, c = stay ? cA : col;
         pos[n3] = stay ? ax : bx; pos[n3 + 1] = stay ? ay : by; pos[n3 + 2] = stay ? az : bz;
@@ -1817,9 +2077,12 @@ async function initScene() {
       pos[n3] = ax + (qx - ax) * e; pos[n3 + 1] = ay + (qy - ay) * e;
       pos[n3 + 2] = az + (qz - az) * e + (reduced ? 0 : Math.sin(Math.PI * tt) * 5 * arc[n]);
       colBuf[n3] = cA[n3] + (cB[n3] - cA[n3]) * e; colBuf[n3 + 1] = cA[n3 + 1] + (cB[n3 + 1] - cA[n3 + 1]) * e; colBuf[n3 + 2] = cA[n3 + 2] + (cB[n3 + 2] - cA[n3 + 2]) * e;
-      emB[n] = (kA >= 0 ? 1 - e : 0) + (kB >= 0 ? e : 0);
-      bsB[n] = (kA >= 0 ? bA : 1) * (1 - e) + (kB >= 0 ? bB : 1) * e;
+      emB[n] = (kA >= 0 ? (1 - e) * fA : 0) + (kB >= 0 ? e * fB : 0);
+      bsB[n] = bA * (1 - e) + bB * e;
       visB[n] = 1;
+      if (hk && ((hk === A && kA === hg) || (hk === B && kB === hg))) {
+        bsB[n] *= 1.35; colBuf[n3] += (1 - colBuf[n3]) * .4; colBuf[n3 + 1] += (1 - colBuf[n3 + 1]) * .4; colBuf[n3 + 2] += (1 - colBuf[n3 + 2]) * .4;
+      }
       // whatever rests in a pan weighs on the beam
       if (balA && kA >= 0 && tt < .03) { if (kA) w1++; else w0++; }
       if (balB && kB >= 0 && tt > .97) { if (kB) w1++; else w0++; }
@@ -1886,17 +2149,21 @@ async function initScene() {
       if (amp) { x += Math.sin(tm * .6 + phase[n] * 40) * amp; y += Math.cos(tm * .5 + phase[n] * 31) * amp; }
       pos[3 * n] = x; pos[3 * n + 1] = y; pos[3 * n + 2] = z;
     }
-    // the claim theater takes its points from wherever the field has them
-    const cT = prog(els.c1, .9, .35) + prog(els.c2, .9, .35) + prog(els.c3, .9, .35) + prog(els.c4, .9, .35) + prog(els.cards, .9, .35);
-    if (reduced) { const r = Math.round(cT); if (r !== cSnap) { cSnap = r; cFade = 0; } cFade = Math.min(1, cFade + dt * 3); cS = cSnap; }
-    else cS += (cT - cS) * (1 - Math.exp(-dt * 5));
-    const tOn = cS > 1e-3 && cS < 5 - 1e-3;
-    if (tOn) theater(dt); else if (tWas) calm();
-    tWas = tOn;
+    // the scenes take their points from wherever the field has them; the first track in play wins
+    tAct = null;
+    for (const t of TRK) {
+      const at = t.at();
+      if (reduced) { const r = Math.round(at); if (r !== t.snap) { t.snap = r; cFade = 0; } t.p = t.snap; }
+      else t.p += (at - t.p) * (1 - Math.exp(-dt * 5));
+      if (!tAct && t.p > 1e-3 && t.p < t.seq.length - 1 - 1e-3) tAct = t;
+    }
+    if (reduced) cFade = Math.min(1, cFade + dt * 3);
+    if (tAct) theater(dt, tAct); else if (tWas) calm();
+    tWas = !!tAct;
     posAttr.needsUpdate = true;
 
     const si = Math.min(Math.floor(sS), 3), sf = clamp(sS - si, 0, 1), sc = clamp(innerWidth / 1440, .72, 1), al = lerp(AL[si], AL[si + 1], sf);
-    const wT = clamp(Math.min(cS, 5 - cS), 0, 1);   // how far into the theater
+    const wT = tAct ? clamp(Math.min(tAct.p, tAct.seq.length - 1 - tAct.p), 0, 1) : 0;   // how far into a scene
     mat.uniforms.uSize.value = lerp(SZ[si], SZ[si + 1], sf) * sc;
     mat.uniforms.uAlpha.value = al * ie * (reduced ? fade * cFade : 1);
     mat.uniforms.uBack.value = 1 - .6 * wT;              // the rest of the field steps back
@@ -1914,11 +2181,15 @@ async function initScene() {
 
     vlBars.style.opacity = clamp(1 - Math.abs(sS - 1) * 5, 0, 1);
     vlSplit.style.opacity = clamp(1 - Math.abs(sS - 2) * 5, 0, 1);
-    vlCal.style.opacity = clamp(1 - Math.abs(cS - 1) * 4, 0, 1);
-    const bo = clamp(Math.min(cS - 1.5, 3.5 - cS) * 4, 0, 1);
+    // each scene's labels show while it is in place; the scale stays up across both of its scenes
+    const pres = s => { const j = tAct ? tAct.seq.indexOf(s) : -1; return j < 0 ? 0 : clamp(1 - Math.abs(tAct.p - j) * 4, 0, 1); };
+    const cS = CLAIMS.p, bo = tAct === CLAIMS ? clamp(Math.min(cS - 1.5, 3.5 - cS) * 4, 0, 1) : 0;
+    vlCal.style.opacity = pres(1);
     vlBal.style.opacity = bo;
     if (bo > 0 && balEls) drawBal(clamp(1 - Math.abs(cS - 2) * 2.5, 0, 1), clamp(1 - Math.abs(cS - 3) * 2.5, 0, 1));
-    vlNm.style.opacity = clamp(1 - Math.abs(cS - 4) * 4, 0, 1);
+    vlNm.style.opacity = pres(4);
+    vlRoots.style.opacity = pres(S_ROOTS);
+    vlMap.style.opacity = pres(S_MAP);
 
     // hover: a verse in the charts, or one mention in a theater scene once it has settled
     const cN = theaterScene(), near = !cN && Math.abs(sS - Math.round(sS)) < .05 && Math.round(sS) <= 2 && ie > .98;
@@ -1927,7 +2198,11 @@ async function initScene() {
     else if (!near && !cN && hovered >= 0 && !touchTip) setHover(-1);
     renderer.render(scene3, cam);
   }
-  const theaterScene = () => { const r = Math.round(cS); return r >= 1 && r <= 4 && Math.abs(cS - r) < .05 ? r : 0; };
+  const theaterScene = () => {   // the scene in place, if it answers to the pointer
+    const t = tAct; if (!t) return 0;
+    const r = Math.round(t.p), s = t.seq[r];
+    return s && Math.abs(t.p - r) < .05 && TH[s].hover !== false ? s : 0;
+  };
   const PM = new THREE.Matrix4();
   // the nearest point to the pointer; in a theater scene, only that scene's points count
   function pick(px, py, rad, s) {
@@ -1960,11 +2235,14 @@ async function initScene() {
   }
   function setHover(n, touch, s) {
     hovered = n; hs = n >= 0 ? (s || 0) : 0;
-    mat.uniforms.uHover.value = n >= 0 && !hs ? sur[n] + 1 : -1;   // a verse lights its whole surah
-    mat.uniforms.uHp.value = n >= 0 && hs ? n : -1;                // a mention lights alone
-    document.body.style.cursor = n >= 0 && !touch ? 'pointer' : '';
+    const kind = hs ? TH[hs].kind : '', verse = !hs || kind === 'map';
+    hg = n >= 0 && kind === 'roots' ? SIDE[hs][n] : -1;                             // a root lights its whole circle
+    mat.uniforms.uHover.value = n >= 0 && verse ? sur[n] + 1 : -1;                  // a verse lights its whole surah
+    mat.uniforms.uHp.value = n >= 0 && hs && !verse && kind !== 'roots' ? n : -1;   // a mention lights alone
+    document.body.style.cursor = n >= 0 && !touch && kind !== 'roots' ? 'pointer' : '';
     if (n < 0) { hideTip(); return; }
-    tip.innerHTML = hs ? tipClaim(n, hs, touch) : tipHTML(n, touch); tip.hidden = false; tip.classList.toggle('touch', !!touch);
+    tip.innerHTML = kind === 'roots' ? tipRoot(n) : verse ? tipHTML(n, touch) : tipClaim(n, hs, touch);
+    tip.hidden = false; tip.classList.toggle('touch', !!touch);
     const tw = tip.offsetWidth, th = tip.offsetHeight;
     tip.style.transform = 'translate(' + clamp(mouse.x + 16, 8, innerWidth - tw - 8) + 'px,' + clamp(mouse.y + 16, 8, innerHeight - th - 8) + 'px)';
   }
@@ -1979,7 +2257,11 @@ async function initScene() {
   document.addEventListener('pointerleave', () => { mouse = null; setHover(-1); });
   window.addEventListener('click', e => {
     if (blocked(e.target)) return;
-    if (e.pointerType === 'mouse' || (!e.pointerType && fine)) { if (hovered >= 0) location.href = readHref(hs ? REF[hs][hovered] : hovered); return; }
+    if (e.pointerType === 'mouse' || (!e.pointerType && fine)) {
+      const kind = hs ? TH[hs].kind : '';
+      if (hovered >= 0 && kind !== 'roots') location.href = readHref(hs && kind !== 'map' ? REF[hs][hovered] : hovered);
+      return;
+    }
     const s = theaterScene();
     if (!s && !(Math.abs(sS - Math.round(sS)) < .05 && Math.round(sS) <= 2)) return;
     mouse = { x: e.clientX, y: e.clientY };
@@ -2010,8 +2292,9 @@ async function initScene() {
     }
   };
 }
-initScene().then(api => { scene = api; root.classList.add(api ? 'gl' : 'no-gl'); if (api && ST) ST.refresh(); })
-  .catch(() => root.classList.add('no-gl'));
+// either way the page's layout changes (without WebGL the scene steps close up), so the scroll triggers are measured again
+const sceneReady = api => { scene = api; root.classList.add(api ? 'gl' : 'no-gl'); if (ST) ST.refresh(); };
+initScene().then(sceneReady).catch(() => sceneReady(null));
 });
 </script>
 </body>
