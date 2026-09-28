@@ -78,6 +78,23 @@ if (location.hostname === 'heshamabourokaia.github.io')
   #vizlabels .rule{height:1px;background:rgba(255,255,255,.14)}
   #vizlabels .mean{width:0;border-inline-start:1px dashed rgba(255,255,255,.55)}
   #vizlabels .call{font-size:.74rem;color:var(--on-dark);background:rgba(4,10,7,.6);border:1px solid var(--hair);border-radius:99px;padding:3px 10px;transform:translate(-50%,-100%)}
+  /* the claim theater's labels: month names over the year, the scale (drawn in SVG), captions */
+  #vizlabels .mo{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-3)}
+  html[lang=ar] #vizlabels .mo{letter-spacing:0;font-size:.74rem}
+  #vizlabels .cap{font-size:.76rem;letter-spacing:.04em;color:var(--on-dark-2)}
+  html[lang=ar] #vizlabels .cap{letter-spacing:0;font-size:.84rem}
+  #vizlabels .cap.gold{color:var(--gold)}
+  #vizlabels .halo{border-radius:50%;transform:translate(-50%,-50%);mix-blend-mode:screen;
+    background:radial-gradient(closest-side,rgba(233,185,95,.14),rgba(233,185,95,.05) 55%,transparent)}
+  #vizlabels svg{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible}
+  #vizlabels .bal line,#vizlabels .bal path{fill:none;stroke:rgba(233,185,95,.45);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+  #vizlabels .bal .beam{stroke:rgba(242,210,150,.95);stroke-width:2.4;filter:drop-shadow(0 0 5px rgba(233,185,95,.55))}
+  #vizlabels .bal .pan{stroke:rgba(233,185,95,.85);stroke-width:1.5;fill:rgba(233,185,95,.06)}
+  #vizlabels .bal .piv{fill:var(--gold);filter:drop-shadow(0 0 6px rgba(233,185,95,.9))}
+  #vizlabels .pl{left:0;top:0;text-align:center;line-height:1.2}
+  #vizlabels .pl b{display:block;font-family:var(--ar-display);font-weight:400;font-size:1.5rem;line-height:1.5;color:var(--on-dark)}
+  #vizlabels .pl i{display:block;font-style:normal;font-size:.76rem;font-variant-numeric:tabular-nums}
+  #vizlabels .pl .ok{color:var(--emerald)} #vizlabels .pl .off{color:var(--gold)}
   .grain{position:fixed;inset:0;z-index:70;pointer-events:none;opacity:.05;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
   main,footer{position:relative;z-index:2}
@@ -92,6 +109,12 @@ if (location.hostname === 'heshamabourokaia.github.io')
   #tip a{pointer-events:auto;display:inline-block;margin-top:6px;color:var(--emerald);font-weight:600;text-decoration:none}
   #tip.touch{pointer-events:auto}
   #tip[hidden]{display:block;opacity:0;visibility:hidden}
+  #tip [lang=ar]{font-family:var(--ar-display);font-size:1.1em;color:var(--on-dark)}
+
+  /* smooth scrolling (Lenis) */
+  html.lenis,html.lenis body{height:auto}
+  .lenis:not(.lenis-autoToggle).lenis-stopped{overflow:clip}
+  .lenis.lenis-smooth iframe{pointer-events:none}
 
   /* ── progress + nav ── */
   .progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:60;pointer-events:none}
@@ -292,6 +315,36 @@ if (location.hostname === 'heshamabourokaia.github.io')
   @keyframes refIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
   .claims .more-cta{text-align:center;margin:48px 0 0}
 
+  /* the claim theater: four scroll steps over the verse field, each with a tally of claimed against counted */
+  #claims{padding-bottom:0}
+  #claims .sechead{margin-bottom:0;text-shadow:0 2px 30px rgba(4,10,7,.9)}
+  @media (min-width:1100px),(min-width:761px) and (min-aspect-ratio:20/23){   /* beside the panels, the heading keeps to their side so the first scene can gather next to it */
+    #claims .sechead{text-align:start;margin-inline:0;max-width:min(520px,36vw)}
+    #claims .sechead .sub{margin-inline:0}
+  }
+  #claim-cards .sechead h3{font-size:clamp(2rem,1.3rem + 2.4vw,3.4rem);margin:.28em 0 0}
+  .panel h3{font-size:clamp(2rem,1.4rem + 2vw,3rem);margin:.3em 0 .45em}
+  .panel .ayah.word{font-size:2rem;line-height:1.5;margin-bottom:2px}
+  .tally{display:grid;gap:8px;margin-top:20px}
+  .trow{display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:8px}
+  .trow:only-child{grid-template-columns:auto auto;justify-content:start}
+  .trow:only-child .tw{display:none}   /* one word: the panel's heading already names it */
+  .tw{font-family:var(--ar-display);font-size:1.4rem;line-height:1.5;color:var(--on-dark);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .tn{min-width:88px;text-align:center;border:1px solid var(--hair);border-radius:14px;padding:9px 10px 8px;background:rgba(255,255,255,.03)}
+  .tn b{display:block;font-family:var(--serif);font-weight:400;font-size:1.75rem;line-height:1;font-variant-numeric:tabular-nums;color:var(--on-dark-2)}
+  html[lang=ar] .tn b{font-family:var(--ar-display);font-size:1.5rem;line-height:1.1}
+  .tn i{display:block;font-style:normal;font-size:.6rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-3);margin-top:6px}
+  html[lang=ar] .tn i{letter-spacing:0;font-size:.74rem;margin-top:3px}
+  .tn.ok{border-color:rgba(52,211,153,.3)} .tn.ok b{color:var(--emerald);text-shadow:0 0 18px rgba(52,211,153,.4)}
+  .tn.off{border-color:rgba(233,185,95,.3)} .tn.off b{color:var(--gold);text-shadow:0 0 18px rgba(233,185,95,.4)}
+  /* a portrait tablet stacks the theater like a phone: the scene above, the panel below */
+  @media (min-width:761px) and (max-width:1099px) and (max-aspect-ratio:20/23){
+    .cstory .step{min-height:100vh;min-height:100svh;align-items:flex-end;justify-content:center;padding-bottom:5svh}
+    .cstory .panel{max-width:640px;width:100%}
+  }
+  /* without WebGL the steps close up into a plain run of panels */
+  html.no-gl .cstory .step{min-height:0;padding-block:22px}
+
   /* ── coincidence explorer ── */
   .split2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);gap:clamp(34px,5vw,86px);align-items:center}
   .coinc .sechead h2{font-size:clamp(2.3rem,1.4rem + 3.1vw,4.4rem)}
@@ -443,8 +496,17 @@ if (location.hostname === 'heshamabourokaia.github.io')
       backdrop-filter:none;-webkit-backdrop-filter:none}
     .panel{padding:20px 20px 22px}
     .panel .ayah{font-size:1.9rem;margin-bottom:6px}
-    .panel h2{font-size:clamp(1.75rem,1.2rem + 3vw,2.3rem);margin:.25em 0 .4em}
+    .panel h2,.panel h3{font-size:clamp(1.75rem,1.2rem + 3vw,2.3rem);margin:.25em 0 .4em}
+    .panel .ayah.word{font-size:1.55rem;margin-bottom:0}
     .panel p{font-size:.92rem;line-height:1.6}
+    .tally{margin-top:14px;gap:6px}
+    .tw{font-size:1.2rem}
+    .tn{min-width:0;display:flex;align-items:baseline;justify-content:center;gap:6px;padding:6px 10px;border-radius:12px}
+    .tn b{font-size:1.3rem}
+    html[lang=ar] .tn b{font-size:1.2rem}
+    .tn i,html[lang=ar] .tn i{margin-top:0}
+    #vizlabels .pl b{font-size:1.15rem}
+    #vizlabels .pl i{font-size:.68rem}
     html[lang=ar] .panel p{line-height:1.8}
     #s3 .legend{display:none}
     .panel .hint{margin-top:14px}
@@ -486,7 +548,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
 <a class="skip" href="#tour" data-i18n="skip">Skip to the tour</a>
 <div class="sky" aria-hidden="true"></div>
 <canvas id="gl" aria-hidden="true"></canvas>
-<div id="vizlabels" aria-hidden="true"><div class="vl bars"></div><div class="vl split"></div></div>
+<div id="vizlabels" aria-hidden="true"><div class="vl bars"></div><div class="vl split"></div><div class="vl cal"></div><div class="vl bal"></div><div class="vl nm"></div></div>
 <div class="grain" aria-hidden="true"></div>
 <div id="tip" hidden></div>
 <div class="progress" aria-hidden="true"><i></i></div>
@@ -584,12 +646,65 @@ if (location.hostname === 'heshamabourokaia.github.io')
 </section>
 
 <section class="sec claims" id="claims">
-  <div class="wrap" id="claims-app">
+  <div class="wrap">
     <header class="sechead rv">
       <span class="ayah" aria-hidden="true">۝٥</span>
       <p class="kick" data-i18n="cl.kicker">Claim auditor</p>
       <h2 class="display" data-i18n="cl.h2">Famous claims, audited.</h2>
       <p class="sub" data-i18n-html="cl.p">Every famous word-count claim, checked against the real corpus.</p>
+    </header>
+  </div>
+</section>
+
+<!-- the claim theater: the verse field gathers into four famous claims, one point of light per occurrence -->
+<section class="story cstory" id="cstory">
+  <div class="step" id="c1">
+    <div class="panel rv">
+      <span class="ayah word" lang="ar" aria-hidden="true">يَوْم</span>
+      <p class="kick" data-i18n="c1.k">Yawm, day</p>
+      <h3 class="display" data-i18n="c1.h">One for every day of the year?</h3>
+      <p data-i18n="c1.p">Yawm is famously said to appear 365 times.</p>
+      <div class="tally" data-cl="day-365"></div>
+      <p class="hint"><i aria-hidden="true"></i><span class="chint" data-i18n="c.hint">Hover a point to see its verse.</span></p>
+    </div>
+  </div>
+  <div class="step" id="c2">
+    <div class="panel rv">
+      <span class="ayah word" lang="ar" aria-hidden="true">مَلَك · شَيْطان</span>
+      <p class="kick" data-i18n="c2.k">Angels and devils</p>
+      <h3 class="display" data-i18n="c2.h">88 and 88. The scale balances.</h3>
+      <p data-i18n="c2.p">A famous pairing.</p>
+      <div class="tally" data-cl="angel-88,devil-88"></div>
+      <p class="hint"><i aria-hidden="true"></i><span class="chint" data-i18n="c.hint">Hover a point to see its verse.</span></p>
+    </div>
+  </div>
+  <div class="step" id="c3">
+    <div class="panel rv">
+      <span class="ayah word" lang="ar" aria-hidden="true">جَنَّة · جَهَنَّم</span>
+      <p class="kick" data-i18n="c3.k">Paradise and Hell</p>
+      <h3 class="display" data-i18n="c3.h">77 and 77? The scale tips.</h3>
+      <p data-i18n="c3.p">Jannah appears 147 times; jahannam 77.</p>
+      <div class="tally" data-cl="paradise-77,hell-77"></div>
+      <p class="hint"><i aria-hidden="true"></i><span class="chint" data-i18n="c.hint">Hover a point to see its verse.</span></p>
+    </div>
+  </div>
+  <div class="step" id="c4">
+    <div class="panel rv">
+      <span class="ayah word" lang="ar" aria-hidden="true">اللَّه</span>
+      <p class="kick" data-i18n="c4.k">The Name</p>
+      <h3 class="display" data-i18n="c4.h">2,699 points of light.</h3>
+      <p data-i18n="c4.p">The name Allah is often said to appear 2,806 times.</p>
+      <div class="tally" data-cl="allah-2806"></div>
+      <p class="hint"><i aria-hidden="true"></i><span class="chint" data-i18n="c.hint">Hover a point to see its verse.</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="sec claims cards" id="claim-cards">
+  <div class="wrap" id="claims-app">
+    <header class="sechead rv">
+      <p class="kick" data-i18n="cg.k">All twelve claims</p>
+      <h3 class="display" data-i18n="cg.h">Every claim, card by card.</h3>
     </header>
     <div class="clegend rv">
       <span><i class="dot green"></i><span data-i18n="leg1">Verified matches the claim exactly</span></span>
@@ -777,6 +892,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
 <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
 <script defer src="vendor/vue.global.prod.js"></script>
 <script defer src="data.js"></script>
 <script>
@@ -814,6 +930,17 @@ const NUM = {
   acc: CL.accuracy * 100, base: CL.baseline * 100, auc: CL.auc,
   mecOK: CONF[0][0], caught: CONF[1][1], missed: CONF[1][0]
 };
+// the claims the theater stages, and the figures its panels quote
+const CLAIM = {};
+D.claims.forEach(c => { CLAIM[c.id] = c; });
+(function () {
+  const day = CLAIM['day-365'], ang = CLAIM['angel-88'], dev = CLAIM['devil-88'], hell = CLAIM['hell-77'], par = CLAIM['paradise-77'], god = CLAIM['allah-2806'];
+  Object.assign(NUM, { claimsN: D.claims.length,
+    dayC: day.claimed, dayV: day.verifiedLemma, dayX: day.verifiedLemma - day.claimed,
+    angC: ang.claimed, angV: ang.verifiedLemma, devV: dev.verifiedLemma,
+    hellC: hell.claimed, hellV: hell.verifiedLemma, parC: par.claimed, parV: par.verifiedLemma,
+    godC: god.claimed, godV: god.verifiedLemma, godVs: new Set(god.audit.map(r => r[0] + ':' + r[1])).size });
+})();
 const DEC = { mecAvg: 1, medAvg: 1, t: 1, acc: 1, base: 1, auc: 2 };
 const loc = () => (lang === 'ar' ? 'ar-EG' : 'en-US');
 const nf = (n, d) => Number(n).toLocaleString(loc(), { minimumFractionDigits: d || 0, maximumFractionDigits: d || 0 });
@@ -882,6 +1009,30 @@ const I18N = {
   'leg2':       {en:'Parity holds (pair is equal)', ar:'التعادل قائم (الزوجان متساويان)'},
   'leg3':       {en:'Differs / depends on counting method', ar:'مختلف، أو يعتمد على طريقة العدّ'},
   'cl.more':    {en:'Check any claim yourself', ar:'دقّق أي زعمٍ بنفسك'},
+  'c1.k':       {en:'Yawm, day', ar:'كلمة «يوم»'},
+  'c1.h':       {en:'One for every day of the year?', ar:'مرةً لكل يومٍ من أيام السنة؟'},
+  'c1.p':       {en:'Yawm, day, is famously said to appear {dayC} times, once for every day of the year. Here is every one of its {dayV} mentions, counted by lemma, as a point of light: a year fills up, and {dayX} are left over.',
+                 ar:'يُقال إن كلمة «يوم» وردت {dayC} مرة، بعدد أيام السنة. وهذه مرّاتُ ورودها كلُّها بالعدّ بالجذع، {dayV} مرة، لكل مرةٍ نقطةُ ضوء: تمتلئ السنة، ويبقى {dayX}.'},
+  'c2.k':       {en:'Angels and devils', ar:'الملائكة والشياطين'},
+  'c2.h':       {en:'{angV} and {devV}. The scale balances.', ar:'{angV} و{devV}، والميزان معتدل.'},
+  'c2.p':       {en:'A famous pairing: angel and devil, {angC} times each. Counted by lemma, it holds exactly. Each point on the scale is one mention.',
+                 ar:'زوجٌ مشهور: المَلَك والشيطان، {angC} مرة لكلٍّ منهما. وبالعدّ بالجذع يصحّ ذلك تمامًا، وكل نقطةٍ في الميزان ورودٌ واحد.'},
+  'c3.k':       {en:'Paradise and Hell', ar:'الجنة وجهنم'},
+  'c3.h':       {en:'{parC} and {hellC}? The scale tips.', ar:'{parC} و{hellC}؟ الميزان يميل.'},
+  'c3.p':       {en:'Jannah, Paradise, and Jahannam, Hell, are said to appear {parC} times each. Hell’s count holds at {hellV}. Jannah appears {parV} times, because the word also means garden; the claimed {parC} counts only the Paradise sense, which a word count cannot separate.',
+                 ar:'يُقال إن «الجنة» و«جهنم» وردتا {parC} مرة لكلٍّ منهما. أما «جهنم» فيصحّ عددها: {hellV}. وأما «جنة» فوردت {parV} مرة، لأنها تعني البستان أيضًا، والرقم {parC} يعدّ معنى الجنة وحده، وهذا ما لا يفصله عدُّ الكلمات.'},
+  'c4.k':       {en:'The Name', ar:'اسم الجلالة'},
+  'c4.h':       {en:'{godV} points of light.', ar:'{godV} نقطة ضوء.'},
+  'c4.p':       {en:'The name Allah is often said to appear {godC} times, a figure that follows a wider way of counting. The standard count in this corpus is {godV}, in {godVs} verses, and every point here is one of them.',
+                 ar:'يُقال إن اسم الجلالة ورد {godC} مرة، وهذا الرقم يتبع طريقةً أوسع في العدّ. أما العدّ المعياري في هذه المدونة فهو {godV} مرة في {godVs} آية، وكل نقطةٍ هنا واحدةٌ منها.'},
+  'c.hint':     {en:'Each point is one mention. Hover to see its verse.', ar:'كل نقطةٍ ورودٌ واحد؛ مرِّر المؤشر فوقها لتعرف آيتها.'},
+  'c.tap':      {en:'Each point is one mention. Tap one to see its verse.', ar:'كل نقطةٍ ورودٌ واحد؛ المسها لتعرف آيتها.'},
+  'cg.k':       {en:'All {claimsN} claims', ar:'المزاعم الـ{claimsN} كلها'},
+  'cg.h':       {en:'Every claim, card by card.', ar:'كل زعمٍ في بطاقته.'},
+  'tl.cl':      {en:'claimed', ar:'المزعوم'},
+  'tl.co':      {en:'counted', ar:'المحقَّق'},
+  'cal.over':   {en:'{dayX} left over', ar:'يبقى {dayX}'},
+  'nm.cap':     {en:'{godV} mentions · {godVs} verses', ar:'{godV} مرة · في {godVs} آية'},
   'co.k':       {en:'Why matching numbers are easy to find', ar:'لماذا يسهل العثور على أعدادٍ متطابقة'},
   'co.h':       {en:'Pick any number. Some words will land on it.', ar:'اختر أي عدد، وستجد كلماتٍ تقع عليه.'},
   'co.p':       {en:'The corpus has {lemmas} lemmas, so almost any number is hit by several of them. Choose one to see how many lemmas occur exactly that often, and how many come within five.',
@@ -944,7 +1095,7 @@ const I18N = {
 };
 const T = key => { const d = I18N[key]; return d ? fill(d[lang] || d.en) : key; };
 const buzz = ms => { try { if (navigator.vibrate) navigator.vibrate(ms); } catch (e) { /* not supported */ } };
-if (!fine) $('#hinttext').dataset.i18n = 's1.tap';
+if (!fine) { $('#hinttext').dataset.i18n = 's1.tap'; $$('.chint').forEach(e => { e.dataset.i18n = 'c.tap'; }); }
 const appHref = view => { const q = new URLSearchParams(); if (view) q.set('view', view); if (lang === 'ar') q.set('lang', 'ar'); const s = q.toString(); return 'app.html' + (s ? '?' + s : ''); };
 
 // ── claims auditor (Vue), mounted before any animation touches its DOM ──
@@ -1065,6 +1216,34 @@ chipsEl.addEventListener('keydown', e => {
   coinN = +n.dataset.n; dg.entered = true; renderCoinc(true); n.focus();
 });
 
+// ── the theater's tallies: each claimed figure against the count by lemma ──
+function renderTallies() {
+  $$('.tally[data-cl]').forEach(el => {
+    el.innerHTML = el.dataset.cl.split(',').map(id => {
+      const c = CLAIM[id]; if (!c) return '';
+      return '<div class="trow"><span class="tw" lang="ar">' + c.ar + '</span>' +
+        '<span class="tn"><b>' + nf(c.claimed) + '</b><i>' + T('tl.cl') + '</i></span>' +
+        '<span class="tn ' + (c.verifiedLemma === c.claimed ? 'ok' : 'off') + '"><b data-n="' + c.verifiedLemma + '">' + nf(c.verifiedLemma) + '</b><i>' + T('tl.co') + '</i></span></div>';
+    }).join('');
+  });
+}
+// a counted figure spins like a slot reel, then settles digit by digit
+function roll(el, delay) {
+  const end = +el.dataset.n, t0 = performance.now() + (delay || 0) * 1000, dur = 1300;
+  const tick = now => {
+    if (!el.isConnected) return;
+    const s = nf(end), k = (now - t0) / dur;
+    if (k >= 1) { el.textContent = s; return; }
+    if (k >= 0) {
+      const done = Math.floor(k * (s.length + 1)); let o = '';
+      for (let j = 0; j < s.length; j++) o += j < done || !/[0-9٠-٩]/.test(s[j]) ? s[j] : digits(Math.floor(Math.random() * 10));
+      el.textContent = o;
+    }
+    requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
+
 // ── language ──
 let heroSplit = null, heroTl = null, scene = null;
 function heroSettle() { if (heroTl) { heroTl.progress(1); heroTl.kill(); heroTl = null; } if (heroSplit) { heroSplit.revert(); heroSplit = null; } }
@@ -1081,13 +1260,24 @@ function applyLang(l, first) {
   $$('[data-setlang]').forEach(b => { const on = b.dataset.setlang === l; b.classList.toggle('on', on); b.setAttribute('aria-pressed', String(on)); });
   if (!first) { const u = new URL(location.href); if (l === 'ar') u.searchParams.set('lang', 'ar'); else u.searchParams.delete('lang'); history.replaceState(null, '', u); }
   if (vm) vm.lang = l;
-  renderLabWords(); renderCoinc(false);
+  renderLabWords(); renderCoinc(false); renderTallies();
   if (scene) scene.setLang();
   if (ST && !first) ST.refresh();
 }
 $$('[data-setlang]').forEach(b => b.addEventListener('click', () => { if (b.dataset.setlang !== lang) { applyLang(b.dataset.setlang); buzz(10); } }));
 $('#surprise').addEventListener('click', e => { if (!scene) return; scene.surprise(); buzz(12);
   const b = e.currentTarget; b.classList.add('spin'); setTimeout(() => b.classList.remove('spin'), 600); });
+
+// ── smooth scrolling (Lenis) for a mouse or trackpad; touch keeps the phone's own scrolling ──
+let lenis = null;
+if (motion && fine && window.Lenis) {
+  try {
+    lenis = new Lenis({ lerp: .1 });
+    lenis.on('scroll', ST.update);
+    G.ticker.add(t => { lenis.raf(t * 1000); });
+    G.ticker.lagSmoothing(0);
+  } catch (e) { lenis = null; }
+}
 
 // ── nav state + progress ──
 const nav = $('.topnav'), bar = $('.progress i');
@@ -1102,7 +1292,8 @@ function onScroll() {
 window.addEventListener('scroll', onScroll, { passive: true });
 $$('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
   const t = document.getElementById(a.getAttribute('href').slice(1)); if (!t) return;
-  e.preventDefault(); t.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
+  e.preventDefault();
+  if (lenis) lenis.scrollTo(t, { duration: 1.6 }); else t.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
 }));
 
 applyLang(lang, true);
@@ -1157,6 +1348,9 @@ if (motion) {
     onEnter: els => { G.to(els, Object.assign({ autoAlpha: 1, y: 0, rotationX: 0, duration: 1.1, ease: 'expo.out', stagger: .07, clearProps: 'transform' }, quiet(els)));
       // each verified figure counts up as its card flips in, like the corpus totals above
       els.forEach((c, i) => { const v = $('.nbox.verified .v', c); if (v && v.dataset.n) countUp(v, .15 + i * .07); }); } });
+  // the theater's counted figures spin in as each panel arrives
+  $$('.tally').forEach(t => ST.create({ trigger: t, start: 'top 88%', once: true,
+    onEnter: () => $$('b[data-n]', t).forEach((b, i) => roll(b, .35 + i * .2)) }));
   G.fromTo(ringVal, { strokeDashoffset: ringC }, { strokeDashoffset: ringC * (1 - CL.accuracy), duration: 2.2, ease: 'power3.out', scrollTrigger: { trigger: '.lcard.ring', start: 'top 80%' } });
   G.from('#waffle i', { scale: 0, opacity: 0, duration: .5, ease: 'back.out(2.5)', stagger: { each: .012 }, scrollTrigger: { trigger: '#waffle', start: 'top 85%' } });
   G.from('.wlist .bar i', { scaleX: 0, duration: 1.4, ease: 'expo.out', stagger: .05, scrollTrigger: { trigger: '.lcard.words', start: 'top 80%' } });
@@ -1233,31 +1427,44 @@ async function initScene() {
   const geo = new THREE.BufferGeometry();
   const posAttr = new THREE.BufferAttribute(pos, 3); posAttr.setUsage(THREE.DynamicDrawUsage);
   geo.setAttribute('position', posAttr);
-  geo.setAttribute('aColor', new THREE.BufferAttribute(col, 3));
+  // the claim theater rewrites colour, emphasis (glow), size boost and visibility per point; the base colours stay in col
+  const colBuf = col.slice(), emB = new Float32Array(N), bsB = new Float32Array(N).fill(1), visB = new Float32Array(N).fill(1), idx = new Float32Array(N);
+  for (i = 0; i < N; i++) idx[i] = i;
+  const dyn = a => { a.setUsage(THREE.DynamicDrawUsage); return a; };
+  const colAttr = dyn(new THREE.BufferAttribute(colBuf, 3)), emAttr = dyn(new THREE.BufferAttribute(emB, 1)),
+    bsAttr = dyn(new THREE.BufferAttribute(bsB, 1)), visAttr = dyn(new THREE.BufferAttribute(visB, 1));
+  geo.setAttribute('aColor', colAttr);
   geo.setAttribute('aSize', new THREE.BufferAttribute(size, 1));
   geo.setAttribute('aSurah', new THREE.BufferAttribute(surA, 1));
   geo.setAttribute('aPhase', new THREE.BufferAttribute(phase, 1));
+  geo.setAttribute('aEm', emAttr); geo.setAttribute('aBoost', bsAttr); geo.setAttribute('aVis', visAttr);
+  geo.setAttribute('aIdx', new THREE.BufferAttribute(idx, 1));
   const mat = new THREE.ShaderMaterial({
-    uniforms: { uTime: { value: 0 }, uSize: { value: 2.4 }, uPR: { value: PR }, uAlpha: { value: 0 }, uHover: { value: -1 } },
+    uniforms: { uTime: { value: 0 }, uSize: { value: 2.4 }, uPR: { value: PR }, uAlpha: { value: 0 }, uHover: { value: -1 }, uHp: { value: -1 },
+      uBack: { value: 1 }, uFront: { value: 1 } },
     vertexShader: [
       'attribute vec3 aColor; attribute float aSize; attribute float aSurah; attribute float aPhase;',
-      'uniform float uTime; uniform float uSize; uniform float uPR; uniform float uHover;',
-      'varying vec3 vC; varying float vA;',
+      'attribute float aEm; attribute float aBoost; attribute float aVis; attribute float aIdx;',
+      'uniform float uTime; uniform float uSize; uniform float uPR; uniform float uHover; uniform float uHp; uniform float uBack; uniform float uFront;',
+      'varying vec3 vC; varying float vA; varying float vE;',
       'void main(){',
       '  vec4 mv = modelViewMatrix * vec4(position, 1.0);',
-      '  float h = 1.0 - step(0.5, abs(aSurah - uHover));',
-      '  gl_PointSize = uSize * aSize * uPR * (1.0 + 1.2 * h) * (60.0 / max(1.0, -mv.z));',
+      '  float h = max(1.0 - step(0.5, abs(aSurah - uHover)), 1.0 - step(0.5, abs(aIdx - uHp)));',
+      '  gl_PointSize = uSize * mix(aSize, 1.25, aEm) * aBoost * uPR * (1.0 + 1.2 * h) * (60.0 / max(1.0, -mv.z));',
       '  gl_Position = projectionMatrix * mv;',
       '  vC = mix(aColor, vec3(1.0), 0.5 * h);',
-      '  vA = (0.78 + 0.22 * sin(uTime * 1.3 + aPhase * 6.2831)) * (1.0 + 0.6 * h);',
+      '  float tw = 0.78 + 0.22 * sin(uTime * 1.3 + aPhase * 6.2831);',
+      '  vA = mix(tw * uBack, uFront * (0.9 + 0.1 * tw), aEm) * (1.0 + 0.6 * h) * aVis;',
+      '  vE = aEm;',
       '}'].join('\n'),
     fragmentShader: [
-      'uniform float uAlpha; varying vec3 vC; varying float vA;',
+      'uniform float uAlpha; varying vec3 vC; varying float vA; varying float vE;',
       'void main(){',
       '  float d = length(gl_PointCoord - 0.5);',
       '  if (d > 0.5) discard;',
-      '  float a = pow(1.0 - d * 2.0, 1.5) * uAlpha * vA;',
-      '  gl_FragColor = vec4(vC, a);',
+      '  float soft = pow(1.0 - d * 2.0, 1.5);',
+      '  float glow = (1.0 - smoothstep(0.14, 0.26, d)) * 0.95 + pow(1.0 - d * 2.0, 2.0) * 0.55;',   // a bright core in a soft halo
+      '  gl_FragColor = vec4(vC, mix(soft, glow, vE) * uAlpha * vA);',
       '}'].join('\n'),
     transparent: true, depthWrite: false, blending: THREE.AdditiveBlending
   });
@@ -1321,7 +1528,7 @@ async function initScene() {
     }
   }
   async function sampleWord() {
-    try { await document.fonts.load('700 200px Amiri'); } catch (e) { /* fall back to the system serif */ }
+    try { await document.fonts.load('700 200px Amiri', 'اقرأ'); } catch (e) { /* fall back to the system serif */ }
     const cw = 1000, ch = 560, c = document.createElement('canvas'); c.width = cw; c.height = ch;
     const x = c.getContext('2d'); x.fillStyle = '#fff'; x.textAlign = 'center'; x.textBaseline = 'middle'; x.direction = 'rtl';
     x.font = '700 330px Amiri, serif'; x.fillText('اقرأ', cw / 2, ch / 2);
@@ -1337,6 +1544,156 @@ async function initScene() {
       p[2 * n] = (hits[2 * m] + jx - x0) / bw; p[2 * n + 1] = (hits[2 * m + 1] + jy - y0) / bh; }
     word = { pts: p, aspect: bw / bh };
     layoutWord();
+  }
+
+  // ── the claim theater: four famous claims, one point of light per mention ──
+  // A point stands for its own verse where it can; when a verse holds the word more than once, the extra
+  // mentions borrow spare points from the field. Scenes: 1 the year (yawm), 2 and 3 the scale, 4 the Name.
+  const vStart = new Int32Array(VW.length + 1);
+  for (let k = 0; k < VW.length; k++) vStart[k + 1] = vStart[k] + VW[k].length;
+  const TH = [null,
+    { kind: 'cal', cl: [CLAIM['day-365']], boost: 5.5 },
+    { kind: 'bal', cl: [CLAIM['angel-88'], CLAIM['devil-88']], boost: 4.2 },
+    { kind: 'bal', cl: [CLAIM['paradise-77'], CLAIM['hell-77']], boost: 4.2 },
+    { kind: 'name', cl: [CLAIM['allah-2806']], boost: 2.5 }];
+  const SIDE = [null], OCC = [null], REF = [null], CP = [null], CC = [null], CDL = [null];
+  const EMER = [.32, .9, .66], AMBER = [.98, .76, .4], WARM = [1, .88, .62];
+  const pool = new Int32Array(N);
+  { const r = rng(2699); for (let n = 0; n < N; n++) pool[n] = n;
+    for (let n = N - 1; n > 0; n--) { const j = Math.floor(r() * (n + 1)), t = pool[n]; pool[n] = pool[j]; pool[j] = t; } }
+  for (let s = 1; s <= 4; s++) {
+    const sc = TH[s], side = new Int8Array(N).fill(-1), occ = new Int16Array(N), ref = new Int16Array(N), cc = new Float32Array(N * 3), dl = new Float32Array(N), rest = [];
+    const most = Math.max(...sc.cl.map(c => c.audit.length));
+    sc.cl.forEach((c, k) => c.audit.forEach((r, j) => {
+      const v = vStart[r[0] - 1] + r[1] - 1;
+      if (!(v >= 0 && v < N)) return;
+      if (side[v] < 0) { side[v] = k; occ[v] = j; ref[v] = v; } else rest.push(k, j, v);
+    }));
+    for (let q = 0, p = 0; q < rest.length; q += 3) {
+      while (side[pool[p]] >= 0) p++;
+      const n = pool[p]; side[n] = rest[q]; occ[n] = rest[q + 1]; ref[n] = rest[q + 2];
+    }
+    // colour gives the verdict, as on the cards: emerald where the count matches the claim, amber where it does not.
+    // The year is emerald until it is full; the Name is warm light.
+    for (let n = 0; n < N; n++) {
+      const k = side[n]; if (k < 0) continue;
+      const c = sc.cl[k], j = occ[n], b = .88 + jit2[n] * .24;
+      const hue = sc.kind === 'name' ? WARM : sc.kind === 'cal' ? (j < c.claimed ? EMER : AMBER) : (c.verifiedLemma === c.claimed ? EMER : AMBER);
+      cc[3 * n] = Math.min(1, hue[0] * b); cc[3 * n + 1] = Math.min(1, hue[1] * b); cc[3 * n + 2] = Math.min(1, hue[2] * b);
+      dl[n] = j / most;   // the mentions arrive in mushaf order
+    }
+    SIDE.push(side); OCC.push(occ); REF.push(ref); CP.push(new Float32Array(N * 3)); CC.push(cc); CDL.push(dl);
+  }
+  // layouts in viewport fractions, like the charts; on a desktop x0 is pushed clear of the text panel
+  const TDESK = { x0: .47, x1: .95, y0: .13, y1: .87, name: { cx: .71, cy: .47, w: .42, h: .46 } };
+  const TMOB = { x0: .05, x1: .95, y0: .08, y1: .45, name: { cx: .5, cy: .265, w: .84, h: .27 } };
+  // a portrait tablet stacks like a phone: the scene above, the panel below (see the matching CSS)
+  const TTAB = { x0: .08, x1: .92, y0: .07, y1: .5, name: { cx: .5, cy: .285, w: .72, h: .3 } };
+  let stack = false;
+  const tf = () => (mob ? TMOB : stack ? TTAB : TDESK);
+  const BG = { px: 0, py: 0, L: 1, S: 1, P: 1, d: .1 };   // the scale: pivot, half-beam, strings, pan width, dish depth
+  let calInfo = null, nameInfo = null, nameS = null;
+  // a heap of k points in a dish of width P and depth d, hung on strings of length S:
+  // bottom rows first, highest in the middle, and never outside the dish or the strings
+  function heap(k, P, d, S, s) {
+    const cand = [], half = P / 2 - s * .5;
+    for (let r = 0; cand.length < (2 * k + 30) * 3 && r < 400; r++) {
+      const y = -d + s * .45 + r * s * .866, off = (r % 2) * s * .5, lim = y > 0 ? (P / 2) * (1 - y / S) - s * .6 : half;
+      for (let x = -half + off; x <= half + 1e-6; x += s) {
+        if (Math.abs(x) > lim || y < -d * (1 - Math.pow(2 * x / P, 2)) + s * .4) continue;
+        cand.push(x, y, y + .9 * x * x / P);
+      }
+    }
+    const order = Array.from({ length: cand.length / 3 }, (_, q) => q).sort((a, b) => cand[3 * a + 2] - cand[3 * b + 2]);
+    const out = new Float32Array(k * 2);
+    for (let j = 0; j < k; j++) { const q = order[Math.min(j, order.length - 1)]; out[2 * j] = cand[3 * q]; out[2 * j + 1] = cand[3 * q + 1]; }
+    return out;
+  }
+  function layoutTheater() {
+    const f = tf();
+    if (f === TDESK) {
+      f.x0 = Math.max(.47, (clamp(innerWidth * .045, 16, 64) + 470) / innerWidth);
+      f.name.cx = (f.x0 + f.x1) / 2; f.name.w = (f.x1 - f.x0) * .88;
+    }
+    const bw = f.x1 - f.x0, bh = f.y1 - f.y0;
+    // 1 · the year: twelve month blocks of seven columns, and below them whatever spills over
+    {
+      const c = TH[1].cl[0], yr = Math.min(c.claimed, 365), extra = Math.max(0, c.audit.length - yr);
+      const ML = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31], MW = 7, GX = 2, MH = 5, LB = 1.8, GY = 1.1, OC = 22, orows = Math.ceil(extra / OC);
+      const gw = 4 * MW + 3 * GX, oy = 3 * (LB + MH) + 3 * GY, gh = oy + (orows ? LB + orows : -GY);
+      const cell = Math.min(bw * W / gw, bh * H / gh), cx = cell / W, cy = cell / H;
+      const fx0 = f.x0 + (bw - gw * cx) / 2, fy0 = f.y0 + (bh - gh * cy) / 2, mS = [0];
+      for (let m = 0; m < 12; m++) mS.push(mS[m] + ML[m]);
+      const side = SIDE[1], occ = OCC[1], p = CP[1];
+      for (let n = 0; n < N; n++) {
+        if (side[n] < 0) continue;
+        const j = occ[n]; let cl, rw;
+        if (j < yr) {
+          let m = 0; while (j >= mS[m + 1]) m++;
+          const dd = j - mS[m];
+          cl = (m % 4) * (MW + GX) + dd % 7; rw = Math.floor(m / 4) * (LB + MH + GY) + LB + Math.floor(dd / 7);
+        } else { const o = j - yr; cl = o % OC; rw = oy + LB + Math.floor(o / OC); }
+        p[3 * n] = wx(mx(fx0 + (cl + .5) * cx)); p[3 * n + 1] = wy(fy0 + (rw + .5) * cy); p[3 * n + 2] = (jz[n] - .5) * .3;
+      }
+      calInfo = { months: ML.map((_, m) => [fx0 + (m % 4) * (MW + GX) * cx, fy0 + (Math.floor(m / 4) * (LB + MH + GY) + LB * .42) * cy]),
+        over: extra ? [fx0, fy0 + (oy + LB * .42) * cy] : null };
+    }
+    // 2, 3 · the scale; each heap is kept relative to its pan, which rides the beam as it tilts
+    BG.L = Math.min(.36 * bw * W, .4 * bh * H); BG.S = .75 * BG.L; BG.P = .62 * BG.L; BG.d = .14 * BG.P;
+    BG.px = wx(mx(f.x0 + bw / 2)); BG.py = wy(f.y0 + bh * .24);
+    for (const s of [2, 3]) TH[s].cl.forEach((c, k) => {
+      const hp = heap(c.audit.length, BG.P, BG.d, BG.S, BG.P / 18), side = SIDE[s], occ = OCC[s], p = CP[s];
+      for (let n = 0; n < N; n++) if (side[n] === k) { const j = occ[n]; p[3 * n] = hp[2 * j]; p[3 * n + 1] = hp[2 * j + 1]; p[3 * n + 2] = (jz[n] - .5) * .3; }
+    });
+    layoutName();
+  }
+  // 4 · the Name, written in its own mentions: mushaf order runs from right to left across the letters
+  function layoutName() {
+    const side = SIDE[4], occ = OCC[4], p = CP[4], f = tf().name;
+    if (!nameS) {   // until the letters are sampled, the Name's points wait where they are
+      for (let n = 0; n < N; n++) if (side[n] >= 0) { p[3 * n] = L[3][3 * n]; p[3 * n + 1] = L[3][3 * n + 1]; p[3 * n + 2] = L[3][3 * n + 2]; }
+      nameInfo = null; return;
+    }
+    const s = Math.min(f.w * W / nameS.aspect, f.h * H), cx = wx(mx(f.cx)), cy = wy(f.cy);
+    for (let n = 0; n < N; n++) if (side[n] >= 0) {
+      const j = occ[n];
+      p[3 * n] = cx + (nameS.pts[2 * j] - .5) * s * nameS.aspect; p[3 * n + 1] = cy - (nameS.pts[2 * j + 1] - .5) * s; p[3 * n + 2] = (jz[n] - .5) * .8;
+    }
+    nameInfo = { bottom: f.cy + s / 2 / H, w: s * nameS.aspect / W, h: s / H };
+  }
+  async function sampleName() {
+    try { await document.fonts.load('700 200px Amiri', 'الله'); } catch (e) { /* the system serif will do */ }
+    const k = TH[4].cl[0].audit.length, cw = 1100, ch = 720, c = document.createElement('canvas'); c.width = cw; c.height = ch;
+    const x = c.getContext('2d', { willReadFrequently: true });
+    x.fillStyle = '#fff'; x.textAlign = 'center'; x.textBaseline = 'middle'; x.direction = 'rtl';
+    x.font = '700 440px Amiri, serif'; x.fillText('الله', cw / 2, ch / 2);
+    const img = x.getImageData(0, 0, cw, ch).data, hits = [];
+    let x0 = cw, x1 = 0, y0 = ch, y1 = 0;
+    for (let y = 0; y < ch; y += 2) for (let xx = 0; xx < cw; xx += 2) if (img[(y * cw + xx) * 4 + 3] > 150) {
+      hits.push(xx, y); if (xx < x0) x0 = xx; if (xx > x1) x1 = xx; if (y < y0) y0 = y; if (y > y1) y1 = y; }
+    const M = hits.length / 2; if (M < 300) return;
+    // spread the points evenly over the letters (dart throwing on a grid), topping up at random if they run short
+    const r = rng(2806), order = new Uint32Array(M);
+    for (let m = 0; m < M; m++) order[m] = m;
+    for (let m = M - 1; m > 0; m--) { const j = Math.floor(r() * (m + 1)), t = order[m]; order[m] = order[j]; order[j] = t; }
+    const rad = Math.sqrt(M * 4 / k) * .72, gs = rad / Math.SQRT2, gW = Math.ceil(cw / gs) + 1, gH = Math.ceil(ch / gs) + 1, grid = new Int32Array(gW * gH).fill(-1);
+    const chosen = [], taken = new Uint8Array(M);
+    for (let q = 0; q < M && chosen.length < k; q++) {
+      const m = order[q], hx = hits[2 * m], hy = hits[2 * m + 1], gx = Math.floor(hx / gs), gy = Math.floor(hy / gs);
+      let ok = true;
+      for (let a = -2; a <= 2 && ok; a++) for (let b = -2; b <= 2; b++) {
+        const ga = gy + a, gb = gx + b; if (ga < 0 || gb < 0 || ga >= gH || gb >= gW) continue;
+        const o = grid[ga * gW + gb];
+        if (o >= 0 && (hits[2 * o] - hx) * (hits[2 * o] - hx) + (hits[2 * o + 1] - hy) * (hits[2 * o + 1] - hy) < rad * rad) { ok = false; break; }
+      }
+      if (ok) { grid[gy * gW + gx] = m; chosen.push(m); taken[m] = 1; }
+    }
+    for (let q = 0; q < M && chosen.length < k; q++) if (!taken[order[q]]) chosen.push(order[q]);
+    chosen.sort((a, b) => hits[2 * b] - hits[2 * a]);
+    const bw = x1 - x0 || 1, bh = y1 - y0 || 1, pts = new Float32Array(k * 2);
+    for (let j = 0; j < k; j++) { const m = chosen[j % chosen.length]; pts[2 * j] = (hits[2 * m] - x0) / bw; pts[2 * j + 1] = (hits[2 * m + 1] - y0) / bh; }
+    nameS = { pts, aspect: bw / bh };
+    layoutName(); buildTheaterLabels();
   }
 
   // chart labels live in the page, placed with the same fractions as the points
@@ -1365,7 +1722,29 @@ async function initScene() {
     html += place('call', digits(NUM.longKey) + ' · ' + nf(NUM.longW), mx(xOfW(fs, longW)), cen[1] - .018, 'transform:translate(' + (mirror ? '0' : '-100%') + ',-100%)');
     vlSplit.innerHTML = html;
   }
-  function relayout() { layoutBars(); layoutSplit(); layoutDust(); layoutWord(); buildLabels(); }
+  // the theater's labels: month names over the year, the scale itself (SVG, redrawn as the beam moves), captions
+  const vlCal = $('#vizlabels .cal'), vlBal = $('#vizlabels .bal'), vlNm = $('#vizlabels .nm');
+  let balEls = null;
+  const gloss = c => c.en.replace(/\s*\(.*\)\s*/, '');
+  function buildTheaterLabels() {
+    let html = '';
+    if (calInfo) {
+      const fm = new Intl.DateTimeFormat(loc(), { month: 'short' }), tr = mirror ? 'transform:translate(-100%,-50%)' : 'transform:translateY(-50%)';
+      calInfo.months.forEach((q, m) => { html += place('mo', fm.format(new Date(2025, m, 15)), mx(q[0]), q[1], tr); });
+      if (calInfo.over) html += place('cap gold', T('cal.over'), mx(calInfo.over[0]), calInfo.over[1], tr);
+    }
+    vlCal.innerHTML = html;
+    vlBal.innerHTML = '<svg><line class="post"/><line class="foot"/><path class="str"/><path class="str"/><line class="beam"/><path class="pan"/><path class="pan"/><circle class="piv" r="4"/></svg>' +
+      [2, 3].map(s => TH[s].cl.map(c => '<span class="pl s' + s + '"><b lang="ar">' + c.ar + '</b><i class="' + (c.verifiedLemma === c.claimed ? 'ok' : 'off') + '">' +
+        (lang === 'ar' ? '' : gloss(c) + ' · ') + nf(c.verifiedLemma) + '</i></span>').join('')).join('');
+    const sv = $('svg', vlBal);
+    balEls = { post: $('.post', sv), foot: $('.foot', sv), str: $$('.str', sv), beam: $('.beam', sv), pan: $$('.pan', sv), piv: $('.piv', sv),
+      lab: [$$('.pl.s2', vlBal), $$('.pl.s3', vlBal)] };
+    const f = tf().name;
+    vlNm.innerHTML = nameInfo ? place('halo', '', mx(f.cx), f.cy, 'width:' + (nameInfo.w * 150).toFixed(2) + '%;height:' + (nameInfo.h * 150).toFixed(2) + '%') +
+      place('cap', T('nm.cap'), mx(f.cx), nameInfo.bottom + (mob ? .02 : .035), 'transform:translateX(-50%)') : '';
+  }
+  function relayout() { layoutBars(); layoutSplit(); layoutDust(); layoutWord(); layoutTheater(); buildLabels(); buildTheaterLabels(); }
   function resize(force) {
     const w = innerWidth, h = innerHeight;
     if (!force && w === lastW && Math.abs(h - lastH) < 120) return;
@@ -1373,14 +1752,16 @@ async function initScene() {
     renderer.setSize(w, h, false);
     cam.aspect = w / h; cam.updateProjectionMatrix();
     H = HW; W = HW * cam.aspect; mob = w < 760; F = mob ? MOB : DESK;
+    stack = !mob && w < 1100 && h >= w * 1.15;
     relayout();
   }
   let rz = 0;
   window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => resize(false), 150); });
-  mirror = lang === 'ar'; resize(true); sampleWord();
+  mirror = lang === 'ar'; resize(true); sampleWord(); sampleName();
 
   // scroll → stage (0 galaxy, 1 surah columns, 2 verse lengths, 3 dust, 4 the word)
-  const els = { s1: $('#s1'), s2: $('#s2'), s3: $('#s3'), roots: $('#roots'), read: $('#read') };
+  const els = { s1: $('#s1'), s2: $('#s2'), s3: $('#s3'), roots: $('#roots'), read: $('#read'),
+    c1: $('#c1'), c2: $('#c2'), c3: $('#c3'), c4: $('#c4'), cards: $('#claim-cards') };
   const prog = (el, a, b) => { const r = el.getBoundingClientRect(), vh = innerHeight; return clamp((vh * a - r.top) / (vh * (a - b)), 0, 1); };
   const lerp = (a, b, t) => a + (b - a) * t;
   const ease = t => (t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
@@ -1395,6 +1776,83 @@ async function initScene() {
     const y = yd * g.ct - zd * g.st, z = yd * g.st + zd * g.ct;
     o[0] = g.cx + x * g.cr - y * g.sr; o[1] = g.cy + x * g.sr + y * g.cr; o[2] = z;
   }
+
+  // ── the theater, laid over the field: 0 and 5 are the plain field, 1 the year, 2 and 3 the scale, 4 the Name ──
+  let cS = 0, cSnap = 0, cFade = 1, tWas = false, hs = 0;
+  const KC = .6, oA = [0, 0, 0], oB = [0, 0, 0], pan = [[0, 0], [0, 0]], bal = { th: 0, om: 0 };
+  function panAt() {   // pan 0 hangs on the reading-start side; a positive angle lowers pan 1
+    const dir = mirror ? -1 : 1, c = Math.cos(bal.th), s = Math.sin(bal.th);
+    for (let k = 0; k < 2; k++) { const sg = k ? 1 : -1; pan[k][0] = BG.px + sg * dir * BG.L * c; pan[k][1] = BG.py - sg * BG.L * s - BG.S; }
+  }
+  function sceneAt(s, n, o) {
+    const p = CP[s], n3 = 3 * n;
+    if (TH[s].kind === 'bal') { const q = pan[SIDE[s][n]]; o[0] = q[0] + p[n3]; o[1] = q[1] + p[n3 + 1]; }
+    else { o[0] = p[n3]; o[1] = p[n3 + 1]; }
+    o[2] = p[n3 + 2];
+  }
+  function theater(dt) {
+    const A = Math.min(Math.floor(cS), 4), cf = cS - A, B = A + 1;
+    const sA = A >= 1 ? SIDE[A] : null, sB = B <= 4 ? SIDE[B] : null;
+    const balA = A >= 1 && TH[A].kind === 'bal', balB = B <= 4 && TH[B].kind === 'bal';
+    const bA = A >= 1 ? TH[A].boost : 1, bB = B <= 4 ? TH[B].boost : 1;
+    let w0 = 0, w1 = 0;
+    panAt();
+    for (let n = 0; n < N; n++) {
+      const n3 = 3 * n, kA = sA ? sA[n] : -1, kB = sB ? sB[n] : -1;
+      if (kA < 0 && kB < 0) { colBuf[n3] = col[n3]; colBuf[n3 + 1] = col[n3 + 1]; colBuf[n3 + 2] = col[n3 + 2]; emB[n] = 0; bsB[n] = 1; visB[n] = 1; continue; }
+      const bx = pos[n3], by = pos[n3 + 1], bz = pos[n3 + 2];
+      let ax = bx, ay = by, az = bz, qx = bx, qy = by, qz = bz;
+      if (kA >= 0) { sceneAt(A, n, oA); ax = oA[0]; ay = oA[1]; az = oA[2]; }
+      if (kB >= 0) { sceneAt(B, n, oB); qx = oB[0]; qy = oB[1]; qz = oB[2]; }
+      const tt = clamp((cf - KC * (kB >= 0 ? CDL[B][n] : CDL[A][n])) / (1 - KC), 0, 1), e = ease(tt);
+      const cA = kA >= 0 ? CC[A] : col, cB = kB >= 0 ? CC[B] : col;
+      if (A === 4 && kB < 0) {
+        // the Name is never scattered: it dims evenly where it stands, and its points return to the field unseen
+        const t4 = clamp((cf - .3 * jit[n]) / .7, 0, 1), stay = t4 < .5, c = stay ? cA : col;
+        pos[n3] = stay ? ax : bx; pos[n3 + 1] = stay ? ay : by; pos[n3 + 2] = stay ? az : bz;
+        colBuf[n3] = c[n3]; colBuf[n3 + 1] = c[n3 + 1]; colBuf[n3 + 2] = c[n3 + 2];
+        emB[n] = stay ? 1 : 0; bsB[n] = stay ? bA : 1; visB[n] = stay ? 1 - t4 * 2 : t4 * 2 - 1;
+        continue;
+      }
+      pos[n3] = ax + (qx - ax) * e; pos[n3 + 1] = ay + (qy - ay) * e;
+      pos[n3 + 2] = az + (qz - az) * e + (reduced ? 0 : Math.sin(Math.PI * tt) * 5 * arc[n]);
+      colBuf[n3] = cA[n3] + (cB[n3] - cA[n3]) * e; colBuf[n3 + 1] = cA[n3 + 1] + (cB[n3 + 1] - cA[n3 + 1]) * e; colBuf[n3 + 2] = cA[n3 + 2] + (cB[n3 + 2] - cA[n3 + 2]) * e;
+      emB[n] = (kA >= 0 ? 1 - e : 0) + (kB >= 0 ? e : 0);
+      bsB[n] = (kA >= 0 ? bA : 1) * (1 - e) + (kB >= 0 ? bB : 1) * e;
+      visB[n] = 1;
+      // whatever rests in a pan weighs on the beam
+      if (balA && kA >= 0 && tt < .03) { if (kA) w1++; else w0++; }
+      if (balB && kB >= 0 && tt > .97) { if (kB) w1++; else w0++; }
+    }
+    // the beam leans toward the heavier pan, on a damped spring
+    const tot = w0 + w1, tgt = tot ? clamp(1.1 * (w1 - w0) / tot, -.26, .26) : 0;
+    if (reduced) { bal.th = tgt; bal.om = 0; } else { bal.om += (38 * (tgt - bal.th) - 6 * bal.om) * dt; bal.th += bal.om * dt; }
+    colAttr.needsUpdate = true; emAttr.needsUpdate = true; bsAttr.needsUpdate = true; visAttr.needsUpdate = true;
+  }
+  function calm() {   // back to the plain field
+    colBuf.set(col); emB.fill(0); bsB.fill(1); visB.fill(1); bal.th = 0; bal.om = 0;
+    colAttr.needsUpdate = true; emAttr.needsUpdate = true; bsAttr.needsUpdate = true; visAttr.needsUpdate = true;
+  }
+  // the scale is drawn in the label layer, in screen pixels, from the same geometry as the heaps
+  const SX = x => (x / W + .5) * innerWidth, SY = y => (.5 - y / H) * innerHeight, f1 = v => v.toFixed(1);
+  const seg = (el, a, b, c, d) => { el.setAttribute('x1', f1(a)); el.setAttribute('y1', f1(b)); el.setAttribute('x2', f1(c)); el.setAttribute('y2', f1(d)); };
+  function drawBal(o2, o3) {
+    const e = balEls, k = innerHeight / H, px = SX(BG.px), py = SY(BG.py), hp = BG.P / 2 * k, dd = BG.d * k;
+    const ends = pan.map(p => [SX(p[0]), SY(p[1] + BG.S)]);
+    seg(e.beam, ends[0][0], ends[0][1], ends[1][0], ends[1][1]);
+    const fy = SY(BG.py - BG.S - BG.L * .3 - BG.P * .3);
+    seg(e.post, px, py, px, fy); seg(e.foot, px - BG.L * .3 * k, fy, px + BG.L * .3 * k, fy);
+    e.piv.setAttribute('cx', f1(px)); e.piv.setAttribute('cy', f1(py));
+    pan.forEach((p, s) => {
+      const cx = SX(p[0]), cy = SY(p[1]), a = f1(cx - hp) + ' ' + f1(cy), b = f1(cx + hp) + ' ' + f1(cy);
+      e.str[s].setAttribute('d', 'M' + a + 'L' + f1(ends[s][0]) + ' ' + f1(ends[s][1]) + 'L' + b);
+      e.pan[s].setAttribute('d', 'M' + a + 'Q' + f1(cx) + ' ' + f1(cy + 2 * dd) + ' ' + b + 'Z');
+      const t = 'translate(' + f1(cx) + 'px,' + f1(cy + dd + 10) + 'px) translateX(-50%)';
+      e.lab[0][s].style.transform = t; e.lab[1][s].style.transform = t;
+    });
+    e.lab[0].forEach(l => { l.style.opacity = o2; }); e.lab[1].forEach(l => { l.style.opacity = o3; });
+  }
+
   function loop(now) {
     requestAnimationFrame(loop);
     const dt = Math.min((now - last) / 1000, .05); last = now;
@@ -1428,17 +1886,27 @@ async function initScene() {
       if (amp) { x += Math.sin(tm * .6 + phase[n] * 40) * amp; y += Math.cos(tm * .5 + phase[n] * 31) * amp; }
       pos[3 * n] = x; pos[3 * n + 1] = y; pos[3 * n + 2] = z;
     }
+    // the claim theater takes its points from wherever the field has them
+    const cT = prog(els.c1, .9, .35) + prog(els.c2, .9, .35) + prog(els.c3, .9, .35) + prog(els.c4, .9, .35) + prog(els.cards, .9, .35);
+    if (reduced) { const r = Math.round(cT); if (r !== cSnap) { cSnap = r; cFade = 0; } cFade = Math.min(1, cFade + dt * 3); cS = cSnap; }
+    else cS += (cT - cS) * (1 - Math.exp(-dt * 5));
+    const tOn = cS > 1e-3 && cS < 5 - 1e-3;
+    if (tOn) theater(dt); else if (tWas) calm();
+    tWas = tOn;
     posAttr.needsUpdate = true;
 
-    const si = Math.min(Math.floor(sS), 3), sf = clamp(sS - si, 0, 1), sc = clamp(innerWidth / 1440, .72, 1);
+    const si = Math.min(Math.floor(sS), 3), sf = clamp(sS - si, 0, 1), sc = clamp(innerWidth / 1440, .72, 1), al = lerp(AL[si], AL[si + 1], sf);
+    const wT = clamp(Math.min(cS, 5 - cS), 0, 1);   // how far into the theater
     mat.uniforms.uSize.value = lerp(SZ[si], SZ[si + 1], sf) * sc;
-    mat.uniforms.uAlpha.value = lerp(AL[si], AL[si + 1], sf) * ie * (reduced ? fade : 1);
+    mat.uniforms.uAlpha.value = al * ie * (reduced ? fade * cFade : 1);
+    mat.uniforms.uBack.value = 1 - .6 * wT;              // the rest of the field steps back
+    mat.uniforms.uFront.value = Math.min(2.6, 1 / al);  // and the claim's points shine at full strength
     mat.uniforms.uTime.value = reduced ? 0 : tm;
     starMat.opacity = .55 * ie;
 
-    // parallax toward the pointer (weaker while a chart is on screen)
+    // parallax toward the pointer (weaker while a chart is on screen, none in the theater so the scale's lines stay on their points)
     pts.position.y = Math.max(0, innerHeight - els.read.getBoundingClientRect().bottom) * (H / innerHeight) * clamp(sS - 3, 0, 1);
-    const flat = sS > .5 && sS < 2.5 ? .2 : 1, live = mouse && fine && !reduced;
+    const flat = (sS > .5 && sS < 2.5 ? .2 : 1) * (1 - wT), live = mouse && fine && !reduced;
     let tx = live ? ((mouse.y / innerHeight) - .5) * .09 * flat : 0, ty = live ? ((mouse.x / innerWidth) - .5) * .14 * flat : 0;
     if (!live && device) { tx = device.y * .07 * flat; ty = device.x * .12 * flat; }
     rotX += (tx - rotX) * .05; rotY += (ty - rotY) * .05;
@@ -1446,18 +1914,28 @@ async function initScene() {
 
     vlBars.style.opacity = clamp(1 - Math.abs(sS - 1) * 5, 0, 1);
     vlSplit.style.opacity = clamp(1 - Math.abs(sS - 2) * 5, 0, 1);
+    vlCal.style.opacity = clamp(1 - Math.abs(cS - 1) * 4, 0, 1);
+    const bo = clamp(Math.min(cS - 1.5, 3.5 - cS) * 4, 0, 1);
+    vlBal.style.opacity = bo;
+    if (bo > 0 && balEls) drawBal(clamp(1 - Math.abs(cS - 2) * 2.5, 0, 1), clamp(1 - Math.abs(cS - 3) * 2.5, 0, 1));
+    vlNm.style.opacity = clamp(1 - Math.abs(cS - 4) * 4, 0, 1);
 
-    const near = Math.abs(sS - Math.round(sS)) < .05 && Math.round(sS) <= 2 && ie > .98;
-    if (mouse && fine && near && mouseMoved) { mouseMoved = false; setHover(pick(mouse.x, mouse.y, 14)); }
-    else if (!near && hovered >= 0 && !touchTip) setHover(-1);
+    // hover: a verse in the charts, or one mention in a theater scene once it has settled
+    const cN = theaterScene(), near = !cN && Math.abs(sS - Math.round(sS)) < .05 && Math.round(sS) <= 2 && ie > .98;
+    if (hovered >= 0 && hs !== cN && !touchTip) setHover(-1);
+    if (mouse && fine && (near || cN) && mouseMoved) { mouseMoved = false; setHover(pick(mouse.x, mouse.y, cN ? 12 : 14, cN), false, cN); }
+    else if (!near && !cN && hovered >= 0 && !touchTip) setHover(-1);
     renderer.render(scene3, cam);
   }
+  const theaterScene = () => { const r = Math.round(cS); return r >= 1 && r <= 4 && Math.abs(cS - r) < .05 ? r : 0; };
   const PM = new THREE.Matrix4();
-  function pick(px, py, rad) {
+  // the nearest point to the pointer; in a theater scene, only that scene's points count
+  function pick(px, py, rad, s) {
     pts.updateMatrixWorld(); cam.updateMatrixWorld();
     PM.multiplyMatrices(cam.projectionMatrix, cam.matrixWorldInverse).multiply(pts.matrixWorld);
-    const e = PM.elements, vw = innerWidth, vh = innerHeight; let best = -1, bd = rad * rad;
+    const e = PM.elements, vw = innerWidth, vh = innerHeight, sd = s ? SIDE[s] : null; let best = -1, bd = rad * rad;
     for (let n = 0; n < N; n++) {
+      if (sd && sd[n] < 0) continue;
       const x = pos[3 * n], y = pos[3 * n + 1], z = pos[3 * n + 2], w = e[3] * x + e[7] * y + e[11] * z + e[15];
       if (w <= 0) continue;
       const sx = ((e[0] * x + e[4] * y + e[8] * z + e[12]) / w * .5 + .5) * vw, sy = (.5 - (e[1] * x + e[5] * y + e[9] * z + e[13]) / w * .5) * vh;
@@ -1472,11 +1950,21 @@ async function initScene() {
     return '<b>' + (lang === 'ar' ? m.ar : m.en) + '</b> <span class="k">' + key + '</span><br>' + (m.place === 'Medina' ? T('medinan') : T('meccan')) + ' · ' + words +
       (touch ? '<br><a href="' + readHref(n) + '">' + (lang === 'ar' ? 'اقرأ السورة ‹' : 'Read the surah ›') + '</a>' : '');
   }
-  function setHover(n, touch) {
-    hovered = n; mat.uniforms.uHover.value = n >= 0 ? sur[n] + 1 : -1;
+  // a mention in the theater: its verse, and where it falls among the word's mentions
+  function tipClaim(n, s, touch) {
+    const v = REF[s][n], c = TH[s].cl[SIDE[s][n]], m = META[sur[v]], key = digits((sur[v] + 1) + ':' + (ver[v] + 1));
+    const j = nf(OCC[s][n] + 1), tot = nf(c.audit.length);
+    return '<b>' + (lang === 'ar' ? m.ar : m.en) + '</b> <span class="k">' + key + '</span><br><span lang="ar">' + c.ar + '</span> · ' +
+      (lang === 'ar' ? 'الورود ' + j + ' من ' + tot : 'mention ' + j + ' of ' + tot) +
+      (touch ? '<br><a href="' + readHref(v) + '">' + (lang === 'ar' ? 'اقرأ السورة ‹' : 'Read the surah ›') + '</a>' : '');
+  }
+  function setHover(n, touch, s) {
+    hovered = n; hs = n >= 0 ? (s || 0) : 0;
+    mat.uniforms.uHover.value = n >= 0 && !hs ? sur[n] + 1 : -1;   // a verse lights its whole surah
+    mat.uniforms.uHp.value = n >= 0 && hs ? n : -1;                // a mention lights alone
     document.body.style.cursor = n >= 0 && !touch ? 'pointer' : '';
     if (n < 0) { hideTip(); return; }
-    tip.innerHTML = tipHTML(n, touch); tip.hidden = false; tip.classList.toggle('touch', !!touch);
+    tip.innerHTML = hs ? tipClaim(n, hs, touch) : tipHTML(n, touch); tip.hidden = false; tip.classList.toggle('touch', !!touch);
     const tw = tip.offsetWidth, th = tip.offsetHeight;
     tip.style.transform = 'translate(' + clamp(mouse.x + 16, 8, innerWidth - tw - 8) + 'px,' + clamp(mouse.y + 16, 8, innerHeight - th - 8) + 'px)';
   }
@@ -1491,12 +1979,13 @@ async function initScene() {
   document.addEventListener('pointerleave', () => { mouse = null; setHover(-1); });
   window.addEventListener('click', e => {
     if (blocked(e.target)) return;
-    if (e.pointerType === 'mouse' || (!e.pointerType && fine)) { if (hovered >= 0) location.href = readHref(hovered); return; }
-    if (!(Math.abs(sS - Math.round(sS)) < .05 && Math.round(sS) <= 2)) return;
+    if (e.pointerType === 'mouse' || (!e.pointerType && fine)) { if (hovered >= 0) location.href = readHref(hs ? REF[hs][hovered] : hovered); return; }
+    const s = theaterScene();
+    if (!s && !(Math.abs(sS - Math.round(sS)) < .05 && Math.round(sS) <= 2)) return;
     mouse = { x: e.clientX, y: e.clientY };
-    const n = pick(e.clientX, e.clientY, 22);
+    const n = pick(e.clientX, e.clientY, 22, s);
     if (n < 0) { setHover(-1); return; }
-    setHover(n, true); touchTip = setTimeout(() => setHover(-1), 5000);
+    setHover(n, true, s); touchTip = setTimeout(() => setHover(-1), 5000);
   });
   window.addEventListener('scroll', () => { if (touchTip) setHover(-1); }, { passive: true });
   requestAnimationFrame(loop);

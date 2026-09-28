@@ -340,8 +340,8 @@ See [ARCHITECTURE.md](ARCHITECTURE.md) for the detailed deep-dive.
 |-------|------------|
 | UI framework | Vue.js 3 (single-file app, no build step) |
 | Charts | Plotly.js 2.27 |
-| Animation | GSAP 3.15 with ScrollTrigger and SplitText (landing page scroll story); in the app, headline reveals, magnetic buttons and tilting tiles |
-| 3D | three.js r170: the landing page draws every one of the 6,236 verses as a point and re-arranges them as you scroll; the same field sits behind the app (`web/sky.js`), changes shape for each page, and lights up the surah you are reading and the verses a search finds |
+| Animation | GSAP 3.15 with ScrollTrigger and SplitText (landing page scroll story); Lenis 1.3 smooth scrolling on the landing page for a mouse or trackpad (touch keeps native scrolling, and it stays off under reduced motion); in the app, headline reveals, magnetic buttons and tilting tiles |
+| 3D | three.js r170: the landing page draws every one of the 6,236 verses as a point and re-arranges them as you scroll; in its claim theater the same points gather into four famous claims, one point per mention (a calendar for يوم, a scale that balances angels against devils and tips for Paradise against Hell, and the name الله written in its 2,699 mentions), each hoverable to its verse; the same field sits behind the app (`web/sky.js`), changes shape for each page, and lights up the surah you are reading and the verses a search finds |
 | Judgement calls (optional) | TypeSafe Jev through one Vercel function (`api/decide.js`); see [Jev features](#jev-features-optional) |
 | Desktop | Electron 28 (universal Intel + ARM Mac binary) |
 | Data preprocessing | Python 3 (pandas, openpyxl) |
