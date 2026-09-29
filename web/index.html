@@ -1841,6 +1841,9 @@ async function initScene() {
   function prepLemma(dt) {
     const sc = TH[S_LEMMA], side = SIDE[S_LEMMA], occ = OCC[S_LEMMA], p = CP[S_LEMMA], cc = CC[S_LEMMA];
     const r = dg.c.getBoundingClientRect(), cols = dg.cols, cell = dg.cell, iw = innerWidth, ih = innerHeight;
+    // in a phone's small cells the dots would shrink with the field to faint specks, so there the unlit ones keep their
+    // desktop size (the lit ones grow on top of it) and glow a little more; ph runs from 0 in desktop-sized cells to 1 in a phone's
+    const ph = clamp((6.5 - cell) / 1.5, 0, 1), b0 = 1.7 * lerp(1, 1 / shrink(), ph), f0 = .15 + .2 * ph;
     if (dg.perm !== lastPerm) { lastPerm = dg.perm; inv.fill(1 << 30); if (lastPerm) for (let i = 0; i < Math.min(lastPerm.length, NL); i++) inv[lastPerm[i]] = i; }
     const ne = Math.round(dg.near * dg.p), ex = Math.round(dg.exact * dg.p), k = reduced ? 1 : 1 - Math.exp(-dt * 7);
     for (let n = 0; n < N; n++) {
@@ -1851,7 +1854,7 @@ async function initScene() {
       lvE[n] += (tE - lvE[n]) * k; lvN[n] += (tN - lvN[n]) * k;
       const e = lvE[n], q = lvN[n], b = Math.max(0, 1 - e - q);
       cc[n3] = LBASE[0] * b + LGOLD[0] * e + LTEAL[0] * q; cc[n3 + 1] = LBASE[1] * b + LGOLD[1] * e + LTEAL[1] * q; cc[n3 + 2] = LBASE[2] * b + LGOLD[2] * e + LTEAL[2] * q;
-      sc.bst[n] = 1.7 + 2.6 * e + 1.1 * q; sc.emf[n] = .15 + .85 * Math.max(e, .8 * q);
+      sc.bst[n] = b0 + 2.6 * e + 1.1 * q; sc.emf[n] = f0 + (1 - f0) * Math.max(e, .8 * q);
     }
   }
 
@@ -2010,6 +2013,7 @@ async function initScene() {
   const lerp = (a, b, t) => a + (b - a) * t;
   const ease = t => (t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
   const SZ = [2.5, 2.1, 1.85, 1.6, 2.2], AL = [1, .95, .9, .42, 1];
+  const shrink = () => clamp(innerWidth / 1440, .72, 1);   // the field draws its points smaller on narrow screens
   const g = { cx: 0, cy: 0, R: 1, ct: 1, st: 0, cr: 1, sr: 0, spin: 0 };
   let sS = 0, snap = 0, fade = 1, intro = motion ? 0 : 1, last = performance.now(), hovered = -1, mouse = null, mouseMoved = false, rotX = 0, rotY = 0, touchTip = 0, device = null;
   if (!fine && !reduced && window.DeviceOrientationEvent && typeof DeviceOrientationEvent.requestPermission !== 'function')
@@ -2149,12 +2153,13 @@ async function initScene() {
       if (amp) { x += Math.sin(tm * .6 + phase[n] * 40) * amp; y += Math.cos(tm * .5 + phase[n] * 31) * amp; }
       pos[3 * n] = x; pos[3 * n + 1] = y; pos[3 * n + 2] = z;
     }
-    // the scenes take their points from wherever the field has them; the first track in play wins
+    // the scenes take their points from wherever the field has them; the first track in play wins. Once the scroll has
+    // passed a track's end, it drops its last unseen hundredths, so after a quick scroll the next scene is not held up
     tAct = null;
     for (const t of TRK) {
       const at = t.at();
       if (reduced) { const r = Math.round(at); if (r !== t.snap) { t.snap = r; cFade = 0; } t.p = t.snap; }
-      else t.p += (at - t.p) * (1 - Math.exp(-dt * 5));
+      else { t.p += (at - t.p) * (1 - Math.exp(-dt * 5)); if ((at <= 0 || at >= t.seq.length - 1) && Math.abs(at - t.p) < .02) t.p = at; }
       if (!tAct && t.p > 1e-3 && t.p < t.seq.length - 1 - 1e-3) tAct = t;
     }
     if (reduced) cFade = Math.min(1, cFade + dt * 3);
@@ -2162,7 +2167,7 @@ async function initScene() {
     tWas = !!tAct;
     posAttr.needsUpdate = true;
 
-    const si = Math.min(Math.floor(sS), 3), sf = clamp(sS - si, 0, 1), sc = clamp(innerWidth / 1440, .72, 1), al = lerp(AL[si], AL[si + 1], sf);
+    const si = Math.min(Math.floor(sS), 3), sf = clamp(sS - si, 0, 1), sc = shrink(), al = lerp(AL[si], AL[si + 1], sf);
     const wT = tAct ? clamp(Math.min(tAct.p, tAct.seq.length - 1 - tAct.p), 0, 1) : 0;   // how far into a scene
     mat.uniforms.uSize.value = lerp(SZ[si], SZ[si + 1], sf) * sc;
     mat.uniforms.uAlpha.value = al * ie * (reduced ? fade * cFade : 1);
