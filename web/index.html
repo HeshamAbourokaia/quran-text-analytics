@@ -8,8 +8,8 @@
 if (location.hostname === 'heshamabourokaia.github.io')
   location.replace('https://quran-daleel.vercel.app' + location.pathname.replace(/^\/quran-text-analytics/, '') + location.search + location.hash);
 </script>
-<title>Daleel · The Quran, measured</title>
-<meta name="description" content="Interactive analytics over the full Quranic Arabic Corpus: 114 surahs, 6,236 verses and 77,429 morphologically tagged words, with a claim auditor, machine learning lab and bilingual interface." />
+<title>Daleel · The Quran, in numbers</title>
+<meta name="description" content="Daleel counts every word of the Quran and explains what it finds in plain words. Check famous claims about the Quran against the text itself, look up any word, and read the whole mushaf. Free, in English and Arabic." />
 <link rel="canonical" href="https://quran-daleel.vercel.app/" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 <meta name="application-name" content="Daleel" />
@@ -18,15 +18,15 @@ if (location.hostname === 'heshamabourokaia.github.io')
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://quran-daleel.vercel.app/" />
 <meta property="og:site_name" content="Daleel" />
-<meta property="og:title" content="Daleel · The Quran, measured" />
-<meta property="og:description" content="The Quran, measured. 114 surahs, 6,236 verses, 77,429 words. Interactive charts, a machine learning lab, word search and a claim auditor. English and Arabic." />
+<meta property="og:title" content="Daleel · The Quran, in numbers" />
+<meta property="og:description" content="Daleel counts every word of the Quran and explains what it finds in plain words. Check famous claims about the Quran against the text itself, look up any word, and read the whole mushaf. Free, in English and Arabic." />
 <meta property="og:image" content="https://quran-daleel.vercel.app/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:locale" content="en_AU" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Daleel · The Quran, measured" />
-<meta name="twitter:description" content="The Quran, measured. 114 surahs, 6,236 verses, 77,429 words. Interactive charts, a machine learning lab, word search and a claim auditor. English and Arabic." />
+<meta name="twitter:title" content="Daleel · The Quran, in numbers" />
+<meta name="twitter:description" content="Daleel counts every word of the Quran and explains what it finds in plain words. Check famous claims about the Quran against the text itself, look up any word, and read the whole mushaf. Free, in English and Arabic." />
 <meta name="twitter:image" content="https://quran-daleel.vercel.app/og-image.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -269,7 +269,9 @@ if (location.hostname === 'heshamabourokaia.github.io')
   .derived li:hover{border-color:rgba(233,185,95,.45);background:rgba(233,185,95,.07)}
   .derived b{display:block;font-family:var(--ar-display);font-size:1.75rem;font-weight:400;line-height:1.5}
   .derived span{font-size:.8rem;color:var(--on-dark-3)}
-  html[lang=ar] .derived span{display:none}
+  .derived .tr{display:block;font-style:normal;font-size:.82rem;letter-spacing:.03em;color:var(--on-dark-2);margin:0 0 3px}
+  .derived .tr u{text-decoration:none;color:var(--gold);font-weight:600}
+  html[lang=ar] .derived .tr{display:none}
   .fnote{text-align:center;color:var(--on-dark-3);font-size:.95rem;margin:34px auto 0;max-width:640px;line-height:1.7}
 
   /* ── claims: glass cards over the night, each lit by its verdict (emerald exact, teal parity, gold differs) ── */
@@ -585,11 +587,11 @@ if (location.hostname === 'heshamabourokaia.github.io')
 <main>
 <header class="hero" id="top">
   <div class="hero-in">
-    <p class="eyebrow"><span class="pulse" aria-hidden="true"></span><span data-i18n="eyebrow">Built on the Quranic Arabic Corpus</span></p>
-    <h1 class="display" id="h1"><span class="l1" data-i18n="h1a">The Quran,</span><span class="l2" data-i18n="h1b">measured.</span></h1>
-    <p class="lede" data-i18n="herosub">Every verse, word and root of the Quranic Arabic Corpus, counted live in your browser. Scroll to see what the numbers show, then open the app and check them yourself.</p>
+    <p class="eyebrow"><span class="pulse" aria-hidden="true"></span><span data-i18n="eyebrow">Free, in English and Arabic</span></p>
+    <h1 class="display" id="h1"><span class="l1" data-i18n="h1a">The Quran,</span><span class="l2" data-i18n="h1b">in numbers.</span></h1>
+    <p class="lede" data-i18n="herosub">Daleel counts every word of the Quran and explains what it finds, in plain words. Check famous claims like «the word day appears 365 times» against the text itself, look up any word, and read the whole mushaf.</p>
     <div class="ctas">
-      <a class="btn primary applink magnetic" href="app.html"><span data-i18n="cta1">Open the app</span><svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h10M9 4.5 12.5 8 9 11.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a class="btn primary applink magnetic" href="app.html"><span data-i18n="cta1">Start exploring</span><svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h10M9 4.5 12.5 8 9 11.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <a class="btn ghost magnetic" href="#tour"><span data-i18n="cta2">Take the tour</span><svg class="arr down" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h10M9 4.5 12.5 8 9 11.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
   </div>
@@ -643,17 +645,17 @@ if (location.hostname === 'heshamabourokaia.github.io')
     <div class="frows">
       <div class="frow"><span class="flabel" data-i18n="fn.r1">Words in the text</span><span class="fbar"><i data-w="words"></i></span><span class="fnum num" data-count="words">77,429</span></div>
       <div class="frow"><span class="flabel" data-i18n="fn.r2">Distinct written forms</span><span class="fbar"><i data-w="forms"></i></span><span class="fnum num" data-count="forms">14,710</span></div>
-      <div class="frow"><span class="flabel" data-i18n="fn.r3">Lemmas, the dictionary headwords</span><span class="fbar"><i data-w="lemmas"></i></span><span class="fnum num" data-count="lemmas">4,771</span></div>
+      <div class="frow"><span class="flabel" data-i18n="fn.r3">Words, counting all forms of a word as one</span><span class="fbar"><i data-w="lemmas"></i></span><span class="fnum num" data-count="lemmas">4,771</span></div>
       <div class="frow"><span class="flabel" data-i18n="fn.r4">Roots</span><span class="fbar"><i data-w="roots"></i></span><span class="fnum num" data-count="roots">1,651</span></div>
     </div>
     <div class="rootdemo rv">
       <p class="rootcap" data-i18n="fn.eg">One root, many words</p>
       <div class="rootcore" lang="ar"><span class="rl">ك</span><span class="rl">ت</span><span class="rl">ب</span></div>
       <ul class="derived" lang="ar">
-        <li><b>كِتَاب</b><span lang="en" data-i18n="g.book">book</span></li>
-        <li><b>كَتَبَ</b><span lang="en" data-i18n="g.wrote">he wrote</span></li>
-        <li><b>كَاتِب</b><span lang="en" data-i18n="g.scribe">scribe</span></li>
-        <li><b>مَكْتُوب</b><span lang="en" data-i18n="g.written">written</span></li>
+        <li><b>كِتَاب</b><i class="tr" lang="en"><u>k</u>i<u>t</u>ā<u>b</u></i><span lang="en" data-i18n="g.book">book</span></li>
+        <li><b>كَتَبَ</b><i class="tr" lang="en"><u>k</u>a<u>t</u>a<u>b</u>a</i><span lang="en" data-i18n="g.wrote">he wrote</span></li>
+        <li><b>كَاتِب</b><i class="tr" lang="en"><u>k</u>ā<u>t</u>i<u>b</u></i><span lang="en" data-i18n="g.writer">writer</span></li>
+        <li><b>مَكْتُوب</b><i class="tr" lang="en">ma<u>k</u><u>t</u>ū<u>b</u></i><span lang="en" data-i18n="g.written">written</span></li>
       </ul>
     </div>
     <p class="fnote rv" data-i18n="fn.note">8,619 written forms occur only once.</p>
@@ -922,7 +924,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
       <h2 class="display" data-i18n="fin.h">It began with one word.</h2>
       <p class="sub" data-i18n="fin.p">Iqra: read.</p>
       <div class="ctas">
-        <a class="btn primary applink magnetic" href="app.html"><span data-i18n="cta1">Open the app</span><svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h10M9 4.5 12.5 8 9 11.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="btn primary applink magnetic" href="app.html"><span data-i18n="cta1">Start exploring</span><svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h10M9 4.5 12.5 8 9 11.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <a class="btn ghost magnetic" data-view="reader" href="app.html?view=reader"><span data-i18n="fin.cta2">Start reading</span></a>
       </div>
     </div>
@@ -1010,12 +1012,12 @@ const I18N = {
   'nav.claims': {en:'Claim auditor', ar:'مدقّق المزاعم'},
   'nav.lab':    {en:'The lab', ar:'المختبر'},
   'nav.open':   {en:'Open the app', ar:'افتح التطبيق'},
-  'eyebrow':    {en:'Built on the Quranic Arabic Corpus', ar:'مبنيٌّ على المدونة الصرفية للقرآن الكريم'},
+  'eyebrow':    {en:'Free, in English and Arabic', ar:'مجانًا، بالعربية والإنجليزية'},
   'h1a':        {en:'The Quran,', ar:'القرآن'},
-  'h1b':        {en:'measured.', ar:'بالأرقام.'},
-  'herosub':    {en:'Every verse, word and root of the Quranic Arabic Corpus, counted live in your browser. Scroll to see what the numbers show, then open the app and check them yourself.',
-                 ar:'كل آيةٍ وكلمةٍ وجذرٍ في المدونة الصرفية للقرآن الكريم، معدودةٌ لحظيًا داخل متصفحك. مرِّر لترى ما تكشفه الأرقام، ثم افتح التطبيق وتحقّق منها بنفسك.'},
-  'cta1':       {en:'Open the app', ar:'افتح التطبيق'},
+  'h1b':        {en:'in numbers.', ar:'بالأرقام.'},
+  'herosub':    {en:'Daleel counts every word of the Quran and explains what it finds, in plain words. Check famous claims like «the word day appears 365 times» against the text itself, look up any word, and read the whole mushaf.',
+                 ar:'يعدّ «دليل» كل كلمةٍ في القرآن، ويشرح ما يجده بكلماتٍ بسيطة. تحقّق بنفسك من الأعداد المتداولة، مثل «كلمة يوم وردت ٣٦٥ مرة»، على نص القرآن نفسه، وابحث عن أي كلمة، واقرأ المصحف كاملًا.'},
+  'cta1':       {en:'Start exploring', ar:'ابدأ الاستكشاف'},
   'cta2':       {en:'Take the tour', ar:'ابدأ الجولة'},
   'stat.surahs':{en:'Surahs', ar:'سورة'},
   'stat.verses':{en:'Verses', ar:'آية'},
@@ -1050,7 +1052,7 @@ const I18N = {
   'fn.eg':      {en:'One root, many words', ar:'جذرٌ واحد، وكلماتٌ كثيرة'},
   'g.book':     {en:'book', ar:'book'},
   'g.wrote':    {en:'he wrote', ar:'he wrote'},
-  'g.scribe':   {en:'scribe', ar:'scribe'},
+  'g.writer':   {en:'writer', ar:'writer'},
   'g.written':  {en:'written', ar:'written'},
   'fn.note':    {en:'{hapax} written forms occur only once. The most frequent root, {topRoot}, appears {topRootC} times.',
                  ar:'{hapax} صيغة لا ترد إلا مرةً واحدة، والجذر الأكثر ورودًا هو {topRoot}، إذ يرد {topRootC} مرة.'},
