@@ -320,9 +320,14 @@ if (location.hostname === 'heshamabourokaia.github.io')
     transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ease)}
   .more:hover{color:#fff}
   .more:hover::after{transform:scaleX(1);transform-origin:left}
-  .audit{margin-top:12px;display:flex;flex-wrap:wrap;gap:5px}
+  .audhint{margin:12px 0 6px;font-size:.74rem;color:var(--on-dark-3)}
+  .audit{display:flex;flex-wrap:wrap;gap:5px;max-height:196px;overflow-y:auto;overscroll-behavior:contain;padding:2px 2px 16px;
+    scrollbar-width:thin;scrollbar-color:rgba(233,185,95,.4) transparent;-webkit-mask-image:linear-gradient(#000 84%,transparent);mask-image:linear-gradient(#000 84%,transparent)}
   .ref{font-size:.7rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:7px;padding:2px 7px;
     color:var(--on-dark-2);font-variant-numeric:tabular-nums;animation:refIn .4s var(--ease) both}
+  a.ref{text-decoration:none;cursor:pointer;transition:border-color .2s,background .2s,color .2s}
+  a.ref:hover,a.ref:focus-visible{border-color:rgba(233,185,95,.6);background:rgba(233,185,95,.12);color:#fff;outline:none}
+  .ref sup{font-size:.66em;color:var(--gold);margin-inline-start:2px}
   @keyframes refIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
   .claims .more-cta{text-align:center;margin:48px 0 0}
 
@@ -742,7 +747,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
       <span><i class="dot gold"></i><span data-i18n="leg3">Differs, or depends on how you count</span></span>
     </div>
     <div class="cgrid" v-cloak>
-      <article v-for="c in claims" :key="c.id" class="ccard" :class="verdict(c)">
+      <article v-for="c in claims" :key="c.id" class="ccard" :class="verdict(c)" :id="'claim-'+c.id">
         <div class="ctop">
           <div>
             <div class="word-ar" lang="ar">{{ c.ar }}</div>
@@ -760,13 +765,16 @@ if (location.hostname === 'heshamabourokaia.github.io')
         <div v-if="c.pair && pairEqual(c) && lang==='ar'" class="pairtag">= زوجه ({{ pairName(c) }})، والتعادل قائم</div>
         <div class="note">{{ (lang==='ar' ? notesAr[c.id] : notesEn[c.id]) || c.note_en }}</div>
         <button type="button" class="more" @click="toggle(c.id)" :aria-expanded="!!open[c.id]">
-          <template v-if="lang!=='ar'">{{ open[c.id] ? 'Hide' : 'Show' }} the {{ fmt(c.verifiedLemma) }} verses &rsaquo;</template>
-          <template v-else>{{ open[c.id] ? 'أخفِ' : 'أظهر' }} الآيات ({{ fmt(c.verifiedLemma) }}) &lsaquo;</template>
+          <template v-if="lang!=='ar'">{{ open[c.id] ? 'Hide' : 'Show' }} the {{ fmt(verses(c).length) }} verses &rsaquo;</template>
+          <template v-else>{{ open[c.id] ? 'أخفِ' : 'أظهر' }} الآيات ({{ fmt(verses(c).length) }}) &lsaquo;</template>
         </button>
-        <div v-if="open[c.id]" class="audit">
-          <span class="ref" v-for="(r,i) in c.audit.slice(0,40)" :key="r[0]+':'+r[1]" :style="{animationDelay:(i*14)+'ms'}">{{ r[0] }}:{{ r[1] }}</span>
-          <span v-if="c.audit.length>40" class="ref">+{{ c.audit.length-40 }} {{ lang==='ar'?'أخرى':'more' }}</span>
-        </div>
+        <template v-if="open[c.id]">
+          <p class="audhint">{{ auditHint(c) }}</p>
+          <div class="audit" data-lenis-prevent>
+            <a class="ref" v-for="(g,i) in verses(c)" :key="g.k" :href="readHref(c, g.k)" @click="keep(c)"
+               :style="i < 48 ? {animationDelay:(i*14)+'ms'} : {animation:'none'}">{{ refText(g.k) }}<sup v-if="g.n>1">×{{ fmt(g.n) }}</sup></a>
+          </div>
+        </template>
       </article>
     </div>
     <p class="more-cta"><a class="btn primary magnetic" data-view="auditor" href="app.html?view=auditor"><span data-i18n="cl.more">Check any claim yourself</span><svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h10M9 4.5 12.5 8 9 11.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
@@ -1207,7 +1215,18 @@ if (window.Vue) {
         if (this.lang === 'ar') return v === 'exact' ? 'مطابق' : v === 'parity' ? 'تعادل' : 'مختلف';
         return v === 'exact' ? 'EXACT' : v === 'parity' ? 'PAIR EQUAL' : 'DIFFERS'; },
       pairEqual(c) { const p = this.byId(c.pair); return p && p.verifiedLemma === c.verifiedLemma; },
-      pairName(c) { const p = this.byId(c.pair); return p ? (this.lang === 'ar' ? p.ar : p.en) : ''; }
+      pairName(c) { const p = this.byId(c.pair); return p ? (this.lang === 'ar' ? p.ar : p.en) : ''; },
+      // every verse a claim counts, once each in mushaf order, with how many mentions it holds
+      verses(c) { const m = new Map(); (c.audit || []).forEach(a => { const k = a[0] + ':' + a[1]; m.set(k, (m.get(k) || 0) + 1); });
+        return [...m].map(([k, n]) => ({ k, n })); },
+      refText(k) { return this.lang === 'ar' ? k.replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]) : k; },
+      auditHint(c) { const n = c.audit.length, v = this.verses(c).length;
+        return this.lang === 'ar'
+          ? arCount(n, 'موضعٌ واحد', 'موضعان', 'مواضع', 'موضعًا') + ' في ' + arCount(v, 'آيةٍ واحدة', 'آيتين', 'آيات', 'آية') + (fine ? '. انقر على آيةٍ لتقرأها.' : '. المس آيةً لتقرأها.')
+          : this.fmt(n) + ' mentions in ' + this.fmt(v) + ' verses. ' + (fine ? 'Click' : 'Tap') + ' one to read it.'; },
+      // a verse opens in the reader with the word marked; the card is kept in the address, so coming back finds it open
+      readHref(c, k) { const [s, v] = k.split(':'); return 'app.html?view=reader&s=' + s + '&v=' + v + '&m=' + c.id + '&back=landing' + (this.lang === 'ar' ? '&lang=ar' : ''); },
+      keep(c) { try { history.replaceState(history.state, '', location.pathname + location.search + '#claim-' + c.id); } catch (e) { /* not allowed here */ } }
     }
   }).mount('#claims-app');
 }
@@ -1358,6 +1377,23 @@ if (motion && fine && window.Lenis) {
   } catch (e) { lenis = null; }
 }
 
+// ── back from a verse: the claim card left for the reader comes back open and in view ──
+const cardId = (location.hash.match(/^#claim-([a-z0-9-]+)$/) || [])[1];
+let cardDone = !(vm && cardId && D.claims.some(c => c.id === cardId));
+if (!cardDone) {
+  vm.open[cardId] = true;
+  const mine = () => { cardDone = true; };   // once the reader scrolls, the page is theirs
+  ['wheel', 'touchmove', 'keydown'].forEach(ev => window.addEventListener(ev, mine, { once: true, passive: true }));
+  setTimeout(() => { cardDone = true; }, 6000);
+}
+function backToCard() {
+  if (cardDone) return;
+  const el = document.getElementById('claim-' + cardId); if (!el) return;
+  const y = Math.max(0, el.getBoundingClientRect().top + window.scrollY - 90);
+  if (lenis) lenis.scrollTo(y, { immediate: true, force: true }); else window.scrollTo(0, y);
+}
+setTimeout(backToCard, 60); setTimeout(backToCard, 1400);
+
 // ── nav state + progress ──
 const nav = $('.topnav'), bar = $('.progress i');
 let lastY = window.scrollY;
@@ -1452,7 +1488,7 @@ if (motion) {
     // claim cards get the spotlight but stay flat, so their text is easy to read
     $$('.ccard').forEach(c => c.addEventListener('pointermove', e => spot(c, e)));
   }
-  if (document.fonts) document.fonts.ready.then(() => { ST.refresh(); moveInd(true); });
+  if (document.fonts) document.fonts.ready.then(() => { ST.refresh(); moveInd(true); backToCard(); });
 } else {
   $$('.tile, .ccard').forEach(t => t.addEventListener('pointermove', e => spot(t, e)));
 }
@@ -2138,7 +2174,7 @@ async function initScene() {
 
   function loop(now) {
     requestAnimationFrame(loop);
-    const dt = Math.min((now - last) / 1000, .05); last = now;
+    const dt = clamp((now - last) / 1000, 0, .05); last = now;   // a frame's timestamp can come a hair before the clock read at start
 
     const pA = prog(els.s1, 1, .45);
     const target = prog(els.s2, .9, .35) + prog(els.s3, .9, .35) + prog(els.roots, .95, .4) + prog(els.read, .8, .1);
@@ -2155,7 +2191,7 @@ async function initScene() {
     g.cx = wx(mx(lerp(h0.fx, h1.fx, k))); g.cy = wy(lerp(h0.fy, h1.fy, k)); g.R = lerp(h0.r, h1.r, k) * base;
     g.ct = Math.cos(tilt); g.st = Math.sin(tilt); g.cr = Math.cos(roll); g.sr = Math.sin(roll);
 
-    const i0 = Math.min(Math.floor(sS), 3), f = clamp(sS - i0, 0, 1), A = L[i0], B = L[i0 + 1], dl = DL[i0 + 1], K = .55, tm = now / 1000;
+    const i0 = clamp(Math.floor(sS), 0, 3), f = clamp(sS - i0, 0, 1), A = L[i0], B = L[i0 + 1], dl = DL[i0 + 1], K = .55, tm = now / 1000;
     const amp = reduced ? 0 : (sS > 2.5 && sS < 3.5 ? .35 : .05);
     for (let n = 0; n < N; n++) {
       let ax, ay, az;
@@ -2314,7 +2350,7 @@ async function initScene() {
   };
 }
 // either way the page's layout changes (without WebGL the scene steps close up), so the scroll triggers are measured again
-const sceneReady = api => { scene = api; root.classList.add(api ? 'gl' : 'no-gl'); if (ST) ST.refresh(); };
+const sceneReady = api => { scene = api; root.classList.add(api ? 'gl' : 'no-gl'); if (ST) ST.refresh(); backToCard(); };
 initScene().then(sceneReady).catch(() => sceneReady(null));
 });
 </script>

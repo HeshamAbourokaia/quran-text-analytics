@@ -44,7 +44,9 @@ REGISTRY = [
     dict(id='man-24', en='Man (rajul)', key='man', lem='رجل', surf='رجل',
          claimed=24, pair='woman-24', rule=None,
          note_en='Lemma rajul (man), separated from rijl (foot). The man=woman=24 pairing does not hold under lemma counting.'),
-    dict(id='woman-24', en="Woman (imra'a)", key='woman', lem='امرات', surf='امرات',
+    # The corpus files woman under امْرَأَت, the spelling the mushaf uses in phrases like امرأت العزيز; the
+    # card shows the dictionary form. 'show' changes only what is displayed, never what is counted.
+    dict(id='woman-24', en="Woman (imra'a)", key='woman', lem='امرات', surf='امرات', show='امْرَأَة',
          claimed=24, pair='man-24', rule=None,
          note_en="Lemma imra'a. Not equal to man, and not 24."),
     dict(id='jesus-24', en='Jesus (Isa)', key='jesus', lem='عيسي', surf='عيسي',
@@ -121,7 +123,7 @@ def compute(words, verses_norm):
         elif c['rule'] == 'singular-noplural' and lemma:
             rule_val = len(_singular_core(words, lemma, drop_plural_prefix=True))
         out.append({
-            'id': c['id'], 'en': c['en'], 'ar': lemma or c['lem'], 'pair': c['pair'],
+            'id': c['id'], 'en': c['en'], 'ar': c.get('show') or lemma or c['lem'], 'pair': c['pair'],
             'claimed': c['claimed'],
             'verifiedLemma': n,
             'verifiedRule': rule_val,

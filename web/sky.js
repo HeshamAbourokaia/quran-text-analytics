@@ -495,7 +495,8 @@
           if (x.claimed != null && j >= x.claimed) h += ar ? ' · بعد الرقم المزعوم' : ' · past the claimed number';
           if (a) { const k = keyIdx(a[0] + ':' + a[1]); if (k >= 0) h += '<br>' + esc(sname(sur[k])) + ' <span class="k">' + digits(a[0] + ':' + a[1]) + '</span>'; }
           return h; };
-        S.link = n => { const v = S.grp[n]; if (v < 0) return 0; const a = (it[Math.floor(v / 100000)].audit || [])[v % 100000]; return a ? a[0] : 0; };
+        S.link = n => { const v = S.grp[n]; if (v < 0) return 0; const x = it[Math.floor(v / 100000)], a = (x.audit || [])[v % 100000];
+          return !a ? 0 : x.id ? { verse: [a[0], a[1]], claim: x.id } : a[0]; };
         return S;
       },
 
@@ -646,6 +647,7 @@
       if (!L2) return '';
       if (typeof L2 === 'number') return '<br><a href="?view=reader&s=' + L2 + '" data-s="' + L2 + '">' + (ar ? 'اقرأ السورة ‹' : 'Read the surah ›') + '</a>';
       if (L2.search) return '<br><a href="?view=search" data-q="' + esc(L2.search) + '" data-m="' + esc(L2.mode) + '">' + (ar ? 'ابحث عنها ‹' : 'Find it ›') + '</a>';
+      if (L2.verse) return '<br><a href="?view=reader&s=' + L2.verse[0] + '&v=' + L2.verse[1] + '" data-vs="' + L2.verse.join(':') + '" data-c="' + esc(L2.claim || '') + '">' + (ar ? 'اقرأ الآية ‹' : 'Read the verse ›') + '</a>';
       return '';
     }
     function place(touch) {
@@ -679,7 +681,9 @@
     const pickable = () => form === 'hero' && morph >= 1 && uAlpha > .5 && st.sp < .05;
     const inStage = (x, y) => { if (!st.S || !st.el || !st.S.hover || st.sp < .9) return false; const r = st.el.getBoundingClientRect(); return x >= r.left - 8 && x <= r.right + 8 && y >= r.top - 8 && y <= r.bottom + 8; };
     const read = s => window.dispatchEvent(new CustomEvent('sky:read', { detail: { surah: s } }));
-    const follow = L2 => { if (!L2) return; if (typeof L2 === 'number') read(L2); else if (L2.search) window.dispatchEvent(new CustomEvent('sky:search', { detail: { q: L2.search, mode: L2.mode } })); };
+    const follow = L2 => { if (!L2) return; if (typeof L2 === 'number') read(L2);
+      else if (L2.search) window.dispatchEvent(new CustomEvent('sky:search', { detail: { q: L2.search, mode: L2.mode } }));
+      else if (L2.verse) window.dispatchEvent(new CustomEvent('sky:verse', { detail: { s: L2.verse[0], v: L2.verse[1], claim: L2.claim } })); };
     let stageHover = false;
     window.addEventListener('pointermove', e => {
       if (e.pointerType !== 'mouse') return;
@@ -691,9 +695,10 @@
     }, { passive: true });
     document.addEventListener('pointerleave', () => { mouse = null; if (hovered >= 0) (stageHover ? setStageHover(-1) : setHover(-1)); stageHover = false; });
     window.addEventListener('click', e => {
-      const a = e.target.closest && e.target.closest('#tip a[data-s], #tip a[data-q]');
+      const a = e.target.closest && e.target.closest('#tip a[data-s], #tip a[data-q], #tip a[data-vs]');
       if (a) { e.preventDefault(); const wasStage = stageHover || (st.S && st.sp > .9); (wasStage ? setStageHover : setHover)(-1);
-        if (a.dataset.s) read(+a.dataset.s); else follow({ search: a.dataset.q, mode: a.dataset.m }); return; }
+        if (a.dataset.s) read(+a.dataset.s); else if (a.dataset.vs) follow({ verse: a.dataset.vs.split(':').map(Number), claim: a.dataset.c });
+        else follow({ search: a.dataset.q, mode: a.dataset.m }); return; }
       if (inStage(e.clientX, e.clientY) && !blocked(e.target)) {
         if (e.pointerType === 'mouse' || (!e.pointerType && fine)) { if (hovered >= 0 && stageHover) { const L2 = st.S.link ? st.S.link(hovered) : null; if (L2) { setStageHover(-1); follow(L2); } } return; }
         mouse = { x: e.clientX, y: e.clientY };
