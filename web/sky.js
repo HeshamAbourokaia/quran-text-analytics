@@ -430,7 +430,12 @@
       scatter(d, bx) {
         const S = blank(), P2 = d.pts || [], ml = .085, mr = .03, mt = .05, mbt = .13;
         const Tx = d.logx ? Math.log10 : v => v, Ty = d.logy ? Math.log10 : v => v;
-        const [x0, x1] = d.xr, [y0, y1] = d.yr, fxOf = v => ml + (1 - ml - mr) * (Tx(v) - Tx(x0)) / (Tx(x1) - Tx(x0)), fyOf = v => 1 - mbt - (1 - mbt - mt) * (Ty(v) - Ty(y0)) / (Ty(y1) - Ty(y0));
+        let [x0, x1] = d.xr, [y0, y1] = d.yr;
+        // equal: a unit is as long across as up, so a direction drawn on it keeps its true angle (the axis with room to spare runs further)
+        if (d.equal) { const pw = (1 - ml - mr) * bx.w, ph = (1 - mt - mbt) * bx.h, ux = (x1 - x0) / pw, uy = (y1 - y0) / ph; if (ux < uy) x1 = x0 + uy * pw; else y1 = y0 + ux * ph; }
+        const fxOf = v => ml + (1 - ml - mr) * (Tx(v) - Tx(x0)) / (Tx(x1) - Tx(x0)), fyOf = v => 1 - mbt - (1 - mbt - mt) * (Ty(v) - Ty(y0)) / (Ty(y1) - Ty(y0));
+        const every = (a, b, s) => { const o = []; for (let v = Math.ceil(a / s) * s; v <= b + 1e-9; v += s) o.push(Math.round(v * 1e6) / 1e6); return o; };
+        const tkl = v => digits(v < 0 ? '−' + Math.abs(v) : v), px = (x, y) => [fxOf(x) * bx.w, fyOf(y) * bx.h];
         const info = {};
         P2.forEach(pt => {
           const k = pt.n - 1, nv = VW[k].length, cx = fxOf(pt.x) * bx.w, cy = fyOf(pt.y) * bx.h, rad = (d.r0 || 2) + (d.r1 || 10) * Math.sqrt(nv / maxV);
@@ -441,11 +446,41 @@
             put(S, n, (cx + rho * Math.cos(ph)) / bx.w, (cy + rho * Math.sin(ph)) / bx.h, c, .35, 2.2, (fxOf(pt.x) * .6 + jit[n] * .4), null);
           }
         });
-        (d.xTicks || []).forEach(v => S.labels.push(L(fxOf(v), 1 - mbt + .045, digits(v), 'tk')));
-        (d.yTicks || []).forEach(v => S.labels.push(L(ml - .012, fyOf(v), digits(v), 'tk', 'e')));
+        // tick: a tick every so many units, over the range asked for (not over the room added to keep the units equal)
+        (d.tick ? every(x0, Math.min(x1, d.xr[1]), d.tick) : d.xTicks || []).forEach(v => S.labels.push(L(fxOf(v), 1 - mbt + .045, tkl(v), 'tk')));
+        (d.tick ? every(y0, Math.min(y1, d.yr[1]), d.tick) : d.yTicks || []).forEach(v => S.labels.push(L(ml - .012, fyOf(v), tkl(v), 'tk', 'e')));
+        // zero: faint lines through the average (0 on a standardized axis)
+        if (d.zero) {
+          if (x0 < 0 && x1 > 0) S.shapes.push({ cls: 'pzero', pts: [px(0, y0), px(0, y1)] });
+          if (y0 < 0 && y1 > 0) S.shapes.push({ cls: 'pzero', pts: [px(x0, 0), px(x1, 0)] });
+        }
+        // line: a direction through the origin, at an angle in the data's units, with an arrowhead; with shadows,
+        // each point's projection on it is ticked and joined to the point by a faint drop. Its label shows while the
+        // tip points right, away from the crowd of short surahs by the origin.
+        if (d.line) {
+          const c = Math.cos(d.line.angle), s = Math.sin(d.line.angle);
+          let t0 = -Infinity, t1 = Infinity;
+          if (Math.abs(c) > 1e-9) { const a = x0 / c, b = x1 / c; t0 = Math.max(t0, Math.min(a, b)); t1 = Math.min(t1, Math.max(a, b)); }
+          if (Math.abs(s) > 1e-9) { const a = y0 / s, b = y1 / s; t0 = Math.max(t0, Math.min(a, b)); t1 = Math.min(t1, Math.max(a, b)); }
+          if (t1 > t0) {
+            const A = px(t0 * c, t0 * s), B = px(t1 * c, t1 * s), len = Math.hypot(B[0] - A[0], B[1] - A[1]) || 1, ux = (B[0] - A[0]) / len, uy = (B[1] - A[1]) / len;
+            if (d.line.shadows) P2.forEach(pt => {
+              const t = pt.x * c + pt.y * s, P = px(pt.x, pt.y), Q = px(t * c, t * s);
+              S.shapes.push({ cls: 'pdrop', pts: [P, Q] });
+              S.shapes.push({ cls: 'ptick', pts: [[Q[0] - uy * 5, Q[1] + ux * 5], [Q[0] + uy * 5, Q[1] - ux * 5]] });
+            });
+            S.shapes.push({ cls: 'pline', pts: [A, B] });
+            S.shapes.push({ cls: 'phead', pts: [B, [B[0] - ux * 11 - uy * 5, B[1] - uy * 11 + ux * 5], [B[0] - ux * 11 + uy * 5, B[1] - uy * 11 - ux * 5]] });
+            if (d.line.label && c > .2) S.labels.push(L(clamp(B[0] / bx.w, .14, .9), clamp(B[1] / bx.h + .075, .1, .84), esc(d.line.label), 'plbl'));
+          }
+        }
+        // gauge: one big number where the plot has room (beside it in a wide box, in its top corner in a narrow one)
+        if (d.gauge) { const wide = bx.w / bx.h > 1.35; S.labels.push(L(wide ? .8 : .3, wide ? .42 : .17, '<b>' + esc(d.gauge.value) + '</b><span>' + esc(d.gauge.label) + '</span>', 'gauge')); }
         if (d.xTitle) S.labels.push(L(1 - mr, 1 - .02, esc(d.xTitle), 'tk axis', 'e'));
-        if (d.yTitle) S.labels.push(L(ml - .012, mt - .01, esc(d.yTitle), 'tk axis', 'e'));
-        (d.legend || []).forEach((g, q) => S.labels.push(L(ml + .01 + q * (d.legendStep || .14), mt, '<i style="background:rgb(' + colorOf(g.color).map(v => Math.round(v * 255)).join(',') + ')"></i>' + esc(g.label), 'lg', 's')));
+        // in a narrow box the y title stands along the axis, where it has room; the legend keeps at least 78px an item
+        if (d.yTitle) S.labels.push(bx.w < 560 ? L(.024, (mt + 1 - mbt) / 2, esc(d.yTitle), 'tk axis yv') : L(ml - .012, mt - .01, esc(d.yTitle), 'tk axis', 'e'));
+        const lstep = Math.max(d.legendStep || .14, 78 / bx.w);
+        (d.legend || []).forEach((g, q) => S.labels.push(L(ml + .01 + q * lstep, mt, '<i style="background:rgb(' + colorOf(g.color).map(v => Math.round(v * 255)).join(',') + ')"></i>' + esc(g.label), 'lg', 's')));
         S.hover = n => '<b>' + esc(sname(sur[n])) + '</b> <span class="k">' + digits(sur[n] + 1) + '</span>' + (info[sur[n] + 1] ? '<br>' + info[sur[n] + 1] : '');
         S.link = n => sur[n] + 1;
         return S;

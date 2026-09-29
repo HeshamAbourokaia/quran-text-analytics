@@ -56,6 +56,16 @@ See the [Screenshots](#screenshots) section below for the same pages rendered in
 
 Most visitors are not statisticians, so every analysis page on the web app opens with a short box in plain words, in both languages: **what it is**, **how to read** the figure (under the figure itself), and **what it tells us**. The Analytics Lab's pages lead with a plain question ("Can a computer tell a Meccan surah from a Medinan one?", "Are Medinan verses really longer?") and name the method in one simple sentence (machine learning, a t-test, k-means, Monte Carlo, linear programming), with the technical name kept small underneath. Labels such as p-value, AUC and shadow price carry a plain gloss next to them, and pages of number patterns (19, structure, abjad) say gently that a match depends on how you count. The texts live in one place, `PLAIN` in `web/app.html`.
 
+### Two layers: simple and scientific
+
+Each explanation box has a **Simple | Scientific** switch. The choice is remembered from page to page, and a link can ask for it with `?depth=sci`. The scientific layer gives, for 21 pages in both languages, the page's **purpose**, its **data**, the **method** with its settings (for example, Welch's t-test with α = 0.05, TF-IDF with logistic regression checked by stratified 5-fold cross-validation, or k-means with K = 4 and PCA on standardized measurements), the **result** with its numbers, and its **assumptions and limits**. The limits say plainly where a method is weaker than it looks: verses of one surah are not independent, the Medinan label is one of the clustering inputs, and the emotion counts depend on one English translation and fixed word lists.
+
+Technical terms in these texts (27 of them, from PCA and k-means to the p-value, AUC, Zipf's law and the look-elsewhere effect) open as a **card of four layers**, like a small deck: in plain words, what it does here, what it showed us, and for scientists. A card links to the page where its method is at work. On a phone it opens as a sheet from the bottom.
+
+On the Clusters page, a **walk-through** shows how the map is made. The page's own verse points move through each step: two measurements on a common scale, a line you can turn to find the widest direction (with the share of the spread it keeps), flattening onto that line, the same idea with all four measurements (with the variance each direction keeps and what it is made of), and finally the k-means groups. The PCA is computed in the browser and matches the pipeline's map.
+
+The texts live in `web/explain.js`. The numbers they quote that the site does not show elsewhere (effect size, medians, the PCA variance shares, the silhouette check behind K = 4, the vocabulary's Zipf slope) are pinned by `data-build/tests/test_methods.py`.
+
 ## Features
 
 ### Visualization (Page 17, Advanced Analytics)

@@ -8,6 +8,7 @@ JSON the frontend consumes. No network access at runtime; everything is built he
 ./fetch_sources.sh        # download the morphology corpus into sources/
 python3 build.py          # validate + emit out/*.json + print the scorecard
 python3 tests/test_counts.py   # golden-file tests pin every number
+python3 tests/test_methods.py  # pins the numbers the app's scientific explanations quote
 ```
 
 ## What it produces (out/)
