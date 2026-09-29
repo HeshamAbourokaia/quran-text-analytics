@@ -484,12 +484,20 @@
         'والدين', 'ثبات', 'صبر', 'الاخرة', 'قلب'],
     },
     lessons: {
-      faith: ['doubt', 'believe', 'belief', 'faith', 'god', 'unseen', 'purpose', 'meaning of life', 'ايمان', 'شك', 'عقيدة', 'غيب'],
+      faith: ['doubt', 'believe', 'belief', 'faith', 'god', 'unseen', 'purpose', 'meaning of life', 'ايمان', 'شك', 'عقيدة', 'غيب',
+        // hope, worry, provision and sin: Trust in God, Hope in God's Mercy, Repentance
+        'hope', 'hopeless', 'despair', 'anxious', 'anxiety', 'worried', 'worry', 'afraid', 'future', 'money', 'debt', 'rizq', 'provision', 'sin', 'sinned', 'guilt', 'guilty', 'regret', 'repent',
+        'امل', 'ياس', 'قنوط', 'قلق', 'خوف', 'مستقبل', 'رزق', 'مال', 'ديون', 'فقر', 'ذنب', 'ذنوب', 'توبة', 'ندم'],
       ethics: ['honest', 'honesty', 'lie', 'lying', 'cheat', 'cheating', 'justice', 'fair', 'trust', 'promise', 'صدق', 'كذب', 'غش', 'عدل', 'امانة', 'وعد'],
       social: ['friend', 'friends', 'neighbour', 'neighbor', 'community', 'people', 'conflict', 'argument', 'colleague', 'society', 'اصدقاء', 'صديق', 'جار', 'جيران', 'مجتمع', 'خلاف', 'الناس'],
       worship: ['prayer', 'pray', 'fasting', 'ramadan', 'salah', 'quran', 'worship', 'mosque', 'صلاة', 'صيام', 'رمضان', 'عبادة', 'مسجد'],
       character: ['anger', 'angry', 'patience', 'patient', 'arrogant', 'arrogance', 'humble', 'jealous', 'envy', 'pride', 'self-control', 'temper',
-        'غضب', 'صبر', 'كبر', 'تواضع', 'غيرة', 'حسد'],
+        'غضب', 'صبر', 'كبر', 'تواضع', 'غيرة', 'حسد',
+        // hard times, work and setbacks: Patience, Perseverance, Steadfastness, Reliance on God
+        'hardship', 'hard time', 'difficult', 'struggle', 'struggling', 'job', 'work', 'unemployed', 'jobless', 'career', 'interview', 'rejected', 'rejection',
+        'fail', 'failed', 'failing', 'failure', 'unsuccessful', 'give up', 'giving up', 'waiting', 'stuck', 'setback', 'persevere', 'perseverance', 'steadfast',
+        'stress', 'stressed', 'frustrated', 'exhausted', 'grief', 'grieving', 'courage',
+        'صعوبة', 'ضيق', 'ابتلاء', 'بلاء', 'وظيفة', 'عمل', 'بطالة', 'عاطل', 'فشلت', 'فشل', 'رفضت', 'رفض', 'استسلم', 'انتظار', 'ضغط', 'تعبت', 'شجاعة', 'قناعة'],
       consequences: ['consequence', 'punishment', 'reward', 'deeds', 'karma', 'judgment', 'accountable', 'عاقبة', 'عقاب', 'جزاء', 'حساب'],
       knowledge: ['study', 'studying', 'learn', 'learning', 'exam', 'exams', 'school', 'university', 'knowledge', 'think', 'علم', 'دراسة', 'امتحان', 'تعلم', 'مدرسة', 'جامعة'],
       family: ['parents', 'mother', 'mom', 'father', 'dad', 'marriage', 'married', 'wife', 'husband', 'divorce', 'children', 'kids', 'son', 'daughter', 'family',
@@ -497,13 +505,28 @@
     },
   };
 
+  // Words whose sense flips when negated: "I haven't been successful" or "not happy" is no reason for a
+  // du'a of praise. They count only where no negation comes in the three words before them.
+  const FLIPS = new Set(SITUATIONS.duas.praise);
+  const NEG_EN = /^(?:not|no|never|without|nor|hardly|barely|cannot|[a-z]+n't)$/;
+  const NEG_AR = /^(?:و|ف)?(?:لم|لا|لن|ما|ليس|لست|لسنا|غير|بدون|عدم)$/;
+  function positiveKey(lower, norm, k) {
+    const ar = AR_LETTER.test(k), text = ar ? norm : lower, re = new RegExp(keyRe(k).source, 'g');
+    for (let m; (m = re.exec(text));) {
+      const before = text.slice(0, m.index + 1).trim().split(/\s+/).slice(-3);
+      if (!before.some(w => (ar ? NEG_AR : NEG_EN).test(w))) return true;
+      re.lastIndex = m.index + 1;
+    }
+    return false;
+  }
+
   function situationLocal(text, lib) {
     const table = SITUATIONS[lib];
     if (!table) return [];
     const { lower, norm } = prepText(text);
     const out = [];
     for (const [cat, keys] of Object.entries(table)) {
-      const matched = keys.filter(k => hasKey(lower, norm, k));
+      const matched = keys.filter(k => hasKey(lower, norm, k) && (!FLIPS.has(k) || positiveKey(lower, norm, k)));
       if (matched.length) out.push({ cat, score: matched.length, weight: matched.join('').length, matched });
     }
     return out.sort((a, b) => b.score - a.score || b.weight - a.weight);
