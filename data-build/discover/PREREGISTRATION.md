@@ -149,4 +149,6 @@ mirror order around a centre at 2:142–152 ("a middle nation", 2:143).
 
 ## Deviations
 
-None yet.
+1. **Study 5, before any run (29 Sep 2026).** The stability refits were to use seeds 1–5 with the same
+   initialization, but `init='nndsvda'` is deterministic, so every refit would equal the first and the check
+   would be empty. The refits use `init='random'` with seeds 1–5 instead; the main fit is unchanged.
