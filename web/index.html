@@ -735,9 +735,9 @@ if (location.hostname === 'heshamabourokaia.github.io')
       <h3 class="display" data-i18n="cg.h">Every claim, card by card.</h3>
     </header>
     <div class="clegend rv">
-      <span><i class="dot green"></i><span data-i18n="leg1">Verified matches the claim exactly</span></span>
-      <span><i class="dot teal"></i><span data-i18n="leg2">Parity holds (pair is equal)</span></span>
-      <span><i class="dot gold"></i><span data-i18n="leg3">Differs / depends on counting method</span></span>
+      <span><i class="dot green"></i><span data-i18n="leg1">Our count matches the claim exactly</span></span>
+      <span><i class="dot teal"></i><span data-i18n="leg2">The pair is equal: both words come equally often</span></span>
+      <span><i class="dot gold"></i><span data-i18n="leg3">Differs, or depends on how you count</span></span>
     </div>
     <div class="cgrid" v-cloak>
       <article v-for="c in claims" :key="c.id" class="ccard" :class="verdict(c)">
@@ -752,11 +752,11 @@ if (location.hostname === 'heshamabourokaia.github.io')
           <div class="nbox claimed"><div class="v">{{ fmt(c.claimed) }}</div><div class="k">{{ lang==='ar'?'المزعوم':'Claimed' }}</div></div>
           <div class="nbox verified" :class="{off: c.verifiedLemma !== c.claimed}"><div class="v" :data-n="c.verifiedLemma">{{ fmt(c.verifiedLemma) }}</div><div class="k">{{ lang==='ar'?'المحقّق':'Verified' }}</div></div>
         </div>
-        <div class="raw" v-if="lang!=='ar'">naive search: {{ fmt(c.rawSubstring) }} substring &middot; {{ fmt(c.rawWholeWord) }} whole-word</div>
-        <div class="raw" v-else>بحث ساذج: {{ fmt(c.rawSubstring) }} ضمن النص &middot; {{ fmt(c.rawWholeWord) }} كلمة كاملة</div>
-        <div v-if="c.pair && pairEqual(c) && lang!=='ar'" class="pairtag">= its pair ({{ pairName(c) }}): the symmetry holds</div>
+        <div class="raw" v-if="lang!=='ar'">quick text search: {{ fmt(c.rawSubstring) }} as part of a word &middot; {{ fmt(c.rawWholeWord) }} as a whole word</div>
+        <div class="raw" v-else>البحث النصي السريع: {{ fmt(c.rawSubstring) }} (جزء من كلمة) &middot; {{ fmt(c.rawWholeWord) }} (كلمة كاملة)</div>
+        <div v-if="c.pair && pairEqual(c) && lang!=='ar'" class="pairtag">= its pair ({{ pairName(c) }}): the two are equal</div>
         <div v-if="c.pair && pairEqual(c) && lang==='ar'" class="pairtag">= زوجه ({{ pairName(c) }})، والتعادل قائم</div>
-        <div class="note">{{ lang==='ar' ? (notesAr[c.id]||c.note_en) : c.note_en }}</div>
+        <div class="note">{{ (lang==='ar' ? notesAr[c.id] : notesEn[c.id]) || c.note_en }}</div>
         <button type="button" class="more" @click="toggle(c.id)" :aria-expanded="!!open[c.id]">
           <template v-if="lang!=='ar'">{{ open[c.id] ? 'Hide' : 'Show' }} the {{ fmt(c.verifiedLemma) }} verses &rsaquo;</template>
           <template v-else>{{ open[c.id] ? 'أخفِ' : 'أظهر' }} الآيات ({{ fmt(c.verifiedLemma) }}) &lsaquo;</template>
@@ -778,18 +778,18 @@ if (location.hostname === 'heshamabourokaia.github.io')
         <span class="ayah" aria-hidden="true">۝٦</span>
         <p class="kick" data-i18n="co.k">Why matching numbers are easy to find</p>
         <h2 class="display" data-i18n="co.h">Pick any number. Some words will land on it.</h2>
-        <p class="sub" data-i18n="co.p">The corpus has 4,771 lemmas.</p>
+        <p class="sub" data-i18n="co.p">The Quran has 4,771 different words.</p>
       </header>
       <div class="chips rv" id="chips" role="radiogroup" aria-label="Pick a number"><span class="chip-ind" aria-hidden="true"></span></div>
       <div class="cstats rv" aria-live="polite">
-        <div class="cstat ex"><b class="num" id="c-exact">14</b><span id="c-exact-l">lemmas occur exactly 19 times</span></div>
+        <div class="cstat ex"><b class="num" id="c-exact">14</b><span id="c-exact-l">words occur exactly 19 times</span></div>
         <div class="cstat nr"><b class="num" id="c-near">233</b><span id="c-near-l">come within five of 19</span></div>
       </div>
       <p class="moral rv" data-i18n="co.moral">That is why the auditor always asks how a claim counts.</p>
     </div>
     <figure class="dots rv">
-      <canvas id="dotgrid" role="img" aria-label="Dot grid of lemmas"></canvas>
-      <figcaption data-i18n="co.legend">Each dot is one lemma.</figcaption>
+      <canvas id="dotgrid" role="img" aria-label="Dot grid of the Quran's different words"></canvas>
+      <figcaption data-i18n="co.legend">Each dot is one word.</figcaption>
     </figure>
   </div>
 </section>
@@ -800,7 +800,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
       <span class="ayah" aria-hidden="true">۝٧</span>
       <p class="kick" data-i18n="lab.k">Machine learning</p>
       <h2 class="display" data-i18n="lab.h">A model can tell Mecca from Medina.</h2>
-      <p class="sub" data-i18n="lab.pp">A logistic regression reads nothing but word frequencies.</p>
+      <p class="sub" data-i18n="lab.pp">A computer model reads nothing but how often each word is used.</p>
     </header>
   </div>
 </section>
@@ -833,7 +833,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
         </div>
         <ul class="ringmeta">
           <li><i class="sw" style="background:var(--gold)"></i><span data-i18n="lab.base">75.4% if it always guessed Meccan</span></li>
-          <li><i class="sw" style="background:var(--teal)"></i><span data-i18n="lab.auc">AUC 0.92</span></li>
+          <li><i class="sw" style="background:var(--teal)"></i><span data-i18n="lab.auc">a score of 0.92 out of 1</span></li>
         </ul>
       </div>
       <div class="lcard waffle rv">
@@ -861,7 +861,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
       <span class="ayah" aria-hidden="true">۝٨</span>
       <p class="kick" data-i18n="feat.kicker">What is inside</p>
       <h2 class="display" data-i18n-html="feat.h2">Built like an instrument,<br>not a brochure.</h2>
-      <p class="sub" data-i18n="feat.p">Every number on this site is computed live from the corpus in your browser and pinned by tests.</p>
+      <p class="sub" data-i18n="feat.p">Every number on this site is counted live from the Quran's text in your browser and checked by automatic tests.</p>
     </header>
     <div class="bento">
       <a class="tile t-lab rv" data-view="classifier" href="app.html?view=classifier">
@@ -873,7 +873,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
       <a class="tile t-search rv" data-view="search" href="app.html?view=search">
         <span class="go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2.5 8h10M9 4.5 12.5 8 9 11.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         <h3 data-i18n="search.h3">Word Search</h3>
-        <p data-i18n="search.p">Search by surface form, lemma or root.</p>
+        <p data-i18n="search.p">Look up any word by its exact spelling, in all its forms, or by its root letters.</p>
         <div class="viz keycaps" aria-hidden="true"><b>ق</b><b>ر</b><b>ء</b><b>ن</b></div>
       </a>
       <a class="tile t-reader rv" data-view="reader" href="app.html?view=reader">
@@ -1045,7 +1045,7 @@ const I18N = {
                  ar:'تبني العربية كلماتها من جذور، هي في الغالب ثلاثة حروفٍ تحمل معنًى أصليًا. جرِّد كل كلمةٍ طبقةً بعد طبقة، ينطوِ النص كله إلى عددٍ محدود من الجذور.'},
   'fn.r1':      {en:'Words in the text', ar:'كلمات النص'},
   'fn.r2':      {en:'Distinct written forms', ar:'صيغ مكتوبة مختلفة'},
-  'fn.r3':      {en:'Lemmas, the dictionary headwords', ar:'الجذوع، أي المداخل المعجمية'},
+  'fn.r3':      {en:'Words, counting all forms of a word as one', ar:'الكلمات، تُعدّ صيغ الكلمة الواحدة كلمةً واحدة'},
   'fn.r4':      {en:'Roots', ar:'الجذور'},
   'fn.eg':      {en:'One root, many words', ar:'جذرٌ واحد، وكلماتٌ كثيرة'},
   'g.book':     {en:'book', ar:'book'},
@@ -1056,28 +1056,28 @@ const I18N = {
                  ar:'{hapax} صيغة لا ترد إلا مرةً واحدة، والجذر الأكثر ورودًا هو {topRoot}، إذ يرد {topRootC} مرة.'},
   'cl.kicker':  {en:'Claim auditor', ar:'مدقّق المزاعم'},
   'cl.h2':      {en:'Famous claims, audited.', ar:'الأعداد المتداولة، تحت التدقيق.'},
-  'cl.p':       {en:'Every famous word-count claim, checked against the real corpus. We show the <b>claimed</b> figure, the <b>verified</b> count by lemma, and what a <b>naive search</b> returns. Nothing hidden.',
-                 ar:'نأخذ كل قولٍ متداول عن عدد ورود كلمةٍ في القرآن ونختبره على المدونة الحقيقية، فنعرض الرقم <b>المزعوم</b> والعدَّ <b>المحقَّق</b> بالجذع وما يعيده <b>البحث الساذج</b>، من غير أي إخفاء.'},
-  'leg1':       {en:'Verified matches the claim exactly', ar:'المحقّق يطابق المزعوم تمامًا'},
-  'leg2':       {en:'Parity holds (pair is equal)', ar:'التعادل قائم (الزوجان متساويان)'},
-  'leg3':       {en:'Differs / depends on counting method', ar:'مختلف، أو يعتمد على طريقة العدّ'},
+  'cl.p':       {en:'Famous claims about how often a word appears in the Quran, each checked against the text itself. We show the <b>claimed</b> number, our careful count of the word in <b>all its forms</b>, and what a <b>quick text search</b> finds. Nothing hidden.',
+                 ar:'نأخذ كل قولٍ متداول عن عدد ورود كلمةٍ في القرآن ونختبره على نص القرآن نفسه، فنعرض الرقم <b>المزعوم</b>، وعدَّنا الدقيق للكلمة <b>بجميع صيغها</b>، وما يجده <b>البحث النصي السريع</b>، من غير أي إخفاء.'},
+  'leg1':       {en:'Our count matches the claim exactly', ar:'المحقّق يطابق المزعوم تمامًا'},
+  'leg2':       {en:'The pair is equal: both words come equally often', ar:'التعادل قائم: الكلمتان متساويتان في العدد'},
+  'leg3':       {en:'Differs, or depends on how you count', ar:'مختلف، أو يعتمد على طريقة العدّ'},
   'cl.more':    {en:'Check any claim yourself', ar:'دقّق أي زعمٍ بنفسك'},
   'c1.k':       {en:'Yawm, day', ar:'كلمة «يوم»'},
   'c1.h':       {en:'One for every day of the year?', ar:'مرةً لكل يومٍ من أيام السنة؟'},
-  'c1.p':       {en:'Yawm, day, is famously said to appear {dayC} times, once for every day of the year. Here is every one of its {dayV} mentions, counted by lemma, as a point of light: a year fills up, and {dayX} are left over.',
-                 ar:'يُقال إن كلمة «يوم» وردت {dayC} مرة، بعدد أيام السنة. وهذه مرّاتُ ورودها كلُّها بالعدّ بالجذع، {dayV} مرة، لكل مرةٍ نقطةُ ضوء: تمتلئ السنة، ويبقى {dayX}.'},
+  'c1.p':       {en:'Yawm, day, is famously said to appear {dayC} times, once for every day of the year. Here is every one of its {dayV} mentions, counted in all its forms, as a point of light: a year fills up, and {dayX} are left over.',
+                 ar:'يُقال إن كلمة «يوم» وردت {dayC} مرة، بعدد أيام السنة. وهذه مرّاتُ ورودها كلُّها بجميع صيغها، {dayV} مرة، لكل مرةٍ نقطةُ ضوء: تمتلئ السنة، ويبقى {dayX}.'},
   'c2.k':       {en:'Angels and devils', ar:'الملائكة والشياطين'},
   'c2.h':       {en:'{angV} and {devV}. The scale balances.', ar:'{angV} و{devV}، والميزان معتدل.'},
-  'c2.p':       {en:'A famous pairing: angel and devil, {angC} times each. Counted by lemma, it holds exactly. Each point on the scale is one mention.',
-                 ar:'زوجٌ مشهور: المَلَك والشيطان، {angC} مرة لكلٍّ منهما. وبالعدّ بالجذع يصحّ ذلك تمامًا، وكل نقطةٍ في الميزان ورودٌ واحد.'},
+  'c2.p':       {en:'A famous pairing: angel and devil, {angC} times each. Counted in all their forms, it holds exactly. Each point on the scale is one mention.',
+                 ar:'زوجٌ مشهور: المَلَك والشيطان، {angC} مرة لكلٍّ منهما. وبعدّ الكلمتين بجميع صيغهما يصحّ ذلك تمامًا، وكل نقطةٍ في الميزان ورودٌ واحد.'},
   'c3.k':       {en:'Paradise and Hell', ar:'الجنة وجهنم'},
   'c3.h':       {en:'{parC} and {hellC}? The scale tips.', ar:'{parC} و{hellC}؟ الميزان يميل.'},
   'c3.p':       {en:'Jannah, Paradise, and Jahannam, Hell, are said to appear {parC} times each. Hell’s count holds at {hellV}. Jannah appears {parV} times, because the word also means garden; the claimed {parC} counts only the Paradise sense, which a word count cannot separate.',
                  ar:'يُقال إن «الجنة» و«جهنم» وردتا {parC} مرة لكلٍّ منهما. أما «جهنم» فيصحّ عددها: {hellV}. وأما «جنة» فوردت {parV} مرة، لأنها تعني البستان أيضًا، والرقم {parC} يعدّ معنى الجنة وحده، وهذا ما لا يفصله عدُّ الكلمات.'},
   'c4.k':       {en:'The Name', ar:'اسم الجلالة'},
   'c4.h':       {en:'{godV} points of light.', ar:'{godV} نقطة ضوء.'},
-  'c4.p':       {en:'The name Allah is often said to appear {godC} times, a figure that follows a wider way of counting. The standard count in this corpus is {godV}, in {godVs} verses, and every point here is one of them.',
-                 ar:'يُقال إن اسم الجلالة ورد {godC} مرة، وهذا الرقم يتبع طريقةً أوسع في العدّ. أما العدّ المعياري في هذه المدونة فهو {godV} مرة في {godVs} آية، وكل نقطةٍ هنا واحدةٌ منها.'},
+  'c4.p':       {en:'The name Allah is often said to appear {godC} times, a figure that follows a wider way of counting. The standard count of the text is {godV}, in {godVs} verses, and every point here is one of them.',
+                 ar:'يُقال إن اسم الجلالة ورد {godC} مرة، وهذا الرقم يتبع طريقةً أوسع في العدّ. أما العدّ المعياري في النص فهو {godV} مرة في {godVs} آية، وكل نقطةٍ هنا واحدةٌ منها.'},
   'c.hint':     {en:'Each point is one mention. Hover to see its verse.', ar:'كل نقطةٍ ورودٌ واحد؛ مرِّر المؤشر فوقها لتعرف آيتها.'},
   'c.tap':      {en:'Each point is one mention. Tap one to see its verse.', ar:'كل نقطةٍ ورودٌ واحد؛ المسها لتعرف آيتها.'},
   'cg.k':       {en:'All {claimsN} claims', ar:'المزاعم الـ{claimsN} كلها'},
@@ -1093,25 +1093,25 @@ const I18N = {
   'r.tap':      {en:'Tap a circle to see its root.', ar:'المس دائرةً لتعرف جذرها.'},
   'm1.k':       {en:'Closest in vocabulary', ar:'الأقرب في المفردات'},
   'm1.h':       {en:'Linked by their words alone.', ar:'تتقارب السور بكلماتها وحدها.'},
-  'm1.p':       {en:'Each surah is linked to the five whose words are closest (TF-IDF over lemmas), and the links pull like springs. Nothing here knows where a surah was revealed, yet the Medinan surahs gather together: for {nnSame} of the {surahs} surahs, the closest surah in vocabulary comes from the same city.',
-                 ar:'رُبطت كل سورةٍ بالسور الخمس الأقرب إليها في كلماتها (TF-IDF على الجذوع)، وتشدّها الروابط كالنوابض. ولا شيء هنا يعرف أين نزلت السورة، ومع ذلك تجتمع السور المدنية معًا: ففي {nnSame} سورة من {surahs}، كانت أقربُ السور إليها في المفردات من صنفها نفسه، مكيةً أو مدنية.'},
+  'm1.p':       {en:'Each surah is linked to the five whose vocabulary is closest to its own, and the links pull like springs. Nothing here knows where a surah was revealed, yet the Medinan surahs gather together: for {nnSame} of the {surahs} surahs, the closest surah in vocabulary comes from the same city.',
+                 ar:'رُبطت كل سورةٍ بالسور الخمس الأقرب إليها في ألفاظها، وتشدّها الروابط كالنوابض. ولا شيء هنا يعرف أين نزلت السورة، ومع ذلك تجتمع السور المدنية معًا: ففي {nnSame} سورة من {surahs}، كانت أقربُ السور إليها في المفردات من صنفها نفسه، مكيةً أو مدنية.'},
   'nm.cap':     {en:'{godV} mentions · {godVs} verses', ar:'{godV} مرة · في {godVs} آية'},
   'co.k':       {en:'Why matching numbers are easy to find', ar:'لماذا يسهل العثور على أعدادٍ متطابقة'},
   'co.h':       {en:'Pick any number. Some words will land on it.', ar:'اختر أي عدد، وستجد كلماتٍ تقع عليه.'},
-  'co.p':       {en:'The corpus has {lemmas} lemmas, so almost any number is hit by several of them. Choose one to see how many lemmas occur exactly that often, and how many come within five.',
-                 ar:'في المدونة {lemmas} جذعًا، فلا يكاد عددٌ يخلو ممّا يقع عليه منها. اختر عددًا لترى كم جذعًا يرد بذلك العدد تمامًا، وكم جذعًا يقترب منه في حدود خمس.'},
+  'co.p':       {en:'The Quran has {lemmas} different words (each counted with all its forms), so almost any number matches several of them. Choose one to see how many words occur exactly that often, and how many come within five.',
+                 ar:'في القرآن {lemmas} كلمةً مختلفة (تُعدّ كل كلمةٍ بجميع صيغها)، فلا يكاد عددٌ يخلو ممّا يوافقه منها. اختر عددًا لترى كم كلمةً وردت بذلك العدد تمامًا، وكم كلمةً تقترب منه في حدود خمس.'},
   'co.pick':    {en:'Pick a number', ar:'اختر عددًا'},
-  'co.legend':  {en:'Each dot is one of the {lemmas} lemmas. The lit dots show how many land on the number, not which ones.',
-                 ar:'كل نقطةٍ جذعٌ من الجذوع الـ{lemmas}، والنقاط المضيئة تبيّن كم منها يقع على العدد، لا أيّها بعينه.'},
+  'co.legend':  {en:'Each dot is one of the {lemmas} different words. The lit dots show how many land on the number, not which ones.',
+                 ar:'كل نقطةٍ كلمةٌ من الكلمات المختلفة الـ{lemmas}، والنقاط المضيئة تبيّن كم منها يقع على العدد، لا أيّها بعينه.'},
   'co.moral':   {en:'That is why the auditor always asks how a claim counts: which forms, which spelling, which meaning. The method decides the number.',
                  ar:'ولهذا يسأل المدقّق دائمًا عن طريقة العدّ: أيّ الصيغ، وأيّ رسم، وأيّ معنى؛ فالطريقة هي التي تصنع الرقم.'},
   'lab.k':      {en:'Machine learning', ar:'تعلّم الآلة'},
   'lab.h':      {en:'A model can tell Mecca from Medina.', ar:'نموذجٌ يميّز المكي من المدني.'},
-  'lab.pp':     {en:'A logistic regression reads nothing but word frequencies and guesses where each of the {surahs} surahs was revealed.',
-                 ar:'انحدارٌ لوجستي لا يقرأ إلا تكرار الكلمات، ثم يخمّن أين نزلت كلُّ سورةٍ من السور الـ{surahs}.'},
-  'lab.acc':    {en:'accuracy', ar:'الدقة'},
+  'lab.pp':     {en:'A computer model reads nothing but how often each word is used, and guesses where each of the {surahs} surahs was revealed.',
+                 ar:'نموذجٌ حاسوبي لا يقرأ إلا كم مرةً وردت كل كلمة، ثم يخمّن أين نزلت كلُّ سورةٍ من السور الـ{surahs}.'},
+  'lab.acc':    {en:'right guesses', ar:'نسبة الإصابة'},
   'lab.base':   {en:'{base}% if it always guessed Meccan', ar:'{base}٪ لو خمّن «مكية» في كل مرة'},
-  'lab.auc':    {en:'AUC {auc}: how well it ranks Medinan surahs above Meccan ones', ar:'المساحة تحت المنحنى {auc}: مدى إحسانه ترتيبَ السور المدنية فوق المكية'},
+  'lab.auc':    {en:'a score of {auc} out of 1 for telling the two apart (0.5 would be guessing)', ar:'درجة {auc} من ١ في التمييز بينهما (٠٫٥ تعني التخمين)'},
   'lab.wh':     {en:'All {surahs} surahs, as the model sees them', ar:'السور الـ{surahs} كلها كما يراها النموذج'},
   'lab.w1':     {en:'Meccan, right ({mecOK} of {mecS})', ar:'مكية أصاب فيها ({mecOK} من {mecS})'},
   'lab.w2':     {en:'Medinan, caught ({caught} of {medS})', ar:'مدنية التقطها ({caught} من {medS})'},
@@ -1123,14 +1123,14 @@ const I18N = {
   'lab.wnote':  {en:'Model weights, strongest first.', ar:'أوزان النموذج، الأقوى أولًا.'},
   'feat.kicker':{en:'What is inside', ar:'ماذا تجد في الداخل'},
   'feat.h2':    {en:'Built like an instrument,<br>not a brochure.', ar:'بُني أداةَ قياسٍ دقيقة،<br>لا نشرةً دعائية.'},
-  'feat.p':     {en:'Every number on this site is computed live from the corpus in your browser and pinned by tests. Nothing is hand-typed, nothing is hidden.',
-                 ar:'كل رقم يظهر في هذا الموقع يُحسب لحظيًا من المدونة داخل متصفحك وتثبّته اختبارات آلية، فليس فيه إدخالٌ يدوي ولا حسابٌ خفي.'},
+  'feat.p':     {en:'Every number on this site is counted live from the Quran\'s text in your browser and checked by automatic tests. Nothing is typed in by hand, nothing is hidden.',
+                 ar:'كل رقم يظهر في هذا الموقع يُعَدّ لحظيًا من نص القرآن داخل متصفحك وتتحقق منه اختباراتٌ آلية، فليس فيه إدخالٌ يدوي ولا حسابٌ خفي.'},
   'lab.h3':     {en:'The Analytics Lab', ar:'مختبر التحليلات'},
-  'lab.p':      {en:'Six working studios: logistic regression that tells Meccan from Medinan surahs, k-means and PCA clustering, hypothesis testing, Monte Carlo simulation, a linear-programming memorisation optimiser and a live BI dashboard with filters.',
-                 ar:'ست أدواتٍ عاملة: انحدارٌ لوجستي يميّز السور المكية من المدنية، وتجميعٌ وتحليل مكوّنات رئيسية، واختبار فرضيات، ومحاكاة مونت كارلو، ومُحسِّن حفظٍ بالبرمجة الخطية، ولوحة معلومات حية بالمرشّحات.'},
+  'lab.p':      {en:'Six working studios, each explained in plain words: a computer that learns to tell Meccan from Medinan surahs, groups of surahs that are alike, a check of whether a difference is real or chance, thousands of «what if» trials, a memorisation planner, and filters to explore the surahs yourself.',
+                 ar:'ست أدواتٍ عاملة، لكلٍّ منها شرحٌ بلغةٍ بسيطة: حاسوبٌ يتعلّم تمييز السور المكية من المدنية، ومجموعاتٌ من السور المتشابهة، وفحصٌ لمعرفة هل الفرق حقيقي أم مصادفة، وآلاف التجارب الافتراضية، ومخطِّطٌ للحفظ، ومرشّحاتٌ تستكشف بها السور بنفسك.'},
   'search.h3':  {en:'Word Search', ar:'بحث في الكلمات'},
-  'search.p':   {en:'Search by surface form, lemma or root, with a full on-screen Arabic keyboard and a highlighted concordance.',
-                 ar:'ابحث عن الكلمات بصيغتها أو جذعها أو جذرها عبر لوحة مفاتيح عربية كاملة على الشاشة، وطالع النتائج في كشّافٍ سياقي تُظلَّل فيه مواضع الكلمة.'},
+  'search.p':   {en:'Look up any word by its exact spelling, in all its forms, or by its root letters, with a full Arabic keyboard on screen and every verse where it comes.',
+                 ar:'ابحث عن أي كلمةٍ برسمها نفسه، أو بجميع صيغها، أو بحروف جذرها، عبر لوحة مفاتيح عربية كاملة على الشاشة، وطالع كل آيةٍ وردت فيها.'},
   'reader.h3':  {en:'Reader', ar:'المصحف'},
   'reader.p':   {en:'The full mushaf, verse by verse, in Uthmani script with the Amiri typeface.', ar:'اقرأ المصحف كاملًا آيةً آية، بالرسم العثماني وبخط أميري.'},
   'kg.h3':      {en:'Knowledge graph', ar:'خريطة المعرفة'},
@@ -1167,19 +1167,33 @@ if (window.Vue) {
   vm = Vue.createApp({
     data() {
       return { claims: D.claims, open: {}, lang,
-        notesAr: {
-          'day-365':'يشمل العدُّ بالجذع كلَّ صيغ الكلمة، أما الرقم المتداول ٣٦٥ فيقتصر على الاسم المفرد، ويُسقط المثنى وكلمة «يومئذ» المدمجة وصيغ الإضافة.',
-          'month-12':'يشمل العدُّ بالجذع كلَّ الصيغ، أما الرقم ١٢ فيقتصر على الاسم المفرد، ويُسقط الجمع «أشهر» والمثنى.',
-          'devil-88':'العدُّ مطابق بالجذع، فالمفرد والجمع يشتركان في الجذع نفسه ومجموعهما ٨٨. ومن الطريف أن البحث النصي الساذج عن «شيطان» لا يجد شيئًا، لأن الرسم العثماني يكتبها «شيطن».',
-          'angel-88':'العدُّ مطابق بالجذع، إذ يفصل التحليلُ الصرفي «مَلَك» (٨٨) عن «مُلْك» و«مَلِك»، وهو ما يعجز عنه البحث النصي، ولهذا يبدو العدُّ الساذج خاطئًا.',
-          'hell-77':'العدُّ مطابق بالجذع، فكلمة «جهنم» اسم علمٍ لا لبس فيه.',
-          'paradise-77':'جذع «جنة» يحمل أيضًا معنى «الحديقة»، ولذلك يتجاوز مجموعه ٧٧ بكثير، أما الرقم ٧٧ فيقتصر على معنى الجنة وحده، وهو تمييز يحتاج وسمًا دلاليًا للمعاني.',
-          'man-24':'عددنا جذع «رجل» بعد فصله عن «رِجل» بمعنى القدم، وتبيّن أن مزاعم تساوي الرجل والمرأة عند ٢٤ لا تصمد أمام العدّ بالجذع.',
-          'woman-24':'عددنا جذع «امرأة»، فلم يساوِ عدَّ الرجل، ولم يكن ٢٤.',
-          'jesus-24':'يتساوى جذع «عيسى» مع جذع «آدم» فعلًا، فالتعادل صحيح، غير أن الرقم ٢٥ لا ٢٤.',
-          'adam-24':'يتساوى جذع «آدم» مع جذع «عيسى» فعلًا، فالتعادل صحيح، غير أن الرقم ٢٥ لا ٢٤.',
-          'allah-2806':'العدُّ المعياري لاسم الجلالة في هذه المدونة ٢٦٩٩، أما رقم ٢٨٠٦ فيقوم على اصطلاحٍ أوسع في العدّ.',
-          'rabb-846':'يشمل جذع «ربّ» صيغ الإضافة كلها (ربي، ربك، ربهم)، أما الرقم ٨٤٦ فيعدّ مجموعة أضيق منها.'
+        notesEn:{
+          'day-365':'Counting the word in all its forms gives more than 365. The famous 365 counts only the plain singular «يوم», leaving out the dual (two days), «يومئذ» (on that day) and forms with a pronoun joined on, such as «يومهم» (their day).',
+          'month-12':'Counting the word in all its forms gives more than 12. The famous 12 counts only the singular «شهر», leaving out the plural «أشهر» (months) and the dual (two months).',
+          'devil-88':'Holds exactly: the singular and plural of «شيطان» together come 88 times. A quick text search for the spelling «شيطان» finds none, because the mushaf writes it «شيطن».',
+          'angel-88':'Holds exactly. Our count tells «مَلَك» (angel, 88 times) apart from «مُلْك» (dominion) and «مَلِك» (king), which look the same without vowel marks. A quick text search cannot tell them apart, which is why its count looks wrong.',
+          'hell-77':'Holds exactly. «جهنم» is a name for Hell and has no other meaning.',
+          'paradise-77':'«جنة» also means «garden», so all its uses add up to far more than 77. The 77 counts only the uses that mean Paradise, and sorting the uses by meaning takes a reader; a word count cannot do it.',
+          'man-24':'We counted «رَجُل» (man), kept apart from «رِجْل» (foot). Counted this way, man and woman do not both come 24 times.',
+          'woman-24':'We counted «امرأة» (woman). It does not come as often as man, and not 24 times.',
+          'jesus-24':'«عيسى» (Jesus) and «آدم» (Adam) really do come the same number of times, so the pair holds; but the number is 25, not 24.',
+          'adam-24':'«آدم» (Adam) and «عيسى» (Jesus) really do come the same number of times, so the pair holds; but the number is 25, not 24.',
+          'allah-2806':'The standard count of the name Allah in the text is 2,699. The 2,806 given by Bediuzzaman follows a wider way of counting.',
+          'rabb-846':'Counting «ربّ» (Lord) in all its forms includes «ربي» (my Lord), «ربك» (your Lord), «ربهم» (their Lord) and the like. The 846 counts a narrower set of them.',
+        },
+        notesAr:{
+          'day-365':'العدُّ بجميع صيغ الكلمة يزيد على ٣٦٥. أما الرقم المتداول ٣٦٥ فيقتصر على الاسم المفرد «يوم»، ويُسقط المثنى وكلمة «يومئذ» والصيغ المتصلة بالضمائر مثل «يومهم».',
+          'month-12':'العدُّ بجميع صيغ الكلمة يزيد على ١٢. أما الرقم ١٢ فيقتصر على المفرد «شهر»، ويُسقط الجمع «أشهر» والمثنى.',
+          'devil-88':'العدُّ مطابق: المفرد والجمع من «شيطان» معًا ٨٨ مرة. ومن الطريف أن البحث النصي السريع عن رسم «شيطان» لا يجد شيئًا، لأن الرسم العثماني يكتبها «شيطن».',
+          'angel-88':'العدُّ مطابق، إذ يفصل عدُّنا «مَلَك» (٨٨ مرة) عن «مُلْك» و«مَلِك»، وهي تتشابه في الرسم بلا تشكيل. أما البحث النصي السريع فلا يفرّق بينها، ولهذا يبدو عدُّه خاطئًا.',
+          'hell-77':'العدُّ مطابق، فكلمة «جهنم» اسمٌ للنار لا معنى لها غيره.',
+          'paradise-77':'كلمة «جنة» تعني البستان أيضًا، ولذلك يزيد مجموع ورودها على ٧٧ بكثير. أما الرقم ٧٧ فيعدّ ما جاء منها بمعنى الجنة وحده، وفرزُ المواضع بحسب المعنى يحتاج إلى قارئ، ولا يقدر عليه عدُّ الكلمات.',
+          'man-24':'عددنا «رَجُل» بعد فصلها عن «رِجْل» بمعنى القدم، وبهذا العدّ لا يرد الرجل والمرأة ٢٤ مرة لكلٍّ منهما.',
+          'woman-24':'عددنا «امرأة»، فلم يساوِ عددُها عددَ «رجل»، ولم يكن ٢٤.',
+          'jesus-24':'يتساوى عدد «عيسى» وعدد «آدم» فعلًا، فالتعادل صحيح، غير أن الرقم ٢٥ لا ٢٤.',
+          'adam-24':'يتساوى عدد «آدم» وعدد «عيسى» فعلًا، فالتعادل صحيح، غير أن الرقم ٢٥ لا ٢٤.',
+          'allah-2806':'العدُّ المعياري لاسم الجلالة في النص ٢٦٩٩ مرة، أما رقم ٢٨٠٦ فيقوم على طريقةٍ أوسع في العدّ.',
+          'rabb-846':'العدُّ بجميع صيغ «ربّ» يشمل صيغ الإضافة كلها (ربي، ربك، ربهم)، أما الرقم ٨٤٦ فيعدّ مجموعةً أضيق منها.',
         } };
     },
     methods: {
@@ -1189,7 +1203,7 @@ if (window.Vue) {
       verdict(c) { if (c.verifiedLemma === c.claimed) return 'exact'; if (c.pair && this.pairEqual(c)) return 'parity'; return 'differs'; },
       badge(c) { const v = this.verdict(c);
         if (this.lang === 'ar') return v === 'exact' ? 'مطابق' : v === 'parity' ? 'تعادل' : 'مختلف';
-        return v === 'exact' ? 'EXACT' : v === 'parity' ? 'PARITY' : 'DIFFERS'; },
+        return v === 'exact' ? 'EXACT' : v === 'parity' ? 'PAIR EQUAL' : 'DIFFERS'; },
       pairEqual(c) { const p = this.byId(c.pair); return p && p.verifiedLemma === c.verifiedLemma; },
       pairName(c) { const p = this.byId(c.pair); return p ? (this.lang === 'ar' ? p.ar : p.en) : ''; }
     }
@@ -1252,8 +1266,8 @@ function renderCoinc(animate) {
   chips.forEach(c => { const on = +c.dataset.n === coinN; c.textContent = nf(+c.dataset.n); c.setAttribute('aria-checked', String(on)); c.tabIndex = on ? 0 : -1; });
   chipsEl.setAttribute('aria-label', T('co.pick'));
   const times = lang === 'ar' ? arCount(coinN, 'مرةً واحدة', 'مرتين', 'مرات', 'مرة') : nf(coinN) + ' times';
-  $('#c-exact-l').textContent = lang === 'ar' ? 'عدد الجذوع التي ترد ' + times + ' بالضبط' : 'lemmas occur exactly ' + times;
-  $('#c-near-l').textContent = lang === 'ar' ? 'عدد الجذوع التي تقع في حدود خمسٍ من ' + nf(coinN) : 'come within five of ' + nf(coinN);
+  $('#c-exact-l').textContent = lang === 'ar' ? 'عدد الكلمات التي ترد ' + times + ' بالضبط' : (o.exact === 1 ? 'word occurs exactly ' : 'words occur exactly ') + times;
+  $('#c-near-l').textContent = lang === 'ar' ? 'عدد الكلمات التي تقع في حدود خمسٍ من ' + nf(coinN) : 'come within five of ' + nf(coinN);
   const ex = $('#c-exact'), nr = $('#c-near');
   if (animate && motion) {
     const from = { a: dg.exact, b: dg.near };
