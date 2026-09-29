@@ -49,6 +49,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
     --line:rgba(255,255,255,.13);--line-soft:rgba(255,255,255,.075);
     --emerald:#34d399;--emerald-deep:#7ae7bd;--emerald-bg:rgba(52,211,153,.12);
     --teal:#38c6da;--teal-bg:rgba(56,198,218,.12);--amber:#e9b95f;--amber-bg:rgba(233,185,95,.12);
+    --sci:#62d2e3;   /* the scientific layer of an explanation */
     --card:rgba(7,16,12,.74);--bg:var(--night);
     --shadow-1:inset 0 1px 0 rgba(255,255,255,.035),0 24px 60px -36px rgba(0,0,0,.85);
     --shadow-2:inset 0 1px 0 rgba(255,255,255,.06),0 34px 80px -30px rgba(0,0,0,.95);
@@ -289,6 +290,153 @@ if (location.hostname === 'heshamabourokaia.github.io')
   .course .techname{font-size:.74rem;letter-spacing:.06em;color:var(--on-dark-3)}
   html[lang=ar] .course .techname{letter-spacing:0;font-size:.85rem}
 
+  /* ── explanations in layers: a Simple | Scientific switch on each explanation box (the scientific layer is drawn
+     as a blueprint), technical terms that open as a deck of four cards, and formulas set left to right ── */
+  .xhead{display:flex;align-items:center;justify-content:space-between;gap:10px 14px;flex-wrap:wrap;margin:-2px 0 12px}
+  .xkick{font-size:.66rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-3)}
+  html[lang=ar] .xkick{letter-spacing:0;font-size:.84rem}
+  .depth{display:inline-flex;gap:2px;padding:3px;border-radius:999px;background:rgba(255,255,255,.045);border:1px solid var(--hair)}
+  .depth button{font:inherit;font-size:.76rem;font-weight:600;color:var(--on-dark-2);background:none;border:0;border-radius:999px;padding:6px 14px;cursor:pointer;transition:color .35s var(--ease),background .35s var(--ease)}
+  html[lang=ar] .depth button{font-size:.86rem;padding:5px 14px}
+  .depth button:hover{color:#fff}
+  .depth button[aria-pressed=true]{color:#04140d;background:var(--emerald)}
+  .depth button.sci[aria-pressed=true]{background:var(--sci)}
+  .plain.sci{border-inline-start-color:var(--sci);background-color:rgba(8,20,24,.55);
+    background-image:linear-gradient(rgba(98,210,227,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(98,210,227,.045) 1px,transparent 1px);background-size:22px 22px}
+  .plain.sci b{color:var(--sci)}
+  .course.sci .explain .box{background-color:rgba(8,20,24,.6);border-color:rgba(98,210,227,.16);
+    background-image:linear-gradient(rgba(98,210,227,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(98,210,227,.04) 1px,transparent 1px);background-size:22px 22px}
+  .course.sci .explain .box .lab{color:var(--sci)}
+  .course .xhead{margin:0 0 16px}
+  code.fx{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.84em;color:#d9f5f9;background:rgba(98,210,227,.08);
+    border:1px solid rgba(98,210,227,.18);border-radius:6px;padding:1px 6px;unicode-bidi:isolate;direction:ltr;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+  code.fx.nw{white-space:nowrap}
+  .term{font:inherit;color:#fff;background:none;border:0;padding:0;margin:0;cursor:pointer;text-align:inherit;
+    text-decoration:underline dotted rgba(52,211,153,.8);text-decoration-thickness:1.5px;text-underline-offset:4px;border-radius:4px;transition:background .3s,color .3s}
+  .sci .term{text-decoration-color:rgba(98,210,227,.85)}
+  html[lang=ar] .term{text-underline-offset:6px}
+  .term:hover,.term[aria-expanded=true]{background:rgba(52,211,153,.14);color:#fff}
+  .sci .term:hover,.sci .term[aria-expanded=true]{background:rgba(98,210,227,.14)}
+  .xterms{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin:14px 0 0 !important;font-size:.8rem !important;line-height:1.4 !important}
+  .xterms .xk{font-size:.66rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-3);margin-inline-end:4px}
+  html[lang=ar] .xterms .xk{letter-spacing:0;font-size:.82rem}
+  .xterms .term.chip{margin:0;padding:4px 11px;border-radius:999px;font-family:var(--sans);font-size:.78rem;color:var(--on-dark);text-decoration:none;
+    background:rgba(255,255,255,.04);border:1px dashed rgba(52,211,153,.45)}
+  html[lang=ar] .xterms .term.chip{font-family:var(--ar);font-size:.86rem}
+  .sci .xterms .term.chip{border-color:rgba(98,210,227,.5)}
+  .xterms .term.chip:hover,.xterms .term.chip[aria-expanded=true]{border-style:solid;background:rgba(52,211,153,.12)}
+
+  /* a term's card: four layers stacked like a deck, the deeper ones peeking out beneath the one in front */
+  .termcard{position:absolute;z-index:1010;width:min(440px,calc(100vw - 24px));padding:18px 18px 14px;border-radius:22px;color:var(--on-dark);
+    background:radial-gradient(420px 220px at 10% -30%,rgba(15,181,109,.22),transparent 65%),radial-gradient(360px 240px at 110% 120%,rgba(56,198,218,.14),transparent 60%),#060e0b;
+    border:1px solid rgba(255,255,255,.12);box-shadow:0 30px 80px -24px rgba(0,0,0,.9),inset 0 1px 0 rgba(255,255,255,.06)}
+  .termcard:focus{outline:none}
+  .termcard .tclose{position:absolute;top:10px;inset-inline-end:10px;width:32px;height:32px;border-radius:50%;border:1px solid var(--hair);background:rgba(255,255,255,.04);color:var(--on-dark-2);font:inherit;font-size:.86rem;cursor:pointer}
+  .termcard .tclose:hover{color:#fff;background:rgba(255,255,255,.1)}
+  .termcard .tkick{margin:0;font-size:.64rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--emerald)}
+  html[lang=ar] .termcard .tkick{letter-spacing:0;font-size:.8rem}
+  .termcard h3{margin:4px 0 0;padding-inline-end:36px;font-family:var(--serif);font-weight:400;font-size:1.75rem;line-height:1.08;color:#fff}
+  html[lang=ar] .termcard h3{font-family:var(--ar-display);font-size:1.6rem;line-height:1.45}
+  .tdepth{display:flex;gap:4px;margin:14px 0 0}
+  .tdepth button{flex:1;min-width:0;font:inherit;font-size:.68rem;font-weight:600;line-height:1.25;color:var(--on-dark-3);background:rgba(255,255,255,.03);border:1px solid var(--hair);border-radius:10px;padding:7px 4px;cursor:pointer;transition:color .3s,background .3s,border-color .3s}
+  html[lang=ar] .tdepth button{font-size:.76rem}
+  .tdepth button .n{display:block;font-size:.8rem;font-variant-numeric:tabular-nums}
+  .tdepth button:hover{color:#fff}
+  .tdepth button[aria-selected=true]{border-color:currentColor;background:rgba(255,255,255,.05)}
+  .tdepth button.l0[aria-selected=true]{color:var(--emerald)}.tdepth button.l1[aria-selected=true]{color:var(--teal)}
+  .tdepth button.l2[aria-selected=true]{color:var(--gold)}.tdepth button.l3[aria-selected=true]{color:var(--sci)}
+  .tdeck{display:grid;margin:12px 0 0;padding-bottom:22px}
+  .tlayer{grid-area:1/1;position:relative;border-radius:16px;padding:13px 15px;font-size:.9rem;line-height:1.66;color:var(--on-dark-2);
+    background:#0a1712;border:1px solid rgba(255,255,255,.1);border-top:2px solid var(--emerald);transform-origin:50% 100%;
+    transition:transform .5s var(--ease),opacity .5s var(--ease)}
+  html[lang=ar] .tlayer{font-size:.98rem;line-height:1.9}
+  .tlayer.l1{border-top-color:var(--teal);background:#0a1618}.tlayer.l2{border-top-color:var(--gold);background:#16140c}
+  .tlayer.l3{border-top-color:var(--sci);background-color:#081418;
+    background-image:linear-gradient(rgba(98,210,227,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(98,210,227,.06) 1px,transparent 1px);background-size:18px 18px}
+  .tlayer .tl{display:block;margin-bottom:4px;font-size:.64rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-3)}
+  html[lang=ar] .tlayer .tl{letter-spacing:0;font-size:.78rem}
+  .tlayer.on{z-index:5;opacity:1;transform:none}
+  .tlayer.d1{z-index:4;opacity:.8;transform:translateY(8px) scale(.965)}
+  .tlayer.d2{z-index:3;opacity:.55;transform:translateY(15px) scale(.93)}
+  .tlayer.d3{z-index:2;opacity:.35;transform:translateY(21px) scale(.895)}
+  .tlayer.past{z-index:6;opacity:0;transform:translateY(-14px) scale(1.02);pointer-events:none}
+  .tlayer:not(.on)>*{visibility:hidden}
+  .tnav{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:2px}
+  .tnav button,.tnav a{font:inherit;font-size:.8rem;font-weight:600;color:var(--on-dark-2);background:none;border:0;padding:6px 2px;cursor:pointer;text-decoration:none}
+  html[lang=ar] .tnav button,html[lang=ar] .tnav a{font-size:.9rem}
+  .tnav button:hover:not(:disabled),.tnav a:hover{color:#fff}
+  .tnav button:disabled{opacity:.3;cursor:default}
+  .termcard .tgo{display:inline-block;margin-top:6px;font-size:.82rem;font-weight:600;color:var(--gold);text-decoration:none}
+  html[lang=ar] .termcard .tgo{font-size:.92rem}
+  .termcard .tgo:hover{text-decoration:underline;text-underline-offset:4px}
+  .termshade{display:none}
+  @media (max-width:719px){
+    .termcard{position:fixed;left:0 !important;right:0;bottom:0;top:auto !important;width:auto;max-height:82vh;max-height:82dvh;overflow-y:auto;border-radius:24px 24px 0 0;
+      padding:20px 18px calc(16px + env(safe-area-inset-bottom))}
+    .termshade{display:block;position:fixed;inset:0;z-index:1009;background:rgba(2,6,4,.55)}
+  }
+
+  /* ── the Clusters page's walk-through: how four measurements become the map, step by step in the sky ── */
+  .pcawalk{max-width:880px;margin:0 0 6px}
+  .pwsteps{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 0}
+  .pwsteps button{display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:.8rem;font-weight:600;color:var(--on-dark-2);
+    background:rgba(255,255,255,.035);border:1px solid var(--hair);border-radius:999px;padding:6px 14px 6px 6px;cursor:pointer;transition:color .3s,background .3s,border-color .3s}
+  html[lang=ar] .pwsteps button{font-size:.9rem}
+  .pwsteps button .n{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.07);font-size:.72rem;font-variant-numeric:tabular-nums}
+  .pwsteps button:hover{color:#fff}
+  .pwsteps button[aria-current=step]{color:#04140d;background:var(--gold);border-color:var(--gold)}
+  .pwsteps button[aria-current=step] .n{background:rgba(4,20,13,.18)}
+  .pwsteps button.done .n{background:rgba(233,185,95,.2);color:var(--gold)}
+  .pwtext{margin:14px 0 0;max-width:780px;font-size:.98rem;line-height:1.7;color:var(--on-dark)}
+  html[lang=ar] .pwtext{font-size:1.05rem;line-height:1.95}
+  .pwsci{margin:8px 0 0;max-width:780px;font-size:.84rem;line-height:1.65;color:var(--on-dark-2);padding-inline-start:12px;border-inline-start:2px solid var(--sci)}
+  html[lang=ar] .pwsci{font-size:.94rem;line-height:1.9}
+  .pwctl{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin:14px 0 0}
+  .pwctl input[type=range]{flex:1 1 220px;max-width:360px;margin:0}
+  .pwctl .keep{font-size:.84rem;color:var(--on-dark-2)}
+  .pwctl .keep b{font-family:var(--serif);font-weight:400;font-size:1.7rem;color:var(--gold);font-variant-numeric:tabular-nums;margin-inline-end:6px;vertical-align:-3px}
+  .pwnav{display:flex;gap:8px;margin:14px 0 0}
+  .pwnav button{font:inherit;font-size:.82rem;font-weight:600;color:var(--on-dark);background:rgba(255,255,255,.05);border:1px solid var(--hair);border-radius:999px;padding:8px 16px;cursor:pointer}
+  .pwnav button:hover:not(:disabled){background:rgba(255,255,255,.1)}
+  .pwnav button:disabled{opacity:.35;cursor:default}
+  .pwnav button.go{color:#04140d;background:var(--gold);border-color:var(--gold)}
+  .pwnav button.go:hover:not(:disabled){color:#04140d;background:#f3cd82}
+  html.no-gl:not(.gl) .pcawalk{display:none}
+  .stlab .gauge{text-align:center;line-height:1.1}
+  .stlab .gauge b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(2.6rem,1.8rem + 3vw,4.4rem);color:var(--gold);font-variant-numeric:tabular-nums;text-shadow:0 0 30px rgba(233,185,95,.35)}
+  .stlab .gauge span{font-size:.78rem;color:var(--on-dark-2)}
+  .stlab .plbl{font-size:.74rem;font-weight:600;color:var(--gold);background:rgba(4,10,7,.6);padding:2px 7px;border-radius:6px}
+  .stsvg .pline{fill:none;stroke:rgba(233,185,95,.9);stroke-width:1.6;vector-effect:non-scaling-stroke}
+  .stsvg .phead{fill:rgba(233,185,95,.95);stroke:none}
+  .stsvg .ptick{fill:none;stroke:rgba(233,185,95,.85);stroke-width:1.3;vector-effect:non-scaling-stroke}
+  .stsvg .pdrop{fill:none;stroke:rgba(255,255,255,.2);stroke-width:.8;stroke-dasharray:2 3;vector-effect:non-scaling-stroke}
+  .stsvg .pzero{fill:none;stroke:rgba(255,255,255,.12);stroke-width:1;vector-effect:non-scaling-stroke}
+  .pcabars{display:flex;flex-wrap:wrap;gap:14px;margin:0 0 22px}
+  .pcabars .pb{flex:1 1 300px;min-width:0;padding:16px 18px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid var(--hair)}
+  .pcabars h4{margin:0 0 12px;font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-3)}
+  html[lang=ar] .pcabars h4{letter-spacing:0;font-size:.86rem}
+  .vrow{display:grid;grid-template-columns:minmax(0,7.5em) 1fr 3.4em;align-items:center;gap:10px;margin:7px 0;font-size:.82rem;color:var(--on-dark-2)}
+  html[lang=ar] .vrow{font-size:.9rem}
+  .vrow .bar{position:relative;height:10px;border-radius:99px;background:rgba(255,255,255,.05);overflow:hidden}
+  .vrow .bar i{position:absolute;inset-block:0;inset-inline-start:0;border-radius:99px;background:linear-gradient(90deg,var(--gold),#f5d596)}
+  html[dir=rtl] .vrow .bar i,.dir-rtl .vrow .bar i{background:linear-gradient(270deg,var(--gold),#f5d596)}
+  .vrow.dim .bar i{background:rgba(255,255,255,.2)}
+  .vrow b{font-weight:600;color:#fff;text-align:end;font-variant-numeric:tabular-nums}
+  .ldtab{width:100%;border-collapse:collapse;font-size:.82rem;color:var(--on-dark-2)}
+  html[lang=ar] .ldtab{font-size:.9rem}
+  .ldtab th{font-weight:600;font-size:.72rem;color:var(--on-dark-3);text-align:start;padding:0 0 6px}
+  .ldtab td{padding:5px 0;vertical-align:middle}
+  .ldtab td.m{width:1%;padding-inline-end:14px;white-space:nowrap}
+  .ld{position:relative;height:12px;margin:0 6px;border-radius:3px;background:linear-gradient(90deg,transparent calc(50% - .5px),rgba(255,255,255,.18) calc(50% - .5px),rgba(255,255,255,.18) calc(50% + .5px),transparent calc(50% + .5px))}
+  .ld i{position:absolute;top:1px;bottom:1px;border-radius:2px}
+  .ld i.pos{background:var(--emerald)}
+  .ld i.neg{background:#f08a8a}
+  .ldc{display:flex;align-items:center;gap:6px}
+  .ldc .ld{flex:1;margin:0}
+  .ldc em{flex:none;width:3.3em;font-style:normal;font-size:.72rem;color:var(--on-dark);font-variant-numeric:tabular-nums;text-align:end}
+  .pbnote{margin:10px 0 0;font-size:.8rem;line-height:1.6;color:var(--on-dark-2)}
+  html[lang=ar] .pbnote{font-size:.9rem;line-height:1.85}
+
   /* ── stages: a page's figure drawn by the verse sky itself (sky.js). The box is transparent so the field shows
      through; its labels are HTML inside it. Without WebGL the Plotly chart (.glfb) stands in. ── */
   .stagefig{position:relative;margin:4px 0 22px}
@@ -316,6 +464,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
   .stsvg .claimbox.ok{stroke:rgba(52,211,153,.75)}
   .stlab .tk{font-size:.66rem;color:var(--on-dark-3);font-variant-numeric:tabular-nums}
   .stlab .tk.axis{color:var(--on-dark-3);letter-spacing:.04em}
+  .stlab .yv{writing-mode:vertical-rl;transform:translate(-50%,-50%) rotate(180deg) !important}   /* a y title standing along its axis (narrow boxes), centred on its point */
   .stlab .hl{width:100%;height:1px;background:rgba(255,255,255,.055);font-size:.6rem;color:var(--on-dark-3);padding-top:2px;font-variant-numeric:tabular-nums}
   .stlab .pk{font-size:.72rem;color:var(--on-dark-2)}
   .stlab .pk .k,.stlab .heaplab .k{color:var(--gold);font-variant-numeric:tabular-nums}
@@ -751,21 +900,26 @@ if (location.hostname === 'heshamabourokaia.github.io')
         : 'Built on the Quranic Arabic Corpus morphology (lemma, root and part of speech). Fully bilingual, English and Arabic.' }}</p>
     </section>
 
-    <!-- Analytics Lab: plain-English explainer (any lab view) -->
-    <div v-if="labCur" class="course">
+    <!-- Analytics Lab: the page's explainer (any lab view), in plain words or for scientists -->
+    <div v-if="labCur" class="course" :class="{sci: sciShown}">
+      <div class="xhead" v-if="sciHas"><span class="xkick">{{ depthKicker }}</span><depth-switch></depth-switch></div>
       <div class="tech">{{ plain && plain.title ? plain.title : labCur.technique }}</div>
       <div class="techname" v-if="plain && plain.title">{{ labCur.technique }}</div>
-      <div class="explain">
-        <div class="box"><span class="lab">{{ lang==='ar'?'ما هذا؟':'What is this?' }}</span>{{ plain ? plain.what : labCur.what }}</div>
-        <div class="box" v-if="plain && plain.method"><span class="lab">{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</span>{{ plain.method }}</div>
-        <div class="box" v-if="!plain || !plain.staged"><span class="lab">{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</span>{{ plain ? plain.how : labCur.howToRead }}</div>
+      <term-chips></term-chips>
+      <div class="explain xbody" v-if="sciShown">
+        <div class="box" v-for="r in sciRows" :key="r.k"><span class="lab">{{ r.label }}</span><span v-html="r.html"></span></div>
+      </div>
+      <div class="explain xbody" v-else>
+        <div class="box"><span class="lab">{{ lang==='ar'?'ما هذا؟':'What is this?' }}</span><span v-html="rich(plain ? plain.what : labCur.what)"></span></div>
+        <div class="box" v-if="plain && plain.method"><span class="lab">{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</span><span v-html="rich(plain.method)"></span></div>
+        <div class="box" v-if="!plain || !plain.staged"><span class="lab">{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</span><span v-html="rich(plain ? plain.how : labCur.howToRead)"></span></div>
       </div>
     </div>
 
     <!-- OVERVIEW -->
     <section v-if="view==='overview'">
       <h1>{{ lang==='ar' ? 'نظرة عامة' : 'Overview' }}</h1>
-      <div v-if="plain" class="plain"><p v-if="plain.what"><b>{{ lang==='ar'?'ما هذا؟':'What is this?' }}</b> {{ plain.what }}</p><p v-if="plain.method"><b>{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</b> {{ plain.method }}</p><p v-if="plain.how && !plain.staged"><b>{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</b> {{ plain.how }}</p><p v-if="plain.msg && !plain.noted"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}</b> {{ plain.msg }}</p></div>
+      <explain-box></explain-box>
       <div class="kpis">
         <div class="kpi"><div class="n">{{ T.suras }}</div><div class="l">{{ lang==='ar'?'سورة':'Surahs' }}</div></div>
         <div class="kpi"><div class="n">{{ f(T.verses) }}</div><div class="l">{{ lang==='ar'?'آية':'Verses' }}</div></div>
@@ -776,7 +930,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
       </div>
       <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-columns" data-stage="overview" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
       <div class="card glfb"><div class="chart" id="ovChart"></div></div>
-      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> {{ plain.msg }}</div>
+      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> <span v-html="rich(plain.msg)"></span></div>
       <div class="grid" style="margin-top:16px">
         <div class="card" style="margin:0"><b>{{ lang==='ar'?'الكلمة الأكثر تكراراً':'Most frequent word' }}</b>
           <div style="margin-top:6px">{{ lang==='ar'?'بعد كلمات الربط الصغيرة مثل «و» و«مِن»، أكثر الكلمات ورودًا «':'After small joining words like «و» (and) and «مِن» (from), the most frequent word is «' }}{{ DS.topWordsLemma[2]?DS.topWordsLemma[2].w:'' }}» ({{ f(2699) }}).</div></div>
@@ -792,10 +946,10 @@ if (location.hostname === 'heshamabourokaia.github.io')
     <!-- WORD ANALYSIS -->
     <section v-if="view==='word'">
       <h1>{{ lang==='ar' ? 'تحليل الكلمات' : 'Word Analysis' }}</h1>
-      <div v-if="plain" class="plain"><p v-if="plain.what"><b>{{ lang==='ar'?'ما هذا؟':'What is this?' }}</b> {{ plain.what }}</p><p v-if="plain.method"><b>{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</b> {{ plain.method }}</p><p v-if="plain.how && !plain.staged"><b>{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</b> {{ plain.how }}</p><p v-if="plain.msg && !plain.noted"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}</b> {{ plain.msg }}</p></div>
+      <explain-box></explain-box>
       <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-bars" data-stage="word" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
       <div class="card glfb"><div class="chart" id="lemChart"></div></div>
-      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> {{ plain.msg }}</div>
+      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> <span v-html="rich(plain.msg)"></span></div>
       <div class="row">
         <div class="col card"><h3>{{ lang==='ar'?'حسب الجذر':'By root' }}</h3>
           <table><tr v-for="r in DS.topRoots.slice(0,12)" :key="r.w"><td class="ar">{{ r.w }}</td><td>{{ f(r.c) }}</td></tr></table>
@@ -809,10 +963,10 @@ if (location.hostname === 'heshamabourokaia.github.io')
     <!-- MECCA VS MEDINA -->
     <section v-if="view==='mecca'">
       <h1>{{ lang==='ar' ? 'مكة والمدينة' : 'Mecca vs Medina' }}</h1>
-      <div v-if="plain" class="plain"><p v-if="plain.what"><b>{{ lang==='ar'?'ما هذا؟':'What is this?' }}</b> {{ plain.what }}</p><p v-if="plain.method"><b>{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</b> {{ plain.method }}</p><p v-if="plain.how && !plain.staged"><b>{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</b> {{ plain.how }}</p><p v-if="plain.msg && !plain.noted"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}</b> {{ plain.msg }}</p></div>
+      <explain-box></explain-box>
       <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-lengths" data-stage="mecca" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
       <div class="card glfb"><div class="chart" id="mmChart"></div></div>
-      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> {{ plain.msg }}</div>
+      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> <span v-html="rich(plain.msg)"></span></div>
       <div class="row">
         <div class="col card"><h3>🕋 {{ lang==='ar'?'مكية':'Meccan' }}</h3>
           <div class="kpis">
@@ -832,16 +986,16 @@ if (location.hostname === 'heshamabourokaia.github.io')
     <!-- LETTER FREQUENCY -->
     <section v-if="view==='letters'">
       <h1>{{ lang==='ar' ? 'تكرار الحروف' : 'Letter Frequency' }}</h1>
-      <div v-if="plain" class="plain"><p v-if="plain.what"><b>{{ lang==='ar'?'ما هذا؟':'What is this?' }}</b> {{ plain.what }}</p><p v-if="plain.method"><b>{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</b> {{ plain.method }}</p><p v-if="plain.how && !plain.staged"><b>{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</b> {{ plain.how }}</p><p v-if="plain.msg && !plain.noted"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}</b> {{ plain.msg }}</p></div>
+      <explain-box></explain-box>
       <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-bars-v" data-stage="letters" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
       <div class="card glfb"><div class="chart" id="letChart"></div></div>
-      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> {{ plain.msg }}</div>
+      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> <span v-html="rich(plain.msg)"></span></div>
     </section>
 
     <!-- WORD SEARCH -->
     <section v-if="view==='search'">
       <h1>{{ lang==='ar' ? 'بحث في الكلمات' : 'Word Search' }}</h1>
-      <div v-if="plain" class="plain"><p v-if="plain.what"><b>{{ lang==='ar'?'ما هذا؟':'What is this?' }}</b> {{ plain.what }}</p><p v-if="plain.method"><b>{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</b> {{ plain.method }}</p><p v-if="plain.how && !plain.staged"><b>{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</b> {{ plain.how }}</p><p v-if="plain.msg && !plain.noted"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}</b> {{ plain.msg }}</p></div>
+      <explain-box></explain-box>
       <div class="searchbar">
         <input class="q" v-model="q" @input="runSearch" :placeholder="lang==='ar'?'اكتب كلمة...':'Type a word...'" />
         <div class="seg">
@@ -936,7 +1090,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
     <!-- CLAIM AUDITOR -->
     <section v-if="view==='auditor'">
       <h1>{{ lang==='ar' ? 'مدقّق المزاعم' : 'Claim Auditor' }}</h1>
-      <div v-if="plain" class="plain"><p v-if="plain.what"><b>{{ lang==='ar'?'ما هذا؟':'What is this?' }}</b> {{ plain.what }}</p><p v-if="plain.method"><b>{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</b> {{ plain.method }}</p><p v-if="plain.how && !plain.staged"><b>{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</b> {{ plain.how }}</p><p v-if="plain.msg && !plain.noted"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}</b> {{ plain.msg }}</p></div>
+      <explain-box></explain-box>
       <div class="card claimcheck">
         <h3>{{ lang==='ar' ? 'دقّق أي زعمٍ بنفسك' : 'Check any claim' }}</h3>
         <p class="ccsub">{{ lang==='ar' ? 'الصق زعمًا عن عدد مرات ورود كلمةٍ في القرآن، بالعربية أو بالإنجليزية، فنجد الكلمة ونعدّها بثلاث طرق.' : 'Paste a claim about how often a word appears in the Quran, in English or Arabic. We find the word and count it three ways.' }}</p>
@@ -997,10 +1151,10 @@ if (location.hostname === 'heshamabourokaia.github.io')
     <!-- EMOTIONAL PROFILING -->
     <section v-if="view==='emotion'">
       <h1>{{ lang==='ar'?'البصمة العاطفية':'Emotional Profiling' }}</h1>
-      <div v-if="plain" class="plain"><p v-if="plain.what"><b>{{ lang==='ar'?'ما هذا؟':'What is this?' }}</b> {{ plain.what }}</p><p v-if="plain.method"><b>{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</b> {{ plain.method }}</p><p v-if="plain.how && !plain.staged"><b>{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</b> {{ plain.how }}</p><p v-if="plain.msg && !plain.noted"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}</b> {{ plain.msg }}</p></div>
+      <explain-box></explain-box>
       <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-heaps" data-stage="emotion" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
       <div class="card glfb"><div class="chart" id="emoChart"></div></div>
-      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> {{ plain.msg }}</div>
+      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> <span v-html="rich(plain.msg)"></span></div>
       <div class="kpis">
         <div class="kpi"><div class="n">{{ f(emotionTotals.mercy) }}</div><div class="l">{{ lang==='ar'?'رحمة':'Mercy' }}</div></div>
         <div class="kpi"><div class="n">{{ f(emotionTotals.guidance) }}</div><div class="l">{{ lang==='ar'?'هداية':'Guidance' }}</div></div>
@@ -1020,10 +1174,10 @@ if (location.hostname === 'heshamabourokaia.github.io')
     <!-- DIVINE PRONOUNS -->
     <section v-if="view==='pronouns'">
       <h1>{{ lang==='ar'?'ضمائر الذات الإلهية':'Divine Pronouns' }}</h1>
-      <div v-if="plain" class="plain"><p v-if="plain.what"><b>{{ lang==='ar'?'ما هذا؟':'What is this?' }}</b> {{ plain.what }}</p><p v-if="plain.method"><b>{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</b> {{ plain.method }}</p><p v-if="plain.how && !plain.staged"><b>{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</b> {{ plain.how }}</p><p v-if="plain.msg && !plain.noted"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}</b> {{ plain.msg }}</p></div>
+      <explain-box></explain-box>
       <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-heaps" data-stage="pronouns" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
       <div class="card glfb"><div class="chart" id="proChart"></div></div>
-      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> {{ plain.msg }}</div>
+      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> <span v-html="rich(plain.msg)"></span></div>
       <div class="kpis">
         <div class="kpi"><div class="ar" style="font-size:1.6rem">نَحْنُ</div><div class="n">{{ f(V1.pronouns.we) }}</div><div class="l">{{ lang==='ar'?'نحن':'We' }}</div></div>
         <div class="kpi"><div class="ar" style="font-size:1.6rem">أَنَا</div><div class="n">{{ f(V1.pronouns.i) }}</div><div class="l">{{ lang==='ar'?'أنا':'I' }}</div></div>
@@ -1034,10 +1188,10 @@ if (location.hostname === 'heshamabourokaia.github.io')
     <!-- SCIENTIFIC REFERENCES -->
     <section v-if="view==='science'">
       <h1>{{ lang==='ar'?'الإشارات العلمية':'Scientific References' }}</h1>
-      <div v-if="plain" class="plain"><p v-if="plain.what"><b>{{ lang==='ar'?'ما هذا؟':'What is this?' }}</b> {{ plain.what }}</p><p v-if="plain.method"><b>{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</b> {{ plain.method }}</p><p v-if="plain.how && !plain.staged"><b>{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</b> {{ plain.how }}</p><p v-if="plain.msg && !plain.noted"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}</b> {{ plain.msg }}</p></div>
+      <explain-box></explain-box>
       <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-carpet" data-stage="science" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
       <div class="card glfb"><div class="chart" id="sciChart"></div></div>
-      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> {{ plain.msg }}</div>
+      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> <span v-html="rich(plain.msg)"></span></div>
       <div class="card"><table>
         <tr><th>{{ lang==='ar'?'المجال':'Field' }}</th><th>{{ lang==='ar'?'الموضوع':'Topic' }}</th><th>{{ lang==='ar'?'الموضع':'Ref' }}</th></tr>
         <tr v-for="(r,i) in V1.scientificRefs" :key="i">
@@ -1049,7 +1203,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
     <!-- ABJAD CALCULATOR -->
     <section v-if="view==='abjad'">
       <h1>{{ lang==='ar'?'حساب الجُمّل':'Abjad Numerals' }}</h1>
-      <div v-if="plain" class="plain"><p v-if="plain.what"><b>{{ lang==='ar'?'ما هذا؟':'What is this?' }}</b> {{ plain.what }}</p><p v-if="plain.method"><b>{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</b> {{ plain.method }}</p><p v-if="plain.how && !plain.staged"><b>{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</b> {{ plain.how }}</p><p v-if="plain.msg && !plain.noted"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}</b> {{ plain.msg }}</p></div>
+      <explain-box></explain-box>
       <div class="card">
         <input class="q" v-model="abjadInput" :placeholder="lang==='ar'?'اكتب كلمة لحساب قيمتها...':'Type a word to compute its value...'">
         <div v-if="abjadValue.sum>0" style="margin-top:12px">
@@ -1066,7 +1220,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
     <!-- NUMBER 19 -->
     <section v-if="view==='n19'">
       <h1>{{ lang==='ar'?'معجزة الرقم ١٩':'Number 19' }}</h1>
-      <div v-if="plain" class="plain"><p v-if="plain.what"><b>{{ lang==='ar'?'ما هذا؟':'What is this?' }}</b> {{ plain.what }}</p><p v-if="plain.method"><b>{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</b> {{ plain.method }}</p><p v-if="plain.how && !plain.staged"><b>{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</b> {{ plain.how }}</p><p v-if="plain.msg && !plain.noted"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}</b> {{ plain.msg }}</p></div>
+      <explain-box></explain-box>
       <div class="grid">
         <div v-for="(r,i) in V1.number19" :key="i" class="card" style="margin:0">
           <div class="ar">{{ r.ar }}</div>
@@ -1079,7 +1233,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
     <!-- STRUCTURAL MIRACLES -->
     <section v-if="view==='structural'">
       <h1>{{ lang==='ar'?'معجزات هيكلية':'Structural Miracles' }}</h1>
-      <div v-if="plain" class="plain"><p v-if="plain.what"><b>{{ lang==='ar'?'ما هذا؟':'What is this?' }}</b> {{ plain.what }}</p><p v-if="plain.method"><b>{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</b> {{ plain.method }}</p><p v-if="plain.how && !plain.staged"><b>{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</b> {{ plain.how }}</p><p v-if="plain.msg && !plain.noted"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}</b> {{ plain.msg }}</p></div>
+      <explain-box></explain-box>
       <div class="grid">
         <div v-for="(r,i) in V1.structuralMiracles" :key="i" class="card" style="margin:0">
           <div style="font-size:1.5rem">{{ r.icon }}</div>
@@ -1093,10 +1247,10 @@ if (location.hostname === 'heshamabourokaia.github.io')
     <!-- WORD PAIRS & BALANCE (merged Word Symmetries + Antonym Pairs + Waw) -->
     <section v-if="view==='symmetry'">
       <h1>{{ lang==='ar'?'توازن الأزواج':'Word Pairs & Balance' }}</h1>
-      <div v-if="plain" class="plain"><p v-if="plain.what"><b>{{ lang==='ar'?'ما هذا؟':'What is this?' }}</b> {{ plain.what }}</p><p v-if="plain.method"><b>{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</b> {{ plain.method }}</p><p v-if="plain.how && !plain.staged"><b>{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</b> {{ plain.how }}</p><p v-if="plain.msg && !plain.noted"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}</b> {{ plain.msg }}</p></div>
+      <explain-box></explain-box>
       <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-blocks" data-stage="symmetry" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
       <div class="card glfb"><div class="chart" id="antChart"></div></div>
-      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> {{ plain.msg }}</div>
+      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> <span v-html="rich(plain.msg)"></span></div>
       <div class="row">
         <div class="col card"><h3>{{ lang==='ar'?'الأعداد المتداولة':'As widely cited' }}</h3>
           <p class="sub" style="font-size:.85rem;margin-top:0">{{ lang==='ar'?'ننقل هذه الأعداد كما تتداولها الكتب والمواقع، لا كما أظهرها عدُّنا.':'These are the counts as circulated in books and websites, not the result of our own count.' }}</p>
@@ -1127,10 +1281,10 @@ if (location.hostname === 'heshamabourokaia.github.io')
     <!-- NLP EXPLORER -->
     <section v-if="view==='nlp'">
       <h1>{{ lang==='ar'?'مستكشف NLP':'NLP Explorer' }}</h1>
-      <div v-if="plain" class="plain"><p v-if="plain.what"><b>{{ lang==='ar'?'ما هذا؟':'What is this?' }}</b> {{ plain.what }}</p><p v-if="plain.method"><b>{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</b> {{ plain.method }}</p><p v-if="plain.how && !plain.staged"><b>{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</b> {{ plain.how }}</p><p v-if="plain.msg && !plain.noted"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}</b> {{ plain.msg }}</p></div>
+      <explain-box></explain-box>
       <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-bars" data-stage="nlp" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
       <div class="card glfb"><div class="chart" id="biChart"></div></div>
-      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> {{ plain.msg }}</div>
+      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> <span v-html="rich(plain.msg)"></span></div>
       <div class="card"><h3>{{ lang==='ar'?'سحابة الكلمات الأكثر ورودًا':'Cloud of the most frequent words' }}</h3>
         <div class="cloudwrap">
           <span v-for="(w,i) in DS.topWordsLemma.slice(0,40)" :key="i" class="ar"
@@ -1149,10 +1303,10 @@ if (location.hostname === 'heshamabourokaia.github.io')
     <!-- ADVANCED ANALYTICS -->
     <section v-if="view==='advanced'">
       <h1>{{ lang==='ar'?'تحليلات متقدمة':'Advanced Analytics' }}</h1>
-      <div v-if="plain" class="plain"><p v-if="plain.what"><b>{{ lang==='ar'?'ما هذا؟':'What is this?' }}</b> {{ plain.what }}</p><p v-if="plain.method"><b>{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</b> {{ plain.method }}</p><p v-if="plain.how && !plain.staged"><b>{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</b> {{ plain.how }}</p><p v-if="plain.msg && !plain.noted"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}</b> {{ plain.msg }}</p></div>
+      <explain-box></explain-box>
       <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-scatter" data-stage="advanced" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
       <div class="card glfb"><div class="chart" id="advScatter"></div></div>
-      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> {{ plain.msg }}</div>
+      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> <span v-html="rich(plain.msg)"></span></div>
       <div class="card"><div class="chart" id="advLen"></div></div>
       <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'هذه السور لديها أطول متوسط لطول الآية.':'These surahs have the longest average verse length.' }}</div>
     </section>
@@ -1160,7 +1314,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
     <!-- TAWAFUQ MUSHAF EXPLORER -->
     <section v-if="view==='tawafuq'">
       <h1>{{ lang==='ar'?'مستكشف توافق المصحف':'Tawafuq Mushaf Explorer' }}</h1>
-      <div v-if="plain" class="plain"><p v-if="plain.what"><b>{{ lang==='ar'?'ما هذا؟':'What is this?' }}</b> {{ plain.what }}</p><p v-if="plain.method"><b>{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</b> {{ plain.method }}</p><p v-if="plain.how && !plain.staged"><b>{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</b> {{ plain.how }}</p><p v-if="plain.msg && !plain.noted"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}</b> {{ plain.msg }}</p></div>
+      <explain-box></explain-box>
       <div class="searchbar">
         <button class="seg" @click="tawGoPage(Math.max(1,tawPage-1))">‹ {{ lang==='ar'?'السابق':'Prev' }}</button>
         <span style="font-weight:700">{{ lang==='ar'?'صفحة':'Page' }}
@@ -1237,7 +1391,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
     <!-- KNOWLEDGE GRAPH -->
     <section v-if="view==='kg'">
       <h1>{{ lang==='ar'?'خريطة المعرفة القرآنية':'Quranic Knowledge Graph' }}</h1>
-      <div v-if="plain" class="plain"><p v-if="plain.what"><b>{{ lang==='ar'?'ما هذا؟':'What is this?' }}</b> {{ plain.what }}</p><p v-if="plain.method"><b>{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</b> {{ plain.method }}</p><p v-if="plain.how && !plain.staged"><b>{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</b> {{ plain.how }}</p><p v-if="plain.msg && !plain.noted"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}</b> {{ plain.msg }}</p></div>
+      <explain-box></explain-box>
       <div class="kpis">
         <div class="kpi"><div class="n">439</div><div class="l">{{ lang==='ar'?'عقدة':'Nodes' }}</div></div>
         <div class="kpi"><div class="n">929</div><div class="l">{{ lang==='ar'?'علاقة':'Edges' }}</div></div>
@@ -1284,7 +1438,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
       </div>
       <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-columns" data-stage="dashboard" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
       <div class="card glfb"><div class="chart" id="dashChart"></div></div>
-      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> {{ plain.msg }}</div>
+      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> <span v-html="rich(plain.msg)"></span></div>
     </section>
 
     <!-- HIFZ OPTIMISER (Linear Programming) -->
@@ -1300,7 +1454,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
         </div>
       </div>
       <div class="card"><div class="chart" id="hifzChart"></div></div>
-      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> {{ plain.msg }}</div>
+      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> <span v-html="rich(plain.msg)"></span></div>
       <p class="sub">{{ lang==='ar'?'كل دقيقةٍ إضافية في اليوم تضيف هذا العدد من الأسطر الجديدة.':'Each extra minute a day lets you learn this many more new lines.' }}</p>
     </section>
 
@@ -1312,7 +1466,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
         <div class="m"><div class="v">{{ D(AN.classifier.auc) }}</div><div class="k">{{ lang==='ar'?'المساحة تحت المنحنى (٠٫٥ تخمين، ١ تام)':'AUC (0.5 guessing, 1 perfect)' }}</div></div>
       </div>
       <div class="card" v-if="AN.classifier"><div class="chart" id="clfChart"></div></div>
-      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> {{ plain.msg }}</div>
+      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> <span v-html="rich(plain.msg)"></span></div>
       <div class="row" v-if="AN.classifier">
         <div class="col card"><h3>{{ lang==='ar'?'الإصابات والأخطاء':'Right and wrong guesses' }}</h3>
           <table class="conf">
@@ -1357,7 +1511,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
           <div class="m"><div class="v"><bdi dir="ltr">{{ D(AN.ttest.p.toExponential(1)) }}</bdi></div><div class="k">{{ lang==='ar'?'القيمة الاحتمالية (احتمال المصادفة)':'p-value (chance it is luck)' }}</div></div>
         </div>
         <div class="chart glfb" id="statChart"></div>
-        <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> {{ plain.msg }}</div>
+        <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> <span v-html="rich(plain.msg)"></span></div>
         <p style="font-weight:600;color:var(--emerald)">{{ lang==='ar'?'النتيجة: آيات المدينة أطول بـ':'Result: Medinan verses are longer by ' }}{{ D(AN.ttest.diff) }} {{ lang==='ar'?'كلمة في المتوسط، والفرق الحقيقي يقع على الأرجح بين ':'words on average; the true gap is very likely between ' }}{{ D(AN.ttest.ci[0]) }} {{ lang==='ar'?'و':'and' }} {{ D(AN.ttest.ci[1]) }} {{ lang==='ar'?'كلمة.':'words.' }}</p>
       </div>
       <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-lengths" data-stage="stats" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
@@ -1373,9 +1527,44 @@ if (location.hostname === 'heshamabourokaia.github.io')
 
     <!-- CLUSTERS & SIMILARITY (k-means + TF-IDF) -->
     <section v-if="view==='cluster'">
+      <!-- how the map is made: the surahs' own verse points move through the steps of PCA, then take the k-means colours -->
+      <div class="pcawalk" v-if="pcaModel">
+        <span class="xkick">{{ lang==='ar' ? 'كيف رُسمت هذه الخريطة؟ خطوةً خطوة' : 'How this map is made, step by step' }}</span>
+        <div class="pwsteps" role="group" :aria-label="lang==='ar' ? 'خطوات الشرح' : 'Steps'">
+          <button v-for="(st,i) in pcaSteps" :key="i" type="button" :class="{done: i<pcaStep}" :aria-current="i===pcaStep ? 'step' : null" @click="pcaGo(i)"><span class="n">{{ D(i+1) }}</span>{{ st.title }}</button>
+        </div>
+        <p class="pwtext" aria-live="polite" v-html="rich(pcaCur.text)"></p>
+        <p class="pwsci" v-if="sciOn" v-html="rich(pcaCur.sci)"></p>
+        <div class="pwctl" v-if="pcaStep===1">
+          <input type="range" min="0" max="179" step="1" dir="ltr" :value="Math.round(pcaAngle)" @input="pcaStop(); pcaAngle=+$event.target.value" :aria-label="lang==='ar' ? 'زاوية الخط بالدرجات' : 'Angle of the line, in degrees'" :aria-valuetext="D(Math.round(pcaAngle))+'°, '+pcaKeepTxt">
+          <button type="button" class="ccbtn" @click="pcaWidest()">{{ lang==='ar' ? 'جِد أوسع اتجاه' : 'Find the widest' }}</button>
+          <span class="keep"><b>{{ pcaKeepTxt }}</b>{{ lang==='ar' ? 'من الانتشار يحفظه الخط' : 'of the spread kept by the line' }}</span>
+        </div>
+        <div class="pwnav">
+          <button v-if="pcaStep===pcaSteps.length-1" type="button" class="go" @click="pcaGo(0)">{{ lang==='ar' ? 'خُذني خطوةً خطوة ‹' : 'Walk me through it ›' }}</button>
+          <template v-else>
+            <button type="button" :disabled="pcaStep===0" @click="pcaGo(pcaStep-1)">{{ lang==='ar' ? '› السابق' : '‹ Back' }}</button>
+            <button type="button" class="go" @click="pcaGo(pcaStep+1)">{{ lang==='ar' ? 'التالي ‹' : 'Next ›' }}</button>
+          </template>
+        </div>
+      </div>
       <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-scatter" data-stage="cluster" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
+      <div class="pcabars" v-if="pcaModel && pcaStep>=3">
+        <div class="pb"><h4>{{ lang==='ar' ? 'كم يحفظ كل اتجاهٍ من الفروق' : 'How much of the differences each direction keeps' }}</h4>
+          <div class="vrow" v-for="(v,i) in pcaModel.share" :key="i" :class="{dim: i>1}"><span>{{ dirName(i) }}</span><span class="bar"><i :style="{width:(v*100).toFixed(1)+'%'}"></i></span><b>{{ pct1(v) }}</b></div>
+          <p class="pbnote">{{ lang==='ar' ? 'الخريطة ترسم الاتجاهين الأوّلين، وهما يحفظان '+pct1(pcaModel.share[0]+pcaModel.share[1])+' من الفروق.' : 'The map draws the first two, which keep '+pct1(pcaModel.share[0]+pcaModel.share[1])+' of the differences.' }}</p>
+        </div>
+        <div class="pb"><h4>{{ lang==='ar' ? 'مِمّ يتألف الاتجاهان' : 'What the two directions are made of' }}</h4>
+          <table class="ldtab">
+            <tr><th></th><th>{{ dirName(0) }}</th><th>{{ dirName(1) }}</th></tr>
+            <tr v-for="(m,j) in pcaFeatNames" :key="j"><td class="m">{{ m }}</td>
+              <td v-for="k in [0,1]" :key="k"><div class="ldc"><div class="ld"><i :class="pcaModel.vec[k][j]>=0 ? 'pos' : 'neg'" :style="ldStyle(pcaModel.vec[k][j])"></i></div><em>{{ fmtLoad(pcaModel.vec[k][j]) }}</em></div></td></tr>
+          </table>
+          <p class="pbnote">{{ pcaDirNote }}</p>
+        </div>
+      </div>
       <div class="card glfb"><div class="chart" id="clusterChart"></div></div>
-      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> {{ plain.msg }}</div>
+      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> <span v-html="rich(plain.msg)"></span></div>
       <div class="card" v-if="AN.similarity">
         <h3>{{ lang==='ar'?'أقرب السور إلى':'Surahs most similar to' }}
           <select v-model.number="simSurah" style="padding:6px;border-radius:8px;border:1px solid var(--line)">
@@ -1391,7 +1580,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
       <div class="gridpick" v-if="coinLand.length"><div class="chips" role="radiogroup" :aria-label="lang==='ar'?'اختر رقمًا':'Pick a number'"><button v-for="r in coinLand" :key="r.n" type="button" class="chip" role="radio" :aria-checked="String(r.n===gridN)" :class="{on:r.n===gridN}" @click="gridN=r.n">{{ D(r.n) }}</button></div><div class="gridnums" v-if="coinPick"><span><b class="ex">{{ f(coinPick.exact) }}</b> {{ lang==='ar' ? 'عدد الكلمات التي ترد '+D(coinPick.n)+' '+(coinPick.n%100>=3 && coinPick.n%100<=10 ? 'مرات' : 'مرة')+' بالضبط' : (coinPick.exact===1 ? 'word occurs' : 'words occur')+' exactly '+coinPick.n+' times' }}</span><span><b class="nr">{{ f(coinPick.near) }}</b> {{ lang==='ar' ? 'عدد الكلمات التي تقع في حدود خمسٍ من '+D(coinPick.n) : 'come within five of '+coinPick.n }}</span></div></div>
       <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-grid" data-stage="coincidence" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
       <div class="card glfb"><div class="chart" id="coincChart"></div></div>
-      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> {{ plain.msg }}</div>
+      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> <span v-html="rich(plain.msg)"></span></div>
       <div class="card" v-if="AN.montecarlo && AN.montecarlo.hifzSim">
         <h3>{{ lang==='ar'?'كم قد يستغرق الحفظ فعلًا؟ (١٬٠٠٠ رحلةٍ افتراضية)':'How long might memorising really take? (1,000 simulated journeys)' }}</h3>
         <div class="metric">
@@ -1483,6 +1672,25 @@ if (location.hostname === 'heshamabourokaia.github.io')
       </div>
     </section>
   </main>
+
+  <!-- a technical term, opened: four layers from plain words to the scientist's view (a sheet on phones) -->
+  <div v-if="termCard && termSheet" class="termshade" @click="closeTerm(true)"></div>
+  <div v-if="termCard" class="termcard" ref="termcard" role="dialog" :aria-label="termCard.full" tabindex="-1" :style="termStyle" @keydown.esc.stop="closeTerm(true)">
+    <button type="button" class="tclose" @click="closeTerm(true)" :aria-label="lang==='ar'?'إغلاق':'Close'">✕</button>
+    <p class="tkick">{{ lang==='ar' ? 'مصطلح' : 'Term' }}</p>
+    <h3>{{ termCard.full }}</h3>
+    <div class="tdepth" role="tablist" :aria-label="lang==='ar'?'طبقات الشرح':'Layers of the explanation'">
+      <button v-for="(L,i) in termCard.layers" :key="i" type="button" role="tab" :class="'l'+i" :aria-selected="String(i===termLayer)" @click="setLayer(i)"><span class="n">{{ D(i+1) }}</span>{{ L.label }}</button>
+    </div>
+    <div class="tdeck">
+      <div v-for="(L,i) in termCard.layers" :key="termCard.key+i" class="tlayer" role="tabpanel" :class="['l'+i, i===termLayer ? 'on' : i<termLayer ? 'past' : 'd'+(i-termLayer)]" :aria-hidden="String(i!==termLayer)"><span class="tl">{{ D(i+1) }} · {{ L.label }}</span><div v-html="L.html"></div></div>
+    </div>
+    <div class="tnav">
+      <button type="button" :disabled="termLayer===0" @click="setLayer(termLayer-1)">{{ lang==='ar' ? '› أبسط' : '‹ Simpler' }}</button>
+      <button type="button" :disabled="termLayer===termCard.layers.length-1" @click="setLayer(termLayer+1)">{{ lang==='ar' ? 'أعمق ‹' : 'Deeper ›' }}</button>
+    </div>
+    <a v-if="termCard.page && termCard.page!==view" class="tgo" :href="'?view='+termCard.page+(lang==='ar'?'&lang=ar':'')" @click.prevent="goTerm()">{{ lang==='ar' ? 'شاهده يعمل: '+termCard.pageName+' ‹' : 'See it at work: '+termCard.pageName+' ›' }}</a>
+  </div>
 </div>
 
 <!-- Only what the first screen needs loads before the app starts. The verse text, translation, word
@@ -1500,6 +1708,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
 <script defer src="content/quran_tafsir_insights.js"></script>
 <script defer src="content/quran_untranslatable.js"></script>
 <script defer src="content/v1_data.js"></script>
+<script defer src="explain.js"></script>
 <script>
 window.addEventListener('DOMContentLoaded', function(){
 const TASHKEEL = /[ؐ-ًؚ-ٰٟۖ-ۭٓ-ٕ]/g;
@@ -1545,8 +1754,8 @@ const PLAIN = {
     msg:['A few long surahs, like Al-Baqarah, hold a large part of the Quran: the 16 longest carry half of its words, while most surahs are short.',
       'بضع سورٍ طويلة مثل البقرة تحمل جزءًا كبيرًا من القرآن: فأطول ١٦ سورةً تضمّ نصف كلماته، ومعظم السور قصيرة.']},
   word:{
-    what:['Which words come most often in the Quran. Each word is counted with all its forms: قالَ (he said) also counts يقول (he says), قالوا (they said) and so on.',
-      'أيّ الكلمات أكثر ورودًا في القرآن. تُعَدّ كل كلمةٍ بجميع صيغها: فـ«قالَ» تشمل يقول وقالوا وغيرها.'],
+    what:['Which words come most often in the Quran. Each word is counted with [[lemma|all its forms]]: قالَ (he said) also counts يقول (he says), قالوا (they said) and so on.',
+      'أيّ الكلمات أكثر ورودًا في القرآن. تُعَدّ كل كلمةٍ [[lemma|بجميع صيغها]]: فـ«قالَ» تشمل يقول وقالوا وغيرها.'],
     how:['Each bar is one word: the longer the bar, the more often it comes.', 'كل شريطٍ كلمةٌ واحدة: كلما طال كثر ورودها.'],
     tip:['{P} a bar for the exact number', '{p} شريطٍ لترى العدد بالضبط'], click:['; click it to see every verse where it comes', '، وانقر عليه لترى كل الآيات التي وردت فيها'],
     msg:['Small joining words like و (and) and مِن (from) come first; the name Allah is the most frequent word with a meaning of its own.',
@@ -1571,7 +1780,8 @@ const PLAIN = {
       'كم مرةً يستعمل القرآن كلماتِ الرحمة والهداية والأمل والتحذير. عددنا في كل سورةٍ الكلماتِ التي تنتمي إلى كلٍّ من هذه المعاني الأربعة.'],
     how:['Each heap has one dot for every word counted: the bigger the heap, the more words.', 'في كل كومةٍ نقطةٌ لكل كلمةٍ معدودة: كلما كبرت الكومة كثرت الكلمات.'],
     tip:['{P} a heap to see which surah that part of it comes from', '{p} كومةٍ لترى من أي سورةٍ جاء ذلك الجزء منها'],
-    msg:['Words of mercy and guidance come far more often than words of warning.', 'كلمات الرحمة والهداية أكثر بكثيرٍ من كلمات التحذير.']},
+    msg:['Guidance words come most often (1,026), then mercy (779) and warning (710), which are close; hope comes least (379). Together, words of mercy, guidance and hope outnumber words of warning about three to one.',
+      'كلمات الهداية الأكثر ورودًا (١٬٠٢٦)، ثم الرحمة (٧٧٩) والتحذير (٧١٠) وهما متقاربتان، والأمل أقلها (٣٧٩). ومجموع كلمات الرحمة والهداية والأمل يفوق كلمات التحذير بنحو ثلاثة أضعاف.']},
   pronouns:{
     what:['The Quran speaks of God as «We» (نحن), «I» (أنا) and «He» (هو). This page counts how often each is used.',
       'يتحدّث القرآن عن الله بصيغة «نحن» و«أنا» و«هو». وهذه الصفحة تعدّ كم مرةً وردت كلٌّ منها.'],
@@ -1595,8 +1805,8 @@ const PLAIN = {
     msg:['Surahs with more verses have more words, as you would expect; but for the same number of verses, Medinan surahs sit higher, because their verses are longer.',
       'السور الأكثر آياتٍ أكثرُ كلماتٍ كما هو متوقَّع، لكن عند العدد نفسه من الآيات تقع السور المدنية أعلى، لأن آياتها أطول.']},
   search:{
-    what:['Look up any Arabic word and see every verse where it comes. You can search it as written, in all its forms, or by its root: the three letters a family of words grows from, like ك ت ب for writing.',
-      'ابحث عن أي كلمةٍ عربية لترى كل آيةٍ وردت فيها: كما كُتبت، أو بكل صيغها، أو بجذرها، وهو الحروف الثلاثة التي تتفرّع منها أسرةٌ من الكلمات، مثل ك ت ب للكتابة.'],
+    what:['Look up any Arabic word and see every verse where it comes. You can search it as written, in all its forms, or by its [[root]]: the three letters a family of words grows from, like ك ت ب for writing.',
+      'ابحث عن أي كلمةٍ عربية لترى كل آيةٍ وردت فيها: كما كُتبت، أو بكل صيغها، أو [[root|بجذرها]]، وهو الحروف الثلاثة التي تتفرّع منها أسرةٌ من الكلمات، مثل ك ت ب للكتابة.'],
     how:['Every verse of the Quran is a dot, in reading order. The bright dots are the verses where your word comes, so you can see where in the Quran it is found.',
       'كل آيةٍ في القرآن نقطة، بترتيب القراءة. والنقاط المضيئة هي الآيات التي وردت فيها كلمتك، فترى أين تقع في القرآن.'],
     tip:['{P} a dot to see the verse', '{p} نقطةٍ لترى الآية']},
@@ -1660,25 +1870,25 @@ const PLAIN = {
     title:['How long would it take to memorise the Quran?', 'كم يستغرق حفظ القرآن؟'],
     what:['Choose how many minutes a day you can give. The page works out how many new lines you could learn each day, how many to review, and how many years it would take to finish.',
       'اختر كم دقيقةً في اليوم تستطيع أن تعطي، فتحسب الصفحة كم سطرًا جديدًا تحفظ كل يوم، وكم تراجع، وكم سنةً تحتاج للختم.'],
-    method:['It uses a planning method called linear programming: it finds the best daily plan that fits your time, while keeping enough review so you don\'t forget.',
-      'تستعمل طريقةً في التخطيط اسمها «البرمجة الخطية»: تجد أفضل خطةٍ يومية تتسع لها دقائقك، مع مراجعةٍ كافية كي لا تنسى.'],
-    how:['Move the slider. «Value of one extra minute» shows how many more new lines each extra minute a day buys; the curve shows the years to finish getting shorter as you give more time.',
-      'حرّك المؤشر. «قيمة الدقيقة الإضافية» تُبيّن كم سطرًا جديدًا تضيفه كل دقيقةٍ زائدة في اليوم، والمنحنى يُظهر سنوات الختم تقصر كلما زدت الوقت.'],
+    method:['It uses a planning method called [[lp|linear programming]]: it finds the best daily plan that fits your time, while keeping enough review so you don\'t forget.',
+      'تستعمل طريقةً في التخطيط اسمها [[lp|«البرمجة الخطية»]]: تجد أفضل خطةٍ يومية تتسع لها دقائقك، مع مراجعةٍ كافية كي لا تنسى.'],
+    how:['Move the slider. «[[shadow|Value of one extra minute]]» shows how many more new lines each extra minute a day buys; the curve shows the years to finish getting shorter as you give more time.',
+      'حرّك المؤشر. «[[shadow|قيمة الدقيقة الإضافية]]» تُبيّن كم سطرًا جديدًا تضيفه كل دقيقةٍ زائدة في اليوم، والمنحنى يُظهر سنوات الختم تقصر كلما زدت الوقت.'],
     msg:['A few more minutes a day make a big difference to how long the journey takes.', 'دقائق قليلة إضافية في اليوم تُحدث فرقًا كبيرًا في طول الرحلة.']},
   classifier:{
     title:['Can a computer tell a Meccan surah from a Medinan one?', 'هل يميّز الحاسوب السورة المكية من المدنية؟'],
     what:['We let a computer program read the words of each surah and guess whether it was revealed in Mecca or in Medina. It learns from the other surahs, and is tested on each surah without seeing its answer.',
       'تركنا برنامجًا حاسوبيًا يقرأ كلمات كل سورة ويخمّن: هل نزلت بمكة أم بالمدينة؟ يتعلّم من السور الأخرى، ثم يُختبر في كل سورةٍ دون أن يرى جوابها.'],
-    method:['This is machine learning (a model called logistic regression): the program learns which words point to Mecca and which to Medina.',
-      'هذا من «تعلّم الآلة» (نموذجٌ اسمه الانحدار اللوجستي): يتعلّم البرنامج أيّ الكلمات تدلّ على مكة وأيّها على المدينة.'],
-    how:['Accuracy: how often it guesses right. Baseline: what you would get by always guessing «Meccan», the more common answer. AUC: from 0.5 (pure guessing) to 1 (perfect). The table counts its right and wrong guesses.',
-      'الدقة: كم مرةً يصيب. خط الأساس: ما تحصل عليه لو قلت «مكية» دائمًا لأنها الأكثر. المساحة تحت المنحنى: من ٠٫٥ (تخمينٌ محض) إلى ١ (إصابةٌ تامة). والجدول يعدّ إصاباته وأخطاءه.']},
+    method:['This is machine learning (a model called [[logreg|logistic regression]]): the program learns which words point to Mecca and which to Medina.',
+      'هذا من «تعلّم الآلة» (نموذجٌ اسمه [[logreg|الانحدار اللوجستي]]): يتعلّم البرنامج أيّ الكلمات تدلّ على مكة وأيّها على المدينة.'],
+    how:['Accuracy: how often it guesses right. [[baseline|Baseline]]: what you would get by always guessing «Meccan», the more common answer. [[auc|AUC]]: from 0.5 (pure guessing) to 1 (perfect). The [[confusion|table]] counts its right and wrong guesses.',
+      'الدقة: كم مرةً يصيب. [[baseline|خط الأساس]]: ما تحصل عليه لو قلت «مكية» دائمًا لأنها الأكثر. [[auc|المساحة تحت المنحنى]]: من ٠٫٥ (تخمينٌ محض) إلى ١ (إصابةٌ تامة). و[[confusion|الجدول]] يعدّ إصاباته وأخطاءه.']},
   stats:{
     title:['Are Medinan verses really longer?', 'هل آيات المدينة أطول حقًّا؟'],
     what:['Medinan verses look longer than Meccan ones. This page checks whether the difference is real, or could just be chance.',
       'تبدو الآيات المدنية أطول من المكية. وهذه الصفحة تتحقق: هل الفرق حقيقي، أم قد يكون مصادفة؟'],
-    method:['The check is called a t-test. Its p-value is the chance of seeing a gap this big if there were really no difference: the smaller it is, the surer we are. The second part, regression, estimates how much being Medinan adds to a verse\'s length.',
-      'هذا الفحص اسمه «اختبار t». والقيمة الاحتمالية فيه هي احتمال أن نرى فرقًا بهذا الحجم لو لم يكن هناك فرقٌ حقيقي: كلما صغرت ازددنا يقينًا. والجزء الثاني، «الانحدار»، يقدّر كم يضيف كون السورة مدنيةً إلى طول الآية.'],
+    method:['The check is called a [[ttest|t-test]]. Its [[pvalue|p-value]] is the chance of seeing a gap this big if there were really no difference: the smaller it is, the surer we are. The second part, [[ols|regression]], estimates how much being Medinan adds to a verse\'s length.',
+      'هذا الفحص اسمه [[ttest|«اختبار t»]]. و[[pvalue|القيمة الاحتمالية]] فيه هي احتمال أن نرى فرقًا بهذا الحجم لو لم يكن هناك فرقٌ حقيقي: كلما صغرت ازددنا يقينًا. والجزء الثاني، [[ols|«الانحدار»]]، يقدّر كم يضيف كون السورة مدنيةً إلى طول الآية.'],
     how:['Each dot is one verse, placed by how many words it has; the two lines mark the average length of each group.', 'كل نقطةٍ آيةٌ واحدة بحسب عدد كلماتها، والخطّان يدلّان على متوسط الطول في كل مجموعة.'],
     tip:['{P} a dot to see its verse', '{p} نقطةٍ لترى آيتها'],
     msg:['The gap is large and clear: Medinan verses are about 8 words longer on average, and the chance that this is luck is practically zero.',
@@ -1687,8 +1897,8 @@ const PLAIN = {
     title:['Which surahs are alike?', 'أيّ السور تتشابه؟'],
     what:['The computer sorts the surahs into groups of similar ones, by their length and their words, without being told in advance what the groups are.',
       'يُقسّم الحاسوب السور إلى مجموعاتٍ متشابهة، بحسب طولها وكلماتها، دون أن نخبره بالمجموعات مسبقًا.'],
-    method:['The grouping method is called k-means. To draw many measurements on a flat page, a method called PCA squeezes them into two directions, so surahs that sit close together are alike.',
-      'طريقة التقسيم اسمها «المتوسطات k». ولرسم قياساتٍ كثيرة على صفحةٍ مسطّحة تضغطها طريقةٌ اسمها «تحليل المكوّنات الرئيسية» في اتجاهين، فالسور المتقاربة متشابهة.'],
+    method:['The grouping method is called [[kmeans|k-means]]. To draw many measurements on a flat page, a method called [[pca|PCA]] squeezes them into two directions, so surahs that sit close together are alike. The walk-through below shows how, step by step.',
+      'طريقة التقسيم اسمها [[kmeans|«المتوسطات k»]]. ولرسم قياساتٍ كثيرة على صفحةٍ مسطّحة تضغطها طريقةٌ اسمها [[pca|«تحليل المكوّنات الرئيسية»]] في اتجاهين، فالسور المتقاربة متشابهة. والجولة أدناه تبيّن ذلك خطوةً خطوة.'],
     how:['Each disc is one surah, made of its verses; its colour is the group it fell into. Below, pick a surah to see the ones closest to it in their words.',
       'كل قرصٍ سورةٌ واحدة مصنوعةٌ من آياتها، ولونه مجموعتها. واختر أدناه سورةً لترى أقرب السور إليها في كلماتها.'],
     tip:['{P} a disc to see the surah', '{p} قرصٍ لترى السورة'],
@@ -1698,12 +1908,12 @@ const PLAIN = {
     title:['Why a matching number is often just chance', 'لماذا يكون توافق الأرقام مصادفةً في الغالب؟'],
     what:['The Quran has 4,771 different words, so almost any number you pick will match how often some word occurs. This page shows how often that happens, so we don\'t read too much into a match.',
       'في القرآن ٤٬٧٧١ كلمةً مختلفة، فأيّ رقمٍ تختاره تقريبًا سيوافق عددَ ورود كلمةٍ ما. وهذه الصفحة تُظهر كم يحدث ذلك، كي لا نحمّل التوافق أكثر مما يحتمل.'],
-    method:['The method is called Monte Carlo simulation: the computer tries thousands of «what if» cases to learn what is common and what is rare.',
-      'الطريقة اسمها «محاكاة مونت كارلو»: يجرّب الحاسوب آلاف الحالات الافتراضية ليعرف ما الشائع وما النادر.'],
+    method:['The chart itself is a plain count: for each number, how many of the 4,771 words occur exactly that often. Lower down, a [[montecarlo|Monte Carlo simulation]] plays out 1,000 «what if» memorisation journeys to show how long finishing might really take.',
+      'الرسم نفسه عدٌّ مباشر: لكل رقمٍ، كم كلمةً من الكلمات الـ٤٬٧٧١ ترد بذلك العدد تمامًا. وفي الأسفل [[montecarlo|محاكاة مونت كارلو]] تمثّل ألف رحلة حفظٍ افتراضية لتبيّن كم قد يستغرق الختم فعلًا.'],
     how:['Pick a number. Each dot is one of the Quran\'s 4,771 different words; the lit dots show how many occur exactly that many times (gold) or within five of it (teal).',
       'اختر رقمًا. كل نقطةٍ كلمةٌ من كلمات القرآن المختلفة الـ٤٬٧٧١، والنقاط المضيئة تُظهر كم منها ورد بهذا العدد تمامًا (ذهبي) أو في حدود خمسٍ منه (فيروزي).'],
-    msg:['Small numbers are matched by many words, so a match there is not surprising; large numbers are matched by very few, so a match there stands out.',
-      'الأرقام الصغيرة يوافقها كثيرٌ من الكلمات فلا غرابة في توافقها، أما الكبيرة فيوافقها القليل، فالتوافق عندها لافت.']},
+    msg:['Small numbers are matched by many words, so a match there is not surprising; large numbers are matched by very few, so a match there stands out. And a match found after trying many numbers is weak evidence: the [[lookelsewhere|look-elsewhere effect]].',
+      'الأرقام الصغيرة يوافقها كثيرٌ من الكلمات فلا غرابة في توافقها، أما الكبيرة فيوافقها القليل، فالتوافق عندها لافت. والتوافق الذي يُعثر عليه بعد تجريب أرقامٍ كثيرة دليلٌ ضعيف: وهذا [[lookelsewhere|أثر البحث في كل مكان]].']},
 };
 // Pages whose main chart the verse sky draws itself (a stage); their Plotly chart is kept for a device without WebGL.
 const STAGED = {overview:'ovChart', word:'lemChart', letters:'letChart', mecca:'mmChart', emotion:'emoChart', pronouns:'proChart', science:'sciChart',
@@ -1722,6 +1932,72 @@ const addScript = src => new Promise((ok, fail) => { const el=document.createEle
 const need = key => lazyP[key] || (lazyP[key] = LAZY[key].reduce((p, src) => p.then(() => addScript(src)), Promise.resolve())
   .catch(e => { delete lazyP[key]; throw e; }));
 let PFX = false;   // pointer effects are set up once, when GSAP is there
+// Explanations in layers (explain.js): each page's text for scientists, the terms you can open, the PCA walk-through.
+const EXPL = window.DALEEL_EXPLAIN || null;
+const XLAB = {purpose:['Purpose','الغاية'], data:['Data','البيانات'], method:['Method','المنهج'], result:['Result','النتيجة'],
+  also:['Also on this page','وفي الصفحة أيضًا'], limits:['Assumptions and limits','الافتراضات والحدود']};
+const TLAB = [['In plain words','بكلماتٍ بسيطة'], ['What it does here','ماذا يفعل هنا'], ['What it showed us','ماذا كشف لنا'], ['For scientists','للمتخصصين']];
+const TERMS = { overview:['lemma','root','hapax','normalization'], word:['lemma','zipf'], letters:['normalization'], mecca:['ttest','effect'],
+  stats:['ttest','pvalue','ci','effect','ols'], classifier:['logreg','tfidf','cv','baseline','auc','confusion'], cluster:['pca','kmeans','zscore','cosine','tfidf'],
+  coincidence:['zipf','lookelsewhere','montecarlo','percentile'], hifz:['lp','shadow'], emotion:['lexicon'], search:['lemma','root','normalization'],
+  auditor:['lemma','lookelsewhere'], symmetry:['lemma','lookelsewhere'], nlp:['ngram','normalization'], n19:['lookelsewhere'], structural:['lookelsewhere'] };
+const AR_RUN = /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]+(?:[ \u00A0]+[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]+)*/g;   // a run of Arabic words
+const escH = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
+const unmark = s => String(s||'').replace(/\[\[\w+\|([^\]]+)\]\]/g, '$1').replace(/\[\[(\w+)\]\]/g, (m,k)=>EXPL && EXPL.GLOSS[k] ? EXPL.GLOSS[k].name[0] : k).replace(/`/g, '');
+const DEPTH_KEY = 'daleel.depth';   // the reader's choice of layer, remembered from page to page
+function readDepth(){ const q=new URLSearchParams(location.search).get('depth'); if(q==='sci' || q==='simple') return q;
+  try{ return localStorage.getItem(DEPTH_KEY)==='sci' ? 'sci' : 'simple'; }catch(e){ return 'simple'; } }
+// The four surah measurements behind the Clusters map, prepared as data-build/pipeline/analytics.py does (each
+// standardized with the population SD), and their principal components: the eigenvectors of the correlation
+// matrix, largest first, each turned to point the way the stored map (AN.clusters) does.
+function jacobi(M){
+  const m=M.length, A=M.map(r=>r.slice()), V=A.map((r,i)=>r.map((_,j)=>i===j?1:0));
+  for(let sweep=0; sweep<60; sweep++){
+    let off=0; for(let i=0;i<m;i++) for(let j=i+1;j<m;j++) off+=A[i][j]*A[i][j];
+    if(off<1e-22) break;
+    for(let p=0;p<m;p++) for(let q=p+1;q<m;q++){
+      if(Math.abs(A[p][q])<1e-15) continue;
+      const th=(A[q][q]-A[p][p])/(2*A[p][q]), t=(th>=0?1:-1)/(Math.abs(th)+Math.sqrt(th*th+1)), c=1/Math.sqrt(t*t+1), s=t*c;
+      for(let k=0;k<m;k++){ const a=A[k][p], b=A[k][q]; A[k][p]=c*a-s*b; A[k][q]=s*a+c*b; }
+      for(let k=0;k<m;k++){ const a=A[p][k], b=A[q][k]; A[p][k]=c*a-s*b; A[q][k]=s*a+c*b; }
+      for(let k=0;k<m;k++){ const a=V[k][p], b=V[k][q]; V[k][p]=c*a-s*b; V[k][q]=s*a+c*b; }
+    }
+  }
+  const order=A.map((r,i)=>i).sort((a,b)=>A[b][b]-A[a][a]);
+  return {ev:order.map(i=>A[i][i]), vec:order.map(i=>V.map(r=>r[i]))};
+}
+function pcaOf(sm, cs){
+  const n=sm.length; if(n<3) return null;
+  const F=sm.map(s=>[s.words/s.verses, s.verses, s.words, s.place==='Medina'?1:0]), J=[0,1,2,3];
+  const mean=J.map(j=>F.reduce((a,r)=>a+r[j],0)/n), sd=J.map(j=>Math.sqrt(F.reduce((a,r)=>a+(r[j]-mean[j])**2,0)/n)||1);
+  const Z=F.map(r=>r.map((v,j)=>(v-mean[j])/sd[j])), C=J.map(a=>J.map(b=>Z.reduce((t,r)=>t+r[a]*r[b],0)/n));
+  const E=jacobi(C), at=new Map((cs||[]).map(c=>[c.n,c]));
+  E.vec.slice(0,2).forEach((v,k)=>{ let dot=0;
+    Z.forEach((z,i)=>{ const c=at.get(sm[i].n); if(c) dot+=v.reduce((a,x,j)=>a+x*z[j],0)*(k ? c.y : c.x); });
+    if(dot<0) E.vec[k]=v.map(x=>-x); });
+  const tot=E.ev.reduce((a,b)=>a+b,0);
+  return {Z, ev:E.ev, vec:E.vec, share:E.ev.map(v=>v/tot), r:C[1][2]};
+}
+let PCA_RAF = 0, PCA_TW = 0, TERM_EL = null;   // the angle's redraw and tween frames; the term button whose card is open
+const PCA_LAST = EXPL ? EXPL.PCA.length-1 : 0;
+// The explanation box on every analysis page, its Simple | Scientific switch, and the chips of its terms.
+// They read the page's state from the app itself ($root), so nothing is passed in.
+const DepthSwitch = { template:`<div class="depth" role="group" :aria-label="$root.lang==='ar'?'مستوى الشرح':'Level of explanation'">
+  <button type="button" :aria-pressed="String(!$root.sciOn)" @click="$root.setDepth('simple')">{{ $root.lang==='ar'?'مبسّط':'Simple' }}</button>
+  <button type="button" class="sci" :aria-pressed="String($root.sciOn)" @click="$root.setDepth('sci')">{{ $root.lang==='ar'?'علمي':'Scientific' }}</button></div>` };
+const TermChips = { template:`<p class="xterms" v-if="$root.viewTerms.length"><span class="xk">{{ $root.lang==='ar'?'مصطلحات هنا':'Terms used here' }}</span>
+  <button v-for="k in $root.viewTerms" :key="k" type="button" class="term chip" :data-term="k" aria-haspopup="dialog" :aria-expanded="String(!!$root.term && $root.term.key===k)">{{ $root.termName(k) }}</button></p>` };
+const ExplainBox = { template:`<div v-if="p" class="plain" :class="{sci: $root.sciShown}">
+  <div class="xhead" v-if="$root.sciHas"><span class="xkick">{{ $root.depthKicker }}</span><depth-switch></depth-switch></div>
+  <div class="xbody" v-if="$root.sciShown"><p v-for="r in $root.sciRows" :key="r.k"><b>{{ r.label }}</b> <span v-html="r.html"></span></p></div>
+  <div class="xbody" v-else>
+    <p v-if="p.what"><b>{{ ar?'ما هذا؟':'What is this?' }}</b> <span v-html="$root.rich(p.what)"></span></p>
+    <p v-if="p.method"><b>{{ ar?'الطريقة ببساطة':'The method, simply' }}</b> <span v-html="$root.rich(p.method)"></span></p>
+    <p v-if="p.how && !p.staged"><b>{{ ar?'كيف تقرؤه':'How to read it' }}</b> <span v-html="$root.rich(p.how)"></span></p>
+    <p v-if="p.msg && !p.noted"><b>{{ ar?'ماذا يخبرنا':'What it tells us' }}</b> <span v-html="$root.rich(p.msg)"></span></p>
+  </div>
+  <term-chips></term-chips></div>`,
+  computed:{ p(){ return this.$root.plain; }, ar(){ return this.$root.lang==='ar'; } } };
 const { createApp } = Vue;
 createApp({
   data(){
@@ -1739,6 +2015,7 @@ createApp({
       AN:(D.analytics||{}), hifzMins:60, simSurah:2,
       dashPlace:'all', dashMinVerses:0, dashSort:'n',
       skyReady:false, gridN:19,
+      depth:readDepth(), term:null, termLayer:0, termStyle:{}, termSheet:false, pcaStep:PCA_LAST, pcaAngle:150,
       labMeta:{
         dashboard:{technique:'Interactive BI Dashboard (filters + live KPIs)',
           what:'A business-intelligence dashboard lets you slice the data live: choose filters and every KPI and chart updates instantly. Here you filter all 114 surahs by where they were revealed and by length.',
@@ -1900,6 +2177,33 @@ createApp({
     };
   },
   computed:{
+    // ---- explanations in layers: the page's scientific text, its terms, and the card of the term that is open ----
+    sciOn(){ return this.depth==='sci'; },
+    sciHas(){ return !!(EXPL && EXPL.SCI[this.view]); },
+    sciShown(){ return this.sciOn && this.sciHas; },
+    depthKicker(){ const ar=this.lang==='ar'; return this.sciShown ? (ar ? 'للمتخصصين: المنهج والأرقام' : 'For scientists: method and numbers') : (ar ? 'بكلماتٍ بسيطة' : 'In plain words'); },
+    sciRows(){ const S=EXPL && EXPL.SCI[this.view]; if(!S) return []; const i=this.lang==='ar'?1:0;
+      return ['purpose','data','method','result','also','limits'].filter(k=>S[k]).map(k=>({k, label:XLAB[k][i], html:this.rich(S[k][i])})); },
+    viewTerms(){ return EXPL ? (TERMS[this.view]||[]).filter(k=>EXPL.GLOSS[k]) : []; },
+    termCard(){ const t=this.term, g=t && EXPL && EXPL.GLOSS[t.key]; if(!g) return null; const i=this.lang==='ar'?1:0;
+      return {key:t.key, full:g.full[i], page:g.page, pageName:this.viewName(g.page),
+        layers:['plain','here','found','sci'].map((f,j)=>({label:TLAB[j][i], html:this.rich(g[f][i])}))}; },
+    // ---- the Clusters walk-through: from two measurements to the map ----
+    pcaModel(){ return EXPL ? pcaOf(this.DS.surahMeta||[], this.AN.clusters||[]) : null; },
+    pcaSteps(){ const i=this.lang==='ar'?1:0; return EXPL ? EXPL.PCA.map(s=>({title:s.title[i]})) : []; },
+    pcaBest(){ const M=this.pcaModel; return M && M.r<0 ? 135 : 45; },   // for two standardized measures the widest direction is always a diagonal
+    pcaKeep(){ const M=this.pcaModel; return M ? (1 + M.r*Math.sin(2*this.pcaAngle*Math.PI/180))/2 : 0; },
+    pcaKeepTxt(){ return this.D(Math.round(this.pcaKeep*100)) + (this.lang==='ar' ? '٪' : '%'); },
+    pcaCur(){ if(!EXPL) return {text:'', sci:''}; const i=this.lang==='ar'?1:0, P=EXPL.PCA[this.pcaStep]||EXPL.PCA[PCA_LAST];
+      return {text:P.text[i].replace('{K}', this.pcaKeepTxt), sci:P.sci[i]}; },
+    pcaFeatNames(){ return this.lang==='ar' ? ['الكلمات في الآية','عدد الآيات','عدد الكلمات','كونها مدنية'] : ['words per verse','verses','words','Medinan']; },
+    pcaDirNote(){ const M=this.pcaModel; if(!M) return ''; const ar=this.lang==='ar', nm=this.pcaFeatNames;
+      const list=a=>a.length<2 ? (a[0]||'') : a.slice(0,-1).join(ar ? '، ' : ', ') + (ar ? ' و' : ' and ') + a[a.length-1];
+      const one=(v,k)=>{ const pos=[], neg=[]; v.forEach((x,j)=>{ if(x>=.2) pos.push(nm[j]); else if(x<=-.2) neg.push(nm[j]); });
+        const head = ar ? (k ? 'الاتجاه الثاني: ' : 'الاتجاه الأول: ') : (k ? 'Second direction: ' : 'First direction: ');
+        if(!neg.length && pos.length===v.length) return head + (ar ? 'تزداد القياسات الأربعة كلها على امتداده، فهو يمثّل الحجم العام.' : 'all four measurements rise along it, so it stands for overall size.');
+        return head + (ar ? 'في أعلى الخريطة '+list(pos)+'، وفي أسفلها '+list(neg)+'.' : list(pos)+' rise towards the top of the map, '+list(neg)+' towards the bottom.'); };
+      return one(M.vec[0],0)+' '+one(M.vec[1],1); },
     heroLines(){ return this.lang==='ar' ? [['القرآن'],['بالأرقام.']] : [['The','Quran,'],['in','numbers.']]; },
     heroEyebrow(){ return this.lang==='ar'
       ? `${this.f(this.T.suras)} سورة · ${this.f(this.T.verses)} آية · كل كلمةٍ معدودة`
@@ -2000,7 +2304,10 @@ createApp({
         coincidence:['The Quran\'s different words as points, lit by the chosen number', 'Each dot is one of the 4,771 different words. The lit dots show how many land on the number, not which ones.'],
       };
       const x=I[v], pl=this.plain; if(!x) return {label:'', cap:''};
-      return {label:x[0], cap: pl && pl.how ? [pl.how, pl.tip].filter(Boolean).join(' ') : x[1]}; },
+      // a step of the Clusters walk-through draws something else: say what
+      if(v==='cluster' && EXPL && this.pcaStep<PCA_LAST){ const P=EXPL.PCA[this.pcaStep], i=ar?1:0;
+        return {label:(ar ? 'الخطوة ' : 'Step ')+this.D(this.pcaStep+1)+': '+P.title[i], cap:[unmark(P.cap[i]), pl && pl.tip].filter(Boolean).join(' ')}; }
+      return {label:x[0], cap: pl && pl.how ? [unmark(pl.how), pl.tip].filter(Boolean).join(' ') : x[1]}; },
     curTabs(){ return (this.curHub && this.curHub.items.length>1) ? this.curHub.items : []; },
     dashFiltered(){ let r=(this.DS.surahMeta||[]).filter(s=>
         (this.dashPlace==='all'||s.place===this.dashPlace) && s.verses>=this.dashMinVerses);
@@ -2072,6 +2379,58 @@ createApp({
     }
   },
   methods:{
+    // ---- explanations in layers ----
+    // a text from PLAIN or explain.js as HTML: [[key]] or [[key|words]] becomes a term that opens its card, `...` a formula
+    rich(s){ if(!s) return ''; const i=this.lang==='ar'?1:0, G=EXPL ? EXPL.GLOSS : {};
+      const h=escH(s).replace(/`([^`]+)`/g, (m,f)=>'<code class="fx'+(f.length<=26 ? ' nw' : '')+'" dir="ltr">'+f+'</code>')   // a short formula never breaks across lines
+        .replace(/\[\[(\w+)(?:\|([^\]]+))?\]\]/g, (m,k,t)=> G[k] ? '<button type="button" class="term" data-term="'+k+'" aria-haspopup="dialog">'+(t||escH(G[k].name[i]))+'</button>' : (t||k));
+      return i ? h : h.replace(AR_RUN, '<bdi lang="ar">$&</bdi>'); },   // in English, Arabic words are isolated so a number after one stays in place
+    termName(k){ const g=EXPL && EXPL.GLOSS[k]; return g ? g.name[this.lang==='ar'?1:0] : k; },
+    viewName(id){ for(const h of this.nav) for(const it of h.items) if(it.id===id) return this.lang==='ar' ? it.ar : it.en; return id; },
+    setDepth(d){ if(d===this.depth) return; this.depth=d; try{ localStorage.setItem(DEPTH_KEY, d); }catch(e){}
+      if(this.term) this.termLayer = d==='sci' ? 3 : 0;
+      this.$nextTick(()=>{ const els=document.querySelectorAll('main .xbody > *');
+        if(window.gsap && !REDUCED && els.length) gsap.from(els, {opacity:0, y:10, duration:.45, stagger:.04, ease:'power2.out', clearProps:'opacity,transform'}); }); },
+    openTerm(key, el){ if(!EXPL || !EXPL.GLOSS[key]) return;
+      if(this.term && this.term.key===key){ this.closeTerm(true); return; }
+      TERM_EL=el||null; this.term={key}; this.termLayer = this.sciOn ? 3 : 0; this.termSheet = window.innerWidth < 720; this.termStyle={};
+      this.$nextTick(()=>{ this.placeTerm(); const c=this.$refs.termcard; if(!c) return;
+        try{ c.focus({preventScroll:true}); }catch(e){}
+        if(window.gsap && !REDUCED) gsap.from(c, {opacity:0, y:this.termSheet ? 40 : 8, duration:.4, ease:'power3.out', clearProps:'opacity,transform'}); }); },
+    // beside the term on a wide screen (below it, or above when there is no room), a sheet from the bottom on a phone
+    placeTerm(){ const c=this.$refs.termcard, el=TERM_EL, app=document.getElementById('app'); if(!c) return;
+      if(this.termSheet || !el || !el.isConnected || !app){ this.termStyle={}; return; }
+      const r=el.getBoundingClientRect(), a=app.getBoundingClientRect(), W=c.offsetWidth, H=c.offsetHeight, vw=document.documentElement.clientWidth;
+      const left=Math.max(12, Math.min(vw-W-12, r.left+r.width/2-W/2));
+      let top=r.bottom+10; if(top+H > innerHeight-8 && r.top-10-H > 8) top=r.top-10-H;
+      this.termStyle={left:Math.round(left-a.left)+'px', top:Math.round(top-a.top)+'px'}; },
+    closeTerm(back){ if(!this.term) return; const el=TERM_EL; this.term=null; TERM_EL=null;
+      if(back && el && el.isConnected) try{ el.focus({preventScroll:true}); }catch(e){} },
+    setLayer(i){ this.termLayer=Math.max(0, Math.min(3, i)); },
+    goTerm(){ const p=this.termCard && this.termCard.page; this.closeTerm(); if(p) this.go(p); },
+    // ---- the Clusters walk-through ----
+    pcaGo(i){ i=Math.max(0, Math.min(PCA_LAST, i)); const from=this.pcaStep;
+      if(i===1 && from===0 && Math.abs(this.pcaAngle-this.pcaBest)<1) this.pcaAngle=150;   // leave something to find
+      if(i===2 && from<2 && Math.abs(this.pcaAngle-this.pcaBest)>=1){ this.pcaStep=1; this.pcaTween(this.pcaBest, ()=>{ this.pcaStep=2; }); return; }
+      this.pcaStop(); this.pcaStep=i;
+      this.$nextTick(()=>{ const f=document.querySelector('main .stagefig'); if(f && f.getBoundingClientRect().bottom > innerHeight) f.scrollIntoView({block:'nearest', behavior:REDUCED ? 'auto' : 'smooth'}); }); },
+    pcaWidest(){ this.pcaTween(this.pcaBest); },
+    pcaTween(to, done){ this.pcaStop(); const from=this.pcaAngle;
+      if(REDUCED || Math.abs(to-from)<.5){ this.pcaAngle=to; if(done) done(); return; }
+      const t0=performance.now(), dur=Math.min(1400, 400+Math.abs(to-from)*9);
+      const tick=now=>{ const k=Math.min(1, (now-t0)/dur), e=k<.5 ? 4*k*k*k : 1-Math.pow(-2*k+2, 3)/2;
+        this.pcaAngle=Math.round((from+(to-from)*e)*10)/10;
+        if(k<1) PCA_TW=requestAnimationFrame(tick); else { PCA_TW=0; if(done) done(); } };
+      PCA_TW=requestAnimationFrame(tick); },
+    pcaStop(){ if(PCA_TW){ cancelAnimationFrame(PCA_TW); PCA_TW=0; } },
+    ldStyle(v){ const w=Math.min(1, Math.abs(v))*50; return {insetInlineStart:(v>=0 ? 50 : 50-w)+'%', width:w+'%'}; },
+    fmtLoad(v){ const s=(v>=0 ? '+' : '−')+Math.abs(v).toFixed(2); return this.lang==='ar' ? this.D(s).replace('.', '٫') : s; },
+    pct1(v){ const s=(v*100).toFixed(1); return this.lang==='ar' ? this.D(s).replace('.', '٫')+'٪' : s+'%'; },
+    dirName(i){ return this.lang==='ar' ? 'الاتجاه '+this.D(i+1) : 'Direction '+(i+1); },
+    // "3 verses", "٣ آيات": the Arabic noun agrees with its number (one, two, three to ten, eleven and up)
+    countOf(n, kind){ const w={verse:['verse','verses','آية واحدة','آيتان','آيات','آية'], word:['word','words','كلمة واحدة','كلمتان','كلمات','كلمة']}[kind];
+      if(this.lang!=='ar') return this.f(n)+' '+(n===1 ? w[0] : w[1]);
+      const m=n%100; return n===1 ? w[2] : n===2 ? w[3] : this.f(n)+' '+(m>=3 && m<=10 ? w[4] : w[5]); },
     onPageScroll(){
       const h = document.documentElement.scrollHeight - window.innerHeight;
       this.scrollPct = h > 0 ? Math.min(100, Math.max(0, (window.scrollY / h) * 100)) : 0;
@@ -2235,6 +2594,8 @@ createApp({
     go(id){ const changed=id!==this.view;
       (NEEDS[id]||[]).forEach(k=>this.load(k));
       if(id!=='reader'){ this.rClaim=''; this.rVerse=0; this.rBack=''; }
+      if(id!=='cluster'){ this.pcaStop(); this.pcaStep=PCA_LAST; }
+      this.closeTerm();
       this.view=id; this.sideOpen=false; this.libQ=''; this.libCat='all'; this.sit.res=null;
       if(id==='tawafuq') this.ensureMushaf(); if(id==='alifi') this.ensureAlifi();
       if(changed){ window.scrollTo(0,0); if(!FINE && navigator.vibrate) try{ navigator.vibrate(6); }catch(e){} }
@@ -2272,13 +2633,26 @@ createApp({
         case 'advanced': { const sm=DS.surahMeta||[];
           return {type:'scatter', data:{logx:true, logy:true, xr:[2.5,330], yr:[8,8000], xTicks:[3,10,30,100,300], yTicks:[10,100,1000],
             xTitle:ar?'آيات ›':'verses ›', yTitle:ar?'كلمات':'words', legend:[{color:'gold', label:ar?'مكية':'Meccan'}, {color:'green', label:ar?'مدنية':'Medinan'}],
-            pts:sm.map(x=>({n:x.n, x:x.verses, y:x.words, info:this.f(x.verses)+(ar?' آية · ':' verses · ')+this.f(x.words)+(ar?' كلمة · ':' words · ')+this.D((x.words/x.verses).toFixed(1))+(ar?' كلمة للآية':' words a verse')}))}}; }
+            pts:sm.map(x=>({n:x.n, x:x.verses, y:x.words, info:this.countOf(x.verses,'verse')+' · '+this.countOf(x.words,'word')+' · '+this.D((x.words/x.verses).toFixed(1))+(ar?' كلمة للآية':' words a verse')}))}}; }
         case 'cluster': { const cs=AN.clusters||[]; if(!cs.length) return null;
+          const st=this.pcaStep, M=this.pcaModel, sm=DS.surahMeta||[];
+          const placeLeg=[{color:'gold', label:ar?'مكية':'Meccan'}, {color:'green', label:ar?'مدنية':'Medinan'}];
+          const placeOf=n=>{ const m=sm[n-1]; return m && m.place==='Medina' ? (ar?'مدنية':'Medinan') : (ar?'مكية':'Meccan'); };
+          if(M && st<3){   // the walk-through's first steps: two of the four measurements, standardized, drawn to one scale both ways
+            const th=this.pcaAngle*Math.PI/180, c=Math.cos(th), sn=Math.sin(th);
+            return {type:'scatter', data:{equal:true, tick:1, zero:true, xr:[-1.5,4.9], yr:[-1.4,6.3], r1:8, legend:placeLeg,
+              xTitle:ar?'عدد الآيات (درجة معيارية) ›':'verses (standard score) ›', yTitle:ar?'عدد الكلمات (درجة معيارية)':'words (standard score)',
+              line: st>0 ? {angle:th, shadows:st===1, label: st===1 ? (ar?'الخط':'the line') : (ar?'الاتجاه الأول':'first direction')} : null,
+              gauge: st>0 ? {value:this.pcaKeepTxt, label:ar?'من الانتشار يحفظه الخط':'of the spread kept'} : null,
+              pts:sm.map((x,i)=>{ const zv=M.Z[i][1], zw=M.Z[i][2], t=zv*c+zw*sn;   // in the third step each surah sits on its shadow
+                return {n:x.n, x: st===2 ? t*c : zv, y: st===2 ? t*sn : zw, info:this.countOf(x.verses,'verse')+' · '+this.countOf(x.words,'word')}; })}};
+          }
           const rg=a=>{ const lo=Math.min(...a), hi=Math.max(...a), p=(hi-lo)*.07; return [lo-p, hi+p]; }, xr=rg(cs.map(c=>c.x)), yr=rg(cs.map(c=>c.y));
           const tk=r=>{ const st=(r[1]-r[0])>6?2:1, o=[]; for(let v=Math.ceil(r[0]/st)*st; v<=r[1]; v+=st) o.push(v); return o; };
-          const CL=['green','gold','teal','violet','rose'], K=AN.k||4, lab=k=>(ar?'العنقود ':'Cluster ')+this.D(k+1);
+          const CL=['green','gold','teal','violet','rose'], K=AN.k||4, lab=k=>(ar?'العنقود ':'Cluster ')+this.D(k+1), byPlace=!!M && st===3;   // step 4 of the walk-through: the map, before the groups
           return {type:'scatter', data:{xr, yr, xTicks:tk(xr), yTicks:tk(yr), xTitle:ar?'الاتجاه الأول ›':'first direction ›', yTitle:ar?'الاتجاه الثاني':'second direction', r1:8, legendStep:ar?.13:.12,
-            legend:Array.from({length:K},(_,k)=>({color:CL[k%5], label:lab(k)})), pts:cs.map(c=>({n:c.n, x:c.x, y:c.y, color:CL[c.cluster%5], info:lab(c.cluster)}))}}; }
+            legend: byPlace ? placeLeg : Array.from({length:K},(_,k)=>({color:CL[k%5], label:lab(k)})),
+            pts:cs.map(c=>({n:c.n, x:c.x, y:c.y, color: byPlace ? null : CL[c.cluster%5], info: byPlace ? placeOf(c.n) : lab(c.cluster)}))}}; }
         case 'symmetry': { const C=this.claims||[], byId=id=>C.find(c=>c.id===id), items=[];
           [['angel-88','devil-88'],['paradise-77','hell-77'],['man-24','woman-24'],['adam-24','jesus-24']].forEach(pr=>pr.forEach(id=>{ const c=byId(id);
             if(c) items.push({id:c.id, ar:c.ar, label:c.en, claimed:c.claimed, counted:c.verifiedLemma, audit:c.audit||[]}); }));
@@ -2674,9 +3048,11 @@ createApp({
     }
   },
   watch:{ lang(v){ this.applyDir(); this.showTrans = (v!=='ar'); this.applySitCat(); const sky=SKY(); if(sky) sky.setLang(v);
-      this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); this.revealScan(); this.syncStage(); }); },
+      this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); this.revealScan(); this.syncStage(); if(this.term) this.placeTerm(); }); },
     dashFiltered(){ if(this.view==='dashboard') this.$nextTick(()=>this.syncStage()); },
     gridN(){ if(this.view==='coincidence') this.syncStage(); },
+    pcaStep(){ if(this.view==='cluster') this.syncStage(); },
+    pcaAngle(){ if(this.view==='cluster' && !PCA_RAF) PCA_RAF=requestAnimationFrame(()=>{ PCA_RAF=0; this.syncStage(); }); },   // one redraw a frame while the line turns
     rSurah(){ if(this.view==='reader') this.syncSky(); } },
   mounted(){
     window.addEventListener('scroll', this.onPageScroll, { passive:true });
@@ -2712,6 +3088,13 @@ createApp({
     const sky=SKY(); if(sky) sky.setLang(this.lang);
     window.addEventListener('sky:read', e=>{ const n=e.detail && e.detail.surah; if(n>=1 && n<=114){ this.rSurah=n; this.go('reader'); } });
     window.addEventListener('sky:verse', e=>{ const d=e.detail||{}; this.openVerse(+d.s, +d.v, d.claim||'', this.view); });
+    document.addEventListener('click', e=>{
+      const t=e.target.closest ? e.target.closest('.term[data-term]') : null;
+      if(t){ e.preventDefault(); this.openTerm(t.dataset.term, t); return; }
+      if(this.term && !(e.target.closest && e.target.closest('.termcard'))) this.closeTerm();
+    });
+    document.addEventListener('keydown', e=>{ if(e.key==='Escape' && this.term) this.closeTerm(true); });
+    window.addEventListener('resize', ()=>{ if(this.term){ this.termSheet = window.innerWidth < 720; this.$nextTick(()=>this.placeTerm()); } });
     window.addEventListener('sky:search', e=>{ const d=e.detail||{}; if(!d.q) return; this.q=d.q; this.mode=d.mode||'lemma'; this.go('search'); this.$nextTick(()=>this.runSearch()); });
     // the sky draws the staged charts; if it can't (no WebGL), Plotly draws them instead
     const root=document.documentElement;
@@ -2726,7 +3109,7 @@ createApp({
     this.warm();
     this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); this.enterView(true); });
   }
-}).mount('#app');
+}).component('depth-switch', DepthSwitch).component('term-chips', TermChips).component('explain-box', ExplainBox).mount('#app');
 });
 </script>
 </body>
