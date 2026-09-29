@@ -279,6 +279,79 @@ if (location.hostname === 'heshamabourokaia.github.io')
   .cloudwrap{display:flex;flex-wrap:wrap;direction:rtl;justify-content:center;align-items:baseline;gap:10px 22px;padding:18px 8px 10px;color:var(--gold)}
   .cloudwrap .ar{text-shadow:0 0 22px rgba(233,185,95,.25)}
   .chartwrap{margin:6px 0 2px}
+
+  /* ── plain words: what a page is, how to read it, what it tells us, for readers who aren't analysts ── */
+  .plain{max-width:780px;margin:4px 0 26px;padding:16px 20px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid var(--hair);border-inline-start:3px solid var(--emerald)}
+  .plain p{margin:0;font-size:.95rem;line-height:1.7;color:var(--on-dark-2)}
+  .plain p+p{margin-top:8px}
+  .plain b{display:inline-block;margin-inline-end:6px;font-weight:600;color:var(--emerald)}
+  html[lang=ar] .plain p{font-size:1.02rem;line-height:1.95}
+  .course .techname{font-size:.74rem;letter-spacing:.06em;color:var(--on-dark-3)}
+  html[lang=ar] .course .techname{letter-spacing:0;font-size:.85rem}
+
+  /* ── stages: a page's figure drawn by the verse sky itself (sky.js). The box is transparent so the field shows
+     through; its labels are HTML inside it. Without WebGL the Plotly chart (.glfb) stands in. ── */
+  .stagefig{position:relative;margin:4px 0 22px}
+  .stage{position:relative;width:100%;height:clamp(270px,30vw,360px)}
+  .st-lengths{height:clamp(290px,30vw,380px)}
+  .st-bars{height:clamp(360px,34vw,430px)}
+  .st-bars-v{height:clamp(300px,30vw,380px)}
+  .st-heaps{height:clamp(240px,23vw,300px)}
+  .st-scatter{height:clamp(340px,34vw,450px)}
+  .st-carpet{height:auto;aspect-ratio:2.7/1}
+  .st-grid{height:auto;aspect-ratio:1.45/1;max-width:760px}
+  .st-blocks{height:auto;min-height:220px}
+  .stagefig.wait .stage{border-radius:18px;background:linear-gradient(100deg,rgba(255,255,255,.012) 30%,rgba(255,255,255,.045) 50%,rgba(255,255,255,.012) 70%) 0 0/300% 100%;animation:chartwait 1.4s linear infinite}
+  .glfb{display:none}
+  html.no-gl:not(.gl) .glfb{display:block}
+  html.no-gl:not(.gl) .stagefig{display:none}
+  .stcap{display:flex;gap:11px;align-items:flex-start;margin:12px 0 0;max-width:780px;font-size:.82rem;line-height:1.6;color:var(--on-dark-3)}
+  html[lang=ar] .stcap{line-height:1.9;font-size:.9rem}
+  .stcap .ic{flex:none;width:11px;height:16px;margin-top:3px;border:1.5px solid currentColor;border-radius:6px;position:relative;opacity:.8}
+  .stcap .ic::after{content:"";position:absolute;left:50%;top:3px;width:1.5px;height:4px;margin-left:-.75px;background:currentColor;border-radius:1px}
+  .stlab{position:absolute;inset:0;pointer-events:none;opacity:0}
+  .stlab>div{position:absolute;white-space:nowrap;line-height:1.25}
+  .stsvg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+  .stsvg .claimbox{fill:none;stroke:rgba(255,255,255,.5);stroke-width:1.2;stroke-dasharray:4 3;vector-effect:non-scaling-stroke}
+  .stsvg .claimbox.ok{stroke:rgba(52,211,153,.75)}
+  .stlab .tk{font-size:.66rem;color:var(--on-dark-3);font-variant-numeric:tabular-nums}
+  .stlab .tk.axis{color:var(--on-dark-3);letter-spacing:.04em}
+  .stlab .hl{width:100%;height:1px;background:rgba(255,255,255,.055);font-size:.6rem;color:var(--on-dark-3);padding-top:2px;font-variant-numeric:tabular-nums}
+  .stlab .pk{font-size:.72rem;color:var(--on-dark-2)}
+  .stlab .pk .k,.stlab .heaplab .k{color:var(--gold);font-variant-numeric:tabular-nums}
+  .stlab .ttl{font-size:.76rem;color:var(--on-dark-2)}
+  .stlab .ttl b{color:#fff;font-weight:600}
+  .stlab .mean{font-size:.66rem;color:var(--on-dark-2)}
+  .stlab .mean i{position:absolute;left:50%;top:50%;height:96px;border-left:1px dashed rgba(255,255,255,.34);transform:translateY(-50%)}
+  .stlab .mean span{position:relative;top:-60px;background:rgba(4,10,7,.55);padding:1px 5px;border-radius:5px}
+  .stlab .mean.strong i{border-left:1.5px solid rgba(255,255,255,.72)}
+  .stlab .mean.strong span{color:#fff;font-weight:600}
+  .stlab .hlab{font-size:.82rem;color:var(--on-dark)}
+  .stlab .hlab b{font-family:var(--ar-display);font-weight:400;font-size:1.18rem}
+  .stlab .hlab i{font-style:normal;font-size:.72rem;color:var(--on-dark-3);margin-inline-start:9px}
+  .stlab .hnum{font-size:.72rem;color:var(--on-dark-2);font-variant-numeric:tabular-nums}
+  .stlab .vlab b{font-family:var(--ar-display);font-weight:400;font-size:1.12rem;color:var(--on-dark)}
+  .stlab .vnum{font-size:.6rem;color:var(--on-dark-3);font-variant-numeric:tabular-nums}
+  .stlab .heaplab{display:flex;flex-direction:column;align-items:center;gap:1px;text-align:center}
+  .stlab .heaplab b{font-family:var(--ar-display);font-weight:400;font-size:1.45rem;line-height:1.35;color:#fff}
+  .stlab .heaplab span{font-size:.74rem;color:var(--on-dark-2)}
+  .stlab .blab{font-size:.74rem;color:var(--on-dark-2)}
+  .stlab .blab b{font-family:var(--ar-display);font-weight:400;font-size:1.08rem;color:#fff}
+  .stlab .blab em{display:block;margin-top:1px;font-style:normal;font-size:.66rem;color:var(--on-dark-3);font-variant-numeric:tabular-nums}
+  .stlab .blab em.ok{color:var(--emerald)}
+  .stlab .blab em.off{color:var(--gold)}
+  .stlab .lg{font-size:.7rem;color:var(--on-dark-2)}
+  .stlab .lg i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-inline-end:6px;vertical-align:0}
+  html[lang=ar] .stlab .tk,html[lang=ar] .stlab .ttl,html[lang=ar] .stlab .mean,html[lang=ar] .stlab .blab,html[lang=ar] .stlab .lg{font-size:.8rem}
+  .gridpick{margin:0 0 14px}
+  .gridpick .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .gridpick .chip{font-family:inherit;font-size:.86rem;padding:6px 14px;margin:0}
+  .gridnums{display:flex;flex-wrap:wrap;gap:10px 44px;margin-top:12px;font-size:.86rem;color:var(--on-dark-2)}
+  .gridnums>span{display:inline-flex;flex-direction:column;gap:2px}   /* the number above its caption, as on the landing page */
+  .gridnums b{font-family:var(--serif);font-weight:400;font-size:1.6rem;line-height:1.1}
+  html[lang=ar] .gridnums b{font-family:var(--ar-display);font-size:1.4rem}
+  .gridnums b.ex{color:var(--gold)}
+  .gridnums b.nr{color:var(--teal)}
   .chartnote{background:rgba(233,185,95,.055);border:1px solid rgba(233,185,95,.16);border-inline-start:3px solid var(--gold);
     border-radius:16px;padding:14px 18px;margin:14px 0 18px;font-size:.93rem;color:var(--on-dark-2);line-height:1.65}
   html[lang=ar] .chartnote{line-height:1.9}
@@ -407,6 +480,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
   .course .tech{font-family:var(--serif);font-size:clamp(2.1rem,1.4rem + 2vw,3.2rem);font-weight:400;letter-spacing:-.01em;line-height:1.02;color:#fff}
   html[lang=ar] .course .tech{font-family:var(--ar-display);line-height:1.35}
   .course .unit{font-size:.92rem;color:var(--emerald);margin-top:4px;font-weight:600}
+  .course .tech+.techname{margin:12px 0 0}
   .ccode{unicode-bidi:isolate;direction:ltr;display:inline-block;background:rgba(255,255,255,.08);color:#c9f3dd;
     border:1px solid rgba(255,255,255,.1);border-radius:7px;padding:1px 9px;font-size:.78rem;font-weight:700;margin-inline-start:6px}
   .course .topic{font-size:.84rem;color:var(--on-dark-2);margin-top:8px}
@@ -538,6 +612,11 @@ if (location.hostname === 'heshamabourokaia.github.io')
     .tile{min-height:0;padding:22px}
   }
   @media (max-width:640px){
+    .stage{height:300px}.st-lengths{height:330px}.st-bars{height:470px}.st-bars-v{height:300px}.st-heaps{height:250px}.st-scatter{height:360px}
+    .st-carpet{height:auto;aspect-ratio:1/1.12}.st-grid{height:auto;aspect-ratio:1.05/1}.st-blocks{height:auto}
+    .stlab .hlab b{font-size:1.02rem}.stlab .hlab i{display:block;margin:1px 0 0}.stlab .heaplab b{font-size:1.2rem}.stlab .vlab b{font-size:.92rem}
+  }
+  @media (max-width:640px){
     .ccnums{gap:6px}
     .ccnum{padding:10px 6px}
     .ccnum .v{font-size:1.6rem}
@@ -599,7 +678,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
         <span class="ic" v-html="h.icon"></span><span>{{ lang==='ar' ? h.ar : h.en }}</span>
       </div>
     </nav>
-    <div class="sidefoot">{{ lang==='ar' ? 'كل الأرقام تُحسب لحظيًا من المدونة داخل متصفحك.' : 'Every number is computed live from the corpus in your browser.' }}<br><a :href="landingHref">{{ lang==='ar' ? 'عُد إلى الجولة ‹' : '‹ Back to the tour' }}</a></div>
+    <div class="sidefoot">{{ lang==='ar' ? 'كل الأرقام تُعَدّ لحظيًا من نص القرآن داخل متصفحك.' : 'Every number is counted live from the Quran\'s text in your browser.' }}<br><a :href="landingHref">{{ lang==='ar' ? 'عُد إلى الجولة ‹' : '‹ Back to the tour' }}</a></div>
   </aside>
 
   <main>
@@ -615,8 +694,8 @@ if (location.hostname === 'heshamabourokaia.github.io')
         <p class="eyebrow"><span class="pulse" aria-hidden="true"></span>{{ heroEyebrow }}</p>
         <h1 class="homet" :aria-label="heroLines.flat().join(' ')"><span class="ln l1" aria-hidden="true"><span class="wm" v-for="(w,i) in heroLines[0]" :key="lang+'a'+i"><span class="w">{{ w }}</span></span></span><span class="ln l2" aria-hidden="true"><span class="wm" v-for="(w,i) in heroLines[1]" :key="lang+'b'+i"><span class="w">{{ w }}</span></span></span></h1>
         <p class="homesub">{{ lang==='ar'
-          ? 'منصة تفاعلية تقوم على المدونة الصرفية للقرآن الكريم، تجمع بين البحث الصرفي الدقيق ومختبر تحليلاتٍ عامل وتدقيق الأعداد المتداولة وقراءة المصحف كاملًا. وكل رقم تراه هنا يُحسب لحظيًا من المدونة داخل متصفحك، من غير أي إدخال يدوي.'
-          : 'Interactive analytics built on the Quranic Arabic Corpus: morphology-level search, a working analytics lab, a claim auditor and a mushaf reader. Every number is computed live in your browser; nothing is hand-typed.' }}</p>
+          ? 'استكشف القرآن الكريم من خلال أرقامه: ابحث عن أي كلمةٍ بجميع صيغها، وانظر ما يكشفه العدّ الدقيق، ودقّق الأعداد المتداولة عن القرآن، واقرأ المصحف كاملًا. وكل رقمٍ تراه هنا يُعَدّ لحظيًا من نص القرآن داخل متصفحك، من غير أي إدخالٍ يدوي.'
+          : 'Explore the Quran through its numbers: search any word in all its forms, see what careful counting shows, check famous claims about the Quran, and read the mushaf. Every number is counted live from the Quran\'s text in your browser; nothing is typed in by hand.' }}</p>
         <div class="ctas">
           <button class="btn primary magnetic" type="button" @click="go('auditor')"><span>{{ lang==='ar' ? 'دقّق الأعداد المتداولة' : 'Audit the famous claims' }}</span><svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h10M9 4.5 12.5 8 9 11.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <button class="btn ghost magnetic" type="button" @click="go('overview')"><span>{{ lang==='ar' ? 'استكشف البيانات' : 'Explore the data' }}</span></button>
@@ -661,45 +740,49 @@ if (location.hostname === 'heshamabourokaia.github.io')
 
     <!-- Analytics Lab: plain-English explainer (any lab view) -->
     <div v-if="labCur" class="course">
-      <div class="tech">{{ labCur.technique }}</div>
+      <div class="tech">{{ plain && plain.title ? plain.title : labCur.technique }}</div>
+      <div class="techname" v-if="plain && plain.title">{{ labCur.technique }}</div>
       <div class="explain">
-        <div class="box"><span class="lab">{{ lang==='ar'?'ما هذا؟':'What is this?' }}</span>{{ labCur.what }}</div>
-        <div class="box"><span class="lab">{{ lang==='ar'?'كيف تقرأ النتائج':'How to read the results' }}</span>{{ labCur.howToRead }}</div>
+        <div class="box"><span class="lab">{{ lang==='ar'?'ما هذا؟':'What is this?' }}</span>{{ plain ? plain.what : labCur.what }}</div>
+        <div class="box" v-if="plain && plain.method"><span class="lab">{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</span>{{ plain.method }}</div>
+        <div class="box" v-if="!plain || !plain.staged"><span class="lab">{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</span>{{ plain ? plain.how : labCur.howToRead }}</div>
       </div>
     </div>
 
     <!-- OVERVIEW -->
     <section v-if="view==='overview'">
       <h1>{{ lang==='ar' ? 'نظرة عامة' : 'Overview' }}</h1>
-      <p class="sub">{{ lang==='ar' ? 'مبني على مدوّنة القرآن الصرفية الموثوقة.' : 'Built on the authoritative Quranic Arabic Corpus morphology.' }}</p>
+      <div v-if="plain" class="plain"><p v-if="plain.what"><b>{{ lang==='ar'?'ما هذا؟':'What is this?' }}</b> {{ plain.what }}</p><p v-if="plain.method"><b>{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</b> {{ plain.method }}</p><p v-if="plain.how && !plain.staged"><b>{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</b> {{ plain.how }}</p><p v-if="plain.msg && !plain.noted"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}</b> {{ plain.msg }}</p></div>
       <div class="kpis">
         <div class="kpi"><div class="n">{{ T.suras }}</div><div class="l">{{ lang==='ar'?'سورة':'Surahs' }}</div></div>
         <div class="kpi"><div class="n">{{ f(T.verses) }}</div><div class="l">{{ lang==='ar'?'آية':'Verses' }}</div></div>
         <div class="kpi"><div class="n">{{ f(T.words) }}</div><div class="l">{{ lang==='ar'?'كلمة':'Words' }}</div></div>
-        <div class="kpi"><div class="n">{{ f(DS.uniqueWords) }}</div><div class="l">{{ lang==='ar'?'كلمة فريدة':'Unique words' }}</div></div>
-        <div class="kpi"><div class="n">{{ f(DS.distinctLemmas) }}</div><div class="l">{{ lang==='ar'?'جذع لغوي':'Lemmas' }}</div></div>
+        <div class="kpi"><div class="n">{{ f(DS.uniqueWords) }}</div><div class="l">{{ lang==='ar'?'صيغة مكتوبة':'Written forms' }}</div></div>
+        <div class="kpi"><div class="n">{{ f(DS.distinctLemmas) }}</div><div class="l">{{ lang==='ar'?'كلمة مختلفة':'Different words' }}</div></div>
         <div class="kpi"><div class="n">{{ f(DS.distinctRoots) }}</div><div class="l">{{ lang==='ar'?'جذر':'Roots' }}</div></div>
       </div>
-      <div class="card"><div class="chart" id="ovChart"></div></div>
-      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'عدد قليل من السور المدنية الطويلة (كالبقرة) يحمل معظم طول القرآن، ومعظم السور قصيرة.':'A few long Medinan surahs (like Al-Baqara) carry most of the Quran\'s length; most surahs are short.' }}</div>
+      <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-columns" data-stage="overview" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
+      <div class="card glfb"><div class="chart" id="ovChart"></div></div>
+      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> {{ plain.msg }}</div>
       <div class="grid" style="margin-top:16px">
         <div class="card" style="margin:0"><b>{{ lang==='ar'?'الكلمة الأكثر تكراراً':'Most frequent word' }}</b>
-          <div style="margin-top:6px">{{ lang==='ar'?'الكلمة الأكثر تكراراً (جذعاً) هي "':'The most frequent lemma is "' }}{{ DS.topWordsLemma[2]?DS.topWordsLemma[2].w:'' }}" ({{ f(2699) }}).</div></div>
+          <div style="margin-top:6px">{{ lang==='ar'?'بعد كلمات الربط الصغيرة مثل «و» و«مِن»، أكثر الكلمات ورودًا «':'After small joining words like «و» (and) and «مِن» (from), the most frequent word is «' }}{{ DS.topWordsLemma[2]?DS.topWordsLemma[2].w:'' }}» ({{ f(2699) }}).</div></div>
         <div class="card" style="margin:0"><b>{{ lang==='ar'?'آيات المدينة أطول':'Medinan verses are longer' }}</b>
           <div style="margin-top:6px">{{ MM.medina.avgWordsPerVerse }} {{ lang==='ar'?'مقابل':'vs' }} {{ MM.mecca.avgWordsPerVerse }} {{ lang==='ar'?'كلمة/آية':'words/verse' }}.</div></div>
-        <div class="card" style="margin:0"><b>{{ lang==='ar'?'كلمات فريدة':'Unique words' }}</b>
+        <div class="card" style="margin:0"><b>{{ lang==='ar'?'الصيغ المكتوبة':'Written forms' }}</b>
           <div style="margin-top:6px">{{ f(DS.uniqueWords) }} {{ lang==='ar'?'صيغة، منها':'forms, of which' }} {{ f(DS.hapax) }} {{ lang==='ar'?'تظهر مرة واحدة.':'appear once.' }}</div></div>
-        <div class="card" style="margin:0"><b>{{ lang==='ar'?'جذور وأصول':'Roots & lemmas' }}</b>
-          <div style="margin-top:6px">{{ f(DS.distinctRoots) }} {{ lang==='ar'?'جذر،':'roots,' }} {{ f(DS.distinctLemmas) }} {{ lang==='ar'?'جذع لغوي.':'lemmas.' }}</div></div>
+        <div class="card" style="margin:0"><b>{{ lang==='ar'?'الجذور والكلمات':'Roots and words' }}</b>
+          <div style="margin-top:6px">{{ f(DS.distinctRoots) }} {{ lang==='ar'?'جذر،':'roots,' }} {{ f(DS.distinctLemmas) }} {{ lang==='ar'?'كلمة مختلفة.':'different words.' }}</div></div>
       </div>
     </section>
 
     <!-- WORD ANALYSIS -->
     <section v-if="view==='word'">
       <h1>{{ lang==='ar' ? 'تحليل الكلمات' : 'Word Analysis' }}</h1>
-      <p class="sub">{{ lang==='ar'?'أكثر الكلمات تكراراً حسب الصيغة والجذع والجذر.':'Most frequent words by surface form, lemma, and root.' }}</p>
-      <div class="card"><div class="chart" id="lemChart"></div></div>
-      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'بالعدّ حسب الجذع، لفظ الجلالة «الله» هو أكثر الكلمات المعنوية تكراراً.':'Counted by lemma, the name Allah is the most frequent content word.' }}</div>
+      <div v-if="plain" class="plain"><p v-if="plain.what"><b>{{ lang==='ar'?'ما هذا؟':'What is this?' }}</b> {{ plain.what }}</p><p v-if="plain.method"><b>{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</b> {{ plain.method }}</p><p v-if="plain.how && !plain.staged"><b>{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</b> {{ plain.how }}</p><p v-if="plain.msg && !plain.noted"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}</b> {{ plain.msg }}</p></div>
+      <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-bars" data-stage="word" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
+      <div class="card glfb"><div class="chart" id="lemChart"></div></div>
+      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> {{ plain.msg }}</div>
       <div class="row">
         <div class="col card"><h3>{{ lang==='ar'?'حسب الجذر':'By root' }}</h3>
           <table><tr v-for="r in DS.topRoots.slice(0,12)" :key="r.w"><td class="ar">{{ r.w }}</td><td>{{ f(r.c) }}</td></tr></table>
@@ -713,8 +796,10 @@ if (location.hostname === 'heshamabourokaia.github.io')
     <!-- MECCA VS MEDINA -->
     <section v-if="view==='mecca'">
       <h1>{{ lang==='ar' ? 'مكة والمدينة' : 'Mecca vs Medina' }}</h1>
-      <div class="card"><div class="chart" id="mmChart"></div></div>
-      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'آيات المدينة أطول بنحو ١٫٨ مرة من آيات مكة، إذ كانت مرحلة التشريع.':'Medinan verses are about 1.8x longer than Meccan ones, reflecting the legislative phase.' }}</div>
+      <div v-if="plain" class="plain"><p v-if="plain.what"><b>{{ lang==='ar'?'ما هذا؟':'What is this?' }}</b> {{ plain.what }}</p><p v-if="plain.method"><b>{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</b> {{ plain.method }}</p><p v-if="plain.how && !plain.staged"><b>{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</b> {{ plain.how }}</p><p v-if="plain.msg && !plain.noted"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}</b> {{ plain.msg }}</p></div>
+      <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-lengths" data-stage="mecca" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
+      <div class="card glfb"><div class="chart" id="mmChart"></div></div>
+      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> {{ plain.msg }}</div>
       <div class="row">
         <div class="col card"><h3>🕋 {{ lang==='ar'?'مكية':'Meccan' }}</h3>
           <div class="kpis">
@@ -729,26 +814,27 @@ if (location.hostname === 'heshamabourokaia.github.io')
             <div class="kpi"><div class="n">{{ MM.medina.avgWordsPerVerse }}</div><div class="l">{{ lang==='ar'?'متوسط كلمات/آية':'avg words/verse' }}</div></div>
           </div></div>
       </div>
-      <p class="sub">{{ lang==='ar'?'الآيات المدنية أطول بنحو ١٫٨ مرة من المكية، لأن المدينة كانت مرحلة التشريع.':'Medinan verses are about 1.8x longer than Meccan ones, reflecting the shift to law and society.' }}</p>
     </section>
 
     <!-- LETTER FREQUENCY -->
     <section v-if="view==='letters'">
       <h1>{{ lang==='ar' ? 'تكرار الحروف' : 'Letter Frequency' }}</h1>
-      <div class="card"><div class="chart" id="letChart"></div></div>
-      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'الألف واللام أكثر الحروف شيوعاً بفارق كبير، ولذلك تنتشر «ال» التعريف في كل مكان.':'Alif and Lam are by far the most common letters, which is why "al-" (the) appears everywhere.' }}</div>
+      <div v-if="plain" class="plain"><p v-if="plain.what"><b>{{ lang==='ar'?'ما هذا؟':'What is this?' }}</b> {{ plain.what }}</p><p v-if="plain.method"><b>{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</b> {{ plain.method }}</p><p v-if="plain.how && !plain.staged"><b>{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</b> {{ plain.how }}</p><p v-if="plain.msg && !plain.noted"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}</b> {{ plain.msg }}</p></div>
+      <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-bars-v" data-stage="letters" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
+      <div class="card glfb"><div class="chart" id="letChart"></div></div>
+      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> {{ plain.msg }}</div>
     </section>
 
     <!-- WORD SEARCH -->
     <section v-if="view==='search'">
       <h1>{{ lang==='ar' ? 'بحث في الكلمات' : 'Word Search' }}</h1>
-      <p class="sub">{{ lang==='ar'?'ابحث حسب الصيغة أو الجذع أو الجذر، على المدوّنة الصرفية.':'Search by surface form, lemma, or root, over the morphology corpus.' }}</p>
+      <div v-if="plain" class="plain"><p v-if="plain.what"><b>{{ lang==='ar'?'ما هذا؟':'What is this?' }}</b> {{ plain.what }}</p><p v-if="plain.method"><b>{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</b> {{ plain.method }}</p><p v-if="plain.how && !plain.staged"><b>{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</b> {{ plain.how }}</p><p v-if="plain.msg && !plain.noted"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}</b> {{ plain.msg }}</p></div>
       <div class="searchbar">
         <input class="q" v-model="q" @input="runSearch" :placeholder="lang==='ar'?'اكتب كلمة...':'Type a word...'" />
         <div class="seg">
-          <button :class="{on:mode==='surface'}" @click="mode='surface';runSearch()">{{ lang==='ar'?'صيغة':'Surface' }}<span class="segn" v-if="searchModes">{{ f(searchModes.surface) }}</span></button>
-          <button :class="{on:mode==='lemma'}" @click="mode='lemma';runSearch()">{{ lang==='ar'?'جذع':'Lemma' }}<span class="segn" v-if="searchModes">{{ f(searchModes.lemma) }}</span></button>
-          <button :class="{on:mode==='root'}" @click="mode='root';runSearch()">{{ lang==='ar'?'جذر':'Root' }}<span class="segn" v-if="searchModes">{{ f(searchModes.root) }}</span></button>
+          <button :class="{on:mode==='surface'}" @click="mode='surface';runSearch()">{{ lang==='ar'?'كما كُتبت':'As written' }}<span class="segn" v-if="searchModes">{{ f(searchModes.surface) }}</span></button>
+          <button :class="{on:mode==='lemma'}" @click="mode='lemma';runSearch()">{{ lang==='ar'?'كل الصيغ':'All forms' }}<span class="segn" v-if="searchModes">{{ f(searchModes.lemma) }}</span></button>
+          <button :class="{on:mode==='root'}" @click="mode='root';runSearch()">{{ lang==='ar'?'الجذر':'Root' }}<span class="segn" v-if="searchModes">{{ f(searchModes.root) }}</span></button>
         </div>
         <div class="seg">
           <button :class="{on:showTrans}" :aria-pressed="showTrans" @click="showTrans=!showTrans">{{ lang==='ar'?'الترجمة':'Translation' }}</button>
@@ -756,7 +842,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
       </div>
       <div v-if="searchHint" class="shint">
         <template v-if="searchHint.type==='spelling'">{{ lang==='ar' ? 'في المصحف تُكتب هذه الكلمة هكذا:' : 'The mushaf spells this word differently. Try:' }} <span class="chip" v-for="s in searchHint.forms" :key="s" @click="q=s;runSearch()">{{ s }}</span></template>
-        <template v-else>«<span class="ar" lang="ar">{{ searchHint.norm }}</span>» {{ lang==='ar' ? 'رسمٌ يجمع أكثر من كلمةٍ معجمية، والبحث بالجذع يعدّها معًا:' : 'is the spelling of more than one dictionary word, and a lemma search counts them together:' }}
+        <template v-else>«<span class="ar" lang="ar">{{ searchHint.norm }}</span>» {{ lang==='ar' ? 'رسمٌ يجمع أكثر من كلمةٍ معجمية، والبحث بـ«كل الصيغ» يعدّها معًا:' : 'is the spelling of more than one dictionary word, and searching «All forms» counts them together:' }}
           <span v-for="v in searchHint.senses" :key="v.w" class="shsense"><bdi class="ar" lang="ar">{{ v.w }}</bdi><span class="en" v-if="v.en && lang!=='ar'">{{ v.en }}</span><span class="n">{{ f(v.n) }}</span></span></template>
       </div>
       <div>
@@ -774,6 +860,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
         <div class="kpi"><div class="n">{{ sres.surahs }}</div><div class="l">{{ lang==='ar'?'سور':'Surahs' }}</div></div>
         <div class="kpi"><div class="n">{{ sres.verses }}</div><div class="l">{{ lang==='ar'?'آيات':'Verses' }}</div></div>
       </div>
+      <template v-if="sres.total>0"><figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-carpet" data-stage="search" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure></template>
       <div v-if="q && !ready.words" class="stub">{{ lang==='ar'?'جارٍ تحميل فهرس الكلمات…':'Loading the word index…' }}</div>
       <div v-else-if="q && sres.total===0" class="stub">{{ lang==='ar'?'لا نتائج':'No matches' }}</div>
       <div v-if="sres.total>0" class="card">
@@ -828,7 +915,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
     <!-- CLAIM AUDITOR -->
     <section v-if="view==='auditor'">
       <h1>{{ lang==='ar' ? 'مدقّق المزاعم' : 'Claim Auditor' }}</h1>
-      <p class="sub">{{ lang==='ar'?'نقارن في كل مزعمٍ عددي بين الرقم المزعوم والعدِّ المحقَّق وما يعيده البحث الساذج.':'Claimed vs verified vs naive search, for every word-count claim.' }}</p>
+      <div v-if="plain" class="plain"><p v-if="plain.what"><b>{{ lang==='ar'?'ما هذا؟':'What is this?' }}</b> {{ plain.what }}</p><p v-if="plain.method"><b>{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</b> {{ plain.method }}</p><p v-if="plain.how && !plain.staged"><b>{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</b> {{ plain.how }}</p><p v-if="plain.msg && !plain.noted"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}</b> {{ plain.msg }}</p></div>
       <div class="card claimcheck">
         <h3>{{ lang==='ar' ? 'دقّق أي زعمٍ بنفسك' : 'Check any claim' }}</h3>
         <p class="ccsub">{{ lang==='ar' ? 'الصق زعمًا عن عدد مرات ورود كلمةٍ في القرآن، بالعربية أو بالإنجليزية، فنجد الكلمة ونعدّها بثلاث طرق.' : 'Paste a claim about how often a word appears in the Quran, in English or Arabic. We find the word and count it three ways.' }}</p>
@@ -837,7 +924,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
           <button type="submit" class="ccbtn" :disabled="cc.busy || !cc.text.trim()">{{ cc.busy ? (lang==='ar' ? 'لحظة…' : 'Checking…') : (lang==='ar' ? 'دقّق' : 'Check') }}</button>
         </form>
         <div class="ccex"><span class="chip small" v-for="ex in ccExamples" :key="ex" @click="cc.text=ex;checkClaim()">{{ ex }}</span></div>
-        <div v-if="jevOn" class="jevnote">{{ lang==='ar' ? 'يُرسَل نص الزعم إلى Jev من TypeSafe ليقرّر أيّ كلمةٍ وأيّ طريقة عدٍّ يقصد. الأرقام نفسها تأتي دائمًا من المدونة.' : 'Your text is sent to TypeSafe’s Jev to decide which word and which way of counting the claim means. The numbers themselves always come from the corpus.' }}</div>
+        <div v-if="jevOn" class="jevnote">{{ lang==='ar' ? 'يُرسَل نص الزعم إلى Jev من TypeSafe ليقرّر أيّ كلمةٍ وأيّ طريقة عدٍّ يقصد. الأرقام نفسها تأتي دائمًا من نص القرآن.' : 'Your text is sent to TypeSafe’s Jev to decide which word and which way of counting the claim means. The numbers themselves always come from the Quran\'s text.' }}</div>
         <div v-if="cc.res" class="ccres" aria-live="polite">
           <div v-if="cc.res.crisis" class="safety" role="alert">{{ safety.text }} <a href="https://findahelpline.com" target="_blank" rel="noopener">{{ safety.link }}</a></div>
           <div v-else-if="!cc.res.words.length" class="stub" style="padding:16px">{{ lang==='ar' ? 'لم نتعرّف على كلمةٍ في هذا النص. اكتب الكلمة بالعربية، أو باسمٍ إنجليزي شائع مثل day أو angel.' : 'We couldn’t find a word we know in that text. Try the word in Arabic, or a common English name like day or angel.' }}</div>
@@ -868,7 +955,8 @@ if (location.hostname === 'heshamabourokaia.github.io')
           </template>
         </div>
       </div>
-      <div class="card"><div class="chart" id="audChart"></div></div>
+      <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-blocks" data-stage="auditor" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
+      <div class="card glfb"><div class="chart" id="audChart"></div></div>
       <div class="grid" style="margin-top:16px">
         <div v-for="c in claims" :key="c.id" class="card" style="margin:0">
           <div style="display:flex;justify-content:space-between;align-items:center">
@@ -879,8 +967,8 @@ if (location.hostname === 'heshamabourokaia.github.io')
             <div class="kpi" style="min-width:90px"><div class="n" style="color:var(--muted)">{{ f(c.claimed) }}</div><div class="l">{{ lang==='ar'?'المزعوم':'claimed' }}</div></div>
             <div class="kpi" style="min-width:90px"><div class="n" :style="{color: c.verifiedLemma===c.claimed?'var(--emerald)':'var(--amber)'}">{{ f(c.verifiedLemma) }}</div><div class="l">{{ lang==='ar'?'المحقّق':'verified' }}</div></div>
           </div>
-          <div style="font-size:.78rem;color:var(--muted)">{{ lang==='ar'?'بحث ساذج':'naive' }}: {{ f(c.rawSubstring) }} / {{ f(c.rawWholeWord) }}</div>
-          <div style="font-size:.84rem;color:var(--on-dark-2);margin-top:8px;line-height:1.6">{{ lang==='ar' ? (claimNotesAr[c.id]||c.note_en) : c.note_en }}</div>
+          <div style="font-size:.78rem;color:var(--muted)">{{ lang==='ar'?'البحث النصي السريع (جزء كلمة / كلمة كاملة)':'quick text search (part of a word / whole word)' }}: {{ f(c.rawSubstring) }} / {{ f(c.rawWholeWord) }}</div>
+          <div style="font-size:.84rem;color:var(--on-dark-2);margin-top:8px;line-height:1.6">{{ (lang==='ar' ? claimNotesAr[c.id] : claimNotesEn[c.id]) || c.note_en }}</div>
         </div>
       </div>
     </section>
@@ -888,9 +976,10 @@ if (location.hostname === 'heshamabourokaia.github.io')
     <!-- EMOTIONAL PROFILING -->
     <section v-if="view==='emotion'">
       <h1>{{ lang==='ar'?'البصمة العاطفية':'Emotional Profiling' }}</h1>
-      <div class="card"><div class="chart" id="emoChart"></div></div>
-      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'لغة الرحمة والهداية تفوق لغة التحذير بفارق كبير عبر القرآن.':'Language of mercy and guidance far outweighs language of warning across the Quran.' }}</div>
-      <p class="sub">{{ lang==='ar'?'لغة الرحمة والهداية تفوق لغة التحذير عبر القرآن.':'Mercy and guidance language outweighs warning across the Quran.' }}</p>
+      <div v-if="plain" class="plain"><p v-if="plain.what"><b>{{ lang==='ar'?'ما هذا؟':'What is this?' }}</b> {{ plain.what }}</p><p v-if="plain.method"><b>{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</b> {{ plain.method }}</p><p v-if="plain.how && !plain.staged"><b>{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</b> {{ plain.how }}</p><p v-if="plain.msg && !plain.noted"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}</b> {{ plain.msg }}</p></div>
+      <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-heaps" data-stage="emotion" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
+      <div class="card glfb"><div class="chart" id="emoChart"></div></div>
+      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> {{ plain.msg }}</div>
       <div class="kpis">
         <div class="kpi"><div class="n">{{ f(emotionTotals.mercy) }}</div><div class="l">{{ lang==='ar'?'رحمة':'Mercy' }}</div></div>
         <div class="kpi"><div class="n">{{ f(emotionTotals.guidance) }}</div><div class="l">{{ lang==='ar'?'هداية':'Guidance' }}</div></div>
@@ -910,21 +999,24 @@ if (location.hostname === 'heshamabourokaia.github.io')
     <!-- DIVINE PRONOUNS -->
     <section v-if="view==='pronouns'">
       <h1>{{ lang==='ar'?'ضمائر الذات الإلهية':'Divine Pronouns' }}</h1>
-      <div class="card"><div class="chart" id="proChart"></div></div>
-      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'صيغة الجمع للتعظيم «نحن» هي الأكثر استخداماً في إشارة القرآن إلى الله.':'The majestic plural "We" is the most-used way the Quran refers to God.' }}</div>
+      <div v-if="plain" class="plain"><p v-if="plain.what"><b>{{ lang==='ar'?'ما هذا؟':'What is this?' }}</b> {{ plain.what }}</p><p v-if="plain.method"><b>{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</b> {{ plain.method }}</p><p v-if="plain.how && !plain.staged"><b>{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</b> {{ plain.how }}</p><p v-if="plain.msg && !plain.noted"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}</b> {{ plain.msg }}</p></div>
+      <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-heaps" data-stage="pronouns" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
+      <div class="card glfb"><div class="chart" id="proChart"></div></div>
+      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> {{ plain.msg }}</div>
       <div class="kpis">
         <div class="kpi"><div class="ar" style="font-size:1.6rem">نَحْنُ</div><div class="n">{{ f(V1.pronouns.we) }}</div><div class="l">{{ lang==='ar'?'نحن':'We' }}</div></div>
         <div class="kpi"><div class="ar" style="font-size:1.6rem">أَنَا</div><div class="n">{{ f(V1.pronouns.i) }}</div><div class="l">{{ lang==='ar'?'أنا':'I' }}</div></div>
         <div class="kpi"><div class="ar" style="font-size:1.6rem">هُوَ</div><div class="n">{{ f(DS.huwaCount||V1.pronouns.he) }}</div><div class="l">{{ lang==='ar'?'هو':'He' }}</div></div>
       </div>
-      <p class="sub">{{ lang==='ar'?'صيغة الجمع "نحن" للتعظيم هي الأكثر استخداماً للإشارة إلى الله.':'The majestic plural "We" is the most used divine self-reference.' }}</p>
     </section>
 
     <!-- SCIENTIFIC REFERENCES -->
     <section v-if="view==='science'">
       <h1>{{ lang==='ar'?'الإشارات العلمية':'Scientific References' }}</h1>
-      <div class="card"><div class="chart" id="sciChart"></div></div>
-      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'علم الكون والعالم الطبيعي يستحوذان على معظم الآيات التي يُستشهد بها في السياق العلمي.':'Cosmology and the natural world account for most of the often-cited verses in a scientific context.' }}</div>
+      <div v-if="plain" class="plain"><p v-if="plain.what"><b>{{ lang==='ar'?'ما هذا؟':'What is this?' }}</b> {{ plain.what }}</p><p v-if="plain.method"><b>{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</b> {{ plain.method }}</p><p v-if="plain.how && !plain.staged"><b>{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</b> {{ plain.how }}</p><p v-if="plain.msg && !plain.noted"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}</b> {{ plain.msg }}</p></div>
+      <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-carpet" data-stage="science" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
+      <div class="card glfb"><div class="chart" id="sciChart"></div></div>
+      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> {{ plain.msg }}</div>
       <div class="card"><table>
         <tr><th>{{ lang==='ar'?'المجال':'Field' }}</th><th>{{ lang==='ar'?'الموضوع':'Topic' }}</th><th>{{ lang==='ar'?'الموضع':'Ref' }}</th></tr>
         <tr v-for="(r,i) in V1.scientificRefs" :key="i">
@@ -936,6 +1028,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
     <!-- ABJAD CALCULATOR -->
     <section v-if="view==='abjad'">
       <h1>{{ lang==='ar'?'حساب الجُمّل':'Abjad Numerals' }}</h1>
+      <div v-if="plain" class="plain"><p v-if="plain.what"><b>{{ lang==='ar'?'ما هذا؟':'What is this?' }}</b> {{ plain.what }}</p><p v-if="plain.method"><b>{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</b> {{ plain.method }}</p><p v-if="plain.how && !plain.staged"><b>{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</b> {{ plain.how }}</p><p v-if="plain.msg && !plain.noted"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}</b> {{ plain.msg }}</p></div>
       <div class="card">
         <input class="q" v-model="abjadInput" :placeholder="lang==='ar'?'اكتب كلمة لحساب قيمتها...':'Type a word to compute its value...'">
         <div v-if="abjadValue.sum>0" style="margin-top:12px">
@@ -952,6 +1045,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
     <!-- NUMBER 19 -->
     <section v-if="view==='n19'">
       <h1>{{ lang==='ar'?'معجزة الرقم ١٩':'Number 19' }}</h1>
+      <div v-if="plain" class="plain"><p v-if="plain.what"><b>{{ lang==='ar'?'ما هذا؟':'What is this?' }}</b> {{ plain.what }}</p><p v-if="plain.method"><b>{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</b> {{ plain.method }}</p><p v-if="plain.how && !plain.staged"><b>{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</b> {{ plain.how }}</p><p v-if="plain.msg && !plain.noted"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}</b> {{ plain.msg }}</p></div>
       <div class="grid">
         <div v-for="(r,i) in V1.number19" :key="i" class="card" style="margin:0">
           <div class="ar">{{ r.ar }}</div>
@@ -964,6 +1058,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
     <!-- STRUCTURAL MIRACLES -->
     <section v-if="view==='structural'">
       <h1>{{ lang==='ar'?'معجزات هيكلية':'Structural Miracles' }}</h1>
+      <div v-if="plain" class="plain"><p v-if="plain.what"><b>{{ lang==='ar'?'ما هذا؟':'What is this?' }}</b> {{ plain.what }}</p><p v-if="plain.method"><b>{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</b> {{ plain.method }}</p><p v-if="plain.how && !plain.staged"><b>{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</b> {{ plain.how }}</p><p v-if="plain.msg && !plain.noted"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}</b> {{ plain.msg }}</p></div>
       <div class="grid">
         <div v-for="(r,i) in V1.structuralMiracles" :key="i" class="card" style="margin:0">
           <div style="font-size:1.5rem">{{ r.icon }}</div>
@@ -977,9 +1072,10 @@ if (location.hostname === 'heshamabourokaia.github.io')
     <!-- WORD PAIRS & BALANCE (merged Word Symmetries + Antonym Pairs + Waw) -->
     <section v-if="view==='symmetry'">
       <h1>{{ lang==='ar'?'توازن الأزواج':'Word Pairs & Balance' }}</h1>
-      <p class="sub">{{ lang==='ar'?'نعرض هنا الأعداد المتداولة لأزواج الكلمات المتقابلة، وإلى جوارها ما يُظهره العدُّ الفعلي على المدونة.':'The widely cited counts for opposing word pairs, next to what an actual count over the corpus shows.' }}</p>
-      <div class="card"><div class="chart" id="antChart"></div></div>
-      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'عند العدّ الفعلي لا يصمد على التساوي إلا قليلٌ من الأزواج، فالتوازن أقل إحكامًا مما يُشاع، وإن ظل بعضه ثابتًا بجدارة.':'Under an actual count, only some pairs land on the claimed equal totals; the balance is looser than the popular claim, though a few pairs do hold.' }}</div>
+      <div v-if="plain" class="plain"><p v-if="plain.what"><b>{{ lang==='ar'?'ما هذا؟':'What is this?' }}</b> {{ plain.what }}</p><p v-if="plain.method"><b>{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</b> {{ plain.method }}</p><p v-if="plain.how && !plain.staged"><b>{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</b> {{ plain.how }}</p><p v-if="plain.msg && !plain.noted"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}</b> {{ plain.msg }}</p></div>
+      <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-blocks" data-stage="symmetry" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
+      <div class="card glfb"><div class="chart" id="antChart"></div></div>
+      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> {{ plain.msg }}</div>
       <div class="row">
         <div class="col card"><h3>{{ lang==='ar'?'الأعداد المتداولة':'As widely cited' }}</h3>
           <p class="sub" style="font-size:.85rem;margin-top:0">{{ lang==='ar'?'ننقل هذه الأعداد كما تتداولها الكتب والمواقع، لا كما أظهرها عدُّنا.':'These are the counts as circulated in books and websites, not the result of our own count.' }}</p>
@@ -992,7 +1088,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
           </table>
         </div>
         <div class="col card"><h3>{{ lang==='ar'?'العدّ الفعلي':'What we actually find' }}</h3>
-          <p class="sub" style="font-size:.85rem;margin-top:0">{{ lang==='ar'?'عددنا الأزواج الخمسة الأشهر عدًّا مباشرًا على نص المدونة.':'A direct count over the corpus text for the five most-cited pairs.' }}</p>
+          <p class="sub" style="font-size:.85rem;margin-top:0">{{ lang==='ar'?'عدٌّ للرسم المطابق لكل كلمة، فتفوته كلماتٌ يكتبها المصحف برسمٍ مختلف، ولهذا يظهر هنا عدد الملائكة والشياطين صفرًا؛ أما الرسم أعلاه فيعدّ كل صيغ الكلمة.':'A count of the exact spelling of each word. It misses words the mushaf writes differently, which is why angels and devils show 0 here; the figure above counts every form of each word.' }}</p>
           <table>
             <tr><th>{{ lang==='ar'?'الزوج':'Pair' }}</th><th>{{ lang==='ar'?'المزعوم':'Claimed' }}</th><th>{{ lang==='ar'?'الأول':'First' }}</th><th>{{ lang==='ar'?'الثاني':'Second' }}</th></tr>
             <tr v-for="(p,i) in V1.antonymPairs" :key="'a'+i">
@@ -1010,9 +1106,11 @@ if (location.hostname === 'heshamabourokaia.github.io')
     <!-- NLP EXPLORER -->
     <section v-if="view==='nlp'">
       <h1>{{ lang==='ar'?'مستكشف NLP':'NLP Explorer' }}</h1>
-      <div class="card"><div class="chart" id="biChart"></div></div>
-      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'أكثر العبارات الثنائية شيوعاً هي «إنّ الله» و«الذين آمنوا».':'The commonest two-word phrases are "inna Allah" (indeed, God) and "alladhina amanu" (those who believe).' }}</div>
-      <div class="card"><h3>{{ lang==='ar'?'سحابة الكلمات (الجذوع)':'Word cloud (lemmas)' }}</h3>
+      <div v-if="plain" class="plain"><p v-if="plain.what"><b>{{ lang==='ar'?'ما هذا؟':'What is this?' }}</b> {{ plain.what }}</p><p v-if="plain.method"><b>{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</b> {{ plain.method }}</p><p v-if="plain.how && !plain.staged"><b>{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</b> {{ plain.how }}</p><p v-if="plain.msg && !plain.noted"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}</b> {{ plain.msg }}</p></div>
+      <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-bars" data-stage="nlp" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
+      <div class="card glfb"><div class="chart" id="biChart"></div></div>
+      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> {{ plain.msg }}</div>
+      <div class="card"><h3>{{ lang==='ar'?'سحابة الكلمات الأكثر ورودًا':'Cloud of the most frequent words' }}</h3>
         <div class="cloudwrap">
           <span v-for="(w,i) in DS.topWordsLemma.slice(0,40)" :key="i" class="ar"
             :style="{fontSize:(0.85+ Math.sqrt(w.c/DS.topWordsLemma[0].c)*1.7)+'rem',opacity:(0.55+ Math.sqrt(w.c/DS.topWordsLemma[0].c)*0.45)}"
@@ -1020,9 +1118,9 @@ if (location.hostname === 'heshamabourokaia.github.io')
         </div>
       </div>
       <div class="row">
-        <div class="col card"><h3>{{ lang==='ar'?'ثنائيات':'Bigrams' }}</h3>
+        <div class="col card"><h3>{{ lang==='ar'?'عبارات من كلمتين':'Two-word phrases' }}</h3>
           <table><tr v-for="(b,i) in DS.bigrams.slice(0,12)" :key="i"><td class="ar">{{ b.w }}</td><td>{{ f(b.c) }}</td></tr></table></div>
-        <div class="col card"><h3>{{ lang==='ar'?'ثلاثيات':'Trigrams' }}</h3>
+        <div class="col card"><h3>{{ lang==='ar'?'عبارات من ثلاث كلمات':'Three-word phrases' }}</h3>
           <table><tr v-for="(b,i) in DS.trigrams.slice(0,12)" :key="i"><td class="ar">{{ b.w }}</td><td>{{ f(b.c) }}</td></tr></table></div>
       </div>
     </section>
@@ -1030,9 +1128,10 @@ if (location.hostname === 'heshamabourokaia.github.io')
     <!-- ADVANCED ANALYTICS -->
     <section v-if="view==='advanced'">
       <h1>{{ lang==='ar'?'تحليلات متقدمة':'Advanced Analytics' }}</h1>
-      <p class="sub">{{ lang==='ar'?'كل سورة كنقطة: الآيات مقابل الكلمات، ملوّنة بمكان النزول.':'Every surah as a point: verses vs words, coloured by revelation place.' }}</p>
-      <div class="card"><div class="chart" id="advScatter"></div></div>
-      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'كل نقطة سورة: زيادة الآيات تعني غالباً زيادة الكلمات، والسور المدنية تقع أعلى.':'Each dot is a surah: more verses usually means more words, and Medinan surahs sit higher.' }}</div>
+      <div v-if="plain" class="plain"><p v-if="plain.what"><b>{{ lang==='ar'?'ما هذا؟':'What is this?' }}</b> {{ plain.what }}</p><p v-if="plain.method"><b>{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</b> {{ plain.method }}</p><p v-if="plain.how && !plain.staged"><b>{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</b> {{ plain.how }}</p><p v-if="plain.msg && !plain.noted"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}</b> {{ plain.msg }}</p></div>
+      <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-scatter" data-stage="advanced" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
+      <div class="card glfb"><div class="chart" id="advScatter"></div></div>
+      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> {{ plain.msg }}</div>
       <div class="card"><div class="chart" id="advLen"></div></div>
       <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'هذه السور لديها أطول متوسط لطول الآية.':'These surahs have the longest average verse length.' }}</div>
     </section>
@@ -1040,7 +1139,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
     <!-- TAWAFUQ MUSHAF EXPLORER -->
     <section v-if="view==='tawafuq'">
       <h1>{{ lang==='ar'?'مستكشف توافق المصحف':'Tawafuq Mushaf Explorer' }}</h1>
-      <p class="sub">{{ lang==='ar'?'تصفّح المصحف المدني (٦٠٤ صفحات، ١٥ سطراً). اختر كلمة لإبراز كل مواضعها في الصفحة ورؤية اصطفافها.':'Browse the 604-page, 15-line Madani Mushaf. Pick a word to highlight every occurrence on the page and see how they align.' }}</p>
+      <div v-if="plain" class="plain"><p v-if="plain.what"><b>{{ lang==='ar'?'ما هذا؟':'What is this?' }}</b> {{ plain.what }}</p><p v-if="plain.method"><b>{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</b> {{ plain.method }}</p><p v-if="plain.how && !plain.staged"><b>{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</b> {{ plain.how }}</p><p v-if="plain.msg && !plain.noted"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}</b> {{ plain.msg }}</p></div>
       <div class="searchbar">
         <button class="seg" @click="tawGoPage(Math.max(1,tawPage-1))">‹ {{ lang==='ar'?'السابق':'Prev' }}</button>
         <span style="font-weight:700">{{ lang==='ar'?'صفحة':'Page' }}
@@ -1117,7 +1216,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
     <!-- KNOWLEDGE GRAPH -->
     <section v-if="view==='kg'">
       <h1>{{ lang==='ar'?'خريطة المعرفة القرآنية':'Quranic Knowledge Graph' }}</h1>
-      <p class="sub">{{ lang==='ar'?'٤٣٩ عقدة، ٩٢٩ علاقة، ٢٨ مجموعة موضوعية: السور والأنبياء والأحداث والتفاسير والعلوم في رسم واحد متفاعل.':'439 nodes, 929 edges, 28 thematic communities: surahs, prophets, events, tafsir, and sciences in one interactive map.' }}</p>
+      <div v-if="plain" class="plain"><p v-if="plain.what"><b>{{ lang==='ar'?'ما هذا؟':'What is this?' }}</b> {{ plain.what }}</p><p v-if="plain.method"><b>{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</b> {{ plain.method }}</p><p v-if="plain.how && !plain.staged"><b>{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</b> {{ plain.how }}</p><p v-if="plain.msg && !plain.noted"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}</b> {{ plain.msg }}</p></div>
       <div class="kpis">
         <div class="kpi"><div class="n">439</div><div class="l">{{ lang==='ar'?'عقدة':'Nodes' }}</div></div>
         <div class="kpi"><div class="n">929</div><div class="l">{{ lang==='ar'?'علاقة':'Edges' }}</div></div>
@@ -1162,8 +1261,9 @@ if (location.hostname === 'heshamabourokaia.github.io')
         <div class="m"><div class="v">{{ f(dashAgg.words) }}</div><div class="k">{{ lang==='ar'?'كلمات':'words' }}</div></div>
         <div class="m"><div class="v">{{ D(dashAgg.avg) }}</div><div class="k">{{ lang==='ar'?'كلمة/آية':'words/verse' }}</div></div>
       </div>
-      <div class="card"><div class="chart" id="dashChart"></div></div>
-      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'غيّر المرشّحات لترى الأرقام والرسم يتغيّران فوراً، تماماً كلوحة ذكاء أعمال حقيقية.':'Change the filters and watch the numbers and chart update instantly, just like a real BI dashboard.' }}</div>
+      <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-columns" data-stage="dashboard" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
+      <div class="card glfb"><div class="chart" id="dashChart"></div></div>
+      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> {{ plain.msg }}</div>
     </section>
 
     <!-- HIFZ OPTIMISER (Linear Programming) -->
@@ -1175,29 +1275,29 @@ if (location.hostname === 'heshamabourokaia.github.io')
           <div class="m"><div class="v">{{ D(hifzLive.N.toFixed(1)) }}</div><div class="k">{{ lang==='ar'?'سطر جديد/يوم':'new lines/day' }}</div></div>
           <div class="m"><div class="v">{{ D(hifzLive.review) }}</div><div class="k">{{ lang==='ar'?'مراجعة/يوم':'review lines/day' }}</div></div>
           <div class="m"><div class="v">{{ D(hifzLive.years) }}</div><div class="k">{{ lang==='ar'?'سنوات للختم':'years to finish' }}</div></div>
-          <div class="m"><div class="v">{{ D(hifzLive.shadow) }}</div><div class="k">{{ lang==='ar'?'قيمة الدقيقة (سعر الظل)':'value of 1 min (shadow price)' }}</div></div>
+          <div class="m"><div class="v">{{ D(hifzLive.shadow) }}</div><div class="k">{{ lang==='ar'?'قيمة الدقيقة الإضافية':'value of 1 extra minute' }}</div></div>
         </div>
       </div>
       <div class="card"><div class="chart" id="hifzChart"></div></div>
-      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'كلما زادت دقائقك اليومية انخفض زمن الختم بشكل حادّ، وهذا ما يقيسه سعر الظل.':'More daily minutes sharply cut the years to finish, which is exactly what the shadow price measures.' }}</div>
-      <p class="sub">{{ lang==='ar'?'سعر الظل: كل دقيقة إضافية يومياً تضيف هذا العدد من الأسطر الجديدة.':'The shadow price: each extra minute per day buys this many more new lines (the dual value of the time-budget constraint).' }}</p>
+      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> {{ plain.msg }}</div>
+      <p class="sub">{{ lang==='ar'?'كل دقيقةٍ إضافية في اليوم تضيف هذا العدد من الأسطر الجديدة.':'Each extra minute a day lets you learn this many more new lines.' }}</p>
     </section>
 
     <!-- MECCAN/MEDINAN CLASSIFIER (Logistic / ML) -->
     <section v-if="view==='classifier'">
       <div class="metric" v-if="AN.classifier">
-        <div class="m"><div class="v">{{ D((AN.classifier.accuracy*100).toFixed(1)) }}%</div><div class="k">{{ lang==='ar'?'دقة':'accuracy' }}</div></div>
-        <div class="m"><div class="v">{{ D((AN.classifier.baseline*100).toFixed(1)) }}%</div><div class="k">{{ lang==='ar'?'الأساس':'baseline' }}</div></div>
-        <div class="m"><div class="v">{{ D(AN.classifier.auc) }}</div><div class="k">{{ lang==='ar'?'المساحة تحت المنحنى':'AUC' }}</div></div>
+        <div class="m"><div class="v">{{ D((AN.classifier.accuracy*100).toFixed(1)) }}%</div><div class="k">{{ lang==='ar'?'نسبة الإصابة':'right guesses' }}</div></div>
+        <div class="m"><div class="v">{{ D((AN.classifier.baseline*100).toFixed(1)) }}%</div><div class="k">{{ lang==='ar'?'لو قلنا «مكية» دائمًا':'if we always said «Meccan»' }}</div></div>
+        <div class="m"><div class="v">{{ D(AN.classifier.auc) }}</div><div class="k">{{ lang==='ar'?'المساحة تحت المنحنى (٠٫٥ تخمين، ١ تام)':'AUC (0.5 guessing, 1 perfect)' }}</div></div>
       </div>
       <div class="card" v-if="AN.classifier"><div class="chart" id="clfChart"></div></div>
-      <div class="chartnote" v-if="AN.classifier"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'الكلمات الخضراء (الله، رسول، آمن) تدفع التنبؤ نحو «مدني»، والذهبية نحو «مكي».':'Green words (Allah, Messenger, believed) push the prediction toward Medinan; gold words push toward Meccan.' }}</div>
+      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> {{ plain.msg }}</div>
       <div class="row" v-if="AN.classifier">
-        <div class="col card"><h3>{{ lang==='ar'?'مصفوفة الالتباس':'Confusion matrix' }}</h3>
+        <div class="col card"><h3>{{ lang==='ar'?'الإصابات والأخطاء':'Right and wrong guesses' }}</h3>
           <table class="conf">
-            <tr><th></th><th>{{ lang==='ar'?'تنبّأ مكي':'pred Meccan' }}</th><th>{{ lang==='ar'?'تنبّأ مدني':'pred Medinan' }}</th></tr>
-            <tr><th>{{ lang==='ar'?'مكي فعلاً':'actual Meccan' }}</th><td class="hit">{{ D(AN.classifier.confusion[0][0]) }}</td><td class="miss">{{ D(AN.classifier.confusion[0][1]) }}</td></tr>
-            <tr><th>{{ lang==='ar'?'مدني فعلاً':'actual Medinan' }}</th><td class="miss">{{ D(AN.classifier.confusion[1][0]) }}</td><td class="hit">{{ D(AN.classifier.confusion[1][1]) }}</td></tr>
+            <tr><th></th><th>{{ lang==='ar'?'خمّن: مكية':'guessed Meccan' }}</th><th>{{ lang==='ar'?'خمّن: مدنية':'guessed Medinan' }}</th></tr>
+            <tr><th>{{ lang==='ar'?'مكية فعلًا':'really Meccan' }}</th><td class="hit">{{ D(AN.classifier.confusion[0][0]) }}</td><td class="miss">{{ D(AN.classifier.confusion[0][1]) }}</td></tr>
+            <tr><th>{{ lang==='ar'?'مدنية فعلًا':'really Medinan' }}</th><td class="miss">{{ D(AN.classifier.confusion[1][0]) }}</td><td class="hit">{{ D(AN.classifier.confusion[1][1]) }}</td></tr>
           </table>
         </div>
         <div class="col card"><h3>{{ lang==='ar'?'أقوى مؤشرات مدني':'Top Medinan signals' }}</h3>
@@ -1232,17 +1332,18 @@ if (location.hostname === 'heshamabourokaia.github.io')
         <div class="metric">
           <div class="m"><div class="v">{{ D(AN.ttest.meccanMean) }}</div><div class="k">{{ lang==='ar'?'متوسط مكي':'Meccan mean' }}</div></div>
           <div class="m"><div class="v">{{ D(AN.ttest.medinanMean) }}</div><div class="k">{{ lang==='ar'?'متوسط مدني':'Medinan mean' }}</div></div>
-          <div class="m"><div class="v">{{ D(AN.ttest.t) }}</div><div class="k">t</div></div>
-          <div class="m"><div class="v">{{ D(AN.ttest.p.toExponential(1)) }}</div><div class="k">{{ lang==='ar'?'القيمة الاحتمالية':'p-value' }}</div></div>
+          <div class="m"><div class="v">{{ D(AN.ttest.t) }}</div><div class="k">{{ lang==='ar'?'t (حجم الفرق)':'t (size of the gap)' }}</div></div>
+          <div class="m"><div class="v"><bdi dir="ltr">{{ D(AN.ttest.p.toExponential(1)) }}</bdi></div><div class="k">{{ lang==='ar'?'القيمة الاحتمالية (احتمال المصادفة)':'p-value (chance it is luck)' }}</div></div>
         </div>
-        <div class="chart" id="statChart"></div>
-        <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'الفرق في الطول كبير وواضح، واحتمال أن يكون مصادفة ضئيل جداً.':'The length gap is large and clear, and the chance it is a coincidence is vanishingly small.' }}</div>
-        <p style="font-weight:600;color:var(--emerald)">{{ lang==='ar'?'النتيجة: آيات المدينة أطول بفارق ':'Result: Medinan verses are longer by ' }}{{ D(AN.ttest.diff) }} {{ lang==='ar'?'كلمة، وهذا فرق دالّ إحصائياً عند مستوى ٥٪ (فترة ثقة ٩٥٪ للفرق: من ':'words, a statistically significant difference at the 5% level (95% CI for the difference: ' }}{{ D(AN.ttest.ci[0]) }} {{ lang==='ar'?'إلى':'to' }} {{ D(AN.ttest.ci[1]) }}).</p>
+        <div class="chart glfb" id="statChart"></div>
+        <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> {{ plain.msg }}</div>
+        <p style="font-weight:600;color:var(--emerald)">{{ lang==='ar'?'النتيجة: آيات المدينة أطول بـ':'Result: Medinan verses are longer by ' }}{{ D(AN.ttest.diff) }} {{ lang==='ar'?'كلمة في المتوسط، والفرق الحقيقي يقع على الأرجح بين ':'words on average; the true gap is very likely between ' }}{{ D(AN.ttest.ci[0]) }} {{ lang==='ar'?'و':'and' }} {{ D(AN.ttest.ci[1]) }} {{ lang==='ar'?'كلمة.':'words.' }}</p>
       </div>
+      <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-lengths" data-stage="stats" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
       <div class="card" v-if="AN.regression">
         <h3>{{ lang==='ar'?'انحدار خطّي: طول الآية':'Linear regression: verse length' }}</h3>
         <div class="metric">
-          <div class="m"><div class="v">{{ D(AN.regression.r2) }}</div><div class="k">R²</div></div>
+          <div class="m"><div class="v">{{ D(AN.regression.r2) }}</div><div class="k">{{ lang==='ar'?'R² (نسبة ما يفسّره)':'R² (share it explains)' }}</div></div>
           <div class="m"><div class="v">+{{ D(AN.regression.coef.medinanDummy) }}</div><div class="k">{{ lang==='ar'?'أثر مدني (كلمة)':'Medinan effect (words)' }}</div></div>
         </div>
         <p style="font-size:.84rem;color:var(--muted)">{{ lang==='ar'?'كون السورة مدنية يضيف نحو ٦ كلمات لطول الآية المتوقع.':'Being a Medinan surah adds about 6 words to a verse\'s expected length.' }}</p>
@@ -1251,8 +1352,9 @@ if (location.hostname === 'heshamabourokaia.github.io')
 
     <!-- CLUSTERS & SIMILARITY (k-means + TF-IDF) -->
     <section v-if="view==='cluster'">
-      <div class="card"><div class="chart" id="clusterChart"></div></div>
-      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'تنقسم السور إلى مجموعات طبيعية حسب طولها وأسلوبها، والنقاط المتجاورة متشابهة.':'Surahs fall into natural groups by length and style; dots that sit together are alike.' }}</div>
+      <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-scatter" data-stage="cluster" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
+      <div class="card glfb"><div class="chart" id="clusterChart"></div></div>
+      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> {{ plain.msg }}</div>
       <div class="card" v-if="AN.similarity">
         <h3>{{ lang==='ar'?'أقرب السور إلى':'Surahs most similar to' }}
           <select v-model.number="simSurah" style="padding:6px;border-radius:8px;border:1px solid var(--line)">
@@ -1265,15 +1367,17 @@ if (location.hostname === 'heshamabourokaia.github.io')
 
     <!-- COINCIDENCE LENS + HIFZ MONTE CARLO -->
     <section v-if="view==='coincidence'">
-      <div class="card"><div class="chart" id="coincChart"></div></div>
-      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'الأرقام الكبيرة نادرة الإصابة، فالتطابق عليها لافت؛ أما الأرقام الصغيرة فمزدحمة بكلمات كثيرة.':'Large numbers are rarely hit, so a match there is striking; small numbers are crowded with many words.' }}</div>
+      <div class="gridpick" v-if="coinLand.length"><div class="chips" role="radiogroup" :aria-label="lang==='ar'?'اختر رقمًا':'Pick a number'"><button v-for="r in coinLand" :key="r.n" type="button" class="chip" role="radio" :aria-checked="String(r.n===gridN)" :class="{on:r.n===gridN}" @click="gridN=r.n">{{ D(r.n) }}</button></div><div class="gridnums" v-if="coinPick"><span><b class="ex">{{ f(coinPick.exact) }}</b> {{ lang==='ar' ? 'عدد الكلمات التي ترد '+D(coinPick.n)+' '+(coinPick.n%100>=3 && coinPick.n%100<=10 ? 'مرات' : 'مرة')+' بالضبط' : (coinPick.exact===1 ? 'word occurs' : 'words occur')+' exactly '+coinPick.n+' times' }}</span><span><b class="nr">{{ f(coinPick.near) }}</b> {{ lang==='ar' ? 'عدد الكلمات التي تقع في حدود خمسٍ من '+D(coinPick.n) : 'come within five of '+coinPick.n }}</span></div></div>
+      <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-grid" data-stage="coincidence" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
+      <div class="card glfb"><div class="chart" id="coincChart"></div></div>
+      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> {{ plain.msg }}</div>
       <div class="card" v-if="AN.montecarlo && AN.montecarlo.hifzSim">
-        <h3>{{ lang==='ar'?'محاكاة مونت كارلو لزمن الختم (١٬٠٠٠ تجربة)':'Hifz completion-time Monte Carlo (1,000 trials)' }}</h3>
+        <h3>{{ lang==='ar'?'كم قد يستغرق الحفظ فعلًا؟ (١٬٠٠٠ رحلةٍ افتراضية)':'How long might memorising really take? (1,000 simulated journeys)' }}</h3>
         <div class="metric">
-          <div class="m"><div class="v">{{ D(AN.montecarlo.hifzSim.p5) }}</div><div class="k">{{ lang==='ar'?'الأسرع (٥٪)':'P5 days' }}</div></div>
-          <div class="m"><div class="v">{{ D(AN.montecarlo.hifzSim.p50) }}</div><div class="k">{{ lang==='ar'?'الوسيط (٥٠٪)':'P50 days' }}</div></div>
-          <div class="m"><div class="v">{{ D(AN.montecarlo.hifzSim.p95) }}</div><div class="k">{{ lang==='ar'?'الأبطأ (٩٥٪)':'P95 days' }}</div></div>
-          <div class="m"><div class="v">{{ D(AN.montecarlo.hifzSim.meanYears) }}</div><div class="k">{{ lang==='ar'?'سنوات (متوسط)':'mean years' }}</div></div>
+          <div class="m"><div class="v">{{ D(AN.montecarlo.hifzSim.p5) }}</div><div class="k">{{ lang==='ar'?'الأسرع (٥٪)':'fast finish (days)' }}</div></div>
+          <div class="m"><div class="v">{{ D(AN.montecarlo.hifzSim.p50) }}</div><div class="k">{{ lang==='ar'?'الوسيط (٥٠٪)':'typical (days)' }}</div></div>
+          <div class="m"><div class="v">{{ D(AN.montecarlo.hifzSim.p95) }}</div><div class="k">{{ lang==='ar'?'الأبطأ (٩٥٪)':'slow finish (days)' }}</div></div>
+          <div class="m"><div class="v">{{ D(AN.montecarlo.hifzSim.meanYears) }}</div><div class="k">{{ lang==='ar'?'سنوات (متوسط)':'average (years)' }}</div></div>
         </div>
         <div class="chart" id="mcChart"></div>
         <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'معظم الرحلات المحاكاة تنتهي قرب ٤ إلى ٥ سنوات حين تُحتسب الأيام المتعثّرة.':'Most simulated journeys finish around 4 to 5 years once missed days are counted.' }}</div>
@@ -1391,6 +1495,189 @@ const MOTION = !REDUCED && 'IntersectionObserver' in window;   // cards rise int
 if (MOTION) document.documentElement.classList.add('motion');
 const SKY = () => window.QTA_SKY || null;                        // the verse field behind the page (sky.js)
 let SKYKEYS = null, REVEAL = null;
+const LEMMA_EN = {'و':'and','مِن':'from','اللَّه':'Allah','ما':'what, not','قالَ':'said','فِي':'in','الَّذِي':'who, which','ل':'for, to','عَلَى':'on',
+  'كانَ':'was','إِنّ':'indeed','ذا':'this','رَبّ':'Lord','مَن':'who','ف':'so, then'};
+const PAIR_EN = {'ان الله':'indeed Allah','الذين ءامنوا':'those who believe','في الارض':'on the earth','الذين كفروا':'those who disbelieve',
+  'السموت والارض':'the heavens and the earth','من قبل':'before','يايها الذين':'O you who','من الله':'from Allah','كل شيء':'every thing',
+  'ان الذين':'indeed those who','من بعد':'after','من دون':'besides'};
+// Every analysis page explained in plain words, for readers who are not analysts: what it is, how to read it,
+// what it tells us, and for the lab's methods what the method does. [English, Arabic] for each line.
+// In "tip", {P}/{p} become "Point at" or "Tap" (مرّر المؤشر على / انقر على) to suit the device; "click" is added only with a mouse.
+const PLAIN_NOTED = ['overview','word','mecca','letters','emotion','pronouns','science','symmetry','nlp','advanced','dashboard','hifz','classifier','stats','cluster','coincidence'];   // pages whose message sits under the figure
+const PLAIN = {
+  overview:{
+    what:['The Quran in numbers: how many surahs, verses and words it has, counted here straight from the text.',
+      'القرآن بالأرقام: كم فيه من سورةٍ وآيةٍ وكلمة، معدودةً هنا من النص مباشرة.'],
+    how:['Each dot is one verse. Each column is one surah, in mushaf order from Al-Fatiha to An-Nas: the taller the column, the more verses. Gold surahs were revealed in Mecca, green ones in Medina.',
+      'كل نقطةٍ آيةٌ واحدة، وكل عمودٍ سورةٌ واحدة بترتيب المصحف من الفاتحة إلى الناس: كلما طال العمود كثرت آياته. السور الذهبية نزلت بمكة، والخضراء بالمدينة.'],
+    tip:['{P} a dot to see its verse', '{p} نقطةٍ لترى آيتها'], click:['; click to read the surah', '، وانقر لتقرأ السورة'],
+    msg:['A few long surahs, like Al-Baqarah, hold a large part of the Quran: the 16 longest carry half of its words, while most surahs are short.',
+      'بضع سورٍ طويلة مثل البقرة تحمل جزءًا كبيرًا من القرآن: فأطول ١٦ سورةً تضمّ نصف كلماته، ومعظم السور قصيرة.']},
+  word:{
+    what:['Which words come most often in the Quran. Each word is counted with all its forms: قالَ (he said) also counts يقول (he says), قالوا (they said) and so on.',
+      'أيّ الكلمات أكثر ورودًا في القرآن. تُعَدّ كل كلمةٍ بجميع صيغها: فـ«قالَ» تشمل يقول وقالوا وغيرها.'],
+    how:['Each bar is one word: the longer the bar, the more often it comes.', 'كل شريطٍ كلمةٌ واحدة: كلما طال كثر ورودها.'],
+    tip:['{P} a bar for the exact number', '{p} شريطٍ لترى العدد بالضبط'], click:['; click it to see every verse where it comes', '، وانقر عليه لترى كل الآيات التي وردت فيها'],
+    msg:['Small joining words like و (and) and مِن (from) come first; the name Allah is the most frequent word with a meaning of its own.',
+      'تتقدّم كلماتُ الربط الصغيرة مثل «و» و«مِن»، ولفظ الجلالة «الله» أكثر الكلمات ذات المعنى ورودًا.']},
+  letters:{
+    what:['How often each Arabic letter is written in the Quran, from the most used to the least.', 'كم مرةً كُتب كل حرفٍ عربي في القرآن، من الأكثر إلى الأقل.'],
+    how:['Each column is one letter: the taller it is, the more often it is written. The number on top is its share of all the letters.',
+      'كل عمودٍ حرفٌ واحد: كلما طال كثرت كتابته. والرقم فوقه نصيبه من الحروف كلها.'],
+    tip:['{P} a column for the exact count', '{p} عمودٍ لترى العدد بالضبط'],
+    msg:['Alif and Lam are by far the most used letters, because «ال» (the) comes in almost every sentence.',
+      'الألف واللام أكثر الحروف بفارقٍ كبير، لأن «ال» التعريف تأتي في كل جملةٍ تقريبًا.']},
+  mecca:{
+    what:['The Quran was revealed in two places: in Mecca first, then in Medina after the Hijra. This page compares the verses from each.',
+      'نزل القرآن في مكانين: بمكة أولًا، ثم بالمدينة بعد الهجرة. وهذه الصفحة تقارن بين آيات كلٍّ منهما.'],
+    how:['Each dot is one verse, placed by how many words it has: short verses at the start of the line, long ones further along. Meccan verses are on top, Medinan ones below.',
+      'كل نقطةٍ آيةٌ واحدة، موضوعةٌ بحسب عدد كلماتها: القصيرة في أول السطر والطويلة أبعد منها. الآيات المكية في الأعلى والمدنية في الأسفل.'],
+    tip:['{P} a dot to see its verse', '{p} نقطةٍ لترى آيتها'],
+    msg:['Medinan verses are about 1.8 times as long on average (18.5 words against 10.3). In Medina many verses set out rulings for the young Muslim community, which takes more words.',
+      'آيات المدينة أطول بنحو ١٫٨ مرة في المتوسط (١٨٫٥ كلمة مقابل ١٠٫٣)، ففي المدينة نزلت آياتٌ كثيرة بالأحكام وتنظيم المجتمع المسلم الناشئ، وهذا يحتاج كلماتٍ أكثر.']},
+  emotion:{
+    what:['How often the Quran uses words of mercy, guidance, hope and warning. We counted, surah by surah, the words that belong to each of these four themes.',
+      'كم مرةً يستعمل القرآن كلماتِ الرحمة والهداية والأمل والتحذير. عددنا في كل سورةٍ الكلماتِ التي تنتمي إلى كلٍّ من هذه المعاني الأربعة.'],
+    how:['Each heap has one dot for every word counted: the bigger the heap, the more words.', 'في كل كومةٍ نقطةٌ لكل كلمةٍ معدودة: كلما كبرت الكومة كثرت الكلمات.'],
+    tip:['{P} a heap to see which surah that part of it comes from', '{p} كومةٍ لترى من أي سورةٍ جاء ذلك الجزء منها'],
+    msg:['Words of mercy and guidance come far more often than words of warning.', 'كلمات الرحمة والهداية أكثر بكثيرٍ من كلمات التحذير.']},
+  pronouns:{
+    what:['The Quran speaks of God as «We» (نحن), «I» (أنا) and «He» (هو). This page counts how often each is used.',
+      'يتحدّث القرآن عن الله بصيغة «نحن» و«أنا» و«هو». وهذه الصفحة تعدّ كم مرةً وردت كلٌّ منها.'],
+    how:['Each heap has one dot for every time the word is counted.', 'في كل كومةٍ نقطةٌ لكل موضعٍ معدود.'],
+    tip:['{P} a heap for its number', '{p} كومةٍ لترى عددها'],
+    msg:['«We» is used most. In Arabic, a king or a great one says «We» to express majesty, not number: God is One.',
+      'صيغة «نحن» هي الأكثر، وهي في العربية أسلوبُ العظيم في الحديث عن نفسه تعظيمًا لا تعدّدًا، والله واحد.']},
+  science:{
+    what:['Verses that people often quote when they talk about science and nature, such as the expanding universe or the stages of the unborn child.',
+      'آياتٌ يكثر الاستشهاد بها عند الحديث عن العلم والطبيعة، مثل اتساع الكون وأطوار الجنين.'],
+    how:['Every verse of the Quran is a dot, in reading order, row after row from the first verse to the last. The bright dots are the verses listed in the table below.',
+      'كل آيةٍ في القرآن نقطة، بترتيب القراءة صفًّا بعد صف من أول آيةٍ إلى آخرها. والنقاط المضيئة هي الآيات المذكورة في الجدول أدناه.'],
+    tip:['{P} a bright dot to see its topic', '{p} نقطةٍ مضيئة لترى موضوعها'],
+    msg:['Most of these verses speak of the heavens, the earth and nature, and they are spread across many surahs.',
+      'معظم هذه الآيات تتحدث عن السماوات والأرض والطبيعة، وهي موزّعةٌ على سورٍ كثيرة.']},
+  advanced:{
+    what:['Every surah compared by two numbers: how many verses it has and how many words.', 'كل سورةٍ في مقارنةٍ برقمين: كم فيها من آيةٍ وكم فيها من كلمة.'],
+    how:['Each small disc is one surah, made of its own verses: the further along, the more verses; the higher up, the more words. Gold: Meccan, green: Medinan.',
+      'كل قرصٍ صغير سورةٌ واحدة مصنوعٌ من آياتها: كلما ابتعد كثرت آياتها، وكلما ارتفع كثرت كلماتها. الذهبي مكي والأخضر مدني.'],
+    tip:['{P} a disc to see the surah', '{p} قرصٍ لترى السورة'],
+    msg:['Surahs with more verses have more words, as you would expect; but for the same number of verses, Medinan surahs sit higher, because their verses are longer.',
+      'السور الأكثر آياتٍ أكثرُ كلماتٍ كما هو متوقَّع، لكن عند العدد نفسه من الآيات تقع السور المدنية أعلى، لأن آياتها أطول.']},
+  search:{
+    what:['Look up any Arabic word and see every verse where it comes. You can search it as written, in all its forms, or by its root: the three letters a family of words grows from, like ك ت ب for writing.',
+      'ابحث عن أي كلمةٍ عربية لترى كل آيةٍ وردت فيها: كما كُتبت، أو بكل صيغها، أو بجذرها، وهو الحروف الثلاثة التي تتفرّع منها أسرةٌ من الكلمات، مثل ك ت ب للكتابة.'],
+    how:['Every verse of the Quran is a dot, in reading order. The bright dots are the verses where your word comes, so you can see where in the Quran it is found.',
+      'كل آيةٍ في القرآن نقطة، بترتيب القراءة. والنقاط المضيئة هي الآيات التي وردت فيها كلمتك، فترى أين تقع في القرآن.'],
+    tip:['{P} a dot to see the verse', '{p} نقطةٍ لترى الآية']},
+  nlp:{
+    what:['The two-word phrases the Quran uses most, and a cloud of its most frequent words. (NLP means using computers to study language.)',
+      'العباراتُ ذات الكلمتين الأكثرُ ورودًا في القرآن، وسحابةٌ لأكثر كلماته ورودًا. (معالجة اللغة: استعمال الحاسوب في دراسة اللغة.)'],
+    how:['Each bar is one phrase: the longer the bar, the more often it comes.', 'كل شريطٍ عبارةٌ واحدة: كلما طال كثر ورودها.'],
+    tip:['{P} a bar for its number', '{p} شريطٍ لترى عددها'],
+    msg:['The most common phrases are «إن الله» (indeed, Allah) and «الذين آمنوا» (those who believe).', 'أكثر العبارات ورودًا «إن الله» و«الذين آمنوا».']},
+  tawafuq:{
+    what:['Some readers notice that certain words line up on the pages of the printed mushaf. Here you can turn the pages of the common 604-page mushaf and light up a word to see where it falls.',
+      'يلاحظ بعض القرّاء أن كلماتٍ بعينها تتوافق مواضعها على صفحات المصحف المطبوع. وهنا تقلّب صفحات مصحف المدينة ذي الصفحات الـ٦٠٤ وتُضيء كلمةً لترى أين تقع.'],
+    how:['Pick a word on the side, and every place it comes on the page lights up.', 'اختر كلمةً من الجانب، فيضيء كل موضعٍ لها في الصفحة.']},
+  symmetry:{
+    what:['It is often said that opposite words come the same number of times in the Quran, like «angels» and «devils», or «man» and «woman». Here we count them ourselves.',
+      'يُقال كثيرًا إن الكلمات المتقابلة وردت في القرآن بالعدد نفسه، مثل «الملائكة» و«الشياطين»، و«الرجل» و«المرأة». وهنا نعدّها بأنفسنا.'],
+    how:['Each dot is one time a word comes, counted in all its forms (as in the Claim Auditor). The dashed box holds the number people usually quote: dots that fill it exactly mean the claim is right; dots that spill out, or leave it half empty, mean the real count is different.',
+      'كل نقطةٍ موضعٌ وردت فيه الكلمة، معدودةً بجميع صيغها (كما في مدقّق المزاعم). والإطار المتقطّع يحيط بالعدد الذي يُتداول عادةً: إن ملأته النقاط تمامًا صحّ الزعم، وإن فاضت عنه أو تركت فيه فراغًا فالعدد الحقيقي مختلف.'],
+    tip:['{P} a dot to see its verse', '{p} نقطةٍ لترى آيتها'],
+    msg:['Some pairs are equal, like angels and devils (88 each) and Adam and Jesus (25 each); others are not, like Paradise and Hell. The balance is real in places, but not everywhere people say.',
+      'بعض الأزواج متساوية، مثل الملائكة والشياطين (٨٨ لكلٍّ منهما) وآدم وعيسى (٢٥ لكلٍّ منهما)، وبعضها غير متساوٍ، مثل الجنة والنار. فالتوازن حقيقيٌّ في مواضع، لكن ليس في كل ما يُقال.']},
+  abjad:{
+    what:['Abjad (حساب الجُمَّل) gives every Arabic letter a number: ا = 1, ب = 2, ج = 3, and so on. Type a word and we add up its letters.',
+      'حساب الجُمَّل يعطي كل حرفٍ عربي رقمًا: ا = ١، ب = ٢، ج = ٣، وهكذا. اكتب كلمةً فنجمع قيم حروفها.'],
+    how:['The small boxes show each letter\'s value; the big number is the total.', 'المربعات الصغيرة قيمة كل حرف، والرقم الكبير مجموعها.'],
+    msg:['Abjad is an old way of writing numbers with letters, used for dates and in poetry. A word\'s total can be interesting, but on its own it proves nothing.',
+      'حساب الجُمَّل طريقةٌ قديمة لكتابة الأرقام بالحروف، استُعملت في التأريخ والشعر. ومجموع الكلمة قد يكون لطيفًا للتأمل، لكنه وحده لا يُثبت شيئًا.']},
+  n19:{
+    what:['The number 19 is mentioned in the Quran («Over it are nineteen», 74:30), and some people look for it in how the Quran is built. These are the best-known examples.',
+      'ورد الرقم ١٩ في القرآن ﴿عَلَيْهَا تِسْعَةَ عَشَرَ﴾ (المدثر: ٣٠)، ويبحث عنه بعض الناس في بناء القرآن. وهذه أشهر الأمثلة.'],
+    how:['Each card is one example, with its arithmetic underneath.', 'كل بطاقةٍ مثالٌ واحد، وتحته الحساب.'],
+    msg:['Many of these depend on how you count (which letters, which verses), and with so many numbers to choose from, some will fit 19 by chance. The Coincidence Lens in the Analytics Lab shows why.',
+      'كثيرٌ من هذه الأمثلة يتوقف على طريقة العدّ (أيّ الحروف وأيّ الآيات)، ومع كثرة الأرقام التي يمكن اختيارها يوافق بعضها الرقم ١٩ مصادفةً. وعدسة المصادفات في مختبر التحليلات تشرح السبب.']},
+  structural:{
+    what:['Observations people share about how the Quran is arranged, such as a surah\'s number matching a fact from science.', 'ملاحظاتٌ يتداولها الناس عن ترتيب القرآن، مثل موافقة رقم سورةٍ لحقيقةٍ علمية.'],
+    how:['Each card gives the observation and the numbers behind it.', 'كل بطاقةٍ تذكر الملاحظة والأرقام التي تقوم عليها.'],
+    msg:['Read these as observations, not proof: a surah\'s number is its place in the mushaf, and a match depends on which numbers are compared.',
+      'اقرأها ملاحظاتٍ لا براهين: فرقم السورة موضعها في المصحف، والتوافق يتوقف على الأرقام التي نختار مقارنتها.']},
+  auditor:{
+    what:['People often share claims like «the word day (يوم) appears 365 times in the Quran». Here we count each word ourselves in the Quran\'s own text and compare our count with the claim.',
+      'يتداول الناس مزاعم مثل «كلمة يوم وردت في القرآن ٣٦٥ مرة». وهنا نعدّ كل كلمةٍ بأنفسنا في نص القرآن ونقارن عدَّنا بالزعم.'],
+    how:['Each dot is one time the word comes, in mushaf order. The dashed box holds the number that is claimed: it turns green when the count matches, and any extra mentions spill past it in gold.',
+      'كل نقطةٍ موضعٌ وردت فيه الكلمة، بترتيب المصحف. والإطار المتقطّع يحيط بالعدد المزعوم: يخضرّ حين يطابقه العدّ، وما زاد عليه ينسكب خارجه ذهبيًا.'],
+    tip:['{P} a dot to see its verse', '{p} نقطةٍ لترى آيتها'],
+    msg:['Some claims hold exactly, like angels and devils (88 each). Others hold only if you count in one particular way: counted in all its forms, يوم comes 475 times, not 365. So always ask how a number was counted.',
+      'بعض المزاعم صحيحةٌ تمامًا، مثل الملائكة والشياطين (٨٨ لكلٍّ منهما). وبعضها لا يصحّ إلا بطريقةٍ معيّنة في العدّ: فكلمة «يوم» بجميع صيغها وردت ٤٧٥ مرة لا ٣٦٥. فاسأل دائمًا: كيف عُدَّ هذا الرقم؟']},
+  kg:{
+    what:['A map of how things in the Quran connect: surahs, prophets, events and themes. Each dot is one of them, and each line links two that belong together.',
+      'خريطةٌ لروابط القرآن: السور والأنبياء والأحداث والموضوعات. كل نقطةٍ واحدٌ منها، وكل خطٍّ يصل بين اثنين مترابطين.'],
+    how:['Drag to move around, scroll or pinch to zoom, and click a dot to read about it.', 'اسحب للتنقّل، وقرّب أو بعّد بالعجلة أو بإصبعين، وانقر نقطةً لتقرأ عنها.']},
+  dashboard:{
+    title:['Explore the surahs yourself', 'استكشف السور بنفسك'],
+    what:['Choose which surahs to look at (Meccan or Medinan, and how long), and every number and the figure change at once.',
+      'اختر السور التي تريد النظر فيها (مكية أو مدنية، وكم طولها)، فتتغير كل الأرقام والرسم فورًا.'],
+    method:['A page like this is called a dashboard: filters that let you ask your own questions of the data.', 'تُسمّى صفحةٌ كهذه «لوحة معلومات»: مرشّحاتٌ تتيح لك أن تسأل البيانات أسئلتك أنت.'],
+    how:['Each column is one surah that your choices keep, made of its verses.', 'كل عمودٍ سورةٌ تُبقيها اختياراتك، مصنوعٌ من آياتها.'],
+    tip:['{P} a dot to see its verse', '{p} نقطةٍ لترى آيتها'],
+    msg:['Try Meccan only, then Medinan only: there are fewer Medinan surahs, but they are about twice as long in words.',
+      'جرّب المكية وحدها ثم المدنية وحدها: السور المدنية أقل عددًا، لكنها أطول بنحو الضعف في كلماتها.']},
+  hifz:{
+    title:['How long would it take to memorise the Quran?', 'كم يستغرق حفظ القرآن؟'],
+    what:['Choose how many minutes a day you can give. The page works out how many new lines you could learn each day, how many to review, and how many years it would take to finish.',
+      'اختر كم دقيقةً في اليوم تستطيع أن تعطي، فتحسب الصفحة كم سطرًا جديدًا تحفظ كل يوم، وكم تراجع، وكم سنةً تحتاج للختم.'],
+    method:['It uses a planning method called linear programming: it finds the best daily plan that fits your time, while keeping enough review so you don\'t forget.',
+      'تستعمل طريقةً في التخطيط اسمها «البرمجة الخطية»: تجد أفضل خطةٍ يومية تتسع لها دقائقك، مع مراجعةٍ كافية كي لا تنسى.'],
+    how:['Move the slider. «Value of one extra minute» shows how many more new lines each extra minute a day buys; the curve shows the years to finish getting shorter as you give more time.',
+      'حرّك المؤشر. «قيمة الدقيقة الإضافية» تُبيّن كم سطرًا جديدًا تضيفه كل دقيقةٍ زائدة في اليوم، والمنحنى يُظهر سنوات الختم تقصر كلما زدت الوقت.'],
+    msg:['A few more minutes a day make a big difference to how long the journey takes.', 'دقائق قليلة إضافية في اليوم تُحدث فرقًا كبيرًا في طول الرحلة.']},
+  classifier:{
+    title:['Can a computer tell a Meccan surah from a Medinan one?', 'هل يميّز الحاسوب السورة المكية من المدنية؟'],
+    what:['We let a computer program read the words of each surah and guess whether it was revealed in Mecca or in Medina. It learns from the other surahs, and is tested on each surah without seeing its answer.',
+      'تركنا برنامجًا حاسوبيًا يقرأ كلمات كل سورة ويخمّن: هل نزلت بمكة أم بالمدينة؟ يتعلّم من السور الأخرى، ثم يُختبر في كل سورةٍ دون أن يرى جوابها.'],
+    method:['This is machine learning (a model called logistic regression): the program learns which words point to Mecca and which to Medina.',
+      'هذا من «تعلّم الآلة» (نموذجٌ اسمه الانحدار اللوجستي): يتعلّم البرنامج أيّ الكلمات تدلّ على مكة وأيّها على المدينة.'],
+    how:['Accuracy: how often it guesses right. Baseline: what you would get by always guessing «Meccan», the more common answer. AUC: from 0.5 (pure guessing) to 1 (perfect). The table counts its right and wrong guesses.',
+      'الدقة: كم مرةً يصيب. خط الأساس: ما تحصل عليه لو قلت «مكية» دائمًا لأنها الأكثر. المساحة تحت المنحنى: من ٠٫٥ (تخمينٌ محض) إلى ١ (إصابةٌ تامة). والجدول يعدّ إصاباته وأخطاءه.']},
+  stats:{
+    title:['Are Medinan verses really longer?', 'هل آيات المدينة أطول حقًّا؟'],
+    what:['Medinan verses look longer than Meccan ones. This page checks whether the difference is real, or could just be chance.',
+      'تبدو الآيات المدنية أطول من المكية. وهذه الصفحة تتحقق: هل الفرق حقيقي، أم قد يكون مصادفة؟'],
+    method:['The check is called a t-test. Its p-value is the chance of seeing a gap this big if there were really no difference: the smaller it is, the surer we are. The second part, regression, estimates how much being Medinan adds to a verse\'s length.',
+      'هذا الفحص اسمه «اختبار t». والقيمة الاحتمالية فيه هي احتمال أن نرى فرقًا بهذا الحجم لو لم يكن هناك فرقٌ حقيقي: كلما صغرت ازددنا يقينًا. والجزء الثاني، «الانحدار»، يقدّر كم يضيف كون السورة مدنيةً إلى طول الآية.'],
+    how:['Each dot is one verse, placed by how many words it has; the two lines mark the average length of each group.', 'كل نقطةٍ آيةٌ واحدة بحسب عدد كلماتها، والخطّان يدلّان على متوسط الطول في كل مجموعة.'],
+    tip:['{P} a dot to see its verse', '{p} نقطةٍ لترى آيتها'],
+    msg:['The gap is large and clear: Medinan verses are about 8 words longer on average, and the chance that this is luck is practically zero.',
+      'الفرق كبيرٌ وواضح: الآيات المدنية أطول بنحو ٨ كلماتٍ في المتوسط، واحتمال أن يكون ذلك مصادفةً يكاد يكون صفرًا.']},
+  cluster:{
+    title:['Which surahs are alike?', 'أيّ السور تتشابه؟'],
+    what:['The computer sorts the surahs into groups of similar ones, by their length and their words, without being told in advance what the groups are.',
+      'يُقسّم الحاسوب السور إلى مجموعاتٍ متشابهة، بحسب طولها وكلماتها، دون أن نخبره بالمجموعات مسبقًا.'],
+    method:['The grouping method is called k-means. To draw many measurements on a flat page, a method called PCA squeezes them into two directions, so surahs that sit close together are alike.',
+      'طريقة التقسيم اسمها «المتوسطات k». ولرسم قياساتٍ كثيرة على صفحةٍ مسطّحة تضغطها طريقةٌ اسمها «تحليل المكوّنات الرئيسية» في اتجاهين، فالسور المتقاربة متشابهة.'],
+    how:['Each disc is one surah, made of its verses; its colour is the group it fell into. Below, pick a surah to see the ones closest to it in their words.',
+      'كل قرصٍ سورةٌ واحدة مصنوعةٌ من آياتها، ولونه مجموعتها. واختر أدناه سورةً لترى أقرب السور إليها في كلماتها.'],
+    tip:['{P} a disc to see the surah', '{p} قرصٍ لترى السورة'],
+    msg:['The surahs fall into a few natural groups; those that sit close together are alike in length and wording.',
+      'تنقسم السور إلى مجموعاتٍ طبيعيةٍ قليلة، والمتقاربة منها متشابهةٌ في طولها وألفاظها.']},
+  coincidence:{
+    title:['Why a matching number is often just chance', 'لماذا يكون توافق الأرقام مصادفةً في الغالب؟'],
+    what:['The Quran has 4,771 different words, so almost any number you pick will match how often some word occurs. This page shows how often that happens, so we don\'t read too much into a match.',
+      'في القرآن ٤٬٧٧١ كلمةً مختلفة، فأيّ رقمٍ تختاره تقريبًا سيوافق عددَ ورود كلمةٍ ما. وهذه الصفحة تُظهر كم يحدث ذلك، كي لا نحمّل التوافق أكثر مما يحتمل.'],
+    method:['The method is called Monte Carlo simulation: the computer tries thousands of «what if» cases to learn what is common and what is rare.',
+      'الطريقة اسمها «محاكاة مونت كارلو»: يجرّب الحاسوب آلاف الحالات الافتراضية ليعرف ما الشائع وما النادر.'],
+    how:['Pick a number. Each dot is one of the Quran\'s 4,771 different words; the lit dots show how many occur exactly that many times (gold) or within five of it (teal).',
+      'اختر رقمًا. كل نقطةٍ كلمةٌ من كلمات القرآن المختلفة الـ٤٬٧٧١، والنقاط المضيئة تُظهر كم منها ورد بهذا العدد تمامًا (ذهبي) أو في حدود خمسٍ منه (فيروزي).'],
+    msg:['Small numbers are matched by many words, so a match there is not surprising; large numbers are matched by very few, so a match there stands out.',
+      'الأرقام الصغيرة يوافقها كثيرٌ من الكلمات فلا غرابة في توافقها، أما الكبيرة فيوافقها القليل، فالتوافق عندها لافت.']},
+};
+// Pages whose main chart the verse sky draws itself (a stage); their Plotly chart is kept for a device without WebGL.
+const STAGED = {overview:'ovChart', word:'lemChart', letters:'letChart', mecca:'mmChart', emotion:'emoChart', pronouns:'proChart', science:'sciChart',
+  advanced:'advScatter', nlp:'biChart', symmetry:'antChart', auditor:'audChart', dashboard:'dashChart', stats:'statChart', cluster:'clusterChart', coincidence:'coincChart'};
+const noGL = () => document.documentElement.classList.contains('no-gl') && !document.documentElement.classList.contains('gl');
 let JIX = null;   // word index for the claim checker and search hints; built on first use, outside Vue's reactivity
 const jix = () => JIX || (JIX = JEV && window.QURAN_WORDS ? JEV.makeIndex(window.QURAN_WORDS, window.QURAN_LEMMA_VARIANTS, window.QURAN_FORM_SENSES) : null);
 // The verse text and translation, the word index and the chart library are most of the page's weight
@@ -1420,6 +1707,7 @@ createApp({
       cc:{text:'', busy:false, res:null}, ask:{text:'', busy:false, res:null}, sit:{text:'', busy:false, res:null},
       AN:(D.analytics||{}), hifzMins:60, simSurah:2,
       dashPlace:'all', dashMinVerses:0, dashSort:'n',
+      skyReady:false, gridN:19,
       labMeta:{
         dashboard:{technique:'Interactive BI Dashboard (filters + live KPIs)',
           what:'A business-intelligence dashboard lets you slice the data live: choose filters and every KPI and chart updates instantly. Here you filter all 114 surahs by where they were revealed and by length.',
@@ -1464,19 +1752,33 @@ createApp({
       tawExamples:[{l:'الله',t:'الله'},{l:'رب',t:'رب'},{l:'رحمن',t:'الرحمن'}],
       alifi:null, alifiPage:0, alifiOverlay:true,
       examples:['يوم','الله','رحمة','ملك','أله'],
+      claimNotesEn:{
+        'day-365':'Counting the word in all its forms gives more than 365. The famous 365 counts only the plain singular «يوم», leaving out the dual (two days), «يومئذ» (on that day) and forms with a pronoun joined on, such as «يومهم» (their day).',
+        'month-12':'Counting the word in all its forms gives more than 12. The famous 12 counts only the singular «شهر», leaving out the plural «أشهر» (months) and the dual (two months).',
+        'devil-88':'Holds exactly: the singular and plural of «شيطان» together come 88 times. A quick text search for the spelling «شيطان» finds none, because the mushaf writes it «شيطن».',
+        'angel-88':'Holds exactly. Our count tells «مَلَك» (angel, 88 times) apart from «مُلْك» (dominion) and «مَلِك» (king), which look the same without vowel marks. A quick text search cannot tell them apart, which is why its count looks wrong.',
+        'hell-77':'Holds exactly. «جهنم» is a name for Hell and has no other meaning.',
+        'paradise-77':'«جنة» also means «garden», so all its uses add up to far more than 77. The 77 counts only the uses that mean Paradise, and sorting the uses by meaning takes a reader; a word count cannot do it.',
+        'man-24':'We counted «رَجُل» (man), kept apart from «رِجْل» (foot). Counted this way, man and woman do not both come 24 times.',
+        'woman-24':'We counted «امرأة» (woman). It does not come as often as man, and not 24 times.',
+        'jesus-24':'«عيسى» (Jesus) and «آدم» (Adam) really do come the same number of times, so the pair holds; but the number is 25, not 24.',
+        'adam-24':'«آدم» (Adam) and «عيسى» (Jesus) really do come the same number of times, so the pair holds; but the number is 25, not 24.',
+        'allah-2806':'The standard count of the name Allah in the text is 2,699. The 2,806 given by Bediuzzaman follows a wider way of counting.',
+        'rabb-846':'Counting «ربّ» (Lord) in all its forms includes «ربي» (my Lord), «ربك» (your Lord), «ربهم» (their Lord) and the like. The 846 counts a narrower set of them.',
+      },
       claimNotesAr:{
-        'day-365':'يشمل العدُّ بالجذع كلَّ صيغ الكلمة، أما الرقم المتداول ٣٦٥ فيقتصر على الاسم المفرد، ويُسقط المثنى وكلمة «يومئذ» المدمجة وصيغ الإضافة.',
-        'month-12':'يشمل العدُّ بالجذع كلَّ الصيغ، أما الرقم ١٢ فيقتصر على الاسم المفرد، ويُسقط الجمع «أشهر» والمثنى.',
-        'devil-88':'العدُّ مطابق بالجذع، فالمفرد والجمع يشتركان في الجذع نفسه ومجموعهما ٨٨. ومن الطريف أن البحث النصي الساذج عن «شيطان» لا يجد شيئًا، لأن الرسم العثماني يكتبها «شيطن».',
-        'angel-88':'العدُّ مطابق بالجذع، إذ يفصل التحليلُ الصرفي «مَلَك» (٨٨) عن «مُلْك» و«مَلِك»، وهو ما يعجز عنه البحث النصي، ولهذا يبدو العدُّ الساذج خاطئًا.',
-        'hell-77':'العدُّ مطابق بالجذع، فكلمة «جهنم» اسم علمٍ لا لبس فيه.',
-        'paradise-77':'جذع «جنة» يحمل أيضًا معنى «الحديقة»، ولذلك يتجاوز مجموعه ٧٧ بكثير، أما الرقم ٧٧ فيقتصر على معنى الجنة وحده، وهو تمييز يحتاج وسمًا دلاليًا للمعاني.',
-        'man-24':'عددنا جذع «رجل» بعد فصله عن «رِجل» بمعنى القدم، وتبيّن أن مزاعم تساوي الرجل والمرأة عند ٢٤ لا تصمد أمام العدّ بالجذع.',
-        'woman-24':'عددنا جذع «امرأة»، فلم يساوِ عدَّ الرجل، ولم يكن ٢٤.',
-        'jesus-24':'يتساوى جذع «عيسى» مع جذع «آدم» فعلًا، فالتعادل صحيح، غير أن الرقم ٢٥ لا ٢٤.',
-        'adam-24':'يتساوى جذع «آدم» مع جذع «عيسى» فعلًا، فالتعادل صحيح، غير أن الرقم ٢٥ لا ٢٤.',
-        'allah-2806':'العدُّ المعياري لاسم الجلالة في هذه المدونة ٢٦٩٩، أما رقم ٢٨٠٦ فيقوم على اصطلاحٍ أوسع في العدّ.',
-        'rabb-846':'يشمل جذع «ربّ» صيغ الإضافة كلها (ربي، ربك، ربهم)، أما الرقم ٨٤٦ فيعدّ مجموعة أضيق منها.',
+        'day-365':'العدُّ بجميع صيغ الكلمة يزيد على ٣٦٥. أما الرقم المتداول ٣٦٥ فيقتصر على الاسم المفرد «يوم»، ويُسقط المثنى وكلمة «يومئذ» والصيغ المتصلة بالضمائر مثل «يومهم».',
+        'month-12':'العدُّ بجميع صيغ الكلمة يزيد على ١٢. أما الرقم ١٢ فيقتصر على المفرد «شهر»، ويُسقط الجمع «أشهر» والمثنى.',
+        'devil-88':'العدُّ مطابق: المفرد والجمع من «شيطان» معًا ٨٨ مرة. ومن الطريف أن البحث النصي السريع عن رسم «شيطان» لا يجد شيئًا، لأن الرسم العثماني يكتبها «شيطن».',
+        'angel-88':'العدُّ مطابق، إذ يفصل عدُّنا «مَلَك» (٨٨ مرة) عن «مُلْك» و«مَلِك»، وهي تتشابه في الرسم بلا تشكيل. أما البحث النصي السريع فلا يفرّق بينها، ولهذا يبدو عدُّه خاطئًا.',
+        'hell-77':'العدُّ مطابق، فكلمة «جهنم» اسمٌ للنار لا معنى لها غيره.',
+        'paradise-77':'كلمة «جنة» تعني البستان أيضًا، ولذلك يزيد مجموع ورودها على ٧٧ بكثير. أما الرقم ٧٧ فيعدّ ما جاء منها بمعنى الجنة وحده، وفرزُ المواضع بحسب المعنى يحتاج إلى قارئ، ولا يقدر عليه عدُّ الكلمات.',
+        'man-24':'عددنا «رَجُل» بعد فصلها عن «رِجْل» بمعنى القدم، وبهذا العدّ لا يرد الرجل والمرأة ٢٤ مرة لكلٍّ منهما.',
+        'woman-24':'عددنا «امرأة»، فلم يساوِ عددُها عددَ «رجل»، ولم يكن ٢٤.',
+        'jesus-24':'يتساوى عدد «عيسى» وعدد «آدم» فعلًا، فالتعادل صحيح، غير أن الرقم ٢٥ لا ٢٤.',
+        'adam-24':'يتساوى عدد «آدم» وعدد «عيسى» فعلًا، فالتعادل صحيح، غير أن الرقم ٢٥ لا ٢٤.',
+        'allah-2806':'العدُّ المعياري لاسم الجلالة في النص ٢٦٩٩ مرة، أما رقم ٢٨٠٦ فيقوم على طريقةٍ أوسع في العدّ.',
+        'rabb-846':'العدُّ بجميع صيغ «ربّ» يشمل صيغ الإضافة كلها (ربي، ربك، ربهم)، أما الرقم ٨٤٦ فيعدّ مجموعةً أضيق منها.',
       },
       araKeys:'ابتثجحخدذرزسشصضطظعغفقكلمنهوي'.split(''),
       araKeys2:'ءآأإئؤةى'.split(''),
@@ -1489,8 +1791,8 @@ createApp({
         {id:'auditorHub',
           icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 2.8v5.4c0 4.4-2.9 7.4-7 9-4.1-1.6-7-4.6-7-9V5.8z"/><path d="M9 12l2 2 4-4.5"/></svg>',
           en:'Claim Auditor',ar:'مدقّق المزاعم',
-          blurb_en:'Every famous word-count claim, checked live against the real corpus.',
-          blurb_ar:'نعيد عدَّ ما يتداوله الناس عن كلمات القرآن، رقمًا رقمًا، على المدونة نفسها.',
+          blurb_en:'Famous claims about how often a word appears in the Quran, each counted again in the text itself.',
+          blurb_ar:'نعيد عدَّ ما يتداوله الناس عن عدد ورود كلمات القرآن، رقمًا رقمًا، في نص القرآن نفسه.',
           items:[{id:'auditor',en:'Claim Auditor',ar:'مدقّق المزاعم'}]},
         {id:'explore',
           icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M5 20V11"/><path d="M11 20V4"/><path d="M17 20v-6"/><path d="M3 20h18"/></svg>',
@@ -1510,8 +1812,8 @@ createApp({
         {id:'searchHub',
           icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg>',
           en:'Search & NLP',ar:'البحث واللغة',
-          blurb_en:'Find any word by form, lemma or root, with a live concordance.',
-          blurb_ar:'ابحث عن أي كلمة بصيغتها أو جذعها أو جذرها، وطالع مواضعها في كشّافٍ سياقيٍّ حيّ.',
+          blurb_en:'Find any word, in all its forms or by its root, and see every verse where it comes.',
+          blurb_ar:'ابحث عن أي كلمة، بجميع صيغها أو بجذرها، وطالع كل آيةٍ وردت فيها.',
           items:[
             {id:'search',en:'Word Search',ar:'بحث'},
             {id:'nlp',en:'NLP Explorer',ar:'مستكشف اللغة'},
@@ -1540,8 +1842,8 @@ createApp({
         {id:'lab',
           icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v6.2L4.6 18.6A1.6 1.6 0 0 0 6 21h12a1.6 1.6 0 0 0 1.4-2.4L14 9.2V3"/><path d="M8.5 3h7"/><path d="M7.5 15h9"/></svg>',
           en:'Analytics Lab',ar:'مختبر التحليلات',
-          blurb_en:'Six working studios: machine learning, statistics, simulation and optimisation.',
-          blurb_ar:'ست أدواتٍ عاملة تجمع تعلّم الآلة والإحصاء والمحاكاة والتحسين على نص القرآن.',
+          blurb_en:'Six studios where the computer tests ideas about the Quran\'s text, each explained in plain words.',
+          blurb_ar:'ست أدواتٍ يختبر فيها الحاسوب أفكارًا عن نص القرآن، لكلٍّ منها شرحٌ بلغةٍ بسيطة.',
           items:[
             {id:'dashboard',en:'BI Dashboard',ar:'لوحة المعلومات'},
             {id:'hifz',en:'Hifz Optimiser',ar:'مُحسِّن الحفظ'},
@@ -1615,6 +1917,59 @@ createApp({
     realViews(){ return ['home','overview','word','mecca','letters','search','reader','auditor','stories','lessons','duas','tafsir','untranslatable',
       'emotion','pronouns','science','abjad','n19','structural','symmetry','nlp','kg','advanced','tawafuq','alifi','hifz','classifier','stats','cluster','coincidence','dashboard']; },
     curHub(){ return this.nav.find(h=>h.items.some(i=>i.id===this.view)) || null; },
+    plain(){ const v=this.view, P=PLAIN[v]; if(!P) return null;
+      const ar=this.lang==='ar', i=ar?1:0, t=!FINE, pick=k=>P[k] ? P[k][i] : '';
+      const x={title:pick('title'), what:pick('what'), method:pick('method'), how:pick('how'), msg:pick('msg'), tip:'',
+        staged:!!STAGED[v] || v==='search', noted:PLAIN_NOTED.includes(v)};   // a staged page's «how» describes its stage, so it shows under the stage (and not with the fallback chart)
+      if(P.tip){ const hv = ar ? (t ? 'انقر على' : 'مرّر المؤشر على') : (t ? 'Tap' : 'Point at'); x.tip=P.tip[i].replace('{P}',hv).replace('{p}',hv)+(!t && P.click ? P.click[i] : '')+'.'; }
+      const c=this.AN.classifier;
+      if(v==='classifier' && c && c.confusion){ const pc=q=>this.D(Math.round(q*100)), mec=c.confusion[0], med=c.confusion[1], nMec=mec[0]+mec[1], nMed=med[0]+med[1];
+        const allMec = mec[1]===0;
+        x.msg = ar ? 'يصيب '+pc(c.accuracy)+' مرةً من كل ١٠٠، وهذا أفضل من '+pc(c.baseline)+' لو قلنا «مكية» دائمًا. '+(allMec ? 'يعرف كل السور المكية' : 'يعرف '+this.D(mec[0])+' من '+this.D(nMec)+' سورةً مكية')+'، لكنه يحسب '+this.D(med[0])+' من السور المدنية الـ'+this.D(nMed)+' مكية. وكلماتٌ مثل «الله» و«رسول» و«آمن» تميل به نحو المدينة.'
+          : 'It is right '+pc(c.accuracy)+' times out of 100, better than the '+pc(c.baseline)+' you would get by always saying «Meccan». '+(allMec ? 'It recognises every Meccan surah' : 'It recognises '+mec[0]+' of the '+nMec+' Meccan surahs')+', but takes '+med[0]+' of the '+nMed+' Medinan surahs for Meccan. Words like Allah, messenger (رسول) and believe (آمن) point it towards Medina.'; }
+      return x; },
+    coinLand(){ const mc=this.AN.montecarlo && this.AN.montecarlo.coincidence; return mc && mc.landscape ? mc.landscape : []; },
+    coinPick(){ return this.coinLand.find(r=>r.n===this.gridN) || this.coinLand[0] || null; },
+    // what each page's stage draws, for screen readers (label) and as the hint under it (cap)
+    stageInfo(){ const ar=this.lang==='ar', t=!FINE, v=this.view;
+      const hv = ar ? (t ? 'انقر' : 'مرّر المؤشر') : (t ? 'Tap' : 'Hover');
+      const I = ar ? {
+        overview:['آيات كل سورة أعمدةً من النقاط', 'كل نقطة ضوءٍ آيةٌ واحدة، قائمةٌ في عمود سورتها: الذهبي مكي والأخضر مدني. '+hv+' على آيةٍ لتراها'+(t?'':'، وانقر لتقرأ سورتها')+'.'],
+        dashboard:['آيات السور المختارة أعمدةً من النقاط', 'كل نقطةٍ آيةٌ واحدة، في أعمدة السور التي تُبقيها مرشّحاتك. '+hv+' على آيةٍ لتراها.'],
+        mecca:['آيات القرآن مرتّبةً بطولها', 'كل نقطةٍ آيةٌ واحدة، موضوعةٌ بحسب عدد كلماتها على مقياسٍ لوغاريتمي. تقع الآيات المدنية أبعد. '+hv+' على آيةٍ لتراها.'],
+        stats:['آيات القرآن مرتّبةً بطولها مع المتوسطين', 'كل نقطةٍ آيةٌ واحدة بحسب عدد كلماتها، والخطّان متوسطا الطول. '+hv+' على آيةٍ لتراها.'],
+        word:['أكثر الكلمات ورودًا أشرطةً من الضوء', 'نقاط الحقل كلها موزّعةٌ بحسب ورود كل كلمة. '+hv+' على شريطٍ لترى عدده'+(t?'':'، وانقر لتبحث عنه')+'.'],
+        nlp:['أكثر الثنائيات ورودًا أشرطةً من الضوء', 'نقاط الحقل كلها موزّعةٌ بحسب ورود كل ثنائية. '+hv+' على شريطٍ لترى عدده.'],
+        letters:['تكرار الحروف أعمدةً من الضوء', 'نقاط الحقل كلها موزّعةٌ بحسب تكرار كل حرفٍ مكتوب، والنسبة فوق العمود. '+hv+' على عمودٍ لترى عدده.'],
+        emotion:['كلمات كل نبرةٍ أكوامًا من النقاط', 'نقطةٌ لكل كلمة، مكوّمةٌ بترتيب المصحف. '+hv+' على كومةٍ لترى من أي سورةٍ جاء ذلك الموضع.'],
+        pronouns:['الضمائر الثلاثة أكوامًا من النقاط', 'نقطةٌ لكل موضعٍ معدود. '+hv+' على كومةٍ لترى عددها.'],
+        science:['آيات القرآن بساطًا تضيء فيه الآيات المذكورة هنا', 'آيات القرآن كلها بترتيب القراءة، والآيات المذكورة هنا مضيئة. '+hv+' على آيةٍ مضيئة لترى موضوعها.'],
+        search:['مواضع البحث في آيات القرآن كلها', 'آيات القرآن كلها بترتيب القراءة، وتضيء الآيات التي وردت فيها كلمتك. '+hv+' على آيةٍ لتراها.'],
+        advanced:['كل سورةٍ قرصٌ من آياتها بحسب عدد آياتها وكلماتها', 'كل سورةٍ قرصٌ من آياتها، موضوعٌ بعدد آياتها وعدد كلماتها (مقياسان لوغاريتميان). '+hv+' على قرصٍ لترى السورة.'],
+        cluster:['السور في مجموعاتٍ من المتشابهات', 'كل سورةٍ قرصٌ من آياتها في موضعها على الاتجاهين، ولونها لون مجموعتها. '+hv+' على قرصٍ لترى السورة.'],
+        symmetry:['أزواج الكلمات: المعدود مقابل المزعوم', 'نقطةٌ لكل موضعٍ وُجد، والإطار المتقطّع يحيط بالعدد المزعوم لكل كلمة.'],
+        auditor:['المزاعم الاثنا عشر: المعدود مقابل المزعوم', 'نقطةٌ لكل موضعٍ معدود بترتيب المصحف. الإطار المتقطّع يحيط بالعدد المزعوم: أخضر حين يتطابقان، وما زاد عليه ينسكب ذهبيًا. '+hv+' على نقطةٍ لترى آيتها.'],
+        coincidence:['كلمات القرآن المختلفة نقاطًا يضيء منها ما يقع على الرقم', 'كل نقطةٍ كلمةٌ من الكلمات المختلفة الـ٤٬٧٧١. النقاط المضيئة تُظهر كم منها يقع على الرقم، لا أيّها.'],
+      } : {
+        overview:['Verses per surah as columns of points', 'Each point of light is one verse, standing in its surah\'s column: gold Meccan, green Medinan. '+hv+' a verse to see it'+(t?'':'; click to read its surah')+'.'],
+        dashboard:['The kept surahs\' verses as columns of points', 'Each point is one verse, in the columns of the surahs your filters keep. '+hv+' a verse to see it.'],
+        mecca:['Every verse by its length', 'Each point is one verse, placed by its length in words (a log scale). Medinan verses sit further along. '+hv+' a verse to see it.'],
+        stats:['Every verse by its length, with both means', 'Each point is one verse by its length in words; the marks are the two means. '+hv+' a verse to see it.'],
+        word:['The most frequent words as bars of light', 'The field\'s points shared out by how often each word occurs. '+hv+' a bar for its count'+(t?'':'; click it to find every place it occurs')+'.'],
+        nlp:['The most frequent word pairs as bars of light', 'The field\'s points shared out by how often each two-word phrase occurs. '+hv+' a bar for its count.'],
+        letters:['Letter frequency as columns of light', 'The field\'s points shared out by how often each letter is written; the share is above each column. '+hv+' a column for its count.'],
+        emotion:['The words of each tone as heaps of points', 'One point per word, heaped in mushaf order. '+hv+' a heap to see which surah that stretch of it comes from.'],
+        pronouns:['The three pronouns as heaps of points', 'One point per counted occurrence. '+hv+' a heap for its count.'],
+        science:['The whole Quran as a carpet, with the verses cited here lit', 'Every verse of the Quran in reading order; the verses cited here light up. '+hv+' a lit verse to see its topic.'],
+        search:['Where your search falls in the whole Quran', 'Every verse in reading order; the verses where your word occurs light up. '+hv+' a verse to see it.'],
+        advanced:['Each surah as a disc of its verses, by verses and words', 'Each surah is a disc of its verses, placed by its verse and word counts (log scales). '+hv+' a disc to see the surah.'],
+        cluster:['The surahs in groups of similar ones', 'Each surah is a disc of its verses at its place on the two directions, coloured by its group. '+hv+' a disc to see the surah.'],
+        symmetry:['Word pairs: counted against claimed', 'One point per word found; a dashed outline holds the number claimed for each word.'],
+        auditor:['The twelve claims: counted against claimed', 'One point per mention counted, in mushaf order. A dashed outline holds the claimed number: green where they match; anything past it spills in gold. '+hv+' a point to see its verse.'],
+        coincidence:['The Quran\'s different words as points, lit by the chosen number', 'Each dot is one of the 4,771 different words. The lit dots show how many land on the number, not which ones.'],
+      };
+      const x=I[v], pl=this.plain; if(!x) return {label:'', cap:''};
+      return {label:x[0], cap: pl && pl.how ? [pl.how, pl.tip].filter(Boolean).join(' ') : x[1]}; },
     curTabs(){ return (this.curHub && this.curHub.items.length>1) ? this.curHub.items : []; },
     dashFiltered(){ let r=(this.DS.surahMeta||[]).filter(s=>
         (this.dashPlace==='all'||s.place===this.dashPlace) && s.verses>=this.dashMinVerses);
@@ -1842,11 +2197,58 @@ createApp({
       this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); this.enterView(changed); }); },
     // ---- the landing's motion, carried into the app ----
     enterView(animate){
-      const sky=SKY(); if(sky){ sky.setView(this.view); this.syncSky(); }
+      const sky=SKY(); if(sky){ sky.setView(this.view); this.syncSky(); this.syncStage(); }
       this.revealScan();
       if(animate) (this.view==='home' ? this.heroIntro() : this.animateHead());
     },
+    // ---- the page's stage: its figure, drawn by the verse sky ----
+    stageSpec(){
+      const ar=this.lang==='ar', DS=this.DS, V1=this.V1||{}, AN=this.AN||{};
+      const m100=n=>n%100, times = ar ? n=>(m100(n)>=3 && m100(n)<=10 ? 'مرات' : 'مرة') : 'times';   // Arabic counted nouns change with the number
+      switch(this.view){
+        case 'overview': return {type:'columns', data:{}};
+        case 'dashboard': return {type:'columns', data:{order:this.dashFiltered.map(s=>s.n), peaks:3}};
+        case 'mecca': return {type:'lengths', data:{means:{mecca:this.MM.mecca.avgWordsPerVerse, medina:this.MM.medina.avgWordsPerVerse}}};
+        case 'stats': return AN.ttest ? {type:'lengths', data:{means:{mecca:AN.ttest.meccanMean, medina:AN.ttest.medinanMean}, showMeans:true}} : null;
+        case 'word': return {type:'bars', data:{orient:'h', search:'lemma', unit:times,
+          items:(DS.topWordsLemma||[]).slice(0,15).map(x=>({label:x.w, sub:LEMMA_EN[x.w]||'', c:x.c}))}};
+        case 'nlp': return {type:'bars', data:{orient:'h', labelW:.3, unit:times, from:'teal', to:'emerald',
+          items:(DS.bigrams||[]).slice(0,12).map(x=>({label:x.w, sub:PAIR_EN[x.w]||'', c:x.c}))}};
+        case 'letters': { const tot=(DS.letterFreq||[]).reduce((a,x)=>a+x.c,0)||1;
+          return {type:'bars', data:{orient:'v', showShare:true, unit:ar ? n=>(m100(n)>=3 && m100(n)<=10 ? 'أحرف' : m100(n)>=11 ? 'حرفًا' : 'حرف') : 'letters', from:'amber', to:'teal',
+            items:(DS.letterFreq||[]).map(x=>({label:x.l, c:x.c, short: x.c/tot>=.01 ? this.D(Math.round(x.c/tot*100))+(ar?'٪':'%') : ''}))}}; }
+        case 'emotion': { const S=V1.sentiment||[], t=this.emotionTotals;
+          const g=(k,a,l,c)=>({ar:a, label:l, c:t[k], color:c, per:S.map(x=>({s:x.n, c:x[k]})).filter(e=>e.c>0)});
+          return {type:'heaps', data:{groups:[g('mercy','رحمة','Mercy','emerald'), g('guidance','هداية','Guidance','teal'), g('hope','أمل','Hope','amber'), g('warning','تحذير','Warning','rose')]}}; }
+        case 'pronouns': { const p=V1.pronouns||{};
+          return {type:'heaps', data:{groups:[{ar:'نَحْنُ', label:'We', c:p.we||0, color:'amber'}, {ar:'أَنَا', label:'I', c:p.i||0, color:'emerald'}, {ar:'هُوَ', label:'He', c:DS.huwaCount||p.he||0, color:'teal'}]}}; }
+        case 'science': { const R=V1.scientificRefs||[], cats=[...new Set(R.map(r=>r.cat_en))], pal=['amber','teal','rose','violet','emerald','gold','green'];
+          return R.length ? {type:'carpet', data:{lit:R.map(r=>({k:r.s+':'+r.v, color:pal[cats.indexOf(r.cat_en)%pal.length], label:ar ? r.cat_ar+' · '+r.t_ar : r.cat_en+' · '+r.t_en}))}} : null; }
+        case 'search': return SKYKEYS ? {type:'carpet', data:{lit:SKYKEYS.map(k=>({k, color:'amber'}))}} : null;
+        case 'advanced': { const sm=DS.surahMeta||[];
+          return {type:'scatter', data:{logx:true, logy:true, xr:[2.5,330], yr:[8,8000], xTicks:[3,10,30,100,300], yTicks:[10,100,1000],
+            xTitle:ar?'آيات ›':'verses ›', yTitle:ar?'كلمات':'words', legend:[{color:'gold', label:ar?'مكية':'Meccan'}, {color:'green', label:ar?'مدنية':'Medinan'}],
+            pts:sm.map(x=>({n:x.n, x:x.verses, y:x.words, info:this.f(x.verses)+(ar?' آية · ':' verses · ')+this.f(x.words)+(ar?' كلمة · ':' words · ')+this.D((x.words/x.verses).toFixed(1))+(ar?' كلمة للآية':' words a verse')}))}}; }
+        case 'cluster': { const cs=AN.clusters||[]; if(!cs.length) return null;
+          const rg=a=>{ const lo=Math.min(...a), hi=Math.max(...a), p=(hi-lo)*.07; return [lo-p, hi+p]; }, xr=rg(cs.map(c=>c.x)), yr=rg(cs.map(c=>c.y));
+          const tk=r=>{ const st=(r[1]-r[0])>6?2:1, o=[]; for(let v=Math.ceil(r[0]/st)*st; v<=r[1]; v+=st) o.push(v); return o; };
+          const CL=['green','gold','teal','violet','rose'], K=AN.k||4, lab=k=>(ar?'العنقود ':'Cluster ')+this.D(k+1);
+          return {type:'scatter', data:{xr, yr, xTicks:tk(xr), yTicks:tk(yr), xTitle:ar?'الاتجاه الأول ›':'first direction ›', yTitle:ar?'الاتجاه الثاني':'second direction', r1:8, legendStep:ar?.13:.12,
+            legend:Array.from({length:K},(_,k)=>({color:CL[k%5], label:lab(k)})), pts:cs.map(c=>({n:c.n, x:c.x, y:c.y, color:CL[c.cluster%5], info:lab(c.cluster)}))}}; }
+        case 'symmetry': { const C=this.claims||[], byId=id=>C.find(c=>c.id===id), items=[];
+          [['angel-88','devil-88'],['paradise-77','hell-77'],['man-24','woman-24'],['adam-24','jesus-24']].forEach(pr=>pr.forEach(id=>{ const c=byId(id);
+            if(c) items.push({ar:c.ar, label:c.en, claimed:c.claimed, counted:c.verifiedLemma, audit:c.audit||[]}); }));
+          return items.length ? {type:'blocks', data:{items, wide:1.6, perRow:4, cell:7}} : null; }
+        case 'auditor': return {type:'blocks', data:{items:(this.claims||[]).map(c=>({ar:c.ar, label:c.en, claimed:c.claimed, counted:c.verifiedLemma, audit:c.audit||[]}))}};
+        case 'coincidence': { const p=this.coinPick, mc=AN.montecarlo && AN.montecarlo.coincidence;
+          return p && mc ? {type:'grid', data:{total:mc.nLemmas, n:p.n, exact:p.exact, near:p.near}} : null; }
+      }
+      return null; },
+    syncStage(){ const sky=SKY(); if(!sky || !sky.setStage) return;
+      const el=document.querySelector('main .stage[data-stage="'+this.view+'"]'), sp=el ? this.stageSpec() : null;
+      sky.setStage(sp ? el : null, sp && sp.type, sp && sp.data); },
     syncSky(){ const sky=SKY(); if(!sky) return;
+      if(this.view==='search') this.$nextTick(()=>this.syncStage());
       if(this.view==='reader') sky.highlightSurah(this.rSurah);
       else if(this.view==='search') sky.highlightKeys(SKYKEYS);
       else sky.clearHighlight(); },
@@ -1976,7 +2378,7 @@ createApp({
       const p=this.claims.find(x=>x.id===c.pair); if(p&&p.verifiedLemma===c.verifiedLemma) return 'parity'; return 'differs'; },
     cbadge(c){ const v=this.cverdict(c);
       if(this.lang==='ar') return v==='exact'?'مطابق':v==='parity'?'تعادل':'مختلف';
-      return v==='exact'?'EXACT':v==='parity'?'PARITY':'DIFFERS'; },
+      return v==='exact'?'EXACT':v==='parity'?'PAIR EQUAL':'DIFFERS'; },
     runSearch(){
       if(!this.ready.words){ this.load('words'); return; }   // runs again when the index arrives
       const W=this.W, q=normalize(this.q);
@@ -2001,6 +2403,7 @@ createApp({
     },
     renderReader(){ /* reactive via computed */ },
     renderCharts(){
+      if(STAGED[this.view] && !noGL() && this.view!=='advanced' && this.view!=='coincidence') return;   // the sky draws this page's chart
       if(typeof Plotly==='undefined'){ this.load('plotly'); return; }   // drawn when it arrives
       const isAr = this.lang==='ar';
       const mob = window.innerWidth < 480;
@@ -2027,7 +2430,7 @@ createApp({
         margin:Object.assign({},L.margin,{l:L.margin.r,r:L.margin.l}),
         yaxis:Object.assign({},L.yaxis,{side:'right'}),
         xaxis:Object.assign({},L.xaxis,L.xaxis&&L.xaxis.range ? {range:L.xaxis.range.slice().reverse()} : {autorange:'reversed'})});
-      const newPlot=(id,data,L)=>Plotly.newPlot(id,data,rtl(L),cfg);
+      const newPlot=(id,data,L)=>{ if(STAGED[this.view]===id && !noGL()) return; return Plotly.newPlot(id,data,rtl(L),cfg); };
       if(this.view==='overview' && document.getElementById('ovChart')){
         const sm=this.DS.surahMeta;
         const mk=sm.filter(s=>s.place==='Mecca'), md=sm.filter(s=>s.place==='Medina');
@@ -2039,7 +2442,7 @@ createApp({
       if(this.view==='word' && document.getElementById('lemChart')){
         const t=this.DS.topWordsLemma.slice(0,15).reverse();
         newPlot('lemChart',[{y:t.map(x=>x.w),x:t.map(x=>x.c),type:'bar',orientation:'h',marker:{color:P.med},text:t.map(x=>x.c.toLocaleString()),textposition:'outside',cliponaxis:false}],
-          Object.assign({},lay,{height:430,xaxis:{range:[0,Math.max(...t.map(x=>x.c))*1.25]},yaxis:{tickfont:{family:'Amiri',size:16}},title:'Top lemmas'}));
+          Object.assign({},lay,{height:430,xaxis:{range:[0,Math.max(...t.map(x=>x.c))*1.25]},yaxis:{tickfont:{family:'Amiri',size:16}},title:'Most frequent words'}));
       }
       if(this.view==='letters' && document.getElementById('letChart')){
         const t=this.DS.letterFreq;
@@ -2106,7 +2509,7 @@ createApp({
         const b=this.DS.bigrams.slice(0,12).reverse();
         newPlot('biChart',[{y:b.map(x=>x.w),x:b.map(x=>x.c),type:'bar',orientation:'h',marker:{color:P.med},
           text:b.map(x=>x.c),textposition:'outside',cliponaxis:false}],Object.assign({},lay,{height:400,xaxis:{range:[0,Math.max(...b.map(x=>x.c))*1.22]},yaxis:{automargin:true,tickfont:{family:'Amiri',size:15}},
-          title:isAr?'أكثر الثنائيات':'Top bigrams'}));
+          title:isAr?'أكثر العبارات ذات الكلمتين':'Most common two-word phrases'}));
       }
       if(this.view==='auditor' && document.getElementById('audChart')){
         const c=this.claims; const clab=c.map(x=>isAr?x.ar:x.en);
@@ -2123,14 +2526,14 @@ createApp({
         const med=c.topMedinan.slice(0,6), mec=c.topMeccan.slice(0,6);
         const rows=mec.map(w=>({w:w.w,c:w.c})).concat(med.slice().reverse().map(w=>({w:w.w,c:w.c})));
         const cv=rows.map(r=>r.c), cmax=Math.max(...cv), cmin=Math.min(...cv), cpad=(cmax-cmin)*0.18;
-        const clfTitle=isAr?'أقوى الكلمات: مدني (أخضر) مقابل مكي (ذهبي)':'Strongest words: Medinan (green) vs Meccan (gold)';
+        const clfTitle=isAr?'الكلمات التي تدلّ أكثر على المدينة (أخضر) أو مكة (ذهبي)':'Words that point most to Medina (green) or to Mecca (gold)';
         const clfLay=Object.assign({},lay,{height:360,margin:{t:48,r:44,b:84,l:80},xaxis:{range:[cmin-cpad,cmax+cpad]},yaxis:{tickfont:{family:'Amiri',size:15}},
             title:clfTitle},
             // phones: title on two lines, labels sized to fit, and room beside zero for the Meccan values
             mob?{height:400,margin:{t:66,r:40,b:44,l:8},xaxis:{range:[cmin-cpad*2.4,cmax+cpad]},yaxis:{automargin:true,tickfont:{family:'Amiri',size:15}},
               title:clfTitle.replace(': ',':<br>')}:{});
         newPlot('clfChart',[{y:rows.map(r=>r.w),x:cv,type:'bar',orientation:'h',
-          marker:{color:rows.map(r=>r.c>=0?P.med:P.mec)},text:rows.map(r=>r.c),textposition:'outside',cliponaxis:false}],
+          marker:{color:rows.map(r=>r.c>=0?P.med:P.mec)},hovertemplate:'%{y}<extra></extra>'}],
           clfLay);
       }
       if(this.view==='stats' && this.AN.ttest && document.getElementById('statChart')){
@@ -2184,7 +2587,9 @@ createApp({
     }
   },
   watch:{ lang(v){ this.applyDir(); this.showTrans = (v!=='ar'); this.applySitCat(); const sky=SKY(); if(sky) sky.setLang(v);
-      this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); this.revealScan(); }); },
+      this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); this.revealScan(); this.syncStage(); }); },
+    dashFiltered(){ if(this.view==='dashboard') this.$nextTick(()=>this.syncStage()); },
+    gridN(){ if(this.view==='coincidence') this.syncStage(); },
     rSurah(){ if(this.view==='reader') this.syncSky(); } },
   mounted(){
     window.addEventListener('scroll', this.onPageScroll, { passive:true });
@@ -2212,6 +2617,13 @@ createApp({
     if(window.QURAN_EN) this.EN=window.QURAN_EN;
     const sky=SKY(); if(sky) sky.setLang(this.lang);
     window.addEventListener('sky:read', e=>{ const n=e.detail && e.detail.surah; if(n>=1 && n<=114){ this.rSurah=n; this.go('reader'); } });
+    window.addEventListener('sky:search', e=>{ const d=e.detail||{}; if(!d.q) return; this.q=d.q; this.mode=d.mode||'lemma'; this.go('search'); this.$nextTick(()=>this.runSearch()); });
+    // the sky draws the staged charts; if it can't (no WebGL), Plotly draws them instead
+    const root=document.documentElement;
+    const skyUp=()=>{ this.skyReady=true; this.$nextTick(()=>this.syncStage()); };
+    if(root.classList.contains('gl')) skyUp(); else window.addEventListener('sky:ready', skyUp, {once:true});
+    window.addEventListener('sky:nogl', ()=>{ this.skyReady=true; this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); }); });
+    setTimeout(()=>{ if(!root.classList.contains('gl') && !root.classList.contains('no-gl')){ root.classList.add('no-gl'); window.dispatchEvent(new Event('sky:nogl')); } }, 9000);
     this.setupPointerFx();
     if(!window.gsap){ const g=document.getElementById('gsapjs'); if(g) g.addEventListener('load', ()=>this.setupPointerFx()); }
     window.__appUp=true;
