@@ -8,8 +8,8 @@
 if (location.hostname === 'heshamabourokaia.github.io')
   location.replace('https://quran-daleel.vercel.app' + location.pathname.replace(/^\/quran-text-analytics/, '') + location.search + location.hash);
 </script>
-<title>Daleel · Quran text analytics</title>
-<meta name="description" content="Interactive analytics for the Quran: 114 surahs, 6,236 verses and 77,429 words, covering word and root frequencies, Meccan and Medinan comparisons, letter statistics and a claim auditor." />
+<title>Daleel · The Quran, in numbers</title>
+<meta name="description" content="Daleel counts every word of the Quran and explains what it finds in plain words. Check famous claims about the Quran against the text itself, look up any word, and read the whole mushaf. Free, in English and Arabic." />
 <link rel="canonical" href="https://quran-daleel.vercel.app/app.html" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 <meta name="application-name" content="Daleel" />
@@ -18,16 +18,16 @@ if (location.hostname === 'heshamabourokaia.github.io')
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://quran-daleel.vercel.app/app.html" />
 <meta property="og:site_name" content="Daleel" />
-<meta property="og:title" content="Daleel · The Quran, measured" />
-<meta property="og:description" content="114 surahs, 6,236 verses, 77,429 words. Interactive charts for word frequencies, roots, Mecca vs Medina, letter statistics and a claim auditor. English and Arabic." />
+<meta property="og:title" content="Daleel · The Quran, in numbers" />
+<meta property="og:description" content="Daleel counts every word of the Quran and explains what it finds in plain words. Check famous claims about the Quran against the text itself, look up any word, and read the whole mushaf. Free, in English and Arabic." />
 <meta property="og:image" content="https://quran-daleel.vercel.app/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:locale" content="en_AU" />
 <meta property="og:locale:alternate" content="ar_AR" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Daleel · The Quran, measured" />
-<meta name="twitter:description" content="114 surahs, 6,236 verses, 77,429 words. Interactive charts for word frequencies, roots, Mecca vs Medina, letter statistics and a claim auditor. English and Arabic." />
+<meta name="twitter:title" content="Daleel · The Quran, in numbers" />
+<meta name="twitter:description" content="Daleel counts every word of the Quran and explains what it finds in plain words. Check famous claims about the Quran against the text itself, look up any word, and read the whole mushaf. Free, in English and Arabic." />
 <meta name="twitter:image" content="https://quran-daleel.vercel.app/og-image.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -668,7 +668,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
   </header>
   <div v-if="sideOpen" class="backdrop" @click="sideOpen=false"></div>
   <aside class="side" :class="{open:sideOpen}">
-    <a class="brand" :href="landingHref"><span class="glyph" aria-hidden="true"></span><span><b class="bname">{{ lang==='ar' ? 'دليل' : 'Daleel' }}</b><small>{{ lang==='ar' ? 'القرآن بالأرقام' : 'The Quran, measured' }}</small></span></a>
+    <a class="brand" :href="landingHref"><span class="glyph" aria-hidden="true"></span><span><b class="bname">{{ lang==='ar' ? 'دليل' : 'Daleel' }}</b><small>{{ lang==='ar' ? 'القرآن بالأرقام' : 'The Quran, in numbers' }}</small></span></a>
     <div class="langtoggle">
       <button :class="{on:lang==='en'}" :aria-pressed="lang==='en'" @click="lang='en'">English</button>
       <button :class="{on:lang==='ar'}" :aria-pressed="lang==='ar'" lang="ar" @click="lang='ar'">العربية</button>
@@ -697,8 +697,8 @@ if (location.hostname === 'heshamabourokaia.github.io')
           ? 'استكشف القرآن الكريم من خلال أرقامه: ابحث عن أي كلمةٍ بجميع صيغها، وانظر ما يكشفه العدّ الدقيق، ودقّق الأعداد المتداولة عن القرآن، واقرأ المصحف كاملًا. وكل رقمٍ تراه هنا يُعَدّ لحظيًا من نص القرآن داخل متصفحك، من غير أي إدخالٍ يدوي.'
           : 'Explore the Quran through its numbers: search any word in all its forms, see what careful counting shows, check famous claims about the Quran, and read the mushaf. Every number is counted live from the Quran\'s text in your browser; nothing is typed in by hand.' }}</p>
         <div class="ctas">
-          <button class="btn primary magnetic" type="button" @click="go('auditor')"><span>{{ lang==='ar' ? 'دقّق الأعداد المتداولة' : 'Audit the famous claims' }}</span><svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h10M9 4.5 12.5 8 9 11.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          <button class="btn ghost magnetic" type="button" @click="go('overview')"><span>{{ lang==='ar' ? 'استكشف البيانات' : 'Explore the data' }}</span></button>
+          <button class="btn primary magnetic" type="button" @click="go('auditor')"><span>{{ lang==='ar' ? 'تحقّق من الأعداد المتداولة' : 'Check the famous claims' }}</span><svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h10M9 4.5 12.5 8 9 11.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button class="btn ghost magnetic" type="button" @click="go('overview')"><span>{{ lang==='ar' ? 'استكشف الأرقام' : 'Explore the numbers' }}</span></button>
         </div>
         <form class="askbox" @submit.prevent="askSite">
           <input class="q" v-model="ask.text" maxlength="200" :placeholder="lang==='ar' ? 'اسأل الموقع: قصة يوسف، دعاءٌ للقلق، سورة الكهف…' : 'Ask the site: the story of Yusuf, a du’a for anxiety, surah Al-Kahf…'" :aria-label="lang==='ar' ? 'اسأل الموقع' : 'Ask the site'">
@@ -1869,10 +1869,10 @@ createApp({
     };
   },
   computed:{
-    heroLines(){ return this.lang==='ar' ? [['القرآن'],['بالأرقام.']] : [['The','Quran,'],['measured.']]; },
+    heroLines(){ return this.lang==='ar' ? [['القرآن'],['بالأرقام.']] : [['The','Quran,'],['in','numbers.']]; },
     heroEyebrow(){ return this.lang==='ar'
-      ? `${this.f(this.T.suras)} سورة · ${this.f(this.T.verses)} آية · تُحسب لحظيًا`
-      : `${this.f(this.T.suras)} surahs · ${this.f(this.T.verses)} verses · computed live`; },
+      ? `${this.f(this.T.suras)} سورة · ${this.f(this.T.verses)} آية · كل كلمةٍ معدودة`
+      : `${this.f(this.T.suras)} surahs · ${this.f(this.T.verses)} verses · every word counted`; },
     landingHref(){ return this.lang==='ar' ? './?lang=ar' : './'; },
     safety(){ return this.lang==='ar'
       ? {text:'إن كانت تراودك أفكارٌ بإنهاء حياتك أو إيذاء نفسك، فأرجوك اطلب المساعدة الآن: اتصل برقم الطوارئ في بلدك، أو بخط مساندةٍ نفسية، أو تحدّث إلى شخصٍ تثق به. لستَ وحدك، وتستحق الدعم.', link:'ابحث عن خط مساندة في بلدك'}

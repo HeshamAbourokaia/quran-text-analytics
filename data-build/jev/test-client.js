@@ -153,6 +153,17 @@ const tests = {
     assert.deepEqual(J.situationLocal('المدرسة', 'duas'), [], 'short Arabic keys must not match inside longer words');
     assert.equal(top('امي مريضة', 'lessons'), 'family');
     assert.equal(J.situationLocal('هل اسافر ام ابقى', 'lessons').some(r => r.cat === 'family'), false, 'أم (or) is not a mother');
+    // everyday situations reach the lessons that speak to them, in both languages
+    assert.equal(top("looking for a new job but i haven't been successful for the last 1 year", 'lessons'), 'character');
+    assert.equal(top('أبحث عن عمل منذ سنة ولم أنجح', 'lessons'), 'character');
+    assert.equal(top('I have been struggling for months and I feel like giving up', 'lessons'), 'character');
+    assert.equal(top('I am worried about money and my future', 'lessons'), 'faith');
+    // a negated word of joy is no reason for a du'a of praise
+    assert.equal(top("looking for a new job but i haven't been successful", 'duas'), 'provision');
+    for (const t of ["I'm not happy at all", 'I never felt grateful', 'لست سعيدا'])
+      assert.equal(J.situationLocal(t, 'duas').some(r => r.cat === 'praise'), false, t);
+    assert.equal(top('I passed my exam, alhamdulillah, so happy', 'duas'), 'praise');
+    assert.equal(top('الحمد لله نجحت', 'duas'), 'praise');
   },
   'crisis wording is recognised in both languages, everyday wording is not'() {
     for (const t of ['I want to kill myself', 'thinking about suicide', "I don't want to live anymore", 'I keep hurting myself', 'أريد أن أموت', 'افكر في الانتحار'])
