@@ -4,31 +4,33 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <script>
-// The old GitHub Pages address forwards to the site's home, keeping the page, the language and any deep link.
+// The old addresses forward to the site's home, keeping the page, the language and any deep link.
 if (location.hostname === 'heshamabourokaia.github.io')
-  location.replace('https://quran-daleel.vercel.app' + location.pathname.replace(/^\/quran-text-analytics/, '') + location.search + location.hash);
+  location.replace('https://quraninsights.vercel.app' + location.pathname.replace(/^\/quran-text-analytics/, '') + location.search + location.hash);
+else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname === 'quran-text-analytics.vercel.app')
+  location.replace('https://quraninsights.vercel.app' + location.pathname + location.search + location.hash);
 </script>
-<title>Daleel · The Quran, in numbers</title>
-<meta name="description" content="Daleel counts every word of the Quran and explains what it finds in plain words. Check famous claims about the Quran against the text itself, look up any word, and read the whole mushaf. Free, in English and Arabic." />
-<link rel="canonical" href="https://quran-daleel.vercel.app/app.html" />
+<title>Quran Insights · The Quran, in numbers</title>
+<meta name="description" content="Quran Insights counts every word of the Quran and explains what it finds in plain words. Check famous claims about the Quran against the text itself, look up any word, and read the whole mushaf. Free, in English and Arabic." />
+<link rel="canonical" href="https://quraninsights.vercel.app/app.html" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-<meta name="application-name" content="Daleel" />
-<meta name="apple-mobile-web-app-title" content="Daleel" />
+<meta name="application-name" content="Quran Insights" />
+<meta name="apple-mobile-web-app-title" content="Quran Insights" />
 <meta name="theme-color" content="#040a07" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://quran-daleel.vercel.app/app.html" />
-<meta property="og:site_name" content="Daleel" />
-<meta property="og:title" content="Daleel · The Quran, in numbers" />
-<meta property="og:description" content="Daleel counts every word of the Quran and explains what it finds in plain words. Check famous claims about the Quran against the text itself, look up any word, and read the whole mushaf. Free, in English and Arabic." />
-<meta property="og:image" content="https://quran-daleel.vercel.app/og-image.png" />
+<meta property="og:url" content="https://quraninsights.vercel.app/app.html" />
+<meta property="og:site_name" content="Quran Insights" />
+<meta property="og:title" content="Quran Insights · The Quran, in numbers" />
+<meta property="og:description" content="Quran Insights counts every word of the Quran and explains what it finds in plain words. Check famous claims about the Quran against the text itself, look up any word, and read the whole mushaf. Free, in English and Arabic." />
+<meta property="og:image" content="https://quraninsights.vercel.app/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:locale" content="en_AU" />
 <meta property="og:locale:alternate" content="ar_AR" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Daleel · The Quran, in numbers" />
-<meta name="twitter:description" content="Daleel counts every word of the Quran and explains what it finds in plain words. Check famous claims about the Quran against the text itself, look up any word, and read the whole mushaf. Free, in English and Arabic." />
-<meta name="twitter:image" content="https://quran-daleel.vercel.app/og-image.png" />
+<meta name="twitter:title" content="Quran Insights · The Quran, in numbers" />
+<meta name="twitter:description" content="Quran Insights counts every word of the Quran and explains what it finds in plain words. Check famous claims about the Quran against the text itself, look up any word, and read the whole mushaf. Free, in English and Arabic." />
+<meta name="twitter:image" content="https://quraninsights.vercel.app/og-image.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.plot.ly">
@@ -1008,7 +1010,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
     if (window.__appUp) return;
     var ar = /[?&]lang=ar\b/.test(location.search), m = document.getElementById('bootmsg');
     m.hidden = false;
-    m.innerHTML = (ar ? 'لم يكتمل تحميل «دليل». تحقّق من الاتصال ثم أعد المحاولة.' : 'Daleel is taking too long to load. Check your connection and try again.')
+    m.innerHTML = (ar ? 'لم يكتمل تحميل «بصائر قرآنية». تحقّق من الاتصال ثم أعد المحاولة.' : 'Quran Insights is taking too long to load. Check your connection and try again.')
       + (failed ? '<br><small>' + failed.replace(/[<>&]/g, '') + '</small>' : '')
       + '<br><button type="button" onclick="location.reload()">' + (ar ? 'أعد المحاولة' : 'Try again') + '</button>';
   }
@@ -1027,12 +1029,12 @@ if (location.hostname === 'heshamabourokaia.github.io')
 <div id="app" class="layout" v-cloak :class="{'dir-rtl': lang==='ar'}" :dir="lang==='ar'?'rtl':'ltr'">
   <header class="topbar">
     <button class="menubtn" type="button" @click="sideOpen=!sideOpen" :aria-expanded="sideOpen?'true':'false'" :aria-label="lang==='ar'?'القائمة':'Menu'">{{ sideOpen?'✕':'☰' }}</button>
-    <a class="tbrand" :href="landingHref"><span class="glyph" aria-hidden="true"></span><span class="bname">{{ lang==='ar' ? 'دليل' : 'Daleel' }}</span></a>
+    <a class="tbrand" :href="landingHref"><span class="glyph" aria-hidden="true"></span><span class="bname">{{ lang==='ar' ? 'بصائر قرآنية' : 'Quran Insights' }}</span></a>
     <button class="tlang" type="button" :lang="lang==='ar'?'en':'ar'" @click="lang = lang==='ar' ? 'en' : 'ar'">{{ lang==='ar' ? 'English' : 'العربية' }}</button>
   </header>
   <div v-if="sideOpen" class="backdrop" @click="sideOpen=false"></div>
   <aside class="side" :class="{open:sideOpen}">
-    <a class="brand" :href="landingHref"><span class="glyph" aria-hidden="true"></span><span><b class="bname">{{ lang==='ar' ? 'دليل' : 'Daleel' }}</b><small>{{ lang==='ar' ? 'القرآن بالأرقام' : 'The Quran, in numbers' }}</small></span></a>
+    <a class="brand" :href="landingHref"><span class="glyph" aria-hidden="true"></span><span><b class="bname">{{ lang==='ar' ? 'بصائر قرآنية' : 'Quran Insights' }}</b><small>{{ lang==='ar' ? 'القرآن بالأرقام' : 'The Quran, in numbers' }}</small></span></a>
     <div class="langtoggle">
       <button :class="{on:lang==='en'}" :aria-pressed="lang==='en'" @click="lang='en'">English</button>
       <button :class="{on:lang==='ar'}" :aria-pressed="lang==='ar'" lang="ar" @click="lang='ar'">العربية</button>

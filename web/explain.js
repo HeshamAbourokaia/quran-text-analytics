@@ -1,4 +1,4 @@
-// Daleel's explanations in layers, for the app's analysis pages (web/app.html reads window.DALEEL_EXPLAIN).
+// The site's explanations in layers, for the app's analysis pages (web/app.html reads window.DALEEL_EXPLAIN).
 //   SCI:   each page's explanation for scientists, beside the plain one: purpose, data, method, result, limits
 //          (and "also" for a second analysis on the same page). The switch above each box picks the layer.
 //   GLOSS: the technical terms. Each opens as a card in four layers: in plain words, what it does here,
