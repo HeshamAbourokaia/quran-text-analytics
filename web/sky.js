@@ -31,6 +31,7 @@
     overview: 'dust', word: 'dust', letters: 'dust', nlp: 'dust', advanced: 'dust', emotion: 'dust', pronouns: 'dust', dashboard: 'dust',
     mecca: 'dust', classifier: 'split', stats: 'dust', cluster: 'dust', hifz: 'split',
     auditor: 'dust', symmetry: 'dust', n19: 'dust', abjad: 'dust', structural: 'dust', coincidence: 'dust', science: 'dust',
+    'd-endings': 'dust', 'd-rhyme': 'dust', 'd-themes': 'dust', 'd-repeats': 'dust', 'd-chrono': 'dust',
   };
   const formOf = v => FORM[v] || 'galaxy';
 
@@ -426,6 +427,23 @@
         return S;
       },
 
+      // the whole Quran as a carpet in reading order, each verse coloured by its class (a rhyme, a theme, ...);
+      // with focus set, that class glows and the rest dims
+      mosaic(d, bx) {
+        const S = blank(), cls = d.cls || [], names = d.names || [], cols = (d.colors || []).map(colorOf), f = d.focus == null ? -1 : d.focus;
+        const C = Math.max(20, Math.round(Math.sqrt(N * bx.w / bx.h))), Rw = Math.ceil(N / C), c = Math.min(bx.w / C, bx.h / Rw);
+        const ox = (bx.w - C * c) / 2, oy = (bx.h - Rw * c) / 2;
+        for (let n = 0; n < N; n++) {
+          const r = Math.floor(n / C), q = n % C, k = cls[n] == null ? -1 : cls[n], fx = (ox + (q + .5) * c) / bx.w, fy = (oy + (r + .5) * c) / bx.h;
+          const on = k >= 0 && (f < 0 || f === k), b = .82 + jit2[n] * .3, cc = k >= 0 && cols[k] ? cols[k] : [.42, .48, .45];
+          const dim = on ? (f >= 0 ? 1 : .82) : k >= 0 && f >= 0 ? .3 : .45;
+          put(S, n, fx, fy, [cc[0] * b * dim, cc[1] * b * dim, cc[2] * b * dim], on ? (f >= 0 ? .9 : .32) : 0, c * (on ? (f >= 0 ? 1.7 : 1.15) : .75), (r / Rw) * .7 + jit[n] * .3, k);
+        }
+        S.hover = n => { const k = cls[n] == null ? -1 : cls[n]; return verseTip(n, k >= 0 && names[k] ? '<b>' + esc(names[k]) + '</b>' : ''); };
+        S.link = n => ({ verse: [sur[n] + 1, ver[n] + 1] });
+        return S;
+      },
+
       // each surah a disc of its verses, placed by two numbers about it
       scatter(d, bx) {
         const S = blank(), P2 = d.pts || [], ml = .085, mr = .03, mt = .05, mbt = .13;
@@ -505,13 +523,14 @@
         let p = 0;
         it.forEach((x, i) => {
           const a = pk.at[i], m = dims[i], match = x.claimed != null && x.counted === x.claimed;
-          const inside = match ? PAL.emerald : PAL.pale, spill = PAL.amber, audit = x.audit || [];
+          const inside = match ? PAL.emerald : PAL.pale, spill = PAL.amber, audit = x.audit || [], mk = x.marks;
           for (let j = 0; j < x.counted; j++, p++) {
             const q = j % m.cols, r = Math.floor(j / m.cols), n = audit[j] ? keyIdx(audit[j][0] + ':' + audit[j][1]) : -1;
             // a mention's own verse point stands for it when it is free, so hovering names the verse; otherwise a spare point
             const pt = n >= 0 && !S.on[n] ? n : nextFree();
-            const over = x.claimed != null && j >= x.claimed, bright = .85 + jit2[pt] * .3, cc = over ? spill : inside;
-            put(S, pt, (a.x + (q + .5) * c) / bx.w, (a.y + labH + (r + .5) * c) / Ht, [cc[0] * bright, cc[1] * bright, cc[2] * bright], over ? .8 : .45, c * 1.15,
+            const over = x.claimed != null && j >= x.claimed, bright = .85 + jit2[pt] * .3, lit = mk ? !!mk[j] : true;
+            const cc = mk ? (lit ? PAL.emerald : [.5, .56, .53]) : over ? spill : inside;
+            put(S, pt, (a.x + (q + .5) * c) / bx.w, (a.y + labH + (r + .5) * c) / Ht, [cc[0] * bright, cc[1] * bright, cc[2] * bright], mk ? (lit ? .75 : .12) : over ? .8 : .45, c * (mk && !lit ? .95 : 1.15),
               i / it.length * .5 + j / Math.max(1, x.counted) * .4 + jit[pt] * .1, i * 100000 + j);
           }
           if (x.claimed) {   // the outline of the claimed number of cells; its last row stops where the count does
@@ -520,18 +539,18 @@
           }
           const verdict = x.claimed == null ? '' : match ? 'ok' : 'off';
           S.labels.push(L(a.x / bx.w, a.y / Ht, '<b lang="ar">' + esc(x.ar || '') + '</b>' + (x.label && !ar ? ' <span>' + esc(x.label) + '</span>' : '') +
-            '<em class="' + verdict + '">' + (x.claimed != null ? (ar ? 'المزعوم ' : 'claimed ') + nf(x.claimed) + ' · ' : '') + (ar ? 'المعدود ' : 'counted ') + nf(x.counted) + '</em>', 'blab', 'st'));
+            '<em class="' + verdict + '">' + (x.note != null ? esc(x.note) : (x.claimed != null ? (ar ? 'المزعوم ' : 'claimed ') + nf(x.claimed) + ' · ' : '') + (ar ? 'المعدود ' : 'counted ') + nf(x.counted)) + '</em>', 'blab', 'st'));
         });
         function nextFree() { while (S.on[pool[freeP]]) freeP++; return pool[freeP++]; }
         S.kind = 'point';
         S.hover = n => { const v = S.grp[n]; if (v < 0) return null; const x = it[Math.floor(v / 100000)], j = v % 100000, a = (x.audit || [])[j];
           let h = '<b lang="ar">' + esc(x.ar || '') + '</b>' + (x.label && !ar ? ' ' + esc(x.label) : '') + '<br>' +
-            (ar ? 'الموضع ' + nf(j + 1) + ' من ' + nf(x.counted) : 'mention ' + nf(j + 1) + ' of ' + nf(x.counted));
+            (x.tips ? esc(x.tips[j] || '') : ar ? 'الموضع ' + nf(j + 1) + ' من ' + nf(x.counted) : 'mention ' + nf(j + 1) + ' of ' + nf(x.counted));
           if (x.claimed != null && j >= x.claimed) h += ar ? ' · بعد الرقم المزعوم' : ' · past the claimed number';
           if (a) { const k = keyIdx(a[0] + ':' + a[1]); if (k >= 0) h += '<br>' + esc(sname(sur[k])) + ' <span class="k">' + digits(a[0] + ':' + a[1]) + '</span>'; }
           return h; };
         S.link = n => { const v = S.grp[n]; if (v < 0) return 0; const x = it[Math.floor(v / 100000)], a = (x.audit || [])[v % 100000];
-          return !a ? 0 : x.id ? { verse: [a[0], a[1]], claim: x.id } : a[0]; };
+          return !a ? 0 : x.id ? { verse: [a[0], a[1]], claim: x.id } : d.verseLink ? { verse: [a[0], a[1]] } : a[0]; };
         return S;
       },
 

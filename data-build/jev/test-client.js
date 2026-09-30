@@ -138,6 +138,11 @@ const tests = {
     assert.equal(J.routeLocal('said again and again', ix, META).ranked.some(r => r.view === 'classifier'), false);
     assert.equal(top('what do we know about moses'), 'stories', 'an ordinary "we" is not a question about pronouns');
     assert.equal(top('why does god say we in the quran'), 'pronouns');
+    assert.equal(top('can we discover something new in the quran'), 'discover');
+    assert.equal(top('does the rhyme follow the topic'), 'discover');
+    assert.equal(top('ما هي الحروف المقطعة'), 'discover');
+    assert.equal(top('what is the order of revelation of the surahs'), 'discover');
+    assert.equal(top('ما ترتيب النزول'), 'discover', 'a longer key outranks «ترتيب»');
   },
   'situations map to du\'a and lesson categories'() {
     const top = (t, lib) => (J.situationLocal(t, lib)[0] || {}).cat;

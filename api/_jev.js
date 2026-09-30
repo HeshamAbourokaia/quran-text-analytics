@@ -95,6 +95,7 @@ const DESTINATIONS = {
   coincidence: 'how likely number coincidences are by chance',
   hifz: 'planning how to memorise the Quran',
   dashboard: 'filtering surahs by place of revelation and length',
+  discover: 'pre-registered studies that test new ideas about the text against chance: verse endings, rhyme, retold stories, themes, opening letters',
 };
 
 const CATEGORIES = {
