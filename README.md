@@ -25,11 +25,11 @@
 
 | Surface | Status | Link |
 |---------|--------|------|
-| Web app (desktop and mobile) | Live | [quran-insights.vercel.app](https://quran-insights.vercel.app/) |
+| Web app (desktop and mobile) | Live | [quraninsights.vercel.app](https://quraninsights.vercel.app/) |
 | Old addresses | Forward to the new one | [quran-daleel.vercel.app](https://quran-daleel.vercel.app/), [heshamabourokaia.github.io/quran-text-analytics](https://heshamabourokaia.github.io/quran-text-analytics/) |
 | Desktop app (macOS universal) | Available | [Download v1.0](releases) |
 
-Deep-link any page in either language: [`app.html?view=advanced&lang=en`](https://quran-insights.vercel.app/app.html?view=advanced&lang=en) opens the Advanced Analytics page in English, [`app.html?view=search&lang=ar`](https://quran-insights.vercel.app/app.html?view=search&lang=ar) opens the Word Search concordance in Arabic.
+Deep-link any page in either language: [`app.html?view=advanced&lang=en`](https://quraninsights.vercel.app/app.html?view=advanced&lang=en) opens the Advanced Analytics page in English, [`app.html?view=search&lang=ar`](https://quraninsights.vercel.app/app.html?view=search&lang=ar) opens the Word Search concordance in Arabic.
 
 ## What it does
 
