@@ -540,7 +540,7 @@
   const CRISIS = /\b(suicid\w*|kill (my ?self|me)|end (my life|it all)|take my (own )?life|(?:want|wanna) to die(?! (?:my|your|his|her|the) (?:hair|clothes|shirt))|wanna die|don'?t want to (live|be alive)|self[- ]?harm\w*|hurt(ing)? my ?self|cut(ting)? my ?self|no reason to live|better off dead)\b|انتحار|انتحر|اقتل نفسي|أقتل نفسي|انهي حياتي|أنهي حياتي|اريد ان اموت|أريد أن أموت|ايذاء نفسي|إيذاء نفسي|اؤذي نفسي|أؤذي نفسي/i;
   function crisis(text) { return CRISIS.test(String(text || '')) || CRISIS.test(normalize(text)); }
 
-  const api = { normalize, canon, skeleton, mushafSpelling, citationForm, formSenses, formOthers, endpoint, decide, trust, makeIndex, formCount, modeCounts, parseClaim, countOption, judge, optionLabel,
+  const api = { normalize, canon, skeleton, PREFIXES, mushafSpelling, citationForm, formSenses, formOthers, endpoint, decide, trust, makeIndex, formCount, modeCounts, parseClaim, countOption, judge, optionLabel,
     routeLocal, situationLocal, crisis, GLOSS, PLURAL, SENSES, ROUTES, SITUATIONS, AR_STOP };
   root.QTA_JEV = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
