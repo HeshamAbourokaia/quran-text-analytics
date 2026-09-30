@@ -9,7 +9,7 @@ JSON the frontend consumes. No network access at runtime; everything is built he
 python3 build.py          # validate + emit out/*.json + print the scorecard
 python3 tests/test_counts.py   # golden-file tests pin every number
 python3 tests/test_methods.py  # pins the numbers the app's scientific explanations quote
-python3 -m pipeline.discoveries --write   # the nine Discoveries studies -> ../web/discoveries.js (about 6 minutes)
+python3 -m pipeline.discoveries --write   # the nine Discoveries studies -> ../web/discoveries.js (about 10 minutes)
 python3 tests/test_discoveries.py         # the committed results still match the code; pins the numbers quoted
 ```
 

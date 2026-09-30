@@ -754,6 +754,11 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .dsec .tag{display:inline-block;margin-inline-end:10px;font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.1em;color:var(--gold);vertical-align:.35em}
   html[lang=ar] .dsec .tag{font-family:var(--ar);letter-spacing:0;font-size:.85rem}
   .dnote{max-width:860px;margin:4px 0 18px;font-size:.88rem;line-height:1.7;color:var(--on-dark-2)}
+  .dcorr{max-width:860px;margin:-6px 0 22px;padding:12px 16px;border-inline-start:3px solid var(--gold);border-radius:10px;
+    background:rgba(233,185,95,.07);font-size:.88rem;line-height:1.7;color:var(--on-dark-2)}
+  html[lang=ar] .dcorr{font-size:.96rem;line-height:1.95}
+  .dcorr b{color:var(--gold);font-weight:600}
+  .dcorr a{color:var(--on-dark);white-space:nowrap}
   html[lang=ar] .dnote{font-size:.96rem;line-height:1.95}
   .dnote b{color:#fff;font-weight:600}
   .xpl{font-size:.64rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);border:1px dashed rgba(56,198,218,.5);border-radius:999px;padding:3px 9px;margin-inline-start:8px;vertical-align:.2em;white-space:nowrap}
@@ -1145,6 +1150,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
           <span class="vbs"><span v-for="(v,i) in dS.verdicts" :key="i" class="vb" :class="v.cls"><span v-if="v.t" class="vt">{{ v.t }}</span>{{ v.label }}</span></span>
           <p class="lede" v-html="rich(dS.lede)"></p>
         </div>
+        <p class="dcorr" v-if="dS.note"><b>{{ dS.note.label }}</b> <span v-html="rich(dS.note.text)"></span> <a :href="DT.PLAN_NOW + '#corrections-after-publication'" target="_blank" rel="noopener">{{ lang==='ar' ? 'التفاصيل في الخطة ‹' : 'Details in the plan ›' }}</a></p>
         <div class="metric" v-if="dS.metrics.length"><div class="m" v-for="(m,i) in dS.metrics" :key="i"><div class="v">{{ m.v }}</div><div class="k">{{ m.k }}</div></div></div>
         <div class="plain dx" :class="{sci: sciOn}">
           <div class="xhead"><span class="xkick">{{ sciOn ? (lang==='ar' ? 'للمتخصصين: المنهج والأرقام' : 'For scientists: method and numbers') : (lang==='ar' ? 'بكلماتٍ بسيطة' : 'In plain words') }}</span><depth-switch></depth-switch></div>
@@ -1171,7 +1177,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
           </div>
           <div class="card">
             <h3>{{ lang==='ar' ? 'ما يُصغي إليه كل زوج' : 'What each ending listens to' }} <span class="xpl">{{ lang==='ar' ? 'استكشافي' : 'exploratory' }}</span></h3>
-            <p class="dnote">{{ lang==='ar' ? 'الكلمات التي ترفع تخمين النموذج لكل زوجٍ أكثر من غيرها (من نموذجٍ درّبناه على الآيات كلها)، ونسبة ما أصابه من آيات كل زوج.' : 'The words that most raise the model\'s guess for each pair (from a model fitted on all the verses), and how many of each pair\'s verses it got right.' }}</p>
+            <p class="dnote">{{ lang==='ar' ? 'الكلمات التي ترفع تخمين النموذج لكل زوجٍ أكثر من غيرها (من نموذجٍ درّبناه على الآيات كلها بعد حذف ألفاظ جذور الأسماء كلها من كل آية)، ونسبة ما أصابه من آيات كل زوج.' : 'The words that most raise the model\'s guess for each pair (from a model fitted on all the verses, with the words of all the names\' roots removed from every verse), and how many of each pair\'s verses it got right.' }}</p>
             <div class="dscroll"><table class="dtable">
               <tr><th>{{ lang==='ar' ? 'الخاتمة' : 'Ending' }}</th><th>{{ lang==='ar' ? 'آيات' : 'Verses' }}</th><th>{{ lang==='ar' ? 'أصاب' : 'Right' }}</th><th>{{ lang==='ar' ? 'أقوى الكلمات' : 'Telling words' }}</th></tr>
               <tr v-for="p in dEnd.pairs" :key="p.k"><td><span class="ar" lang="ar">{{ p.ar }}</span><br v-if="lang!=='ar'"><span v-if="lang!=='ar'" class="muted">{{ p.en }}</span></td><td class="num">{{ D(p.n) }}</td><td class="num">{{ dF.pc(p.recall) }}</td>
@@ -2818,6 +2824,7 @@ createApp({
       const LAB={asked:['What we asked','ماذا سألنا'], how:st.map ? ['How we made it','كيف صنعناها'] : ['How we tested it','كيف اختبرناه'], found:['What we found','ماذا وجدنا'], means:['What it means','ماذا يعني']};
       const j=T.ORDER.indexOf(this.view), nb=id=>id ? {id, short:T.STUDIES[id].short[i]} : null;
       return {n:st.n, map:!!st.map, q:st.q[i], verdicts:vs, vcls: vs.every(v=>v.cls===vs[0].cls) ? vs[0].cls : 'mixed', lede:this.dx(st.lede),
+        note:st.note ? {label:this.dx(st.note.label), text:this.dx(st.note.text)} : null,
         metrics:st.metrics(D, this.dF).map(m=>({v:m.v, k:m.k[i]})),
         simple:['asked','how','found','means'].map(k=>({k, label:LAB[k][i], html:this.dx(st.simple[k])})),
         sci:['purpose','data','method','result','limits'].map(k=>({k, label:XLAB[k][i], html:this.dx(st.sci[k])})),

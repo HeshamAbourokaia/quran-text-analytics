@@ -9,10 +9,10 @@ committed file, whose p-values and verdicts it pins. After changing a study, reb
 
 Run:  python3 tests/test_discoveries.py      (or: pytest)
 """
-import json, os, sys
+import json, os, sys, tempfile
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
-from pipeline.corpus import load_words
+from pipeline.corpus import load_words, normalize
 from pipeline import datasets as datasets_mod
 from pipeline import discoveries as D
 
@@ -42,9 +42,13 @@ def test_verdicts():
     assert R['chronology']['verdict'] == 'holds'
 
 def test_p_values_and_shuffles():
-    e = R['endings']
-    assert (e['pAll'], e['pWithin'], e['pHolm']) == (0.001, 0.004, [0.002, 0.004])
-    assert (e['nullAll']['n'], e['nullAll']['ge'], e['nullWithin']['ge']) == (2000, 1, 7)
+    e = R['endings']   # corrected on 30 Sep 2026: the shuffles rebuild the ending-dependent features (first published 0.001 / 0.004)
+    assert (e['pAll'], e['pWithin'], e['pHolm']) == (0.001, 0.0075, [0.002, 0.0075])
+    assert (e['nullAll']['n'], e['nullAll']['ge'], e['nullWithin']['ge']) == (2000, 1, 14)
+    assert (round(e['nullAll']['mean'], 4), round(e['nullWithin']['mean'], 4)) == (0.2611, 0.2862)
+    r = e['robust'][0]   # the check: the same roots left out of every verse, so the features never depend on the ending
+    assert (r['accuracy'], r['pAll'], r['pWithin'], r['pHolm']) == (0.3565, 0.001, 0.002, [0.002, 0.002])
+    assert (r['nullAll']['ge'], r['nullWithin']['ge'], r['perms']) == (1, 3, 2000)
     assert (R['rings']['baqara']['p'], R['rings']['baqara']['null']['ge'], R['rings']['baqara']['rotations']) == (0.2552, 72, 285)
     assert (R['rhyme']['p'], R['rhyme']['null']['ge']) == (0.0005, 0)
     assert (R['retellings']['p'], R['retellings']['null']['ge']) == (0.0002, 0)
@@ -61,6 +65,21 @@ def test_endings_as_quoted():
     assert e['pairs'][0]['recall'] == 0.803
     guess = {k: (t, p) for k, t, p in e['verses']}
     assert guess['5:38'] == guess['5:118'] == (1, 0)   # «Mighty, Wise» in the text, «Forgiving, Merciful» guessed
+    r = got['robust'][0]
+    assert r['accuracy'] == e['robust'][0]['accuracy'] == 0.3565 and r['roots'] == e['robust'][0]['roots'] and len(r['roots']) == 11
+    # the telling words come from the model that never sees the names' roots, so none of them is from one of those roots
+    name_lemmas = {w['lemma'] for w in _WORDS if normalize(w['root'] or '') in set(r['roots'])}
+    assert [p['top'] for p in got['pairs']] == [p['top'] for p in e['pairs']]
+    assert not [t for p in e['pairs'] for t in p['top'] if t in name_lemmas]
+
+def test_save_makes_the_output_folder():
+    # data-build/out is not in the repository, so writing the results must create it
+    with tempfile.TemporaryDirectory() as tmp:
+        out, web = os.path.join(tmp, 'out', 'nested'), os.path.join(tmp, 'web')
+        os.makedirs(web)
+        D.save({'prereg': 'x'}, out, web)
+        assert json.load(open(os.path.join(out, 'discoveries.json'))) == {'prereg': 'x'}
+        assert open(os.path.join(web, 'discoveries.js')).read() == 'window.DALEEL_DISCOVERIES = {"prereg":"x"};\n'
 
 def test_rings_as_quoted():
     got = D.rings(_V, _KEYS, _X, _META)['baqara']
