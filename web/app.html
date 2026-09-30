@@ -872,7 +872,9 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .dfig svg .dot.dim{fill:rgba(169,191,180,.55)}
   .dfig svg .bar{fill:var(--emerald)}
   .dfig svg .bar.low{fill:rgba(169,191,180,.5)}
-  .ringwrap{position:relative;width:min(100%,520px);margin:6px auto 0;aspect-ratio:1/1}
+  .ringbox{position:relative;width:min(100%,520px);margin:24px auto 0}
+  .ringwrap{position:relative;width:100%;aspect-ratio:1/1;cursor:crosshair;outline:none;touch-action:manipulation}
+  .ringwrap:focus-visible{box-shadow:0 0 0 2px var(--gold);border-radius:6px}
   .ringwrap canvas{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated;border-radius:6px}
   .ringwrap svg{position:absolute;inset:0;width:100%;height:100%}
   .ringkey{display:flex;justify-content:center;align-items:center;gap:10px;margin:12px 0 0;font-size:.74rem;color:var(--on-dark-3)}
@@ -914,7 +916,74 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .rtick{position:absolute;font-size:.64rem;color:var(--on-dark-3);font-variant-numeric:tabular-nums;white-space:nowrap}
   .rtick.x{top:-18px;transform:translateX(-50%)}
   .rtick.y{left:-8px;transform:translate(-100%,-50%)}
-  .ringwrap{margin:24px auto 0}
+  .ringwrap .hl{fill:none;stroke:#fff;stroke-width:1.8;vector-effect:non-scaling-stroke}
+  .ringwrap .hl.twin{stroke:rgba(255,255,255,.5);stroke-dasharray:2 2}
+  .ringwrap .guide{stroke:rgba(255,255,255,.3);stroke-width:1;vector-effect:non-scaling-stroke}
+  .ringhint{margin:12px 0 0;font-size:.78rem;line-height:1.6;color:var(--on-dark-3);text-align:center}
+  html[lang=ar] .ringhint{font-size:.88rem}
+  .ringtip{margin:12px 0 0;background:rgba(4,10,7,.93);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:10px 12px;
+    font-size:.8rem;line-height:1.5;color:var(--on-dark-2);box-shadow:0 18px 40px -12px rgba(0,0,0,.7);text-align:start}
+  html[lang=ar] .ringtip{font-size:.9rem;line-height:1.75}
+  .ringtip.float{position:absolute;z-index:5;margin:0;width:min(280px,62%);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+  .ringtip.float{pointer-events:none}
+  .ringtip.float.pinned{pointer-events:auto}
+  .ringtip p{margin:0 0 6px}
+  .ringtip p:last-child{margin:0}
+  .ringtip .rt-h{display:flex;align-items:center;gap:8px;color:var(--on-dark-3)}
+  .ringtip .rt-h b{color:var(--on-dark);font-weight:600;font-variant-numeric:tabular-nums;unicode-bidi:isolate}
+  .ringtip .sw{display:inline-block;width:9px;height:9px;border-radius:2px;margin-inline-end:6px;vertical-align:baseline;box-shadow:0 0 0 1px rgba(255,255,255,.25)}
+  .ringtip .rt-c{color:var(--on-dark-3)}
+  .ringtip .rt-l{color:var(--on-dark-3)}
+  .ringtip .wd{display:inline-block;margin-inline-end:8px;font-family:var(--ar-display);font-size:1.08rem;color:var(--gold)}
+  .ringtip .rt-s{font-size:.78rem;color:var(--on-dark-3)}
+  .ringtip .rt-s b{color:var(--on-dark-2);font-weight:600;unicode-bidi:isolate}
+  .ringtip .rt-s span{font-family:var(--ar-display);font-size:1.02rem;color:var(--on-dark-2)}
+  .ringtip .rt-close{margin-inline-start:auto;background:none;border:0;color:var(--on-dark-3);font-size:1.1rem;line-height:1;cursor:pointer;padding:2px 4px}
+  .rt-go{background:none;border:1px solid rgba(52,211,153,.45);color:var(--emerald);border-radius:99px;padding:4px 12px;font:inherit;font-weight:600;cursor:pointer}
+  .rt-go:hover{background:rgba(52,211,153,.1)}
+  .profwrap svg{outline:none;cursor:crosshair}
+  .profwrap svg:focus-visible{box-shadow:0 0 0 2px var(--gold);border-radius:6px}
+  .profwrap .guide{stroke:rgba(255,255,255,.35);stroke-width:1;stroke-dasharray:3 3}
+  .profwrap .dot.hov{fill:#fff}
+  .profnow{margin:8px 0 0;min-height:1.7em;font-size:.84rem;line-height:1.6;color:var(--on-dark-2)}
+  html[lang=ar] .profnow{font-size:.94rem}
+  .profnow b{color:var(--on-dark);font-weight:600}
+  .profnow .rt-go{margin-inline-start:8px}
+  .mclaims{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:8px 0 18px}
+  .mclaim{display:flex;flex-direction:column;gap:4px;padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);
+    color:var(--on-dark-2);text-decoration:none;font-size:.82rem;line-height:1.55;transition:background .25s,border-color .25s}
+  html[lang=ar] .mclaim{font-size:.92rem;line-height:1.8}
+  .mclaim:hover{background:rgba(255,255,255,.06);border-color:rgba(233,185,95,.4)}
+  .mclaim .mcn{font-family:var(--serif);font-size:1.4rem;line-height:1;color:var(--gold)}
+  .mclaim b{color:var(--on-dark);font-weight:600}
+  @media (max-width:719px){ .mclaims{grid-template-columns:minmax(0,1fr)} }
+  .linkish{background:none;border:0;padding:0;font:inherit;color:var(--gold);cursor:pointer;text-decoration:underline;text-underline-offset:3px;font-variant-numeric:tabular-nums}
+  .kursi .klist{list-style:none;margin:6px 0 0;padding:0}
+  .kursi .klist li{margin:4px 0;padding-inline-start:calc(var(--lv,0) * 26px)}
+  .kursi .klist li.lv0{--lv:0} .kursi .klist li.lv1{--lv:1} .kursi .klist li.lv2{--lv:2} .kursi .klist li.lv3{--lv:3} .kursi .klist li.lv4{--lv:4}
+  .kursi .klist button{display:flex;align-items:baseline;gap:10px;width:100%;text-align:start;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.08);
+    border-inline-start:3px solid var(--c);border-radius:10px;padding:8px 12px;color:var(--on-dark);cursor:pointer;font:inherit;transition:background .25s,opacity .25s}
+  .kursi .klist button:hover{background:rgba(255,255,255,.05)}
+  .kursi .klist li.on button{background:rgba(255,255,255,.07);border-color:var(--c)}
+  .kursi .klist li.dim button{opacity:.45}
+  .kursi .ktag{flex:none;min-width:1.8em;font-family:var(--sans);font-size:.78rem;font-weight:700;color:var(--c);font-variant-numeric:tabular-nums}
+  .kursi .ktext{font-family:var(--ar-display);font-size:1.22rem;line-height:1.8}
+  .kursi .ktext span{margin-inline-end:.28em}
+  .kursi .ktext .hit{color:var(--gold);text-shadow:0 0 12px rgba(233,185,95,.45)}
+  .kursi .knote{margin:12px 0 0;font-size:.86rem;line-height:1.7;color:var(--on-dark-2);min-height:3.4em}
+  html[lang=ar] .kursi .knote{font-size:.96rem;line-height:1.9}
+  @media (max-width:719px){ .kursi .klist li{padding-inline-start:calc(var(--lv,0) * 12px)} .kursi .ktext{font-size:1.12rem} }
+  .dfig svg .mbar{fill:rgba(255,255,255,.07);stroke:rgba(255,255,255,.12)}
+  .dfig svg .midl{stroke:rgba(255,255,255,.55);stroke-width:1.2;stroke-dasharray:3 3}
+  .farrin svg .arc{fill:none;stroke:rgba(233,185,95,.55);stroke-linecap:round;transition:stroke .2s}
+  .farrin svg .arc.on{stroke:var(--gold)}
+  .farrin svg .sec{cursor:pointer;outline:none}
+  .farrin svg .sec rect{fill:rgba(56,198,218,.28);stroke:rgba(56,198,218,.6);transition:fill .2s}
+  .farrin svg .sec.c rect{fill:rgba(233,185,95,.35);stroke:var(--gold)}
+  .farrin svg .sec.on rect{fill:rgba(56,198,218,.6)}
+  .farrin svg .sec.c.on rect{fill:rgba(233,185,95,.65)}
+  .farrin svg .sec:focus-visible rect{stroke:#fff;stroke-width:2}
+  .farrin svg .sec text{fill:#fff;font-size:11px;font-weight:700;pointer-events:none}
   .dfig svg{direction:ltr;unicode-bidi:isolate}
   .dfig svg .ltr{fill:#04140d;font-family:var(--ar-display);font-size:12px;font-weight:700}
   .dfig svg .band2{fill:rgba(255,255,255,.035)}
@@ -926,7 +995,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
     .dhow li{padding:14px 14px 14px 52px}
     html[dir=rtl] .dhow li{padding:14px 52px 14px 14px}
     .compbar{grid-template-columns:minmax(0,7.2em) 1fr 5.6em;gap:8px}
-    .ringwrap{width:calc(100% - 30px);margin-inline-start:30px}
+    .ringbox{width:calc(100% - 30px);margin-inline-start:30px}
     .dend .stlab .blab>span{display:none}
   }
   @media (max-width:920px){
@@ -1193,8 +1262,13 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
           </div>
         </template>
 
-        <!-- 2. mirrors -->
+        <!-- 2. mirrors: three claims, told apart -->
         <template v-if="view==='d-rings'">
+          <nav class="mclaims" v-if="DT.MIRRORS && DZ.ringClaims" :aria-label="lang==='ar' ? 'الادعاءات الثلاثة' : 'The three claims'">
+            <a v-for="(c,i) in DT.MIRRORS.claims" :key="i" class="mclaim" :href="'#mc'+i" @click.prevent="dJump('mc'+i)">
+              <span class="mcn">{{ D(i+1) }}</span><b>{{ c.t[lang==='ar'?1:0] }}</b><span>{{ c.s[lang==='ar'?1:0] }}</span></a>
+          </nav>
+          <h2 class="dsec" id="mc0" v-if="DT.MIRRORS">{{ D(1) }}. {{ DT.MIRRORS.claims[0].t[lang==='ar'?1:0] }}</h2>
           <div class="dfig">
             <h3>{{ lang==='ar' ? 'كل آيةٍ من البقرة مقابل كل آية' : 'Every verse of al-Baqarah against every verse' }}</h3>
             <p class="fsub">{{ lang==='ar' ? 'كل خانةٍ مقطعان من أربع آيات: ذهبيةٌ إن كانا أشدّ تشابهًا مما تتوقعه المسافة بينهما، وزرقاء إن كانا أقل. لو كانت السورة مرآةً لأضاء القطر المتقطّع من أعلى اليمين إلى أسفل اليسار.' : 'Each cell is two stretches of four verses: gold where they are more alike than their distance predicts, blue where less. If the surah were a mirror, the dashed diagonal from top right to bottom left would light up.' }}</p>
@@ -1216,6 +1290,34 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
             </table></div>
             <button v-if="!dScan" type="button" class="more" @click="dScan=true">{{ lang==='ar' ? 'اعرض السور الـ'+D(dRingScan.length)+' كلها ‹' : 'Show all '+dRingScan.length+' surahs ›' }}</button>
           </div>
+          <template v-if="DT.MIRRORS && DZ.ringClaims">
+            <div class="dfig">
+              <h3>{{ dx(DT.MIRRORS.farrin.h) }} <span class="xpl">{{ lang==='ar' ? 'أُضيف لاحقًا، مسجّلٌ مسبقًا' : 'added later, pre-registered' }}</span></h3>
+              <p class="fsub">{{ dx(DT.MIRRORS.farrin.sub) }}</p>
+              <farrin-ring :f="DZ.ringClaims.farrin"></farrin-ring>
+              <p class="dnote" v-html="rich(dx(DT.MIRRORS.farrin.result))"></p>
+            </div>
+            <h2 class="dsec" id="mc1">{{ D(2) }}. {{ DT.MIRRORS.claims[1].t[lang==='ar'?1:0] }}</h2>
+            <div class="dfig">
+              <h3>{{ dx(DT.MIRRORS.middle.h) }} <span class="xpl">{{ lang==='ar' ? 'وصفٌ لا اختبار' : 'a description, not a test' }}</span></h3>
+              <p class="fsub">{{ dx(DT.MIRRORS.middle.sub) }}</p>
+              <middle-bars :md="DZ.ringClaims.middle"></middle-bars>
+              <p class="dnote" v-html="rich(dx(DT.MIRRORS.middle.result))"></p>
+              <div class="dscroll"><table class="dtable">
+                <tr><th>{{ lang==='ar' ? 'الآية' : 'Verse' }}</th><th>{{ lang==='ar' ? 'الكلمة' : 'Word' }}</th><th>{{ lang==='ar' ? 'موضعها في سورتها' : 'Where it falls in its surah' }}</th></tr>
+                <tr v-for="o in DZ.ringClaims.middle.root" :key="o.k" :class="{pass: o.k==='2:143'}"><td><button type="button" class="linkish" @click="dOpen(o.k, DZ.ringClaims.middle.root.map(x=>x.k), $event)" data-dopen>{{ D(o.k) }}</button> {{ surahName(+o.k.split(':')[0]) }}</td>
+                  <td><span class="wd" lang="ar">{{ o.form }}</span></td><td class="num">{{ lang==='ar' ? 'الآية '+D(o.k.split(':')[1])+' من '+D(o.of)+' ('+dF.pc(o.at)+')' : 'verse '+o.k.split(':')[1]+' of '+o.of+' ('+dF.pc(o.at)+')' }}</td></tr>
+              </table></div>
+              <p class="dnote" v-html="rich(dx(DT.MIRRORS.middle.note))"></p>
+            </div>
+            <h2 class="dsec" id="mc2">{{ D(3) }}. {{ DT.MIRRORS.claims[2].t[lang==='ar'?1:0] }}</h2>
+            <div class="dfig">
+              <h3>{{ dx(DT.MIRRORS.kursi.h) }} <span class="xpl">{{ lang==='ar' ? 'استكشافي' : 'exploratory' }}</span></h3>
+              <p class="fsub">{{ dx(DT.MIRRORS.kursi.sub) }}</p>
+              <kursi-mirror :k="DZ.ringClaims.kursi"></kursi-mirror>
+              <p class="dnote" v-html="rich(dx(DT.MIRRORS.kursi.result))"></p>
+            </div>
+          </template>
         </template>
 
         <!-- 3. rhyme and topic -->
@@ -2399,7 +2501,7 @@ const jix = () => JIX || (JIX = JEV && window.QURAN_WORDS ? JEV.makeIndex(window
 const LAZY = { verses:['corpus.js','translation_en.js'], words:['words.js','lemma-variants.js'], plotly:['https://cdn.plot.ly/plotly-2.27.0.min.js'],
   disc:['discover.js','discoveries.js'] };
 const NEEDS = { search:['words','verses'], auditor:['words'], reader:['verses'], home:['words'],
-  discover:['disc'], 'd-endings':['disc','verses'], 'd-rings':['disc'], 'd-rhyme':['disc'], 'd-stories':['disc'], 'd-themes':['disc'],
+  discover:['disc'], 'd-endings':['disc','verses'], 'd-rings':['disc','verses','words'], 'd-rhyme':['disc'], 'd-stories':['disc'], 'd-themes':['disc'],
   'd-companions':['disc'], 'd-letters':['disc'], 'd-repeats':['disc','verses','words'], 'd-chrono':['disc'] };
 const lazyP = {};
 const addScript = src => new Promise((ok, fail) => { const el=document.createElement('script'); el.src=src;
@@ -2518,46 +2620,248 @@ const NullPlot = { props:['d','p','title','lab','what','two','fmt'],
         : (k ? k+' of the '+n+' '+this.what[0]+' scored as high or higher' : 'None of the '+n+' '+this.what[0]+' scored as high')+' (p = '+p+').'; },
     aria(){ return this.title+'. '+this.sum; } } };
 // Study 2: every verse of al-Baqarah against every verse (blocks of four), beyond what their distance predicts.
-// A mirror would light the diagonal from top right to bottom left (dashed).
+// A mirror would light the diagonal from top right to bottom left (dashed). Point at, tap or arrow to a square to see
+// which verses meet there, how alike they are, the words they share, and to read them.
 const RingMap = { props:['m','n','block'],
-  template:`<div class="ringwrap" dir="ltr">
-    <canvas ref="c" :width="m.length" :height="m.length" role="img" :aria-label="$root.lang==='ar' ? 'خريطة تشابه آيات البقرة كل آيةٍ مقابل كل آية' : 'Map of how alike every two stretches of al-Baqarah are'"></canvas>
-    <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="100" y1="0" x2="0" y2="100" class="anti"/></svg>
-    <span v-for="t in ticks" :key="'x'+t.v" class="rtick x" :style="{left:t.f+'%'}">{{ $root.dF.n(t.v) }}</span>
-    <span v-for="t in ticks" :key="'y'+t.v" class="rtick y" :style="{top:t.f+'%'}">{{ $root.dF.n(t.v) }}</span>
+  data(){ return {cell:null, pinned:false, wide:true}; },
+  template:`<div class="ringbox" :class="{wide}" dir="ltr">
+    <div class="ringwrap" ref="w" tabindex="0" role="group" :aria-label="aria" @pointermove="move" @pointerleave="leave" @click="pick" @keydown="key" @focus="focus">
+      <canvas ref="c" :width="m.length" :height="m.length" aria-hidden="true"></canvas>
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="100" y1="0" x2="0" y2="100" class="anti"/>
+        <template v-if="cell">
+          <line class="guide" x1="0" :x2="(cell.j+.5)*u" :y1="(cell.i+.5)*u" :y2="(cell.i+.5)*u"/>
+          <line class="guide" :x1="(cell.j+.5)*u" :x2="(cell.j+.5)*u" y1="0" :y2="(cell.i+.5)*u"/>
+          <rect v-if="cell.i!==cell.j" class="hl twin" :x="cell.i*u" :y="cell.j*u" :width="u" :height="u"/>
+          <rect class="hl" :x="cell.j*u" :y="cell.i*u" :width="u" :height="u"/>
+        </template></svg>
+      <span v-for="t in ticks" :key="'x'+t.v" class="rtick x" :style="{left:t.f+'%'}">{{ $root.dF.n(t.v) }}</span>
+      <span v-for="t in ticks" :key="'y'+t.v" class="rtick y" :style="{top:t.f+'%'}">{{ $root.dF.n(t.v) }}</span>
+    </div>
+    <p v-if="!cell" class="ringhint">{{ ar ? (fine ? 'مرّر المؤشر على أي مربعٍ لترى الآيات التي يلتقي عندها، أو انقر لتثبيته.' : 'المس أي مربعٍ لترى الآيات التي يلتقي عندها.') : (fine ? 'Point at any square to see which verses meet there; click to keep it open.' : 'Tap any square to see which verses meet there.') }}</p>
+    <div v-else class="ringtip" :class="{float: wide, pinned}" :style="wide ? tipPos : null" :dir="ar ? 'rtl' : 'ltr'" role="status" aria-live="polite">
+      <p class="rt-h"><b>{{ K(ra) }}</b><span aria-hidden="true">↔</span><b>{{ K(rb) }}</b><button v-if="pinned" type="button" class="rt-close" @click.stop="clear" :aria-label="ar ? 'إغلاق' : 'Close'">×</button></p>
+      <p class="rt-v"><span class="sw" :style="{background: swatch}"></span>{{ valueText }}</p>
+      <p v-if="centreText" class="rt-c">{{ centreText }}</p>
+      <p v-if="shared.length" class="rt-w"><span class="rt-l">{{ ar ? 'ألفاظ مشتركة:' : 'Shared words:' }}</span> <span v-for="w in shared" :key="w" class="wd" lang="ar">{{ w }}</span></p>
+      <p v-else-if="cell.i!==cell.j" class="rt-w muted">{{ $root.ready.words ? (ar ? 'لا تشتركان في ألفاظٍ ذات جذر.' : 'They share no words with a root.') : (ar ? 'جارٍ تحميل الألفاظ…' : 'Loading the words…') }}</p>
+      <p v-for="q in snips" :key="q.k" class="rt-s"><b>{{ K(q.k) }}</b> <span lang="ar" dir="rtl">{{ q.t }}</span></p>
+      <p class="rt-a"><button type="button" class="rt-go" data-dopen @click.stop="read($event)">{{ ar ? 'اقرأ هذه الآيات ‹' : 'Read these verses ›' }}</button></p>
+    </div>
   </div>`,
-  computed:{ ticks(){ return [1,50,100,150,200,250,this.n].map(v=>({v, f:((v-.5)/this.n*100).toFixed(2)})); } },
-  mounted(){ this.draw(); }, watch:{ m(){ this.draw(); } },
-  methods:{ draw(){ const c=this.$refs.c; if(!c) return; const N=this.m.length, g=c.getContext('2d'), img=g.createImageData(N,N);
-    const neg=[31,111,139], mid=[11,21,17], pos=[233,185,95];
-    for(let i=0;i<N;i++) for(let j=0;j<N;j++){ const v=Math.max(-1, Math.min(1, this.m[i][j]/40)), a=Math.pow(Math.abs(v), .8), t=v<0 ? neg : pos, o=4*(i*N+j);
-      for(let q=0;q<3;q++) img.data[o+q]=Math.round(mid[q]+(t[q]-mid[q])*a); img.data[o+3]=255; }
-    g.putImageData(img,0,0); } } };
+  computed:{
+    ar(){ return this.$root.lang==='ar'; }, fine(){ return FINE; }, N(){ return this.m.length; }, u(){ return 100/this.m.length; },
+    ticks(){ return [1,50,100,150,200,250,this.n].map(v=>({v, f:((v-.5)/this.n*100).toFixed(2)})); },
+    aria(){ return this.ar ? 'خريطة تشابه آيات البقرة كل مقطعٍ مقابل كل مقطع. استعمل الأسهم للتنقل وEnter لقراءة الآيات.' : 'Map of how alike every two stretches of al-Baqarah are. Use the arrow keys to move and Enter to read the verses.'; },
+    ra(){ return this.range(this.cell.i); }, rb(){ return this.range(this.cell.j); },
+    v(){ return this.m[this.cell.i][this.cell.j]; },
+    swatch(){ const v=Math.max(-1, Math.min(1, this.v/40)), a=Math.pow(Math.abs(v), .8), t=v<0 ? [31,111,139] : [233,185,95], mid=[11,21,17];
+      return 'rgb('+t.map((c,q)=>Math.round(mid[q]+(c-mid[q])*a)).join(',')+')'; },
+    valueText(){ const v=this.v, F=this.$root.dF, num=(v>0 ? '+' : v<0 ? '−' : '')+F.d(Math.abs(v)/1000, 3);
+      if(this.cell.i===this.cell.j) return this.ar ? 'المقطع نفسه: تشابه آياته فيما بينها فوق ما تتوقعه المسافة ('+num+').' : 'The same stretch: how alike its own verses are, beyond their distance ('+num+').';
+      if(v>=4) return this.ar ? 'أشدّ تشابهًا مما يُتوقع لمقطعين بينهما هذه المسافة ('+num+').' : 'More alike than stretches this far apart usually are ('+num+').';
+      if(v<=-4) return this.ar ? 'أقل تشابهًا مما يُتوقع لمقطعين بينهما هذه المسافة ('+num+').' : 'Less alike than stretches this far apart usually are ('+num+').';
+      return this.ar ? 'متشابهان بقدر ما يُتوقع لمقطعين بينهما هذه المسافة ('+num+').' : 'About as alike as stretches this far apart usually are ('+num+').'; },
+    centreText(){ const {i,j}=this.cell; if(i===j) return '';
+      const mid=r=>(r[0]+r[1])/2, c=(mid(this.ra)+mid(this.rb))/2, lo=Math.floor(c), K=this.K;
+      const at=Number.isInteger(c) ? K('2:'+c) : (this.ar ? 'ما بين '+K('2:'+lo)+' و'+K('2:'+(lo+1)) : 'the gap between '+K('2:'+lo)+' and '+K('2:'+(lo+1)));
+      const onLine=i+j===this.N-1;
+      const say=this.ar ? 'لو كانت السورة مرآةً حول '+at+' لتقابل هذان المقطعان.' : 'if the surah were a mirror around '+at+', these two stretches would face each other.';
+      return onLine ? (this.ar ? 'على الخط المتقطع: ' : 'On the dashed line: ')+say : (this.ar ? say : say[0].toUpperCase()+say.slice(1)); },
+    // the words (with a root) both stretches use, the rarest in al-Baqarah first
+    df(){ if(!this.$root.ready.words) return null; const W=this.$root.W, d=new Map();
+      for(let a=1;a<=this.n;a++){ const sp=verseSpan('2:'+a); if(!sp) continue; const seen=new Set();
+        for(let q=sp[0];q<sp[1];q++){ const l=W.lemma[q]; if(l && W.root[q] && !seen.has(l)){ seen.add(l); d.set(l, (d.get(l)||0)+1); } } }
+      return d; },
+    shared(){ if(!this.cell || this.cell.i===this.cell.j || !this.df) return [];
+      const A=this.lemmas(this.ra), B=this.lemmas(this.rb), d=this.df;
+      return [...A.keys()].filter(l=>B.has(l)).sort((x,y)=>(d.get(x)||0)-(d.get(y)||0)).slice(0,6).map(l=>A.get(l)); },
+    snips(){ const V=this.$root.V, out=[]; for(const r of [this.ra, this.rb]){ const k='2:'+r[0], t=V[k];
+        if(t) out.push({k, t:t.split(' ').slice(0,6).join(' ')+' …'}); }
+      return this.cell.i===this.cell.j ? out.slice(0,1) : out; },
+    tipPos(){ const {i,j}=this.cell, N=this.N, u=100/N, right=j<N*.55, down=i<N*.5;
+      return {left:(right ? (j+1)*u : j*u)+'%', top:(down ? i*u : (i+1)*u)+'%',
+        transform:'translate('+(right ? '14px' : 'calc(-100% - 14px)')+','+(down ? '0' : '-100%')+')'}; } },
+  mounted(){ this.draw(); const s=this.$root.dRingSel; if(s){ this.cell={i:s.i, j:s.j}; this.pinned=true; }
+    this.fit(); if(window.ResizeObserver){ this._ro=new ResizeObserver(()=>this.fit()); this._ro.observe(this.$el); } },
+  beforeUnmount(){ if(this._ro) this._ro.disconnect(); },
+  watch:{ m(){ this.draw(); } },
+  methods:{
+    K(k){ return this.$root.dF.k(Array.isArray(k) ? '2:'+k[0]+(k[1]>k[0] ? '–'+k[1] : '') : k); },
+    range(b){ const B=this.block; return [b*B+1, Math.min((b+1)*B, this.n)]; },
+    lemmas(r){ const W=this.$root.W, out=new Map();
+      for(let a=r[0];a<=r[1];a++){ const sp=verseSpan('2:'+a); if(!sp) continue;
+        for(let q=sp[0];q<sp[1];q++){ const l=W.lemma[q]; if(l && W.root[q] && !out.has(l)) out.set(l, W.surface[q]); } }
+      return out; },
+    fit(){ this.wide=this.$el.getBoundingClientRect().width>=460; },
+    at(e){ const r=this.$refs.w.getBoundingClientRect(), N=this.N;
+      const j=Math.floor((e.clientX-r.left)/r.width*N), i=Math.floor((e.clientY-r.top)/r.height*N);
+      return i>=0 && j>=0 && i<N && j<N ? {i,j} : null; },
+    move(e){ if(this.pinned || e.pointerType!=='mouse') return; const c=this.at(e); if(c) this.cell=c; },
+    leave(){ if(!this.pinned) this.cell=null; },
+    pick(e){ const c=this.at(e); if(!c) return;
+      if(this.pinned && this.cell && c.i===this.cell.i && c.j===this.cell.j){ this.clear(); return; }
+      this.cell=c; this.pinned=true; },
+    clear(){ this.cell=null; this.pinned=false; this.$root.dRingSel=null; },
+    focus(){ if(!this.cell && this.$refs.w.matches(':focus-visible')){ this.cell={i:0, j:this.N-1}; this.pinned=true; } },
+    key(e){ const N=this.N, d={ArrowUp:[-1,0], ArrowDown:[1,0], ArrowLeft:[0,-1], ArrowRight:[0,1]}[e.key];
+      if(d){ e.preventDefault(); const c=this.cell || {i:0, j:N-1};
+        this.cell={i:Math.min(N-1, Math.max(0, c.i+d[0])), j:Math.min(N-1, Math.max(0, c.j+d[1]))}; this.pinned=true; return; }
+      if(e.key==='Enter' && this.cell){ e.preventDefault(); this.read(e); }
+      if(e.key==='Escape' && this.cell){ e.preventDefault(); this.clear(); } },
+    read(e){ const keys=[]; for(const r of [this.ra, this.rb]) for(let a=r[0];a<=r[1];a++) keys.push('2:'+a);
+      const list=[...new Set(keys)].sort((x,y)=>+x.split(':')[1]-+y.split(':')[1]);
+      this.$root.dRingSel={i:this.cell.i, j:this.cell.j};
+      this.$root.dOpen(list[0], list, e && e.currentTarget && e.currentTarget.dataset && 'dopen' in e.currentTarget.dataset ? e : null); },
+    draw(){ const c=this.$refs.c; if(!c) return; const N=this.m.length, g=c.getContext('2d'), img=g.createImageData(N,N);
+      const neg=[31,111,139], mid=[11,21,17], pos=[233,185,95];
+      for(let i=0;i<N;i++) for(let j=0;j<N;j++){ const v=Math.max(-1, Math.min(1, this.m[i][j]/40)), a=Math.pow(Math.abs(v), .8), t=v<0 ? neg : pos, o=4*(i*N+j);
+        for(let q=0;q<3;q++) img.data[o+q]=Math.round(mid[q]+(t[q]-mid[q])*a); img.data[o+3]=255; }
+      g.putImageData(img,0,0); } } };
 // The SVG figures below are drawn at the width they are shown at, so their text keeps its size on a phone.
 const FitW = { data(){ return {w:640}; },
   mounted(){ this.fitW(); if(window.ResizeObserver){ this._ro=new ResizeObserver(()=>this.fitW()); this._ro.observe(this.$el); } },
   beforeUnmount(){ if(this._ro) this._ro.disconnect(); },
   methods:{ fitW(){ const w=Math.round(this.$el.getBoundingClientRect().width); if(w>40 && Math.abs(w-this.w)>1) this.w=w; } } };
-// Study 2: the mirror score for every possible centre; the band is where the ring reading puts it
+// Study 2: the mirror score for every possible centre; the band is where the ring reading puts it. Point at, tap or
+// arrow along the line to read the score of any centre, and open that verse.
 const ProfilePlot = { mixins:[FitW], props:['prof','zone','peak','n'],
-  template:`<svg :viewBox="'0 0 '+w+' 214'" role="img" :aria-label="aria">
+  data(){ return {hov:-1, pin:false}; },
+  template:`<div class="profwrap"><svg :viewBox="'0 0 '+w+' 214'" role="group" :aria-label="aria" tabindex="0" @keydown="key"
+      @pointermove="pm" @pointerleave="pl" @click="pc">
     <rect class="zone" :x="X(zone[0])" y="12" :width="X(zone[1])-X(zone[0])" height="156"/>
     <text v-if="w>=480" class="gold" :x="(X(zone[0])+X(zone[1]))/2" y="28" text-anchor="middle">{{ zoneLab }}</text>
     <line class="ax" x1="40" :x2="w-6" :y1="Y(0)" :y2="Y(0)"/>
     <path class="line" :d="path"/>
     <circle class="dot" :cx="X(peak[0])" :cy="Y(peak[1])" r="5"/>
-    <text class="lblw" :x="Math.min(X(peak[0]), w-60)" :y="Y(peak[1])-10" text-anchor="middle">{{ peakLab }}</text>
+    <text v-if="hov<0" class="lblw" :x="Math.min(X(peak[0]), w-60)" :y="Y(peak[1])-10" text-anchor="middle">{{ peakLab }}</text>
+    <template v-if="hov>=0">
+      <line class="guide" :x1="X(cur[0])" :x2="X(cur[0])" y1="12" y2="168"/>
+      <circle class="dot hov" :cx="X(cur[0])" :cy="Y(cur[1])" r="5"/>
+    </template>
     <text v-for="t in xt" :key="t" :x="X(t)" y="188" text-anchor="middle">{{ $root.dF.n(t) }}</text>
     <text x="34" :y="Y(0)+4" text-anchor="end">0</text>
     <text :x="w-6" y="210" text-anchor="end" class="lbl">{{ $root.lang==='ar' ? 'المركز (رقم الآية) ›' : 'centre (verse) ›' }}</text>
-  </svg>`,
+  </svg>
+  <p class="profnow" :dir="$root.lang==='ar' ? 'rtl' : 'ltr'" role="status" aria-live="polite">
+    <template v-if="hov>=0"><b>{{ curLab }}</b> {{ curText }} <button v-if="pin" type="button" class="rt-go" data-dopen @click.stop="read($event)">{{ $root.lang==='ar' ? 'اقرأ '+$root.dF.k('2:'+Math.round(cur[0]))+' ‹' : 'Read '+$root.dF.k('2:'+Math.round(cur[0]))+' ›' }}</button></template>
+    <span v-else class="muted">{{ $root.lang==='ar' ? (fine ? 'مرّر المؤشر على المنحنى لترى قوة التناظر حول أي آية، أو انقر لتثبيتها.' : 'المس المنحنى لترى قوة التناظر حول أي آية.') : (fine ? 'Point along the line to see the mirror score around any verse; click to keep it.' : 'Tap along the line to see the mirror score around any verse.') }}</span>
+  </p></div>`,
   computed:{ lo(){ return Math.min(...this.prof.map(p=>p[1])); }, hi(){ return Math.max(...this.prof.map(p=>p[1])); },
+    fine(){ return FINE; },
     X(){ const w=this.w; return v=>40+(v-1)/(this.n-1)*(w-50); }, Y(){ const lo=this.lo, hi=this.hi; return v=>168-(v-lo)/((hi-lo)||1)*132; },
     path(){ return this.prof.map((p,i)=>(i?'L':'M')+this.X(p[0]).toFixed(1)+' '+this.Y(p[1]).toFixed(1)).join(''); },
     xt(){ return this.w<480 ? [1,100,200,this.n] : [1,50,100,150,200,250,this.n]; },
     zoneLab(){ return this.$root.lang==='ar' ? (this.w<480 ? 'المركز المقترح' : 'المركز في القراءة الدائرية') : (this.w<480 ? 'proposed centre' : 'the ring reading\'s centre'); },
     peakLab(){ return (this.$root.lang==='ar' ? 'أقوى تناظر: ' : 'strongest: ')+this.$root.dF.k('2:'+Math.round(this.peak[0])); },
-    aria(){ return this.$root.lang==='ar' ? 'منحنى قوة التناظر لكل مركزٍ ممكن، وذروته عند الآية '+this.$root.dF.n(Math.round(this.peak[0])) : 'The mirror score for every possible centre; it peaks at verse '+Math.round(this.peak[0]); } } };
+    cur(){ return this.prof[this.hov]; },
+    curLab(){ const c=this.cur[0], K=s=>this.$root.dF.k(s), lo=Math.floor(c);
+      return Number.isInteger(c) ? (this.$root.lang==='ar' ? 'المركز '+K('2:'+c)+':' : 'Centre '+K('2:'+c)+':')
+        : (this.$root.lang==='ar' ? 'المركز بين '+K('2:'+lo)+' و'+K('2:'+(lo+1))+':' : 'Centre between '+K('2:'+lo)+' and '+K('2:'+(lo+1))+':'); },
+    curText(){ const F=this.$root.dF, v=this.cur[1], num=(v>0 ? '+' : v<0 ? '−' : '')+F.d(Math.abs(v), 4), inZone=this.cur[0]>=this.zone[0] && this.cur[0]<=this.zone[1];
+      const rank=1+this.prof.filter(p=>p[1]>v).length;
+      return this.$root.lang==='ar'
+        ? 'قوة التناظر '+num+'، والمرتبة '+F.n(rank)+' من '+F.n(this.prof.length)+' مركزًا'+(inZone ? '، داخل الشريط المقترح.' : '.')
+        : 'mirror score '+num+', ranked '+rank+' of '+this.prof.length+' centres'+(inZone ? ', inside the proposed band.' : '.'); },
+    aria(){ return this.$root.lang==='ar' ? 'منحنى قوة التناظر لكل مركزٍ ممكن، وذروته عند الآية '+this.$root.dF.n(Math.round(this.peak[0]))+'. استعمل الأسهم للتنقل.' : 'The mirror score for every possible centre; it peaks at verse '+Math.round(this.peak[0])+'. Use the arrow keys to move along it.'; } },
+  methods:{
+    near(e){ const r=this.$el.querySelector('svg').getBoundingClientRect(), x=(e.clientX-r.left)/r.width*this.w, v=1+(x-40)/(this.w-50)*(this.n-1);
+      let b=0; this.prof.forEach((p,i)=>{ if(Math.abs(p[0]-v)<Math.abs(this.prof[b][0]-v)) b=i; }); return b; },
+    pm(e){ if(this.pin || e.pointerType!=='mouse') return; this.hov=this.near(e); },
+    pl(){ if(!this.pin) this.hov=-1; },
+    pc(e){ const b=this.near(e); if(this.pin && b===this.hov){ this.pin=false; this.hov=-1; return; } this.hov=b; this.pin=true; },
+    key(e){ const d={ArrowLeft:-1, ArrowRight:1}[e.key];
+      if(d){ e.preventDefault(); const i=this.hov<0 ? this.prof.indexOf(this.peak) : this.hov; this.hov=Math.min(this.prof.length-1, Math.max(0, (i<0 ? 0 : i)+d*2)); this.pin=true; return; }
+      if(e.key==='Enter' && this.hov>=0){ e.preventDefault(); this.read(e); }
+      if(e.key==='Escape'){ this.pin=false; this.hov=-1; } },
+    read(e){ const c=Math.round(this.cur[0]), list=[]; for(let a=Math.max(1,c-2); a<=Math.min(this.n,c+2); a++) list.push('2:'+a);
+      this.$root.dOpen('2:'+c, list, e && e.currentTarget && e.currentTarget.dataset && 'dopen' in e.currentTarget.dataset ? e : null); } } };
+// Study 2, the mirror inside Ayat al-Kursi: its nine statements indented as the mirror reading pairs them (1 with 9,
+// 2 with 8, 3 with 7, 4 with 6, around 5). Tap a statement to light its partner and the roots the two share.
+const KursiMirror = { props:['k'],
+  data(){ return {sel:-1}; },
+  template:`<div class="kursi">
+    <ol class="klist" dir="rtl" lang="ar">
+      <li v-for="(s,i) in k.statements" :key="i" :class="['lv'+lvl(i), {on: isOn(i), dim: sel>=0 && !isOn(i)}]" :style="{'--c': col(i)}">
+        <button type="button" @click="pick(i)" :aria-pressed="String(isOn(i))">
+          <span class="ktag" dir="ltr">{{ tag(i) }}</span>
+          <span class="ktext"><span v-for="(w,j) in s.words" :key="j" :class="{hit: hit(i, w[1])}">{{ w[0] }}</span></span>
+        </button>
+      </li>
+    </ol>
+    <p class="knote" :dir="ar ? 'rtl' : 'ltr'" role="status" aria-live="polite" v-html="$root.rich(note)"></p>
+  </div>`,
+  computed:{ ar(){ return this.$root.lang==='ar'; }, T(){ return this.$root.DT.KURSI; },
+    note(){ const i=this.sel, T=this.T, L=this.ar ? 1 : 0, F=this.$root.dF;
+      if(i<0) return T.summary(this.$root.DZ, F)[L];
+      if(i===4){ const c=this.k.centreShares.map(x=>x.shared.map(r=>this.spaced(r)).join(this.ar ? '، ' : ', ')+(this.ar ? ' مع '+F.n(x.with) : ' with '+x.with)).join(this.ar ? '؛ ' : '; ');
+        return T.centre[L]+(c ? ' '+(this.ar ? 'وتشترك في الجذر ' : 'It shares the root ')+c+'.' : ''); }
+      const a=Math.min(i, 8-i), p=this.k.pairs[a], sh=p.shared.map(r=>this.spaced(r)).join(this.ar ? ' و' : ' and ');
+      return F.n(p.a)+' ↔ '+F.n(p.b)+': '+(p.shared.length ? (this.ar ? 'تشتركان في الجذرين '+sh+'. ' : 'they share the roots '+sh+'. ') : (this.ar ? 'لا تشتركان في جذر. ' : 'no shared root. '))+T.pairs[a][L]; } },
+  methods:{
+    lvl(i){ return Math.min(i, 8-i); },
+    tag(i){ const A=this.ar ? ['أ','ب','ج','د','هـ'] : ['A','B','C','D','E'], l=this.lvl(i); return A[l]+(i>4 ? '′' : ''); },
+    col(i){ return ['#e9b95f','#34d399','#38c6da','#a78bfa','#ffffff'][this.lvl(i)]; },
+    isOn(i){ return this.sel>=0 && (i===this.sel || i===8-this.sel || (this.sel===4 && this.k.centreShares.some(x=>x.with-1===i))); },
+    shared(i){ if(i===4) return this.k.centreShares.flatMap(x=>x.shared);
+      const p=this.k.pairs[Math.min(i, 8-i)]; return p.shared; },
+    hit(i, r){ if(!r) return false; if(this.sel<0) return i!==4 && this.shared(i).includes(r);
+      if(!this.isOn(i)) return false;
+      if(this.sel===4) return this.k.centreShares.some(x=>x.shared.includes(r)) && (i===4 || this.k.centreShares.some(x=>x.with-1===i));
+      return this.shared(this.sel).includes(r); },
+    spaced(r){ return '«'+r.split('').join(' ')+'»'; },
+    pick(i){ this.sel = this.sel===i || (this.sel>=0 && this.sel!==4 && i===8-this.sel) ? -1 : i; } } };
+// Study 2, the middle verse: where al-Baqarah's middle falls by verses, by words and by letters, and where «وسطا» sits
+const MiddleBars = { mixins:[FitW], props:['md'],
+  template:`<svg :viewBox="'0 0 '+w+' '+H" role="img" :aria-label="aria">
+    <g v-for="(r,i) in rows" :key="r.k" :transform="'translate(0,'+(i*62+6)+')'">
+      <text class="lblw" :x="ar ? w : 0" y="12" :text-anchor="ar ? 'end' : 'start'">{{ r.lab }}</text>
+      <rect class="mbar" :x="L" y="22" :width="W" height="12" rx="3"/>
+      <line class="midl" :x1="L+W/2" :x2="L+W/2" y1="17" y2="39"/>
+      <circle class="dot" :cx="L+W*r.at" cy="28" r="6"/>
+      <text class="lbl" :x="Math.min(L+W-2, Math.max(L+2, L+W*r.at))" y="54" :text-anchor="r.at<.15 ? 'start' : r.at>.85 ? 'end' : 'middle'">{{ r.val }}</text>
+    </g>
+    <text class="gold" :x="L+W/2" :y="H-2" text-anchor="middle">{{ ar ? 'المنتصف' : 'the middle' }}</text>
+    <text class="lbl" :x="L" :y="H-2" text-anchor="start">{{ ar ? 'أول السورة' : 'start of the surah' }}</text>
+    <text class="lbl" :x="L+W" :y="H-2" text-anchor="end">{{ ar ? 'آخرها' : 'its end' }}</text>
+  </svg>`,
+  computed:{ ar(){ return this.$root.lang==='ar'; }, L(){ return 8; }, W(){ return this.w-16; }, H(){ return 3*62+18; },
+    rows(){ const m=this.md, F=this.$root.dF, ar=this.ar;
+      return [
+        {k:'v', at:(143-.5)/m.verses, lab:ar ? 'بالآيات' : 'By verses', val:ar ? 'الآية '+F.n(143)+' من '+F.n(m.verses) : 'verse 143 of '+m.verses},
+        {k:'w', at:m.wasatWordAt, lab:ar ? 'بالكلمات' : 'By words', val:ar ? 'الكلمة '+F.n(m.wasatWord)+' من '+F.n(m.words)+' ('+F.pc(m.wasatWordAt,1)+')' : 'word '+F.n(m.wasatWord)+' of '+F.n(m.words)+' ('+F.pc(m.wasatWordAt,1)+')'},
+        {k:'l', at:m.wasatLetterAt, lab:ar ? 'بالحروف' : 'By letters', val:ar ? 'الحرف '+F.n(m.wasatLetter)+' من '+F.n(m.letters)+' ('+F.pc(m.wasatLetterAt,1)+')' : 'letter '+F.n(m.wasatLetter)+' of '+F.n(m.letters)+' ('+F.pc(m.wasatLetterAt,1)+')'}]; },
+    aria(){ const m=this.md, F=this.$root.dF; return this.ar
+      ? 'موضع «وسطا» في سورة البقرة: الآية ١٤٣ من '+F.n(m.verses)+'، وعند '+F.pc(m.wasatWordAt,1)+' من الكلمات، و'+F.pc(m.wasatLetterAt,1)+' من الحروف.'
+      : 'Where «wasatan» sits in al-Baqarah: verse 143 of '+m.verses+', '+F.pc(m.wasatWordAt,1)+' of the way through its words and '+F.pc(m.wasatLetterAt,1)+' through its letters.'; } } };
+// Study 2, Farrin's sections: the surah as nine sections in proportion, with the pairs the ring reading draws; each arc
+// is as strong as the two sections' shared vocabulary. Tap a section to read what it is and how its pair compares.
+const FarrinRing = { mixins:[FitW], props:['f'],
+  data(){ return {sel:-1}; },
+  template:`<div class="farrin"><svg :viewBox="'0 0 '+w+' 170'" role="group" :aria-label="aria">
+    <path v-for="(p,a) in f.pairs" :key="'a'+a" class="arc" :class="{on: sel===p.a-1 || sel===p.b-1}" :d="arc(p.a-1, p.b-1)" :style="{strokeWidth: 1.2+p.cos*9}"/>
+    <g v-for="(s,i) in f.sections" :key="i" class="sec" :class="{on: sel===i || (sel>=0 && sel!==4 && i===8-sel), c: i===4}" @click="sel = sel===i ? -1 : i" tabindex="0" @keydown.enter.prevent="sel = sel===i ? -1 : i" role="button" :aria-label="secLab(i)">
+      <rect :x="X(s[0]-1)+1" y="120" :width="Math.max(3, X(s[1])-X(s[0]-1)-2)" height="22" rx="3"/>
+      <text v-if="X(s[1])-X(s[0]-1)>=18" :x="(X(s[0]-1)+X(s[1]))/2" y="135" text-anchor="middle">{{ tag(i) }}</text>
+    </g>
+    <text v-for="t in xt" :key="t" :x="X(t)" y="160" text-anchor="middle">{{ $root.dF.n(t) }}</text>
+  </svg>
+  <p class="profnow" :dir="$root.lang==='ar' ? 'rtl' : 'ltr'" role="status" aria-live="polite"><span v-if="sel<0" class="muted">{{ $root.lang==='ar' ? 'المس قسمًا لترى آياته، وما يقابله، وكم تشابهت ألفاظهما.' : 'Tap a section to see its verses, its partner, and how alike their words are.' }}</span><template v-else>{{ info }}</template></p></div>`,
+  computed:{ n(){ return this.f.sections[this.f.sections.length-1][1]; },
+    X(){ const w=this.w; return v=>6+v/this.n*(w-12); },
+    xt(){ return this.w<480 ? [1,143,286] : [1,50,100,143,200,250,286]; },
+    aria(){ return this.$root.lang==='ar' ? 'أقسام البقرة التسعة في قراءة فارين الدائرية، وأقواسٌ تصل كل قسمٍ بما يقابله' : 'Al-Baqarah\'s nine sections in Farrin\'s ring reading, with arcs joining each section to its partner'; },
+    info(){ const i=this.sel, F=this.$root.dF, ar=this.$root.lang==='ar', s=this.f.sections[i], r=this.secRange(i);
+      if(i===4) return (ar ? 'المركز ' : 'The centre, ')+this.tag(i)+' ('+r+')'+(ar ? ': ' : ': ')+this.$root.DT.FARRIN[i][ar ? 1 : 0]+'.';
+      const j=8-i, C=this.f.cos, other=i<4 ? [5,6,7,8] : [0,1,2,3], rank=1+other.filter(x=>C[i][x]>C[i][j]).length;
+      return this.tag(i)+' ('+r+'): '+this.$root.DT.FARRIN[i][ar ? 1 : 0]+'. '+(ar ? 'يقابله ' : 'Its partner is ')+this.tag(j)+' ('+this.secRange(j)+'). '
+        +(ar ? 'تشابه ألفاظهما '+F.d(C[i][j], 2)+'. ومن الأقسام الأربعة '+(i<4 ? 'بعد' : 'قبل')+' المركز، يأتي '+this.tag(j)+' في المرتبة '+F.n(rank)+' من ٤ في قربه من '+this.tag(i)+'.'
+          : 'Their words\' similarity is '+F.d(C[i][j], 2)+'. Of the four sections '+(i<4 ? 'after' : 'before')+' the centre, '+this.tag(j)+' ranks '+rank+' of 4 in closeness to '+this.tag(i)+'.'); } },
+  methods:{
+    tag(i){ const ar=this.$root.lang==='ar', A=ar ? ['أ','ب','ج','د','هـ'] : ['A','B','C','D','E']; return A[Math.min(i, 8-i)]+(i>4 ? '′' : ''); },
+    secRange(i){ const s=this.f.sections[i]; return this.$root.dF.k('2:'+s[0]+(s[1]>s[0] ? '–'+s[1] : '')); },
+    secLab(i){ return this.tag(i)+' '+this.secRange(i); },
+    arc(a, b){ const x1=(this.X(this.f.sections[a][0]-1)+this.X(this.f.sections[a][1]))/2, x2=(this.X(this.f.sections[b][0]-1)+this.X(this.f.sections[b][1]))/2,
+      h=Math.min(108, 18+(x2-x1)*.38); return 'M'+x1.toFixed(1)+' 118 C '+x1.toFixed(1)+' '+(118-h).toFixed(1)+', '+x2.toFixed(1)+' '+(118-h).toFixed(1)+', '+x2.toFixed(1)+' 118'; } } };
 // Study 4: each telling, its likeness to its own surah (green) against its average likeness to the other surahs (grey)
 const Dumbbell = { mixins:[FitW], props:['rows','max'],
   template:`<svg :viewBox="'0 0 '+w+' '+H" role="img" :aria-label="aria">
@@ -2623,7 +2927,7 @@ createApp({
       dashPlace:'all', dashMinVerses:0, dashSort:'n',
       skyReady:false, gridN:19,
       depth:readDepth(), term:null, termLayer:0, termStyle:{}, termSheet:false, pcaStep:PCA_LAST, pcaAngle:150,
-      DZ:null, DT:null, dFailed:false, dCopied:false, dBack:false, dAnchor:null, dScan:false, dRhyme:-1, dTheme:-1, dSurah:2, dWord:'', dWordQ:'', dRepTab:'ref', dRepN:20, dScrollY:0, rExt:null,
+      DZ:null, DT:null, dFailed:false, dCopied:false, dBack:false, dAnchor:null, dScan:false, dRingSel:null, dRhyme:-1, dTheme:-1, dSurah:2, dWord:'', dWordQ:'', dRepTab:'ref', dRepN:20, dScrollY:0, rExt:null,
       labMeta:{
         dashboard:{technique:'Interactive BI Dashboard (filters + live KPIs)',
           what:'A business-intelligence dashboard lets you slice the data live: choose filters and every KPI and chart updates instantly. Here you filter all 114 surahs by where they were revealed and by length.',
@@ -3102,6 +3406,8 @@ createApp({
       const done=()=>{ this.dCopied=true; clearTimeout(this._dCp); this._dCp=setTimeout(()=>{ this.dCopied=false; }, 2400); };
       try{ if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(done, ()=>window.prompt('', url)); return; } }catch(e){}
       window.prompt('', url); },
+    dJump(id){ const el=document.getElementById(id); if(!el) return; const y=el.getBoundingClientRect().top+scrollY-(innerWidth<=920 ? 76 : 18);
+      window.scrollTo({top:y, behavior:matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'}); },
     dOpen(k, list, ev){ const [s,v]=k.split(':').map(Number), el=ev && ev.currentTarget;
       this.dAnchor = el ? {i:[...document.querySelectorAll('main [data-dopen]')].indexOf(el), top:el.getBoundingClientRect().top} : null;
       this.openVerse(s, v, '', this.view, {keys:list && list.length ? list : [k]}); },
@@ -3328,7 +3634,7 @@ createApp({
     go(id){ const changed=id!==this.view;
       (NEEDS[id]||[]).forEach(k=>this.load(k));
       if(id!=='reader'){ this.rClaim=''; this.rVerse=0; this.rBack=''; this.rExt=null; }
-      if(id!==this.view && id!=='reader' && !this.dBack){ this.dRhyme=-1; this.dTheme=-1; this.dScan=false; this.dRepN=20; this.dCopied=false; }
+      if(id!==this.view && id!=='reader' && !this.dBack){ this.dRhyme=-1; this.dTheme=-1; this.dScan=false; this.dRingSel=null; this.dRepN=20; this.dCopied=false; }
       this.dBack=false;
       if(id!=='cluster'){ this.pcaStop(); this.pcaStep=PCA_LAST; }
       this.closeTerm();
@@ -3872,7 +4178,7 @@ createApp({
     this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); this.enterView(true); });
   }
 }).component('depth-switch', DepthSwitch).component('term-chips', TermChips).component('explain-box', ExplainBox)
-  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('dumbbell', Dumbbell)
+  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell)
   .component('letter-strip', LetterStrip).component('growth-curve', GrowthCurve).mount('#app');
 });
 </script>

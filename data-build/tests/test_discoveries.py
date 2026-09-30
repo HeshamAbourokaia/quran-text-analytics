@@ -35,6 +35,7 @@ def test_plan_is_there():
 def test_verdicts():
     assert R['endings']['verdict'] == 'holds'
     assert R['rings']['baqara']['verdict'] == 'does not hold' and not any(r['bh'] for r in R['rings']['scan'])
+    assert R['ringClaims']['farrin']['verdict'] == 'does not hold'
     assert R['rhyme']['verdict'] == 'holds'
     assert R['retellings']['verdict'] == 'holds'
     assert R['letters']['verdict'] == 'does not hold'
@@ -86,6 +87,22 @@ def test_rings_as_quoted():
     assert got['stat'] == R['rings']['baqara']['stat'] == 0.00384
     assert got['peak'][0] == R['rings']['baqara']['peak'][0] == 231.0 and not got['peakInClaimedZone']
     assert len(R['rings']['scan']) == 38
+
+def test_ring_claims_as_quoted():
+    # the plan's addendum A: the three mirror claims, told apart (recomputed in full, since none needs shuffles)
+    assert D.mirror_claims(_WORDS, _V, _KEYS, _X) == R['ringClaims']
+    m = R['ringClaims']['middle']   # the middle verse: exact by verses in the Kufan count, not by words or letters
+    assert (m['verses'], m['firstHalfEnds'], m['words'], m['wasatWord'], m['letters'], m['wasatLetter']) == (286, 143, 6116, 2518, 25899, 10662)
+    assert (m['midWordVerse'], m['midLetterVerse'], m['wasatWordAt'], m['wasatLetterAt']) == (172, 171, 0.4117, 0.4117)
+    assert [o['k'] for o in m['root']] == ['2:143', '2:238', '5:89', '68:28', '100:5']
+    f = R['ringClaims']['farrin']   # Farrin's sections: pre-registered; 24 pairings, so p is at least 1/24
+    assert (f['arrangements'], f['ge'], f['p'], f['verdict']) == (24, 6, 0.25, 'does not hold')
+    assert (f['obs'], f['best'], f['parallel']) == (1.639613, 1.702161, 1.580252)
+    assert [(p['cos'], p['rank']) for p in f['pairs']] == [(0.217, 4), (0.4133, 2), (0.5626, 1), (0.4466, 3)]
+    k = R['ringClaims']['kursi']    # Ayat al-Kursi: exploratory, so no verdict
+    assert 'verdict' not in k and (k['arrangements'], k['obs'], k['ge'], k['p'], k['parallel']) == (24, 2, 6, 0.25, 0)
+    assert [p['shared'] for p in k['pairs']] == [[], [], ['ارض', 'سمو'], []] and k['centreShares'] == [{'with': 6, 'shared': ['علم']}]
+    assert [len(s['words']) for s in k['statements']] == [7, 5, 7, 7, 6, 8, 4, 3, 3]
 
 def test_rhyme_as_quoted():
     got = D.rhyme(_V, _KEYS, _X, _META, perms=2)
