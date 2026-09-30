@@ -918,6 +918,38 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .ringwrap .hl{fill:none;stroke:#fff;stroke-width:1.8;vector-effect:non-scaling-stroke}
   .ringwrap .hl.twin{stroke:rgba(255,255,255,.5);stroke-dasharray:2 2}
   .ringwrap .guide{stroke:rgba(255,255,255,.3);stroke-width:1;vector-effect:non-scaling-stroke}
+  /* the map search: a verse or a word, marked on al-Baqarah's map */
+  .ringmap{margin:14px 0 0}
+  .ringfind{max-width:640px;margin:0 auto}
+  .ringfind .rf-row{position:relative;display:flex}
+  .ringfind input{flex:1 1 auto;min-width:0;font:inherit;font-size:1rem;color:#fff;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:12px;padding:10px 40px 10px 14px}
+  .ringfind[dir=rtl] input{padding:10px 14px 10px 40px}
+  .ringfind input::placeholder{color:var(--on-dark-3)}
+  .ringfind input:focus{outline:none;border-color:rgba(52,211,153,.6);box-shadow:0 0 0 3px rgba(52,211,153,.14)}
+  .ringfind input::-webkit-search-cancel-button{display:none}
+  .ringfind .rf-x{position:absolute;top:50%;right:6px;transform:translateY(-50%);width:28px;height:28px;border-radius:50%;border:0;background:rgba(255,255,255,.08);color:var(--on-dark-2);font-size:1.05rem;line-height:1;cursor:pointer}
+  .ringfind[dir=rtl] .rf-x{right:auto;left:6px}
+  .ringfind .rf-ex{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:8px 0 0;font-size:.78rem;color:var(--on-dark-3)}
+  .ringfind .rf-e{font:inherit;font-size:.8rem;color:var(--on-dark-2);background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:999px;padding:3px 11px;cursor:pointer}
+  .ringfind .rf-e[lang=ar]{font-family:var(--ar);font-size:.92rem;padding:1px 11px}
+  .ringfind .rf-e:hover{border-color:rgba(52,211,153,.5);color:#fff}
+  .ringfind .rf-res{margin:10px 0 0;font-size:.84rem;line-height:1.65;color:var(--on-dark-2)}
+  html[lang=ar] .ringfind .rf-res{font-size:.94rem;line-height:1.85}
+  .ringfind .rf-res p{margin:0 0 7px}
+  .ringfind .rf-s b{color:var(--on-dark);font-weight:600}
+  .ringfind .rf-vs{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+  .ringfind .rf-v{font:inherit;font-size:.8rem;font-variant-numeric:tabular-nums;color:var(--emerald);background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.42);border-radius:999px;padding:3px 11px;cursor:pointer}
+  .ringfind .rf-v:hover{background:rgba(52,211,153,.16)}
+  .ringfind .rf-v.on{background:var(--emerald);border-color:var(--emerald);color:#04140d}
+  .ringfind .rf-more{font-size:.78rem;color:var(--on-dark-3)}
+  .ringfind .rf-key{font-size:.76rem;color:var(--on-dark-3)}
+  html[lang=ar] .ringfind .rf-key{font-size:.86rem}
+  .ringwrap .sband{fill:rgba(52,211,153,.2)}
+  .ringwrap .sring{fill:none;stroke:var(--emerald);stroke-width:2;vector-effect:non-scaling-stroke}
+  .ringwrap.finding canvas{opacity:.72}
+  .rmk{position:absolute;background:var(--emerald);pointer-events:none;border-radius:1px}
+  .rmk.x{top:-7px;width:3px;height:6px;transform:translateX(-50%)}
+  .rmk.y{left:-7px;width:6px;height:3px;transform:translateY(-50%)}
   .ringhint{margin:12px 0 0;font-size:.78rem;line-height:1.6;color:var(--on-dark-3);text-align:center}
   html[lang=ar] .ringhint{font-size:.88rem}
   .ringtip{margin:12px 0 0;background:rgba(4,10,7,.93);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:10px 12px;
@@ -2618,15 +2650,163 @@ const NullPlot = { props:['d','p','title','lab','what','two','fmt'],
         ? (k ? k+' of the '+n+' '+this.what[0]+' came as far from zero' : 'None of the '+n+' '+this.what[0]+' came as far from zero')+' (p = '+p+').'
         : (k ? k+' of the '+n+' '+this.what[0]+' scored as high or higher' : 'None of the '+n+' '+this.what[0]+' scored as high')+' (p = '+p+').'; },
     aria(){ return this.title+'. '+this.sum; } } };
+// Study 2's map search: where a verse or a word of al-Baqarah sits on the map. A query is a verse or a range
+// (2:143, 143, ٢:١٤٣, 142-152); Arabic words, matched as written, then as the dictionary word, in the mushaf's
+// spelling and by root; English words of the translation; or Latin transliteration, read as Arabic by its
+// consonants (wasata finds وسطا). It returns the verses found, how, and the other ways the query can be read.
+const FIND_DI = [['sh','S'],['th','T'],['kh','K'],['gh','G'],['dh','D'],['ph','f']];
+const FIND_LAT = {b:'b',t:'t',T:'t',j:'j',g:'j',G:'g',h:'h',K:'k',k:'k',q:'k',c:'k',d:'d',D:'d',z:'z',s:'s',S:'s',
+  f:'f',p:'f',v:'f',l:'l',m:'m',n:'n',r:'r',w:'w',y:'y'};
+const FIND_AR = {'ب':'b','ت':'t','ث':'t','ج':'j','ح':'h','خ':'k','د':'d','ذ':'d','ر':'r','ز':'z','س':'s','ش':'s','ص':'s',
+  'ض':'d','ط':'t','ظ':'z','غ':'g','ف':'f','ق':'k','ك':'k','ل':'l','م':'m','ن':'n','ه':'h','و':'w','ي':'y'};
+const findKey = w => [...w].map(c=>FIND_AR[c]||'').join('');   // an Arabic word's consonants in Latin letters
+// the spellings a Latin word can stand for, likeliest first: ar-rahman -> arrahman, rahman; wasatan -> wasatan, wasata
+function latinBases(tok){
+  const bases=[tok.replace(/-/g,'')], art=tok.match(/^(?:al|el|a[dnrstz]|ash|ath|adh)-(.+)$/);
+  if(art) bases.push(art[1].replace(/-/g,''));
+  for(const b of [...bases]){ if(/[aiu]n$/.test(b)) bases.push(b.slice(0,-1)); if(/[ae][ht]$/.test(b)) bases.push(b.slice(0,-1)); }
+  return bases; }
+// the consonant keys a Latin word can stand for: wasatan -> wstn, then wst
+function latinKeys(tok){
+  const out=[];
+  for(const b of latinBases(tok)){ let x=b; for(const [a,c] of FIND_DI) x=x.split(a).join(c);
+    const k=[...x].map(c=>FIND_LAT[c]||'').join('');
+    for(const y of [k, k.replace(/(.)\1+/g,'$1')]) if(y.length>=2 && !out.includes(y)) out.push(y); }
+  return out; }
+// a rough reading of a voweled word in Latin letters, to tell apart words with the same consonants (wasatan, al-wusta)
+const ROMAN = {'ب':'b','ت':'t','ث':'th','ج':'j','ح':'h','خ':'kh','د':'d','ذ':'dh','ر':'r','ز':'z','س':'s','ش':'sh','ص':'s','ض':'d','ط':'t',
+  'ظ':'z','غ':'gh','ف':'f','ق':'q','ك':'k','ل':'l','م':'m','ن':'n','ه':'h','و':'w','ي':'y','ة':'a','ا':'a','ٱ':'a','أ':'a','إ':'i','آ':'a','ى':'a',
+  'َ':'a','ُ':'u','ِ':'i','ً':'an','ٌ':'un','ٍ':'in','ٰ':'a','ۥ':'u','ۦ':'i'};
+function romanize(w){ let out='', last=''; const cs=[...w];
+  for(let i=0;i<cs.length;i++){ const c=cs[i];
+    if(c==='ّ'){ out+=last; continue; }                                   // shadda doubles the consonant
+    if((c==='ا' || c==='ى') && cs[i-1]==='ً') continue;                   // the alif that carries tanwin is silent
+    const vowelNext='َُِ ًٌٍ'.includes(cs[i+1] || '-');
+    if('اأإآ'.includes(c) && vowelNext) continue;                          // a hamza's seat: its own mark gives the vowel
+    const yCons=c==='ى' && (vowelNext || cs[i+1]==='ّ');                  // the mushaf's dotless ى as a consonant (ٱلْحَىُّ)
+    const r=c==='ة' && vowelNext ? 't' : yCons ? 'y' : ROMAN[c]; if(!r) continue;   // ta marbuta sounds as t before a vowel
+    out+=r; if(yCons || !'َُِ ًٌٍ ٰۥۦاٱأإآى'.includes(c)) last=r; }
+  return out; }
+const simpLat = s => s.replace(/ee|ie/g,'i').replace(/oo|ou|o/g,'u').replace(/e/g,'a').replace(/(.)\1+/g,'$1').replace(/uw(?![aiu])/g,'u').replace(/iy(?![aiu])/g,'i');
+function lev(a, b){ let p=[...Array(b.length+1).keys()];
+  for(let i=1;i<=a.length;i++){ const c=[i]; for(let j=1;j<=b.length;j++) c[j]=Math.min(p[j]+1, c[j-1]+1, p[j-1]+(a[i-1]===b[j-1] ? 0 : 1)); p=c; }
+  return p[b.length]; }
+// a mushaf word in modern spelling, from the marks the mushaf writes in place of letters: the small alif after a
+// waw or a letter (ٱلصَّلَوٰةَ -> الصلاة, ٱلسَّمَٰوَٰتِ -> السماوات) and a small ya or waw inside a word (إِبْرَٰهِۦمَ -> ابراهيم).
+// Nothing is dropped, so unrelated words cannot meet (skeletons without alifs made السلام find أسلم)
+const modernSpelling = w => normalize(w.replace(/وٰ/g,'ا').replace(/ىٰ/g,'ى').replace(/ٰ/g,'ا')
+  .replace(/ۦ(?=[\u0621-\u064A])/g,'ي').replace(/ۥ(?=[\u0621-\u064A])/g,'و'));
+// al-Baqarah's words by consonant key (as written, and without a leading clitic), by key without w and y, and by root
+let FIND_IX = null;
+function findIndex(W){
+  if(FIND_IX && FIND_IX.W===W) return FIND_IX;
+  const pre=(JEV && JEV.PREFIXES) || [''], key=new Map(), weak=new Map(), root=new Map(), idx=[], mod=new Map();
+  const add=(m,k,i)=>{ if(k.length<2) return; let a=m.get(k); if(!a) m.set(k, a=[]); if(a[a.length-1]!==i) a.push(i); };
+  for(let i=0;i<W.key.length;i++){ if(!W.key[i].startsWith('2:')) continue; idx.push(i);
+    const md=modernSpelling(W.surface[i]); if(md!==W.norm[i]) mod.set(i, md);
+    const w=W.surface[i].replace(TASHKEEL,'').replace(/[ٱآأإ]/g,'ا'), vs=[w];
+    for(const c of pre) if(c && w.startsWith(c) && w.length-c.length>=2) vs.push(w.slice(c.length));
+    for(const v of vs) for(const x of [...new Set([v, v.replace(/ة/g,'ت'), v.replace(/ة/g,'ه'), v.replace(/ى/g,'ي')])]){
+      const k=findKey(x); add(key,k,i); add(weak,k.replace(/[wy]/g,''),i); }
+    if(W.root[i]) add(root, findKey(W.root[i]), i); }
+  return FIND_IX={W, idx, key, weak, root, mod}; }
+// verses known by a name rather than by their words
+const VERSE_NAMES = [
+  {en:'Ayat al-Kursi', ar:'آية الكرسي', a:255, b:255, keys:['ayatalkursi','ayatulkursi','ayatkursi','ayetelkursi','ayetulkursi','kursiverse','throneverse','verseofthethrone','ايةالكرسي']},
+  {en:'Amana ar-Rasul', ar:'آمن الرسول', a:285, b:286, keys:['amanarrasul','amanaarrasul','amanarasul','aamanarrasul','lasttwoverses','lasttwoversesofalbaqarah','امنالرسول']}];
+function mapFind(raw, W, EN, nv){
+  const q=String(raw||'').trim(); if(!q) return null;
+  const nk=normalize(q).toLowerCase().replace(/[^a-z\u0621-\u064A]/g,''), named=VERSE_NAMES.find(x=>x.keys.includes(nk));
+  if(named){ const verses=[]; for(let v=named.a; v<=named.b; v++) verses.push(v); return {kind:'verse', verses, a:named.a, b:named.b, name:named}; }
+  const d=q.replace(/[٠-٩]/g,c=>c.charCodeAt(0)-0x660).replace(/[۰-۹]/g,c=>c.charCodeAt(0)-0x6F0);
+  const m=d.match(/^(?:(\d{1,3})\s*[:.]\s*)?(\d{1,3})(?:\s*[-–—]\s*(\d{1,3}))?$/);
+  if(m){ const sura=m[1] ? +m[1] : 2, a=+m[2], b=m[3] ? +m[3] : a;
+    if(sura!==2) return {kind:'other'};
+    if(a<1 || b>nv || b<a) return {kind:'bad'};
+    const verses=[]; for(let v=a; v<=b; v++) verses.push(v);
+    return {kind:'verse', verses, a, b}; }
+  if(!W) return {kind:'wait'};
+  const X=findIndex(W), num=i=>+W.key[i].split(':')[1];
+  const read=(how, is, key)=>{ if(!is || !is.length) return null; const c=new Map();
+    is.forEach(i=>c.set(W.surface[i], (c.get(W.surface[i])||0)+1));
+    return {how, key, verses:[...new Set(is.map(num))].sort((a,b)=>a-b), forms:[...c.entries()].sort((a,b)=>b[1]-a[1]).map(e=>e[0])}; };
+  const pack=list=>{ const seen=new Set(), out=[];
+    for(const r of list) if(r && !seen.has(r.verses.join())){ seen.add(r.verses.join()); out.push(r); }
+    return out.length ? {kind:'word', ...out[0], alts:out.slice(1)} : {kind:'none'}; };
+  const together=rs=>{ if(!rs.length) return {kind:'none'}; let vs=null; for(const r of rs){ if(!r) return {kind:'none'}; vs = vs ? vs.filter(v=>r.verses.includes(v)) : r.verses; }
+    return vs.length ? {kind:'word', how:'all', verses:vs, forms:rs.map(r=>r.forms[0]), alts:[]} : {kind:'none'}; };
+  if(/[\u0600-\u06FF]/.test(q)){
+    const pre=(JEV && JEV.PREFIXES) || [''];
+    const one=t=>{ const cands=[t]; for(const c of pre) if(c && t.startsWith(c) && t.length-c.length>=2) cands.push(t.slice(c.length));
+      const cs=new Set(cands), form=[], lemma=[], spell=[], root=[];
+      for(const i of X.idx){ const n=W.norm[i], md=X.mod.get(i);
+        if(n===t || pre.some(c=>c && n===c+t)) form.push(i);
+        if(W.lemma[i] && cs.has(W.lemma[i])) lemma.push(i);
+        if(md && (cs.has(md) || pre.some(c=>c && md.startsWith(c) && cs.has(md.slice(c.length))))) spell.push(i);
+        if(W.root[i]===t) root.push(i); }
+      // the dictionary word and the root of what was found, when the query was not itself one
+      const first=form.length ? form[0] : spell.length ? spell[0] : lemma[0];
+      const lem=lemma.length ? W.lemma[lemma[0]] : first!=null ? W.lemma[first] : '';
+      const rt=root.length ? t : first!=null ? W.root[first] : '';
+      const L=read('lemma', lemma.length ? lemma : lem ? X.idx.filter(i=>W.lemma[i]===lem) : [], lem);
+      const R=read('root', root.length ? root : rt ? X.idx.filter(i=>W.root[i]===rt) : [], rt);
+      return lemma.length ? [read('form',form), L, read('spell',spell), R] : [read('form',form), read('spell',spell), L, R]; };
+    const toks=q.replace(/[«»"'().,،؛:!?؟]/g,' ').split(/\s+/).map(normalize).filter(Boolean);
+    if(toks.length>1 && toks.every(t=>t.length===1)){ const r=toks.join(''); return pack([read('root', X.idx.filter(i=>W.root[i]===r), r)]); }   // و س ط
+    if(toks.length===1) return pack(one(toks[0]));
+    return together(toks.map(t=>one(t).find(Boolean)));
+  }
+  // Latin: the site's glossary of English and transliterated words (salah, musa), English words of the
+  // translation, and, when neither finds anything, the query read as Arabic by its consonants (wasata)
+  const lat=q.toLowerCase().replace(/[’‘'`ʿʾ]/g,'').replace(/[^a-z\s-]/g,' ').replace(/\s+/g,' ').trim(); if(!lat) return {kind:'none'};
+  const words=lat.split(' '), esc=w=>w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+  const gl=JEV && JEV.GLOSS, pl=(JEV && JEV.PLURAL) || {}, gk=gl && (gl[lat] ? lat : gl[pl[lat]] ? pl[lat] : null);
+  const lems=gk ? gl[gk].map(o=>o.norm) : [], G=gk ? read('gloss', X.idx.filter(i=>lems.includes(W.lemma[i])), lems.join(' / ')) : null;
+  const re=new RegExp('\\b'+words.map(esc).join('[\\s,;:-]+')+(/[aeiou]$/.test(lat) ? 'h?' : '')+'(?:s|es)?\\b','i'), en=[];
+  for(let v=1; v<=nv; v++){ const t=EN && EN['2:'+v]; if(t && re.test(t.replace(/['’]/g,''))) en.push(v); }
+  const E=en.length ? {how:'en', key:lat, verses:en, forms:[]} : null;
+  if(G || E) return pack([G, E]);
+  // the words among `is` whose voweled reading is nearest what was typed (a word's endings may run on: kursi, kursiyyuhu)
+  const near=(is, tok)=>{ const qs=latinBases(tok).map(simpLat), d=new Map();
+    for(const i of is){ const w=W.surface[i]; if(d.has(w)) continue; const r=simpLat(romanize(w)); let best=Infinity;
+      for(const x of new Set([r, r.replace(/^(?:wa|fa|bi|li|ka)/,''), r.replace(/^(?:wa|fa|bi|li|ka)?al/,'')]))
+        for(const y of qs){ best=Math.min(best, lev(y,x)); for(let L=Math.max(1,y.length-1); L<=y.length+2 && L<x.length; L++) best=Math.min(best, lev(y, x.slice(0,L))); }
+      d.set(w, best); }
+    const min=Math.min(...d.values()), ql=Math.min(...qs.map(y=>y.length));
+    return min<=Math.max(1, Math.floor(ql/3)) ? is.filter(i=>d.get(W.surface[i])===min) : null; };
+  const tr=(map, tok, weak)=>{ for(const k0 of latinKeys(tok)){ const k=weak ? k0.replace(/[wy]/g,'') : k0, all=k.length>=2 && map.get(k), is=all && near(all, tok);
+    if(is) return {is, all, k}; } return null; };
+  if(words.length===1){ const t=words[0], a=tr(X.key,t), b=tr(X.weak,t,true), c=tr(X.root,t);
+    return pack(a ? [read('tr',a.is,a.k), c && read('troot',c.all,W.root[c.all[0]]), read('trc',a.all,a.k)] : [b && read('trw',b.is,b.k), c && read('troot',c.all,W.root[c.all[0]])]); }
+  return together(words.map(t=>{ const a=tr(X.key,t) || tr(X.weak,t,true) || tr(X.root,t); return a && read('tr',a.is,a.k); }));
+}
 // Study 2: every verse of al-Baqarah against every verse (blocks of four), beyond what their distance predicts.
 // A mirror would light the diagonal from top right to bottom left (dashed). Point at, tap or arrow to a square to see
-// which verses meet there, how alike they are, the words they share, and to read them.
+// which verses meet there, how alike they are, the words they share, and to read them. Search for a verse or a word to
+// mark its stretches: a row and a column each, and a ring where the row crosses the dashed mirror line.
 const RingMap = { props:['m','n','block'],
-  data(){ return {cell:null, pinned:false, wide:true}; },
-  template:`<div class="ringbox" :class="{wide}" dir="ltr">
-    <div class="ringwrap" ref="w" tabindex="0" role="group" :aria-label="aria" @pointermove="move" @pointerleave="leave" @click="pick" @keydown="key" @focus="focus">
+  data(){ return {cell:null, pinned:false, wide:true, q:'', fq:'', fhow:null, pinnedV:null, fromFind:false}; },
+  template:`<div class="ringmap">
+  <div class="ringfind" :dir="ar ? 'rtl' : 'ltr'">
+    <div class="rf-row"><input type="search" v-model="q" dir="auto" autocomplete="off" spellcheck="false" enterkeyhint="search"
+        :placeholder="ar ? 'ابحث عن آية أو كلمة: ٢:١٤٣، وسطا، الصلاة…' : 'Find a verse or a word: 2:143, وسطا, wasata, prayer…'"
+        :aria-label="ar ? 'ابحث عن آية أو كلمة لترى موضعها في الخريطة' : 'Find a verse or a word to see where it is on the map'" @keydown.enter.prevent="go1" @keydown.esc="q=''">
+      <button v-if="q" type="button" class="rf-x" @click="q=''" :aria-label="ar ? 'مسح البحث' : 'Clear the search'">×</button></div>
+    <p v-if="!fq" class="rf-ex">{{ ar ? 'جرّب:' : 'Try:' }} <button v-for="e in examples" :key="e" type="button" class="rf-e" @click="q=e" :lang="isAr(e) ? 'ar' : null">{{ e }}</button></p>
+    <div v-else class="rf-res" role="status" aria-live="polite">
+      <p class="rf-s"><b v-if="summary.label" v-html="iso(summary.label)"></b> <span v-html="iso(summary.text)"></span></p>
+      <p v-if="fverses.length" class="rf-vs"><button v-for="v in fverses.slice(0,14)" :key="v" type="button" class="rf-v" :class="{on: pinnedV===v}" @click="goHit(v, true)">{{ K('2:'+v) }}</button><span v-if="fverses.length>14" class="rf-more">{{ ar ? 'و'+$root.dF.n(fverses.length-14)+' غيرها' : '+'+(fverses.length-14)+' more' }}</span></p>
+      <p v-if="alts.length" class="rf-alt">{{ ar ? 'أو:' : 'Or:' }} <template v-for="(a,i) in alts" :key="a.how"><button type="button" class="linkish" @click="fhow=a.how" v-html="iso(readLabel(a)+' ('+count(a.verses.length)+')')"></button><span v-if="i<alts.length-1">{{ ar ? '، ' : ', ' }}</span></template></p>
+      <p v-if="marks.length" class="rf-key">{{ marks.length<=12 ? (ar ? 'على الخريطة بالأخضر: مقطع كل آية (أربع آيات) صفًّا وعمودًا، ودائرةٌ حيث يقطع ذلك الصفُّ خطَّ التناظر المتقطع.' : 'On the map, in green: the stretch of four verses around each one, as a row and a column, and a ring where that row crosses the dashed mirror line.') : (ar ? 'على الخريطة تُعلِّم شَرَطاتٌ خضراء على الحافتين المقاطعَ الـ'+$root.dF.n(marks.length)+'.' : 'On the map, green ticks along the edges mark the '+marks.length+' stretches.') }}</p>
+    </div>
+  </div>
+  <div class="ringbox" ref="box" :class="{wide}" dir="ltr">
+    <div class="ringwrap" :class="{finding: marks.length}" ref="w" tabindex="0" role="group" :aria-label="aria" @pointermove="move" @pointerleave="leave" @click="pick" @keydown="key" @focus="focus">
       <canvas ref="c" :width="m.length" :height="m.length" aria-hidden="true"></canvas>
       <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="100" y1="0" x2="0" y2="100" class="anti"/>
+        <template v-if="marks.length && marks.length<=12"><template v-for="b in marks" :key="'s'+b">
+          <rect class="sband" x="0" :y="b*u" width="100" :height="u"/><rect class="sband" :x="b*u" y="0" :width="u" height="100"/></template></template>
+        <template v-if="marks.length<=12"><circle v-for="b in marks" :key="'c'+b" class="sring" :cx="(N-1-b+.5)*u" :cy="(b+.5)*u" :r="u*1.15"/></template>
         <template v-if="cell">
           <line class="guide" x1="0" :x2="(cell.j+.5)*u" :y1="(cell.i+.5)*u" :y2="(cell.i+.5)*u"/>
           <line class="guide" :x1="(cell.j+.5)*u" :x2="(cell.j+.5)*u" y1="0" :y2="(cell.i+.5)*u"/>
@@ -2635,6 +2815,8 @@ const RingMap = { props:['m','n','block'],
         </template></svg>
       <span v-for="t in ticks" :key="'x'+t.v" class="rtick x" :style="{left:t.f+'%'}">{{ $root.dF.n(t.v) }}</span>
       <span v-for="t in ticks" :key="'y'+t.v" class="rtick y" :style="{top:t.f+'%'}">{{ $root.dF.n(t.v) }}</span>
+      <span v-for="b in marks" :key="'mx'+b" class="rmk x" :style="{left:((b+.5)*u)+'%'}"></span>
+      <span v-for="b in marks" :key="'my'+b" class="rmk y" :style="{top:((b+.5)*u)+'%'}"></span>
     </div>
     <p v-if="!cell" class="ringhint">{{ ar ? (fine ? 'مرّر المؤشر على أي مربعٍ لترى الآيات التي يلتقي عندها، أو انقر لتثبيته.' : 'المس أي مربعٍ لترى الآيات التي يلتقي عندها.') : (fine ? 'Point at any square to see which verses meet there; click to keep it open.' : 'Tap any square to see which verses meet there.') }}</p>
     <div v-else class="ringtip" :class="{float: wide, pinned}" :style="wide ? tipPos : null" :dir="ar ? 'rtl' : 'ltr'" role="status" aria-live="polite">
@@ -2649,6 +2831,25 @@ const RingMap = { props:['m','n','block'],
   </div>`,
   computed:{
     ar(){ return this.$root.lang==='ar'; }, fine(){ return FINE; }, N(){ return this.m.length; }, u(){ return 100/this.m.length; },
+    examples(){ return this.ar ? ['وسطا','٢:٢٥٥','موسى','الصلاة'] : ['وسطا','wasata','2:255','Moses']; },
+    fres(){ return mapFind(this.fq, this.$root.ready.words ? this.$root.W : null, this.$root.EN, this.n); },
+    fr(){ const r=this.fres; if(!r || r.kind!=='word' || !this.fhow) return r; return [r].concat(r.alts).find(x=>x.how===this.fhow) || r; },
+    alts(){ const r=this.fres; return r && r.kind==='word' ? [r].concat(r.alts).filter(x=>x.how!==this.fr.how) : []; },
+    fverses(){ const r=this.fr; return r && r.verses ? r.verses : []; },
+    marks(){ return [...new Set(this.fverses.map(v=>Math.floor((v-1)/this.block)))].sort((a,b)=>a-b); },
+    summary(){ const r=this.fr, ar=this.ar, F=this.$root.dF, K=this.K, q=this.fq.trim();
+      if(!r) return {label:'', text:''};
+      if(r.kind==='wait') return {label:'', text: ar ? 'جارٍ تحميل الكلمات…' : 'Loading the words…'};
+      if(r.kind==='other') return {label:'', text: ar ? 'هذه الخريطة لسورة البقرة (السورة ٢) وحدها.' : 'This map is al-Baqarah (surah 2) only.'};
+      if(r.kind==='bad') return {label:'', text: ar ? 'في سورة البقرة '+F.n(this.n)+' آية.' : 'Al-Baqarah has '+this.n+' verses.'};
+      if(r.kind==='none') return {label:'', text: ar ? 'لا تطابق «'+q+'» أي آيةٍ من البقرة. جرّب الكلمة بالعربية، أو رقم آية مثل ٢:١٤٣، أو كلمةً إنجليزية من الترجمة.'
+        : 'No verse of al-Baqarah matches «'+q+'». Try the Arabic word, a verse like 2:143, or an English word from the translation.'};
+      const vs=r.verses, nb=this.marks.length;
+      if(r.kind==='verse' && vs.length===1){ const b=this.marks[0], mine=K(this.range(b)), far=K(this.range(this.N-1-b)), nm=r.name;
+        return {label:'', text: ar ? (nm ? nm.ar+' هي الآية '+K('2:'+vs[0])+'، في' : 'الآية '+K('2:'+vs[0])+' في')+' المقطع '+mine+'، المربع '+F.n(b+1)+' من '+F.n(this.N)+' على كل ضلع، ويقابلها عبر خط التناظر المقطع '+far+'.'
+          : (nm ? nm.en+' is 2:'+vs[0]+', in' : '2:'+vs[0]+' is in')+' the stretch '+mine+', square '+(b+1)+' of '+this.N+' along each side. Across the mirror line it faces '+far+'.'}; }
+      const where = nb===1 ? (ar ? 'في المقطع ' : 'in the stretch ')+K(this.range(this.marks[0])) : ar ? 'في '+this.arN(nb,'مقطع واحد','مقطعين','مقاطع','مقطعًا') : 'in '+nb+' stretches';
+      return {label:(r.kind==='verse' ? (r.name ? (ar ? r.name.ar : r.name.en)+' ' : '')+K('2:'+r.a+'–'+r.b) : this.readLabel(r))+':', text:this.count(vs.length)+(ar ? '، ' : ', ')+where+'.'}; },
     ticks(){ return [1,50,100,150,200,250,this.n].map(v=>({v, f:((v-.5)/this.n*100).toFixed(2)})); },
     aria(){ return this.ar ? 'خريطة تشابه آيات البقرة كل مقطعٍ مقابل كل مقطع. استعمل الأسهم للتنقل وEnter لقراءة الآيات.' : 'Map of how alike every two stretches of al-Baqarah are. Use the arrow keys to move and Enter to read the verses.'; },
     ra(){ return this.range(this.cell.i); }, rb(){ return this.range(this.cell.j); },
@@ -2680,18 +2881,46 @@ const RingMap = { props:['m','n','block'],
     tipPos(){ const {i,j}=this.cell, N=this.N, u=100/N, right=j<N*.55, down=i<N*.5;
       return {left:(right ? (j+1)*u : j*u)+'%', top:(down ? i*u : (i+1)*u)+'%',
         transform:'translate('+(right ? '14px' : 'calc(-100% - 14px)')+','+(down ? '0' : '-100%')+')'}; } },
-  mounted(){ this.draw(); const s=this.$root.dRingSel; if(s){ this.cell={i:s.i, j:s.j}; this.pinned=true; }
-    this.fit(); if(window.ResizeObserver){ this._ro=new ResizeObserver(()=>this.fit()); this._ro.observe(this.$el); } },
-  beforeUnmount(){ if(this._ro) this._ro.disconnect(); },
-  watch:{ m(){ this.draw(); } },
+  mounted(){ this.draw(); const s=this.$root.dRingSel; if(s){ this.cell={i:s.i, j:s.j}; this.pinned=true; this._restored=true; }
+    const f=this.$root.dRingFind || new URLSearchParams(location.search).get('find') || ''; if(f){ this.q=f; this.fq=f; } else this._restored=false;
+    this.fit(); if(window.ResizeObserver){ this._ro=new ResizeObserver(()=>this.fit()); this._ro.observe(this.$refs.box); } },
+  beforeUnmount(){ if(this._ro) this._ro.disconnect(); clearTimeout(this._ft); },
+  watch:{ m(){ this.draw(); },
+    q(v){ this.$root.dRingFind=v; clearTimeout(this._ft); this._ft=setTimeout(()=>{ this.fq=v; }, v ? 220 : 0); },
+    fq(){ this.fhow=null; },
+    fr(){ this.afterFind(); } },
   methods:{
     K(k){ return this.$root.dF.k(Array.isArray(k) ? '2:'+k[0]+(k[1]>k[0] ? '–'+k[1] : '') : k); },
+    isAr(t){ return /[\u0600-\u06FF]/.test(t); },
+    // escaped, with the other script's words isolated so their direction does not pull the sentence apart
+    iso(t){ const h=escH(t); return this.ar ? h.replace(/[A-Za-z][A-Za-z0-9 :.,'’–-]*[A-Za-z0-9]|[A-Za-z]/g, '<bdi dir="ltr">$&</bdi>') : h.replace(AR_RUN, '<bdi lang="ar">$&</bdi>'); },
+    arN(n, one, two, few, many){ const F=this.$root.dF; return n===1 ? one : n===2 ? two : n%100>=3 && n%100<=10 ? F.n(n)+' '+few : F.n(n)+' '+many; },
+    count(n){ return this.ar ? this.arN(n,'آية واحدة','آيتان','آيات','آية') : n===1 ? '1 verse' : n+' verses'; },
+    readLabel(r){ const ar=this.ar, q=this.fq.trim(), f='«'+r.forms.slice(0,3).join(ar ? '»، «' : '», «')+'»', sp=w=>'«'+[...w].join(' ')+'»';
+      switch(r.how){
+        case 'form': return ar ? f+' كما كُتبت' : f+' as written';
+        case 'lemma': return ar ? 'كلمة «'+r.key+'» بكل صيغها' : 'the word «'+r.key+'» in all its forms';
+        case 'spell': return ar ? '«'+q+'» برسم المصحف '+f : '«'+q+'», as the mushaf writes it: '+f;
+        case 'root': return ar ? 'الجذر '+sp(r.key) : 'the root '+sp(r.key);
+        case 'en': return ar ? '«'+q+'» في الترجمة الإنجليزية' : '«'+q+'» in the English translation';
+        case 'gloss': return ar ? '«'+q+'»: كلمة «'+r.key+'» بكل صيغها' : '«'+q+'»: the word «'+r.key+'» in all its forms';
+        case 'tr': case 'trw': return ar ? '«'+q+'» مقروءةً بالعربية '+f : '«'+q+'», read as Arabic: '+f;
+        case 'trc': return ar ? 'كل كلمةٍ بحروف «'+q+'» '+f : 'every word with the letters of «'+q+'»: '+f;
+        case 'troot': return ar ? '«'+q+'» مقروءةً جذرًا '+sp(r.key) : '«'+q+'», read as the root '+sp(r.key);
+        default: return ar ? '«'+r.forms.join(' ')+'» معًا' : '«'+r.forms.join(' ')+'» together'; } },
+    // a verse's stretch, with the square where its row crosses the mirror line pinned open
+    goHit(v, scroll){ const b=Math.floor((v-1)/this.block); this.cell={i:b, j:this.N-1-b}; this.pinned=true; this.pinnedV=v; this.fromFind=true;
+      if(scroll && this.$refs.w){ const r=this.$refs.w.getBoundingClientRect(); if(r.top<0 || r.bottom>innerHeight) this.$refs.w.scrollIntoView({block:'center', behavior:REDUCED ? 'auto' : 'smooth'}); } },
+    go1(){ if(this.fverses.length) this.goHit(this.fverses[0], true); },
+    afterFind(){ if(this._restored){ this._restored=false; return; }
+      if(this.fromFind){ this.cell=null; this.pinned=false; this.pinnedV=null; this.fromFind=false; this.$root.dRingSel=null; }
+      if(this.marks.length===1) this.goHit(this.fverses[0], false); },
     range(b){ const B=this.block; return [b*B+1, Math.min((b+1)*B, this.n)]; },
     lemmas(r){ const W=this.$root.W, out=new Map();
       for(let a=r[0];a<=r[1];a++){ const sp=verseSpan('2:'+a); if(!sp) continue;
         for(let q=sp[0];q<sp[1];q++){ const l=W.lemma[q]; if(l && W.root[q] && !out.has(l)) out.set(l, W.surface[q]); } }
       return out; },
-    fit(){ this.wide=this.$el.getBoundingClientRect().width>=460; },
+    fit(){ this.wide=this.$refs.box.getBoundingClientRect().width>=460; },
     at(e){ const r=this.$refs.w.getBoundingClientRect(), N=this.N;
       const j=Math.floor((e.clientX-r.left)/r.width*N), i=Math.floor((e.clientY-r.top)/r.height*N);
       return i>=0 && j>=0 && i<N && j<N ? {i,j} : null; },
@@ -2699,12 +2928,12 @@ const RingMap = { props:['m','n','block'],
     leave(){ if(!this.pinned) this.cell=null; },
     pick(e){ const c=this.at(e); if(!c) return;
       if(this.pinned && this.cell && c.i===this.cell.i && c.j===this.cell.j){ this.clear(); return; }
-      this.cell=c; this.pinned=true; },
-    clear(){ this.cell=null; this.pinned=false; this.$root.dRingSel=null; },
+      this.cell=c; this.pinned=true; this.pinnedV=null; this.fromFind=false; },
+    clear(){ this.cell=null; this.pinned=false; this.pinnedV=null; this.fromFind=false; this.$root.dRingSel=null; },
     focus(){ if(!this.cell && this.$refs.w.matches(':focus-visible')){ this.cell={i:0, j:this.N-1}; this.pinned=true; } },
     key(e){ const N=this.N, d={ArrowUp:[-1,0], ArrowDown:[1,0], ArrowLeft:[0,-1], ArrowRight:[0,1]}[e.key];
       if(d){ e.preventDefault(); const c=this.cell || {i:0, j:N-1};
-        this.cell={i:Math.min(N-1, Math.max(0, c.i+d[0])), j:Math.min(N-1, Math.max(0, c.j+d[1]))}; this.pinned=true; return; }
+        this.cell={i:Math.min(N-1, Math.max(0, c.i+d[0])), j:Math.min(N-1, Math.max(0, c.j+d[1]))}; this.pinned=true; this.pinnedV=null; this.fromFind=false; return; }
       if(e.key==='Enter' && this.cell){ e.preventDefault(); this.read(e); }
       if(e.key==='Escape' && this.cell){ e.preventDefault(); this.clear(); } },
     read(e){ const keys=[]; for(const r of [this.ra, this.rb]) for(let a=r[0];a<=r[1];a++) keys.push('2:'+a);
@@ -2926,7 +3155,7 @@ createApp({
       dashPlace:'all', dashMinVerses:0, dashSort:'n',
       skyReady:false, gridN:19,
       depth:readDepth(), term:null, termLayer:0, termStyle:{}, termSheet:false, pcaStep:PCA_LAST, pcaAngle:150,
-      DZ:null, DT:null, dFailed:false, dCopied:false, dBack:false, dAnchor:null, dScan:false, dRingSel:null, dRhyme:-1, dTheme:-1, dSurah:2, dWord:'', dWordQ:'', dRepTab:'ref', dRepN:20, dScrollY:0, rExt:null,
+      DZ:null, DT:null, dFailed:false, dCopied:false, dBack:false, dAnchor:null, dScan:false, dRingSel:null, dRingFind:'', dRhyme:-1, dTheme:-1, dSurah:2, dWord:'', dWordQ:'', dRepTab:'ref', dRepN:20, dScrollY:0, rExt:null,
       labMeta:{
         dashboard:{technique:'Interactive BI Dashboard (filters + live KPIs)',
           what:'A business-intelligence dashboard lets you slice the data live: choose filters and every KPI and chart updates instantly. Here you filter all 114 surahs by where they were revealed and by length.',
@@ -3633,7 +3862,7 @@ createApp({
     go(id){ const changed=id!==this.view;
       (NEEDS[id]||[]).forEach(k=>this.load(k));
       if(id!=='reader'){ this.rClaim=''; this.rVerse=0; this.rBack=''; this.rExt=null; }
-      if(id!==this.view && id!=='reader' && !this.dBack){ this.dRhyme=-1; this.dTheme=-1; this.dScan=false; this.dRingSel=null; this.dRepN=20; this.dCopied=false; }
+      if(id!==this.view && id!=='reader' && !this.dBack){ this.dRhyme=-1; this.dTheme=-1; this.dScan=false; this.dRingSel=null; this.dRingFind=''; this.dRepN=20; this.dCopied=false; }
       this.dBack=false;
       if(id!=='cluster'){ this.pcaStop(); this.pcaStep=PCA_LAST; }
       this.closeTerm();
