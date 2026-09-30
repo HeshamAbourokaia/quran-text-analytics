@@ -1,4 +1,4 @@
-// Daleel's Discoveries: the texts of the nine pre-registered studies (web/app.html reads window.DALEEL_DISCOVER).
+// The Discoveries: the texts of the nine pre-registered studies (web/app.html reads window.DALEEL_DISCOVER).
 // The results are in web/discoveries.js (written by data-build/pipeline/discoveries.py). A text that quotes a
 // number is a function of those results D and of number formatters F for the page's language, and returns
 // [English, Arabic]; a text without numbers is just [English, Arabic]. As in explain.js, [[key]] or
