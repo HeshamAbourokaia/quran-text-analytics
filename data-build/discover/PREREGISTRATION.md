@@ -239,3 +239,17 @@ The sources were checked through search-engine extracts; the site says so where 
    - **Exploratory only, with no verdict:** the structure was read from this very verse, so no chance baseline for it
      can be fair. The site shows the shared roots and describes the parallels of form in words.
 
+
+### Results of addendum A (added on 30 September 2026, after running it)
+
+The addendum above is unchanged from commit `350189a`, where it was pushed before any of it was run. The results are
+in `web/discoveries.js` under `ringClaims`; study 2's own test and verdict are unchanged.
+
+| Claim | What was run | Result | Verdict |
+|---|---|---|---|
+| 1 | Farrin's sections: the mirror pairing vs the 24 pairings of A–D with A′–D′ | sum of cosines 1.6396 (best of the 24: 1.7022; same-order pairing: 1.5803); 6 of 24 at least as high, p = 0.25. By pair, with the partner's rank among the four sections after the centre: A–A′ 0.217 (4 of 4), B–B′ 0.4133 (2), C–C′ 0.5626 (1), D–D′ 0.4466 (3) | does not hold |
+| 2 | The middle verse (description) | 286 verses, halves 1–143 and 144–286. «وسطا» is word 2,518 of 6,116 (41.2%) and letter 10,662 of 25,899 (41.2%); the middle word is in 2:172, the middle letter in 2:171. The root و س ط occurs in 2:143, 2:238, 5:89, 68:28 and 100:5. Other counts: 285 verses (Madina, Mecca, Syria) and 287 (Basra), after Ibn ʿĀshūr | a description |
+| 3 | Ayat al-Kursi: shared roots vs the 24 pairings of 1–4 with 6–9 | only statements 3 and 7 share roots (ارض, سمو); sum 2; 6 of 24 at least as high (0.25); the centre shares علم with statement 6 | exploratory, no verdict |
+
+Two fixes were made to the code while running it, neither to the plan: a number type that the results file could not
+store, and a verdict that the code had given to the Ayat al-Kursi look, which the plan says has none.

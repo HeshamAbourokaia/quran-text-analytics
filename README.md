@@ -68,12 +68,12 @@ The texts live in `web/explain.js`. The numbers they quote that the site does no
 
 ## Discoveries: nine questions, tested before they were asked
 
-The **Discoveries** section asks whether careful counting can find something new in the Quran, and answers the way a scientist would. Before any study was run, the nine studies were written down in [`data-build/discover/PREREGISTRATION.md`](data-build/discover/PREREGISTRATION.md) and pushed (commit `1a7b768`): the data, the test, the number of shuffles and the bar for a yes (5%). Each study compares the Quran with thousands of shuffled copies of itself (a permutation test), corrects for its own number of tests, and reports every answer, including the no's. Each page also says what scholars had found before, so that confirming a known result is not presented as a discovery.
+The **Discoveries** section asks whether careful counting can find something new in the Quran, and answers the way a scientist would. Before any study was run, the nine studies were written down in [`data-build/discover/PREREGISTRATION.md`](data-build/discover/PREREGISTRATION.md) and pushed (commit `1a7b768`): the data, the test, the number of shuffles and the bar for a yes (5%). An addendum on study 2, telling apart three claims that al-Baqarah is a mirror, was written down the same way before it was run. Each study compares the Quran with thousands of shuffled copies of itself (a permutation test), corrects for its own number of tests, and reports every answer, including the no's. Each page also says what scholars had found before, so that confirming a known result is not presented as a discovery.
 
 | Study | Question | Answer |
 |---|---|---|
 | 1 | Do the divine names that close a verse fit what the verse says? | Holds, modestly (36% right against 31%; p = 0.002 and 0.0075 after Holm; [corrected](data-build/discover/PREREGISTRATION.md#corrections-after-publication) on 30 September 2026) |
-| 2 | Is al-Baqarah built as a mirror, word by word? | Does not hold (p = 0.26); no long surah passes |
+| 2 | Is al-Baqarah built as a mirror? Three claims, told apart | The ring does not show in the words: not verse by verse (p = 0.26; no long surah passes) and not in Farrin's section pairing (p = 0.25; [added before running](data-build/discover/PREREGISTRATION.md#addendum-a-the-mirror-claims-told-apart-written-on-30-september-2026-before-any-of-it-was-run)). 2:143, «a middle nation», does end the first half of the 286 verses in the Kufan count, but it comes 41% of the way through the words. In Ayat al-Kursi, one of the four mirror pairs shares roots (exploratory) |
 | 3 | Does the rhyme change where the topic changes? | Holds (p = 0.0005) |
 | 4 | Is each retelling of a prophet's story tuned to its own surah? | Holds (19 of 23 tellings; p = 0.0002) |
 | 5 | What are the main themes, and where do they run? | A map: 10 stable themes of 12 |
@@ -82,7 +82,7 @@ The **Discoveries** section asks whether careful counting can find something new
 | 8 | Which verses nearly repeat? | A map: 74 refrains and 217 near pairs, with the differing words marked |
 | 9 | Does the style change over the order of revelation? | Holds (ρ = 0.67): a known result, found again |
 
-Each study page has the verdict, the figure (drawn in the verse sky where one point per verse fits), the test against chance as a histogram of the shuffled copies with the text itself marked, a simple and a scientific layer, what was known before, and lists of verses that open in the reader. The texts live in `web/discover.js`; the results in `web/discoveries.js`, written by `data-build/pipeline/discoveries.py` (`python3 -m pipeline.discoveries --write`, run from `data-build`, takes about six minutes). `data-build/tests/test_discoveries.py` checks that the committed results still match the code and pins the numbers the texts quote. Both files load only when a Discoveries page is opened.
+Each study page has the verdict, the figure (drawn in the verse sky where one point per verse fits), the test against chance as a histogram of the shuffled copies with the text itself marked, a simple and a scientific layer, what was known before, and lists of verses that open in the reader. The texts live in `web/discover.js`; the results in `web/discoveries.js`, written by `data-build/pipeline/discoveries.py` (`python3 -m pipeline.discoveries --write`, run from `data-build`, takes about ten minutes). `data-build/tests/test_discoveries.py` checks that the committed results still match the code and pins the numbers the texts quote. Both files load only when a Discoveries page is opened.
 
 ## Features
 

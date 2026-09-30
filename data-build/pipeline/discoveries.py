@@ -229,6 +229,79 @@ def rings(V, keys, X, meta):
             'scan': scan}
 
 
+# ---------------------------------------------------------------- 2b. the mirror claims, one by one (addendum)
+# Written down in the plan's «Addendum A: the mirror claims, told apart» before these were run. Three claims are told apart:
+# a ring of sections around the qibla passage, the observation that 2:143 («a middle nation») is the surah's middle
+# verse, and a mirror inside Ayat al-Kursi (2:255). None of them is the verse-by-verse test above.
+
+# Ayat al-Kursi in nine statements, as word spans of 2:255 in the corpus (1-based, inclusive)
+KURSI = [(1, 7), (8, 12), (13, 19), (20, 26), (27, 32), (33, 40), (41, 44), (45, 47), (48, 50)]
+# Farrin's nine sections of al-Baqarah (see the plan for the source); the fifth is the centre
+FARRIN = [(1, 20), (21, 39), (40, 103), (104, 141), (142, 152), (153, 177), (178, 253), (254, 284), (285, 286)]
+
+def _cross_matchings(score, left, right):
+    """Every way to pair the items before a centre with those after it; the mirror pairs the first with the last."""
+    import itertools
+    mirror = list(reversed(right))
+    rows = [(list(m), float(sum(score(a, b) for a, b in zip(left, m)))) for m in itertools.permutations(right)]
+    obs = next(t for m, t in rows if m == mirror)
+    ge = int(sum(t >= obs - 1e-12 for m, t in rows))
+    return {'obs': round(obs, 6), 'arrangements': len(rows), 'ge': ge, 'p': round(ge / len(rows), 4),
+            'verdict': 'holds' if ge / len(rows) < ALPHA else 'does not hold',
+            'best': round(max(t for m, t in rows), 6), 'parallel': round(next(t for m, t in rows if m == list(right)), 6)}
+
+def middle_verse(words, V):
+    """Where al-Baqarah's middle falls, by verses, words and letters, and where «وسطا» sits (descriptive)."""
+    s2 = [w for w in words if w['sura'] == 2]
+    n = len({w['aya'] for w in s2})
+    at = next(i for i, w in enumerate(s2, 1) if w['aya'] == 143 and normalize(w['root'] or '') == 'وسط')
+    tw = len(s2); lw = (tw + 1) // 2
+    let = [len(re.findall('[ء-ي]', w['norm'])) for w in s2]; tl = sum(let)
+    cum, mid_l_verse, wasat_l = 0, None, sum(let[:at - 1]) + 1
+    for w, k in zip(s2, let):
+        cum += k
+        if mid_l_verse is None and cum >= tl / 2: mid_l_verse = w['aya']
+    per = Counter(k[0] for k in V)
+    occ = [{'k': f"{w['sura']}:{w['aya']}", 'form': w['surface'], 'of': per[w['sura']], 'at': round(w['aya'] / per[w['sura']], 3)}
+           for w in words if normalize(w['root'] or '') == 'وسط']
+    return {'verses': n, 'firstHalfEnds': n // 2, 'even': n % 2 == 0,
+            'words': tw, 'wasatWord': at, 'wasatWordAt': round(at / tw, 4), 'midWords': [lw, lw + (1 - tw % 2)],
+            'midWordVerse': s2[lw - 1]['aya'], 'letters': tl, 'wasatLetter': wasat_l, 'wasatLetterAt': round(wasat_l / tl, 4),
+            'midLetterVerse': mid_l_verse, 'root': occ}
+
+def kursi(words):
+    """Ayat al-Kursi's nine statements: the roots each mirror pair shares, and how the mirror ranks among every way
+    to pair statements 1–4 with 6–9 by shared roots (exploratory: the verse is the one the claim was read from)."""
+    ws = [w for w in words if w['sura'] == 2 and w['aya'] == 255]
+    assert len(ws) == 50 and KURSI[-1][1] == 50
+    st = [ws[a - 1:b] for a, b in KURSI]
+    roots = [sorted({normalize(w['root']) for w in x if w['root']}) for x in st]
+    shared = lambda a, b: sorted(set(roots[a]) & set(roots[b]))
+    res = _cross_matchings(lambda a, b: len(shared(a, b)), [0, 1, 2, 3], [5, 6, 7, 8]); res.pop('verdict')   # exploratory: no verdict
+    return {'statements': [{'words': [[w['surface'], normalize(w['root'] or '')] for w in x], 'roots': r} for x, r in zip(st, roots)],
+            'pairs': [{'a': a + 1, 'b': b + 1, 'shared': shared(a, b)} for a, b in [(0, 8), (1, 7), (2, 6), (3, 5)]],
+            'centreShares': [{'with': j + 1, 'shared': shared(4, j)} for j in range(9) if j != 4 and shared(4, j)],
+            'links': [[len(shared(a, b)) for b in range(9)] for a in range(9)], **res}
+
+def farrin_sections(keys, X):
+    """Farrin's sections as vocabulary: are the paired sections more alike than any other way of pairing the four
+    before the centre with the four after it? (24 arrangements; the smallest possible p is 1/24.)"""
+    pos = {k: i for i, k in enumerate(keys)}
+    vec = []
+    for a, b in FARRIN:
+        v = np.asarray(X[[pos[(2, i)] for i in range(a, b + 1)]].sum(axis=0)).ravel()
+        vec.append(v / (np.linalg.norm(v) or 1))
+    C = np.array([[float(vec[i] @ vec[j]) for j in range(len(vec))] for i in range(len(vec))])
+    res = _cross_matchings(lambda a, b: C[a, b], [0, 1, 2, 3], [5, 6, 7, 8])
+    # each pair's cosine, and its partner's rank among the four sections after the centre (seen from the one before)
+    ranks = [{'a': a + 1, 'b': b + 1, 'cos': round(float(C[a, b]), 4), 'rank': int(1 + sum(C[a, x] > C[a, b] for x in [5, 6, 7, 8]))}
+             for a, b in [(0, 8), (1, 7), (2, 6), (3, 5)]]
+    return {'sections': [list(x) for x in FARRIN], 'cos': [[round(float(v), 4) for v in r] for r in C], 'pairs': ranks, **res}
+
+def mirror_claims(words, V, keys, X):
+    return {'middle': middle_verse(words, V), 'kursi': kursi(words), 'farrin': farrin_sections(keys, X)}
+
+
 # ---------------------------------------------------------------- 3. rhyme and topic change
 LONG = set('اوي')
 def rhyme_of(norm_last):
@@ -588,6 +661,7 @@ def build(words, meta, log=None):
     import time
     V = _verses(words); keys, X, vec = _verse_matrix(V)
     studies = [('endings', lambda: endings(words, V)), ('rings', lambda: rings(V, keys, X, meta)),
+               ('ringClaims', lambda: mirror_claims(words, V, keys, X)),
                ('rhyme', lambda: rhyme(V, keys, X, meta)), ('retellings', lambda: retellings(V, keys, X)),
                ('themes', lambda: themes(V, keys, X, vec, meta)), ('companions', lambda: companions(V, keys)),
                ('letters', lambda: opening_letters(meta, words)), ('families', lambda: letter_families(words, meta)),
@@ -626,7 +700,7 @@ if __name__ == '__main__':
     t = time.time(); ws = load_words(); meta = ds.build(ws, None)['surahMeta']
     only = sys.argv[1:] or None
     V = _verses(ws); keys, X, vec = _verse_matrix(V)
-    runs = {'endings': lambda: endings(ws, V), 'rings': lambda: rings(V, keys, X, meta), 'rhyme': lambda: rhyme(V, keys, X, meta),
+    runs = {'endings': lambda: endings(ws, V), 'rings': lambda: rings(V, keys, X, meta), 'ringClaims': lambda: mirror_claims(ws, V, keys, X), 'rhyme': lambda: rhyme(V, keys, X, meta),
             'retellings': lambda: retellings(V, keys, X), 'themes': lambda: themes(V, keys, X, vec, meta), 'companions': lambda: companions(V, keys),
             'letters': lambda: opening_letters(meta, ws), 'families': lambda: letter_families(ws, meta), 'repeats': lambda: near_repeats(V, keys),
             'chronology': lambda: chronology(ws, meta)}
