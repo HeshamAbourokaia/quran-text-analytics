@@ -3,7 +3,7 @@
 
 Each study returns what the app's Discoveries pages show (web/discoveries.js): the numbers, the chance
 baseline and p-value of every primary test, the verdict the rules give, and the material for the figures.
-Nothing here decides a rule after seeing a result; see the pre-registration's Deviations for changes.
+Nothing here decides a rule after seeing a result; see the pre-registration's Deviations and Corrections for changes.
 
 Run (from data-build):  python3 -m pipeline.discoveries [study ...]   prints a summary of each study
                         python3 -m pipeline.discoveries --write         writes out/discoveries.json and ../web/discoveries.js
@@ -107,27 +107,50 @@ def endings(words, V, perms=2000):
     cnt = Counter(r['end'] for r in rows)
     keep = {e for e, c in cnt.items() if c >= 8}
     rows = [r for r in rows if r['end'] in keep]
-    docs = [' '.join(w['lemma'] for w in r['W'][:-2] if w['lemma'] and normalize(w['root'] or '') not in r['end']) or 'EMPTY' for r in rows]
-    classes = sorted(keep, key=lambda e: -cnt[e])
+    classes = sorted(keep, key=lambda e: (-cnt[e], e))   # ties in order of the roots, so the output does not depend on hashing
     cidx = {e: i for i, e in enumerate(classes)}
     y = np.array([cidx[r['end']] for r in rows]); groups = np.array([r['s'] for r in rows])
-    X = TfidfVectorizer(token_pattern=r'[^ ]+', min_df=2).fit_transform(docs)
     clf = LogisticRegression(max_iter=3000, C=3.0); cv = GroupKFold(n_splits=5)
-    acc_of = lambda yy: float((cross_val_predict(clf, X, yy, cv=cv, groups=groups) == yy).mean())
-    proba = cross_val_predict(clf, X, y, cv=cv, groups=groups, method='predict_proba')
-    pred = proba.argmax(1); acc = float((pred == y).mean())
-    rng = np.random.default_rng(7); nullA = [acc_of(rng.permutation(y)) for _ in range(perms)]
-    rng = np.random.default_rng(8); nullB = []
+
+    def docs(drop):
+        """Each verse's lemmas before its last two words, leaving out the words whose root is in drop[i]."""
+        return [' '.join(w['lemma'] for w in r['W'][:-2] if w['lemma'] and normalize(w['root'] or '') not in d) or 'EMPTY'
+                for r, d in zip(rows, drop)]
+    tfidf = lambda ds: TfidfVectorizer(token_pattern=r'[^ ]+', min_df=2).fit_transform(ds)
+    accuracy = lambda X, yy: float((cross_val_predict(clf, X, yy, cv=cv, groups=groups) == yy).mean())
     by_s = defaultdict(list)
     for i, s in enumerate(groups): by_s[s].append(i)
-    for _ in range(perms):
-        yy = y.copy()
-        for idx in by_s.values(): yy[idx] = y[rng.permutation(idx)]
-        nullB.append(acc_of(yy))
+    def nulls(stat):
+        """Test A (endings shuffled across all verses, seed 7) and test B (within each surah, seed 8)."""
+        rng = np.random.default_rng(7); A = [stat(rng.permutation(y)) for _ in range(perms)]
+        rng = np.random.default_rng(8); B = []
+        for _ in range(perms):
+            yy = y.copy()
+            for idx in by_s.values(): yy[idx] = y[rng.permutation(idx)]
+            B.append(stat(yy))
+        return A, B
+
+    # The pre-registered features leave out the roots of each verse's own ending, so they depend on the ending: every
+    # shuffle rebuilds them from the shuffled endings. (The first version kept them fixed, which set chance a little
+    # too low; found in review after publication, see the plan's «Corrections after publication».)
+    feats = lambda yy: tfidf(docs([classes[k] for k in yy]))
+    X = feats(y)
+    proba = cross_val_predict(clf, X, y, cv=cv, groups=groups, method='predict_proba')
+    pred = proba.argmax(1); acc = float((pred == y).mean())
+    nullA, nullB = nulls(lambda yy: accuracy(feats(yy), yy))
     pA, pB = _pval(nullA, acc), _pval(nullB, acc)
     adjA, adjB = _holm([pA, pB])
-    # what each ending listens to, from a model fit on all the verses (exploratory)
-    vec = TfidfVectorizer(token_pattern=r'[^ ]+', min_df=2); M = vec.fit_transform(docs)
+    # Check: the roots of all the kept endings left out of every verse alike, so the input never depends on the ending
+    fixed = sorted(set(r for e in classes for r in e))
+    XF = tfidf(docs([set(fixed)] * len(rows)))
+    accF = accuracy(XF, y)
+    fA, fB = nulls(lambda yy: accuracy(XF, yy))
+    robust = [{'what': 'the same roots left out of every verse', 'roots': fixed, 'accuracy': round(accF, 4),
+               'nullAll': _summ(fA, accF), 'pAll': round(_pval(fA, accF), 4), 'nullWithin': _summ(fB, accF), 'pWithin': round(_pval(fB, accF), 4),
+               'pHolm': [round(v, 4) for v in _holm([_pval(fA, accF), _pval(fB, accF)])], 'perms': perms}]
+    # What each ending listens to (exploratory): from a model fitted on all the verses with those roots left out of every
+    # verse, so no word can look telling just because it was left out of one ending's verses
+    vec = TfidfVectorizer(token_pattern=r'[^ ]+', min_df=2); M = vec.fit_transform(docs([set(fixed)] * len(rows)))
     full = LogisticRegression(max_iter=3000, C=3.0).fit(M, y); vocab = np.array(vec.get_feature_names_out())
     lem_of = defaultdict(Counter)
     for r in rows: lem_of[r['end']][r['lem']] += 1
@@ -144,7 +167,7 @@ def endings(words, V, perms=2000):
             'accuracy': round(acc, 4), 'baseline': round(float(np.bincount(y).max() / len(y)), 4),
             'nullAll': _summ(nullA, acc), 'pAll': round(pA, 4), 'nullWithin': _summ(nullB, acc), 'pWithin': round(pB, 4),
             'pHolm': [round(adjA, 4), round(adjB, 4)], 'verdict': 'holds' if max(adjA, adjB) < ALPHA else ('mixed' if min(adjA, adjB) < ALPHA else 'does not hold'),
-            'pairs': pairs, 'surprising': surprising,
+            'robust': robust, 'pairs': pairs, 'surprising': surprising,
             'confusion': [[int(((y == i) & (pred == j)).sum()) for j in range(len(classes))] for i in range(len(classes))],
             'verses': [[f"{r['s']}:{r['a']}", int(y[i]), int(pred[i])] for i, r in enumerate(rows)]}
 
@@ -578,15 +601,20 @@ def build(words, meta, log=None):
 
 def write(out_dir, web_dir, log=None):
     """Run every study and write data-build/out/discoveries.json and web/discoveries.js (loaded when the Discoveries pages open)."""
-    import json
     from .corpus import load_words
     from . import datasets as ds
     ws = load_words(); res = build(ws, ds.build(ws, None)['surahMeta'], log)
+    save(res, out_dir, web_dir)
+    return res
+
+def save(res, out_dir, web_dir):
+    """Write the results; out_dir (data-build/out) is not in the repository, so it is made here if missing."""
+    import json
+    os.makedirs(out_dir, exist_ok=True)
     with open(os.path.join(out_dir, 'discoveries.json'), 'w', encoding='utf-8') as fh:
         json.dump(res, fh, ensure_ascii=False, separators=(',', ':'))
     with open(os.path.join(web_dir, 'discoveries.js'), 'w', encoding='utf-8') as fh:
         fh.write('window.DALEEL_DISCOVERIES = '); json.dump(res, fh, ensure_ascii=False, separators=(',', ':')); fh.write(';\n')
-    return res
 
 if __name__ == '__main__':
     import json, sys, time

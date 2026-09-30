@@ -72,7 +72,7 @@ The **Discoveries** section asks whether careful counting can find something new
 
 | Study | Question | Answer |
 |---|---|---|
-| 1 | Do the divine names that close a verse fit what the verse says? | Holds, modestly (36% right against 31%; p = 0.002 and 0.004 after Holm) |
+| 1 | Do the divine names that close a verse fit what the verse says? | Holds, modestly (36% right against 31%; p = 0.002 and 0.0075 after Holm; [corrected](data-build/discover/PREREGISTRATION.md#corrections-after-publication) on 30 September 2026) |
 | 2 | Is al-Baqarah built as a mirror, word by word? | Does not hold (p = 0.26); no long surah passes |
 | 3 | Does the rhyme change where the topic changes? | Holds (p = 0.0005) |
 | 4 | Is each retelling of a prophet's story tuned to its own surah? | Holds (19 of 23 tellings; p = 0.0002) |

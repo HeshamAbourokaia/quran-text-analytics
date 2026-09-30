@@ -156,11 +156,12 @@ mirror order around a centre at 2:142–152 ("a middle nation", 2:143).
 ## Afterwards (added on 29 September 2026, after the confirmatory runs)
 
 The plan above is unchanged from commit `1a7b768` (with deviation 1 from `b5adb79`). The results are in
-`web/discoveries.js`, written by `pipeline/discoveries.py`, and shown on the site's Discoveries pages.
+`web/discoveries.js`, written by `pipeline/discoveries.py`, and shown on the site's Discoveries pages. Corrections made
+after publication are listed at the end; the table shows the corrected results.
 
 | Study | Primary test | Result | Verdict |
 |---|---|---|---|
-| 1 | endings, shuffled across verses / within surahs | accuracy 0.3565 vs baseline 0.3087; p = 0.001 / 0.004; Holm 0.002 / 0.004 | holds |
+| 1 | endings, shuffled across verses / within surahs | accuracy 0.3565 vs baseline 0.3087; p = 0.001 / 0.0075; Holm 0.002 / 0.0075 (corrected; first published as 0.001 / 0.004, see correction 1) | holds |
 | 2 | al-Baqarah mirror vs 285 rotations | statistic 0.00384, p = 0.2552; profile peak at verse 231; scan: none passes BH | does not hold |
 | 3 | rhyme change vs topic change, within-surah shuffles | difference 0.0063, p = 0.0005 | holds |
 | 4 | retellings vs derangements | statistic 0.0361, p = 0.0002; own surah closer in 19 of 23 | holds |
@@ -179,3 +180,26 @@ Added after the confirmatory runs, labelled exploratory on the site and carrying
 - **All tested studies:** the null distributions are reported as histograms, with the number of shuffles that did at least as
   well as the text (`ge`), for the site's figures.
 
+## Corrections after publication
+
+1. **Study 1, the shuffle tests (found on 30 September 2026 by an automated code review, Codex, of the published
+   code).** The features leave out the roots of each verse's own ending, so they depend on the ending. The published
+   run built them once, from the true endings, and reused them in every shuffle. The shuffled copies therefore lacked
+   the trace of the answer that the real features carry, and chance was set a little too low. The corrected run
+   rebuilds the features, TF-IDF included, from the shuffled endings in every shuffle, with the same seeds; that is
+   the test this plan describes. The observed accuracy does not change.
+
+   | | Chance (mean of the shuffles), across verses / within surahs | p | Holm |
+   |---|---|---|---|
+   | Published | 0.2509 / 0.2764 | 0.001 / 0.004 | 0.002 / 0.004 |
+   | Corrected | 0.2611 / 0.2862 | 0.001 / 0.0075 | 0.002 / 0.0075 |
+   | Check: the 11 roots of the 9 pairs left out of every verse | 0.2506 / 0.2732 | 0.001 / 0.002 | 0.002 / 0.002 |
+
+   The verdict stands: holds. The check, added with the correction and exploratory, keeps the features the same for
+   every verse whatever its ending, so they can carry no trace of it; it scores the same accuracy, 0.3565. The
+   exploratory «telling words» now come from the check's model, because the first lists partly reflected which words
+   had been left out: تابَ, غَفَرَ and رَحْمَة are gone from them. The per-verse guesses, 5:38 and 5:118 among
+   them, are unchanged.
+2. **The results file (same review).** `python3 -m pipeline.discoveries --write` failed on a fresh checkout, after
+   running every study, because `data-build/out/` is not in the repository. The folder is now created when missing.
+   No result changed.
