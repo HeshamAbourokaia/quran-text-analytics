@@ -66,6 +66,24 @@ On the Clusters page, a **walk-through** shows how the map is made. The page's o
 
 The texts live in `web/explain.js`. The numbers they quote that the site does not show elsewhere (effect size, medians, the PCA variance shares, the silhouette check behind K = 4, the vocabulary's Zipf slope) are pinned by `data-build/tests/test_methods.py`.
 
+## Discoveries: nine questions, tested before they were asked
+
+The **Discoveries** section asks whether careful counting can find something new in the Quran, and answers the way a scientist would. Before any study was run, the nine studies were written down in [`data-build/discover/PREREGISTRATION.md`](data-build/discover/PREREGISTRATION.md) and pushed (commit `1a7b768`): the data, the test, the number of shuffles and the bar for a yes (5%). Each study compares the Quran with thousands of shuffled copies of itself (a permutation test), corrects for its own number of tests, and reports every answer, including the no's. Each page also says what scholars had found before, so that confirming a known result is not presented as a discovery.
+
+| Study | Question | Answer |
+|---|---|---|
+| 1 | Do the divine names that close a verse fit what the verse says? | Holds, modestly (36% right against 31%; p = 0.002 and 0.004 after Holm) |
+| 2 | Is al-Baqarah built as a mirror, word by word? | Does not hold (p = 0.26); no long surah passes |
+| 3 | Does the rhyme change where the topic changes? | Holds (p = 0.0005) |
+| 4 | Is each retelling of a prophet's story tuned to its own surah? | Holds (19 of 23 tellings; p = 0.0002) |
+| 5 | What are the main themes, and where do they run? | A map: 10 stable themes of 12 |
+| 6 | Which words travel together? | A map: 1,207 of 86,945 pairs pass a significance filter |
+| 7 | Do the opening letters mark anything? | (a) more common in their own surahs: does not hold (p = 0.059); (b) families share vocabulary: holds (p = 0.009), partly because they are neighbours |
+| 8 | Which verses nearly repeat? | A map: 74 refrains and 217 near pairs, with the differing words marked |
+| 9 | Does the style change over the order of revelation? | Holds (ρ = 0.67): a known result, found again |
+
+Each study page has the verdict, the figure (drawn in the verse sky where one point per verse fits), the test against chance as a histogram of the shuffled copies with the text itself marked, a simple and a scientific layer, what was known before, and lists of verses that open in the reader. The texts live in `web/discover.js`; the results in `web/discoveries.js`, written by `data-build/pipeline/discoveries.py` (`python3 -m pipeline.discoveries --write`, run from `data-build`, takes about six minutes). `data-build/tests/test_discoveries.py` checks that the committed results still match the code and pins the numbers the texts quote. Both files load only when a Discoveries page is opened.
+
 ## Features
 
 ### Visualization (Page 17, Advanced Analytics)

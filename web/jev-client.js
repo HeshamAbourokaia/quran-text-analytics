@@ -392,6 +392,9 @@
     coincidence: ['coincidence', 'chance', 'probability', 'random', 'monte carlo', 'صدفة', 'مصادفة', 'احتمال'],
     hifz: ['memorise', 'memorize', 'memorization', 'memorisation', 'hifz', 'hafiz', 'حفظ', 'تحفيظ'],
     dashboard: ['dashboard', 'filter', 'bi ', 'لوحة'],
+    discover: ['discover', 'discovery', 'discoveries', 'new finding', 'findings', 'something new', 'pre-registered', 'preregistered', 'ring composition', 'chiasmus',
+      'rhyme', 'opening letters', 'muqattaat', 'mutashabih', 'near-repeated', 'themes', 'revelation order', 'order of revelation', 'revealed first', 'chronology',
+      'اكتشاف', 'اكتشافات', 'جديد', 'فاصلة', 'فواصل', 'مقطعة', 'الحروف المقطعة', 'حروف مقطعة', 'متشابه', 'ترتيب النزول', 'موضوعات'],
   };
 
   // Keyword test on word boundaries. Latin keys of five letters or more also match longer words

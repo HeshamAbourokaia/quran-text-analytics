@@ -152,3 +152,30 @@ mirror order around a centre at 2:142–152 ("a middle nation", 2:143).
 1. **Study 5, before any run (29 Sep 2026).** The stability refits were to use seeds 1–5 with the same
    initialization, but `init='nndsvda'` is deterministic, so every refit would equal the first and the check
    would be empty. The refits use `init='random'` with seeds 1–5 instead; the main fit is unchanged.
+
+## Afterwards (added on 29 September 2026, after the confirmatory runs)
+
+The plan above is unchanged from commit `1a7b768` (with deviation 1 from `b5adb79`). The results are in
+`web/discoveries.js`, written by `pipeline/discoveries.py`, and shown on the site's Discoveries pages.
+
+| Study | Primary test | Result | Verdict |
+|---|---|---|---|
+| 1 | endings, shuffled across verses / within surahs | accuracy 0.3565 vs baseline 0.3087; p = 0.001 / 0.004; Holm 0.002 / 0.004 | holds |
+| 2 | al-Baqarah mirror vs 285 rotations | statistic 0.00384, p = 0.2552; profile peak at verse 231; scan: none passes BH | does not hold |
+| 3 | rhyme change vs topic change, within-surah shuffles | difference 0.0063, p = 0.0005 | holds |
+| 4 | retellings vs derangements | statistic 0.0361, p = 0.0002; own surah closer in 19 of 23 | holds |
+| 5 | themes (map) | 10 of 12 themes stable (≥ 0.8) | a map |
+| 6 | companions (map) | 1,207 of 86,945 pairs pass BH at q = 0.01 | a map |
+| 7a | letters in their own surahs vs reassignments | mean percentile 0.5426, p = 0.0586 | does not hold |
+| 7b | letter families vs matched draws | mean z 1.178, p = 0.0091 | holds |
+| 8 | near repeats (map) | 74 refrains (208 verses), 217 near pairs | a map |
+| 9 | Spearman, revelation order vs mean verse length | ρ = 0.669, p = 0.0001; Meccan only ρ = 0.515, p = 0.0001 | holds |
+
+Added after the confirmatory runs, labelled exploratory on the site and carrying no verdict:
+
+- **Study 3:** the same test with 2 and 4 verses on each side instead of 3 (1,000 permutations each, seeds 111 and 112):
+  0.0068 (p = 0.001) and 0.0065 (p = 0.001).
+- **Study 4:** the same test without Moses, which leaves Abraham's 9 tellings (5,000 derangements, seed 113): 0.0483, p = 0.0002.
+- **All tested studies:** the null distributions are reported as histograms, with the number of shuffles that did at least as
+  well as the text (`ge`), for the site's figures.
+

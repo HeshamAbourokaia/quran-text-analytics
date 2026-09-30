@@ -452,7 +452,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
   .stagefig.wait .stage{border-radius:18px;background:linear-gradient(100deg,rgba(255,255,255,.012) 30%,rgba(255,255,255,.045) 50%,rgba(255,255,255,.012) 70%) 0 0/300% 100%;animation:chartwait 1.4s linear infinite}
   .glfb{display:none}
   html.no-gl:not(.gl) .glfb{display:block}
-  html.no-gl:not(.gl) .stagefig{display:none}
+  html.no-gl:not(.gl) .stagefig,html.no-gl:not(.gl) .glonly{display:none}
   .stcap{display:flex;gap:11px;align-items:flex-start;margin:12px 0 0;max-width:780px;font-size:.82rem;line-height:1.6;color:var(--on-dark-3)}
   html[lang=ar] .stcap{line-height:1.9;font-size:.9rem}
   .stcap .ic{flex:none;width:11px;height:16px;margin-top:3px;border:1.5px solid currentColor;border-radius:6px;position:relative;opacity:.8}
@@ -720,6 +720,208 @@ if (location.hostname === 'heshamabourokaia.github.io')
   /* ── phones and small tablets ── */
   .topbar{display:none}
   .backdrop{display:none}
+
+  /* ── Discoveries: nine pre-registered studies, each with its verdict, its evidence and its test against chance ── */
+  .disc .sub{margin-bottom:26px}
+  .dkick{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:0 0 14px;font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-3)}
+  html[lang=ar] .dkick{letter-spacing:0;font-size:.9rem}
+  .dkick .dnum{color:var(--gold)}
+  .dpage h1{max-width:900px}
+  .vb{display:inline-flex;align-items:center;gap:7px;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px 6px 10px;border-radius:999px;white-space:nowrap;
+    border:1px solid currentColor}
+  html[lang=ar] .vb{letter-spacing:0;font-size:.86rem;padding:4px 12px 4px 10px}
+  .vb::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor;box-shadow:0 0 10px currentColor}
+  .vb.holds{color:var(--emerald);background:rgba(52,211,153,.08)}
+  .vb.no{color:#f0a08c;background:rgba(240,160,140,.07)}
+  .vb.mixed{color:var(--gold);background:rgba(233,185,95,.08)}
+  .vb.map{color:var(--teal);background:rgba(56,198,218,.07)}
+  .vb .vt{font-weight:600;opacity:.8;letter-spacing:.02em;text-transform:none}
+  .verdict{display:flex;flex-direction:column;align-items:flex-start;gap:12px;max-width:860px;margin:6px 0 22px;padding:20px 22px;border-radius:22px;
+    background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.012)),rgba(6,14,10,.7);border:1px solid var(--hair)}
+  .verdict .vbs{display:flex;flex-wrap:wrap;gap:8px}
+  .verdict .lede{margin:0;font-size:1.12rem;line-height:1.6;color:var(--on-dark)}
+  html[lang=ar] .verdict .lede{font-size:1.18rem;line-height:1.9}
+  .verdict.holds{border-color:rgba(52,211,153,.28)}
+  .verdict.no{border-color:rgba(240,160,140,.26)}
+  .verdict.mixed{border-color:rgba(233,185,95,.3)}
+  .verdict.map{border-color:rgba(56,198,218,.26)}
+  .dx{max-width:860px}
+  .dx .xbody p b{min-width:0}
+  .dsec{margin:34px 0 14px;font-family:var(--serif);font-weight:400;font-size:clamp(1.6rem,1.2rem + 1.1vw,2.1rem);line-height:1.1;color:#fff}
+  html[lang=ar] .dsec{font-family:var(--ar-display);line-height:1.45}
+  .dsec .tag{display:inline-block;margin-inline-end:10px;font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.1em;color:var(--gold);vertical-align:.35em}
+  html[lang=ar] .dsec .tag{font-family:var(--ar);letter-spacing:0;font-size:.85rem}
+  .dnote{max-width:860px;margin:4px 0 18px;font-size:.88rem;line-height:1.7;color:var(--on-dark-2)}
+  html[lang=ar] .dnote{font-size:.96rem;line-height:1.95}
+  .dnote b{color:#fff;font-weight:600}
+  .xpl{font-size:.64rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);border:1px dashed rgba(56,198,218,.5);border-radius:999px;padding:3px 9px;margin-inline-start:8px;vertical-align:.2em;white-space:nowrap}
+  html[lang=ar] .xpl{letter-spacing:0;font-size:.78rem}
+
+  /* the overview: one card a study, then how we keep ourselves honest */
+  .dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:16px;margin:8px 0 10px;perspective:1600px}
+  .dcard{min-height:230px}
+  .dcard .dnum{font-family:var(--serif);font-size:2.4rem;line-height:.9;color:rgba(233,185,95,.55)}
+  html[lang=ar] .dcard .dnum{font-family:var(--ar-display);font-size:2.1rem;line-height:1.1}
+  .dcard b{margin-top:2px !important;font-size:1.45rem !important}
+  html[lang=ar] .dcard b{font-size:1.35rem !important}
+  .dcard .vbs{display:flex;flex-wrap:wrap;gap:6px}
+  .dcard .vb{font-size:.62rem;padding:4px 9px 4px 8px}
+  html[lang=ar] .dcard .vb{font-size:.78rem}
+  .dhow{max-width:900px;margin:44px 0 0}
+  .dhow ol{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:12px;counter-reset:dh}
+  .dhow li{counter-increment:dh;position:relative;padding:16px 18px 16px 58px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid var(--hair);font-size:.93rem;line-height:1.7;color:var(--on-dark-2)}
+  html[dir=rtl] .dhow li{padding:16px 58px 16px 18px}
+  html[lang=ar] .dhow li{font-size:1rem;line-height:1.95}
+  .dhow li::before{content:counter(dh);position:absolute;top:14px;inset-inline-start:16px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;
+    font-family:var(--serif);font-size:1.1rem;color:#04140d;background:var(--gold)}
+  html[lang=ar] .dhow li::before{content:counter(dh,arabic-indic);font-family:var(--ar-display)}
+  .dhow li b{display:block;color:#fff;font-weight:600;margin-bottom:2px}
+  .dlinks{display:flex;flex-wrap:wrap;gap:8px 18px;margin:16px 0 0;font-size:.86rem}
+  .dlinks a{color:var(--gold);font-weight:600;text-decoration:none}
+  .dlinks a:hover{text-decoration:underline;text-underline-offset:4px}
+
+  /* a study's test against chance: the shuffled copies as a histogram, the real text as a line */
+  .dnulls{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:14px;margin:0 0 20px}
+  .nullplot{margin:0;padding:16px 18px 14px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid var(--hair)}
+  .nullplot .npt{font-size:.66rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-3)}
+  html[lang=ar] .nullplot .npt{letter-spacing:0;font-size:.84rem}
+  .npbox{position:relative;height:112px;margin:26px 0 6px}
+  .npbox svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+  .npbox rect{fill:rgba(169,191,180,.34)}
+  .npbox .obs{stroke:var(--gold);stroke-width:2.2;vector-effect:non-scaling-stroke}
+  .npbox .base{stroke:rgba(255,255,255,.14);stroke-width:1;vector-effect:non-scaling-stroke}
+  .npobs,.npnull{position:absolute;white-space:nowrap;font-size:.7rem;line-height:1.3;transform:translateX(-50%)}
+  html[lang=ar] .npobs,html[lang=ar] .npnull{font-size:.8rem}
+  .npobs{top:-22px;color:var(--gold);font-weight:600}
+  .npobs.end{transform:translateX(-100%)}
+  .npobs.start{transform:none}
+  .npnull{bottom:-20px;color:var(--on-dark-3)}
+  .npsum{margin:22px 0 0;font-size:.84rem;line-height:1.6;color:var(--on-dark-2)}
+  html[lang=ar] .npsum{font-size:.92rem;line-height:1.85}
+  .npsum b{color:#fff;font-weight:600}
+
+  /* lists of verses: the Arabic, its translation, where it is; a tap opens it in the reader */
+  .vlist{display:grid;gap:10px;margin:10px 0 0}
+  .vitem{display:block;width:100%;text-align:start;font:inherit;color:inherit;cursor:pointer;padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.028);border:1px solid var(--hair);
+    transition:border-color .3s var(--ease),background .3s var(--ease)}
+  .vitem:hover{border-color:rgba(233,185,95,.35);background:rgba(233,185,95,.04)}
+  .vitem .vhead{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;font-size:.78rem;color:var(--on-dark-3)}
+  html[lang=ar] .vitem .vhead{font-size:.88rem}
+  .vitem .vhead .k{color:var(--gold);font-variant-numeric:tabular-nums;font-weight:600}
+  .vitem .vhead .tag{color:var(--on-dark-2)}
+  .vitem .var{display:block;margin-top:6px;direction:rtl;text-align:right;font-family:var(--ar-display);font-size:1.3rem;line-height:2;color:#f5efe0}
+  .vitem .var mark{background:rgba(233,185,95,.2);color:#fff;border-radius:5px;padding:0 3px;box-shadow:inset 0 -2px 0 rgba(233,185,95,.7)}
+  .vitem .var mark.b{background:rgba(56,198,218,.18);box-shadow:inset 0 -2px 0 rgba(56,198,218,.7)}
+  .vitem .ven{display:block;margin-top:4px;font-size:.84rem;line-height:1.6;color:var(--on-dark-2)}
+  .vitem .vwait{display:block;margin-top:6px;font-size:.8rem;color:var(--on-dark-3)}
+  .vpair{display:grid;gap:8px}
+  .chips.dchips{display:flex;flex-wrap:wrap;gap:6px}
+  .dchip{font:inherit;font-size:.8rem;color:var(--on-dark);background:rgba(255,255,255,.04);border:1px solid var(--hair);border-radius:999px;padding:5px 12px;cursor:pointer;
+    transition:border-color .3s,background .3s,color .3s}
+  html[lang=ar] .dchip{font-size:.9rem}
+  .dchip:hover{border-color:rgba(255,255,255,.28)}
+  .dchip[aria-pressed=true]{color:#04140d;background:var(--gold);border-color:var(--gold)}
+  .dchip .sw{display:inline-block;width:9px;height:9px;border-radius:50%;margin-inline-end:7px;vertical-align:0}
+  .dchip .n{margin-inline-start:7px;font-size:.72rem;color:var(--on-dark-3);font-variant-numeric:tabular-nums}
+  .dchip[aria-pressed=true] .n{color:rgba(4,20,13,.7)}
+  .dchip b{font-family:var(--ar-display);font-weight:400;font-size:1.08rem;unicode-bidi:isolate}
+  .dchip .n,.compbar .num,.vitem .k{unicode-bidi:isolate}
+  .dtable{width:100%;border-collapse:collapse;font-size:.86rem}
+  html[lang=ar] .dtable{font-size:.94rem}
+  .dtable th{font-size:.64rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--on-dark-3);text-align:start;padding:6px 8px;border-bottom:1px solid var(--hair)}
+  html[lang=ar] .dtable th{letter-spacing:0;font-size:.8rem}
+  .dtable td{padding:9px 8px;border-bottom:1px solid var(--line-soft);vertical-align:top;color:var(--on-dark-2)}
+  .dtable td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+  .dtable .ar{font-family:var(--ar-display);font-size:1.12rem;color:#fff;unicode-bidi:isolate}
+  .dtable .wd{display:inline-block;margin:0 6px 4px 0;font-family:var(--ar-display);font-size:1.02rem;color:var(--on-dark)}
+  html[dir=rtl] .dtable .wd{margin:0 0 4px 6px}
+  .dtable tr.pass td{color:var(--on-dark)}
+  .dtable .ok{color:var(--emerald);font-weight:600}
+  .dscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .hbar{display:inline-block;height:8px;border-radius:99px;background:linear-gradient(90deg,var(--emerald),var(--gold));vertical-align:1px}
+  html[dir=rtl] .hbar{background:linear-gradient(270deg,var(--emerald),var(--gold))}
+
+  /* study figures drawn in SVG (the ring's map, its profile, the retellings, the letters, the families, new words) */
+  .dfig{margin:0 0 18px;padding:18px 18px 14px;border-radius:22px;background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.01)),rgba(6,14,10,.66);border:1px solid var(--hair)}
+  .dfig h3{margin:0 0 4px}
+  .dfig .fsub{margin:0 0 12px;font-size:.84rem;line-height:1.6;color:var(--on-dark-3)}
+  html[lang=ar] .dfig .fsub{font-size:.92rem;line-height:1.85}
+  .dfig svg{display:block;width:100%;height:auto;overflow:visible}
+  .dfig svg text{font-family:var(--sans);font-size:12px;fill:var(--on-dark-3)}
+  html[lang=ar] .dfig svg text{font-family:var(--ar);font-size:13px}
+  .dfig svg .lbl{fill:var(--on-dark-2)}
+  .dfig svg .lblw{fill:#fff}
+  .dfig svg .gold{fill:var(--gold)}
+  .dfig svg .ax{stroke:rgba(255,255,255,.14);stroke-width:1}
+  .dfig svg .grid{stroke:rgba(255,255,255,.06);stroke-width:1}
+  .dfig svg .zone{fill:rgba(233,185,95,.1);stroke:rgba(233,185,95,.35);stroke-dasharray:3 3}
+  .dfig svg .line{fill:none;stroke:var(--teal);stroke-width:1.8;stroke-linejoin:round}
+  .dfig svg .band{fill:rgba(169,191,180,.1)}
+  .dfig svg .own{fill:var(--emerald)}
+  .dfig svg .oth{fill:rgba(169,191,180,.75)}
+  .dfig svg .link{stroke:rgba(169,191,180,.4);stroke-width:2}
+  .dfig svg .link.up{stroke:rgba(52,211,153,.55)}
+  .dfig svg .dot{fill:var(--gold)}
+  .dfig svg .dot.dim{fill:rgba(169,191,180,.55)}
+  .dfig svg .bar{fill:var(--emerald)}
+  .dfig svg .bar.low{fill:rgba(169,191,180,.5)}
+  .ringwrap{position:relative;width:min(100%,520px);margin:6px auto 0;aspect-ratio:1/1}
+  .ringwrap canvas{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated;border-radius:6px}
+  .ringwrap svg{position:absolute;inset:0;width:100%;height:100%}
+  .ringkey{display:flex;justify-content:center;align-items:center;gap:10px;margin:12px 0 0;font-size:.74rem;color:var(--on-dark-3)}
+  .ringkey i{display:inline-block;width:120px;height:8px;border-radius:99px;background:linear-gradient(90deg,#1f6f8b,#0b1511 50%,#e9b95f)}
+  .dlegend{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+  .cmp{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start}
+  .cmp .col{min-width:260px}
+  .compbar{display:grid;grid-template-columns:minmax(0,9em) 1fr 5.2em;align-items:center;gap:10px;margin:6px 0;font-size:.86rem;color:var(--on-dark-2);cursor:pointer;border-radius:8px;padding:2px 4px}
+  .compbar:hover{background:rgba(255,255,255,.04)}
+  .compbar b{font-family:var(--ar-display);font-weight:400;font-size:1.15rem;color:#fff;unicode-bidi:isolate}
+  .compbar .num b{display:block;font-family:var(--sans);font-size:.84rem;font-weight:600;color:#fff}
+  .compbar .num small{display:block;font-size:.68rem;color:var(--on-dark-3)}
+  .compbar .en{font-size:.74rem;color:var(--on-dark-3);margin-inline-start:6px}
+  .compbar .num{font-variant-numeric:tabular-nums;font-size:.76rem;color:var(--on-dark-3);text-align:end}
+  .compbar .bar{position:relative;height:9px;border-radius:99px;background:rgba(255,255,255,.05);overflow:hidden}
+  .compbar .bar i{position:absolute;inset-block:0;inset-inline-start:0;border-radius:99px;background:linear-gradient(90deg,var(--teal),var(--emerald))}
+  html[dir=rtl] .compbar .bar i{background:linear-gradient(270deg,var(--teal),var(--emerald))}
+  .wordpick{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 12px}
+  .wordpick input{flex:1 1 220px;max-width:340px;font:inherit;font-size:1rem;color:#fff;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:12px;padding:10px 14px}
+  .dnav{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;margin:40px 0 0;padding-top:20px;border-top:1px solid var(--hair)}
+  .dnav button{font:inherit;font-size:.86rem;font-weight:600;color:var(--on-dark);background:rgba(255,255,255,.05);border:1px solid var(--hair);border-radius:999px;padding:10px 18px;cursor:pointer;max-width:100%;white-space:normal;text-align:start}
+  .dnav button:hover{background:rgba(255,255,255,.1)}
+  .dnav button.all{color:#04140d;background:var(--gold);border-color:var(--gold)}
+  .dnav button.share{background:none;border-style:dashed;color:var(--on-dark-2)}
+  .seg2{display:inline-flex;gap:2px;padding:3px;border-radius:999px;background:rgba(255,255,255,.045);border:1px solid var(--hair);margin:0 0 14px}
+  .seg2 button{font:inherit;font-size:.82rem;font-weight:600;color:var(--on-dark-2);background:none;border:0;border-radius:999px;padding:7px 16px;cursor:pointer}
+  .seg2 button[aria-pressed=true]{color:#04140d;background:var(--on-dark)}
+  .more{font:inherit;font-size:.84rem;font-weight:600;color:var(--gold);background:none;border:0;padding:10px 0 0;cursor:pointer}
+  .dknown{max-width:860px;margin:30px 0 0;padding:18px 20px;border-radius:18px;background:rgba(233,185,95,.04);border:1px solid rgba(233,185,95,.2)}
+  .dknown h3{color:var(--gold)}
+  .dknown ul{margin:0;padding-inline-start:18px}
+  .dknown li{margin:6px 0;font-size:.9rem;line-height:1.7;color:var(--on-dark-2)}
+  html[lang=ar] .dknown li{font-size:.98rem;line-height:1.95}
+  .dknown a{color:var(--gold)}
+  .dknown .adds{margin:12px 0 0;font-size:.92rem;line-height:1.7;color:var(--on-dark)}
+  html[lang=ar] .dknown .adds{font-size:1rem;line-height:1.95}
+  .dknown .adds b{color:var(--gold)}
+  .ringwrap .anti{stroke:rgba(255,255,255,.55);stroke-width:1.2;stroke-dasharray:4 4;vector-effect:non-scaling-stroke}
+  .rtick{position:absolute;font-size:.64rem;color:var(--on-dark-3);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .rtick.x{top:-18px;transform:translateX(-50%)}
+  .rtick.y{left:-8px;transform:translate(-100%,-50%)}
+  .ringwrap{margin:24px auto 0}
+  .dfig svg{direction:ltr;unicode-bidi:isolate}
+  .dfig svg .ltr{fill:#04140d;font-family:var(--ar-display);font-size:12px;font-weight:700}
+  .dfig svg .band2{fill:rgba(255,255,255,.035)}
+  .dfig svg .band{fill:rgba(255,255,255,.012)}
+  @media (max-width:719px){
+    .verdict{padding:16px}
+    .verdict .lede{font-size:1.02rem}
+    .dfig{padding:14px 12px 10px}
+    .dhow li{padding:14px 14px 14px 52px}
+    html[dir=rtl] .dhow li{padding:14px 52px 14px 14px}
+    .compbar{grid-template-columns:minmax(0,7.2em) 1fr 5.6em;gap:8px}
+    .ringwrap{width:calc(100% - 30px);margin-inline-start:30px}
+    .dend .stlab .blab>span{display:none}
+  }
   @media (max-width:920px){
     body{overflow-x:hidden}
     .topbar{display:flex;position:fixed;top:0;left:0;right:0;z-index:1003;height:58px;align-items:center;gap:10px;padding:0 12px;color:#fff;
@@ -900,6 +1102,266 @@ if (location.hostname === 'heshamabourokaia.github.io')
         : 'Built on the Quranic Arabic Corpus morphology (lemma, root and part of speech). Fully bilingual, English and Arabic.' }}</p>
     </section>
 
+
+    <!-- DISCOVERIES: the nine studies at a glance, and how we keep ourselves honest -->
+    <section v-if="view==='discover'" class="disc">
+      <h1>{{ lang==='ar' ? 'اكتشافات' : 'Discoveries' }}</h1>
+      <p class="sub" v-if="DT">{{ dx(DT.INTRO) }}</p>
+      <div v-if="!dReady" class="stub">{{ dLoadMsg }}</div>
+      <template v-else>
+        <div class="kpis">
+          <div class="kpi"><div class="n">{{ D(9) }}</div><div class="l">{{ lang==='ar' ? 'أسئلة' : 'questions' }}</div></div>
+          <div class="kpi"><div class="n">{{ D(dTally.holds) }}</div><div class="l">{{ lang==='ar' ? 'نتائج ثبتت' : 'results held' }}</div></div>
+          <div class="kpi"><div class="n">{{ D(dTally.no) }}</div><div class="l">{{ lang==='ar' ? 'لم تثبت' : 'did not hold' }}</div></div>
+          <div class="kpi"><div class="n">{{ D(dTally.map) }}</div><div class="l">{{ lang==='ar' ? 'خرائط' : 'maps' }}</div></div>
+        </div>
+        <div class="dgrid">
+          <div v-for="c in dCards" :key="c.id" class="tile dcard" role="button" tabindex="0" @click="go(c.id)" @keydown.enter="go(c.id)" @keydown.space.prevent="go(c.id)">
+            <span class="dnum" aria-hidden="true">{{ D(c.n) }}</span>
+            <b>{{ c.q }}</b>
+            <span class="vbs"><span v-for="(v,i) in c.verdicts" :key="i" class="vb" :class="v.cls"><span v-if="v.t" class="vt">{{ v.t }}</span>{{ v.label }}</span></span>
+            <p>{{ c.card }}</p>
+            <span class="go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2.5 8h10M9 4.5 12.5 8 9 11.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </div>
+        </div>
+        <div class="dhow">
+          <h2 class="dsec">{{ lang==='ar' ? 'كيف نحمي أنفسنا من خداع الأنماط' : 'How we keep ourselves honest' }}</h2>
+          <ol><li v-for="(h,i) in DT.HOW" :key="i"><b>{{ dx(h.t) }}</b><span v-html="rich(dx(h.x))"></span></li></ol>
+          <p class="dlinks"><a :href="DT.PREREG" target="_blank" rel="noopener">{{ lang==='ar' ? 'اقرأ التسجيل المسبق ‹' : 'Read the pre-registration ›' }}</a><a :href="DT.COMMIT" target="_blank" rel="noopener">{{ lang==='ar' ? 'متى نُشر (السجل العام) ‹' : 'When it was published (public history) ›' }}</a></p>
+          <term-chips></term-chips>
+        </div>
+      </template>
+    </section>
+
+    <!-- DISCOVERIES: one study -->
+    <section v-if="dOn" class="disc dpage">
+      <div v-if="!dS" class="stub">{{ dLoadMsg }}</div>
+      <template v-else>
+        <p class="dkick"><span class="dnum">{{ lang==='ar' ? 'الدراسة '+D(dS.n)+' من ٩' : 'Study '+dS.n+' of 9' }}</span><span>·</span><span>{{ dS.map ? (lang==='ar' ? 'خريطة وصفية' : 'a descriptive map') : (lang==='ar' ? 'مسجّلة مسبقًا' : 'pre-registered') }}</span></p>
+        <h1>{{ dS.q }}</h1>
+        <div class="verdict" :class="dS.vcls">
+          <span class="vbs"><span v-for="(v,i) in dS.verdicts" :key="i" class="vb" :class="v.cls"><span v-if="v.t" class="vt">{{ v.t }}</span>{{ v.label }}</span></span>
+          <p class="lede" v-html="rich(dS.lede)"></p>
+        </div>
+        <div class="metric" v-if="dS.metrics.length"><div class="m" v-for="(m,i) in dS.metrics" :key="i"><div class="v">{{ m.v }}</div><div class="k">{{ m.k }}</div></div></div>
+        <div class="plain dx" :class="{sci: sciOn}">
+          <div class="xhead"><span class="xkick">{{ sciOn ? (lang==='ar' ? 'للمتخصصين: المنهج والأرقام' : 'For scientists: method and numbers') : (lang==='ar' ? 'بكلماتٍ بسيطة' : 'In plain words') }}</span><depth-switch></depth-switch></div>
+          <div class="xbody"><p v-for="r in (sciOn ? dS.sci : dS.simple)" :key="r.k"><b>{{ r.label }}</b> <span v-html="rich(r.html)"></span></p></div>
+          <term-chips></term-chips>
+        </div>
+
+        <!-- 1. the names that close a verse -->
+        <template v-if="view==='d-endings' && dEnd">
+          <h2 class="dsec glonly">{{ lang==='ar' ? 'كل آيةٍ في العينة، وهل أصاب النموذج خاتمتها' : 'Every verse in the sample, and whether the model got its ending' }}</h2>
+          <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-blocks dend" data-stage="d-endings" role="img" :aria-label="lang==='ar' ? 'آيات العينة مجموعةً بحسب زوج الأسماء الخاتم' : 'The sample\'s verses in blocks by their closing pair'"></div>
+            <figcaption class="stcap"><span class="ic" aria-hidden="true"></span>{{ lang==='ar' ? 'كل نقطةٍ آيةٌ من الآيات الـ'+D(DZ.endings.nVerses)+'، مجموعةً بحسب الزوج الذي يختمها. المضيئة: خمّن النموذج خاتمتها صحيحًا وهو لم يرَ سورتها قط. '+(dFine ? 'مرّر المؤشر على نقطةٍ لترى آيتها وتخمين النموذج.' : 'انقر على نقطةٍ لترى آيتها وتخمين النموذج.') : 'Each point is one of the '+DZ.endings.nVerses+' verses, in blocks by the pair that closes it. Lit points: the model guessed the ending right without ever seeing that surah. '+(dFine ? 'Point at one to see its verse and the model\'s guess.' : 'Tap one to see its verse and the model\'s guess.') }}</figcaption></figure>
+          <div class="dnulls">
+            <null-plot :d="DZ.endings.nullAll" :p="DZ.endings.pAll" :fmt="v=>dF.pc(v,1)" :title="lang==='ar' ? 'الاختبار (أ): الخواتيم مخلوطةً بين كل الآيات' : 'Test A: endings shuffled across all verses'" :lab="lang==='ar' ? 'الخواتيم الحقيقية' : 'the real endings'" :what="['shuffles','خلطة','الخلطات']"></null-plot>
+            <null-plot :d="DZ.endings.nullWithin" :p="DZ.endings.pWithin" :fmt="v=>dF.pc(v,1)" :title="lang==='ar' ? 'الاختبار (ب): الخلط داخل كل سورة (أشدّ)' : 'Test B: shuffled only within each surah (stricter)'" :lab="lang==='ar' ? 'الخواتيم الحقيقية' : 'the real endings'" :what="['shuffles','خلطة','الخلطات']"></null-plot>
+          </div>
+          <div class="card">
+            <h3>{{ lang==='ar' ? 'حيث خمّن النموذج كما يخمّن القارئ أول مرة' : 'Where the model guessed like a first-time reader' }}</h3>
+            <p class="dnote">{{ lang==='ar' ? 'في هاتين الآيتين توقّع النموذج «غفور رحيم»، والنص يقول «عزيز حكيم». وعن الثانية كتب السيوطي أن «وإن تغفر لهم» توهم ختامًا بالمغفرة، ثم بيّن لماذا كان «العزيز الحكيم» أليق بالمقام.' : 'In both verses the model expected «Forgiving, Merciful» and the text says «Mighty, Wise». Of the second, al-Suyūṭī wrote that «if You forgive them» makes a reader expect forgiveness, then explained why «the Mighty, the Wise» fits the moment better.' }}</p>
+            <div class="vlist"><button v-for="k in ['5:38','5:118']" :key="k" type="button" class="vitem" @click="dOpen(k, ['5:38','5:118'], $event)" data-dopen>
+              <span class="vhead"><span class="k">{{ D(k) }}</span><span>{{ surahName(+k.split(':')[0]) }}</span><span class="tag">{{ lang==='ar' ? 'النص: عزيز حكيم · النموذج: غفور رحيم' : 'text: Mighty, Wise · model: Forgiving, Merciful' }}</span></span>
+              <span class="var" lang="ar" dir="rtl">{{ V[k] || '' }}</span><span v-if="!V[k]" class="vwait">{{ lang==='ar' ? 'جارٍ تحميل نص الآية…' : 'Loading the verse…' }}</span>
+              <span class="ven" v-if="lang!=='ar' && EN[k]">{{ EN[k] }}</span></button></div>
+          </div>
+          <div class="card">
+            <h3>{{ lang==='ar' ? 'ما يُصغي إليه كل زوج' : 'What each ending listens to' }} <span class="xpl">{{ lang==='ar' ? 'استكشافي' : 'exploratory' }}</span></h3>
+            <p class="dnote">{{ lang==='ar' ? 'الكلمات التي ترفع تخمين النموذج لكل زوجٍ أكثر من غيرها (من نموذجٍ درّبناه على الآيات كلها)، ونسبة ما أصابه من آيات كل زوج.' : 'The words that most raise the model\'s guess for each pair (from a model fitted on all the verses), and how many of each pair\'s verses it got right.' }}</p>
+            <div class="dscroll"><table class="dtable">
+              <tr><th>{{ lang==='ar' ? 'الخاتمة' : 'Ending' }}</th><th>{{ lang==='ar' ? 'آيات' : 'Verses' }}</th><th>{{ lang==='ar' ? 'أصاب' : 'Right' }}</th><th>{{ lang==='ar' ? 'أقوى الكلمات' : 'Telling words' }}</th></tr>
+              <tr v-for="p in dEnd.pairs" :key="p.k"><td><span class="ar" lang="ar">{{ p.ar }}</span><br v-if="lang!=='ar'"><span v-if="lang!=='ar'" class="muted">{{ p.en }}</span></td><td class="num">{{ D(p.n) }}</td><td class="num">{{ dF.pc(p.recall) }}</td>
+                <td><span v-for="w in p.top" :key="w" class="wd" lang="ar">{{ w }}</span></td></tr>
+            </table></div>
+          </div>
+          <div class="card">
+            <h3>{{ lang==='ar' ? 'الخواتيم التي لم يتوقعها النموذج' : 'The endings the model least expected' }} <span class="xpl">{{ lang==='ar' ? 'استكشافي' : 'exploratory' }}</span></h3>
+            <p class="dnote">{{ lang==='ar' ? 'الآيات الخمس عشرة التي رأى النموذج خاتمتها الحقيقية أبعد الاحتمالات. والآيات المتطابقة مجموعةٌ معًا.' : 'The fifteen verses whose real ending the model thought least likely. Identical verses are grouped.' }}</p>
+            <div class="vlist"><button v-for="g in dSurprise" :key="g.keys[0]" type="button" class="vitem" @click="dOpen(g.keys[0], dSurprise.flatMap(x=>x.keys), $event)" data-dopen>
+              <span class="vhead"><span class="k">{{ g.keys.map(k=>D(k)).join(lang==='ar' ? '، ' : ', ') }}</span><span class="tag">{{ lang==='ar' ? 'النص: '+g.real+' · توقّع النموذج: '+g.guess : 'text: '+g.real+' · model expected: '+g.guess }}</span></span>
+              <span class="var" lang="ar" dir="rtl">{{ V[g.keys[0]] || '' }}</span><span v-if="!V[g.keys[0]]" class="vwait">{{ lang==='ar' ? 'جارٍ تحميل نص الآية…' : 'Loading the verse…' }}</span></button></div>
+          </div>
+        </template>
+
+        <!-- 2. mirrors -->
+        <template v-if="view==='d-rings'">
+          <div class="dfig">
+            <h3>{{ lang==='ar' ? 'كل آيةٍ من البقرة مقابل كل آية' : 'Every verse of al-Baqarah against every verse' }}</h3>
+            <p class="fsub">{{ lang==='ar' ? 'كل خانةٍ مقطعان من أربع آيات: ذهبيةٌ إن كانا أشدّ تشابهًا مما تتوقعه المسافة بينهما، وزرقاء إن كانا أقل. لو كانت السورة مرآةً لأضاء القطر المتقطّع من أعلى اليمين إلى أسفل اليسار.' : 'Each cell is two stretches of four verses: gold where they are more alike than their distance predicts, blue where less. If the surah were a mirror, the dashed diagonal from top right to bottom left would light up.' }}</p>
+            <ring-map :m="DZ.rings.baqara.matrix" :n="286" :block="DZ.rings.baqara.block"></ring-map>
+            <div class="ringkey" dir="ltr"><span>{{ lang==='ar' ? 'أقل تشابهًا' : 'less alike' }}</span><i></i><span>{{ lang==='ar' ? 'أشدّ تشابهًا' : 'more alike' }}</span></div>
+          </div>
+          <div class="dfig">
+            <h3>{{ lang==='ar' ? 'أين يكون المركز لو كانت مرآة؟' : 'Where would the centre be?' }}</h3>
+            <p class="fsub">{{ lang==='ar' ? 'لكل مركزٍ ممكن: متوسط تشابه الآيات المتقابلة حوله. والشريط موضع المركز في القراءة الدائرية (٢:١٣٠–١٦٠).' : 'For each possible centre, how alike the verses facing each other around it are. The band is where the ring reading puts the centre (2:130–160).' }}</p>
+            <profile-plot :prof="DZ.rings.baqara.profile" :zone="[130,160]" :peak="DZ.rings.baqara.peak" :n="286"></profile-plot>
+          </div>
+          <div class="dnulls"><null-plot :d="DZ.rings.baqara.null" :p="DZ.rings.baqara.p" :fmt="v=>dF.d(v,4)" :title="lang==='ar' ? 'السورة مُدارةً كالعجلة' : 'The surah turned like a wheel'" :lab="lang==='ar' ? 'البقرة كما هي' : 'al-Baqarah as it is'" :what="['turns','إدارة','الإدارات']"></null-plot></div>
+          <div class="card">
+            <h3>{{ lang==='ar' ? 'الاختبار نفسه على كل سورةٍ طويلة' : 'The same test on every long surah' }} <span class="xpl">{{ lang==='ar' ? 'استكشافي' : 'exploratory' }}</span></h3>
+            <p class="dnote">{{ lang==='ar' ? 'كل سورةٍ لها ٦٠ آيةً فأكثر. لا تجتاز أيٌّ منها بعد تصحيح بنجاميني–هوخبرغ لتعدّد الاختبارات.' : 'Every surah of 60 verses or more. None passes once corrected for testing them all (Benjamini–Hochberg).' }}</p>
+            <div class="dscroll"><table class="dtable">
+              <tr><th>{{ lang==='ar' ? 'السورة' : 'Surah' }}</th><th>{{ lang==='ar' ? 'آيات' : 'Verses' }}</th><th>{{ lang==='ar' ? 'القيمة الاحتمالية' : 'p-value' }}</th><th>{{ lang==='ar' ? 'بعد التصحيح' : 'After correction' }}</th></tr>
+              <tr v-for="r in (dScan ? dRingScan : dRingScan.slice(0,8))" :key="r.n"><td>{{ D(r.n) }}. {{ surahName(r.n) }}</td><td class="num">{{ D(r.verses) }}</td><td class="num">{{ dF.p(r.p) }}</td><td :class="r.bh ? 'ok' : 'muted'">{{ r.bh ? (lang==='ar' ? 'تجتاز' : 'passes') : (lang==='ar' ? 'لا تجتاز' : 'does not pass') }}</td></tr>
+            </table></div>
+            <button v-if="!dScan" type="button" class="more" @click="dScan=true">{{ lang==='ar' ? 'اعرض السور الـ'+D(dRingScan.length)+' كلها ‹' : 'Show all '+dRingScan.length+' surahs ›' }}</button>
+          </div>
+        </template>
+
+        <!-- 3. rhyme and topic -->
+        <template v-if="view==='d-rhyme' && dRhymeCls">
+          <h2 class="dsec">{{ lang==='ar' ? 'القرآن كله ملوّنًا بفواصله' : 'The whole Quran, coloured by its rhyme' }}</h2>
+          <div class="dlegend" role="group" :aria-label="lang==='ar' ? 'اختر فاصلة' : 'Pick a rhyme'">
+            <button v-for="(nm,k) in dRhymeCls.names" :key="k" type="button" class="dchip" :aria-pressed="String(dRhyme===k)" @click="dRhyme = dRhyme===k ? -1 : k"><span class="sw" :style="{background:dRhymeCls.css[k]}"></span><b lang="ar" v-if="k<7">{{ nm }}</b><span v-else>{{ nm }}</span><span class="n">{{ dF.pc(dRhymeCls.counts[k]/DZ.rhyme.total) }}</span></button>
+          </div>
+          <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-carpet" data-stage="d-rhyme" role="img" :aria-label="lang==='ar' ? 'آيات القرآن ملوّنةً بفواصلها' : 'Every verse of the Quran coloured by its rhyme'"></div>
+            <figcaption class="stcap"><span class="ic" aria-hidden="true"></span>{{ lang==='ar' ? 'آيات القرآن كلها بترتيب القراءة، نقطةٌ لكل آية، ملوّنةً بفاصلتها. الامتدادات الطويلة من لونٍ واحد سلاسل من فاصلةٍ واحدة. اختر فاصلةً لتضيء آياتها.' : 'Every verse in reading order, one point each, coloured by its rhyme. Long stretches of one colour are runs of one rhyme. Pick a rhyme to light its verses.' }}</figcaption></figure>
+          <div class="dnulls">
+            <null-plot :d="DZ.rhyme.null" :p="DZ.rhyme.p" :fmt="v=>dF.d(v,4)" :title="lang==='ar' ? 'مواضع تغيّر الفاصلة مخلوطةً داخل كل سورة' : 'Rhyme changes shuffled within each surah'" :lab="lang==='ar' ? 'النص' : 'the text'" :what="['shuffles','خلطة','الخلطات']"></null-plot>
+            <div class="nullplot">
+              <p class="npt">{{ lang==='ar' ? 'هل يثبت في كل مكان؟' : 'Does it hold everywhere?' }} <span class="xpl">{{ lang==='ar' ? 'استكشافي' : 'exploratory' }}</span></p>
+              <table class="dtable">
+                <tr><th></th><th>{{ lang==='ar' ? 'الفرق' : 'Gap' }}</th><th>p</th></tr>
+                <tr><td>{{ lang==='ar' ? 'السور المكية' : 'Meccan surahs' }}</td><td class="num">{{ dF.d(DZ.rhyme.split.Mecca.diff,4) }}</td><td class="num">–</td></tr>
+                <tr><td>{{ lang==='ar' ? 'السور المدنية' : 'Medinan surahs' }}</td><td class="num">{{ dF.d(DZ.rhyme.split.Medina.diff,4) }}</td><td class="num">–</td></tr>
+                <tr v-for="w in DZ.rhyme.robust" :key="w.window"><td>{{ lang==='ar' ? (w.window===2 ? 'آيتان على كل جانب' : D(w.window)+' آياتٍ على كل جانب') : w.window+' verses a side' }}</td><td class="num">{{ dF.d(w.stat,4) }}</td><td class="num">{{ dF.p(w.p) }}</td></tr>
+              </table>
+            </div>
+          </div>
+          <div class="card">
+            <h3>{{ lang==='ar' ? 'أطول السلاسل على فاصلةٍ واحدة' : 'The longest runs of one rhyme' }} <span class="xpl">{{ lang==='ar' ? 'استكشافي' : 'exploratory' }}</span></h3>
+            <div class="vlist"><button v-for="r in DZ.rhyme.runs.slice(0,8)" :key="r.s+':'+r.start" type="button" class="vitem" @click="dOpen(r.s+':'+r.start, [r.s+':'+r.start, r.s+':'+r.end], $event)" data-dopen>
+              <span class="vhead"><span class="k">{{ D(r.s+':'+r.start+'–'+r.end) }}</span><span>{{ surahName(r.s) }}</span><span class="tag"><b lang="ar">{{ dRhymeName(r.r) }}</b>{{ lang==='ar' ? '، '+D(r.len)+' آية' : ' · '+r.len+' verses' }}</span></span></button></div>
+          </div>
+        </template>
+
+        <!-- 4. retold stories -->
+        <template v-if="view==='d-stories' && dStory">
+          <div class="dfig">
+            <h3>{{ lang==='ar' ? 'كل روايةٍ: سورتها مقابل السور الأخرى' : 'Each telling: its own surah against the others' }}</h3>
+            <p class="fsub">{{ lang==='ar' ? 'لكل رواية: تشابه ألفاظها مع بقية سورتها (أخضر)، ومتوسط تشابهها مع بقية السور الأخرى التي تروي القصة (رمادي). الخط الأخضر: سورتها أقرب.' : 'For each telling: how alike its words are to the rest of its own surah (green), and on average to the rest of the other surahs with the same story (grey). A green line: its own surah is closer.' }}</p>
+            <dumbbell :rows="dStory.rows" :max="dStory.max"></dumbbell>
+          </div>
+          <div class="dnulls"><null-plot :d="DZ.retellings.null" :p="DZ.retellings.p" :fmt="v=>dF.d(v,3)" :title="lang==='ar' ? 'الروايات موزّعةً على سورٍ أخرى عشوائيًّا' : 'Tellings given to other surahs at random'" :lab="lang==='ar' ? 'الروايات في سورها' : 'the tellings in their surahs'" :what="['reassignments','إعادة توزيع','إعادات التوزيع']"></null-plot></div>
+          <div class="card">
+            <h3>{{ lang==='ar' ? 'موسى في ١٤ سورة: ما تنفرد به كل رواية' : 'Moses in 14 surahs: what sets each telling apart' }} <span class="xpl">{{ lang==='ar' ? 'استكشافي' : 'exploratory' }}</span></h3>
+            <p class="dnote">{{ lang==='ar' ? 'أكثر الكلمات تمييزًا لكل روايةٍ بين روايات موسى الأربع عشرة (TF-IDF).' : 'The words most distinctive of each telling among the fourteen tellings of Moses (TF-IDF).' }}</p>
+            <div class="dscroll"><table class="dtable">
+              <tr><th>{{ lang==='ar' ? 'السورة' : 'Surah' }}</th><th>{{ lang==='ar' ? 'آيات' : 'Verses' }}</th><th>{{ lang==='ar' ? 'أكثر الكلمات تمييزًا' : 'Most distinctive words' }}</th></tr>
+              <tr v-for="m in dStory.moses" :key="m.s"><td><button type="button" class="more" style="padding:0" @click="dOpen(m.first, [m.first], $event)" data-dopen>{{ D(m.s) }}. {{ surahName(m.s) }}</button></td><td class="num">{{ D(m.verses) }}</td><td><span v-for="w in m.words" :key="w" class="wd" lang="ar">{{ w }}</span></td></tr>
+            </table></div>
+          </div>
+        </template>
+
+        <!-- 5. themes -->
+        <template v-if="view==='d-themes' && dThemes">
+          <h2 class="dsec">{{ lang==='ar' ? 'الموضوعات الاثنا عشر' : 'The twelve themes' }}</h2>
+          <div class="dlegend" role="group" :aria-label="lang==='ar' ? 'اختر موضوعًا' : 'Pick a theme'">
+            <button v-for="t in dThemes.list" :key="t.i" type="button" class="dchip" :aria-pressed="String(dTheme===t.i)" @click="dTheme = dTheme===t.i ? -1 : t.i"><span class="sw" :style="{background:t.css}"></span>{{ t.name }}<span class="n">{{ dF.pc(t.share) }}</span></button>
+          </div>
+          <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-carpet" data-stage="d-themes" role="img" :aria-label="lang==='ar' ? 'آيات القرآن ملوّنةً بموضوعاتها' : 'Every verse of the Quran coloured by its theme'"></div>
+            <figcaption class="stcap"><span class="ic" aria-hidden="true"></span>{{ lang==='ar' ? 'آيات القرآن كلها بترتيب القراءة، ملوّنةً بأكبر موضوعاتها. اختر موضوعًا لتضيء آياته.' : 'Every verse in reading order, coloured by its largest theme. Pick a theme to light its verses.' }}</figcaption></figure>
+          <div class="card">
+            <h3>{{ lang==='ar' ? 'كل موضوعٍ وألفاظه' : 'Each theme and its words' }}</h3>
+            <div class="dscroll"><table class="dtable">
+              <tr><th>{{ lang==='ar' ? 'الموضوع' : 'Theme' }}</th><th>{{ lang==='ar' ? 'الآيات' : 'Verses' }}</th><th>{{ lang==='ar' ? 'أبرز الألفاظ' : 'Top words' }}</th><th>{{ lang==='ar' ? 'الثبات' : 'Stability' }}</th></tr>
+              <tr v-for="t in dThemes.list" :key="t.i" :class="{pass: dTheme===t.i}"><td><span class="sw" :style="{display:'inline-block',width:'9px',height:'9px',borderRadius:'50%',background:t.css,marginInlineEnd:'8px'}"></span>{{ t.name }}</td><td class="num">{{ dF.pc(t.share,1) }}</td><td><span v-for="w in t.top" :key="w" class="wd" lang="ar">{{ w }}</span></td><td class="num" :class="t.named ? 'ok' : 'muted'">{{ dF.d(t.stability,2) }}</td></tr>
+            </table></div>
+          </div>
+          <div class="card">
+            <h3>{{ lang==='ar' ? 'مزيج الموضوعات في سورة' : 'A surah\'s mix of themes' }}
+              <select v-model.number="dSurah" style="padding:6px;border-radius:8px;border:1px solid var(--line);margin-inline-start:8px"><option v-for="s in DS.surahMeta" :key="s.n" :value="s.n">{{ s.n }}. {{ lang==='ar'?s.ar:s.en }}</option></select></h3>
+            <div v-for="m in dThemes.mix" :key="m.i" class="compbar" style="cursor:default"><span>{{ m.name }}</span><span class="bar"><i :style="{width:(m.share*100).toFixed(1)+'%', background:m.css}"></i></span><span class="num">{{ dF.pc(m.share) }}</span></div>
+          </div>
+        </template>
+
+        <!-- 6. companions -->
+        <template v-if="view==='d-companions' && dComp">
+          <div class="card">
+            <h3>{{ lang==='ar' ? 'اختر كلمةً لترى صاحباتها' : 'Pick a word to see its companions' }}</h3>
+            <div class="wordpick"><input v-model="dWordQ" lang="ar" :dir="lang==='ar' ? 'rtl' : 'auto'" :placeholder="lang==='ar' ? 'اكتب كلمة: صلاة، ليل، نور…' : 'Type an Arabic word, such as صلاة'" :aria-label="lang==='ar' ? 'ابحث عن كلمة' : 'Find a word'"></div>
+            <div class="chips dchips"><button v-for="w in dComp.pick" :key="w" type="button" class="dchip" :aria-pressed="String(dComp.sel===w)" @click="dWord=w; dWordQ=''"><b lang="ar">{{ w }}</b><span class="n">{{ D(DZ.companions.verses[w]) }}</span></button></div>
+            <template v-if="dComp.sel">
+              <p class="dnote" style="margin-top:16px"><b lang="ar">{{ dComp.sel }}</b> <span v-if="lang!=='ar' && dComp.gloss">({{ dComp.gloss }})</span> · {{ lang==='ar' ? 'في '+D(DZ.companions.verses[dComp.sel])+' آية' : 'in '+DZ.companions.verses[dComp.sel]+' verses' }}</p>
+              <div v-if="dComp.list.length"><div v-for="c in dComp.list" :key="c.w" class="compbar" role="button" tabindex="0" @click="dWord=c.w" @keydown.enter="dWord=c.w"><span><b lang="ar">{{ c.w }}</b><span class="en" v-if="lang!=='ar' && c.gloss">{{ c.gloss }}</span></span><span class="bar"><i :style="{width:c.bar+'%'}"></i></span><span class="num"><b>{{ D(c.times) }}×</b><small>{{ lang==='ar' ? countOf(c.c,'verse') : c.c+' verses' }}</small></span></div></div>
+              <p v-else class="dnote">{{ lang==='ar' ? 'لا صاحبة لهذه الكلمة تجتاز المرشّح.' : 'No companion of this word passes the filter.' }}</p>
+              <p class="dnote">{{ lang==='ar' ? 'الرقم الأخير: كم مرةً يلتقي الزوج أكثر من المصادفة. انقر صاحبةً لتنتقل إليها.' : 'The last figure: how many times more often than chance the two meet. Tap a companion to move to it.' }}</p>
+            </template>
+          </div>
+          <div class="card">
+            <h3>{{ lang==='ar' ? 'أشدّ الأزواج تلازمًا' : 'The tightest pairs' }}</h3>
+            <p class="dnote">{{ lang==='ar' ? 'الأزواج التي تجتمع في ثماني آياتٍ فأكثر، مرتبةً بقوة تلازمها.' : 'Pairs that share at least eight verses, by how tightly they keep together.' }}</p>
+            <div class="chips dchips"><button v-for="t in dComp.top" :key="t.a+t.b" type="button" class="dchip" @click="dWord=t.a"><b lang="ar">{{ t.a }} + {{ t.b }}</b><span class="n">{{ D(t.times) }}×</span></button></div>
+          </div>
+        </template>
+
+        <!-- 7. opening letters -->
+        <template v-if="view==='d-letters' && dLetters">
+          <h2 class="dsec"><span class="tag">{{ lang==='ar' ? '(أ)' : '(a)' }}</span>{{ lang==='ar' ? 'هل تكثر حروف الفاتحة في سورتها؟' : 'Are a surah\'s opening letters more common in it?' }}</h2>
+          <div class="dfig">
+            <p class="fsub">{{ lang==='ar' ? 'لكل سورةٍ ذات حروف: رتبة كل حرفٍ من حروفها بين السور الـ١١٤ (١٠٠ = أعلاها نصيبًا من ذلك الحرف، و٥٠ = المعتاد). الذهبية فوق الوسط والرمادية دونه.' : 'For each lettered surah, each of its letters placed by its rank among the 114 surahs (100 = the surah with most of that letter; 50 = typical). Gold above the middle, grey below.' }}</p>
+            <letter-strip :rows="dLetters.rows"></letter-strip>
+          </div>
+          <div class="dnulls"><null-plot :d="DZ.letters.null" :p="DZ.letters.p" :fmt="v=>dF.d(v*100,1)" :title="lang==='ar' ? 'مجموعات الحروف موزّعةً على سورٍ عشوائية' : 'Letter sets given to random surahs'" :lab="lang==='ar' ? 'السور الحقيقية' : 'the real surahs'" :what="['reassignments','إعادة توزيع','إعادات التوزيع']"></null-plot></div>
+          <h2 class="dsec"><span class="tag">{{ lang==='ar' ? '(ب)' : '(b)' }}</span>{{ lang==='ar' ? 'هل تتشابه السور المشتركة في الفاتحة؟' : 'Are surahs that share an opening alike?' }}</h2>
+          <div class="card">
+            <div class="dscroll"><table class="dtable">
+              <tr><th>{{ lang==='ar' ? 'الأسرة' : 'Family' }}</th><th>{{ lang==='ar' ? 'السور' : 'Surahs' }}</th><th>{{ lang==='ar' ? 'تشابهها' : 'Likeness' }}</th><th>{{ lang==='ar' ? 'سورٌ مماثلة عشوائية' : 'Matched random' }}</th><th>z</th></tr>
+              <tr v-for="f in dLetters.fams" :key="f.k"><td class="ar" lang="ar">{{ f.k }}</td><td>{{ f.surahs.map(s=>D(s)).join(lang==='ar' ? '، ' : ', ') }}</td><td class="num">{{ dF.d(f.sim,3) }}</td><td class="num">{{ dF.d(f.nullMean,3) }}</td><td class="num"><span class="hbar" :style="{width:Math.max(4, f.z*40)+'px'}"></span> {{ dF.d(f.z,2) }}</td></tr>
+            </table></div>
+            <p class="dnote" style="margin-top:12px">{{ lang==='ar' ? '«حم» و«طسم» سلاسل من سورٍ متجاورة، والمتجاورات متشابهة أصلًا: فمن بين '+D(DZ.families.consecutive['حم'].of)+' سلسلةً من سبع سورٍ متجاورة، '+D(DZ.families.consecutive['حم'].rank-1)+' أشدّ تشابهًا من «حم»؛ ومن بين '+D(DZ.families.consecutive['طسم'].of)+' سلسلةً من ثلاث، '+D(DZ.families.consecutive['طسم'].rank-1)+' أشدّ تشابهًا من «طسم».' : 'حم and طسم are runs of neighbouring surahs, and neighbours are alike anyway: of the '+DZ.families.consecutive['حم'].of+' runs of seven neighbouring surahs, '+(DZ.families.consecutive['حم'].rank-1)+' are more alike than حم; of the '+DZ.families.consecutive['طسم'].of+' runs of three, '+(DZ.families.consecutive['طسم'].rank-1)+' are more alike than طسم.' }}</p>
+          </div>
+          <div class="dnulls"><null-plot :d="DZ.families.null" :p="DZ.families.p" :fmt="v=>dF.d(v,2)" :title="lang==='ar' ? 'أسرٌ عشوائية من سورٍ مماثلة' : 'Random families of matched surahs'" :lab="lang==='ar' ? 'الأسر الحقيقية' : 'the real families'" :what="['random families','أسرة عشوائية','الأسر العشوائية']"></null-plot></div>
+        </template>
+
+        <!-- 8. near-repeats -->
+        <template v-if="view==='d-repeats' && dRep">
+          <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-carpet" data-stage="d-repeats" role="img" :aria-label="lang==='ar' ? 'مواضع الآيات المكررة والمتشابهة في القرآن' : 'Where the repeated and near-repeated verses are'"></div>
+            <figcaption class="stcap"><span class="ic" aria-hidden="true"></span>{{ lang==='ar' ? 'آيات القرآن كلها بترتيب القراءة: الذهبية تتكرر بلفظها، والفيروزية لها شبيهةٌ قريبة.' : 'Every verse in reading order: gold ones are repeated word for word, teal ones have a close twin.' }}</figcaption></figure>
+          <div class="seg2" role="group"><button type="button" :aria-pressed="String(dRepTab==='ref')" @click="dRepTab='ref'">{{ lang==='ar' ? 'اللوازم ('+D(DZ.repeats.nRefrains)+')' : 'Refrains ('+DZ.repeats.nRefrains+')' }}</button><button type="button" :aria-pressed="String(dRepTab==='pairs')" @click="dRepTab='pairs'">{{ lang==='ar' ? 'المتشابهات ('+D(DZ.repeats.nPairs)+')' : 'Near pairs ('+DZ.repeats.nPairs+')' }}</button></div>
+          <div class="vlist" v-if="dRepTab==='ref'"><button v-for="r in dRep.refrains.slice(0,dRepN)" :key="r.verses[0]" type="button" class="vitem" @click="dOpen(r.verses[0], r.verses, $event)" data-dopen>
+            <span class="vhead"><span class="k">{{ lang==='ar' ? D(r.n)+' مرات' : r.n+' times' }}</span><span>{{ r.surahs }}</span></span>
+            <span class="var" lang="ar" dir="rtl">{{ V[r.verses[0]] || r.text }}</span>
+            <span class="vhead"><span v-for="k in r.verses.slice(0,12)" :key="k">{{ D(k) }}</span><span v-if="r.verses.length>12">…</span></span></button></div>
+          <div class="vlist" v-else><button v-for="p in dRep.pairs.slice(0,dRepN)" :key="p.a+p.b" type="button" class="vitem" @click="dOpen(p.a, [p.a, p.b], $event)" data-dopen>
+            <span class="vhead"><span class="k">{{ D(p.a) }}</span><span>{{ surahName(+p.a.split(':')[0]) }}</span><span class="tag">{{ lang==='ar' ? 'تشابه '+dF.pc(p.ratio) : dF.pc(p.ratio)+' alike' }}</span></span>
+            <span class="var" lang="ar" dir="rtl" v-html="dMark(p.a, p.diffA, '')"></span>
+            <span class="vhead"><span class="k">{{ D(p.b) }}</span><span>{{ surahName(+p.b.split(':')[0]) }}</span></span>
+            <span class="var" lang="ar" dir="rtl" v-html="dMark(p.b, p.diffB, 'b')"></span></button></div>
+          <button v-if="dRepN < (dRepTab==='ref' ? dRep.refrains.length : dRep.pairs.length)" type="button" class="more" @click="dRepN+=20">{{ lang==='ar' ? 'اعرض المزيد ‹' : 'Show more ›' }}</button>
+        </template>
+
+        <!-- 9. revelation order -->
+        <template v-if="view==='d-chrono'">
+          <h2 class="dsec glonly">{{ lang==='ar' ? 'السور بترتيب نزولها وطول آياتها' : 'The surahs by order of revelation and verse length' }}</h2>
+          <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-scatter" data-stage="d-chrono" role="img" :aria-label="lang==='ar' ? 'السور بحسب ترتيب النزول ومتوسط طول الآية' : 'The surahs by revelation order and average verse length'"></div>
+            <figcaption class="stcap"><span class="ic" aria-hidden="true"></span>{{ lang==='ar' ? 'كل سورةٍ قرصٌ من آياتها، موضوعٌ بترتيب نزولها المأثور ومتوسط كلمات آيتها. '+(dFine ? 'مرّر المؤشر على قرصٍ لترى السورة.' : 'انقر على قرصٍ لترى السورة.') : 'Each surah is a disc of its verses, placed by its traditional order of revelation and its average words per verse. '+(dFine ? 'Point at a disc to see the surah.' : 'Tap a disc to see the surah.') }}</figcaption></figure>
+          <div class="dnulls"><null-plot :d="DZ.chronology.null" :p="DZ.chronology.p" :two="true" :fmt="v=>dF.d(v,2)" :title="lang==='ar' ? 'ترتيب السور مخلوطًا' : 'The order of the surahs shuffled'" :lab="lang==='ar' ? 'الترتيب المأثور' : 'the traditional order'" :what="['shuffled orders','ترتيب مخلوط','الترتيبات المخلوطة']"></null-plot></div>
+          <div class="dfig">
+            <h3>{{ lang==='ar' ? 'الكلمات المختلفة مع تقدّم النزول' : 'Different words, as the revelation proceeds' }} <span class="xpl">{{ lang==='ar' ? 'استكشافي' : 'exploratory' }}</span></h3>
+            <p class="fsub">{{ lang==='ar' ? 'مجموع الكلمات المختلفة المستعملة حتى كل سورة، بترتيب النزول، مع المراحل الخمس.' : 'How many different words have been used up to each surah, in the order of revelation, with the five periods.' }}</p>
+            <growth-curve :curve="DZ.chronology.curve" :phases="DZ.chronology.phases"></growth-curve>
+            <div v-for="(ph,i) in DZ.chronology.phases" :key="ph.name" class="compbar" style="cursor:default"><span>{{ dPhase(i) }}</span><span class="bar"><i :style="{width:(ph.share*100/0.35).toFixed(1)+'%'}"></i></span><span class="num">{{ dF.pc(ph.share) }}</span></div>
+            <p class="dnote">{{ lang==='ar' ? 'حصة كلمات كل مرحلةٍ التي لا ترد في أي مرحلةٍ أخرى.' : 'The share of each period\'s words used in no other period.' }}</p>
+          </div>
+        </template>
+
+        <div class="dknown" v-if="dS.known.length">
+          <h3>{{ lang==='ar' ? 'ما كان معروفًا من قبل' : 'What was known before' }}</h3>
+          <ul><li v-for="(k,i) in dS.known" :key="i"><span v-html="rich(k.html)"></span> <a v-if="k.u" :href="k.u" target="_blank" rel="noopener">{{ lang==='ar' ? 'المصدر ‹' : 'source ›' }}</a></li></ul>
+          <p class="adds" v-if="dS.adds"><b>{{ lang==='ar' ? 'ما تضيفه هذه الدراسة:' : 'What this study adds:' }}</b> {{ dS.adds }}</p>
+        </div>
+        <nav class="dnav" :aria-label="lang==='ar' ? 'الدراسات' : 'Studies'">
+          <button v-if="dS.prev" type="button" @click="go(dS.prev.id)">{{ lang==='ar' ? '› ' : '‹ ' }}{{ dS.prev.short }}</button>
+          <button type="button" class="all" @click="go('discover')">{{ lang==='ar' ? 'كل الدراسات' : 'All nine studies' }}</button>
+          <button type="button" class="share" @click="dShare()" :aria-live="dCopied ? 'polite' : null">{{ dCopied ? (lang==='ar' ? 'نُسخ الرابط ✓' : 'Link copied ✓') : (lang==='ar' ? 'انسخ رابط هذه الدراسة' : 'Copy a link to this study') }}</button>
+          <button v-if="dS.next" type="button" @click="go(dS.next.id)">{{ dS.next.short }}{{ lang==='ar' ? ' ‹' : ' ›' }}</button>
+        </nav>
+      </template>
+    </section>
+
     <!-- Analytics Lab: the page's explainer (any lab view), in plain words or for scientists -->
     <div v-if="labCur" class="course" :class="{sci: sciShown}">
       <div class="xhead" v-if="sciHas"><span class="xkick">{{ depthKicker }}</span><depth-switch></depth-switch></div>
@@ -1043,7 +1505,7 @@ if (location.hostname === 'heshamabourokaia.github.io')
     </section>
 
     <!-- READER -->
-    <section v-if="view==='reader'" class="reader-view" :class="{withbar: !!rClaimObj}">
+    <section v-if="view==='reader'" class="reader-view" :class="{withbar: !!rClaimObj || !!rExt}">
       <h1>{{ lang==='ar' ? 'المصحف' : 'Quran Reader' }}</h1>
       <div class="searchbar">
         <select v-model.number="rSurah" @change="rVerse=0" style="padding:10px;border-radius:10px;border:1px solid var(--line);font-size:1rem">
@@ -1064,12 +1526,14 @@ if (location.hostname === 'heshamabourokaia.github.io')
           ? 'الترجمة الإنجليزية: محمد مرمدوك بكتهول، «معاني القرآن المجيد» (١٩٣٠)، ملكية عامة. النص الرقمي المدقق من مشروع تنزيل.'
           : 'English translation: M. M. Pickthall, The Meaning of the Glorious Koran (1930), public domain. Verse-aligned digital text from the Tanzil Project.' }}</div>
       </div>
-      <div v-if="rClaimObj" class="rbar" role="group" :aria-label="lang==='ar' ? 'التنقل بين آيات هذه الكلمة' : 'Move between the verses of this word'">
+      <div v-if="rClaimObj || rExt" class="rbar" role="group" :aria-label="rClaimObj ? (lang==='ar' ? 'التنقل بين آيات هذه الكلمة' : 'Move between the verses of this word') : (lang==='ar' ? 'التنقل بين آيات القائمة' : 'Move between the verses of the list')">
         <a v-if="rBack==='landing'" class="rb-back" :href="rBackHref">{{ lang==='ar' ? '→ العودة إلى المزاعم' : '← Back to the claims' }}</a>
         <button v-else type="button" class="rb-back" @click="backFromReader">{{ rBackLabel }}</button>
-        <span class="rb-what"><b lang="ar">{{ rClaimObj.ar }}</b>{{ rWhere }}</span>
+        <span class="rb-what"><b lang="ar" v-if="rClaimObj">{{ rClaimObj.ar }}</b>{{ rWhere }}</span>
+        <template v-if="rList.length>1">
         <button type="button" class="rb-step" :disabled="rPos===0" @click="stepMention(-1)" :aria-label="lang==='ar' ? 'الآية السابقة' : 'Previous verse'">{{ lang==='ar' ? '›' : '‹' }}</button>
         <button type="button" class="rb-step" :disabled="rPos===rList.length-1" @click="stepMention(1)" :aria-label="lang==='ar' ? 'الآية التالية' : 'Next verse'">{{ lang==='ar' ? '‹' : '›' }}</button>
+        </template>
       </div>
     </section>
 
@@ -1924,8 +2388,11 @@ const jix = () => JIX || (JIX = JEV && window.QURAN_WORDS ? JEV.makeIndex(window
 // The verse text and translation, the word index and the chart library are most of the page's weight
 // (about 2.5 MB compressed). They load after the app is on screen, what the current page needs first,
 // so a phone never waits on a blank page for all of it.
-const LAZY = { verses:['corpus.js','translation_en.js'], words:['words.js','lemma-variants.js'], plotly:['https://cdn.plot.ly/plotly-2.27.0.min.js'] };
-const NEEDS = { search:['words','verses'], auditor:['words'], reader:['verses'], home:['words'] };
+const LAZY = { verses:['corpus.js','translation_en.js'], words:['words.js','lemma-variants.js'], plotly:['https://cdn.plot.ly/plotly-2.27.0.min.js'],
+  disc:['discover.js','discoveries.js'] };
+const NEEDS = { search:['words','verses'], auditor:['words'], reader:['verses'], home:['words'],
+  discover:['disc'], 'd-endings':['disc','verses'], 'd-rings':['disc'], 'd-rhyme':['disc'], 'd-stories':['disc'], 'd-themes':['disc'],
+  'd-companions':['disc'], 'd-letters':['disc'], 'd-repeats':['disc','verses','words'], 'd-chrono':['disc'] };
 const lazyP = {};
 const addScript = src => new Promise((ok, fail) => { const el=document.createElement('script'); el.src=src;
   el.onload=ok; el.onerror=()=>fail(new Error('could not load '+src)); document.head.appendChild(el); });
@@ -1940,7 +2407,10 @@ const TLAB = [['In plain words','بكلماتٍ بسيطة'], ['What it does her
 const TERMS = { overview:['lemma','root','hapax','normalization'], word:['lemma','zipf'], letters:['normalization'], mecca:['ttest','effect'],
   stats:['ttest','pvalue','ci','effect','ols'], classifier:['logreg','tfidf','cv','baseline','auc','confusion'], cluster:['pca','kmeans','zscore','cosine','tfidf'],
   coincidence:['zipf','lookelsewhere','montecarlo','percentile'], hifz:['lp','shadow'], emotion:['lexicon'], search:['lemma','root','normalization'],
-  auditor:['lemma','lookelsewhere'], symmetry:['lemma','lookelsewhere'], nlp:['ngram','normalization'], n19:['lookelsewhere'], structural:['lookelsewhere'] };
+  auditor:['lemma','lookelsewhere'], symmetry:['lemma','lookelsewhere'], nlp:['ngram','normalization'], n19:['lookelsewhere'], structural:['lookelsewhere'],
+  discover:['prereg','shuffle','pvalue','multiple','lookelsewhere'], 'd-endings':['logreg','cv','baseline','shuffle','multiple','tfidf'], 'd-rings':['cosine','shuffle','multiple'],
+  'd-rhyme':['cosine','shuffle','pvalue'], 'd-stories':['cosine','shuffle'], 'd-themes':['nmf','tfidf','lemma'], 'd-companions':['pmi','multiple','pvalue'],
+  'd-letters':['percentile','zscore','shuffle','cosine'], 'd-repeats':['lemma','normalization'], 'd-chrono':['spearman','shuffle','pvalue'] };
 const AR_RUN = /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]+(?:[ \u00A0]+[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]+)*/g;   // a run of Arabic words
 const escH = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
 const unmark = s => String(s||'').replace(/\[\[\w+\|([^\]]+)\]\]/g, '$1').replace(/\[\[(\w+)\]\]/g, (m,k)=>EXPL && EXPL.GLOSS[k] ? EXPL.GLOSS[k].name[0] : k).replace(/`/g, '');
@@ -1998,6 +2468,135 @@ const ExplainBox = { template:`<div v-if="p" class="plain" :class="{sci: $root.s
   </div>
   <term-chips></term-chips></div>`,
   computed:{ p(){ return this.$root.plain; }, ar(){ return this.$root.lang==='ar'; } } };
+// ---- Discoveries: nine pre-registered studies (texts in discover.js, results in discoveries.js, both loaded on demand) ----
+const DISC_IDS = ['discover','d-endings','d-rings','d-rhyme','d-stories','d-themes','d-companions','d-letters','d-repeats','d-chrono'];
+// the colours of the twelve themes, and of the rhymes (the seven commonest, then the rest)
+const THEME_RGB = [[1,.78,.4],[.3,.86,.62],[.22,.78,.86],[.91,.73,.37],[.66,.56,.98],[.45,.65,1],[.96,.55,.55],[1,.58,.3],[.62,.9,.38],[.95,.5,.8],[.58,.62,.6],[.74,.77,.75]];
+const RHYME_RGB = [[.22,.78,.86],[1,.78,.4],[.3,.86,.62],[.66,.56,.98],[.96,.55,.55],[.91,.73,.37],[.62,.9,.38],[.5,.56,.53]];
+const rgbCss = c => 'rgb('+c.map(v=>Math.round(v*255)).join(',')+')';
+// A study's test against chance: its shuffled copies as a histogram, the text itself as a gold line, and a sentence
+// saying how many shuffles did as well. «what» names the shuffles: [English plural, Arabic after a number, Arabic definite].
+const NullPlot = { props:['d','p','title','lab','what','two','fmt'],
+  template:`<figure class="nullplot" v-if="d && d.hist">
+    <figcaption class="npt">{{ title }}</figcaption>
+    <div class="npbox" dir="ltr" role="img" :aria-label="aria">
+      <svg viewBox="0 0 600 100" preserveAspectRatio="none" aria-hidden="true">
+        <line class="base" x1="0" x2="600" y1="100" y2="100"/>
+        <rect v-for="(b,i) in bars" :key="i" :x="b.x" :y="b.y" :width="b.w" :height="b.h"/>
+        <line class="obs" :x1="ox" :x2="ox" y1="-6" y2="100"/>
+      </svg>
+      <span class="npobs" :class="side" :style="{left:(ox/6).toFixed(2)+'%'}">{{ lab }}: {{ f(d.obs) }}</span>
+      <span class="npnull" :style="{left:(mx/6).toFixed(2)+'%'}">{{ nullLab }}</span>
+    </div>
+    <p class="npsum">{{ sum }}</p>
+  </figure>`,
+  computed:{
+    ar(){ return this.$root.lang==='ar'; }, F(){ return this.$root.dF; },
+    f(){ return this.fmt || (v=>this.F.d(v, 3)); },
+    X(){ const h=this.d.hist, w=(h.hi-h.lo)||1; return v=>(v-h.lo)/w*600; },
+    bars(){ const c=this.d.hist.counts, n=c.length, w=600/n, m=Math.max(...c)||1; return c.map((k,i)=>({x:i*w+.8, w:Math.max(.6,w-1.6), h:k/m*90, y:100-k/m*90})); },
+    ox(){ return Math.min(598, Math.max(2, this.X(this.d.obs))); },
+    mx(){ return Math.min(540, Math.max(60, this.X(this.d.mean))); },
+    side(){ return this.ox>450 ? 'end' : this.ox<150 ? 'start' : ''; },
+    nullLab(){ return this.ar ? this.F.n(this.d.n)+' '+this.what[1] : this.F.n(this.d.n)+' '+this.what[0]; },
+    // how many shuffles did as well: counted by the pipeline; for a two-sided test, read back from p
+    k(){ return this.two ? Math.max(0, Math.round(this.p*(this.d.n+1))-1) : (this.d.ge||0); },
+    sum(){ const F=this.F, n=F.n(this.d.n), p=F.p(this.p), k=this.k;
+      if(this.ar) return this.two
+        ? (k ? 'ابتعد '+F.n(k)+' من '+this.what[2]+' الـ'+n+' عن الصفر مثله أو أكثر' : 'لم يبتعد أيٌّ من '+this.what[2]+' الـ'+n+' عن الصفر مثله')+' (القيمة الاحتمالية '+p+').'
+        : (k ? 'بلغ '+F.n(k)+' من '+this.what[2]+' الـ'+n+' هذا الحدّ أو تجاوزه' : 'لم يبلغ أيٌّ من '+this.what[2]+' الـ'+n+' هذا الحدّ')+' (القيمة الاحتمالية '+p+').';
+      return this.two
+        ? (k ? k+' of the '+n+' '+this.what[0]+' came as far from zero' : 'None of the '+n+' '+this.what[0]+' came as far from zero')+' (p = '+p+').'
+        : (k ? k+' of the '+n+' '+this.what[0]+' scored as high or higher' : 'None of the '+n+' '+this.what[0]+' scored as high')+' (p = '+p+').'; },
+    aria(){ return this.title+'. '+this.sum; } } };
+// Study 2: every verse of al-Baqarah against every verse (blocks of four), beyond what their distance predicts.
+// A mirror would light the diagonal from top right to bottom left (dashed).
+const RingMap = { props:['m','n','block'],
+  template:`<div class="ringwrap" dir="ltr">
+    <canvas ref="c" :width="m.length" :height="m.length" role="img" :aria-label="$root.lang==='ar' ? 'خريطة تشابه آيات البقرة كل آيةٍ مقابل كل آية' : 'Map of how alike every two stretches of al-Baqarah are'"></canvas>
+    <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="100" y1="0" x2="0" y2="100" class="anti"/></svg>
+    <span v-for="t in ticks" :key="'x'+t.v" class="rtick x" :style="{left:t.f+'%'}">{{ $root.dF.n(t.v) }}</span>
+    <span v-for="t in ticks" :key="'y'+t.v" class="rtick y" :style="{top:t.f+'%'}">{{ $root.dF.n(t.v) }}</span>
+  </div>`,
+  computed:{ ticks(){ return [1,50,100,150,200,250,this.n].map(v=>({v, f:((v-.5)/this.n*100).toFixed(2)})); } },
+  mounted(){ this.draw(); }, watch:{ m(){ this.draw(); } },
+  methods:{ draw(){ const c=this.$refs.c; if(!c) return; const N=this.m.length, g=c.getContext('2d'), img=g.createImageData(N,N);
+    const neg=[31,111,139], mid=[11,21,17], pos=[233,185,95];
+    for(let i=0;i<N;i++) for(let j=0;j<N;j++){ const v=Math.max(-1, Math.min(1, this.m[i][j]/40)), a=Math.pow(Math.abs(v), .8), t=v<0 ? neg : pos, o=4*(i*N+j);
+      for(let q=0;q<3;q++) img.data[o+q]=Math.round(mid[q]+(t[q]-mid[q])*a); img.data[o+3]=255; }
+    g.putImageData(img,0,0); } } };
+// The SVG figures below are drawn at the width they are shown at, so their text keeps its size on a phone.
+const FitW = { data(){ return {w:640}; },
+  mounted(){ this.fitW(); if(window.ResizeObserver){ this._ro=new ResizeObserver(()=>this.fitW()); this._ro.observe(this.$el); } },
+  beforeUnmount(){ if(this._ro) this._ro.disconnect(); },
+  methods:{ fitW(){ const w=Math.round(this.$el.getBoundingClientRect().width); if(w>40 && Math.abs(w-this.w)>1) this.w=w; } } };
+// Study 2: the mirror score for every possible centre; the band is where the ring reading puts it
+const ProfilePlot = { mixins:[FitW], props:['prof','zone','peak','n'],
+  template:`<svg :viewBox="'0 0 '+w+' 214'" role="img" :aria-label="aria">
+    <rect class="zone" :x="X(zone[0])" y="12" :width="X(zone[1])-X(zone[0])" height="156"/>
+    <text v-if="w>=480" class="gold" :x="(X(zone[0])+X(zone[1]))/2" y="28" text-anchor="middle">{{ zoneLab }}</text>
+    <line class="ax" x1="40" :x2="w-6" :y1="Y(0)" :y2="Y(0)"/>
+    <path class="line" :d="path"/>
+    <circle class="dot" :cx="X(peak[0])" :cy="Y(peak[1])" r="5"/>
+    <text class="lblw" :x="Math.min(X(peak[0]), w-60)" :y="Y(peak[1])-10" text-anchor="middle">{{ peakLab }}</text>
+    <text v-for="t in xt" :key="t" :x="X(t)" y="188" text-anchor="middle">{{ $root.dF.n(t) }}</text>
+    <text x="34" :y="Y(0)+4" text-anchor="end">0</text>
+    <text :x="w-6" y="210" text-anchor="end" class="lbl">{{ $root.lang==='ar' ? 'المركز (رقم الآية) ›' : 'centre (verse) ›' }}</text>
+  </svg>`,
+  computed:{ lo(){ return Math.min(...this.prof.map(p=>p[1])); }, hi(){ return Math.max(...this.prof.map(p=>p[1])); },
+    X(){ const w=this.w; return v=>40+(v-1)/(this.n-1)*(w-50); }, Y(){ const lo=this.lo, hi=this.hi; return v=>168-(v-lo)/((hi-lo)||1)*132; },
+    path(){ return this.prof.map((p,i)=>(i?'L':'M')+this.X(p[0]).toFixed(1)+' '+this.Y(p[1]).toFixed(1)).join(''); },
+    xt(){ return this.w<480 ? [1,100,200,this.n] : [1,50,100,150,200,250,this.n]; },
+    zoneLab(){ return this.$root.lang==='ar' ? (this.w<480 ? 'المركز المقترح' : 'المركز في القراءة الدائرية') : (this.w<480 ? 'proposed centre' : 'the ring reading\'s centre'); },
+    peakLab(){ return (this.$root.lang==='ar' ? 'أقوى تناظر: ' : 'strongest: ')+this.$root.dF.k('2:'+Math.round(this.peak[0])); },
+    aria(){ return this.$root.lang==='ar' ? 'منحنى قوة التناظر لكل مركزٍ ممكن، وذروته عند الآية '+this.$root.dF.n(Math.round(this.peak[0])) : 'The mirror score for every possible centre; it peaks at verse '+Math.round(this.peak[0]); } } };
+// Study 4: each telling, its likeness to its own surah (green) against its average likeness to the other surahs (grey)
+const Dumbbell = { mixins:[FitW], props:['rows','max'],
+  template:`<svg :viewBox="'0 0 '+w+' '+H" role="img" :aria-label="aria">
+    <g v-for="(r,i) in rows" :key="r.key">
+      <text v-if="r.head" class="lblw" x="0" :y="y(i)+4">{{ r.head }}</text>
+      <template v-else>
+        <text class="lbl" x="0" :y="y(i)+4">{{ r.label }}</text>
+        <line class="link" :class="{up:r.own>r.others}" :x1="X(r.others)" :x2="X(r.own)" :y1="y(i)" :y2="y(i)"/>
+        <circle class="oth" :cx="X(r.others)" :cy="y(i)" r="5"/>
+        <circle class="own" :cx="X(r.own)" :cy="y(i)" r="5.5"/>
+      </template>
+    </g>
+    <text v-for="t in ticks" :key="t" :x="X(t)" :y="H-4" text-anchor="middle">{{ $root.dF.d(t,1) }}</text>
+  </svg>`,
+  computed:{ H(){ return this.rows.length*22+24; }, L(){ return Math.min(250, Math.round(this.w*.48)); },
+    X(){ const L=this.L, w=this.w; return v=>L+10+v/this.max*(w-L-20); }, y(){ return i=>i*22+12; },
+    ticks(){ const o=[], st=this.w<480 ? .2 : .1; for(let v=0; v<=this.max+1e-9; v+=st) o.push(+v.toFixed(1)); return o; },
+    aria(){ return this.$root.lang==='ar' ? 'لكل رواية: تشابهها مع سورتها (أخضر) ومع السور الأخرى (رمادي)' : 'For each telling: its likeness to its own surah (green) and to the other surahs (grey)'; } } };
+// Study 7a: each lettered surah, its letters placed by their rank among the 114 surahs (50 is typical)
+const LetterStrip = { mixins:[FitW], props:['rows'],
+  template:`<svg :viewBox="'0 0 '+w+' '+H" role="img" :aria-label="aria">
+    <line class="grid" :x1="X(50)" :x2="X(50)" y1="0" :y2="H-18"/>
+    <g v-for="(r,i) in rows" :key="r.s">
+      <text class="lbl" x="0" :y="y(i)+4">{{ r.label }}</text>
+      <line class="grid" :x1="X(0)" :x2="X(100)" :y1="y(i)" :y2="y(i)"/>
+      <g v-for="d in r.dots" :key="d.letter"><circle class="dot" :class="{dim:d.pct<50}" :cx="X(d.pct)" :cy="y(i)" r="8"/><text class="ltr" :x="X(d.pct)" :y="y(i)+4" text-anchor="middle">{{ d.letter }}</text></g>
+    </g>
+    <text v-for="t in [0,25,50,75,100]" :key="t" :x="X(t)" :y="H-2" text-anchor="middle">{{ $root.dF.n(t) }}</text>
+  </svg>`,
+  computed:{ H(){ return this.rows.length*24+22; }, L(){ return Math.min(230, Math.round(this.w*.46)); },
+    X(){ const L=this.L, w=this.w; return v=>L+10+v/100*(w-L-20); }, y(){ return i=>i*24+12; },
+    aria(){ return this.$root.lang==='ar' ? 'رتبة كل حرفٍ مقطع في سورته بين السور كلها' : 'The rank of each opening letter in its own surah among all surahs'; } } };
+// Study 9: how many different words have been used as the revelation proceeds, with its five periods
+const GrowthCurve = { mixins:[FitW], props:['curve','phases'],
+  template:`<svg :viewBox="'0 0 '+w+' 232'" role="img" :aria-label="aria">
+    <g v-for="(p,i) in phases" :key="p.name"><rect :class="i%2 ? 'band' : 'band2'" :x="X(p.from-.5)" y="10" :width="X(p.to+.5)-X(p.from-.5)" height="170"/>
+      <text v-if="fits(i)" class="lbl" :x="(X(p.from-.5)+X(p.to+.5))/2" y="198" text-anchor="middle">{{ names[i] }}</text></g>
+    <path class="line" :d="path"/>
+    <text v-for="t in yt" :key="t" x="40" :y="Y(t)+4" text-anchor="end">{{ $root.dF.n(t) }}</text>
+    <text :x="w-6" y="226" text-anchor="end" class="lbl">{{ $root.lang==='ar' ? 'ترتيب النزول ›' : 'order of revelation ›' }}</text>
+  </svg>`,
+  computed:{ max(){ return this.curve[this.curve.length-1][2]; }, X(){ const w=this.w; return v=>46+(v-.5)/114*(w-52); }, Y(){ return v=>180-v/this.max*165; },
+    path(){ return this.curve.map((c,i)=>(i?'L':'M')+this.X(c[0]).toFixed(1)+' '+this.Y(c[2]).toFixed(1)).join(''); },
+    yt(){ return [0,1000,2000,3000,4000]; },
+    names(){ const ar=this.$root.lang==='ar'; return ar ? ['مكي أول','مكي أوسط','مكي أخير','مدني أول','مدني أخير'] : ['early Meccan','middle Meccan','late Meccan','early Medinan','late Medinan']; },
+    aria(){ return this.$root.lang==='ar' ? 'عدد الكلمات المختلفة المستعملة مع تقدّم النزول' : 'The number of different words used as the revelation proceeds'; } },
+  methods:{ fits(i){ const p=this.phases[i]; return this.X(p.to+.5)-this.X(p.from-.5) > this.names[i].length*6.6+8; } } };
 const { createApp } = Vue;
 createApp({
   data(){
@@ -2006,7 +2605,7 @@ createApp({
       lang:(new URLSearchParams(location.search).get('lang')==='ar'?'ar':'en'), view:'home', sideOpen:false,
       T: D.stats.totals, DS: D.datasets, MM: D.datasets.meccaMedina||{mecca:{},medina:{}}, claims: D.claims,
       V: window.QURAN_VERSES||{}, W: window.QURAN_WORDS||{key:[],norm:[],lemma:[],root:[],surface:[]},
-      ready:{ verses:!!window.QURAN_VERSES, words:!!window.QURAN_WORDS, plotly:typeof Plotly!=='undefined' },
+      ready:{ verses:!!window.QURAN_VERSES, words:!!window.QURAN_WORDS, plotly:typeof Plotly!=='undefined', disc:false },
       q:'', mode:'surface', sres:{total:0,surahs:0,verses:0,sample:[]},
       rSurah:1, rVerse:0, rClaim:'', rBack:'', scrollPct:0, railDragging:false, EN:{}, showTrans:(new URLSearchParams(location.search).get('lang')!=='ar'), libQ:'', libCat:'all', stories:[], lessons:[], duas:[], tafsir:[], untranslatable:[], untranslatableIntro:{},
       V1:{}, abjadInput:'الله',
@@ -2016,6 +2615,7 @@ createApp({
       dashPlace:'all', dashMinVerses:0, dashSort:'n',
       skyReady:false, gridN:19,
       depth:readDepth(), term:null, termLayer:0, termStyle:{}, termSheet:false, pcaStep:PCA_LAST, pcaAngle:150,
+      DZ:null, DT:null, dFailed:false, dCopied:false, dBack:false, dAnchor:null, dScan:false, dRhyme:-1, dTheme:-1, dSurah:2, dWord:'', dWordQ:'', dRepTab:'ref', dRepN:20, dScrollY:0, rExt:null,
       labMeta:{
         dashboard:{technique:'Interactive BI Dashboard (filters + live KPIs)',
           what:'A business-intelligence dashboard lets you slice the data live: choose filters and every KPI and chart updates instantly. Here you filter all 114 surahs by where they were revealed and by length.',
@@ -2102,6 +2702,23 @@ createApp({
           blurb_en:'Famous claims about how often a word appears in the Quran, each counted again in the text itself.',
           blurb_ar:'نعيد عدَّ ما يتداوله الناس عن عدد ورود كلمات القرآن، رقمًا رقمًا، في نص القرآن نفسه.',
           items:[{id:'auditor',en:'Claim Auditor',ar:'مدقّق المزاعم'}]},
+        {id:'discoverHub',
+          icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><path d="M12 8.2l1.2 2.6 2.6 1.2-2.6 1.2L12 15.8l-1.2-2.6L8.2 12l2.6-1.2z"/></svg>',
+          en:'Discoveries',ar:'اكتشافات',
+          blurb_en:'Nine questions put to the text, each tested against chance with the test written down first: what held, what did not, and what is new.',
+          blurb_ar:'تسعة أسئلةٍ طُرحت على النص، اختُبر كلٌّ منها في مواجهة المصادفة بعد كتابة الاختبار أولًا: ما ثبت، وما لم يثبت، وما الجديد.',
+          items:[
+            {id:'discover',en:'All nine',ar:'الدراسات التسع'},
+            {id:'d-endings',en:'Verse endings',ar:'خواتيم الآيات'},
+            {id:'d-rings',en:'Mirrors',ar:'البناء الدائري'},
+            {id:'d-rhyme',en:'Rhyme',ar:'الفواصل'},
+            {id:'d-stories',en:'Retellings',ar:'القصص المكررة'},
+            {id:'d-themes',en:'Themes',ar:'الموضوعات'},
+            {id:'d-companions',en:'Companions',ar:'الكلمات المتصاحبة'},
+            {id:'d-letters',en:'Opening letters',ar:'الحروف المقطعة'},
+            {id:'d-repeats',en:'Near-repeats',ar:'المتشابه اللفظي'},
+            {id:'d-chrono',en:'Revelation order',ar:'ترتيب النزول'},
+          ]},
         {id:'explore',
           icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M5 20V11"/><path d="M11 20V4"/><path d="M17 20v-6"/><path d="M3 20h18"/></svg>',
           en:'Explore',ar:'استكشف',
@@ -2177,6 +2794,80 @@ createApp({
     };
   },
   computed:{
+    // ---- Discoveries: the nine studies, their texts (DT) and results (DZ) ----
+    dOn(){ return this.view.startsWith('d-'); },
+    dReady(){ return !!(this.DZ && this.DT); },
+    dFine(){ return FINE; },
+    dLoadMsg(){ return this.dFailed ? (this.lang==='ar' ? 'تعذّر تحميل الدراسات. تحقّق من اتصالك ثم أعد تحميل الصفحة.' : 'The studies could not be loaded. Check your connection and reload the page.')
+      : (this.lang==='ar' ? 'جارٍ تحميل الدراسات…' : 'Loading the studies…'); },
+    // number formatting for the texts: Arabic digits and separators in Arabic, and Latin ones inside formulas
+    dF(){ const ar=this.lang==='ar';
+      const dig=s=>ar ? String(s).replace(/[0-9]/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]).replace(/\./g,'٫').replace(/,/g,'٬') : String(s);
+      const lat=(x,k)=>(+x).toFixed(k).replace(/^-/,'−');
+      const pl=x=>x>=0.1 ? x.toFixed(2) : x>=0.01 ? x.toFixed(3) : String(+(+x).toPrecision(1));
+      return {ar, n:x=>dig(Math.round(x).toLocaleString('en-US')), d:(x,k)=>dig(lat(x,k)), dl:lat, pc:(x,k=0)=>dig((x*100).toFixed(k))+(ar?'٪':'%'), p:x=>dig(pl(x)), pl, k:s=>dig(s)}; },
+    dVerdicts(){ const T=this.DT, D=this.DZ, i=this.lang==='ar'?1:0; if(!T || !D) return {};
+      const o={}; T.ORDER.forEach(id=>{ o[id]=T.STUDIES[id].verdicts(D).map(v=>({cls:v.v, label:T.VERDICT[v.v][i], t:v.t ? '('+v.t[i]+')' : ''})); }); return o; },
+    dTally(){ const t={holds:0, no:0, mixed:0, map:0}; Object.values(this.dVerdicts).forEach(vs=>vs.forEach(v=>{ t[v.cls]++; })); return t; },
+    dCards(){ const T=this.DT; if(!this.dReady) return []; const i=this.lang==='ar'?1:0;
+      return T.ORDER.map(id=>{ const st=T.STUDIES[id]; return {id, n:st.n, q:st.q[i], card:this.dx(st.card), verdicts:this.dVerdicts[id]}; }); },
+    dS(){ const T=this.DT, D=this.DZ, st=T && T.STUDIES[this.view]; if(!st || !D) return null;
+      const i=this.lang==='ar'?1:0, vs=this.dVerdicts[this.view]||[], K=T.KNOWN[this.view]||{items:[], adds:null};
+      const LAB={asked:['What we asked','ماذا سألنا'], how:st.map ? ['How we made it','كيف صنعناها'] : ['How we tested it','كيف اختبرناه'], found:['What we found','ماذا وجدنا'], means:['What it means','ماذا يعني']};
+      const j=T.ORDER.indexOf(this.view), nb=id=>id ? {id, short:T.STUDIES[id].short[i]} : null;
+      return {n:st.n, map:!!st.map, q:st.q[i], verdicts:vs, vcls: vs.every(v=>v.cls===vs[0].cls) ? vs[0].cls : 'mixed', lede:this.dx(st.lede),
+        metrics:st.metrics(D, this.dF).map(m=>({v:m.v, k:m.k[i]})),
+        simple:['asked','how','found','means'].map(k=>({k, label:LAB[k][i], html:this.dx(st.simple[k])})),
+        sci:['purpose','data','method','result','limits'].map(k=>({k, label:XLAB[k][i], html:this.dx(st.sci[k])})),
+        known:K.items.map(it=>({html:it.t[i], u:it.u||''})), adds:K.adds ? K.adds[i] : '',
+        prev:nb(T.ORDER[j-1]), next:nb(T.ORDER[j+1])}; },
+    // 1: the verses of each ending pair, and the model's guess for each
+    dEnd(){ const D=this.DZ; if(!D) return null; const e=D.endings, by=e.pairs.map(()=>[]); e.verses.forEach(v=>by[v[1]].push(v));
+      return {by, pairs:e.pairs.map((p,k)=>({k, ar:p.ar, en:p.en, n:p.n, recall:p.recall, top:p.top, hits:by[k].filter(v=>v[1]===v[2]).length}))}; },
+    dSurprise(){ const D=this.DZ; if(!D) return []; const e=D.endings, ar=this.lang==='ar', nm=k=>ar ? e.pairs[k].ar : e.pairs[k].en, out=[], at=new Map();
+      e.surprising.forEach(s=>{ const t=this.V[s.k] || s.k, g=at.get(t);   // the same verse repeated (a refrain) is shown once
+        if(g) g.keys.push(s.k); else { const x={keys:[s.k], real:nm(s.end), guess:nm(s.expected)}; at.set(t,x); out.push(x); } });
+      return out; },
+    // 2: every long surah by its p-value
+    dRingScan(){ return this.DZ ? this.DZ.rings.scan.slice().sort((a,b)=>a.p-b.p) : []; },
+    // 3: each verse's rhyme as one of the seven commonest, or «others»
+    dRhymeCls(){ const D=this.DZ; if(!D) return null; const r=D.rhyme, top=r.shares.slice(0,7).map(x=>x[0]), idx=new Map(top.map((t,k)=>[t,k]));
+      const other=r.total-r.shares.slice(0,7).reduce((a,x)=>a+x[1],0);
+      return {cls:r.perVerse.map(t=>idx.has(t) ? idx.get(t) : 7), names:[...top.map(t=>this.dRhymeName(t)), this.lang==='ar' ? 'غيرها' : 'others'],
+        counts:[...r.shares.slice(0,7).map(x=>x[1]), other], css:RHYME_RGB.map(rgbCss)}; },
+    // 4: the tellings, grouped by prophet
+    dStory(){ const D=this.DZ; if(!D) return null; const t=D.retellings, ar=this.lang==='ar', rows=[];
+      const PN={Moses:['Moses','موسى'], Abraham:['Abraham','إبراهيم']};
+      Object.keys(t.prophets).forEach(p=>{ rows.push({key:'h'+p, head:(PN[p]||[p,p])[ar?1:0]});
+        t.each.filter(x=>x.prophet===p).forEach(x=>rows.push({key:p+x.s, label:ar ? this.surahName(x.s)+' ('+this.D(x.s)+')، '+this.countOf(x.verses,'verse') : x.s+'. '+this.surahName(x.s)+' · '+this.countOf(x.verses,'verse'), own:x.own, others:x.others})); });
+      const mx=Math.max(...t.each.map(x=>Math.max(x.own, x.others)));
+      const mo=t.moses||{}; return {rows, max:Math.ceil(mx*10)/10, moses:Object.keys(mo).map(s=>({s:+s, verses:mo[s].verses, first:mo[s].first, words:mo[s].words}))}; },
+    // 5: the themes with their names, colours and words, and the chosen surah's mix
+    dThemes(){ const D=this.DZ, T=this.DT; if(!D || !T) return null; const t=D.themes, i=this.lang==='ar'?1:0;
+      const name=k=>T.THEMES[k] ? T.THEMES[k][i] : (i ? 'موضوعٌ غير ثابت' : 'Unstable theme')+' '+this.D(k+1);
+      const list=t.themes.map(x=>({i:x.i, name:name(x.i), share:x.share, top:x.top, stability:x.stability, named:x.named, css:rgbCss(THEME_RGB[x.i])}));
+      const mix=(t.surahMix[String(this.dSurah)]||[]), tot=mix.reduce((a,m)=>a+m[1],0)||1, sm=(this.DS.surahMeta||[])[this.dSurah-1], all=sm ? sm.verses : tot;
+      return {list, names:list.map(x=>x.name), mix:mix.map(m=>({i:m[0], name: m[0]<0 ? (i ? 'بلا موضوع' : 'no theme') : name(m[0]), share:m[1]/all, css: m[0]<0 ? 'rgba(255,255,255,.2)' : rgbCss(THEME_RGB[m[0]])}))}; },
+    // 6: the chosen word, its companions, and the tightest pairs overall
+    dComp(){ const D=this.DZ; if(!D) return null; const C=D.companions, all=Object.keys(C.companions), q=normalize(this.dWordQ||'');
+      const gl=w=>LEMMA_EN[w]||'';
+      const start=['صَلاة','لَيْل','شَمْس','نُور','حَياة','مال','قَلْب','جَنَّة','نار','ماء','سَماء','رَحْمَة'].filter(w=>C.companions[w]);
+      const pick=q ? all.filter(w=>normalize(w).includes(q)).sort((a,b)=>C.verses[b]-C.verses[a]).slice(0,14) : start;
+      const sel=(this.dWord && C.companions[this.dWord]) ? this.dWord : (pick[0]||'');
+      const list=(C.companions[sel]||[]).map(c=>({w:c.w, c:c.c, pmi:c.pmi, times:Math.round(Math.pow(2,c.pmi)), gloss:gl(c.w)}));
+      const mx=Math.max(1,...list.map(c=>c.pmi)); list.forEach(c=>{ c.bar=(c.pmi/mx*100).toFixed(1); });
+      const seen=new Set(), top=[];
+      all.forEach(a=>C.companions[a].forEach(c=>{ const k=a<c.w ? a+'|'+c.w : c.w+'|'+a; if(seen.has(k) || c.c<8) return; seen.add(k); top.push({a, b:c.w, pmi:c.pmi, times:Math.round(Math.pow(2,c.pmi))}); }));
+      top.sort((x,y)=>y.pmi-x.pmi);
+      return {pick, sel, gloss:gl(sel), list, top:top.slice(0,16)}; },
+    // 7: each lettered surah with its letters' ranks, and the four families
+    dLetters(){ const D=this.DZ; if(!D) return null; const L=D.letters, by=new Map();
+      L.perCase.forEach(c=>{ if(!by.has(c.s)) by.set(c.s, []); by.get(c.s).push({letter:c.letter, pct:c.pct*100}); });
+      const rows=[...by.keys()].map(s=>({s, label:(L.sets[s]||'')+' · '+this.surahName(s)+' ('+this.D(s)+')', dots:by.get(s)}));
+      const F=D.families.families; return {rows, fams:Object.keys(F).map(k=>Object.assign({k}, F[k]))}; },
+    // 8: the refrains (with the surahs they are in) and the near pairs
+    dRep(){ const D=this.DZ; if(!D) return null; const R=D.repeats, ar=this.lang==='ar';
+      return {refrains:R.refrains.map(r=>({verses:r.verses, n:r.n, text:r.text, surahs:[...new Set(r.verses.map(k=>+k.split(':')[0]))].map(s=>this.surahName(s)).join(ar ? '، ' : ', ')})), pairs:R.pairs}; },
     // ---- explanations in layers: the page's scientific text, its terms, and the card of the term that is open ----
     sciOn(){ return this.depth==='sci'; },
     sciHas(){ return !!(EXPL && EXPL.SCI[this.view]); },
@@ -2249,7 +2940,7 @@ createApp({
     jevTone(){ const T=this.JD && this.JD.tone; if(!T || !Array.isArray(T.items) || !T.items.length) return null;
       const c={mercy:0, guidance:0, hope:0, warning:0}; T.items.forEach(it=>{ if(it.tone in c) c[it.tone]++; });
       return {c, n:T.items.length, model:T.model||'', date:T.date||''}; },
-    realViews(){ return ['home','overview','word','mecca','letters','search','reader','auditor','stories','lessons','duas','tafsir','untranslatable',
+    realViews(){ return [...DISC_IDS, 'home','overview','word','mecca','letters','search','reader','auditor','stories','lessons','duas','tafsir','untranslatable',
       'emotion','pronouns','science','abjad','n19','structural','symmetry','nlp','kg','advanced','tawafuq','alifi','hifz','classifier','stats','cluster','coincidence','dashboard']; },
     curHub(){ return this.nav.find(h=>h.items.some(i=>i.id===this.view)) || null; },
     plain(){ const v=this.view, P=PLAIN[v]; if(!P) return null;
@@ -2362,14 +3053,14 @@ createApp({
     // a verse opened from a claim: the claim, its verses in order (each once), and where the reader is among them
     rClaimObj(){ return this.rClaim ? (this.claims||[]).find(c=>c.id===this.rClaim) || null : null; },
     rLemma(){ return this.rClaimObj ? normalize(this.rClaimObj.lemma) : ''; },
-    rList(){ const c=this.rClaimObj; if(!c) return []; return [...new Set((c.audit||[]).map(a=>a[0]+':'+a[1]))]; },
+    rList(){ const c=this.rClaimObj; if(!c) return this.rExt ? this.rExt.keys : []; return [...new Set((c.audit||[]).map(a=>a[0]+':'+a[1]))]; },
     rFocusKey(){ return this.rVerse ? this.rSurah+':'+this.rVerse : ''; },
     rPos(){ return this.rList.indexOf(this.rFocusKey); },
     rMarks(){ const pre=this.rSurah+':'; return new Set(this.rList.filter(k=>k.startsWith(pre))); },
-    rWhere(){ const ar=this.lang==='ar', n=this.rList.length, i=this.rPos;
+    rWhere(){ const ar=this.lang==='ar', n=this.rList.length, i=this.rPos; if(!this.rClaimObj && n<=1) return '';
       return i<0 ? (ar ? this.D(n)+' آية' : n+' verses') : (ar ? 'الآية '+this.D(i+1)+' من '+this.D(n) : 'verse '+(i+1)+' of '+n); },
     rBackHref(){ return this.landingHref + '#claim-' + this.rClaim; },
-    rBackLabel(){ const ar=this.lang==='ar', t=({auditor: ar?'مدقّق المزاعم':'the Claim Auditor', symmetry: ar?'أزواج الكلمات':'Word Pairs'})[this.rBack];
+    rBackLabel(){ const ar=this.lang==='ar', t=({auditor: ar?'مدقّق المزاعم':'the Claim Auditor', symmetry: ar?'أزواج الكلمات':'Word Pairs'})[this.rBack] || (String(this.rBack).startsWith('d-') ? this.viewName(this.rBack) : '');
       return t ? (ar ? '→ العودة إلى '+t : '← Back to '+t) : (ar ? '→ العودة' : '← Back'); },
     readerVerses(){
       const out=[]; const n=this.rSurah;
@@ -2379,6 +3070,40 @@ createApp({
     }
   },
   methods:{
+    // ---- Discoveries ----
+    // a text from discover.js in the page's language: [English, Arabic], or a function of the results that returns them
+    dx(v){ if(v==null) return ''; const i=this.lang==='ar'?1:0;
+      if(typeof v==='function'){ if(!this.DZ) return ''; const r=v(this.DZ, this.dF); return r ? r[i] : ''; }
+      return Array.isArray(v) ? v[i] : String(v); },
+    dRhymeName(t){ return t.length===2 && t[0]==='و' ? 'ـو'+t[1]+' / ـي'+t[1] : 'ـ'+t; },   // و and ي were counted as one rhyme
+    dPhase(i){ return (this.lang==='ar' ? ['المكي الأول','المكي الأوسط','المكي الأخير','المدني الأول','المدني الأخير'] : ['Early Meccan','Middle Meccan','Late Meccan','Early Medinan','Late Medinan'])[i]; },
+    dTimes(n){ return this.lang==='ar' ? (n===2 ? 'مرتان' : this.D(n)+(n%100>=3 && n%100<=10 ? ' مرات' : ' مرة')) : n+' times'; },
+    // a verse's text with the words in the given ranges marked. The ranges count the corpus's words; if the mushaf
+    // text splits the verse differently, the same written forms are marked instead.
+    dMark(k, ranges, cls){ const t=this.V[k]; if(!t) return this.lang==='ar' ? 'جارٍ تحميل نص الآية…' : 'Loading the verse…';
+      const esc=x=>x.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'), toks=t.split(' '), W=window.QURAN_WORDS;
+      const span=this.ready.words && W ? verseSpan(k) : null, at=new Set(); (ranges||[]).forEach(([a,b])=>{ for(let j=a;j<b;j++) at.add(j); });
+      let hit=new Set();
+      if(span && toks.length===span[1]-span[0]) hit=at;
+      else if(span){ const forms=new Set([...at].map(j=>W.surface[span[0]+j])); toks.forEach((w,j)=>{ if(forms.has(w)) hit.add(j); }); }
+      return toks.map((w,j)=>hit.has(j) ? '<mark'+(cls ? ' class="'+cls+'"' : '')+'>'+esc(w)+'</mark>' : esc(w)).join(' '); },
+    // open a verse in the reader, with a bar to step through the list it came from and to come back to this page
+    // a link that opens this study in this language, copied to the clipboard (or shared, where the device offers it)
+    dShare(){ const url=location.origin+location.pathname+'?view='+this.view+(this.lang==='ar' ? '&lang=ar' : '');
+      const done=()=>{ this.dCopied=true; clearTimeout(this._dCp); this._dCp=setTimeout(()=>{ this.dCopied=false; }, 2400); };
+      try{ if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(done, ()=>window.prompt('', url)); return; } }catch(e){}
+      window.prompt('', url); },
+    dOpen(k, list, ev){ const [s,v]=k.split(':').map(Number), el=ev && ev.currentTarget;
+      this.dAnchor = el ? {i:[...document.querySelectorAll('main [data-dopen]')].indexOf(el), top:el.getBoundingClientRect().top} : null;
+      this.openVerse(s, v, '', this.view, {keys:list && list.length ? list : [k]}); },
+    // back from the reader: the item that was tapped goes back where it was on screen, while the page settles
+    // (fonts, figures), unless the reader scrolls first
+    dRestore(y){ const a=this.dAnchor, t0=Date.now();
+      const put=()=>{ if(USER_AT>t0) return;
+        document.querySelectorAll('main .rv').forEach(e=>{ e.classList.remove('rv','in'); e.style.transitionDelay=''; e._rvDone=true; });   // shown at once: a rising card would move the item
+        const el=a && a.i>=0 ? document.querySelectorAll('main [data-dopen]')[a.i] : null;
+        if(el) window.scrollBy(0, el.getBoundingClientRect().top - a.top); else window.scrollTo(0, y); };
+      this.$nextTick(()=>{ put(); [80, 300, 800].forEach(ms=>setTimeout(put, ms)); }); },
     // ---- explanations in layers ----
     // a text from PLAIN or explain.js as HTML: [[key]] or [[key|words]] becomes a term that opens its card, `...` a formula
     rich(s){ if(!s) return ''; const i=this.lang==='ar'?1:0, G=EXPL ? EXPL.GLOSS : {};
@@ -2593,7 +3318,9 @@ createApp({
     },
     go(id){ const changed=id!==this.view;
       (NEEDS[id]||[]).forEach(k=>this.load(k));
-      if(id!=='reader'){ this.rClaim=''; this.rVerse=0; this.rBack=''; }
+      if(id!=='reader'){ this.rClaim=''; this.rVerse=0; this.rBack=''; this.rExt=null; }
+      if(id!==this.view && id!=='reader' && !this.dBack){ this.dRhyme=-1; this.dTheme=-1; this.dScan=false; this.dRepN=20; this.dCopied=false; }
+      this.dBack=false;
       if(id!=='cluster'){ this.pcaStop(); this.pcaStep=PCA_LAST; }
       this.closeTerm();
       this.view=id; this.sideOpen=false; this.libQ=''; this.libCat='all'; this.sit.res=null;
@@ -2658,6 +3385,22 @@ createApp({
             if(c) items.push({id:c.id, ar:c.ar, label:c.en, claimed:c.claimed, counted:c.verifiedLemma, audit:c.audit||[]}); }));
           return items.length ? {type:'blocks', data:{items, wide:1.6, perRow:4, cell:7}} : null; }
         case 'auditor': return {type:'blocks', data:{items:(this.claims||[]).map(c=>({id:c.id, ar:c.ar, label:c.en, claimed:c.claimed, counted:c.verifiedLemma, audit:c.audit||[]}))}};
+        case 'd-endings': { const E=this.dEnd, F=this.dF; if(!E) return null;
+          return {type:'blocks', data:{verseLink:true, perRow:3, cell:11, wide:1.6, items:E.pairs.map(p=>{ const vs=E.by[p.k];
+            return {ar:p.ar, label:p.en, counted:vs.length, audit:vs.map(v=>v[0].split(':').map(Number)), marks:vs.map(v=>v[1]===v[2] ? 1 : 0),
+              tips:vs.map(v=>v[1]===v[2] ? (ar ? 'خمّن النموذج خاتمتها صحيحًا' : 'the model guessed its ending right') : (ar ? 'خمّن النموذج: '+E.pairs[v[2]].ar : 'the model guessed: '+E.pairs[v[2]].en)),
+              note: ar ? F.n(vs.length)+' آية · أصاب في '+F.n(p.hits) : vs.length+' verses · '+p.hits+' right'}; })}}; }
+        case 'd-rhyme': { const R=this.dRhymeCls; return R ? {type:'mosaic', data:{cls:R.cls, names:R.names, colors:RHYME_RGB, focus:this.dRhyme}} : null; }
+        case 'd-themes': { const T=this.dThemes; return T ? {type:'mosaic', data:{cls:this.DZ.themes.perVerse, names:T.names, colors:THEME_RGB, focus:this.dTheme}} : null; }
+        case 'd-repeats': { const R=this.DZ && this.DZ.repeats; if(!R) return null; const lit=new Map();
+          R.pairs.forEach(p=>[p.a,p.b].forEach(k=>lit.set(k, {k, color:'teal', label: ar ? 'لها شبيهةٌ قريبة' : 'has a close twin'})));
+          R.refrains.forEach(r=>r.verses.forEach(k=>lit.set(k, {k, color:'amber', label:(ar ? 'تتكرر ' : 'repeated ')+this.dTimes(r.n)})));
+          return {type:'carpet', data:{lit:[...lit.values()]}}; }
+        case 'd-chrono': { const C=this.DZ && this.DZ.chronology; if(!C) return null;
+          return {type:'scatter', data:{xr:[-2,117], yr:[0,28.5], xTicks:[1,20,40,60,80,100,114], yTicks:[5,10,15,20,25], r1:7,
+            xTitle: ar ? 'ترتيب النزول ›' : 'order of revelation ›', yTitle: ar ? 'كلمة/آية' : 'words/verse',
+            legend:[{color:'gold', label:ar?'مكية':'Meccan'}, {color:'green', label:ar?'مدنية':'Medinan'}],
+            pts:C.points.map(p=>({n:p[1], x:p[0], y:p[2], info:ar ? 'ترتيبها في النزول '+this.D(p[0])+'، و'+this.dF.d(p[2],1)+' كلمة للآية' : 'order of revelation '+p[0]+' · '+this.dF.d(p[2],1)+' words a verse'}))}}; }
         case 'coincidence': { const p=this.coinPick, mc=AN.montecarlo && AN.montecarlo.coincidence;
           return p && mc ? {type:'grid', data:{total:mc.nLemmas, n:p.n, exact:p.exact, near:p.near}} : null; }
       }
@@ -2711,13 +3454,16 @@ createApp({
     // ---- data that loads after the first screen ----
     load(key){   // resolves true once the data is here, false if it couldn't be fetched (tried again next time)
       return need(key).then(()=>{ if(!this.ready[key]) this.arrived(key); return true; },
-        ()=>{ if(key==='plotly') document.documentElement.classList.add('nocharts'); return false; });
+        ()=>{ if(key==='plotly') document.documentElement.classList.add('nocharts'); if(key==='disc') this.dFailed=true; return false; });
     },
     arrived(key){
       this.ready[key]=true;
       if(key==='words'){ this.W=window.QURAN_WORDS; JIX=null; if(this.q) this.runSearch(); }
       if(key==='verses'){ this.V=window.QURAN_VERSES||{}; if(window.QURAN_EN) this.EN=window.QURAN_EN; this.focusVerse(); }
       if(key==='plotly') this.$nextTick(()=>{ this.renderCharts(); this.arabizeUI(); });
+      if(key==='disc'){ this.dFailed=false; this.DT=window.DALEEL_DISCOVER||null;
+        this.DZ=window.DALEEL_DISCOVERIES ? Object.freeze(window.DALEEL_DISCOVERIES) : null;   // large and read-only: kept out of Vue's reactivity
+        this.$nextTick(()=>{ this.syncStage(); this.revealScan(); this.arabizeUI(); }); }
     },
     // everything in the background, what this page needs first
     warm(){
@@ -2832,10 +3578,13 @@ createApp({
       }
       return toks.map((t,j)=>hit.has(j) ? '<mark>'+esc(t)+'</mark>' : esc(t)).join(' ') + ' <span class="vk">'+esc(v.k)+'</span>';
     },
-    openVerse(s, v, claim, back){
+    openVerse(s, v, claim, back, ext){
       if(!(s>=1 && s<=114)) return;
+      const fromStudy = String(back||'').startsWith('d-');
+      if(fromStudy) this.dScrollY=window.scrollY;   // coming back puts the page where it was
       this.go('reader');
       this.rSurah=s; this.rVerse=v||0; this.rClaim=claim||''; this.rBack=back||'';
+      this.rExt = ext || (fromStudy ? {keys:[s+':'+(v||1)]} : null);
       if(claim) this.load('words');
       this.focusVerse();
     },
@@ -2859,8 +3608,10 @@ createApp({
       const [s,v]=L[j].split(':').map(Number); this.rSurah=s; this.rVerse=v; this.focusVerse(true);
     },
     backFromReader(){
-      const b=this.rBack; this.rClaim=''; this.rVerse=0; this.rBack='';
+      const b=this.rBack, y=this.dScrollY; this.rClaim=''; this.rVerse=0; this.rBack='';
+      this.dBack = String(b).startsWith('d-');
       this.go(b || 'home');
+      if(String(b).startsWith('d-')){ this.dRestore(y); return; }
       this.$nextTick(()=>{ const f=document.querySelector('main .stagefig'); if(f) f.scrollIntoView({block:'center'}); });
     },
     renderCharts(){
@@ -3053,7 +3804,9 @@ createApp({
     gridN(){ if(this.view==='coincidence') this.syncStage(); },
     pcaStep(){ if(this.view==='cluster') this.syncStage(); },
     pcaAngle(){ if(this.view==='cluster' && !PCA_RAF) PCA_RAF=requestAnimationFrame(()=>{ PCA_RAF=0; this.syncStage(); }); },   // one redraw a frame while the line turns
-    rSurah(){ if(this.view==='reader') this.syncSky(); } },
+    rSurah(){ if(this.view==='reader') this.syncSky(); },
+    dRhyme(){ if(this.view==='d-rhyme') this.syncStage(); },
+    dTheme(){ if(this.view==='d-themes') this.syncStage(); } },
   mounted(){
     window.addEventListener('scroll', this.onPageScroll, { passive:true });
     window.addEventListener('resize', this.onPageScroll);
@@ -3109,7 +3862,9 @@ createApp({
     this.warm();
     this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); this.enterView(true); });
   }
-}).component('depth-switch', DepthSwitch).component('term-chips', TermChips).component('explain-box', ExplainBox).mount('#app');
+}).component('depth-switch', DepthSwitch).component('term-chips', TermChips).component('explain-box', ExplainBox)
+  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('dumbbell', Dumbbell)
+  .component('letter-strip', LetterStrip).component('growth-curve', GrowthCurve).mount('#app');
 });
 </script>
 </body>
