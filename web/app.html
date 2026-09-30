@@ -2691,19 +2691,25 @@ const simpLat = s => s.replace(/ee|ie/g,'i').replace(/oo|ou|o/g,'u').replace(/e/
 function lev(a, b){ let p=[...Array(b.length+1).keys()];
   for(let i=1;i<=a.length;i++){ const c=[i]; for(let j=1;j<=b.length;j++) c[j]=Math.min(p[j]+1, c[j-1]+1, p[j-1]+(a[i-1]===b[j-1] ? 0 : 1)); p=c; }
   return p[b.length]; }
+// a mushaf word in modern spelling, from the marks the mushaf writes in place of letters: the small alif after a
+// waw or a letter (ٱلصَّلَوٰةَ -> الصلاة, ٱلسَّمَٰوَٰتِ -> السماوات) and a small ya or waw inside a word (إِبْرَٰهِۦمَ -> ابراهيم).
+// Nothing is dropped, so unrelated words cannot meet (skeletons without alifs made السلام find أسلم)
+const modernSpelling = w => normalize(w.replace(/وٰ/g,'ا').replace(/ىٰ/g,'ى').replace(/ٰ/g,'ا')
+  .replace(/ۦ(?=[\u0621-\u064A])/g,'ي').replace(/ۥ(?=[\u0621-\u064A])/g,'و'));
 // al-Baqarah's words by consonant key (as written, and without a leading clitic), by key without w and y, and by root
 let FIND_IX = null;
 function findIndex(W){
   if(FIND_IX && FIND_IX.W===W) return FIND_IX;
-  const pre=(JEV && JEV.PREFIXES) || [''], key=new Map(), weak=new Map(), root=new Map(), idx=[];
+  const pre=(JEV && JEV.PREFIXES) || [''], key=new Map(), weak=new Map(), root=new Map(), idx=[], mod=new Map();
   const add=(m,k,i)=>{ if(k.length<2) return; let a=m.get(k); if(!a) m.set(k, a=[]); if(a[a.length-1]!==i) a.push(i); };
   for(let i=0;i<W.key.length;i++){ if(!W.key[i].startsWith('2:')) continue; idx.push(i);
+    const md=modernSpelling(W.surface[i]); if(md!==W.norm[i]) mod.set(i, md);
     const w=W.surface[i].replace(TASHKEEL,'').replace(/[ٱآأإ]/g,'ا'), vs=[w];
     for(const c of pre) if(c && w.startsWith(c) && w.length-c.length>=2) vs.push(w.slice(c.length));
     for(const v of vs) for(const x of [...new Set([v, v.replace(/ة/g,'ت'), v.replace(/ة/g,'ه'), v.replace(/ى/g,'ي')])]){
       const k=findKey(x); add(key,k,i); add(weak,k.replace(/[wy]/g,''),i); }
     if(W.root[i]) add(root, findKey(W.root[i]), i); }
-  return FIND_IX={W, idx, key, weak, root}; }
+  return FIND_IX={W, idx, key, weak, root, mod}; }
 // verses known by a name rather than by their words
 const VERSE_NAMES = [
   {en:'Ayat al-Kursi', ar:'آية الكرسي', a:255, b:255, keys:['ayatalkursi','ayatulkursi','ayatkursi','ayetelkursi','ayetulkursi','kursiverse','throneverse','verseofthethrone','ايةالكرسي']},
@@ -2730,13 +2736,13 @@ function mapFind(raw, W, EN, nv){
   const together=rs=>{ if(!rs.length) return {kind:'none'}; let vs=null; for(const r of rs){ if(!r) return {kind:'none'}; vs = vs ? vs.filter(v=>r.verses.includes(v)) : r.verses; }
     return vs.length ? {kind:'word', how:'all', verses:vs, forms:rs.map(r=>r.forms[0]), alts:[]} : {kind:'none'}; };
   if(/[\u0600-\u06FF]/.test(q)){
-    const pre=(JEV && JEV.PREFIXES) || [''], sk=(JEV && JEV.skeleton) || (w=>w);
+    const pre=(JEV && JEV.PREFIXES) || [''];
     const one=t=>{ const cands=[t]; for(const c of pre) if(c && t.startsWith(c) && t.length-c.length>=2) cands.push(t.slice(c.length));
-      const sks=new Set(cands.map(sk)), form=[], lemma=[], spell=[], root=[];
-      for(const i of X.idx){ const n=W.norm[i];
+      const cs=new Set(cands), form=[], lemma=[], spell=[], root=[];
+      for(const i of X.idx){ const n=W.norm[i], md=X.mod.get(i);
         if(n===t || pre.some(c=>c && n===c+t)) form.push(i);
-        if(W.lemma[i] && cands.includes(W.lemma[i])) lemma.push(i);
-        if(sks.has(sk(n)) || pre.some(c=>c && n.startsWith(c) && n.length-c.length>=2 && sks.has(sk(n.slice(c.length))))) spell.push(i);
+        if(W.lemma[i] && cs.has(W.lemma[i])) lemma.push(i);
+        if(md && (cs.has(md) || pre.some(c=>c && md.startsWith(c) && cs.has(md.slice(c.length))))) spell.push(i);
         if(W.root[i]===t) root.push(i); }
       // the dictionary word and the root of what was found, when the query was not itself one
       const first=form.length ? form[0] : spell.length ? spell[0] : lemma[0];
