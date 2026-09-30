@@ -203,3 +203,39 @@ Added after the confirmatory runs, labelled exploratory on the site and carrying
 2. **The results file (same review).** `python3 -m pipeline.discoveries --write` failed on a fresh checkout, after
    running every study, because `data-build/out/` is not in the repository. The folder is now created when missing.
    No result changed.
+
+## Addendum A: the mirror claims, told apart (written on 30 September 2026, before any of it was run)
+
+A reader pointed out that «al-Baqarah is a mirror» is said of three different things, and study 2 tested only a
+verse-by-verse form of the first. This addendum adds a look at each claim. Study 2's own test and verdict are unchanged.
+The sources were checked through search-engine extracts; the site says so where it cites them.
+
+1. **A ring of sections around the qibla passage.** Raymond K. Farrin, «Surat al-Baqara: A Structural Analysis»,
+   The Muslim World 100:1 (2010): 17–32, reads the surah as nine sections: A 1–20, B 21–39, C 40–103, D 104–141,
+   E 142–152 (the centre), D′ 153–177, C′ 178–253, B′ 254–284, A′ 285–286.
+   - **Measure:** each section is the sum of study 2's verse vectors (TF-IDF over the lemmas of content words, unit
+     rows) over its verses, scaled to unit length; two sections' similarity is the cosine of their vectors.
+   - **Statistic:** the sum of the cosines of the four pairs A–A′, B–B′, C–C′ and D–D′.
+   - **Comparison:** the 24 ways to pair A, B, C and D one-to-one with A′, B′, C′ and D′. p is the share of the 24
+     whose sum is at least the mirror's. The smallest possible p is 1/24 ≈ 0.042, so «holds» (p < 0.05) needs the
+     mirror to be the best of all 24. Also reported: each pair's cosine and its rank among the four sections across
+     the centre.
+2. **The middle verse.** The observation (Farrin, interview, 2014; Muḥammad Jamīl al-Ḥabbāl, International
+   Conference on the Numerical Miracle, Kuala Lumpur, 2012; popular talks) that 2:143, which calls the believers
+   «a middle nation» (أمة وسطا), is the surah's middle verse. Descriptive only, no test:
+   - the number of verses in the corpus's count and the two halves;
+   - where «وسطا» falls among the surah's words (the corpus's tokens) and letters (the Arabic letters of each word
+     as the corpus normalises them, no vowel marks), and where the middle word and the middle letter fall;
+   - every word of the root و س ط in the Quran, and where it falls in its surah;
+   - the number of verses in the other counting traditions, from the sources.
+3. **A mirror inside Ayat al-Kursi (2:255).** Nine statements paired 1–9, 2–8, 3–7 and 4–6 around 5 («يعلم ما بين
+   أيديهم وما خلفهم»), after Mehdi Azaiez, «The Throne Verse (āyat al-kursī) in Light of Rhetorical Analysis»
+   (IQSA, 2013), and the popular nine-sentence reading. The statements are these word spans of 2:255 in the corpus:
+   1–7, 8–12, 13–19, 20–26, 27–32, 33–40, 41–44, 45–47, 48–50.
+   - **Measure:** the set of corpus roots in each statement (words without a root are left out); a pair's link is
+     the number of roots the two share.
+   - **Statistic:** the sum of the four pairs' links.
+   - **Comparison:** the 24 ways to pair statements 1–4 with 6–9, with p as in 1.
+   - **Exploratory only, with no verdict:** the structure was read from this very verse, so no chance baseline for it
+     can be fair. The site shows the shared roots and describes the parallels of form in words.
+
