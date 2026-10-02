@@ -722,6 +722,14 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   html[lang=ar] .htl .y{font-family:var(--ar-display);font-size:1.25rem;line-height:1.4}
   .htl .l{margin-top:3px;font-size:.78rem;line-height:1.5;color:var(--on-dark-3)}
   html[lang=ar] .htl .l{font-size:.88rem;line-height:1.7}
+  .vitem.hvid{position:relative;text-decoration:none;padding-inline-end:64px}
+  .hvid .hvt{display:block;margin-top:6px;font-size:1rem;font-weight:600;line-height:1.45;color:#fff;text-align:start}
+  html[dir=rtl] .hvid .hvt{text-align:right}
+  .hvid .go{position:absolute;top:50%;inset-inline-end:16px;width:34px;height:34px;margin-top:-17px;border-radius:50%;display:grid;place-items:center;
+    border:1px solid rgba(255,255,255,.14);color:var(--on-dark);transition:transform .45s var(--ease),background .4s,color .4s,border-color .4s}
+  .hvid .go svg{width:13px;height:13px;transform:rotate(-45deg)}
+  html[dir=rtl] .hvid .go svg{transform:rotate(-135deg)}
+  .hvid:hover .go{background:var(--gold);color:var(--night);border-color:transparent}
   .hsrc{margin:22px 0 0;padding-top:14px;border-top:1px solid var(--hair);font-size:.78rem;line-height:1.7;color:var(--on-dark-3)}
   html[lang=ar] .hsrc{font-size:.88rem;line-height:1.9}
   .hsrc b{color:var(--on-dark-2);font-weight:600}
@@ -1899,6 +1907,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
         <div class="hleadfoot">
           <span class="vb" :class="hVb(histLead.verdict)">{{ hVerdict(histLead.verdict) }}</span>
           <p>{{ lang==='ar' ? histLead.card_ar : histLead.card_en }}</p>
+          <a v-if="histLead.videos && histLead.videos.length" class="cclink" style="margin-top:0" :href="hVidUrl(histLead.videos[0])" target="_blank" rel="noopener">{{ lang==='ar' ? 'شاهد المقطع ‹' : 'Watch the short ›' }}</a>
           <button type="button" class="btn primary" @click="hGo(histLead.id)">{{ lang==='ar' ? 'الفحص كاملًا' : 'See the full check' }}<svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h10M9 4.5 12.5 8 9 11.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </div>
       </div>
@@ -2004,7 +2013,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
 
       <div class="card">
         <h3>{{ lang==='ar' ? 'هل كان في وسع أحدٍ أن يقرأه؟' : 'Could anyone have read it?' }}</h3>
-        <div class="htl">
+        <div class="htl" v-if="hSteps(hCur).length">
           <div v-for="(s,i) in hSteps(hCur)" :key="i" class="st" :class="[s.c,{dark:s.dark}]">
             <div class="y">{{ yr(s.y) }}</div><div class="l">{{ s.l }}</div>
           </div>
@@ -2025,6 +2034,20 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
             <span class="var" lang="ar" dir="rtl">{{ V[k] || '' }}</span><span v-if="!V[k]" class="vwait">{{ lang==='ar' ? 'جارٍ تحميل نص الآية…' : 'Loading the verse…' }}</span>
             <span class="ven" v-if="lang!=='ar' && EN[k]">{{ EN[k] }}</span>
           </button>
+        </div>
+      </template>
+
+      <template v-if="hCur.videos && hCur.videos.length">
+        <h2 class="dsec">{{ lang==='ar' ? 'شاهد المزعم كما يُروى' : 'Watch the claim being made' }}</h2>
+        <p class="dnote">{{ lang==='ar'
+          ? 'هذه هي المقاطع التي راجعنا عليها هذه الصفحة. تختلف الصياغة من مقطعٍ إلى آخر، فشاهد وقارن بنفسك.'
+          : 'These are the videos this page was checked against. The wording changes from one video to the next, so watch and compare for yourself.' }}</p>
+        <div class="vlist">
+          <a v-for="(v,i) in hCur.videos" :key="i" class="vitem hvid" :href="hVidUrl(v)" target="_blank" rel="noopener">
+            <span class="vhead"><span class="k">YouTube</span><bdi>{{ v.by }}</bdi><span class="tag" v-if="hVidAt(v)">{{ hVidAt(v) }}</span><span class="tag" v-if="v.n_en">{{ lang==='ar' ? v.n_ar : v.n_en }}</span></span>
+            <bdi class="hvt" dir="ltr">{{ v.title }}</bdi>
+            <span class="go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2.5 8h10M9 4.5 12.5 8 9 11.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
         </div>
       </template>
 
@@ -4458,6 +4481,7 @@ createApp({
       st.forEach((s,i)=>{ s.dark = a==='sealed' && s.y>=h.lost && i<st.length-1; });
       return st; },
     hAccText(h){ const ar=this.lang==='ar', a=this.hAcc(h);
+      if(h.acc_en) return ar ? h.acc_ar : h.acc_en;
       if(a==='site') return ar ? 'ليس نصًّا مكتوبًا، بل موقعٌ أثري نُقّب فيه سنة '+this.D(h.recovered)+'.'
                                : 'Not a written record: an archaeological site, excavated in '+h.recovered+'.';
       if(a==='sealed'){ const b=this.f(this.hSpan(h.lost,610)), t=this.f(this.hSpan(h.lost,h.recovered));
@@ -4483,7 +4507,11 @@ createApp({
         {k:'claim',lab:ar?'ما يُقال':'The claim',t:ar?h.claim_ar:h.claim_en},
         {k:'counter',lab:ar?'الوجه الآخر':'The other side',t:ar?h.counter_ar:h.counter_en}];
       if(h.reading_en) out.push({k:'reading',lab:ar?'المفسرون الأوائل':'The early commentators',t:ar?h.reading_ar:h.reading_en});
+      if(h.diff_en) out.push({k:'videos',lab:ar?'في المقاطع':'In the videos',t:ar?h.diff_ar:h.diff_en});
       return out; },
+    hVidUrl(v){ return v.short ? 'https://www.youtube.com/shorts/'+v.id : 'https://www.youtube.com/watch?v='+v.id+(v.t ? '&t='+v.t+'s' : ''); },
+    hVidAt(v){ if(!v.t) return ''; const mm=Math.floor(v.t/60), ss=('0'+(v.t%60)).slice(-2);
+      return this.lang==='ar' ? 'من الدقيقة '+this.D(mm+':'+ss) : 'from '+mm+':'+ss; },
     hKeys(h){ return [...h.refs, ...(h.also||[])]; },
     hMetrics(h){ const ar=this.lang==='ar', a=this.hAcc(h), m=[];
       if(h.live==='kingPharaoh'){ const k=this.histKing, n=x=>this.ready.words ? this.f(x) : '…';
