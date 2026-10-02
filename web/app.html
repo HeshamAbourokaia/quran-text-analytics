@@ -627,6 +627,123 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .badge.exact{background:rgba(52,211,153,.14);color:#7ae7bd}
   .badge.parity{background:rgba(56,198,218,.14);color:#8fdfeb}
   .badge.differs{background:rgba(233,185,95,.14);color:var(--gold)}
+  /* ── History Claims: the lead claim, the time scrubber, one page a claim ── */
+  .hduel{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0 0 22px}
+  .hq{position:relative;min-width:0;border-radius:22px;padding:22px 24px;border:1px solid var(--hair);
+    background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.012)),rgba(6,14,10,.7)}
+  .hq.rec{border-color:rgba(233,185,95,.26);background:linear-gradient(180deg,rgba(233,185,95,.075),rgba(233,185,95,.012)),rgba(6,14,10,.7)}
+  .hq.qur{border-color:rgba(52,211,153,.26);background:linear-gradient(180deg,rgba(52,211,153,.075),rgba(52,211,153,.012)),rgba(6,14,10,.7)}
+  .hq .xkick{display:block;margin:0 0 12px}
+  .hq.rec .xkick{color:var(--gold)} .hq.qur .xkick{color:var(--emerald)}
+  .hq blockquote{margin:0 0 12px;font-family:var(--serif);font-size:clamp(1.5rem,1.15rem + 1.1vw,2.2rem);line-height:1.14;letter-spacing:-.01em;color:#fff}
+  html[lang=ar] .hq blockquote{font-family:var(--ar-display);line-height:1.65;letter-spacing:0}
+  .hq p{margin:0;font-size:.92rem;line-height:1.7;color:var(--on-dark-2)}
+  html[lang=ar] .hq p{font-size:1rem;line-height:1.95}
+  .hq .hv{margin:0 0 8px;direction:rtl;text-align:right;font-family:var(--ar-display);font-size:clamp(1.35rem,1.1rem + .8vw,1.75rem);line-height:2;color:#f5efe0}
+  .hq .hv .vk{margin-inline:6px 2px;vertical-align:.25em}
+  .hq .hen{direction:ltr;text-align:left}
+  .hq .vwait{font-size:.84rem;color:var(--on-dark-3)}
+  .hlead .hduel{margin-bottom:18px}
+  .hleadfoot{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px}
+  .hleadfoot p{flex:1 1 320px;margin:0;font-size:.98rem;line-height:1.65;color:var(--on-dark)}
+  html[lang=ar] .hleadfoot p{font-size:1.06rem;line-height:1.9}
+  .hleadfoot .btn{padding:12px 22px;font-size:.9rem}
+
+  .htm-top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px 20px;margin:6px 0 4px}
+  .htm-year{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 16px;min-width:0}
+  .htm-year .y{font-family:var(--serif);font-size:clamp(2.4rem,1.7rem + 2.2vw,3.6rem);line-height:1;color:var(--gold);font-variant-numeric:tabular-nums;letter-spacing:-.01em;unicode-bidi:isolate}
+  html[lang=ar] .htm-year .y{font-family:var(--ar-display);line-height:1.2;letter-spacing:0}
+  .htm-year .say{font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-2)}
+  html[lang=ar] .htm-year .say{letter-spacing:0;font-size:.95rem}
+  .htm-play{display:inline-flex;align-items:center;gap:9px;font:inherit;font-size:.86rem;font-weight:600;color:var(--night);background:var(--on-dark);border:0;border-radius:99px;padding:10px 18px;cursor:pointer;
+    transition:background .3s var(--ease),transform .3s var(--ease)}
+  .htm-play:hover{background:var(--gold)}
+  .htm-play:active{transform:scale(.97)}
+  .dfig .htm-play svg{display:inline-block;flex:none;width:12px;height:12px;fill:currentColor;overflow:visible}
+  .htm-note{margin:0 0 14px;min-height:1.7em;font-size:.98rem;line-height:1.7;color:var(--on-dark)}
+  html[lang=ar] .htm-note{font-size:1.06rem;line-height:1.9}
+  .htm-pre{margin:0 0 20px}
+  .htm-rows{--hl:150px;--hs:104px}
+  html[lang=ar] .htm-rows{--hl:128px;--hs:112px}
+  .htm-row{display:grid;grid-template-columns:var(--hl) minmax(0,1fr) var(--hs);align-items:center;gap:0 14px;padding:6px 0}
+  .htm-row .nm{min-width:0;font:inherit;font-size:.86rem;text-align:start;color:var(--on-dark-2);background:none;border:0;padding:3px 0;cursor:pointer;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color .3s}
+  html[lang=ar] .htm-row .nm{font-size:.98rem}
+  .htm-row button.nm:hover,.htm-row button.nm:focus-visible{color:#fff;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--gold)}
+  .htm-row .hk{font-size:.66rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-3);cursor:default}
+  html[lang=ar] .htm-row .hk{letter-spacing:0;font-size:.82rem}
+  .htm-row .trk{position:relative;height:14px;border-radius:99px;background:rgba(255,255,255,.045);cursor:ew-resize;touch-action:pan-y;-webkit-user-select:none;user-select:none}
+  .htm-row .trk::before{content:"";position:absolute;inset:-8px 0}
+  .trk i{position:absolute;top:0;bottom:0;pointer-events:none}
+  .trk i.in{border-radius:99px;background:linear-gradient(90deg,var(--teal),var(--emerald));opacity:.3;transition:opacity .35s var(--ease),box-shadow .35s var(--ease)}
+  html[dir=rtl] .trk i.in{background:linear-gradient(270deg,var(--teal),var(--emerald))}
+  .trk i.out{border-radius:99px;opacity:.5;transition:opacity .35s var(--ease);
+    background:repeating-linear-gradient(135deg,rgba(233,185,95,.62) 0 4px,rgba(233,185,95,.1) 4px 9px)}
+  .s-in .trk i.in{opacity:1;box-shadow:0 0 18px -2px rgba(52,211,153,.65)}
+  .s-out .trk i.out{opacity:1}
+  .trk i.rev{top:-6px;bottom:-6px;width:2px;margin-inline-start:-1px;background:rgba(238,246,241,.6)}
+  .trk i.cur{top:-7px;bottom:-7px;width:2px;margin-inline-start:-1px;background:var(--gold);box-shadow:0 0 12px rgba(233,185,95,.9)}
+  .htm-row .st{font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-align:end;white-space:nowrap;color:var(--on-dark-3);transition:color .3s}
+  html[lang=ar] .htm-row .st{letter-spacing:0;font-size:.82rem;font-weight:600}
+  .s-in .st{color:var(--emerald)} .s-out .st{color:var(--gold)}
+  .s-in button.nm{color:#fff}
+  .htm-row.rail{padding:30px 0 12px}
+  .htm-row .trk.rail{height:4px;background:rgba(255,255,255,.16);outline:none}
+  .htm-row .trk.rail::before{inset:-16px 0}
+  .trk.rail:focus-visible{box-shadow:0 0 0 2px var(--night),0 0 0 4px var(--gold)}
+  .knob{position:absolute;top:50%;width:20px;height:20px;margin-top:-10px;margin-inline-start:-10px;border-radius:50%;background:var(--gold);cursor:grab;pointer-events:none;
+    box-shadow:0 0 0 5px rgba(233,185,95,.16),0 0 20px rgba(233,185,95,.65)}
+  .knob span{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:.74rem;font-weight:700;color:var(--gold);font-variant-numeric:tabular-nums}
+  .htm-row.axis{padding:2px 0 0}
+  .htm-row .trk.ticks{height:20px;background:none;cursor:default}
+  .trk.ticks span{position:absolute;top:2px;transform:translateX(-50%);white-space:nowrap;font-size:.68rem;color:var(--on-dark-3);font-variant-numeric:tabular-nums}
+  html[dir=rtl] .trk.ticks span{transform:translateX(50%)}
+  html[lang=ar] .trk.ticks span{font-size:.78rem}
+  .htm-key{display:flex;flex-wrap:wrap;gap:6px 18px;margin:16px 0 0;padding-top:14px;border-top:1px solid var(--hair);font-size:.78rem;line-height:1.6;color:var(--on-dark-3)}
+  html[lang=ar] .htm-key{font-size:.88rem}
+  .htm-key span{display:inline-flex;align-items:center;gap:8px}
+  .htm-key i{display:inline-block;flex:none;width:26px;height:9px;border-radius:99px}
+  .htm-key i.in{background:linear-gradient(90deg,var(--teal),var(--emerald))}
+  .htm-key i.out{background:repeating-linear-gradient(135deg,rgba(233,185,95,.7) 0 4px,rgba(233,185,95,.12) 4px 9px)}
+  .htm-key i.rev{width:2px;height:14px;border-radius:0;background:rgba(238,246,241,.6)}
+  .htm-key .fn{flex:1 1 100%}
+
+  .hfilter{margin:0 0 14px}
+  .htl{display:flex;margin:6px 0 10px}
+  .htl .st{flex:1 1 0;position:relative;min-width:0;padding-top:24px;padding-inline-end:12px}
+  .htl .st::before{content:"";position:absolute;top:6px;inset-inline:0;height:2px;background:linear-gradient(90deg,var(--teal),var(--emerald));opacity:.7}
+  .htl .st.dark::before{opacity:1;background:repeating-linear-gradient(90deg,var(--gold) 0 6px,transparent 6px 12px)}
+  .htl .st:last-child::before{display:none}
+  .htl .st::after{content:"";position:absolute;top:0;inset-inline-start:0;width:14px;height:14px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 3px var(--night-2)}
+  .htl .s-lost::after{background:var(--gold)}
+  .htl .s-rev::after{background:#fff;box-shadow:0 0 0 3px var(--night-2),0 0 14px rgba(255,255,255,.7)}
+  .htl .s-rec::after{background:var(--night-2);box-shadow:0 0 0 2px var(--emerald)}
+  .htl .y{font-family:var(--serif);font-size:1.35rem;line-height:1.1;color:#fff;white-space:nowrap;font-variant-numeric:tabular-nums;unicode-bidi:isolate}
+  html[lang=ar] .htl .y{font-family:var(--ar-display);font-size:1.25rem;line-height:1.4}
+  .htl .l{margin-top:3px;font-size:.78rem;line-height:1.5;color:var(--on-dark-3)}
+  html[lang=ar] .htl .l{font-size:.88rem;line-height:1.7}
+  .hsrc{margin:22px 0 0;padding-top:14px;border-top:1px solid var(--hair);font-size:.78rem;line-height:1.7;color:var(--on-dark-3)}
+  html[lang=ar] .hsrc{font-size:.88rem;line-height:1.9}
+  .hsrc b{color:var(--on-dark-2);font-weight:600}
+  @media (max-width:920px){
+    .hduel{grid-template-columns:1fr}
+  }
+  @media (max-width:640px){
+    .htm-row{grid-template-columns:minmax(0,1fr) auto;gap:5px 10px;padding:7px 0}
+    .htm-row .nm{grid-column:1} .htm-row .st{grid-column:2;grid-row:1} .htm-row .trk{grid-column:1 / -1;grid-row:2}
+    .htm-row.axis .nm,.htm-row.axis .st,.htm-row.rail .st{display:none}
+    .htm-row.rail .trk,.htm-row.axis .trk{grid-row:auto}
+    .htm-row.rail{padding-top:8px}
+    .htm-row.rail .hk{margin-bottom:26px}
+    .htl{flex-direction:column}
+    .htl .st{display:flex;gap:12px;align-items:baseline;padding:0 0 14px;padding-inline-start:28px}
+    .htl .st:last-child{padding-bottom:2px}
+    .htl .st::before{top:10px;bottom:-10px;height:auto;width:2px;inset-inline-start:6px;inset-inline-end:auto;background:linear-gradient(180deg,var(--teal),var(--emerald))}
+    .htl .st.dark::before{background:repeating-linear-gradient(180deg,var(--gold) 0 6px,transparent 6px 12px)}
+    .htl .st::after{top:4px}
+    .htl .y{flex:none;min-width:104px}
+    .htl .l{margin-top:0}
+  }
   .ubadge{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.04em;background:rgba(52,211,153,.14);color:#9fe8c4;
     border-radius:999px;padding:3px 10px;margin-inline-start:8px;vertical-align:middle}
   .conf{border-collapse:collapse;margin-top:8px;width:auto}
@@ -1753,6 +1870,174 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
       </div>
     </section>
 
+    <!-- HISTORY CLAIMS: the index -->
+    <section v-if="view==='history' && !hCur" class="disc hist">
+      <h1>{{ lang==='ar' ? 'شواهد التاريخ' : 'History Claims' }}</h1>
+      <p class="sub">{{ lang==='ar' ? historyIntro.ar : historyIntro.en }}</p>
+      <div class="kpis">
+        <div class="kpi"><div class="n">{{ D(histStats.n) }}</div><div class="l">{{ lang==='ar' ? 'مزعمًا فُحص' : 'claims checked' }}</div></div>
+        <div class="kpi"><div class="n">{{ D(histStats.holds) }}</div><div class="l">{{ lang==='ar' ? 'تصمد' : 'hold up' }}</div></div>
+        <div class="kpi"><div class="n">{{ D(histStats.partial) }}</div><div class="l">{{ lang==='ar' ? 'يصمد جزئيًا' : 'partly holds' }}</div></div>
+        <div class="kpi"><div class="n">{{ D(histStats.weak) }}</div><div class="l">{{ lang==='ar' ? 'مبالغٌ فيها' : 'overstated' }}</div></div>
+      </div>
+
+      <div v-if="histLead" class="card hlead">
+        <p class="dkick"><span class="dnum">{{ lang==='ar' ? histLead.tag_ar : histLead.tag_en }}</span><span>·</span><span>{{ lang==='ar' ? histLead.title_ar : histLead.title_en }}</span></p>
+        <div class="hduel">
+          <div class="hq rec">
+            <span class="xkick">{{ lang==='ar' ? histLead.quote_lab_ar : histLead.quote_lab_en }}</span>
+            <blockquote>{{ lang==='ar' ? '«'+histLead.quote_ar+'»' : '“'+histLead.quote_en+'”' }}</blockquote>
+            <p>{{ lang==='ar' ? histLead.quote_note_ar : histLead.quote_note_en }}</p>
+          </div>
+          <div class="hq qur">
+            <span class="xkick">{{ lang==='ar' ? 'القرآن الكريم' : 'The Quran' }} · <bdi>{{ D(histLead.refs[0]) }}</bdi></span>
+            <p class="hv" lang="ar"><span v-for="k in histLead.refs" :key="k">{{ V[k] || '' }} </span></p>
+            <p v-if="!V[histLead.refs[0]]" class="vwait">{{ lang==='ar' ? 'جارٍ تحميل نص الآية…' : 'Loading the verse…' }}</p>
+            <p v-if="lang!=='ar'" class="hen">{{ histLead.refs.map(k=>EN[k]||'').join(' ') }}</p>
+          </div>
+        </div>
+        <div class="hleadfoot">
+          <span class="vb" :class="hVb(histLead.verdict)">{{ hVerdict(histLead.verdict) }}</span>
+          <p>{{ lang==='ar' ? histLead.card_ar : histLead.card_en }}</p>
+          <button type="button" class="btn primary" @click="hGo(histLead.id)">{{ lang==='ar' ? 'الفحص كاملًا' : 'See the full check' }}<svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h10M9 4.5 12.5 8 9 11.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+      </div>
+
+      <figure class="dfig htm">
+        <h3>{{ lang==='ar' ? 'هل كان في وسع أحدٍ أن يقرأه؟' : 'Could anyone have read it?' }}</h3>
+        <p class="fsub">{{ lang==='ar'
+          ? 'حرّك العلامة الذهبية عبر الزمن، أو شغّل العرض. يضيء الأثر ما دام في الناس من يقرؤه، ويخبو حين يضيع ذلك العلم. وانقر على أي اسمٍ لتفتح فحصه.'
+          : 'Drag the gold marker through time, or press play. A record is lit while people could still read it, and dims once that knowledge was lost. Tap a name to open its check.' }}</p>
+        <div class="htm-top">
+          <div class="htm-year" aria-live="polite"><span class="y">{{ yrPlain(hYear) }}</span><span class="say">{{ hYearInfo.count }}</span></div>
+          <button type="button" class="htm-play" @click="hPlay()" :aria-pressed="String(hPlaying)">
+            <svg v-if="!hPlaying" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z"/></svg>
+            <svg v-else viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1h3v10H2zM7 1h3v10H7z"/></svg>
+            {{ hPlaying ? (lang==='ar' ? 'إيقاف' : 'Pause') : (lang==='ar' ? 'شغّل الزمن' : 'Play through time') }}</button>
+        </div>
+        <p class="htm-note">{{ hYearInfo.note }}</p>
+        <div class="chips dchips htm-pre">
+          <button v-for="p in hPresets" :key="p.y" type="button" class="dchip" :aria-pressed="String(hYear===p.y)" @click="hSet(p.y)">{{ p.l }}<span class="n">{{ yrPlain(p.y) }}</span></button>
+        </div>
+        <div class="htm-rows">
+          <div class="htm-row rail">
+            <span class="nm hk">{{ lang==='ar' ? 'اسحب السنة' : 'Drag the year' }}</span>
+            <div class="trk rail" role="slider" tabindex="0" :aria-label="lang==='ar' ? 'السنة' : 'Year'" :aria-valuemin="hMin" :aria-valuemax="hMax" :aria-valuenow="hYear" :aria-valuetext="yrPlain(hYear)"
+              @keydown="hKey" @pointerdown="hDown" @pointermove="hMove" @pointerup="hUp" @pointercancel="hUp">
+              <i class="rev" :style="{insetInlineStart:hPct(610)+'%'}"></i>
+              <b class="knob" :style="{insetInlineStart:hPct(hYear)+'%'}"><span>{{ yrPlain(hYear) }}</span></b>
+            </div>
+            <span class="st"></span>
+          </div>
+          <div v-for="r in histRows" :key="r.h.id" class="htm-row" :class="'s-'+hState(r)">
+            <button type="button" class="nm" @click="hGo(r.h.id)" :title="lang==='ar' ? r.h.title_ar : r.h.title_en">{{ lang==='ar' ? r.h.short_ar : r.h.short_en }}</button>
+            <div class="trk" @pointerdown="hDown" @pointermove="hMove" @pointerup="hUp" @pointercancel="hUp">
+              <i v-for="(s,i) in r.segs" :key="i" :class="s.k" :style="{insetInlineStart:hPct(s.a)+'%',width:(hPct(s.b)-hPct(s.a))+'%'}"></i>
+              <i class="rev" :style="{insetInlineStart:hPct(610)+'%'}"></i>
+              <i class="cur" :style="{insetInlineStart:hPct(hYear)+'%'}"></i>
+            </div>
+            <span class="st">{{ hStateLabel(hState(r)) }}</span>
+          </div>
+          <div class="htm-row axis" aria-hidden="true">
+            <span class="nm"></span>
+            <div class="trk ticks"><span v-for="t in hTicks" :key="t" :style="{insetInlineStart:hPct(t)+'%'}">{{ yrPlain(t) }}</span></div>
+            <span class="st"></span>
+          </div>
+        </div>
+        <figcaption class="htm-key">
+          <span><i class="in"></i>{{ lang==='ar' ? 'في المتناول' : 'In reach' }}</span>
+          <span><i class="out"></i>{{ lang==='ar' ? 'خارج المتناول' : 'Out of reach' }}</span>
+          <span><i class="rev"></i>{{ lang==='ar' ? 'بدء الوحي، '+yrPlain(610) : 'The revelation begins, 610 CE' }}</span>
+          <span class="fn">{{ lang==='ar' ? 'إرم غير مدرجة هنا، فشاهدها موقعٌ أثري لا نصٌّ مكتوب. والتواريخ قبل الميلاد تقريبية.' : 'Iram is left off: its evidence is an excavated site, not a written record. Dates BCE are approximate.' }}</span>
+        </figcaption>
+      </figure>
+
+      <h2 class="dsec">{{ lang==='ar' ? 'المزاعم واحدًا واحدًا' : 'Every claim, one by one' }}</h2>
+      <div class="chips dchips hfilter" role="group" :aria-label="lang==='ar' ? 'تصفية المزاعم' : 'Filter the claims'">
+        <button v-for="o in histFilters" :key="o.id" type="button" class="dchip" :aria-pressed="String(hFilter===o.id)" @click="hFilter=o.id">{{ lang==='ar' ? o.ar : o.en }}<span class="n">{{ D(o.n) }}</span></button>
+      </div>
+      <div class="dgrid">
+        <div v-for="c in histCards" :key="c.h.id" class="tile dcard" role="button" tabindex="0" @click="hGo(c.h.id)" @keydown.enter="hGo(c.h.id)" @keydown.space.prevent="hGo(c.h.id)">
+          <span class="dnum" aria-hidden="true">{{ D(c.n) }}</span>
+          <b>{{ lang==='ar' ? c.h.title_ar : c.h.title_en }}</b>
+          <span class="vbs"><span class="vb" :class="hVb(c.h.verdict)">{{ hVerdict(c.h.verdict) }}</span></span>
+          <p>{{ lang==='ar' ? c.h.card_ar : c.h.card_en }}</p>
+          <span class="go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2.5 8h10M9 4.5 12.5 8 9 11.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </div>
+
+      <div class="dhow">
+        <h2 class="dsec">{{ lang==='ar' ? 'كيف نفحص كل مزعم' : 'How each claim is checked' }}</h2>
+        <ol>
+          <li><b>{{ lang==='ar' ? 'نرجع إلى الأثر نفسه' : 'Go to the record itself' }}</b><span>{{ lang==='ar' ? 'نقصد النقش أو البردية أو الحولية التي يستند إليها المزعم، وننقل ما فيها مع ذكر المصدر.' : 'We go to the inscription, papyrus or chronicle the claim leans on, and quote what it says, with the source.' }}</span></li>
+          <li><b>{{ lang==='ar' ? 'نسأل: من كان يقرؤه سنة ٦١٠م؟' : 'Ask who could read it in 610 CE' }}</b><span>{{ lang==='ar' ? 'لا يدهش التطابق إلا إذا كان العلم بعيدًا عن المتناول. فلكل أثرٍ خطٌّ زمني: متى كُتب، ومتى ضاع، ومتى عاد.' : 'A match only surprises if the knowledge was out of reach. So each record gets a timeline: written, lost, found again.' }}</span></li>
+          <li><b>{{ lang==='ar' ? 'نسمع الوجه الآخر' : 'Give the other side its say' }}</b><span>{{ lang==='ar' ? 'مع كل مزعمٍ أقوى اعتراضٍ وجدناه عليه، وكيف فهم المفسرون الأوائل الآية.' : 'Every claim carries the strongest objection we could find, and how the early commentators read the verse.' }}</span></li>
+        </ol>
+      </div>
+      <div class="transnote" v-if="lang!=='ar'">English verse text: M. M. Pickthall, The Meaning of the Glorious Koran (1930), via the Tanzil Project.</div>
+    </section>
+
+    <!-- HISTORY CLAIMS: one claim -->
+    <section v-if="view==='history' && hCur" class="disc dpage hist">
+      <p class="dkick"><span class="dnum">{{ lang==='ar' ? 'المزعم '+D(hIdx+1)+' من '+D(history.length) : 'Claim '+(hIdx+1)+' of '+history.length }}</span><span>·</span><span>{{ hRegion(hCur.region) }}</span></p>
+      <h1>{{ lang==='ar' ? hCur.title_ar : hCur.title_en }}</h1>
+      <div class="verdict" :class="hVb(hCur.verdict)">
+        <span class="vbs"><span class="vb" :class="hVb(hCur.verdict)">{{ hVerdict(hCur.verdict) }}</span></span>
+        <p class="lede">{{ lang==='ar' ? hCur.check_ar : hCur.check_en }}</p>
+      </div>
+      <div class="metric" v-if="hMetrics(hCur).length"><div class="m" v-for="(m,i) in hMetrics(hCur)" :key="i"><div class="v">{{ m.v }}</div><div class="k">{{ m.k }}</div></div></div>
+
+      <div class="hduel">
+        <div class="hq rec">
+          <span class="xkick">{{ lang==='ar' ? 'ما في الأثر القديم' : 'What the ancient record says' }}</span>
+          <blockquote v-if="hCur.quote_en">{{ lang==='ar' ? '«'+hCur.quote_ar+'»' : '“'+hCur.quote_en+'”' }}</blockquote>
+          <p>{{ lang==='ar' ? hCur.record_ar : hCur.record_en }}</p>
+        </div>
+        <div class="hq qur">
+          <span class="xkick">{{ lang==='ar' ? 'ما في القرآن' : 'What the Quran says' }}</span>
+          <p class="hv" lang="ar"><span v-for="k in hCur.refs" :key="k">{{ V[k] || '' }} <bdi class="vk">{{ D(k) }}</bdi> </span></p>
+          <p v-if="!V[hCur.refs[0]]" class="vwait">{{ lang==='ar' ? 'جارٍ تحميل نص الآية…' : 'Loading the verse…' }}</p>
+          <p v-if="lang!=='ar'" class="hen">{{ hCur.refs.map(k=>EN[k]||'').join(' ') }}</p>
+          <button type="button" class="cclink" data-dopen @click="dOpen(hCur.refs[0], hKeys(hCur), $event)">{{ lang==='ar' ? 'افتحها في المصحف ‹' : 'Open it in the reader ›' }}</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>{{ lang==='ar' ? 'هل كان في وسع أحدٍ أن يقرأه؟' : 'Could anyone have read it?' }}</h3>
+        <div class="htl">
+          <div v-for="(s,i) in hSteps(hCur)" :key="i" class="st" :class="[s.c,{dark:s.dark}]">
+            <div class="y">{{ yr(s.y) }}</div><div class="l">{{ s.l }}</div>
+          </div>
+        </div>
+        <p class="dnote" style="margin-bottom:0">{{ hAccText(hCur) }}</p>
+      </div>
+
+      <div class="plain">
+        <div class="xhead"><span class="xkick">{{ lang==='ar' ? 'المزعم وما يُقال فيه' : 'The claim, and the case against it' }}</span></div>
+        <div class="xbody"><p v-for="s in hSections(hCur)" :key="s.k"><b>{{ s.lab }}</b> {{ s.t }}</p></div>
+      </div>
+
+      <template v-if="hCur.also">
+        <h2 class="dsec">{{ lang==='ar' ? 'المعنى نفسه في آياتٍ أخرى' : 'The same point in other verses' }}</h2>
+        <div class="vlist">
+          <button v-for="k in hCur.also" :key="k" type="button" class="vitem" data-dopen @click="dOpen(k, hKeys(hCur), $event)">
+            <span class="vhead"><span class="k">{{ D(k) }}</span><span>{{ surahName(+k.split(':')[0]) }}</span></span>
+            <span class="var" lang="ar" dir="rtl">{{ V[k] || '' }}</span><span v-if="!V[k]" class="vwait">{{ lang==='ar' ? 'جارٍ تحميل نص الآية…' : 'Loading the verse…' }}</span>
+            <span class="ven" v-if="lang!=='ar' && EN[k]">{{ EN[k] }}</span>
+          </button>
+        </div>
+      </template>
+
+      <p class="hsrc"><b>{{ lang==='ar' ? 'المصادر' : 'Sources' }}:</b> {{ lang==='ar' ? hCur.source_ar : hCur.source_en }}</p>
+
+      <nav class="dnav" :aria-label="lang==='ar' ? 'المزاعم' : 'Claims'">
+        <button v-if="hIdx>0" type="button" @click="hGo(history[hIdx-1].id)">{{ lang==='ar' ? '› '+history[hIdx-1].short_ar : '‹ '+history[hIdx-1].short_en }}</button>
+        <button type="button" class="all" @click="hGo('')">{{ lang==='ar' ? 'كل المزاعم' : 'All the claims' }}</button>
+        <button type="button" class="share" @click="hShare()" :aria-live="hCopied ? 'polite' : null">{{ hCopied ? (lang==='ar' ? 'نُسخ الرابط ✓' : 'Link copied ✓') : (lang==='ar' ? 'انسخ رابط هذا المزعم' : 'Copy a link to this claim') }}</button>
+        <button v-if="hIdx<history.length-1" type="button" @click="hGo(history[hIdx+1].id)">{{ lang==='ar' ? history[hIdx+1].short_ar+' ‹' : history[hIdx+1].short_en+' ›' }}</button>
+      </nav>
+    </section>
+
     <!-- EMOTIONAL PROFILING -->
     <section v-if="view==='emotion'">
       <h1>{{ lang==='ar'?'البصمة العاطفية':'Emotional Profiling' }}</h1>
@@ -2312,6 +2597,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
 <script defer src="content/quran_duas.js"></script>
 <script defer src="content/quran_tafsir_insights.js"></script>
 <script defer src="content/quran_untranslatable.js"></script>
+<script defer src="content/quran_history.js"></script>
 <script defer src="content/v1_data.js"></script>
 <script defer src="explain.js"></script>
 <script>
@@ -2531,7 +2817,7 @@ const jix = () => JIX || (JIX = JEV && window.QURAN_WORDS ? JEV.makeIndex(window
 // so a phone never waits on a blank page for all of it.
 const LAZY = { verses:['corpus.js','translation_en.js'], words:['words.js','lemma-variants.js'], plotly:['https://cdn.plot.ly/plotly-2.27.0.min.js'],
   disc:['discover.js','discoveries.js'] };
-const NEEDS = { search:['words','verses'], auditor:['words'], reader:['verses'], home:['words'],
+const NEEDS = { search:['words','verses'], auditor:['words'], history:['verses','words'], reader:['verses'], home:['words'],
   discover:['disc'], 'd-endings':['disc','verses'], 'd-rings':['disc','verses','words'], 'd-rhyme':['disc'], 'd-stories':['disc'], 'd-themes':['disc'],
   'd-companions':['disc'], 'd-letters':['disc'], 'd-repeats':['disc','verses','words'], 'd-chrono':['disc'] };
 const lazyP = {};
@@ -3147,7 +3433,7 @@ createApp({
       V: window.QURAN_VERSES||{}, W: window.QURAN_WORDS||{key:[],norm:[],lemma:[],root:[],surface:[]},
       ready:{ verses:!!window.QURAN_VERSES, words:!!window.QURAN_WORDS, plotly:typeof Plotly!=='undefined', disc:false },
       q:'', mode:'surface', sres:{total:0,surahs:0,verses:0,sample:[]},
-      rSurah:1, rVerse:0, rClaim:'', rBack:'', scrollPct:0, railDragging:false, EN:{}, showTrans:(new URLSearchParams(location.search).get('lang')!=='ar'), libQ:'', libCat:'all', stories:[], lessons:[], duas:[], tafsir:[], untranslatable:[], untranslatableIntro:{},
+      rSurah:1, rVerse:0, rClaim:'', rBack:'', scrollPct:0, railDragging:false, EN:{}, showTrans:(new URLSearchParams(location.search).get('lang')!=='ar'), libQ:'', libCat:'all', stories:[], lessons:[], duas:[], tafsir:[], untranslatable:[], untranslatableIntro:{}, history:[], historyIntro:{}, hSel:'', hYear:610, hPlaying:false, hFilter:'all', hCopied:false,
       V1:{}, abjadInput:'الله',
       jevOn: !!(JEV && JEV.endpoint()), JD: window.QTA_JEV_DATA||{},
       cc:{text:'', busy:false, res:null}, ask:{text:'', busy:false, res:null}, sit:{text:'', busy:false, res:null},
@@ -3239,9 +3525,9 @@ createApp({
         {id:'auditorHub',
           icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 2.8v5.4c0 4.4-2.9 7.4-7 9-4.1-1.6-7-4.6-7-9V5.8z"/><path d="M9 12l2 2 4-4.5"/></svg>',
           en:'Claim Auditor',ar:'مدقّق المزاعم',
-          blurb_en:'Famous claims about how often a word appears in the Quran, each counted again in the text itself.',
-          blurb_ar:'نعيد عدَّ ما يتداوله الناس عن عدد ورود كلمات القرآن، رقمًا رقمًا، في نص القرآن نفسه.',
-          items:[{id:'auditor',en:'Claim Auditor',ar:'مدقّق المزاعم'}]},
+          blurb_en:'Famous claims about the Quran, from word counts to ancient history, each checked against the text and the record.',
+          blurb_ar:'نعيد فحص ما يتداوله الناس عن القرآن، من أعداد كلماته إلى شواهد التاريخ، على النص نفسه وعلى الآثار.',
+          items:[{id:'auditor',en:'Word Counts',ar:'أعداد الكلمات'},{id:'history',en:'History Claims',ar:'شواهد التاريخ'}]},
         {id:'discoverHub',
           icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><path d="M12 8.2l1.2 2.6 2.6 1.2-2.6 1.2L12 15.8l-1.2-2.6L8.2 12l2.6-1.2z"/></svg>',
           en:'Discoveries',ar:'اكتشافات',
@@ -3481,7 +3767,7 @@ createApp({
     jevTone(){ const T=this.JD && this.JD.tone; if(!T || !Array.isArray(T.items) || !T.items.length) return null;
       const c={mercy:0, guidance:0, hope:0, warning:0}; T.items.forEach(it=>{ if(it.tone in c) c[it.tone]++; });
       return {c, n:T.items.length, model:T.model||'', date:T.date||''}; },
-    realViews(){ return [...DISC_IDS, 'home','overview','word','mecca','letters','search','reader','auditor','stories','lessons','duas','tafsir','untranslatable',
+    realViews(){ return [...DISC_IDS, 'home','overview','word','mecca','letters','search','reader','auditor','history','stories','lessons','duas','tafsir','untranslatable',
       'emotion','pronouns','science','abjad','n19','structural','symmetry','nlp','kg','advanced','tawafuq','alifi','hifz','classifier','stats','cluster','coincidence','dashboard']; },
     curHub(){ return this.nav.find(h=>h.items.some(i=>i.id===this.view)) || null; },
     plain(){ const v=this.view, P=PLAIN[v]; if(!P) return null;
@@ -3565,6 +3851,40 @@ createApp({
     abjadValue(){ const map={}; (this.V1.abjadTable||[]).forEach(r=>map[r.l]=r.v);
       const w=normalize(this.abjadInput).replace(/ة/g,'ه'); let sum=0; const parts=[];
       for(const ch of w){ if(map[ch]!=null){ sum+=map[ch]; parts.push({l:ch,v:map[ch]}); } } return {sum,parts}; },
+    // ---- History Claims: popular claims that a verse matches the ancient record (content/quran_history.js) ----
+    hMin(){ return -2500; },
+    hMax(){ return new Date().getFullYear(); },
+    histLead(){ return this.history.find(h=>h.featured)||null; },
+    hCur(){ return this.hSel ? (this.history.find(h=>h.id===this.hSel)||null) : null; },
+    hIdx(){ return this.history.findIndex(h=>h.id===this.hSel); },
+    histStats(){ const s={n:this.history.length,holds:0,partial:0,weak:0}; this.history.forEach(h=>{ s[h.verdict]++; }); return s; },
+    histFilters(){ const s=this.histStats; return [
+      {id:'all',en:'All',ar:'الكل',n:s.n},{id:'holds',en:'Holds up',ar:'يصمد',n:s.holds},
+      {id:'partial',en:'Partly holds',ar:'يصمد جزئيًا',n:s.partial},{id:'weak',en:'Overstated',ar:'مبالغٌ فيه',n:s.weak}]; },
+    histCards(){ return this.history.map((h,i)=>({h,n:i+1})).filter(c=>this.hFilter==='all'||c.h.verdict===this.hFilter); },
+    // the time scrubber: one row a written record, oldest first; lit stretches are in reach, dark ones out of reach
+    histRows(){ const end=this.hMax; return this.history.filter(h=>h.written!=null).slice().sort((a,b)=>a.written-b.written).map(h=>({h,
+        segs: h.lost!=null ? [{k:'in',a:h.written,b:h.lost},{k:'out',a:h.lost,b:h.recovered},{k:'in',a:h.recovered,b:end}] : [{k:'in',a:h.written,b:end}]})); },
+    hTicks(){ return [-2000,-1000,1,1000,2000]; },
+    hPresets(){ const ar=this.lang==='ar'; return [
+      {y:-2300,l:ar?'نقش نصوص الأهرام':'Pyramid Texts carved'},{y:394,l:ar?'آخر نقشٍ هيروغليفي':'Last hieroglyph'},
+      {y:610,l:ar?'بدء الوحي':'Revelation begins'},{y:1822,l:ar?'فكّ الهيروغليفية':'Hieroglyphs deciphered'},{y:this.hMax,l:ar?'اليوم':'Today'}]; },
+    hYearInfo(){ const ar=this.lang==='ar', y=this.hYear, R=this.histRows; let nin=0; R.forEach(r=>{ if(this.hState(r)==='in') nin++; });
+      const count = ar ? this.D(nin)+' من '+this.D(R.length)+' في المتناول' : nin+' of '+R.length+' records in reach';
+      const note = y<-2300 ? (ar?'قبل نقش نصوص الأهرام.':'Before the Pyramid Texts are carved.')
+        : y<394 ? (ar?'كهنة مصر ما زالوا يقرؤون الهيروغليفية.':'Egyptian priests can still read hieroglyphs.')
+        : y<610 ? (ar?'نُقش آخر نصٍّ هيروغليفي، والخطّ يدخل في صمته.':'The last hieroglyph has been carved. The script is going silent.')
+        : y<=632 ? (ar?'القرآن ينزل، ولا أحد من الأحياء يقرأ الهيروغليفية.':'The Quran is being revealed. Nobody alive can read hieroglyphs.')
+        : y<1822 ? (ar?'الهيروغليفية ما زالت بلا قارئ.':'Hieroglyphs are still unread.')
+        : y<1880 ? (ar?'قرأ شامبليون الهيروغليفية، ونصوص الأهرام ما زالت مغلقة.':'Champollion has read hieroglyphs. The Pyramid Texts are still sealed.')
+        : (ar?'عُثر على نصوص الأهرام وقُرئت.':'The Pyramid Texts have been found and read.');
+      return {count,note}; },
+    // live count for the "king vs Pharaoh" claim, from the word index
+    histKing(){ const W=this.W, out={phTotal:0,phSurahs:0,phYusuf:0,malikYusuf:0}, surs=new Set();
+      for(let i=0;i<W.lemma.length;i++){ const s=+W.key[i].split(':')[0];
+        if(W.lemma[i]==='فرعون'){ out.phTotal++; surs.add(s); if(s===12) out.phYusuf++; }
+        else if(s===12 && W.lemma[i]==='ملك' && W.surface[i].includes('مَلِك')) out.malikYusuf++; }
+      out.phSurahs=surs.size; return out; },
     curLib(){
       const map={
         stories:{type:'stories',data:this.stories,title_en:'Stories',title_ar:'القصص'},
@@ -3601,7 +3921,7 @@ createApp({
     rWhere(){ const ar=this.lang==='ar', n=this.rList.length, i=this.rPos; if(!this.rClaimObj && n<=1) return '';
       return i<0 ? (ar ? this.D(n)+' آية' : n+' verses') : (ar ? 'الآية '+this.D(i+1)+' من '+this.D(n) : 'verse '+(i+1)+' of '+n); },
     rBackHref(){ return this.landingHref + '#claim-' + this.rClaim; },
-    rBackLabel(){ const ar=this.lang==='ar', t=({auditor: ar?'مدقّق المزاعم':'the Claim Auditor', symmetry: ar?'أزواج الكلمات':'Word Pairs'})[this.rBack] || (String(this.rBack).startsWith('d-') ? this.viewName(this.rBack) : '');
+    rBackLabel(){ const ar=this.lang==='ar', t=({auditor: ar?'مدقّق المزاعم':'the Claim Auditor', history: ar?'شواهد التاريخ':'History Claims', symmetry: ar?'أزواج الكلمات':'Word Pairs'})[this.rBack] || (String(this.rBack).startsWith('d-') ? this.viewName(this.rBack) : '');
       return t ? (ar ? '→ العودة إلى '+t : '← Back to '+t) : (ar ? '→ العودة' : '← Back'); },
     readerVerses(){
       const out=[]; const n=this.rSurah;
@@ -3862,6 +4182,8 @@ createApp({
     go(id){ const changed=id!==this.view;
       (NEEDS[id]||[]).forEach(k=>this.load(k));
       if(id!=='reader'){ this.rClaim=''; this.rVerse=0; this.rBack=''; this.rExt=null; }
+      if(id==='history' ? this.view==='history' : id!=='reader') this.hSel='';   // the tab itself opens the index; back from the reader keeps the claim
+      this.hStop();
       if(id!==this.view && id!=='reader' && !this.dBack){ this.dRhyme=-1; this.dTheme=-1; this.dScan=false; this.dRingSel=null; this.dRingFind=''; this.dRepN=20; this.dCopied=false; }
       this.dBack=false;
       if(id!=='cluster'){ this.pcaStop(); this.pcaStep=PCA_LAST; }
@@ -4121,6 +4443,94 @@ createApp({
       }
       return toks.map((t,j)=>hit.has(j) ? '<mark>'+esc(t)+'</mark>' : esc(t)).join(' ') + ' <span class="vk">'+esc(v.k)+'</span>';
     },
+    // ---- History Claims. Years are numbers (negative = BCE, all approximate); every gap is worked out here, none is typed. ----
+    yrPlain(y){ if(y==null) return ''; const ar=this.lang==='ar'; return this.D(y<0 ? (-y)+(ar?' ق.م':' BCE') : y+(ar?' م':' CE')); },
+    yr(y){ if(y==null) return ''; return (y<0 ? (this.lang==='ar'?'نحو ':'c. ') : '')+this.yrPlain(y); },
+    hSpan(a,b){ return b-a-((a<0&&b>0)?1:0); },   // there is no year 0
+    // sealed = the record could no longer be read when the revelation began; known = it could; site = a dig, not a text
+    hAcc(h){ if(h.written==null) return 'site'; return (h.lost!=null && h.lost<610) ? 'sealed' : 'known'; },
+    hSteps(h){ const ar=this.lang==='ar', a=this.hAcc(h), st=[];
+      if(h.written!=null) st.push({c:'s-written',y:h.written,l:ar?h.written_ar:h.written_en});
+      if(a==='sealed') st.push({c:'s-lost',y:h.lost,l:ar?h.lost_ar:h.lost_en});
+      if(a!=='site') st.push({c:'s-rev',y:610,l:ar?'بدء الوحي':'Revelation begins'});
+      if(a!=='known' && h.recovered!=null) st.push({c:'s-rec',y:h.recovered,l:ar?h.recovered_ar:h.recovered_en});
+      st.sort((p,q)=>p.y-q.y);
+      st.forEach((s,i)=>{ s.dark = a==='sealed' && s.y>=h.lost && i<st.length-1; });
+      return st; },
+    hAccText(h){ const ar=this.lang==='ar', a=this.hAcc(h);
+      if(a==='site') return ar ? 'ليس نصًّا مكتوبًا، بل موقعٌ أثري نُقّب فيه سنة '+this.D(h.recovered)+'.'
+                               : 'Not a written record: an archaeological site, excavated in '+h.recovered+'.';
+      if(a==='sealed'){ const b=this.f(this.hSpan(h.lost,610)), t=this.f(this.hSpan(h.lost,h.recovered));
+        return ar ? 'بقي بعيدًا عن متناول الناس '+b+' سنة قبل بدء الوحي، و'+t+' سنة في المجموع.'
+                  : 'Out of reach for '+b+' years before the revelation began, and '+t+' years in all.'; }
+      if(h.written>=610) return ar ? 'وقع في سنوات الوحي نفسها، على مرأى من السامعين الأوائل.'
+                                   : 'It happened during the revelation years, in front of its first listeners.';
+      const k=this.f(this.hSpan(h.written,610));
+      return ar ? 'كان في متناول الناس حين بدأ الوحي، وأقدم شاهدٍ مكتوبٍ عليه يسبقه بـ'+k+' سنة.'
+                : 'Within reach when the revelation began. The oldest written witness is '+k+' years older.'; },
+    hPct(y){ const a=this.hMin, b=this.hMax; return Math.max(0, Math.min(100, (y-a)/(b-a)*100)); },
+    hState(r){ const y=this.hYear; if(y<r.h.written) return 'before';
+      for(const s of r.segs) if(y>=s.a && y<s.b) return s.k;
+      return r.segs[r.segs.length-1].k; },
+    hStateLabel(s){ const ar=this.lang==='ar';
+      return s==='in' ? (ar?'في المتناول':'in reach') : s==='out' ? (ar?'خارج المتناول':'out of reach') : (ar?'لم يُكتب بعد':'not yet'); },
+    hVb(v){ return v==='holds' ? 'holds' : v==='partial' ? 'mixed' : 'no'; },
+    hVerdict(v){ const ar=this.lang==='ar';
+      return v==='holds' ? (ar?'يصمد':'Holds up') : v==='partial' ? (ar?'يصمد جزئيًا':'Partly holds') : (ar?'مبالغٌ فيه':'Overstated'); },
+    hRegion(r){ const ar=this.lang==='ar';
+      return r==='egypt' ? (ar?'مصر القديمة':'Ancient Egypt') : r==='arabia' ? (ar?'جزيرة العرب':'Arabia') : (ar?'الشرق الأدنى':'The Near East'); },
+    hSections(h){ const ar=this.lang==='ar', out=[
+        {k:'claim',lab:ar?'ما يُقال':'The claim',t:ar?h.claim_ar:h.claim_en},
+        {k:'counter',lab:ar?'الوجه الآخر':'The other side',t:ar?h.counter_ar:h.counter_en}];
+      if(h.reading_en) out.push({k:'reading',lab:ar?'المفسرون الأوائل':'The early commentators',t:ar?h.reading_ar:h.reading_en});
+      return out; },
+    hKeys(h){ return [...h.refs, ...(h.also||[])]; },
+    hMetrics(h){ const ar=this.lang==='ar', a=this.hAcc(h), m=[];
+      if(h.live==='kingPharaoh'){ const k=this.histKing, n=x=>this.ready.words ? this.f(x) : '…';
+        return [{v:n(k.phTotal),k:ar?'مرةً ذُكر «فرعون» في القرآن':'times "Pharaoh" appears in the Quran'},
+                {v:n(k.phYusuf),k:ar?'منها في سورة يوسف':'of them in Surah Yusuf'},
+                {v:n(k.malikYusuf),k:ar?'مراتٍ سُمّي حاكم يوسف «الملك»':'times Joseph\'s ruler is "the king"'}]; }
+      if(a==='sealed'){ m.push({v:this.f(this.hSpan(h.lost,610)),k:ar?'سنة خارج المتناول قبل الوحي':'years out of reach before the revelation'},
+          {v:this.f(this.hSpan(h.lost,h.recovered)),k:ar?'سنة خارج المتناول في المجموع':'years out of reach in all'},
+          {v:this.yrPlain(h.recovered),k:ar?h.recovered_ar:h.recovered_en}); }
+      else if(a==='known'){ m.push({v:this.yrPlain(h.written),k:ar?h.written_ar:h.written_en});
+        if(h.written<610) m.push({v:this.f(this.hSpan(h.written,610)),k:ar?'سنة قبل بدء الوحي':'years before the revelation began'}); }
+      else if(h.recovered!=null) m.push({v:this.yrPlain(h.recovered),k:ar?h.recovered_ar:h.recovered_en});
+      return m; },
+    // the scrubber: any track can be dragged, the rail takes the keyboard, and the year snaps to the dates that matter
+    hSnap(y){ for(const k of [-2300,394,610,1822,1880]) if(Math.abs(y-k)<=14) return k; return y===0 ? 1 : y; },
+    hSet(y){ this.hStop(); this.hYear=y; },
+    hYearAt(ev){ const r=ev.currentTarget.getBoundingClientRect(); let f=(ev.clientX-r.left)/r.width;
+      if(this.lang==='ar') f=1-f;
+      return Math.round(this.hMin+Math.max(0,Math.min(1,f))*(this.hMax-this.hMin)); },
+    hDown(ev){ this.hStop(); this._hDrag=true; try{ ev.currentTarget.setPointerCapture(ev.pointerId); }catch(e){} this.hYear=this.hSnap(this.hYearAt(ev)); },
+    hMove(ev){ if(this._hDrag) this.hYear=this.hSnap(this.hYearAt(ev)); },
+    hUp(){ this._hDrag=false; },
+    hKey(ev){ const fwd=this.lang==='ar' ? 'ArrowLeft' : 'ArrowRight', back=this.lang==='ar' ? 'ArrowRight' : 'ArrowLeft', big=ev.shiftKey ? 100 : 10;
+      const d = (ev.key===fwd||ev.key==='ArrowUp') ? big : (ev.key===back||ev.key==='ArrowDown') ? -big : ev.key==='PageUp' ? 100 : ev.key==='PageDown' ? -100 : 0;
+      let y = ev.key==='Home' ? this.hMin : ev.key==='End' ? this.hMax : d ? this.hYear+d : null;
+      if(y==null) return;
+      ev.preventDefault(); this.hStop(); y=Math.max(this.hMin, Math.min(this.hMax, y)); this.hYear = y===0 ? 1 : y; },
+    hStop(){ this.hPlaying=false; if(this._hRaf){ cancelAnimationFrame(this._hRaf); this._hRaf=0; } if(this._hInt){ clearInterval(this._hInt); this._hInt=0; } },
+    // play through time: a run up to 610, a pause there, then on to today (reduced motion: step through the key dates)
+    hPlay(){ if(this.hPlaying){ this.hStop(); return; }
+      this.hPlaying=true;
+      if(REDUCED){ const stops=this.hPresets.map(p=>p.y); let i=0; this.hYear=stops[0];
+        this._hInt=setInterval(()=>{ i++; if(i>=stops.length || this.view!=='history'){ this.hStop(); return; } this.hYear=stops[i]; }, 1500); return; }
+      const K=[[0,this.hMin+100],[6500,610],[8300,610],[13500,this.hMax]], t0=performance.now();
+      const tick=now=>{ if(!this.hPlaying) return; const t=now-t0; let y=this.hMax;
+        for(let i=1;i<K.length;i++){ if(t<=K[i][0]){ const [ta,ya]=K[i-1], [tb,yb]=K[i]; y=Math.round(ya+(yb-ya)*((t-ta)/(tb-ta))); break; } }
+        this.hYear = y===0 ? 1 : y;
+        if(t>=K[K.length-1][0] || this.view!=='history' || this.hSel){ this.hStop(); return; }
+        this._hRaf=requestAnimationFrame(tick); };
+      this._hRaf=requestAnimationFrame(tick); },
+    // open one claim ('' = back to the index)
+    hGo(id){ this.hStop(); this.hSel=id; this.hCopied=false; window.scrollTo(0,0);
+      this.$nextTick(()=>{ this.revealScan(); this.animateHead(); }); },
+    hShare(){ const url=location.origin+location.pathname+'?view=history&c='+this.hSel+(this.lang==='ar' ? '&lang=ar' : '');
+      const done=()=>{ this.hCopied=true; clearTimeout(this._hCp); this._hCp=setTimeout(()=>{ this.hCopied=false; }, 2400); };
+      try{ if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(done, ()=>window.prompt('', url)); return; } }catch(e){}
+      window.prompt('', url); },
     openVerse(s, v, claim, back, ext){
       if(!(s>=1 && s<=114)) return;
       const fromStudy = String(back||'').startsWith('d-');
@@ -4369,6 +4779,8 @@ createApp({
       if(wantView==='tawafuq') this.ensureMushaf();
       if(wantView==='alifi') this.ensureAlifi();
       const wantClaim = qs.get('claim');
+      const wantHist = qs.get('c');
+      if(wantView==='history' && wantHist && typeof QURAN_HISTORY!=='undefined' && QURAN_HISTORY.some(h=>h.id===wantHist)) this.hSel=wantHist;
       if(wantView==='auditor' && wantClaim){ this.cc.text = wantClaim.slice(0,400); this.$nextTick(()=>this.checkClaim()); }
     }
     this.applyDir();
@@ -4379,6 +4791,8 @@ createApp({
     if(typeof QURAN_TAFSIR!=='undefined') this.tafsir=QURAN_TAFSIR;
     if(typeof QURAN_UNTRANSLATABLE!=='undefined') this.untranslatable=QURAN_UNTRANSLATABLE;
     if(typeof QURAN_UNTRANSLATABLE_INTRO!=='undefined') this.untranslatableIntro=QURAN_UNTRANSLATABLE_INTRO;
+    if(typeof QURAN_HISTORY!=='undefined') this.history=QURAN_HISTORY;
+    if(typeof QURAN_HISTORY_INTRO!=='undefined') this.historyIntro=QURAN_HISTORY_INTRO;
     if(window.V1DATA) this.V1=window.V1DATA;
     if(window.QURAN_EN) this.EN=window.QURAN_EN;
     const sky=SKY(); if(sky) sky.setLang(this.lang);
