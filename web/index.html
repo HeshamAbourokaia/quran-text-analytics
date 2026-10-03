@@ -771,7 +771,8 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
         </div>
         <div class="nums">
           <div class="nbox claimed"><div class="v">{{ fmt(c.claimed) }}</div><div class="k">{{ lang==='ar'?'المزعوم':'Claimed' }}</div></div>
-          <div class="nbox verified" :class="{off: c.verifiedLemma !== c.claimed}"><div class="v" :data-n="c.verifiedLemma">{{ fmt(c.verifiedLemma) }}</div><div class="k">{{ lang==='ar'?'المحقّق':'Verified' }}</div></div>
+          <div v-if="c.verifiedRule!=null" class="nbox verified" :class="{off: c.verifiedRule !== c.claimed}"><div class="v" :data-n="c.verifiedRule">{{ fmt(c.verifiedRule) }}</div><div class="k">{{ lang==='ar'?'بقاعدة المزعم':'By its rule' }}</div></div>
+          <div class="nbox verified" :class="{off: c.verifiedLemma !== c.claimed}"><div class="v" :data-n="c.verifiedLemma">{{ fmt(c.verifiedLemma) }}</div><div class="k">{{ c.verifiedRule!=null ? (lang==='ar'?'بجميع الصيغ':'Every form') : (lang==='ar'?'المحقّق':'Verified') }}</div></div>
         </div>
         <div class="raw" v-if="lang!=='ar'">quick text search: {{ fmt(c.rawSubstring) }} as part of a word &middot; {{ fmt(c.rawWholeWord) }} as a whole word</div>
         <div class="raw" v-else>البحث النصي السريع: {{ fmt(c.rawSubstring) }} (جزء من كلمة) &middot; {{ fmt(c.rawWholeWord) }} (كلمة كاملة)</div>
@@ -1004,10 +1005,16 @@ const NUM = {
 // the claims the theater stages, and the figures its panels quote
 const CLAIM = {};
 D.claims.forEach(c => { CLAIM[c.id] = c; });
+// the calendar fills with the mentions the claim's own rule counts (in reading order), then the forms it sets aside
+(function () { const c = CLAIM['day-365']; if (!c || !c.ruleAudit) return;
+  const keep = new Map(); c.ruleAudit.forEach(r => { const k = r[0] + ':' + r[1]; keep.set(k, (keep.get(k) || 0) + 1); });
+  const first = [], rest = [];
+  c.audit.forEach(r => { const k = r[0] + ':' + r[1], n = keep.get(k) || 0; if (n) { first.push(r); keep.set(k, n - 1); } else rest.push(r); });
+  c.audit = first.concat(rest); })();
 (function () {
   const day = CLAIM['day-365'], ang = CLAIM['angel-88'], dev = CLAIM['devil-88'], hell = CLAIM['hell-77'], par = CLAIM['paradise-77'], god = CLAIM['allah-2806'];
   Object.assign(NUM, { claimsN: D.claims.length,
-    dayC: day.claimed, dayV: day.verifiedLemma, dayX: day.verifiedLemma - day.claimed,
+    dayC: day.claimed, dayV: day.verifiedLemma, dayR: day.verifiedRule, dayX: day.verifiedLemma - (day.verifiedRule || day.claimed),
     angC: ang.claimed, angV: ang.verifiedLemma, devV: dev.verifiedLemma,
     hellC: hell.claimed, hellV: hell.verifiedLemma, parC: par.claimed, parV: par.verifiedLemma,
     godC: god.claimed, godV: god.verifiedLemma, godVs: new Set(god.audit.map(r => r[0] + ':' + r[1])).size });
@@ -1088,8 +1095,8 @@ const I18N = {
   'cl.more':    {en:'Check any claim yourself', ar:'دقّق أي زعمٍ بنفسك'},
   'c1.k':       {en:'Yawm, day', ar:'كلمة «يوم»'},
   'c1.h':       {en:'One for every day of the year?', ar:'مرةً لكل يومٍ من أيام السنة؟'},
-  'c1.p':       {en:'Yawm, day, is famously said to appear {dayC} times, once for every day of the year. Here is every one of its {dayV} mentions, counted in all its forms, as a point of light: a year fills up, and {dayX} are left over.',
-                 ar:'يُقال إن كلمة «يوم» وردت {dayC} مرة، بعدد أيام السنة. وهذه مرّاتُ ورودها كلُّها بجميع صيغها، {dayV} مرة، لكل مرةٍ نقطةُ ضوء: تمتلئ السنة، ويبقى {dayX}.'},
+  'c1.p':       {en:'Yawm, day, is famously said to appear {dayC} times, once for every day of the year. Here is every one of its {dayV} mentions as a point of light. Counted the way the claim counts, the plain singular with no pronoun attached, they fill the year exactly: {dayR}. The other {dayX} are the forms that rule sets aside: «on that day», the dual and plural, and «your day», «their day».',
+                 ar:'يُقال إن كلمة «يوم» وردت {dayC} مرة، بعدد أيام السنة. وهذه مرّاتُ ورودها كلُّها، {dayV} مرة، لكل مرةٍ نقطةُ ضوء. وإذا عُدّت كما يعدّها المزعم، أي المفرد المجرد من الضمائر المتصلة، ملأت السنة تمامًا: {dayR}. أما الـ{dayX} الباقية فهي الصيغ التي تستبعدها تلك القاعدة: «يومئذ»، والمثنى والجمع، و«يومكم» و«يومهم».'},
   'c2.k':       {en:'Angels and devils', ar:'الملائكة والشياطين'},
   'c2.h':       {en:'{angV} and {devV}. The scale balances.', ar:'{angV} و{devV}، والميزان معتدل.'},
   'c2.p':       {en:'A famous pairing: angel and devil, {angC} times each. Counted in all their forms, it holds exactly. Each point on the scale is one mention.',
@@ -1108,7 +1115,7 @@ const I18N = {
   'cg.h':       {en:'Every claim, card by card.', ar:'كل زعمٍ في بطاقته.'},
   'tl.cl':      {en:'claimed', ar:'المزعوم'},
   'tl.co':      {en:'counted', ar:'المحقَّق'},
-  'cal.over':   {en:'{dayX} left over', ar:'يبقى {dayX}'},
+  'cal.over':   {en:'{dayX} other forms, set aside by the rule', ar:'صيغٌ أخرى تستبعدها القاعدة: {dayX}'},
   'r1.k':       {en:'The {rootsN} most-used roots', ar:'الجذور الـ{rootsN} الأكثر ورودًا'},
   'r1.h':       {en:'A sky of roots.', ar:'سماءٌ من الجذور.'},
   'r1.p':       {en:'Each circle is one root, sized by how often words from that root occur. These {rootsN} roots alone make up {rootsShare}% of the text, {rootsSum} of its {words} words. The largest, {topRoot}, is the root of the name Allah.',
@@ -1192,8 +1199,8 @@ if (window.Vue) {
     data() {
       return { claims: D.claims, open: {}, lang,
         notesEn:{
-          'day-365':'Counting the word in all its forms gives more than 365. The famous 365 counts only the plain singular «يوم», leaving out the dual (two days), «يومئذ» (on that day) and forms with a pronoun joined on, such as «يومهم» (their day).',
-          'month-12':'Counting the word in all its forms gives more than 12. The famous 12 counts only the singular «شهر», leaving out the plural «أشهر» (months) and the dual (two months).',
+          'day-365':'Holds by its own rule. All forms of the word come to 475. The 365 counts the plain singular «يوم», «اليوم», «يوما», including with letters such as «و» or «ب» joined at the front, and leaves out «يومئذ» (on that day), the dual and plural, and forms with a pronoun joined on, such as «يومهم» (their day). Counted that way the Quran gives exactly 365. Whether that is the right way to count is the open question.',
+          'month-12':'Holds by its own rule. All forms come to 21. The 12 counts the singular «شهر», «الشهر», «شهرا», and leaves out the dual and the plurals «أشهر» and «الشهور». Counted that way the Quran gives exactly 12.',
           'devil-88':'Holds exactly: the singular and plural of «شيطان» together come 88 times. A quick text search for the spelling «شيطان» finds none, because the mushaf writes it «شيطن».',
           'angel-88':'Holds exactly. Our count tells «مَلَك» (angel, 88 times) apart from «مُلْك» (dominion) and «مَلِك» (king), which look the same without vowel marks. A quick text search cannot tell them apart, which is why its count looks wrong.',
           'hell-77':'Holds exactly. «جهنم» is a name for Hell and has no other meaning.',
@@ -1206,8 +1213,8 @@ if (window.Vue) {
           'rabb-846':'Counting «ربّ» (Lord) in all its forms includes «ربي» (my Lord), «ربك» (your Lord), «ربهم» (their Lord) and the like. The 846 counts a narrower set of them.',
         },
         notesAr:{
-          'day-365':'العدُّ بجميع صيغ الكلمة يزيد على ٣٦٥. أما الرقم المتداول ٣٦٥ فيقتصر على الاسم المفرد «يوم»، ويُسقط المثنى وكلمة «يومئذ» والصيغ المتصلة بالضمائر مثل «يومهم».',
-          'month-12':'العدُّ بجميع صيغ الكلمة يزيد على ١٢. أما الرقم ١٢ فيقتصر على المفرد «شهر»، ويُسقط الجمع «أشهر» والمثنى.',
+          'day-365':'يصدق بقاعدته. صيغ الكلمة كلها ٤٧٥. أما الرقم ٣٦٥ فيعدّ المفرد المجرد «يوم» و«اليوم» و«يوما»، ولو اتصلت به الواو أو الباء في أوله، ويستبعد «يومئذ» والمثنى والجمع والصيغ المتصلة بالضمائر مثل «يومهم». وبهذا العدّ يعطي القرآن ٣٦٥ تمامًا. أما هل هذه هي الطريقة الصحيحة للعدّ فهو موضع الخلاف.',
+          'month-12':'يصدق بقاعدته. صيغ الكلمة كلها ٢١. أما الرقم ١٢ فيعدّ المفرد «شهر» و«الشهر» و«شهرا»، ويستبعد المثنى والجمعين «أشهر» و«الشهور». وبهذا العدّ يعطي القرآن ١٢ تمامًا.',
           'devil-88':'العدُّ مطابق: المفرد والجمع من «شيطان» معًا ٨٨ مرة. ومن الطريف أن البحث النصي السريع عن رسم «شيطان» لا يجد شيئًا، لأن الرسم العثماني يكتبها «شيطن».',
           'angel-88':'العدُّ مطابق، إذ يفصل عدُّنا «مَلَك» (٨٨ مرة) عن «مُلْك» و«مَلِك»، وهي تتشابه في الرسم بلا تشكيل. أما البحث النصي السريع فلا يفرّق بينها، ولهذا يبدو عدُّه خاطئًا.',
           'hell-77':'العدُّ مطابق، فكلمة «جهنم» اسمٌ للنار لا معنى لها غيره.',
@@ -1224,10 +1231,10 @@ if (window.Vue) {
       fmt(n) { return (n == null ? 0 : n).toLocaleString(this.lang === 'ar' ? 'ar-EG' : 'en-US'); },
       toggle(id) { this.open[id] = !this.open[id]; },
       byId(id) { return this.claims.find(x => x.id === id); },
-      verdict(c) { if (c.verifiedLemma === c.claimed) return 'exact'; if (c.pair && this.pairEqual(c)) return 'parity'; return 'differs'; },
+      verdict(c) { if (c.verifiedLemma === c.claimed) return 'exact'; if (c.verifiedRule != null && c.verifiedRule === c.claimed) return 'rule'; if (c.pair && this.pairEqual(c)) return 'parity'; return 'differs'; },
       badge(c) { const v = this.verdict(c);
-        if (this.lang === 'ar') return v === 'exact' ? 'مطابق' : v === 'parity' ? 'تعادل' : 'مختلف';
-        return v === 'exact' ? 'EXACT' : v === 'parity' ? 'PAIR EQUAL' : 'DIFFERS'; },
+        if (this.lang === 'ar') return v === 'exact' ? 'مطابق' : v === 'rule' ? 'يصدق بقاعدته' : v === 'parity' ? 'تعادل' : 'مختلف';
+        return v === 'exact' ? 'EXACT' : v === 'rule' ? 'HOLDS BY ITS RULE' : v === 'parity' ? 'PAIR EQUAL' : 'DIFFERS'; },
       pairEqual(c) { const p = this.byId(c.pair); return p && p.verifiedLemma === c.verifiedLemma; },
       pairName(c) { const p = this.byId(c.pair); return p ? (this.lang === 'ar' ? p.ar : p.en) : ''; },
       // every verse a claim counts, once each in mushaf order, with how many mentions it holds

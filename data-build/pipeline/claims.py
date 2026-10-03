@@ -23,12 +23,15 @@ from .corpus import normalize
 # 'lem' = skeleton of the dictionary lemma; 'surf' = skeleton as written in the
 # Uthmani verse text (differs only where the rasm is defective, e.g. shaytan).
 REGISTRY = [
+    # The proponents' rule (Nawfal 1983; restated by Shabir Ally, intellaren, al-Kaheel): the singular noun,
+    # with or without attached particles (wa-, fa-, bi-, li-, al-), but not the dual, the plural, the fused
+    # yawma'idhin, or forms with an attached pronoun. 'plural' lists the plural skeletons the rule drops.
     dict(id='day-365', en='Day (yawm)', key='day', lem='يوم', surf='يوم',
-         claimed=365, pair=None, rule='singular',
-         note_en='Lemma counts every form. The traditional 365 is the singular noun only, dropping the dual, the fused "that-day" word, and possessive forms.'),
+         claimed=365, pair=None, rule='singular', plural=('ايام', 'اييم'),
+         note_en='Every form of the word totals 475. The claim counts the singular noun only, with particles such as wa- and al- but without the dual, the plural, the fused "that-day" word or an attached pronoun. By that rule the corpus gives exactly 365.'),
     dict(id='month-12', en='Month (shahr)', key='month', lem='شهر', surf='شهر',
-         claimed=12, pair=None, rule='singular-noplural',
-         note_en='Lemma counts all forms. The traditional 12 is the singular noun only, dropping the plural "ashhur" and the dual.'),
+         claimed=12, pair=None, rule='singular', plural=('اشهر', 'شهور'),
+         note_en='Every form totals 21. The claim counts the singular noun only, dropping the dual and the plurals ashhur and shuhur. By that rule the corpus gives exactly 12.'),
     dict(id='devil-88', en='Devil (shaytan)', key='devil', lem='شيطان', surf='شيطن',
          claimed=88, pair='angel-88', rule=None,
          note_en='Exact by lemma: singular and plural share the lemma and total 88. Note a naive text search for شيطان finds 0 because the Uthmani rasm writes it شيطن.'),
@@ -93,7 +96,7 @@ def _raw(verses_norm, skeleton):
     return sub, whole
 
 _POSS = ('كم', 'هم', 'ها', 'نا', 'كن', 'هن')
-def _singular_core(words, lemma, drop_plural_prefix=None):
+def _singular_core(words, lemma, plural=()):
     locs = []
     for w in words:
         if w['lemma'] != lemma:
@@ -105,7 +108,7 @@ def _singular_core(words, lemma, drop_plural_prefix=None):
             continue
         if n.endswith(_POSS):    # plural possessive
             continue
-        if drop_plural_prefix and ('اشهر' in n):  # plural ashhur for month
+        if any(p in n for p in plural):   # broken plurals: ayyam (written ايام, and اييم in 14:5), ashhur, shuhur
             continue
         locs.append([w['sura'], w['aya']])
     return locs
@@ -117,11 +120,10 @@ def compute(words, verses_norm):
         surf_skel = normalize(c['surf'])
         lemma, n = _select_lemma(words, lem_skel)
         sub, whole = _raw(verses_norm, surf_skel)
-        rule_val = None
+        rule_val, rule_locs = None, None
         if c['rule'] == 'singular' and lemma:
-            rule_val = len(_singular_core(words, lemma))
-        elif c['rule'] == 'singular-noplural' and lemma:
-            rule_val = len(_singular_core(words, lemma, drop_plural_prefix=True))
+            rule_locs = _singular_core(words, lemma, c.get('plural', ()))
+            rule_val = len(rule_locs)
         out.append({
             'id': c['id'], 'en': c['en'], 'ar': c.get('show') or lemma or c['lem'], 'pair': c['pair'],
             'claimed': c['claimed'],
@@ -132,5 +134,6 @@ def compute(words, verses_norm):
             'lemma': lemma,
             'note_en': c['note_en'],
             'audit': _lemma_locs(words, lemma) if lemma else [],
+            'ruleAudit': rule_locs,   # where the claim's own rule counts it, so a figure can show which mentions those are
         })
     return out

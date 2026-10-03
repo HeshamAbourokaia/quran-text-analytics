@@ -54,6 +54,12 @@ def test_exact_claims_really_match():
 def test_jesus_equals_adam():
     assert _CLAIMS['jesus-24']['verifiedLemma'] == _CLAIMS['adam-24']['verifiedLemma'] == 25
 
+# The proponents' singular rule (pipeline/claims.py). These two hold exactly; earlier builds gave 392 and 13
+# because the plural ayyam and shuhur were counted as singulars.
+def test_singular_rule_counts():
+    for cid, expected in {'day-365': 365, 'month-12': 12}.items():
+        assert _CLAIMS[cid]['verifiedRule'] == expected, f"{cid}: rule gave {_CLAIMS[cid]['verifiedRule']}, expected {expected}"
+
 def test_datasets_reconcile_to_totals():
     mm = _DS['meccaMedina']
     assert mm['mecca']['surahs'] + mm['medina']['surahs'] == 114
