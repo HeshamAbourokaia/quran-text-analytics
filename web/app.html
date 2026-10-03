@@ -3103,9 +3103,12 @@ function verseSpan(k){
     for(let i=0;i<K.length;i++){ const e=VSPAN.get(K[i]); if(e) e[1]=i+1; else VSPAN.set(K[i],[i,i+1]); } }
   return VSPAN.get(k) || null;
 }
+// Keyboards and copied text can bring Arabic «presentation forms»: one code point drawn as a ready-made shape, like
+// «ﷲ» (U+FDF2) that macOS types for الله. Compatibility normalization turns each back into its plain letters.
+const arPlain = s => String(s).replace(/[\uFB50-\uFDFF\uFE70-\uFEFC]/g, c => c.normalize('NFKC'));
 function normalize(s){
   if(!s) return '';
-  s = s.replace(/﻿/g,'').replace(TASHKEEL,'');
+  s = arPlain(s).replace(/﻿/g,'').replace(TASHKEEL,'');
   s = s.replace(/[ٱآأإ]/g,'ا').replace(/ى/g,'ي');
   return s.trim();
 }
@@ -3114,7 +3117,7 @@ function normalize(s){
 // tanween, the small alif) must be on that letter in the mushaf; letters typed bare accept any marks, and a bare
 // alif accepts any alif. "Exact word" compares the whole word; "Inside words" finds the letters anywhere in one.
 const AR_MARK1 = /[ؐ-ًؚ-ٰٟۖ-ۭ]/, AR_HAMZA = /[أإآؤئء]/;
-function arUnits(s){ const out=[]; for(const ch of String(s||'').replace(/[ـ﻿]/g,'').normalize('NFC')){
+function arUnits(s){ const out=[]; for(const ch of arPlain(s||'').replace(/[ـ﻿]/g,'').normalize('NFC')){
   if(AR_MARK1.test(ch)){ if(out.length) out[out.length-1].m+=ch; } else if(!/\s/.test(ch)) out.push({b:ch, m:''}); } return out; }
 function arUnitEq(q, w){ let qb=q.b==='ٱ' ? 'ا' : q.b, wb=w.b==='ٱ' ? 'ا' : w.b; if(qb==='ى') qb='ي'; if(wb==='ى') wb='ي';
   if(AR_HAMZA.test(qb)){ if(qb!==wb) return false; } else if(qb==='ا'){ if(!/[اأإآ]/.test(wb)) return false; } else if(qb!==wb) return false;

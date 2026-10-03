@@ -12,7 +12,7 @@
   const TASHKEEL = /[ؐ-ًؚ-ٰٟۖ-ۭٓ-ٕ]/g;
   function normalize(s) {
     if (!s) return '';
-    return String(s).replace(/﻿/g, '').replace(TASHKEEL, '')
+    return String(s).replace(/[\uFB50-\uFDFF\uFE70-\uFEFC]/g, c => c.normalize('NFKC')).replace(/﻿/g, '').replace(TASHKEEL, '')
       .replace(/[ٱآأإ]/g, 'ا').replace(/ى/g, 'ي').trim();
   }
   // Voweled lemmas are compared in canonical (NFC) order, so the order of stacked marks doesn't matter.
