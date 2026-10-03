@@ -596,6 +596,10 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
     transition:transform .15s var(--ease),box-shadow .15s,background .2s,border-color .2s}
   .arakbd .kbmarks{display:contents} .arakbd button.mark{font-family:var(--ar-display);font-size:1.35rem;line-height:1;min-width:42px;border-color:rgba(88,200,190,.35);background:rgba(88,200,190,.08)}
   .smatch{margin:10px 0 0;font-size:.82rem;line-height:1.55;color:var(--on-dark-2);max-width:780px}
+  .crule{margin-top:10px;padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.035);border:1px solid var(--hair);display:grid;gap:4px}
+  .crule-k{font-size:.64rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--emerald)}
+  .crule p{margin:0 0 4px;font-size:.84rem;line-height:1.55;color:var(--on-dark)}
+  .crule ul{margin:0 0 4px;padding-inline-start:18px;font-size:.78rem;line-height:1.5;color:var(--on-dark-2)}
   .sform{margin:18px 0 0;padding:16px 18px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid var(--hair)}
   .sform-h{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px} .sform-h h3{margin:0}
   .sform-p{display:inline-flex;gap:6px} .sform-p button{font:inherit;font-size:.78rem;color:var(--on-dark-2);background:none;border:1px solid var(--hair);border-radius:999px;padding:5px 12px;cursor:pointer}
@@ -2271,8 +2275,14 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
             <div v-if="c.verifiedRule!=null" class="kpi" style="min-width:90px"><div class="n" :style="{color: c.verifiedRule===c.claimed?'var(--emerald)':'var(--amber)'}">{{ f(c.verifiedRule) }}</div><div class="l">{{ lang==='ar'?'بقاعدة المزعم':'by its rule' }}</div></div>
             <div class="kpi" style="min-width:90px"><div class="n" :style="{color: c.verifiedLemma===c.claimed?'var(--emerald)':'var(--amber)'}">{{ f(c.verifiedLemma) }}</div><div class="l">{{ c.verifiedRule!=null ? (lang==='ar'?'بجميع الصيغ':'every form') : (lang==='ar'?'المحقّق':'verified') }}</div></div>
           </div>
-          <div style="font-size:.78rem;color:var(--muted)">{{ lang==='ar'?'البحث النصي السريع (جزء كلمة / كلمة كاملة)':'quick text search (part of a word / whole word)' }}: {{ f(c.rawSubstring) }} / {{ f(c.rawWholeWord) }}</div>
-          <div style="font-size:.84rem;color:var(--on-dark-2);margin-top:8px;line-height:1.6">{{ (lang==='ar' ? claimNotesAr[c.id] : claimNotesEn[c.id]) || c.note_en }}</div>
+          <div v-if="claimRule(c.id)" class="crule">
+            <span class="crule-k">{{ lang==='ar' ? 'القاعدة' : 'The rule' }}</span>
+            <p>{{ lang==='ar' ? claimRule(c.id).rule[1] : claimRule(c.id).rule[0] }}</p>
+            <span class="crule-k">{{ lang==='ar' ? 'من قال بها' : 'Stated by' }}</span>
+            <ul><li v-for="(x,i) in claimRule(c.id).src" :key="i">{{ lang==='ar' ? x.t[1] : x.t[0] }}</li></ul>
+            <button type="button" class="cclink" @click="openLab(c.id)">{{ lang==='ar' ? 'عُدّها بنفسك بهذه القاعدة ‹' : 'Count it yourself with this rule ›' }}</button>
+          </div>
+          <div v-else style="font-size:.84rem;color:var(--on-dark-2);margin-top:8px;line-height:1.6">{{ (lang==='ar' ? claimNotesAr[c.id] : claimNotesEn[c.id]) || c.note_en }}</div>
         </div>
       </div>
     </section>
@@ -4611,6 +4621,7 @@ const QadrLab = {
   methods:{ D(x){ return this.$root.D(x); } } };
 const CountLab = { props:['claims'],
   data(){ return {li:0, preset:'rule', on:['plain'], hov:-1, srcOpen:false}; },
+  watch:{ '$root.clabPick'(v){ if(!v) return; const i=this.labs.findIndex(L=>L.id===v.id); if(i>=0){ this.pick(i); this.srcOpen=true; } } },
   template:`<figure class="dfig clab">
     <div class="clab-top">
       <div><h3>{{ ar ? 'عُدّها بنفسك' : 'Count it yourself' }}</h3>
@@ -4826,7 +4837,7 @@ createApp({
       T: D.stats.totals, DS: D.datasets, MM: D.datasets.meccaMedina||{mecca:{},medina:{}}, claims: D.claims,
       V: window.QURAN_VERSES||{}, W: window.QURAN_WORDS||{key:[],norm:[],lemma:[],root:[],surface:[]},
       ready:{ verses:!!window.QURAN_VERSES, words:!!window.QURAN_WORDS, plotly:typeof Plotly!=='undefined', disc:false, hviz:false },
-      q:'', mode:'surface', sWhole:true, sfOff:{}, sfCount:null, sfRows:SF_ROWS, sres:{total:0,surahs:0,verses:0,sample:[]},
+      q:'', mode:'surface', sWhole:true, clabPick:null, sfOff:{}, sfCount:null, sfRows:SF_ROWS, sres:{total:0,surahs:0,verses:0,sample:[]},
       rSurah:1, rVerse:0, rClaim:'', rBack:'', scrollPct:0, railDragging:false, EN:{}, showTrans:(new URLSearchParams(location.search).get('lang')!=='ar'), libQ:'', libCat:'all', stories:[], lessons:[], duas:[], tafsir:[], untranslatable:[], untranslatableIntro:{}, history:[], historyIntro:{}, skyHov:null, sresBy:{}, sresRoots:[], skyGL:false, hSel:'', hYear:610, hPlaying:false, hFilter:'all', hCopied:false,
       V1:{}, abjadInput:'الله',
       jevOn: !!(JEV && JEV.endpoint()), JD: window.QTA_JEV_DATA||{},
@@ -5832,6 +5843,10 @@ createApp({
     surahName(n){ const s=(this.DS.surahMeta||[]).find(x=>x.n===n); return s?(this.lang==='ar'?s.ar:s.en):n; },
     applyDir(){ const ar=this.lang==='ar'; const el=document.documentElement;
       el.setAttribute('dir', ar?'rtl':'ltr'); el.setAttribute('lang', ar?'ar':'en'); },
+    // a claim's counting rule and who stated it, taken from its Count it yourself entry
+    claimRule(id){ const L=COUNT_LABS.find(x=>x.id===id); if(!L) return null; const p=L.presets.find(x=>/claim/.test(x.lab[0])) || L.presets[0];
+      return p && p.who ? {rule:p.who, src:L.src||[]} : null; },
+    openLab(id){ this.clabPick={id, t:Date.now()}; this.$nextTick(()=>{ const el=document.querySelector('.clab'); if(el) el.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'start'}); }); },
     sfKey(r,o){ return r==='num' ? o : (r==='front' ? 'f:' : 'e:')+o; },
     sfToggle(r,o){ const k=this.sfKey(r,o), n=Object.assign({}, this.sfOff); if(n[k]) delete n[k]; else n[k]=true; this.sfOff=n; this.runSearch(); },
     sfPreset(id){ this.sfOff = id==='sing' ? {D:true,P:true,C:true,V:true,'e:pron':true} : {}; this.runSearch(); },
