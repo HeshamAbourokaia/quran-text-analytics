@@ -1212,6 +1212,63 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .sl-jump{margin-inline-start:auto;font:inherit;font-size:.78rem;color:#1a1405;background:var(--gold);border:0;border-radius:999px;padding:6px 14px;cursor:pointer}
   @media (max-width:900px){ .sl-kpis{grid-template-columns:repeat(3,1fr)} .sl-grid2{grid-template-columns:1fr} }
   @media (max-width:480px){ .sl-kpis{grid-template-columns:repeat(2,1fr)} .sl-kpi b{font-size:1.7rem} .sl-verse p,.sl-ar{font-size:1.2rem} }
+  /* Word Pairs: the balance */
+  .bal-pairs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
+  .bal-pairs button{display:flex;flex-direction:column;align-items:flex-start;gap:1px;font:inherit;color:var(--on-dark);background:rgba(255,255,255,.03);border:1px solid var(--hair);border-radius:14px;padding:7px 14px;cursor:pointer}
+  .bal-pairs b{font-family:var(--ar-display);font-weight:400;font-size:1.15rem} .bal-pairs span{font-size:.72rem;color:var(--emerald);font-variant-numeric:tabular-nums}
+  .bal-pairs button.on{border-color:var(--gold);background:rgba(233,185,95,.12)} .bal-pairs button:hover{background:rgba(255,255,255,.06)}
+  .bal-mode{display:inline-flex;border:1px solid var(--hair);border-radius:999px;padding:3px;margin:0 0 8px}
+  .bal-mode button{font:inherit;font-size:.78rem;border:0;background:none;color:var(--on-dark-2);border-radius:999px;padding:5px 14px;cursor:pointer} .bal-mode button.on{background:var(--gold);color:#1a1405;font-weight:700}
+  .bal-svg{display:block;width:100%;height:auto;max-width:760px;margin:0 auto}
+  .bal-post{stroke:rgba(255,255,255,.25);stroke-width:5} .bal-foot{fill:rgba(255,255,255,.12)} .bal-pin{fill:var(--gold)}
+  .bal-beam{transform-box:view-box;transform-origin:320px 70px;transition:transform 1.4s cubic-bezier(.25,1.5,.45,1)} .bal-beam rect{fill:rgba(233,185,95,.85)}
+  .bal-pan{transition:transform 1.4s cubic-bezier(.25,1.5,.45,1)} .bal-pan line{stroke:rgba(255,255,255,.28);stroke-width:1.2}
+  .bal-bowl{fill:rgba(255,255,255,.1);stroke:rgba(255,255,255,.3)}
+  .bal-dot{fill:var(--gold);cursor:pointer;animation:baldrop .55s cubic-bezier(.3,1.4,.5,1) both} .bal-pan.r .bal-dot{fill:var(--teal)}
+  .bal-dot.on,.bal-dot:hover{fill:#fff;stroke:#fff;stroke-width:2}
+  @keyframes baldrop{from{transform:translateY(-160px);opacity:0}to{transform:none;opacity:1}}
+  .bal .bal-svg text.bal-n{font-family:var(--serif);font-size:30px;fill:#fff} .bal .bal-svg text.bal-eq{font-size:16px;font-weight:700;fill:var(--on-dark-2)} .bal .bal-svg text.bal-eq.lev{fill:var(--emerald)}
+  .bal-read{min-height:3.2em;margin:6px 0 12px;padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.04);font-size:.88rem;line-height:1.7;color:var(--on-dark-2)}
+  .bal-read bdi{font-family:var(--ar-display);font-size:1.15rem;color:#fff} .bal-read mark{background:var(--gold);color:#1a1405;border-radius:5px;padding:0 3px}
+  .bal-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .bal-card{padding:14px;border-radius:14px;background:rgba(0,0,0,.2);border:1px solid var(--hair);display:grid;gap:4px;align-content:start}
+  .bal-card.l{border-top:3px solid var(--gold)} .bal-card.r{border-top:3px solid var(--teal)}
+  .bal-ch{display:flex;align-items:baseline;gap:10px} .bal-ch b{font-family:var(--ar-display);font-weight:400;font-size:1.6rem;color:#fff} .bal-ch span{color:var(--on-dark-2)} .bal-ch em{margin-inline-start:auto;font-style:normal;font-family:var(--serif);font-size:1.8rem;color:#fff}
+  .bal-card .k{font-size:.64rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--emerald);margin-top:4px}
+  .bal-card p{margin:0;font-size:.85rem;line-height:1.55} .bal-card ul{margin:0;padding-inline-start:18px;font-size:.78rem;color:var(--on-dark-2);line-height:1.5}
+  @media (max-width:700px){ .bal-cards{grid-template-columns:1fr} }
+  @media (prefers-reduced-motion: reduce){ .bal-beam,.bal-pan{transition:none} .bal-dot{animation:none} }
+  /* Abjad */
+  .abj-in .q{width:100%;font-family:var(--ar-display);font-size:1.6rem}
+  .abj-ex{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+  .abj-ex button{display:inline-flex;align-items:baseline;gap:8px;font:inherit;color:var(--on-dark);background:rgba(255,255,255,.03);border:1px solid var(--hair);border-radius:999px;padding:5px 14px;cursor:pointer}
+  .abj-ex b{font-family:var(--ar-display);font-weight:400;font-size:1.05rem} .abj-ex span{font-size:.74rem;color:var(--gold);font-variant-numeric:tabular-nums} .abj-ex button.on{border-color:var(--gold)}
+  .abj-rules{display:flex;flex-wrap:wrap;gap:8px 16px;margin:0 0 12px}
+  .seg2{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--hair);border-radius:999px;padding:3px 4px 3px 12px} .seg2>span{font-size:.72rem;color:var(--on-dark-3);margin-inline-end:4px}
+  .seg2 button{font:inherit;font-size:.78rem;border:0;background:none;color:var(--on-dark-2);border-radius:999px;padding:5px 12px;cursor:pointer} .seg2 button.on{background:var(--gold);color:#1a1405;font-weight:700}
+  .abj-stage{display:flex;flex-wrap:wrap;align-items:flex-end;gap:14px 20px;padding:18px;border-radius:18px;background:radial-gradient(120% 80% at 50% 100%,rgba(233,185,95,.08),transparent 60%),rgba(255,255,255,.03);border:1px solid var(--hair);min-height:190px}
+  .abj-tiles{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px;flex:1;min-width:0}
+  .abj-t{display:flex;flex-direction:column;align-items:center;gap:3px;min-width:34px;animation:abjin .5s cubic-bezier(.3,1.5,.5,1) both}
+  .abj-t .bar{display:block;width:22px;border-radius:6px 6px 2px 2px;background:var(--gold);box-shadow:0 0 14px rgba(233,185,95,.35)}
+  .abj-t.m0 .bar{background:#9fc46a} .abj-t.m1 .bar{background:var(--teal)} .abj-t.m2 .bar{background:#b49cf0} .abj-t.m3 .bar{background:#f0a08c}
+  .abj-t b{font-family:var(--ar-display);font-weight:400;font-size:1.5rem;color:#fff;line-height:1.2} .abj-t small{font-size:.72rem;color:var(--on-dark-2);font-variant-numeric:tabular-nums}
+  @keyframes abjin{from{transform:translateY(-30px) scale(.6);opacity:0}to{transform:none;opacity:1}}
+  .abj-sum{display:flex;align-items:baseline;gap:10px} .abj-sum span{font-size:1.6rem;color:var(--on-dark-3)} .abj-sum b{font-family:var(--serif);font-weight:400;font-size:4rem;line-height:1;color:var(--gold);font-variant-numeric:tabular-nums}
+  .abj-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
+  .abj-panel{padding:14px;border-radius:14px;background:rgba(0,0,0,.2);border:1px solid var(--hair);min-width:0}
+  .abj-panel h4{display:flex;justify-content:space-between;gap:8px;margin:0 0 10px;font-size:.78rem;letter-spacing:.06em;color:var(--on-dark-2)} .abj-panel h4 em{font-style:normal;color:var(--gold)}
+  .abj-keys{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}
+  .abj-keys button{display:flex;flex-direction:column;align-items:center;gap:1px;font:inherit;color:#fff;background:rgba(255,255,255,.04);border:1px solid var(--hair);border-radius:10px;padding:5px 2px;cursor:pointer}
+  .abj-keys b{font-family:var(--ar-display);font-weight:400;font-size:1.25rem;line-height:1.2} .abj-keys small{font-size:.66rem;color:var(--on-dark-2)}
+  .abj-keys .m0{border-bottom:3px solid #9fc46a} .abj-keys .m1{border-bottom:3px solid var(--teal)} .abj-keys .m2{border-bottom:3px solid #b49cf0} .abj-keys .m3{border-bottom:3px solid #f0a08c}
+  .abj-keys button.moved{outline:2px dashed var(--gold);outline-offset:-2px} .abj-keys button:hover{background:rgba(233,185,95,.14)}
+  .abj-cap{margin:8px 0 0;font-size:.78rem;line-height:1.55;color:var(--on-dark-3)}
+  .abj-same{display:flex;flex-wrap:wrap;gap:5px}
+  .abj-same button{display:inline-flex;align-items:baseline;gap:6px;font:inherit;color:#fff;background:rgba(233,185,95,.08);border:1px solid rgba(233,185,95,.3);border-radius:999px;padding:3px 10px;cursor:pointer}
+  .abj-same b{font-family:var(--ar-display);font-weight:400;font-size:1.05rem} .abj-same small{font-size:.66rem;color:var(--on-dark-2)}
+  .abj-hist{display:block;width:100%;height:auto;margin-top:12px} .abj-hist rect{fill:rgba(255,255,255,.18)} .abj-hist rect.here{fill:var(--gold)} .abj-hist .t{font-size:8px;fill:var(--on-dark-3)}
+  @media (max-width:760px){ .abj-grid{grid-template-columns:1fr} .abj-sum b{font-size:3rem} }
+  @media (prefers-reduced-motion: reduce){ .abj-t{animation:none} }
   /* Word Counts: count a claim yourself (CountLab) */
   .clab-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-start}
   .clab-presets{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 14px}
@@ -2548,17 +2605,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
     <section v-if="view==='abjad'">
       <h1>{{ lang==='ar'?'حساب الجُمّل':'Abjad Numerals' }}</h1>
       <explain-box></explain-box>
-      <div class="card">
-        <input class="q" v-model="abjadInput" :placeholder="lang==='ar'?'اكتب كلمة لحساب قيمتها...':'Type a word to compute its value...'">
-        <div v-if="abjadValue.sum>0" style="margin-top:12px">
-          <span v-for="(p,i) in abjadValue.parts" :key="i" class="chip">{{ p.l }} = {{ p.v }}</span>
-          <div class="abjadsum">= {{ abjadValue.sum }}</div>
-        </div>
-      </div>
-      <div class="card"><table>
-        <tr><th>{{ lang==='ar'?'حرف':'Letter' }}</th><th>{{ lang==='ar'?'قيمة':'Value' }}</th></tr>
-        <tr v-for="r in V1.abjadTable" :key="r.l"><td class="ar">{{ r.l }}</td><td>{{ r.v }}</td></tr>
-      </table></div>
+      <abjad-lab></abjad-lab>
     </section>
 
     <!-- NUMBER 19 -->
@@ -2579,34 +2626,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
     <section v-if="view==='symmetry'">
       <h1>{{ lang==='ar'?'توازن الأزواج':'Word Pairs & Balance' }}</h1>
       <explain-box></explain-box>
-      <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-blocks" data-stage="symmetry" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
-      <div class="card glfb"><div class="chart" id="antChart"></div></div>
-      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> <span v-html="rich(plain.msg)"></span></div>
-      <div class="row">
-        <div class="col card"><h3>{{ lang==='ar'?'الأعداد المتداولة':'As widely cited' }}</h3>
-          <p class="sub" style="font-size:.85rem;margin-top:0">{{ lang==='ar'?'ننقل هذه الأعداد كما تتداولها الكتب والمواقع، لا كما أظهرها عدُّنا.':'These are the counts as circulated in books and websites, not the result of our own count.' }}</p>
-          <table>
-            <tr><th>{{ lang==='ar'?'الزوج':'Pair' }}</th><th>{{ lang==='ar'?'العدد المتداول':'Cited count' }}</th></tr>
-            <tr v-for="(p,i) in V1.wordSymmetries" :key="i">
-              <td><span class="ar">{{ p.ar1 }}</span> <small v-if="lang!=='ar'">{{ p.en1 }}</small> / <span class="ar">{{ p.ar2 }}</span> <small v-if="lang!=='ar'">{{ p.en2 }}</small></td>
-              <td>{{ p.c1 }} = {{ p.c2 }}</td>
-            </tr>
-          </table>
-        </div>
-        <div class="col card"><h3>{{ lang==='ar'?'العدّ الفعلي':'What we actually find' }}</h3>
-          <p class="sub" style="font-size:.85rem;margin-top:0">{{ lang==='ar'?'عدٌّ للرسم المطابق لكل كلمة، فتفوته كلماتٌ يكتبها المصحف برسمٍ مختلف، ولهذا يظهر هنا عدد الملائكة والشياطين صفرًا؛ أما الرسم أعلاه فيعدّ كل صيغ الكلمة.':'A count of the exact spelling of each word. It misses words the mushaf writes differently, which is why angels and devils show 0 here; the figure above counts every form of each word.' }}</p>
-          <table>
-            <tr><th>{{ lang==='ar'?'الزوج':'Pair' }}</th><th>{{ lang==='ar'?'المزعوم':'Claimed' }}</th><th>{{ lang==='ar'?'الأول':'First' }}</th><th>{{ lang==='ar'?'الثاني':'Second' }}</th></tr>
-            <tr v-for="(p,i) in V1.antonymPairs" :key="'a'+i">
-              <td>{{ lang==='ar'?p.label_ar:p.label_en }}</td><td>{{ p.claimed }}</td><td>{{ p.found_a }}</td><td>{{ p.found_b }}</td>
-            </tr>
-          </table>
-        </div>
-      </div>
-      <div class="kpis">
-        <div class="kpi"><div class="n">{{ f(DS.wawCount) }}</div><div class="l">{{ lang==='ar'?'حرف العطف «و»':'Conjunction waw' }}</div></div>
-      </div>
-      <p class="sub">{{ lang==='ar'?'حرف الواو من أكثر الحروف وروداً في القرآن، وهو الذي يصل كثيراً من هذه الأزواج المتقابلة في الآيات نفسها.':'The conjunction waw is among the most frequent words in the Quran, and it is what links many of these opposing pairs inside the same verses.' }}</p>
+      <balance-lab></balance-lab>
     </section>
 
     <!-- NLP EXPLORER -->
@@ -3191,19 +3211,19 @@ const PLAIN = {
       'يلاحظ بعض القرّاء أن كلماتٍ بعينها تتوافق مواضعها على صفحات المصحف المطبوع. وهنا تقلّب صفحات مصحف المدينة ذي الصفحات الـ٦٠٤ وتُضيء كلمةً لترى أين تقع.'],
     how:['Pick a word on the side, and every place it comes on the page lights up.', 'اختر كلمةً من الجانب، فيضيء كل موضعٍ لها في الصفحة.']},
   symmetry:{
-    what:['It is often said that opposite words come the same number of times in the Quran, like «angels» and «devils», or «man» and «woman». Here we count them ourselves.',
-      'يُقال كثيرًا إن الكلمات المتقابلة وردت في القرآن بالعدد نفسه، مثل «الملائكة» و«الشياطين»، و«الرجل» و«المرأة». وهنا نعدّها بأنفسنا.'],
-    how:['Each dot is one time a word comes, counted in all its forms (as in the Claim Auditor). The dashed box holds the number people usually quote: dots that fill it exactly mean the claim is right; dots that spill out, or leave it half empty, mean the real count is different.',
-      'كل نقطةٍ موضعٌ وردت فيه الكلمة، معدودةً بجميع صيغها (كما في مدقّق المزاعم). والإطار المتقطّع يحيط بالعدد الذي يُتداول عادةً: إن ملأته النقاط تمامًا صحّ الزعم، وإن فاضت عنه أو تركت فيه فراغًا فالعدد الحقيقي مختلف.'],
-    tip:['{P} a dot to see its verse', '{p} نقطةٍ لترى آيتها'],
-    msg:['Some pairs are equal, like angels and devils (88 each) and Adam and Jesus (25 each); others are not, like Paradise and Hell. The balance is real in places, but not everywhere people say.',
-      'بعض الأزواج متساوية، مثل الملائكة والشياطين (٨٨ لكلٍّ منهما) وآدم وعيسى (٢٥ لكلٍّ منهما)، وبعضها غير متساوٍ، مثل الجنة والنار. فالتوازن حقيقيٌّ في مواضع، لكن ليس في كل ما يُقال.']},
+    what:['Pairs of opposite words that come the same number of times in the Quran, like «angels» and «devils», or «man» and «woman», each counted by the rule its author stated.',
+      'أزواجٌ من الكلمات المتقابلة ترد في القرآن بالعدد نفسه، مثل «الملائكة» و«الشياطين»، و«الرجل» و«المرأة»، كلٌّ منها بالقاعدة التي ذكرها صاحبها.'],
+    how:['Pick a pair. Every time each word comes, a dot drops into its pan, and the beam settles level when the two agree. Switch to «Every form» to see how much the rule matters. Point at a dot to read its verse.',
+      'اختر زوجًا. كلما وردت الكلمة سقطت نقطةٌ في كفّتها، ويستوي الميزان حين يتساوى العددان. انتقل إلى «جميع الصيغ» لترى أثر القاعدة. وأشر إلى نقطةٍ لتقرأ آيتها.'],
+    msg:['Each count is made from the text in your browser, under the rule named on its card, with the name of who stated it.',
+      'كل عدٍّ هنا يُحسب من النص في متصفحك، بالقاعدة المذكورة في بطاقته، مع اسم من قال بها.']},
   abjad:{
-    what:['Abjad (حساب الجُمَّل) gives every Arabic letter a number: ا = 1, ب = 2, ج = 3, and so on. Type a word and we add up its letters.',
-      'حساب الجُمَّل يعطي كل حرفٍ عربي رقمًا: ا = ١، ب = ٢، ج = ٣، وهكذا. اكتب كلمةً فنجمع قيم حروفها.'],
-    how:['The small boxes show each letter\'s value; the big number is the total.', 'المربعات الصغيرة قيمة كل حرف، والرقم الكبير مجموعها.'],
-    msg:['Abjad is an old way of writing numbers with letters, used for dates and in poetry. A word\'s total can be interesting, but on its own it proves nothing.',
-      'حساب الجُمَّل طريقةٌ قديمة لكتابة الأرقام بالحروف، استُعملت في التأريخ والشعر. ومجموع الكلمة قد يكون لطيفًا للتأمل، لكنه وحده لا يُثبت شيئًا.']},
+    what:['Abjad (حساب الجُمَّل) gives every Arabic letter a number: ا = 1, ب = 2, ج = 3, and on to غ = 1,000. Type a word and its letters are added up.',
+      'حساب الجُمَّل يعطي كل حرفٍ عربي رقمًا: ا = ١، ب = ٢، ج = ٣، حتى غ = ١٠٠٠. اكتب كلمةً فتُجمع قيم حروفها.'],
+    how:['Each tile is a letter, its bar drawn to scale; the total counts up beside them. Two rules change the sum: the Eastern or Maghribi order, and whether «ة» counts as ه or ت. The Quran words with the same total are listed beside the chart.',
+      'كل مربعٍ حرف، وعموده مرسومٌ بمقياس قيمته، والمجموع يُعدّ بجانبها. وقاعدتان تغيّران المجموع: الترتيب المشرقي أو المغربي، وعدّ «ة» هاءً أو تاءً. وتُعرض كلمات القرآن التي لها المجموع نفسه.'],
+    msg:['Abjad is an old way of writing numbers with letters. Poets and builders used it to date events: a line or an inscription whose letters add up to the year.',
+      'حساب الجُمَّل طريقةٌ قديمة لكتابة الأرقام بالحروف، استعملها الشعراء والبنّاؤون في التأريخ: بيتٌ أو نقشٌ تجتمع حروفه على السنة.']},
   n19:{
     what:['The number 19 is mentioned in the Quran («Over it are nineteen», 74:30), and it turns up in how the Quran is built. These are the best-known examples, counted from the text.',
       'ورد الرقم ١٩ في القرآن ﴿عَلَيْهَا تِسْعَةَ عَشَرَ﴾ (المدثر: ٣٠)، ويظهر في بناء القرآن. وهذه أشهر الأمثلة، محسوبةً من النص.'],
@@ -3295,7 +3315,7 @@ const jix = () => JIX || (JIX = JEV && window.QURAN_WORDS ? JEV.makeIndex(window
 // so a phone never waits on a blank page for all of it.
 const LAZY = { verses:['corpus.js','translation_en.js'], words:['words.js','lemma-variants.js'], plotly:['https://cdn.plot.ly/plotly-2.27.0.min.js'],
   disc:['discover.js','discoveries.js'], hviz:['content/quran_history_viz.js'] };
-const NEEDS = { structural:['words','verses','hviz'], n19:['words','verses'], search:['words','verses'], auditor:['words'], history:['verses','words','hviz'], reader:['verses'], home:['words'],
+const NEEDS = { symmetry:['words','verses'], abjad:['words'], structural:['words','verses','hviz'], n19:['words','verses'], search:['words','verses'], auditor:['words'], history:['verses','words','hviz'], reader:['verses'], home:['words'],
   discover:['disc'], 'd-endings':['disc','verses'], 'd-rings':['disc','verses','words'], 'd-rhyme':['disc'], 'd-stories':['disc'], 'd-themes':['disc'],
   'd-companions':['disc'], 'd-letters':['disc'], 'd-repeats':['disc','verses','words'], 'd-chrono':['disc'] };
 const lazyP = {};
@@ -3312,7 +3332,7 @@ const TLAB = [['In plain words','بكلماتٍ بسيطة'], ['What it does her
 const TERMS = { overview:['lemma','root','hapax','normalization'], word:['lemma','zipf'], letters:['normalization'], mecca:['ttest','effect'],
   stats:['ttest','pvalue','ci','effect','ols'], classifier:['logreg','tfidf','cv','baseline','auc','confusion'], cluster:['pca','kmeans','zscore','cosine','tfidf'],
   coincidence:['zipf','lookelsewhere','montecarlo','percentile'], hifz:['lp','shadow'], emotion:['lexicon'], search:['lemma','root','normalization'],
-  auditor:['lemma','lookelsewhere'], symmetry:['lemma','lookelsewhere'], nlp:['ngram','normalization'], n19:['lemma'], structural:['lemma'],
+  auditor:['lemma','lookelsewhere'], symmetry:['lemma','root'], nlp:['ngram','normalization'], n19:['lemma'], structural:['lemma'],
   discover:['prereg','shuffle','pvalue','multiple','lookelsewhere'], 'd-endings':['logreg','cv','baseline','shuffle','multiple','tfidf'], 'd-rings':['cosine','shuffle','multiple'],
   'd-rhyme':['cosine','shuffle','pvalue'], 'd-stories':['cosine','shuffle'], 'd-themes':['nmf','tfidf','lemma'], 'd-companions':['pmi','multiple','pvalue'],
   'd-letters':['percentile','zscore','shuffle','cosine'], 'd-repeats':['lemma','normalization'], 'd-chrono':['spearman','shuffle','pvalue'] };
@@ -4309,7 +4329,7 @@ const COUNT_LABS = [
     cats:[ {k:'plain', test:()=>true, lab:['«Jahannam», a name with one form','«جهنم»، اسمٌ له صيغةٌ واحدة'], ex:'جهنم · لجهنم · بجهنم'} ],
     presets:[ {id:'rule', on:['plain'], lab:['The claim\'s rule','قاعدة المزعم'], who:['Every mention of the name: it has only one form.','كل ورودٍ للاسم، فليس له إلا صيغةٌ واحدة.']} ],
     case:{ for:['«Jahannam» comes 77 times by any rule.','ترد «جهنم» ٧٧ مرة بأي قاعدة.'] },
-    src:[], vids:[] },
+    src:[ {t:['Abdurrazzaq Nawfal, al-I\'jāz al-\'Adadī lil-Qur\'ān al-Karīm: paradise and hell, 77 each.','عبد الرزاق نوفل، «الإعجاز العددي للقرآن الكريم»: الجنة وجهنم، ٧٧ لكلٍّ منهما.']} ], vids:[] },
   { id:'dunya-115', claimed:115, lemma:'دنيا', root:'دنو', letters:'دنيا', word:['this world','الدنيا'], pair:'akhira-115',
     cats:[ {k:'plain', test:()=>true, lab:['«al-dunyā», always in this one form','«الدنيا»، بصيغةٍ واحدةٍ دائمًا'], ex:'الدنيا'} ],
     presets:[ {id:'rule', on:['plain'], lab:['The claim\'s rule','قاعدة المزعم'], who:['Every mention: the word appears in one form only.','كل ورود، فالكلمة لا ترد إلا بصيغةٍ واحدة.']} ],
@@ -4322,6 +4342,18 @@ const COUNT_LABS = [
     presets:[ {id:'rule', on:['plain'], lab:['The claim\'s rule','قاعدة المزعم'], who:['Every mention of «al-ākhira».','كل ورودٍ لـ«الآخرة».']} ],
     case:{ for:['115, the same as «al-dunyā».','١١٥، كعدد «الدنيا».'] },
     src:[], vids:[] },
+  { id:'benefit-50', claimed:50, lemma:'', root:'نفع', letters:'نفع', word:['benefit','نفع'], pair:'corruption-50',
+    match:(n,s,lem,root)=>root==='نفع',
+    cats:[ {k:'plain', test:()=>true, lab:['Every word from the root ن ف ع','كل كلمةٍ من الجذر ن ف ع'], ex:'نفع · ينفع · منافع · نافع'} ],
+    presets:[ {id:'rule', on:['plain'], lab:['The claim\'s rule','قاعدة المزعم'], who:['Every word built on the root ن ف ع, benefit: the verbs, «manāfi\'», «nāfi\'» and the rest.','كل كلمةٍ مبنيةٍ على الجذر ن ف ع: الأفعال و«منافع» و«نافع» وغيرها.']} ],
+    case:{ for:['Words from the root of «benefit» come exactly 50 times, the same as the root of «corruption».','ترد كلمات جذر «النفع» ٥٠ مرة تمامًا، كعدد كلمات جذر «الفساد».'] },
+    src:[ {t:['Abdurrazzaq Nawfal, al-I\'jāz al-\'Adadī lil-Qur\'ān al-Karīm: benefit and corruption, 50 each.','عبد الرزاق نوفل، «الإعجاز العددي للقرآن الكريم»: النفع والفساد، ٥٠ لكلٍّ منهما.']} ], vids:[] },
+  { id:'corruption-50', claimed:50, lemma:'', root:'فسد', letters:'فسد', word:['corruption','فساد'], pair:'benefit-50',
+    match:(n,s,lem,root)=>root==='فسد',
+    cats:[ {k:'plain', test:()=>true, lab:['Every word from the root ف س د','كل كلمةٍ من الجذر ف س د'], ex:'فساد · يفسدون · المفسدين'} ],
+    presets:[ {id:'rule', on:['plain'], lab:['The claim\'s rule','قاعدة المزعم'], who:['Every word built on the root ف س د, corruption: «fasād», the verbs and «al-mufsidīn».','كل كلمةٍ مبنيةٍ على الجذر ف س د: «فساد» والأفعال و«المفسدين».']} ],
+    case:{ for:['Words from the root of «corruption» come exactly 50 times, the same as the root of «benefit».','ترد كلمات جذر «الفساد» ٥٠ مرة تمامًا، كعدد كلمات جذر «النفع».'] },
+    src:[ {t:['Abdurrazzaq Nawfal, al-I\'jāz al-\'Adadī lil-Qur\'ān al-Karīm: benefit and corruption, 50 each.','عبد الرزاق نوفل، «الإعجاز العددي للقرآن الكريم»: النفع والفساد، ٥٠ لكلٍّ منهما.']} ], vids:[] },
   { id:'jesus-24', claimed:25, lemma:'عيسي', root:'', letters:'عيسي', word:['Jesus','عيسى'], pair:'adam-24',
     cats:[ {k:'plain', test:()=>true, lab:['«ʿĪsā»','«عيسى»'], ex:'عيسى · وعيسى · بعيسى'} ],
     presets:[ {id:'rule', on:['plain'], lab:['The claim\'s rule','قاعدة المزعم'], who:['Every mention of the name.','كل ورودٍ للاسم.']} ],
@@ -4341,7 +4373,7 @@ function labItems(L, W){
   const out=[], ordered=L.cats.filter(c=>c.test && c.k!=='plain'), kin=L.cats.some(c=>c.k==='kin'), look=L.cats.some(c=>c.k==='look');
   for(let i=0;i<W.norm.length;i++){ const n=W.norm[i], sf=W.surface ? W.surface[i] : n, s=sf.replace(/ّ/g,'');
     const base={i, k:W.key[i], n, surf:sf};
-    if(L.match ? L.match(n, s, W.lemma[i]) : W.lemma[i]===L.lemma){ const c=ordered.find(c=>c.test(n, s)); out.push(Object.assign(base, {cat:c ? c.k : 'plain'})); }
+    if(L.match ? L.match(n, s, W.lemma[i], W.root[i]) : W.lemma[i]===L.lemma){ const c=ordered.find(c=>c.test(n, s)); out.push(Object.assign(base, {cat:c ? c.k : 'plain'})); }
     else if(L.letters && n.includes(L.letters)){ const same=W.root[i]===L.root; if(same ? kin : look) out.push(Object.assign(base, {cat:same ? 'kin' : 'look'})); } }
   LAB_ITEMS.set(L.id, out); return out; }
 // how many a rule counts: 'singular' = the plain form only; 'every' = every form of the word; 'letters' = a text search
@@ -4658,6 +4690,128 @@ const StructLab = { mixins:[FitW],
     dx(n){ const x=(n-.5)*this.dw; return this.ar ? this.cw-x : x; },
     px(v){ const x=4+(v-.5)*this.pw; return this.ar ? this.cw-x : x; },
     pDrag(e){ const r=e.currentTarget.getBoundingClientRect(), x=(e.clientX-r.left)/r.width*this.cw, v=Math.round((this.ar ? this.cw-x : x)-4)/this.pw+.5; this.cur=Math.min(286,Math.max(1,Math.round(v))); } } };
+// Word Pairs: a balance. Each occurrence of the two words drops into its pan as a dot; the beam tips toward the
+// heavier side and settles level when the counts agree. Each side is counted by its claim's own rule (the same
+// entries as Count it yourself), or by every form of the word, and names who stated the rule.
+const BalanceLab = {
+  data(){ return {pi:0, mode:'rule', hov:null}; },
+  template:`<figure class="dfig bal">
+    <div class="bal-pairs" role="group" :aria-label="ar ? 'اختر الزوج' : 'Pick a pair'">
+      <button v-for="(p,i) in pairs" :key="p[0].id" type="button" :class="{on:pi===i}" :aria-pressed="String(pi===i)" @click="pi=i; hov=null">
+        <b lang="ar">{{ p[0].word[1] }} · {{ p[1].word[1] }}</b><span>{{ ar ? D(cnt(p[0])) + ' = ' + D(cnt(p[1])) : cnt(p[0]) + ' = ' + cnt(p[1]) }}</span></button>
+    </div>
+    <div class="bal-mode" role="group" :aria-label="ar ? 'طريقة العدّ' : 'How to count'">
+      <button type="button" :class="{on:mode==='rule'}" @click="mode='rule'">{{ ar ? 'قاعدة كل مزعم' : 'Each claim\\u2019s rule' }}</button>
+      <button type="button" :class="{on:mode==='every'}" @click="mode='every'">{{ ar ? 'جميع الصيغ' : 'Every form' }}</button>
+    </div>
+    <svg viewBox="0 0 640 370" class="bal-svg" role="img" :aria-label="T(L.word)+' '+nL+', '+T(R.word)+' '+nR" @pointerleave="hov=null">
+      <line class="bal-post" x1="320" y1="70" x2="320" y2="352"/><path class="bal-foot" d="M262,356 L378,356 L352,340 L288,340 Z"/>
+      <g class="bal-beam" :style="{transform:'rotate('+tilt+'deg)'}"><rect x="86" y="64" width="468" height="12" rx="6"/></g>
+      <circle cx="320" cy="70" r="11" class="bal-pin"/>
+      <g v-for="(side,si) in sides" :key="si+'-'+pi+mode" class="bal-pan" :class="si ? 'r' : 'l'" :style="{transform:'translate('+side.x.toFixed(1)+'px,'+side.y.toFixed(1)+'px)'}">
+        <line x1="0" y1="0" x2="-104" y2="196"/><line x1="0" y1="0" x2="104" y2="196"/>
+        <circle v-for="(d,j) in side.dots" :key="j" :cx="d[0]" :cy="d[1]" :r="side.n>120 ? 3.8 : 4.6" class="bal-dot" :class="{on: hov && hov.si===si && hov.j===j}"
+          :style="{animationDelay: Math.min(j*9, 1100)+'ms'}" @pointerenter="hov={si, j}" @click="open(si, j, $event)"/>
+        <path d="M-112,196 Q0,236 112,196 Z" class="bal-bowl"/>
+        <text x="0" y="252" text-anchor="middle" class="bal-n">{{ D(side.n) }}</text>
+      </g>
+      <text x="320" y="30" text-anchor="middle" class="bal-eq" :class="{lev: nL===nR}">{{ nL===nR ? (ar ? 'متوازنتان: ' + D(nL) + ' = ' + D(nR) : 'Level: ' + nL + ' = ' + nR) : (ar ? D(nL) + ' مقابل ' + D(nR) : nL + ' against ' + nR) }}</text>
+    </svg>
+    <p class="bal-read" aria-live="polite"><template v-if="hovItem"><b>{{ D(hovItem.k) }}</b> {{ $root.surahName(+hovItem.k.split(':')[0]) }} · <bdi lang="ar" dir="rtl" v-html="hovVerse"></bdi></template>
+      <template v-else>{{ ar ? 'كل نقطةٍ موضعٌ وردت فيه الكلمة. أشر إلى نقطةٍ لتقرأ آيتها، وانقرها لتفتحها.' : 'Each dot is one place the word comes. Point at a dot to read its verse; tap it to open the verse.' }}</template></p>
+    <div class="bal-cards">
+      <div v-for="(X,si) in [L,R]" :key="X.id" class="bal-card" :class="si ? 'r' : 'l'">
+        <div class="bal-ch"><b lang="ar">{{ X.word[1] }}</b><span>{{ ar ? '' : X.word[0] }}</span><em>{{ D(si ? nR : nL) }}</em></div>
+        <span class="k">{{ ar ? 'القاعدة' : 'The rule' }}</span>
+        <p>{{ mode==='every' ? (ar ? 'كل صيغ الكلمة: المفرد والمثنى والجمع، مع ما يتصل بها.' : 'Every form of the word: singular, dual and plural, with whatever is joined on.') : T(rule(X).who || ['','']) }}</p>
+        <template v-if="mode==='rule' && (X.src||[]).length"><span class="k">{{ ar ? 'من قال بها' : 'Stated by' }}</span>
+          <ul><li v-for="(s,i) in X.src" :key="i">{{ T(s.t) }}</li></ul></template>
+        <button type="button" class="cclink" @click="lab(X.id)">{{ ar ? 'عُدّها بنفسك ‹' : 'Count it yourself ›' }}</button>
+      </div>
+    </div>
+  </figure>`,
+  mounted(){ this.$root.load('words'); this.$root.load('verses'); },
+  computed:{ ar(){ return this.$root.lang==='ar'; }, W(){ return this.$root.W; },
+    pairs(){ const out=[], seen=new Set(); COUNT_LABS.forEach(A=>{ if(!A.pair || seen.has(A.id)) return; const B=COUNT_LABS.find(x=>x.id===A.pair); if(!B) return; seen.add(A.id); seen.add(B.id); out.push([A,B]); });
+      return out.filter(p=>!this.W || !this.W.norm || this.cnt(p[0])===this.cnt(p[1])); },
+    L(){ return (this.pairs[this.pi]||this.pairs[0]||[{word:['','']},{word:['','']}])[0]; }, R(){ return (this.pairs[this.pi]||this.pairs[0]||[{word:['','']},{word:['','']}])[1]; },
+    itL(){ return this.items(this.L); }, itR(){ return this.items(this.R); }, nL(){ return this.itL.length; }, nR(){ return this.itR.length; },
+    tilt(){ const a=this.nL, b=this.nR, m=Math.max(a,b,1); return Math.max(-16, Math.min(16, (b-a)/m*40)); },
+    sides(){ const t=this.tilt*Math.PI/180, c=Math.cos(t), s=Math.sin(t);
+      return [[this.itL, -1], [this.itR, 1]].map(([it, k])=>({ n:it.length, x:320+k*230*c, y:70+k*230*s, dots:this.heap(it.length) })); },
+    hovItem(){ const h=this.hov; if(!h) return null; return (h.si ? this.itR : this.itL)[h.j] || null; },
+    hovVerse(){ const it=this.hovItem; if(!it) return ''; const t=this.$root.V[it.k]||'', sp=verseSpan(it.k); let j=sp ? sp[0]-1 : -1;
+      return t.split(' ').map(w=>{ if(!/[ء-يٱ]/.test(w)) return w; j++; return j===it.i ? '<mark>'+w+'</mark>' : w; }).join(' '); } },
+  methods:{ T(p){ const s=Array.isArray(p) ? (this.ar ? p[1] : p[0]) : p; return this.ar ? this.$root.D(s) : s; }, D(x){ return this.$root.D(x); },
+    rule(X){ return X.presets.find(p=>/claim/.test(p.lab[0])) || X.presets[0] || {}; },
+    items(X){ const W=this.W; if(!W || !W.norm || !X.presets) return []; const it=labItems(X, W);
+      if(this.mode==='every') return it.filter(x=>x.cat!=='kin' && x.cat!=='look');
+      const p=this.rule(X); return p.letters ? it.filter(x=>x.n.includes(X.letters)) : it.filter(x=>(p.on||[]).includes(x.cat)); },
+    cnt(X){ const W=this.W; if(!W || !W.norm) return 0; const it=labItems(X, W), p=this.rule(X); return p.letters ? it.filter(x=>x.n.includes(X.letters)).length : it.filter(x=>(p.on||[]).includes(x.cat)).length; },
+    // a heap: 15 dots on the bottom row, one fewer on each row above, so the pile narrows inside the strings
+    heap(n){ let c=15; while(c*(c+1)/2<n) c++; const g=Math.min(12, 214/c), out=[]; let r=0, left=n;
+      while(left>0){ const k=Math.min(Math.max(1, c-r), left); for(let i=0;i<k;i++) out.push([(i-(k-1)/2)*g, 188-r*g*.96]); left-=k; r++; } return out; },
+    open(si, j, ev){ const it=(si ? this.itR : this.itL)[j]; if(it) this.$root.dOpen(it.k, [it.k], ev); },
+    lab(id){ this.$root.go('auditor'); setTimeout(()=>this.$root.openLab(id), 500); } } };
+// Abjad: every letter has a number. The word's letters drop in as tiles with their values drawn to scale, the
+// total counts up, and the Quran's own words that share the total are listed. Two rules change the sum: the order
+// (Eastern أبجد هوز حطي كلمن سعفص قرشت ثخذ ضظغ, or Maghribi, which moves six letters), and how «ة» counts.
+const ABJ_EAST = {ا:1,ب:2,ج:3,د:4,ه:5,و:6,ز:7,ح:8,ط:9,ي:10,ك:20,ل:30,م:40,ن:50,س:60,ع:70,ف:80,ص:90,ق:100,ر:200,ش:300,ت:400,ث:500,خ:600,ذ:700,ض:800,ظ:900,غ:1000};
+const ABJ_WEST = Object.assign({}, ABJ_EAST, {ص:60,ض:90,س:300,ظ:800,غ:900,ش:1000});
+function abjNorm(s, taa){ return String(s||'').replace(TASHKEEL,'').replace(/[ـ﻿]/g,'').replace(/[أإآٱء]/g,'ا').replace(/ؤ/g,'و').replace(/[ئى]/g,'ي').replace(/ة/g, taa==='t' ? 'ت' : 'ه'); }
+function abjSum(s, map, taa){ let n=0; for(const ch of abjNorm(s, taa)) if(map[ch]) n+=map[ch]; return n; }
+const AbjadLab = {
+  data(){ return {q:'بسم الله الرحمن الرحيم', order:'east', taa:'h', shown:0}; },
+  template:`<figure class="dfig abj">
+    <div class="abj-in"><input id="abj-q" class="q" v-model="q" dir="rtl" lang="ar" :placeholder="ar ? 'اكتب كلمة' : 'Type an Arabic word'" :aria-label="ar ? 'الكلمة' : 'Word'">
+      <div class="abj-ex"><button v-for="e in examples" :key="e.w" type="button" :class="{on: q===e.w}" @click="q=e.w"><b lang="ar">{{ e.w }}</b><span>{{ D(sumOf(e.w)) }}</span></button></div></div>
+    <div class="abj-rules">
+      <div class="seg2" role="group" :aria-label="ar ? 'ترتيب الحروف' : 'Letter order'"><span>{{ ar ? 'الترتيب' : 'Order' }}</span>
+        <button type="button" :class="{on:order==='east'}" @click="order='east'">{{ ar ? 'المشرقي' : 'Eastern' }}</button><button type="button" :class="{on:order==='west'}" @click="order='west'">{{ ar ? 'المغربي' : 'Maghribi' }}</button></div>
+      <div class="seg2" role="group" :aria-label="ar ? 'التاء المربوطة' : 'The letter ة'"><span>«ة»</span>
+        <button type="button" :class="{on:taa==='h'}" @click="taa='h'">{{ ar ? 'هاءً = ٥' : 'as ه = 5' }}</button><button type="button" :class="{on:taa==='t'}" @click="taa='t'">{{ ar ? 'تاءً = ٤٠٠' : 'as ت = 400' }}</button></div>
+    </div>
+    <div class="abj-stage">
+      <div class="abj-tiles" dir="rtl">
+        <span v-for="(p,i) in parts" :key="q+order+taa+i" class="abj-t" :class="'m'+p.m" :style="{animationDelay: Math.min(i*70, 1400)+'ms'}">
+          <i class="bar" :style="{height: (14+Math.sqrt(p.v/1000)*86)+'px'}"></i><b lang="ar">{{ p.l }}</b><small>{{ D(p.v) }}</small></span>
+      </div>
+      <div class="abj-sum"><span>=</span><b>{{ D(shown) }}</b></div>
+    </div>
+    <div class="abj-grid">
+      <div class="abj-panel"><h4>{{ ar ? 'الحروف بقيمها' : 'The letters and their values' }} <em>{{ ar ? 'انقر حرفًا لتضيفه' : 'tap a letter to add it' }}</em></h4>
+        <div class="abj-keys" dir="rtl"><button v-for="k in keys" :key="k[0]" type="button" :class="['m'+mag(k[1]), {moved: order==='west' && moved.includes(k[0])}]" @click="q+=k[0]"><b lang="ar">{{ k[0] }}</b><small>{{ D(k[1]) }}</small></button></div>
+        <p class="abj-cap">{{ order==='east' ? (ar ? 'أبجد هوز حطي كلمن سعفص قرشت ثخذ ضظغ: ترتيب أهل المشرق.' : 'أبجد هوز حطي كلمن سعفص قرشت ثخذ ضظغ: the order used in the Arab east.') : (ar ? 'أبجد هوز حطي كلمن صعفض قرست ثخذ ظغش: ترتيب أهل المغرب. تتغير فيه قيم ستة أحرف، وهي المعلَّمة.' : 'أبجد هوز حطي كلمن صعفض قرست ثخذ ظغش: the Maghribi order. Six letters change value; they are marked.') }}</p></div>
+      <div class="abj-panel"><h4>{{ ar ? 'كلماتٌ في القرآن لها القيمة نفسها' : 'Quran words with the same total' }} <em>{{ D(same.length) }}</em></h4>
+        <div class="abj-same" v-if="same.length"><button v-for="w in same.slice(0,24)" :key="w.l" type="button" @click="toSearch(w.l)" :title="w.s"><b lang="ar">{{ w.l }}</b><small>{{ ar ? D(w.n)+' مرة' : w.n+'×' }}</small></button></div>
+        <p class="abj-cap" v-else>{{ $root.W && $root.W.norm ? (ar ? 'لا كلمة في القرآن بهذا المجموع.' : 'No word in the Quran has this total.') : (ar ? 'جارٍ تحميل الكلمات…' : 'Loading the words…') }}</p>
+        <svg viewBox="0 0 320 90" class="abj-hist" role="img" :aria-label="ar ? 'توزيع قيم كلمات القرآن' : 'How the totals of Quran words spread'">
+          <rect v-for="(b,i) in hist.bins" :key="i" :x="4+i*(312/hist.bins.length)" :y="70-b/hist.max*62" :width="312/hist.bins.length-1" :height="b/hist.max*62" :class="{here: i===hist.at}"/>
+          <text x="4" y="86" class="t">1</text><text x="160" y="86" class="t" text-anchor="middle">100</text><text x="316" y="86" class="t" text-anchor="end">10,000</text></svg>
+        <p class="abj-cap">{{ ar ? 'توزيع مجاميع كل كلمات القرآن المختلفة، والعمود المضيء موضع كلمتك.' : 'The totals of every distinct Quran word, on a log scale; the lit bar is where your word falls.' }}</p></div>
+    </div>
+  </figure>`,
+  mounted(){ this.$root.load('words'); this.count(); },
+  beforeUnmount(){ cancelAnimationFrame(this._raf); },
+  watch:{ sum(){ this.count(); } },
+  computed:{ ar(){ return this.$root.lang==='ar'; }, map(){ return this.order==='west' ? ABJ_WEST : ABJ_EAST; },
+    moved(){ return ['س','ص','ش','ض','ظ','غ']; },
+    parts(){ const m=this.map; return [...abjNorm(this.q, this.taa)].filter(c=>m[c]).map(c=>({l:c, v:m[c], m:this.mag(m[c])})); },
+    sum(){ return this.parts.reduce((a,p)=>a+p.v, 0); },
+    keys(){ return Object.entries(this.map).sort((a,b)=>a[1]-b[1]); },
+    examples(){ return [{w:'بسم الله الرحمن الرحيم'},{w:'الله'},{w:'محمد'},{w:'حديد'},{w:'قرآن'}]; },
+    // every distinct word form the corpus groups under one lemma, with its total under the current rules
+    lemmaVals(){ const W=this.$root.W; if(!W || !W.lemma) return null; const seen=new Map(), m=this.map, taa=this.taa;
+      for(let i=0;i<W.lemma.length;i++){ const l=W.lemma[i]; if(!l) continue; const e=seen.get(l); if(e){ e.n++; continue; } seen.set(l, {l, s:W.surface[i], n:1, v:abjSum(l, m, taa)}); }
+      return [...seen.values()]; },
+    same(){ const L=this.lemmaVals; if(!L || !this.sum) return []; return L.filter(x=>x.v===this.sum).sort((a,b)=>b.n-a.n); },
+    hist(){ const L=this.lemmaVals||[], nb=32, bins=Array(nb).fill(0), bi=v=>Math.max(0, Math.min(nb-1, Math.floor(Math.log10(Math.max(1,v))/4*nb)));
+      L.forEach(x=>{ if(x.v) bins[bi(x.v)]++; }); return {bins, max:Math.max(1,...bins), at: this.sum ? bi(this.sum) : -1}; } },
+  methods:{ D(x){ return this.$root.D(x); }, mag(v){ return v<10 ? 0 : v<100 ? 1 : v<1000 ? 2 : 3; }, sumOf(w){ return abjSum(w, this.map, this.taa); },
+    toSearch(l){ const R=this.$root; R.q=l; R.mode='lemma'; R.go('search'); R.$nextTick(()=>R.runSearch()); },
+    count(){ cancelAnimationFrame(this._raf); const to=this.sum, from=0, t0=performance.now(), d=900;
+      if(matchMedia('(prefers-reduced-motion: reduce)').matches){ this.shown=to; return; }
+      const step=n=>{ const p=Math.min(1,(n-t0)/d), e=1-Math.pow(1-p,3); this.shown=Math.round(from+(to-from)*e); if(p<1) this._raf=requestAnimationFrame(step); }; this._raf=requestAnimationFrame(step); } } };
 const QadrLab = {
   data(){ return {basm:false, pre:false, suf:false, hov:-1}; },
   template:`<figure class="dfig qlab">
@@ -6402,7 +6556,7 @@ createApp({
     this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); this.enterView(true); });
   }
 }).component('depth-switch', DepthSwitch).component('term-chips', TermChips).component('explain-box', ExplainBox)
-  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell).component('claim-viz', ClaimViz).component('count-lab', CountLab).component('rule-matrix', RuleMatrix).component('qadr-lab', QadrLab).component('nineteen-lab', NineteenLab).component('struct-lab', StructLab)
+  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell).component('claim-viz', ClaimViz).component('count-lab', CountLab).component('rule-matrix', RuleMatrix).component('qadr-lab', QadrLab).component('nineteen-lab', NineteenLab).component('struct-lab', StructLab).component('balance-lab', BalanceLab).component('abjad-lab', AbjadLab)
   .component('letter-strip', LetterStrip).component('growth-curve', GrowthCurve).component('rhyme-ribbon', RhymeRibbon).mount('#app');
 });
 </script>
