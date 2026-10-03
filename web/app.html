@@ -1212,6 +1212,28 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .sl-jump{margin-inline-start:auto;font:inherit;font-size:.78rem;color:#1a1405;background:var(--gold);border:0;border-radius:999px;padding:6px 14px;cursor:pointer}
   @media (max-width:900px){ .sl-kpis{grid-template-columns:repeat(3,1fr)} .sl-grid2{grid-template-columns:1fr} }
   @media (max-width:480px){ .sl-kpis{grid-template-columns:repeat(2,1fr)} .sl-kpi b{font-size:1.7rem} .sl-verse p,.sl-ar{font-size:1.2rem} }
+  /* Reader */
+  .rdh{margin:0 0 14px;padding:16px 18px;border-radius:18px;background:radial-gradient(120% 90% at 50% 0%,rgba(233,185,95,.08),transparent 60%),rgba(255,255,255,.03);border:1px solid var(--hair)}
+  .rdh-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .rdh-nav{width:40px;height:40px;border-radius:50%;border:1px solid var(--hair);background:rgba(255,255,255,.04);color:var(--gold);font:inherit;font-size:1.3rem;cursor:pointer} .rdh-nav:disabled{opacity:.3;cursor:default}
+  .rdh-name{text-align:center} .rdh-name b{display:block;font-family:var(--ar-display);font-weight:400;font-size:2.4rem;line-height:1.3;color:#fff} .rdh-name span{font-size:.82rem;color:var(--on-dark-2)}
+  .rdh-facts{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:10px 0 12px} .rdh-facts span{font-size:.74rem;padding:3px 10px;border-radius:999px;background:rgba(255,255,255,.05);color:var(--on-dark-2)}
+  .rdh-facts .mc{background:rgba(233,185,95,.2);color:var(--gold)} .rdh-facts .md{background:rgba(88,200,190,.2);color:var(--teal)}
+  .rdh-rib{display:block;width:100%;height:56px} .rdh-rib rect{fill:rgba(255,255,255,.18);cursor:pointer;transition:fill .2s} .rdh-rib rect.hi{fill:rgba(88,200,190,.75)} .rdh-rib rect.cur{fill:var(--gold)} .rdh-rib rect.hv{fill:#fff}
+  .rdh-cap{min-height:1.4em;margin:4px 0 10px;font-size:.76rem;color:var(--on-dark-3);text-align:center}
+  .rdh-kw{display:flex;flex-wrap:wrap;align-items:center;gap:6px;justify-content:center} .rdh-kw .k{font-size:.64rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--emerald);margin-inline-end:4px}
+  .rdh-kw button{display:inline-flex;align-items:baseline;gap:6px;font:inherit;color:#fff;background:rgba(255,255,255,.04);border:1px solid var(--hair);border-radius:999px;padding:3px 12px;cursor:pointer}
+  .rdh-kw b{font-family:var(--ar-display);font-weight:400;font-size:1.1rem} .rdh-kw span{font-size:.68rem;color:var(--gold)} .rdh-kw button.on{background:var(--teal);border-color:var(--teal)} .rdh-kw button.on span{color:#0b1a17}
+  .reader-view .rw.tap{cursor:pointer;border-radius:5px;transition:background .15s} .reader-view .rw.tap:hover{background:rgba(233,185,95,.16)}
+  .reader-view .rw.hi{background:rgba(88,200,190,.35);box-shadow:0 0 0 2px rgba(88,200,190,.35)}
+  .wcard{position:fixed;z-index:85;padding:14px 16px;border-radius:16px;background:rgba(12,20,16,.97);border:1px solid rgba(233,185,95,.4);box-shadow:0 24px 60px -20px rgba(0,0,0,.9);display:grid;gap:8px}
+  .wcard-x{position:absolute;top:6px;inset-inline-end:8px;border:0;background:none;color:var(--on-dark-2);cursor:pointer;font-size:.9rem}
+  .wcard-w{font-family:var(--ar-display);font-size:2rem;color:#fff;text-align:center}
+  .wcard-parts{display:flex;flex-wrap:wrap;justify-content:center;gap:4px}
+  .wcard-parts span{display:flex;flex-direction:column;align-items:center;gap:1px;padding:5px 9px;border-radius:9px;min-width:44px} .wcard-parts b{font-family:var(--ar-display);font-weight:400;font-size:1.2rem;color:#fff} .wcard-parts small{font-size:.62rem;color:var(--on-dark-2);text-align:center;max-width:110px}
+  .wcard-parts .pre{background:rgba(180,156,240,.18)} .wcard-parts .stem{background:rgba(233,185,95,.2)} .wcard-parts .suf{background:rgba(240,160,140,.2)}
+  .wcard dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:0} .wcard dt{font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--on-dark-3)} .wcard dd{margin:0;font-size:1rem;color:#fff}
+  .wcard-acts{display:flex;flex-wrap:wrap;gap:6px} .wcard-acts button{font:inherit;font-size:.74rem;color:var(--gold);background:none;border:1px solid rgba(233,185,95,.4);border-radius:999px;padding:4px 10px;cursor:pointer}
   /* Library atlas */
   .atl{margin:0 0 14px} .atl-h{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 12px} .atl-h h3{margin:0}
   .atl-f{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;color:#1a1405;background:var(--gold);border-radius:999px;padding:3px 6px 3px 12px} .atl-f button{border:0;background:rgba(0,0,0,.15);color:#1a1405;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:.7rem}
@@ -1818,6 +1840,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
 </script>
 <div id="app" class="layout" v-cloak :class="{'dir-rtl': lang==='ar'}" :dir="lang==='ar'?'rtl':'ltr'">
   <float-kbd></float-kbd>
+  <word-card></word-card>
   <header class="topbar">
     <button class="menubtn" type="button" @click="sideOpen=!sideOpen" :aria-expanded="sideOpen?'true':'false'" :aria-label="lang==='ar'?'القائمة':'Menu'">{{ sideOpen?'✕':'☰' }}</button>
     <a class="tbrand" :href="landingHref"><span class="glyph" aria-hidden="true"></span><span class="bname">{{ lang==='ar' ? 'بصائر قرآنية' : 'Quran Insights' }}</span></a>
@@ -2368,6 +2391,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
     <!-- READER -->
     <section v-if="view==='reader'" class="reader-view" :class="{withbar: !!rClaimObj || !!rExt}">
       <h1>{{ lang==='ar' ? 'المصحف' : 'Quran Reader' }}</h1>
+      <reader-head></reader-head>
       <div class="searchbar">
         <select v-model.number="rSurah" @change="rVerse=0" style="padding:10px;border-radius:10px;border:1px solid var(--line);font-size:1rem">
           <option v-for="s in DS.surahMeta" :key="s.n" :value="s.n">{{ s.n }}. {{ lang==='ar'?s.ar:s.en }} ({{ s.verses }})</option>
@@ -2380,7 +2404,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
         <div v-if="!ready.verses" class="stub">{{ lang==='ar'?'جارٍ تحميل نص المصحف…':'Loading the text of the Quran…' }}</div>
         <div v-for="v in readerVerses" :key="v.k" class="vblock" :id="'v-'+v.k.replace(':','-')" :class="{vfocus: v.k===rFocusKey}">
           <div class="verse" v-if="rMarks.has(v.k)" v-html="readerLine(v)"></div>
-          <div class="verse" v-else>{{ v.t }} <span class="vk">{{ v.k }}</span></div>
+          <div class="verse" v-else><span v-for="(w,j) in rTok(v.k, v.t)" :key="j" class="rw" :class="{hi: rHi && w.i>=0 && W.lemma[w.i]===rHi, tap: w.i>=0}" @click="w.i>=0 && openWord(w.i, $event)">{{ w.t+' ' }}</span><span class="vk">{{ v.k }}</span></div>
           <div v-if="showTrans && EN[v.k]" class="verse-en">{{ v.k }} &middot; {{ EN[v.k] }}</div>
         </div>
         <div v-if="showTrans" class="transnote">{{ lang==='ar'
@@ -3327,7 +3351,7 @@ const jix = () => JIX || (JIX = JEV && window.QURAN_WORDS ? JEV.makeIndex(window
 // so a phone never waits on a blank page for all of it.
 const LAZY = { verses:['corpus.js','translation_en.js'], words:['words.js','lemma-variants.js'], plotly:['https://cdn.plot.ly/plotly-2.27.0.min.js'],
   disc:['discover.js','discoveries.js'], hviz:['content/quran_history_viz.js'] };
-const NEEDS = { stats:['words'], classifier:['words'], nlp:['words','verses'], symmetry:['words','verses'], abjad:['words'], structural:['words','verses','hviz'], n19:['words','verses'], search:['words','verses'], auditor:['words'], history:['verses','words','hviz'], reader:['verses'], home:['words'],
+const NEEDS = { reader:['verses','words'], stats:['words'], classifier:['words'], nlp:['words','verses'], symmetry:['words','verses'], abjad:['words'], structural:['words','verses','hviz'], n19:['words','verses'], search:['words','verses'], auditor:['words'], history:['verses','words','hviz'], reader:['verses'], home:['words'],
   discover:['disc'], 'd-endings':['disc','verses'], 'd-rings':['disc','verses','words'], 'd-rhyme':['disc'], 'd-stories':['disc'], 'd-themes':['disc'],
   'd-companions':['disc'], 'd-letters':['disc'], 'd-repeats':['disc','verses','words'], 'd-chrono':['disc'] };
 const lazyP = {};
@@ -4906,6 +4930,7 @@ function nlpIndex(W){
 }
 const NlpLab = { mixins:[FitW],
   data(){ return {center:'رب', small:false, hov:null, pin:null, zh:-1, q:''}; },
+  created(){ if(this.$root.nlpCenter){ this.center=this.$root.nlpCenter; this.$root.nlpCenter=''; } },
   template:`<div class="nlp">
     <div class="nlp-kpis" v-if="ix">
       <div><b>{{ f(W.lemma.length) }}</b><span>{{ ar ? 'كلمة في النص' : 'words in the text' }}</span></div>
@@ -5393,6 +5418,85 @@ const LibAtlas = { mixins:[FitW],
     names(s){ const L=this.rows.filter(r=>r.dots.some(d=>d.s===s)).map(r=>r.name); return L.slice(0,4).join(this.ar ? '، ' : ', ')+(L.length>4 ? (this.ar ? '، …' : ', …') : ''); },
     pickS(n){ this.$root.libSurah = this.$root.libSurah===n ? 0 : n; },
     jump(r){ const el=document.getElementById('lib-'+r.id); if(!el){ if(this.$root.libSurah){ this.$root.libSurah=0; this.$nextTick(()=>this.jump(r)); } return; } el.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'center'}); el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash'); } } };
+// Reader: the surah's header (its numbers, a ribbon of verse lengths that follows your reading and jumps on tap, and
+// the words that set it apart: TF-IDF against the other surahs, tap to light them in the text), and a card for any
+// word tapped in the text (how it is built, its root and lemma, and where else it comes).
+const RD_PRE = {'و':['and','و: العطف'], 'ف':['so','ف: التعقيب'], 'ب':['with, by','ب: الجر'], 'ل':['for, to','ل: الجر أو التعليل'], 'ك':['like','ك: التشبيه'], 'س':['will','س: الاستقبال'], 'ا':['is it?','أ: الاستفهام']};
+const RD_PRON = {'1S':['my, me','ي: المتكلم'], '1P':['our, us','نا: المتكلمين'], '2MS':['your (one man)','ك: المخاطب'], '2FS':['your (one woman)','كِ: المخاطبة'], '2MP':['your (all of you)','كم: المخاطَبين'], '2FP':['your (women)','كنّ: المخاطبات'], '2D':['your (two)','كما: المخاطبَين'],
+  '3MS':['his, him, it','ه: الغائب'], '3FS':['her, it','ها: الغائبة'], '3MP':['their, them','هم: الغائبين'], '3FP':['their (women)','هنّ: الغائبات'], '3D':['their (two)','هما: الغائبَين']};
+let RD_IDF = null;
+function rdIdf(W){ if(RD_IDF && RD_IDF.W===W) return RD_IDF; const df=new Map(), seen=new Set(), tot=new Map();
+  for(let i=0;i<W.lemma.length;i++){ const l=W.lemma[i]; if(!l || !W.root[i]) continue; const s=W.key[i].split(':')[0], k=s+'|'+l; tot.set(l,(tot.get(l)||0)+1); if(!seen.has(k)){ seen.add(k); df.set(l,(df.get(l)||0)+1); } }
+  return (RD_IDF={W, df, tot}); }
+const ReaderHead = {
+  data(){ return {cur:1, hovV:null}; },
+  template:`<div class="rdh" v-if="meta">
+    <div class="rdh-top">
+      <button type="button" class="rdh-nav" :disabled="meta.n<=1" @click="goS(meta.n-1)" :aria-label="ar ? 'السورة السابقة' : 'Previous surah'">{{ ar ? '›' : '‹' }}</button>
+      <div class="rdh-name"><b lang="ar">{{ meta.ar }}</b><span v-if="!ar">{{ meta.n }}. {{ meta.en }}</span><span v-else>{{ D(meta.n) }}</span></div>
+      <button type="button" class="rdh-nav" :disabled="meta.n>=114" @click="goS(meta.n+1)" :aria-label="ar ? 'السورة التالية' : 'Next surah'">{{ ar ? '‹' : '›' }}</button>
+    </div>
+    <div class="rdh-facts">
+      <span :class="meta.place==='Medina' ? 'md' : 'mc'">{{ meta.place==='Medina' ? (ar ? 'مدنية' : 'Medinan') : (ar ? 'مكية' : 'Meccan') }}</span>
+      <span>{{ ar ? D(meta.verses)+' آية' : meta.verses+' verses' }}</span><span>{{ ar ? f(meta.words)+' كلمة' : f(meta.words)+' words' }}</span>
+      <span>{{ ar ? D((meta.words/meta.verses).toFixed(1))+' كلمة للآية' : (meta.words/meta.verses).toFixed(1)+' words a verse' }}</span>
+      <span>{{ ar ? 'الترتيب طولًا '+D(rank)+' من ١١٤' : 'length rank '+rank+' of 114' }}</span></div>
+    <svg :viewBox="'0 0 600 56'" class="rdh-rib" preserveAspectRatio="none" @pointerleave="hovV=null" role="img" :aria-label="ar ? 'أطوال الآيات' : 'Verse lengths'">
+      <rect v-for="(n,i) in lens" :key="i" :x="i*bw" :y="52-n/lmax*48" :width="Math.max(.6, bw-.4)" :height="n/lmax*48" :class="{cur: i+1===cur, hv: i+1===hovV, hi: hiVerses.has(i+1)}" @pointerenter="hovV=i+1" @click="jump(i+1)"/></svg>
+    <p class="rdh-cap">{{ hovV ? (ar ? 'الآية '+D(hovV)+' · '+D(lens[hovV-1])+' كلمة · انقر لتنتقل إليها' : 'Verse '+hovV+' · '+lens[hovV-1]+' words · tap to go there') : (ar ? 'كل عمودٍ آية بطول كلماتها، والمضيء موضع قراءتك.' : 'Each bar is a verse, as long as its words; the lit one is where you are reading.') }}</p>
+    <div class="rdh-kw"><span class="k" :title="ar ? 'الكلمات التي ترد هنا أكثر مما تتوقعه حصّة السورة من النص' : 'Words that come here far more often than the surah\u2019s share of the text would predict'">{{ ar ? 'ما تتحدث عنه السورة' : 'What this surah talks about' }}</span>
+      <button v-for="w in keywords" :key="w.l" type="button" :class="{on: $root.rHi===w.l}" @click="$root.rHi = $root.rHi===w.l ? '' : w.l" :title="ar ? D(w.n)+' مرة في السورة من '+D(w.t)+' في القرآن' : w.n+' times here, '+w.t+' in the whole Quran'"><b lang="ar">{{ w.s }}</b><span>{{ D(w.n) }}</span></button></div>
+  </div>`,
+  mounted(){ this.$root.load('words'); this._sc=()=>{ const vs=document.querySelectorAll('.reader-view .vblock'); let c=1; for(const el of vs){ if(el.getBoundingClientRect().top>innerHeight*.3) break; const m=el.id.match(/-(\d+)$/); if(m) c=+m[1]; } this.cur=c; };
+    addEventListener('scroll', this._sc, {passive:true}); },
+  beforeUnmount(){ removeEventListener('scroll', this._sc); },
+  computed:{ ar(){ return this.$root.lang==='ar'; }, meta(){ return (this.$root.DS.surahMeta||[]).find(s=>s.n===this.$root.rSurah)||null; },
+    rank(){ return [...(this.$root.DS.surahMeta||[])].sort((a,b)=>b.words-a.words).findIndex(s=>s.n===this.meta.n)+1; },
+    lens(){ const W=this.$root.W, m=this.meta; const out=Array(m.verses).fill(0); if(!W || !W.key.length) return out.map((_,i)=>((this.$root.V[m.n+':'+(i+1)]||'').split(' ').length));
+      const sp=verseSpan(m.n+':1'); if(!sp) return out; for(let v=1; v<=m.verses; v++){ const s=verseSpan(m.n+':'+v); if(s) out[v-1]=s[1]-s[0]; } return out; },
+    lmax(){ return Math.max(1,...this.lens); }, bw(){ return 600/Math.max(1,this.lens.length); },
+    // keyness: how much more often a word comes here than its share of the whole text predicts (lift), weighted by
+    // the square root of its count so that one-off words and very common words both sink
+    keywords(){ const W=this.$root.W, n=String(this.meta.n); if(!W || !W.lemma.length) return []; const ix=rdIdf(W), c=new Map(), surf=new Map();
+      for(let i=0;i<W.lemma.length;i++){ if(W.key[i].split(':')[0]!==n) continue; const l=W.lemma[i]; if(!l || !W.root[i]) continue; c.set(l,(c.get(l)||0)+1); if(!surf.has(l)) surf.set(l, W.surface[i]); }
+      const share=this.meta.words/W.lemma.length, min=Math.min(this.meta.words>300 ? 3 : 2, Math.max(1,...c.values()));
+      return [...c.entries()].filter(([l,k])=>k>=min).map(([l,k])=>({l, n:k, t:ix.tot.get(l), s:surf.get(l), sc:Math.sqrt(k)*Math.log(k/(ix.tot.get(l)*share))}))
+        .filter(w=>w.sc>0).sort((a,b)=>b.sc-a.sc).slice(0,10); },
+    hiVerses(){ const W=this.$root.W, l=this.$root.rHi, out=new Set(); if(!l || !W) return out; const n=String(this.meta.n)+':';
+      for(let i=0;i<W.lemma.length;i++) if(W.lemma[i]===l && W.key[i].startsWith(n)) out.add(+W.key[i].split(':')[1]); return out; } },
+  methods:{ D(x){ return this.$root.D(x); }, f(x){ return this.$root.f(x); },
+    goS(n){ const R=this.$root; R.rSurah=n; R.rVerse=0; R.rHi=''; R.wcard=null; scrollTo({top:0}); },
+    jump(v){ const el=document.getElementById('v-'+this.meta.n+'-'+v); if(el) el.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'center'}); } } };
+// the card for a tapped word
+const WordCard = {
+  template:`<div class="wcard" v-if="c" :style="pos" role="dialog" :aria-label="ar ? 'بطاقة الكلمة' : 'Word card'">
+    <button type="button" class="wcard-x" @click="$root.wcard=null" :aria-label="ar ? 'أغلق' : 'Close'">✕</button>
+    <div class="wcard-w" lang="ar">{{ c.surf }}</div>
+    <div class="wcard-parts" dir="rtl">
+      <span v-for="(p,i) in parts" :key="i" :class="p.k"><b lang="ar">{{ p.t }}</b><small>{{ T(p.g) }}</small></span></div>
+    <dl><div><dt>{{ ar ? 'الجذع' : 'Lemma' }}</dt><dd lang="ar">{{ c.lemma || '-' }}</dd></div><div><dt>{{ ar ? 'الجذر' : 'Root' }}</dt><dd lang="ar">{{ c.root ? c.root.split('').join(' ') : (ar ? 'بلا جذر' : 'none') }}</dd></div>
+      <div><dt>{{ ar ? 'في السورة' : 'In this surah' }}</dt><dd>{{ D(c.inS) }}</dd></div><div><dt>{{ ar ? 'في القرآن' : 'In the Quran' }}</dt><dd>{{ f(c.inQ) }}</dd></div></dl>
+    <div class="wcard-acts">
+      <button type="button" @click="$root.rHi=c.lemma; $root.wcard=null" v-if="c.lemma">{{ ar ? 'أضئها في السورة' : 'Light it in this surah' }}</button>
+      <button type="button" @click="search">{{ ar ? 'ابحث بكل صيغها' : 'Search all its forms' }}</button>
+      <button type="button" @click="tree" v-if="c.root">{{ ar ? 'شجرة الكلمة' : 'Word tree' }}</button></div>
+  </div>`,
+  computed:{ ar(){ return this.$root.lang==='ar'; }, c(){ return this.$root.wcard; },
+    pos(){ const c=this.c, w=Math.min(320, innerWidth-24); let x=Math.min(Math.max(12, c.x-w/2), innerWidth-w-12), y=c.y+14; if(y+300>innerHeight) y=Math.max(12, c.y-314); return {left:x+'px', top:y+'px', width:w+'px'}; },
+    // how the word is built, from the corpus segmentation: what is joined at the front, the stem, the pronoun at the end
+    parts(){ const c=this.c, f=(c.form||'//').split('/'), pre=f[0]||'', num=f[1]||'S', suf=f[2]||'', out=[]; let p=pre;
+      const al=p.endsWith('ال'); if(al) p=p.slice(0,-2);
+      for(const ch of p) out.push({k:'pre', t:ch, g:RD_PRE[ch] ? [RD_PRE[ch][0], RD_PRE[ch][1]] : ['joined letter','حرفٌ متصل']});
+      if(al) out.push({k:'pre', t:'ال', g:['the','ال: التعريف']});
+      const nm={S:['singular','مفرد'], D:['dual','مثنى'], P:['plural','جمع'], V:['verb','فعل']}[num[0]]||['word','كلمة'];
+      out.push({k:'stem', t:c.lemma||c.surf, g:num.includes('+') ? ['two words written as one','كلمتان كُتبتا واحدة'] : nm});
+      suf.split(',').filter(Boolean).forEach(t=>out.push({k:'suf', t:'+', g:RD_PRON[t] ? [RD_PRON[t][0], RD_PRON[t][1]] : [t,t]}));
+      return out; } },
+  mounted(){ this._close=()=>{ if(this.$root.wcard) this.$root.wcard=null; }; addEventListener('scroll', this._close, {passive:true}); addEventListener('resize', this._close); },
+  beforeUnmount(){ removeEventListener('scroll', this._close); removeEventListener('resize', this._close); },
+  methods:{ T(p){ return this.ar ? p[1] : p[0]; }, D(x){ return this.$root.D(x); }, f(x){ return this.$root.f(x); },
+    search(){ const R=this.$root, l=this.c.lemma||normalize(this.c.surf); R.wcard=null; R.q=l; R.mode=this.c.lemma ? 'lemma' : 'surface'; R.go('search'); R.$nextTick(()=>R.runSearch()); },
+    tree(){ const R=this.$root; R.nlpCenter=this.c.lemma; R.wcard=null; R.go('nlp'); } } };
 const QadrLab = {
   data(){ return {basm:false, pre:false, suf:false, hov:-1}; },
   template:`<figure class="dfig qlab">
@@ -5646,7 +5750,7 @@ createApp({
       V: window.QURAN_VERSES||{}, W: window.QURAN_WORDS||{key:[],norm:[],lemma:[],root:[],surface:[]},
       ready:{ verses:!!window.QURAN_VERSES, words:!!window.QURAN_WORDS, plotly:typeof Plotly!=='undefined', disc:false, hviz:false },
       q:'', mode:'surface', sWhole:true, clabPick:null, sfOff:{}, sfCount:null, sfRows:SF_ROWS, sres:{total:0,surahs:0,verses:0,sample:[]},
-      rSurah:1, rVerse:0, rClaim:'', rBack:'', scrollPct:0, railDragging:false, EN:{}, showTrans:(new URLSearchParams(location.search).get('lang')!=='ar'), libQ:'', libCat:'all', libSurah:0, stories:[], lessons:[], duas:[], tafsir:[], untranslatable:[], untranslatableIntro:{}, history:[], historyIntro:{}, skyHov:null, sresBy:{}, sresRoots:[], skyGL:false, hSel:'', hYear:610, hPlaying:false, hFilter:'all', hCopied:false,
+      rSurah:1, rVerse:0, rClaim:'', rBack:'', scrollPct:0, railDragging:false, EN:{}, showTrans:(new URLSearchParams(location.search).get('lang')!=='ar'), libQ:'', libCat:'all', libSurah:0, rHi:'', wcard:null, nlpCenter:'', stories:[], lessons:[], duas:[], tafsir:[], untranslatable:[], untranslatableIntro:{}, history:[], historyIntro:{}, skyHov:null, sresBy:{}, sresRoots:[], skyGL:false, hSel:'', hYear:610, hPlaying:false, hFilter:'all', hCopied:false,
       V1:{}, abjadInput:'الله',
       jevOn: !!(JEV && JEV.endpoint()), JD: window.QTA_JEV_DATA||{},
       cc:{text:'', busy:false, res:null}, ask:{text:'', busy:false, res:null}, sit:{text:'', busy:false, res:null},
@@ -6656,6 +6760,12 @@ createApp({
     claimRule(id){ const L=COUNT_LABS.find(x=>x.id===id); if(!L) return null; const p=L.presets.find(x=>/claim/.test(x.lab[0])) || L.presets[0];
       return p && p.who ? {rule:p.who, src:L.src||[]} : null; },
     openLab(id){ this.clabPick={id, t:Date.now()}; this.$nextTick(()=>{ const el=document.querySelector('.clab'); if(el) el.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'start'}); }); },
+    // a verse cut into its words, each with its index in the word list (or -1 for a pause mark)
+    rTok(k, t){ const sp=this.W && this.W.key.length ? verseSpan(k) : null; let j=sp ? sp[0]-1 : -1;
+      return t.split(' ').map(w=>{ if(!sp || !/[\u0621-\u064A\u0671]/.test(w)) return {t:w, i:-1}; j++; return {t:w, i:j<sp[1] ? j : -1}; }); },
+    openWord(i, ev){ const W=this.W, r=ev.currentTarget.getBoundingClientRect(), l=W.lemma[i], s=W.key[i].split(':')[0]+':'; let inS=0, inQ=0;
+      if(l) for(let x=0;x<W.lemma.length;x++) if(W.lemma[x]===l){ inQ++; if(W.key[x].startsWith(s)) inS++; }
+      this.wcard={i, surf:W.surface[i], lemma:l, root:W.root[i], form:W.form ? W.form[i] : '', inS, inQ, x:r.left+r.width/2, y:r.bottom}; },
     sfKey(r,o){ return r==='num' ? o : (r==='front' ? 'f:' : 'e:')+o; },
     sfToggle(r,o){ const k=this.sfKey(r,o), n=Object.assign({}, this.sfOff); if(n[k]) delete n[k]; else n[k]=true; this.sfOff=n; this.runSearch(); },
     sfPreset(id){ this.sfOff = id==='sing' ? {D:true,P:true,C:true,V:true,'e:pron':true} : {}; this.runSearch(); },
@@ -7138,7 +7248,7 @@ createApp({
     this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); this.enterView(true); });
   }
 }).component('depth-switch', DepthSwitch).component('term-chips', TermChips).component('explain-box', ExplainBox)
-  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell).component('claim-viz', ClaimViz).component('count-lab', CountLab).component('rule-matrix', RuleMatrix).component('qadr-lab', QadrLab).component('nineteen-lab', NineteenLab).component('struct-lab', StructLab).component('balance-lab', BalanceLab).component('abjad-lab', AbjadLab).component('float-kbd', FloatKbd).component('nlp-lab', NlpLab).component('dash-lab', DashLab).component('hifz-lab', HifzLab).component('stats-lab', StatsLab).component('clf-lab', ClfLab).component('kmeans-lab', KMeansLab).component('lib-atlas', LibAtlas)
+  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell).component('claim-viz', ClaimViz).component('count-lab', CountLab).component('rule-matrix', RuleMatrix).component('qadr-lab', QadrLab).component('nineteen-lab', NineteenLab).component('struct-lab', StructLab).component('balance-lab', BalanceLab).component('abjad-lab', AbjadLab).component('float-kbd', FloatKbd).component('nlp-lab', NlpLab).component('dash-lab', DashLab).component('hifz-lab', HifzLab).component('stats-lab', StatsLab).component('clf-lab', ClfLab).component('kmeans-lab', KMeansLab).component('lib-atlas', LibAtlas).component('reader-head', ReaderHead).component('word-card', WordCard)
   .component('letter-strip', LetterStrip).component('growth-curve', GrowthCurve).component('rhyme-ribbon', RhymeRibbon).mount('#app');
 });
 </script>
