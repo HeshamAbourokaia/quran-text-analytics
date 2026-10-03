@@ -796,33 +796,10 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   </div>
 </section>
 
-<section class="sec coinc" id="coincidence">
-  <div class="wrap split2">
-    <div class="copy">
-      <header class="sechead start rv">
-        <span class="ayah" aria-hidden="true">۝٦</span>
-        <p class="kick" data-i18n="co.k">Why matching numbers are easy to find</p>
-        <h2 class="display" data-i18n="co.h">Pick any number. Some words will land on it.</h2>
-        <p class="sub" data-i18n="co.p">The Quran has 4,771 different words.</p>
-      </header>
-      <div class="chips rv" id="chips" role="radiogroup" aria-label="Pick a number"><span class="chip-ind" aria-hidden="true"></span></div>
-      <div class="cstats rv" aria-live="polite">
-        <div class="cstat ex"><b class="num" id="c-exact">14</b><span id="c-exact-l">words occur exactly 19 times</span></div>
-        <div class="cstat nr"><b class="num" id="c-near">233</b><span id="c-near-l">come within five of 19</span></div>
-      </div>
-      <p class="moral rv" data-i18n="co.moral">That is why the auditor always asks how a claim counts.</p>
-    </div>
-    <figure class="dots rv">
-      <canvas id="dotgrid" role="img" aria-label="Dot grid of the Quran's different words"></canvas>
-      <figcaption data-i18n="co.legend">Each dot is one word.</figcaption>
-    </figure>
-  </div>
-</section>
-
 <section class="sec lab" id="lab">
   <div class="wrap">
     <header class="sechead rv">
-      <span class="ayah" aria-hidden="true">۝٧</span>
+      <span class="ayah" aria-hidden="true">۝٦</span>
       <p class="kick" data-i18n="lab.k">Machine learning</p>
       <h2 class="display" data-i18n="lab.h">A model can tell Mecca from Medina.</h2>
       <p class="sub" data-i18n="lab.pp">A computer model reads nothing but how often each word is used.</p>
@@ -883,7 +860,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
 <section class="sec inside" id="features">
   <div class="wrap">
     <header class="sechead rv">
-      <span class="ayah" aria-hidden="true">۝٨</span>
+      <span class="ayah" aria-hidden="true">۝٧</span>
       <p class="kick" data-i18n="feat.kicker">What is inside</p>
       <h2 class="display" data-i18n-html="feat.h2">Built like an instrument,<br>not a brochure.</h2>
       <p class="sub" data-i18n="feat.p">Every number on this site is counted live from the Quran's text in your browser and checked by automatic tests.</p>
@@ -1129,15 +1106,6 @@ const I18N = {
   'm1.p':       {en:'Each surah is linked to the five whose vocabulary is closest to its own, and the links pull like springs. Nothing here knows where a surah was revealed, yet the Medinan surahs gather together: for {nnSame} of the {surahs} surahs, the closest surah in vocabulary comes from the same city.',
                  ar:'رُبطت كل سورةٍ بالسور الخمس الأقرب إليها في ألفاظها، وتشدّها الروابط كالنوابض. ولا شيء هنا يعرف أين نزلت السورة، ومع ذلك تجتمع السور المدنية معًا: ففي {nnSame} سورة من {surahs}، كانت أقربُ السور إليها في المفردات من صنفها نفسه، مكيةً أو مدنية.'},
   'nm.cap':     {en:'{godV} mentions · {godVs} verses', ar:'{godV} مرة · في {godVs} آية'},
-  'co.k':       {en:'Why matching numbers are easy to find', ar:'لماذا يسهل العثور على أعدادٍ متطابقة'},
-  'co.h':       {en:'Pick any number. Some words will land on it.', ar:'اختر أي عدد، وستجد كلماتٍ تقع عليه.'},
-  'co.p':       {en:'The Quran has {lemmas} different words (each counted with all its forms), so almost any number matches several of them. Choose one to see how many words occur exactly that often, and how many come within five.',
-                 ar:'في القرآن {lemmas} كلمةً مختلفة (تُعدّ كل كلمةٍ بجميع صيغها)، فلا يكاد عددٌ يخلو ممّا يوافقه منها. اختر عددًا لترى كم كلمةً وردت بذلك العدد تمامًا، وكم كلمةً تقترب منه في حدود خمس.'},
-  'co.pick':    {en:'Pick a number', ar:'اختر عددًا'},
-  'co.legend':  {en:'Each dot is one of the {lemmas} different words. The lit dots show how many land on the number, not which ones.',
-                 ar:'كل نقطةٍ كلمةٌ من الكلمات المختلفة الـ{lemmas}، والنقاط المضيئة تبيّن كم منها يقع على العدد، لا أيّها بعينه.'},
-  'co.moral':   {en:'That is why the auditor always asks how a claim counts: which forms, which spelling, which meaning. The method decides the number.',
-                 ar:'ولهذا يسأل المدقّق دائمًا عن طريقة العدّ: أيّ الصيغ، وأيّ رسم، وأيّ معنى؛ فالطريقة هي التي تصنع الرقم.'},
   'lab.k':      {en:'Machine learning', ar:'تعلّم الآلة'},
   'lab.h':      {en:'A model can tell Mecca from Medina.', ar:'نموذجٌ يميّز المكي من المدني.'},
   'lab.pp':     {en:'A computer model reads nothing but how often each word is used, and guesses where each of the {surahs} surahs was revealed.',
@@ -1272,9 +1240,9 @@ function renderLabWords() {
 // ── coincidence explorer ──
 const LAND = AN.montecarlo.coincidence.landscape.filter(o => o.n <= 114);
 let coinN = (LAND.find(o => o.n === 19) || LAND[0]).n;
-const chipsEl = $('#chips'), chipInd = $('.chip-ind');
-LAND.forEach(o => { const b = document.createElement('button'); b.type = 'button'; b.className = 'chip'; b.setAttribute('role', 'radio'); b.dataset.n = o.n; chipsEl.appendChild(b); });
-const chips = $$('.chip', chipsEl);
+const chipsEl = $('#chips'), chipInd = $('.chip-ind');   // the explorer section was removed; this code steps aside when it is absent
+if (chipsEl) LAND.forEach(o => { const b = document.createElement('button'); b.type = 'button'; b.className = 'chip'; b.setAttribute('role', 'radio'); b.dataset.n = o.n; chipsEl.appendChild(b); });
+const chips = chipsEl ? $$('.chip', chipsEl) : [];
 function moveInd(instant) {
   const b = chips.find(c => +c.dataset.n === coinN); if (!b || !motion) return;
   G.to(chipInd, { x: b.offsetLeft, y: b.offsetTop, width: b.offsetWidth, height: b.offsetHeight, duration: instant ? 0 : .55, ease: 'expo.out', overwrite: true });
@@ -1284,6 +1252,7 @@ const dg = { c: $('#dotgrid'), n: NUM.lemmas, cols: 1, cell: 4, pr: 1, perm: nul
 function dgPerm(n) { const r = rng(n * 7919 + 1), a = new Uint16Array(dg.n); for (let i = 0; i < dg.n; i++) a[i] = i;
   for (let i = dg.n - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)), t = a[i]; a[i] = a[j]; a[j] = t; } dg.perm = a; }
 function dgSize() {
+  if (!dg.c) return;
   const w = dg.c.parentElement.clientWidth; if (!w) return;
   const aspect = w < 520 ? 1.05 : 1.4;
   dg.cols = Math.ceil(Math.sqrt(dg.n * aspect)); dg.cell = w / dg.cols;
@@ -1293,7 +1262,7 @@ function dgSize() {
   dgDraw();
 }
 function dgDraw() {
-  if (!dg.perm) return;
+  if (!dg.perm || !dg.c) return;
   const x = dg.c.getContext('2d'), cs = dg.cell * dg.pr, rad = Math.max(.8, cs * .3);
   x.clearRect(0, 0, dg.c.width, dg.c.height);
   const lit = new Uint8Array(dg.n), ne = Math.round(dg.near * dg.p), ex = Math.round(dg.exact * dg.p);
@@ -1306,9 +1275,9 @@ function dgDraw() {
   });
 }
 function renderCoinc(animate) {
+  if (!chipsEl) return;
   const o = LAND.find(v => v.n === coinN);
   chips.forEach(c => { const on = +c.dataset.n === coinN; c.textContent = nf(+c.dataset.n); c.setAttribute('aria-checked', String(on)); c.tabIndex = on ? 0 : -1; });
-  chipsEl.setAttribute('aria-label', T('co.pick'));
   const times = lang === 'ar' ? arCount(coinN, 'مرةً واحدة', 'مرتين', 'مرات', 'مرة') : nf(coinN) + ' times';
   $('#c-exact-l').textContent = lang === 'ar' ? 'عدد الكلمات التي ترد ' + times + ' بالضبط' : (o.exact === 1 ? 'word occurs exactly ' : 'words occur exactly ') + times;
   $('#c-near-l').textContent = lang === 'ar' ? 'عدد الكلمات التي تقع في حدود خمسٍ من ' + nf(coinN) : 'come within five of ' + nf(coinN);
@@ -1327,8 +1296,8 @@ function renderCoinc(animate) {
   } else { dg.p = 1; dgDraw(); }
   moveInd(!animate);
 }
-chipsEl.addEventListener('click', e => { const b = e.target.closest('.chip'); if (!b) return; coinN = +b.dataset.n; dg.entered = true; renderCoinc(true); buzz(8); });
-chipsEl.addEventListener('keydown', e => {
+if (chipsEl) chipsEl.addEventListener('click', e => { const b = e.target.closest('.chip'); if (!b) return; coinN = +b.dataset.n; dg.entered = true; renderCoinc(true); buzz(8); });
+if (chipsEl) chipsEl.addEventListener('keydown', e => {
   const i = chips.findIndex(c => +c.dataset.n === coinN);
   let dir = (e.key === 'ArrowRight' || e.key === 'ArrowDown') ? 1 : (e.key === 'ArrowLeft' || e.key === 'ArrowUp') ? -1 : 0;
   if (!dir) return; e.preventDefault();
@@ -1493,7 +1462,7 @@ if (motion) {
   G.from('#waffle i', { scale: 0, opacity: 0, duration: .5, ease: 'back.out(2.5)', stagger: { each: .012 }, scrollTrigger: { trigger: '#waffle', start: 'top 85%' } });
   G.from('.wlist .bar i', { scaleX: 0, duration: 1.4, ease: 'expo.out', stagger: .05, scrollTrigger: { trigger: '.lcard.words', start: 'top 80%' } });
   G.from('.minibars i', { scaleY: .08, duration: 1.2, ease: 'expo.out', stagger: .06, scrollTrigger: { trigger: '.t-lab', start: 'top 80%' } });
-  ST.create({ trigger: '.dots', start: 'top 75%', once: true, onEnter: () => { if (dg.entered) return; dg.entered = true; dg.exact = dg.near = 0; renderCoinc(true); } });
+  if ($('.dots')) ST.create({ trigger: '.dots', start: 'top 75%', once: true, onEnter: () => { if (dg.entered) return; dg.entered = true; dg.exact = dg.near = 0; renderCoinc(true); } });
   G.set('.fin > *', { autoAlpha: 0, y: 40 });
   ST.create({ trigger: '#read', start: 'top 45%', once: true, onEnter: () => G.to('.fin > *', { autoAlpha: 1, y: 0, duration: 1.3, ease: 'expo.out', stagger: .1, delay: .5 }) });
   if (fine) {
@@ -2105,6 +2074,7 @@ async function initScene() {
   // The claims: 1 the year, 2 and 3 the scale, 4 the Name. Then the roots, the coincidence grid and the vocabulary map.
   let cFade = 1, tWas = false, hs = 0, hg = -1, tAct = null;
   const lemmaAt = () => {   // the coincidence grid follows its figure: gathering as it rises into view, leaving as it scrolls away
+    if (!dg.c) return 0;
     const r = dg.c.getBoundingClientRect(), vh = innerHeight;
     return clamp((vh * .98 - r.top) / (vh * .45), 0, 1) + clamp((vh * .3 - r.bottom) / (vh * .3), 0, 1);
   };
