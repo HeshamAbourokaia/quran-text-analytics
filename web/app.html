@@ -4968,8 +4968,11 @@ const NlpLab = { mixins:[FitW],
       return null; },
     zpts(){ const ix=this.ix; if(!ix) return []; const out=[]; let last=-1; ix.ranked.forEach((e,i)=>{ const r=i+1, x=Math.round(Math.log10(r)*90); if(x!==last || r<=30){ out.push({r, c:e[1], l:e[0]}); last=x; } }); return out; } },
   methods:{ D(x){ return this.$root.D(x); }, f(x){ return this.$root.f(x); },
-    go(l){ if(!l) return; this.center=l; this.hov=null; this.q=''; },
-    seek(){ const q=normalize(this.q); if(q && this.ix && this.ix.cnt.has(q)) this.go(q); },
+    go(l){ if(!l) return; this.center=l; this.hov=null; },
+    // typing moves the tree only to a real word: one with a root, so single-letter particles such as «ت» never
+    // hijack a word still being typed; the box keeps what was typed
+    seek(){ const q=normalize(this.q), W=this.W; if(!q || !this.ix || !this.ix.cnt.has(q)) return;
+      const i=W.lemma.indexOf(q); if(q.length>=2 && (this.small || (i>=0 && W.root[i]))){ this.center=q; this.hov=null; } },
     ex(si){ return si ? 18+this.cw*0.26 : this.cw-18-this.cw*0.26; },   // where a branch ends: after (si=1) on the left, before on the right
     ny(i, n){ const h=this.th-40, gap=Math.min(40, h/Math.max(1,n)); return this.th/2 - (n-1)*gap/2 + i*gap; },
     curve(si, i, n){ const x0=this.cw/2 + (si ? -1 : 1)*(this.cwid/2), y0=this.th/2, x1=this.ex(si), y1=this.ny(i, n), mx=(x0+x1)/2;
