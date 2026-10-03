@@ -1146,6 +1146,51 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   @media (prefers-reduced-motion: reduce){ .n19-row .t,.n19-row.full .cells,.n19-sum .ok,.n19-row.full .tag{animation:none} }
   @media (max-width:760px){ .n19-f{padding:5px 11px} .n19-f span{font-size:.76rem}
     .n19-map .sq{font-size:.45rem} .n19-row{grid-template-columns:1fr 30px} .n19-row .cells,.n19-map{gap:2px} .n19-sum .big{font-size:2.8rem} .n19-txt{font-size:1.3rem} }
+  /* Structure: findings dashboard (StructLab) */
+  .sl-kpis{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin:0 0 14px}
+  .sl-kpi{display:flex;flex-direction:column;gap:2px;text-align:start;font:inherit;color:var(--on-dark-2);background:rgba(255,255,255,.03);border:1px solid var(--hair);border-radius:16px;padding:10px 12px;cursor:pointer;transition:transform .2s,border-color .2s,background .2s}
+  .sl-kpi small{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--on-dark-3)} .sl-kpi b{font-family:var(--serif);font-weight:400;font-size:2.1rem;line-height:1.05;color:#fff;font-variant-numeric:tabular-nums} .sl-kpi span{font-size:.76rem;line-height:1.3}
+  .sl-kpi:hover{transform:translateY(-2px);background:rgba(255,255,255,.06)} .sl-kpi.on{border-color:var(--gold);background:rgba(233,185,95,.1);box-shadow:0 10px 30px -18px rgba(233,185,95,.9)} .sl-kpi.on b{color:var(--gold)}
+  .sl-stage{padding:18px 20px;border-radius:20px;background:radial-gradient(120% 70% at 50% 0%,rgba(233,185,95,.06),transparent 60%),rgba(255,255,255,.03);border:1px solid var(--hair)}
+  .sl-head h3{margin:0 0 6px;font-family:var(--serif);font-weight:400;font-size:1.6rem;color:#fff} .sl-head p{margin:0 0 10px;font-size:.95rem;line-height:1.6;color:var(--on-dark)}
+  .sl-method{display:inline-flex;gap:8px;align-items:center;font-size:.74rem;color:var(--on-dark-2);border:1px solid var(--hair);border-radius:999px;padding:4px 12px;margin:0 0 14px}
+  .sl-method i{font-style:normal;font-weight:700;color:var(--emerald);letter-spacing:.08em;text-transform:uppercase;font-size:.62rem}
+  .sl-grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+  .sl-panel{padding:14px;border-radius:14px;background:rgba(0,0,0,.2);border:1px solid var(--hair);min-width:0} .sl-panel.wide{grid-column:1/-1}
+  .sl-panel h4{margin:0 0 10px;font-size:.78rem;font-weight:700;letter-spacing:.06em;color:var(--on-dark-2)}
+  .sl-cap{margin:8px 0 0;font-size:.84rem;line-height:1.55;color:var(--on-dark-2);min-height:1.4em} .sl-cap b{color:var(--gold)} .sl-axis{margin:4px 0 0;font-size:.7rem;color:var(--on-dark-3)}
+  .sl-abjad{display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap}
+  .sl-lt{display:inline-flex;flex-direction:column;align-items:center;min-width:46px;padding:6px 8px;border-radius:10px;background:rgba(233,185,95,.14);border:1px solid rgba(233,185,95,.4);opacity:0;transform:translateY(-14px) scale(.7);transition:opacity .3s,transform .45s cubic-bezier(.2,1.4,.4,1)}
+  .sl-lt.in{opacity:1;transform:none} .sl-lt b{font-family:var(--ar-display);font-size:1.7rem;font-weight:400;color:#fff;line-height:1.3} .sl-lt small{color:var(--gold);font-weight:700}
+  .sl-abjad .op{color:var(--on-dark-3);font-size:1.2rem;opacity:0;transition:opacity .3s} .sl-abjad .op.in{opacity:1}
+  .sl-sum{font-family:var(--serif);font-size:2.4rem;color:var(--gold);min-width:2ch;text-align:center;font-variant-numeric:tabular-nums}
+  .sl-fe{position:relative;width:110px;height:110px;margin:14px auto 0;border-radius:12px;border:2px solid var(--hair);display:grid;place-items:center;grid-template-rows:auto 1fr auto auto;padding:6px;transition:all .6s}
+  .sl-fe small{justify-self:start;font-weight:700;color:var(--on-dark-2)} .sl-fe b{font-family:var(--serif);font-size:2.4rem;font-weight:400;color:#fff;line-height:1} .sl-fe span{font-size:.7rem;color:var(--on-dark-2)} .sl-fe em{font-style:normal;font-size:.62rem;color:var(--on-dark-3)}
+  .sl-fe.lit{border-color:var(--gold);box-shadow:0 0 0 4px rgba(233,185,95,.15),0 0 40px rgba(233,185,95,.45)} .sl-fe.lit small{color:var(--gold);font-size:1rem}
+  .sl-iso{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;height:190px;align-items:end}
+  .sl-iso .sl-ib{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;font:inherit;background:none;border:0;cursor:pointer;color:var(--on-dark-2);padding:0}
+  .sl-iso .sl-c{width:70%;border-radius:8px 8px 3px 3px;background:rgba(255,255,255,.18);transition:height .2s,background .3s} .sl-iso .sl-ib.hit .sl-c{background:var(--gold);box-shadow:0 0 22px rgba(233,185,95,.6)}
+  .sl-iso .sl-ib.on .sl-c{outline:2px solid #fff;outline-offset:2px} .sl-iso .v{font-size:.72rem;margin:0 0 4px} .sl-iso b{margin-top:6px;font-size:.78rem;color:#fff} .sl-iso .sl-ib.hit b{color:var(--gold)}
+  .sl-verse{grid-column:1/-1;display:flex;gap:12px;align-items:baseline;padding:12px 14px;border-radius:14px;background:rgba(233,185,95,.06);border:1px solid rgba(233,185,95,.22);margin-top:12px}
+  .sl-verse p{min-width:0;flex:1} .sl-verse .k{font-size:.74rem;font-weight:700;color:var(--gold)} .sl-verse p,.sl-ar{margin:0;font-family:var(--ar-display);font-size:1.45rem;line-height:2;color:rgba(255,255,255,.62)}
+  .sl-verse .hl,.sl-ar .hl{color:#1a1405;background:var(--gold);border-radius:6px;padding:0 4px;box-shadow:0 0 16px rgba(233,185,95,.6)}
+  .sl-comb{width:100%;height:auto;display:block} .sl-comb .hx polygon{fill:rgba(255,255,255,.05);stroke:rgba(233,185,95,.25);stroke-width:1;transition:fill .3s}
+  .sl-comb .hx.in polygon{fill:rgba(233,185,95,.75)} .sl-comb .hx{cursor:pointer} .sl-comb .hx.on polygon{fill:#fff6dd;stroke:#fff;stroke-width:2}
+  .sl-comb .hx text{font-size:7px;fill:#1a1405;font-weight:700;pointer-events:none} .sl-comb .rl{font-size:10px;fill:var(--emerald);font-weight:700}
+  .sl-seg{display:inline-flex;border:1px solid var(--hair);border-radius:999px;padding:3px;margin:0 0 8px} .sl-seg button{font:inherit;font-size:.76rem;border:0;background:none;color:var(--on-dark-2);border-radius:999px;padding:5px 12px;cursor:pointer}
+  .sl-seg button.on{background:var(--gold);color:#1a1405;font-weight:700}
+  .sl-chr{width:100%;height:auto} .sl-chr .c1{fill:var(--teal)} .sl-chr .c2{fill:#f0a08c;opacity:0;transform:translateY(-8px);transition:all .45s} .sl-chr .c2.in{opacity:1;transform:none} .sl-chr text{font-size:10px;fill:var(--on-dark-2)}
+  .sl-wf,.sl-dist,.sl-prof{width:100%;height:auto;display:block;overflow:visible}
+  .sl-wf .g{fill:var(--gold)} .sl-wf .r{fill:#f0a08c} .sl-wf .t{fill:var(--teal)} .sl-wf .v{font-size:15px;font-weight:700;fill:#fff;transition:opacity .3s} .sl-wf .l{font-size:10px;fill:var(--on-dark-2)}
+  .sl-wf .cn{stroke:rgba(255,255,255,.35);stroke-dasharray:3 3} .ax{stroke:rgba(255,255,255,.2)}
+  .sl-dist .sl-c{fill:rgba(255,255,255,.12)} .sl-dist .sl-c.has{fill:var(--teal)} .sl-dist .s71 .sl-c{fill:var(--gold)} .sl-dist .s71 .hit{fill:rgba(233,185,95,.08)!important} .sl-dist g{cursor:pointer} .sl-dist .on .sl-c{fill:#fff}
+  .sl-dist .l,.sl-prof .l{font-size:10px;fill:var(--on-dark-3)}
+  .sl-prof{cursor:ew-resize;touch-action:none} .sl-prof .a{fill:rgba(233,185,95,.35)} .sl-prof .b{fill:rgba(88,200,190,.35)} .sl-prof .m{fill:var(--gold)}
+  .sl-prof .mid{stroke:var(--gold);stroke-dasharray:4 3;opacity:.7} .sl-prof .cur line{stroke:#fff;stroke-width:1.5} .sl-prof .cur circle{fill:#fff}
+  .sl-mid{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin:10px 0 6px;font-size:.84rem;color:var(--on-dark-2)} .sl-mid .k{font-weight:700;color:var(--gold);font-size:1rem}
+  .sl-jump{margin-inline-start:auto;font:inherit;font-size:.78rem;color:#1a1405;background:var(--gold);border:0;border-radius:999px;padding:6px 14px;cursor:pointer}
+  @media (max-width:900px){ .sl-kpis{grid-template-columns:repeat(3,1fr)} .sl-grid2{grid-template-columns:1fr} }
+  @media (max-width:480px){ .sl-kpis{grid-template-columns:repeat(2,1fr)} .sl-kpi b{font-size:1.7rem} .sl-verse p,.sl-ar{font-size:1.2rem} }
   /* Word Counts: count a claim yourself (CountLab) */
   .clab-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-start}
   .clab-presets{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 14px}
@@ -2443,14 +2488,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
     <section v-if="view==='structural'">
       <h1>{{ lang==='ar'?'معجزات هيكلية':'Structural Miracles' }}</h1>
       <explain-box></explain-box>
-      <div class="grid">
-        <div v-for="(r,i) in V1.structuralMiracles" :key="i" class="card" style="margin:0">
-          <div style="font-size:1.5rem">{{ r.icon }}</div>
-          <div class="ar">{{ r.ar }}</div>
-          <div v-if="lang!=='ar'" style="font-size:.85rem;margin-top:6px">{{ r.en }}</div>
-          <div v-if="r.detail_ar" style="font-size:.8rem;color:var(--muted);margin-top:6px">{{ lang==='ar'?r.detail_ar:(r.detail_en||'') }}</div>
-        </div>
-      </div>
+      <struct-lab></struct-lab>
     </section>
 
     <!-- WORD PAIRS & BALANCE (merged Word Symmetries + Antonym Pairs + Waw) -->
@@ -3060,10 +3098,9 @@ const PLAIN = {
     msg:['Every number on this page is counted from the text as you watch, and each one divides by 19 exactly.',
       'كل رقمٍ في هذه الصفحة يُحسب من النص أمامك، وكلٌّ منها يقبل القسمة على ١٩ تمامًا.']},
   structural:{
-    what:['Observations people share about how the Quran is arranged, such as a surah\'s number matching a fact from science.', 'ملاحظاتٌ يتداولها الناس عن ترتيب القرآن، مثل موافقة رقم سورةٍ لحقيقةٍ علمية.'],
-    how:['Each card gives the observation and the numbers behind it.', 'كل بطاقةٍ تذكر الملاحظة والأرقام التي تقوم عليها.'],
-    msg:['Read these as observations, not proof: a surah\'s number is its place in the mushaf, and a match depends on which numbers are compared.',
-      'اقرأها ملاحظاتٍ لا براهين: فرقم السورة موضعها في المصحف، والتوافق يتوقف على الأرقام التي نختار مقارنتها.']},
+    what:['Patterns in how the Quran is arranged, each one shown as a figure you can explore.', 'أنماطٌ في ترتيب القرآن، كلٌّ منها في شكلٍ تتفاعل معه.'],
+    how:['Pick a finding from the tiles along the top. Its figure builds itself; point at any part of it to read it, and tap a verse to open it.', 'اختر نتيجةً من المربعات في الأعلى، فيُبنى شكلها أمامك. أشر إلى أي جزءٍ منه لتقرأه، وانقر الآية لتفتحها.'],
+    msg:['Every count is taken from the text in your browser, and the method is named under each finding.', 'كل عدٍّ هنا مأخوذٌ من النص في متصفحك، والطريقة مذكورةٌ تحت كل نتيجة.']},
   auditor:{
     what:['People often share claims like «the word day (يوم) appears 365 times in the Quran». Here we count each word ourselves in the Quran\'s own text and compare our count with the claim.',
       'يتداول الناس مزاعم مثل «كلمة يوم وردت في القرآن ٣٦٥ مرة». وهنا نعدّ كل كلمةٍ بأنفسنا في نص القرآن ونقارن عدَّنا بالزعم.'],
@@ -3145,7 +3182,7 @@ const jix = () => JIX || (JIX = JEV && window.QURAN_WORDS ? JEV.makeIndex(window
 // so a phone never waits on a blank page for all of it.
 const LAZY = { verses:['corpus.js','translation_en.js'], words:['words.js','lemma-variants.js'], plotly:['https://cdn.plot.ly/plotly-2.27.0.min.js'],
   disc:['discover.js','discoveries.js'], hviz:['content/quran_history_viz.js'] };
-const NEEDS = { search:['words','verses'], auditor:['words'], history:['verses','words','hviz'], reader:['verses'], home:['words'],
+const NEEDS = { structural:['words','verses','hviz'], n19:['words','verses'], search:['words','verses'], auditor:['words'], history:['verses','words','hviz'], reader:['verses'], home:['words'],
   discover:['disc'], 'd-endings':['disc','verses'], 'd-rings':['disc','verses','words'], 'd-rhyme':['disc'], 'd-stories':['disc'], 'd-themes':['disc'],
   'd-companions':['disc'], 'd-letters':['disc'], 'd-repeats':['disc','verses','words'], 'd-chrono':['disc'] };
 const lazyP = {};
@@ -3162,7 +3199,7 @@ const TLAB = [['In plain words','بكلماتٍ بسيطة'], ['What it does her
 const TERMS = { overview:['lemma','root','hapax','normalization'], word:['lemma','zipf'], letters:['normalization'], mecca:['ttest','effect'],
   stats:['ttest','pvalue','ci','effect','ols'], classifier:['logreg','tfidf','cv','baseline','auc','confusion'], cluster:['pca','kmeans','zscore','cosine','tfidf'],
   coincidence:['zipf','lookelsewhere','montecarlo','percentile'], hifz:['lp','shadow'], emotion:['lexicon'], search:['lemma','root','normalization'],
-  auditor:['lemma','lookelsewhere'], symmetry:['lemma','lookelsewhere'], nlp:['ngram','normalization'], n19:['lemma'], structural:['lookelsewhere'],
+  auditor:['lemma','lookelsewhere'], symmetry:['lemma','lookelsewhere'], nlp:['ngram','normalization'], n19:['lemma'], structural:['lemma'],
   discover:['prereg','shuffle','pvalue','multiple','lookelsewhere'], 'd-endings':['logreg','cv','baseline','shuffle','multiple','tfidf'], 'd-rings':['cosine','shuffle','multiple'],
   'd-rhyme':['cosine','shuffle','pvalue'], 'd-stories':['cosine','shuffle'], 'd-themes':['nmf','tfidf','lemma'], 'd-companions':['pmi','multiple','pvalue'],
   'd-letters':['percentile','zscore','shuffle','cosine'], 'd-repeats':['lemma','normalization'], 'd-chrono':['spearman','shuffle','pvalue'] };
@@ -4298,6 +4335,158 @@ const NineteenLab = {
       this._raf=requestAnimationFrame(step); },
     toggle(){ if(this.playing){ cancelAnimationFrame(this._raf); this.playing=false; } else this.play(false); },
     scrub(e){ cancelAnimationFrame(this._raf); this.playing=false; this.pin=-1; this.shown=+e.target.value; } } };
+// Structure: six findings laid out like a dashboard. A row of KPI tiles picks the finding; the stage builds its
+// figure (abjad sum and isotopes, honeycomb of verses, waterfall, verse-length profile, the Qadr word count, the
+// solar and lunar calendars) and names the method under it. Every count is taken from the text in the browser.
+const SL_NORM = s => s.replace(N19_MARKS,'').replace(/ٱ/g,'ا');
+const StructLab = { mixins:[FitW],
+  data(){ return {sel:'iron', t:1, hov:-1, sex:'drone', cur:143, iso:57}; },
+  template:`<div class="sl">
+    <div class="sl-kpis" role="tablist" :aria-label="ar ? 'النتائج' : 'Findings'">
+      <button v-for="k in kpis" :key="k.id" type="button" role="tab" class="sl-kpi" :class="{on:sel===k.id}" :aria-selected="String(sel===k.id)" @click="go(k.id)">
+        <small>{{ T(k.cat) }}</small><b>{{ D(k.n) }}</b><span>{{ T(k.lab) }}</span></button>
+    </div>
+    <div class="sl-stage">
+      <header class="sl-head"><h3>{{ T(f.head) }}</h3><p>{{ T(f.insight) }}</p><span class="sl-method"><i>{{ ar ? 'الطريقة' : 'Method' }}</i>{{ T(f.method) }}</span></header>
+
+      <!-- IRON -->
+      <div v-if="sel==='iron'" class="sl-grid2">
+        <div class="sl-panel"><h4>{{ ar ? 'حروف «حديد» بحساب الجُمَّل' : 'The letters of «ḥadīd», added up (abjad)' }}</h4>
+          <div class="sl-abjad" dir="rtl">
+            <template v-for="(l,i) in ironLetters" :key="i"><span class="sl-lt" :class="{in: t>i*.18}"><b lang="ar">{{ l.l }}</b><small>{{ D(l.v) }}</small></span><span class="op" v-if="i<3" :class="{in: t>i*.18+.1}">+</span></template>
+            <span class="op in">=</span><span class="sl-sum">{{ D(Math.round(ironSum)) }}</span>
+          </div>
+          <div class="sl-fe" :class="{lit: t>=.85}"><small>{{ D(26) }}</small><b>Fe</b><span>{{ ar ? 'الحديد' : 'Iron' }}</span><em>55.845</em></div>
+          <p class="sl-cap">{{ ar ? 'العدد الذري للحديد ٢٦: في نواته ٢٦ بروتونًا.' : 'Iron is element 26: 26 protons in every atom.' }}</p></div>
+        <div class="sl-panel"><h4>{{ ar ? 'نظائر الحديد المستقرة في الطبيعة' : 'Iron in nature: its four stable isotopes' }}</h4>
+          <div class="sl-iso">
+            <button v-for="s in isotopes" :key="s.m" type="button" class="sl-ib" :class="{hit:s.m===57, on:iso===s.m}" @click="iso=s.m" @pointerenter="iso=s.m">
+              <span class="v">{{ ar ? D(s.p)+'٪' : s.p+'%' }}</span><span class="sl-c" :style="{height: Math.max(3, Math.sqrt(s.p/91.75)*100*t)+'%'}"></span><b>Fe-{{ s.m }}</b></button>
+          </div>
+          <p class="sl-cap">{{ isoSay }}</p>
+          <p class="sl-axis">{{ ar ? 'الارتفاع بالجذر التربيعي للنسبة، حتى يظهر الصغير منها.' : 'Bar height on a square-root scale, so the small isotopes stay visible.' }}</p></div>
+        <div class="sl-verse"><span class="k">57:25</span><p lang="ar" dir="rtl"><span v-for="(g,i) in toks('57:25',['الحديد'])" :key="i" :class="{hl:g.h}">{{ g.t+' ' }}</span></p></div>
+      </div>
+
+      <!-- BEE -->
+      <div v-else-if="sel==='bee'" class="sl-grid2">
+        <div class="sl-panel wide"><h4>{{ ar ? 'آيات سورة النحل: ١٢٨ خلية، ١٦ في كل صف' : 'The 128 verses of an-Naḥl: 16 cells to a row' }}</h4>
+          <svg :viewBox="'0 0 '+cw+' '+combH" class="sl-comb" @pointerleave="hov=-1">
+            <g v-for="i in 128" :key="i" :transform="hexAt(i-1)" class="hx" :class="{in: (i-1)<t*128, on: hov===i-1}" @pointerenter="hov=i-1" @click="$root.dOpen('16:'+i,['16:'+i],$event)" data-dopen>
+              <polygon :points="hexPts"/><text v-if="hr>9" y="3.5" text-anchor="middle">{{ D(i) }}</text></g>
+            <text v-for="r in 8" :key="'r'+r" class="rl" :x="cw-2" :y="rowY(r-1)+4" text-anchor="end" v-show="t*128>=r*16">{{ ar ? D(16)+' × '+D(r) : '16 × '+r }}</text>
+          </svg>
+          <p class="sl-cap" v-if="hov>=0"><b>16:{{ hov+1 }}</b> <bdi lang="ar">{{ ($root.V['16:'+(hov+1)]||'').split(' ').slice(0,9).join(' ') }}…</bdi></p>
+          <p class="sl-cap" v-else>{{ ar ? 'أشر إلى خليةٍ لتقرأ آيتها، وانقرها لتفتحها.' : 'Point at a cell to read its verse; tap to open it.' }}</p></div>
+        <div class="sl-panel"><h4>{{ ar ? 'كروموسومات نحل العسل' : 'Honeybee chromosomes' }}</h4>
+          <div class="sl-seg"><button type="button" :class="{on:sex==='drone'}" @click="sex='drone'">{{ ar ? 'الذكر ١٦' : 'Male (drone) 16' }}</button><button type="button" :class="{on:sex==='worker'}" @click="sex='worker'">{{ ar ? 'الأنثى ٣٢' : 'Female (worker) 32' }}</button></div>
+          <svg viewBox="0 0 320 96" class="sl-chr"><g v-for="i in 16" :key="i" :transform="'translate('+(10+(i-1)*19)+',8)'">
+            <rect class="c1" x="0" :y="20-chrLen(i)/2" width="6" :height="chrLen(i)" rx="3"/><rect class="c2" :class="{in:sex==='worker'}" x="8" :y="20-chrLen(i)/2" width="6" :height="chrLen(i)" rx="3"/></g>
+            <text x="160" y="90" text-anchor="middle">{{ sex==='drone' ? (ar ? 'نسخةٌ واحدة من كل كروموسوم: ١٦' : 'One copy of each chromosome: 16') : (ar ? 'نسختان من كل كروموسوم: ٣٢' : 'Two copies of each: 32') }}</text></svg>
+          <p class="sl-cap">{{ ar ? 'الذكر ينشأ من بيضةٍ غير ملقّحة، فيحمل نصف عدد الأنثى.' : 'A drone hatches from an unfertilised egg, so it carries half the female count.' }}</p></div>
+        <div class="sl-panel"><h4>{{ ar ? 'الخطاب للنحلة بصيغة المؤنث' : 'The bee is spoken to in the feminine' }}</h4>
+          <p class="sl-ar" lang="ar" dir="rtl"><span v-for="(g,i) in toks('16:68',['اتخذى'])" :key="'a'+i" :class="{hl:g.h}">{{ g.t+' ' }}</span><span v-for="(g,i) in toks('16:69',['كلى','فاسلكى','ربك'])" :key="'b'+i" :class="{hl:g.h}">{{ g.t+' ' }}</span></p>
+          <p class="sl-cap">{{ ar ? 'اتّخذي، كُلي، فاسلُكي، ربِّكِ: والعاملات التي تبني وتجمع الرحيق إناثٌ كلها.' : 'Take, eat, follow, your Lord: all feminine. The workers that build the comb and gather nectar are all female.' }}</p></div>
+      </div>
+
+      <!-- NOAH -->
+      <div v-else-if="sel==='noah'" class="sl-grid2">
+        <div class="sl-panel"><h4>{{ ar ? 'من رقم السورة إلى عدد المرات' : 'From the surah number to the count' }}</h4>
+          <svg :viewBox="'0 0 320 210'" class="sl-wf">
+            <line class="ax" x1="20" x2="310" y1="180" y2="180"/>
+            <g v-for="(b,i) in waterfall" :key="i"><rect :class="b.c" :x="30+i*95" :y="wy(b.top)" width="70" :height="Math.max(0,(wy(b.bot)-wy(b.top)))*Math.min(1,Math.max(0,t*3-i))" rx="6"/>
+              <text class="v" :x="65+i*95" :y="wy(b.top)-8" text-anchor="middle" :opacity="t*3-i>0.6 ? 1 : 0">{{ b.v }}</text>
+              <text class="l" :x="65+i*95" y="198" text-anchor="middle">{{ T(b.lab) }}</text></g>
+            <line v-for="i in 2" :key="'c'+i" class="cn" :x1="30+(i-1)*95+70" :x2="30+i*95" :y1="wy(i===1 ? 71 : 43)" :y2="wy(i===1 ? 71 : 43)"/>
+          </svg></div>
+        <div class="sl-panel"><h4>{{ ar ? 'أين ذُكر نوح: ٤٣ مرة في ٢٨ سورة' : 'Where Noah is named: 43 times in 28 surahs' }}</h4>
+          <svg :viewBox="'0 0 '+cw+' 150'" class="sl-dist" @pointerleave="hov=-1">
+            <g v-for="n in 114" :key="n" @pointerenter="hov=n" @click="noahBy[n] && $root.dOpen(noahBy[n].first,[noahBy[n].first],$event)" :class="{s71:n===71, on:hov===n}">
+              <rect class="hit" :x="dx(n)-dw/2" y="0" :width="dw" height="130" fill="transparent"/>
+              <rect class="sl-c" :class="{has: noahBy[n]}" :x="dx(n)-dw*.35" :y="120-(noahBy[n] ? noahBy[n].c : 0)*16*t" :width="dw*.7" :height="(noahBy[n] ? noahBy[n].c : 0)*16*t"/></g>
+            <line class="ax" x1="0" :x2="cw" y1="120" y2="120"/>
+            <text class="l" :x="dx(1)" y="142">1</text><text class="l" :x="dx(71)" y="142" text-anchor="middle">71</text><text class="l" :x="dx(114)" y="142" text-anchor="end">114</text></svg>
+          <p class="sl-cap" v-if="hov>0">{{ D(hov) }}. {{ $root.surahName(hov) }}: {{ noahBy[hov] ? (ar ? D(noahBy[hov].c)+' مرة' : noahBy[hov].c+(noahBy[hov].c>1?' times':' time')) : (ar ? 'لا ذِكر' : 'not named') }}</p>
+          <p class="sl-cap" v-else>{{ ar ? 'عدد السور التي ذُكر فيها: ' : 'Surahs that name him: ' }}<b>{{ D(noahSurahs) }}</b>{{ ar ? '، وعدد آيات سورة نوح: ' : '; verses in Surah Nuh: ' }}<b>{{ D(28) }}</b>.</p></div>
+      </div>
+
+      <!-- MIDDLE -->
+      <div v-else-if="sel==='middle'" class="sl-panel">
+        <h4>{{ ar ? 'آيات البقرة الـ٢٨٦ بطول كلٍّ منها (عدد الكلمات)' : 'The 286 verses of al-Baqara, each drawn by its length in words' }}</h4>
+        <svg :viewBox="'0 0 '+cw+' 170'" class="sl-prof" role="slider" tabindex="0" :aria-valuenow="cur" aria-valuemin="1" aria-valuemax="286" :aria-label="ar ? 'الآية' : 'Verse'"
+          @pointerdown="pDrag" @pointermove="e=>e.buttons && pDrag(e)" @keydown.left.prevent="cur=Math.max(1,cur-(ar?-1:1))" @keydown.right.prevent="cur=Math.min(286,cur+(ar?-1:1))">
+          <rect v-for="(n,i) in baqLens" :key="i" :class="i+1<143 ? 'a' : (i+1===143 ? 'm' : 'b')" :x="px(i+1)-pw/2" :y="140-n*bs*t" :width="Math.max(1,pw-.6)" :height="n*bs*t"/>
+          <line class="mid" :x1="px(143)" :x2="px(143)" y1="0" y2="150"/>
+          <g class="cur" :transform="'translate('+px(cur)+',0)'"><line y1="0" y2="150"/><circle cy="150" r="7"/></g>
+          <text class="l" :x="px(1)" y="166" :text-anchor="ar ? 'end' : 'start'">{{ D(1) }}</text><text class="l" :x="px(143)" y="166" text-anchor="middle">{{ D(143) }}</text><text class="l" :x="px(286)" y="166" :text-anchor="ar ? 'start' : 'end'">{{ D(286) }}</text>
+        </svg>
+        <div class="sl-mid">
+          <span class="k">2:{{ D(cur) }}</span><span>{{ ar ? 'قبلها '+D(cur-1)+' آية، وبعدها '+D(286-cur) : (cur-1)+' verses before it, '+(286-cur)+' after' }}</span>
+          <button type="button" class="sl-jump" @click="cur=143">{{ ar ? 'انتقل إلى الوسط (٢٨٦ ÷ ٢ = ١٤٣)' : 'Jump to the middle (286 ÷ 2 = 143)' }}</button>
+        </div>
+        <p class="sl-ar" lang="ar" dir="rtl"><span v-for="(g,i) in toks('2:'+cur,['وسطا'])" :key="cur+'-'+i" :class="{hl:g.h}">{{ g.t+' ' }}</span></p>
+        <p class="sl-cap" v-if="cur!==143">{{ ar ? 'اسحب على الشكل، أو استعمل الأسهم، لتنتقل بين الآيات.' : 'Drag across the figure, or use the arrow keys, to move along the verses.' }}</p>
+      </div>
+
+      <!-- QADR -->
+      <div v-else-if="sel==='qadr'"><qadr-lab v-if="$root.W && $root.W.norm"></qadr-lab></div>
+
+      <!-- CAVE -->
+      <div v-else-if="sel==='cave'"><claim-viz v-if="cave" :spec="cave" verdict="holds"></claim-viz>
+        <div class="sl-verse"><span class="k">18:25</span><p lang="ar" dir="rtl"><span v-for="(g,i) in toks('18:25',['وازدادوا','تسعا'])" :key="i" :class="{hl:g.h}">{{ g.t+' ' }}</span></p></div></div>
+    </div>
+  </div>`,
+  mounted(){ this.$root.load('words'); this.$root.load('verses'); this.$root.load('hviz'); this.build(); },
+  beforeUnmount(){ cancelAnimationFrame(this._raf); },
+  computed:{ ar(){ return this.$root.lang==='ar'; }, cw(){ return Math.max(280, this.w-44); },
+    kpis(){ return [
+      {id:'iron', n:57, cat:['Chemistry','الكيمياء'], lab:['Iron, element 26','الحديد، العنصر ٢٦']},
+      {id:'bee', n:16, cat:['Biology','الأحياء'], lab:['The bee, 128 = 16 × 8','النحل، ١٢٨ = ١٦ × ٨']},
+      {id:'noah', n:43, cat:['Word count','عدّ الكلمات'], lab:['Noah, 71 - 28','نوح، ٧١ - ٢٨']},
+      {id:'middle', n:143, cat:['Position','الموضع'], lab:['The middle verse','الآية الوسطى']},
+      {id:'qadr', n:27, cat:['Position','الموضع'], lab:['The Night of Power','ليلة القدر']},
+      {id:'cave', n:309, cat:['Calendar','التقويم'], lab:['The Sleepers, 300 + 9','أهل الكهف، ٣٠٠ + ٩']} ]; },
+    f(){ return ({
+      iron:{ head:['Iron: surah 57, element 26','الحديد: السورة ٥٧ والعنصر ٢٦'], insight:['The letters of «ḥadīd» add up to 26, the atomic number of iron. And 57, the surah number, is one of the four stable forms of iron found in nature: Fe-57.','حروف «حديد» مجموعها ٢٦ بحساب الجُمَّل، وهو العدد الذري للحديد. والرقم ٥٧، رقم السورة، أحد النظائر الأربعة المستقرة للحديد في الطبيعة: الحديد-٥٧.'], method:['Abjad letter values · isotope abundances (IUPAC)','قيم حروف الجُمَّل · نِسَب النظائر (IUPAC)'] },
+      bee:{ head:['The bee: surah 16','النحل: السورة ١٦'], insight:['Surah 16, an-Naḥl, has 128 verses: exactly 16 × 8. A male honeybee carries 16 chromosomes. And the verses speak to the bee in the feminine, as the workers are female.','سورة النحل رقمها ١٦ وآياتها ١٢٨: أي ١٦ × ٨ تمامًا. وذكر نحل العسل يحمل ١٦ كروموسومًا. والآيات تخاطب النحلة بصيغة المؤنث، والعاملات إناث.'], method:['Verse count · honeybee genetics','عدد الآيات · وراثة نحل العسل'] },
+      noah:{ head:['Noah: 71 - 28 = 43','نوح: ٧١ - ٢٨ = ٤٣'], insight:['Surah Nuh is number 71 and has 28 verses: 71 - 28 = 43. Noah is named 43 times in the Quran, and in exactly 28 surahs, the same number as the verses of his surah.','سورة نوح رقمها ٧١ وآياتها ٢٨: ٧١ - ٢٨ = ٤٣. واسم نوح يرد في القرآن ٤٣ مرة، في ٢٨ سورةً بالضبط، بعدد آيات سورته.'], method:['Name count by lemma · Quranic Arabic Corpus','عدّ الاسم بالجذع · مدوّنة القرآن العربية'] },
+      middle:{ head:['The middle verse speaks of the middle','الآية الوسطى تتحدث عن الوسط'], insight:['Al-Baqara, the longest surah, has 286 verses. Half of 286 is 143, and verse 143 is the one that calls the believers «a middle nation».','البقرة أطول السور، وآياتها ٢٨٦. ونصف ٢٨٦ هو ١٤٣، والآية ١٤٣ هي التي تقول: ﴿أُمَّةً وَسَطًا﴾.'], method:['Verse position · verse length in words','موضع الآية · طول الآية بالكلمات'] },
+      qadr:{ head:['The Night of Power and word 27','ليلة القدر والكلمة ٢٧'], insight:['Surah al-Qadr has 30 words. The 27th is «hiya», «it is», and many seek the Night of Power on the 27th night of Ramadan.','سورة القدر ثلاثون كلمة، والكلمة السابعة والعشرون «هي»، وكثيرون يتحرّون ليلة القدر في ليلة السابع والعشرين من رمضان.'], method:['Word position, counted as written','موضع الكلمة، تُعدّ كما تُكتب'] },
+      cave:{ head:['Three hundred years, and nine more','ثلاث مئة سنين وازدادوا تسعًا'], insight:['300 years by the sun is about 309 years by the moon: the «and nine more» of 18:25.','ثلاث مئة سنةٍ شمسية تعدل نحو ٣٠٩ سنواتٍ قمرية: وهو قوله ﴿وَٱزْدَادُوا۟ تِسْعًا﴾.'], method:['Solar year 365.24 days · lunar year 354.37 days','السنة الشمسية ٣٦٥٫٢٤ يومًا · القمرية ٣٥٤٫٣٧ يومًا'] }
+    })[this.sel]; },
+    // iron
+    ironLetters(){ return [{l:'ح',v:8},{l:'د',v:4},{l:'ي',v:10},{l:'د',v:4}]; },
+    ironSum(){ return this.ironLetters.reduce((a,l,i)=>a+(this.t>i*.18+.08 ? l.v : 0),0); },
+    isotopes(){ return [{m:54,p:5.85},{m:56,p:91.75},{m:57,p:2.12},{m:58,p:0.28}]; },
+    isoSay(){ const s=this.isotopes.find(x=>x.m===this.iso)||{}, ar=this.ar;
+      return s.m===57 ? (ar ? 'الحديد-٥٧: نظيرٌ مستقر، ٢٫١٢٪ من الحديد الطبيعي، فيه ٢٦ بروتونًا و٣١ نيوترونًا. ورقمه رقم سورة الحديد.' : 'Fe-57: stable, 2.12% of natural iron, 26 protons and 31 neutrons. Its number is the surah number.')
+        : (ar ? 'الحديد-'+this.D(s.m)+': '+this.D(s.p)+'٪ من الحديد الطبيعي.' : 'Fe-'+s.m+': '+s.p+'% of natural iron.'); },
+    // bee: pointy-top hexes, 16 to a row, alternate rows shifted half a cell
+    hr(){ return Math.min(22, (this.cw-34)/(16.5*Math.sqrt(3))); },
+    hexPts(){ const r=this.hr*.94; return [0,1,2,3,4,5].map(k=>{ const a=Math.PI/180*(60*k-90); return (r*Math.cos(a)).toFixed(1)+','+(r*Math.sin(a)).toFixed(1); }).join(' '); },
+    combH(){ return this.rowY(7)+this.hr+4; },
+    // noah
+    noahBy(){ const W=this.$root.W, m={}; if(!W || !W.lemma) return m; W.lemma.forEach((l,i)=>{ if(l==='نوح'){ const k=W.key[i], s=+k.split(':')[0]; if(!m[s]) m[s]={c:0,first:k}; m[s].c++; } }); return m; },
+    noahSurahs(){ return Object.keys(this.noahBy).length; },
+    waterfall(){ const ar=this.ar; return [ {top:71,bot:0,c:'g',v:this.D(71),lab:['Surah number','رقم السورة']},
+      {top:71,bot:43,c:'r',v:'- '+this.D(28),lab:['Its verses','آياتها']}, {top:43,bot:0,c:'t',v:this.D(43),lab:['Noah named','ذِكر نوح']} ]; },
+    dw(){ return this.cw/114; },
+    // middle
+    baqLens(){ const W=this.$root.W, out=Array(286).fill(0); if(!W || !W.key) return out; for(let i=0;i<W.key.length;i++){ const k=W.key[i]; if(k.charCodeAt(0)===50 && k[1]===':') out[+k.slice(2)-1]++; else if(out[285]) break; } return out; },
+    pw(){ return (this.cw-8)/286; }, bs(){ return 130/Math.max(1,...this.baqLens); },
+    cave(){ return this.$root.ready.hviz && typeof QURAN_HISTORY_VIZ!=='undefined' ? QURAN_HISTORY_VIZ.sleepers : null; } },
+  methods:{ T(p){ const s=Array.isArray(p) ? (this.ar ? p[1] : p[0]) : p; return this.ar ? this.$root.D(s) : s; }, D(x){ return this.$root.D(x); },
+    go(id){ this.sel=id; this.hov=-1; this.build(); },
+    build(){ cancelAnimationFrame(this._raf); if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches){ this.t=1; return; }
+      this.t=0; const t0=performance.now(), d=1700; const step=n=>{ this.t=Math.min(1,(n-t0)/d); if(this.t<1) this._raf=requestAnimationFrame(step); }; this._raf=requestAnimationFrame(step); },
+    toks(k,hits){ const t=this.$root.V[k]||''; return t.split(' ').filter(x=>x).map(x=>({t:x, h: hits.includes(SL_NORM(x))})); },
+    rowY(r){ return this.hr+2+r*this.hr*1.5; },
+    hexAt(i){ const r=i>>4, c=i&15, wx=this.hr*Math.sqrt(3); let x=wx/2+2+c*wx+(r%2 ? wx/2 : 0); if(this.ar) x=this.cw-34-x; return 'translate('+x.toFixed(1)+','+this.rowY(r).toFixed(1)+')'; },
+    chrLen(i){ return 34-i*1.3; },
+    wy(v){ return 180-v*2.2; },
+    dx(n){ const x=(n-.5)*this.dw; return this.ar ? this.cw-x : x; },
+    px(v){ const x=4+(v-.5)*this.pw; return this.ar ? this.cw-x : x; },
+    pDrag(e){ const r=e.currentTarget.getBoundingClientRect(), x=(e.clientX-r.left)/r.width*this.cw, v=Math.round((this.ar ? this.cw-x : x)-4)/this.pw+.5; this.cur=Math.min(286,Math.max(1,Math.round(v))); } } };
 const QadrLab = {
   data(){ return {basm:false, pre:false, suf:false, hov:-1}; },
   template:`<figure class="dfig qlab">
@@ -6025,7 +6214,7 @@ createApp({
     this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); this.enterView(true); });
   }
 }).component('depth-switch', DepthSwitch).component('term-chips', TermChips).component('explain-box', ExplainBox)
-  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell).component('claim-viz', ClaimViz).component('count-lab', CountLab).component('rule-matrix', RuleMatrix).component('qadr-lab', QadrLab).component('nineteen-lab', NineteenLab)
+  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell).component('claim-viz', ClaimViz).component('count-lab', CountLab).component('rule-matrix', RuleMatrix).component('qadr-lab', QadrLab).component('nineteen-lab', NineteenLab).component('struct-lab', StructLab)
   .component('letter-strip', LetterStrip).component('growth-curve', GrowthCurve).component('rhyme-ribbon', RhymeRibbon).mount('#app');
 });
 </script>
