@@ -932,7 +932,27 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .npbox{position:relative;height:112px;margin:26px 0 6px}
   .npbox svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
   .npbox rect{fill:rgba(169,191,180,.34)}
-  .npbox .obs{stroke:var(--gold);stroke-width:2.2;vector-effect:non-scaling-stroke}
+  .npbox .obs{stroke:var(--gold);stroke-width:2.2;vector-effect:non-scaling-stroke;opacity:0;transition:opacity .5s}
+  .npbox .obs.in{opacity:1}
+  .npbox rect.hit{fill:transparent;cursor:crosshair}
+  .npbox rect.hot{fill:rgba(255,255,255,.62)}
+  .npobs{opacity:0;transition:opacity .5s .1s} .npobs.in{opacity:1}
+  .npre{display:inline-block;margin-top:8px;font:inherit;font-size:.66rem;letter-spacing:.06em;text-transform:none;color:var(--on-dark-2);background:none;border:1px solid var(--hair);border-radius:99px;padding:3px 10px;cursor:pointer}
+  .npre:hover{color:#fff;border-color:rgba(255,255,255,.3)}
+  /* the static study figures, made to answer: tellings, letters, the vocabulary curve, the rhyme ribbon */
+  .dmb .dchips{margin:0 0 10px} .dmb-hit{fill:transparent;cursor:pointer} .dmb g.hov .dmb-hit{fill:rgba(255,255,255,.05)}
+  .dmb g.hov .lbl{fill:#fff}
+  .ls-dot{cursor:pointer;outline:none} .ls-dot.on circle,.ls-dot:focus-visible circle{stroke:#fff;stroke-width:2}
+  .gcurve svg{touch-action:pan-y;cursor:crosshair;outline:none} .gcurve svg:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:8px}
+  .gc-cur line{stroke:rgba(255,255,255,.4);stroke-dasharray:3 3} .gc-cur circle{fill:var(--gold);stroke:#fff;stroke-width:2}
+  .gcurve .band.on,.gcurve .band2.on{fill:rgba(233,185,95,.12)}
+  .rrib-pick{display:inline-flex;gap:8px;align-items:center;font-size:.84rem;color:var(--on-dark-2);margin:0 0 12px}
+  .rrib-pick select{font:inherit;padding:6px 10px;border-radius:8px;border:1px solid var(--hair);background:rgba(255,255,255,.05);color:#fff}
+  .rrib-cells{display:flex;flex-wrap:wrap;gap:3px}
+  .rrib-c{width:16px;height:22px;border:0;border-radius:3px;padding:0;cursor:pointer;opacity:.85;transition:transform .15s,opacity .15s}
+  .rrib-c.chg{margin-inline-start:7px;box-shadow:-5px 0 0 -3px #fff}
+  [dir=rtl] .rrib-c.chg{box-shadow:5px 0 0 -3px #fff}
+  .rrib-c:hover,.rrib-c.on,.rrib-c:focus-visible{opacity:1;transform:scaleY(1.25);outline:none}
   .npbox .base{stroke:rgba(255,255,255,.14);stroke-width:1;vector-effect:non-scaling-stroke}
   .npobs,.npnull{position:absolute;white-space:nowrap;font-size:.7rem;line-height:1.3;transform:translateX(-50%)}
   html[lang=ar] .npobs,html[lang=ar] .npnull{font-size:.8rem}
@@ -1618,6 +1638,11 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
                 <tr v-for="w in DZ.rhyme.robust" :key="w.window"><td>{{ lang==='ar' ? (w.window===2 ? 'آيتان على كل جانب' : D(w.window)+' آياتٍ على كل جانب') : w.window+' verses a side' }}</td><td class="num">{{ dF.d(w.stat,4) }}</td><td class="num">{{ dF.p(w.p) }}</td></tr>
               </table>
             </div>
+          </div>
+          <div class="dfig">
+            <h3>{{ lang==='ar' ? 'سورةٌ واحدة، آيةً آية' : 'One surah, verse by verse' }}</h3>
+            <p class="fsub">{{ lang==='ar' ? 'كل مربعٍ آية، ملوّنٌ بفاصلته، والفاصل الأبيض حيث تتغيّر الفاصلة. هذه المواضع هي التي يختبرها البحث: هل تبتعد الألفاظ بعدها عما قبلها؟' : 'Each square is a verse, coloured by its rhyme; a white gap marks a change. Those changes are what this study tests: do the words after them move away from the words before?' }}</p>
+            <rhyme-ribbon :cls="dRhymeCls"></rhyme-ribbon>
           </div>
           <div class="card">
             <h3>{{ lang==='ar' ? 'أطول السلاسل على فاصلةٍ واحدة' : 'The longest runs of one rhyme' }} <span class="xpl">{{ lang==='ar' ? 'استكشافي' : 'exploratory' }}</span></h3>
@@ -3071,30 +3096,44 @@ const rgbCss = c => 'rgb('+c.map(v=>Math.round(v*255)).join(',')+')';
 // A study's test against chance: its shuffled copies as a histogram, the text itself as a gold line, and a sentence
 // saying how many shuffles did as well. «what» names the shuffles: [English plural, Arabic after a number, Arabic definite].
 const NullPlot = { props:['d','p','title','lab','what','two','fmt'],
+  // the test, told as it happened: the shuffles pile up first, then the real text lands. It plays once when it
+  // scrolls into view, and again on request. Point at a bar to read how many shuffles fell there.
+  data(){ return {t:1, hb:-1}; },
   template:`<figure class="nullplot" v-if="d && d.hist">
     <figcaption class="npt">{{ title }}</figcaption>
-    <div class="npbox" dir="ltr" role="img" :aria-label="aria">
+    <div class="npbox" dir="ltr" role="img" :aria-label="aria" @mouseleave="hb=-1">
       <svg viewBox="0 0 600 100" preserveAspectRatio="none" aria-hidden="true">
         <line class="base" x1="0" x2="600" y1="100" y2="100"/>
-        <rect v-for="(b,i) in bars" :key="i" :x="b.x" :y="b.y" :width="b.w" :height="b.h"/>
-        <line class="obs" :x1="ox" :x2="ox" y1="-6" y2="100"/>
+        <rect v-for="(b,i) in bars" :key="i" :class="{hot:hb===i}" :x="b.x" :y="100-b.h*grow(i)" :width="b.w" :height="b.h*grow(i)"/>
+        <rect v-for="(b,i) in bars" :key="'h'+i" class="hit" :x="b.x-.8" y="0" :width="b.w+1.6" height="100" @mouseenter="hb=i" @click="hb=i"/>
+        <line class="obs" :class="{in:t>=1}" :x1="ox" :x2="ox" y1="-6" y2="100"/>
       </svg>
-      <span class="npobs" :class="side" :style="{left:(ox/6).toFixed(2)+'%'}">{{ lab }}: {{ f(d.obs) }}</span>
+      <span class="npobs" :class="[side,{in:t>=1}]" :style="{left:(ox/6).toFixed(2)+'%'}">{{ lab }}: {{ f(d.obs) }}</span>
       <span class="npnull" :style="{left:(mx/6).toFixed(2)+'%'}">{{ nullLab }}</span>
     </div>
-    <p class="npsum">{{ sum }}</p>
+    <p class="npsum" aria-live="polite">{{ hb>=0 ? binSay : (t<1 ? running : sum) }}</p>
+    <button type="button" class="npre" @click="play(true)">{{ ar ? 'أعد الاختبار ↻' : 'Run the test again ↻' }}</button>
   </figure>`,
+  mounted(){ if(!window.IntersectionObserver || !MOTION) return;
+    this._io=new IntersectionObserver(es=>{ if(es.some(e=>e.isIntersecting)){ this._io.disconnect(); this.play(false); } }, {threshold:.45});
+    this.$nextTick(()=>{ if(this.$el && this.$el.nodeType===1) this._io.observe(this.$el); }); },
+  beforeUnmount(){ if(this._io) this._io.disconnect(); cancelAnimationFrame(this._raf); },
   computed:{
     ar(){ return this.$root.lang==='ar'; }, F(){ return this.$root.dF; },
     f(){ return this.fmt || (v=>this.F.d(v, 3)); },
     X(){ const h=this.d.hist, w=(h.hi-h.lo)||1; return v=>(v-h.lo)/w*600; },
-    bars(){ const c=this.d.hist.counts, n=c.length, w=600/n, m=Math.max(...c)||1; return c.map((k,i)=>({x:i*w+.8, w:Math.max(.6,w-1.6), h:k/m*90, y:100-k/m*90})); },
+    bars(){ const c=this.d.hist.counts, n=c.length, w=600/n, m=Math.max(...c)||1; return c.map((k,i)=>({x:i*w+.8, w:Math.max(.6,w-1.6), h:k/m*90, k})); },
     ox(){ return Math.min(598, Math.max(2, this.X(this.d.obs))); },
     mx(){ return Math.min(540, Math.max(60, this.X(this.d.mean))); },
     side(){ return this.ox>450 ? 'end' : this.ox<150 ? 'start' : ''; },
     nullLab(){ return this.ar ? this.F.n(this.d.n)+' '+this.what[1] : this.F.n(this.d.n)+' '+this.what[0]; },
     // how many shuffles did as well: counted by the pipeline; for a two-sided test, read back from p
     k(){ return this.two ? Math.max(0, Math.round(this.p*(this.d.n+1))-1) : (this.d.ge||0); },
+    running(){ const n=Math.round(this.d.n*Math.min(1,this.t));
+      return this.ar ? 'جارٍ الخلط… '+this.F.n(n)+' من '+this.F.n(this.d.n) : 'Shuffling… '+this.F.n(n)+' of '+this.F.n(this.d.n); },
+    binSay(){ const h=this.d.hist, n=h.counts.length, bw=(h.hi-h.lo)/n, a=h.lo+this.hb*bw, b=a+bw, k=h.counts[this.hb], F=this.F;
+      return this.ar ? 'بين '+this.f(a)+' و'+this.f(b)+': '+F.n(k)+' من '+this.what[2]+' الـ'+F.n(this.d.n)+'.'
+        : 'Between '+this.f(a)+' and '+this.f(b)+': '+F.n(k)+' of the '+F.n(this.d.n)+' '+this.what[0]+'.'; },
     sum(){ const F=this.F, n=F.n(this.d.n), p=F.p(this.p), k=this.k;
       if(this.ar) return this.two
         ? (k ? 'ابتعد '+F.n(k)+' من '+this.what[2]+' الـ'+n+' عن الصفر مثله أو أكثر' : 'لم يبتعد أيٌّ من '+this.what[2]+' الـ'+n+' عن الصفر مثله')+' (القيمة الاحتمالية '+p+').'
@@ -3102,7 +3141,14 @@ const NullPlot = { props:['d','p','title','lab','what','two','fmt'],
       return this.two
         ? (k ? k+' of the '+n+' '+this.what[0]+' came as far from zero' : 'None of the '+n+' '+this.what[0]+' came as far from zero')+' (p = '+p+').'
         : (k ? k+' of the '+n+' '+this.what[0]+' scored as high or higher' : 'None of the '+n+' '+this.what[0]+' scored as high')+' (p = '+p+').'; },
-    aria(){ return this.title+'. '+this.sum; } } };
+    aria(){ return this.title+'. '+this.sum; } },
+  methods:{
+    // each bar rises in its own moment, so the pile looks like shuffles arriving one by one
+    grow(i){ if(this.t>=1) return 1; const n=this.d.hist.counts.length, at=((i*37)%n)/n*.55; return Math.max(0, Math.min(1, (this.t-at)/.45)); },
+    play(user){ if(!MOTION && !user){ this.t=1; return; } cancelAnimationFrame(this._raf); this.hb=-1; this.t=0;
+      const t0=performance.now(), dur=user ? 1500 : 1900;
+      const tick=now=>{ this.t=Math.min(1,(now-t0)/dur); if(this.t<1) this._raf=requestAnimationFrame(tick); };
+      this._raf=requestAnimationFrame(tick); } } };
 // Study 2's map search: where a verse or a word of al-Baqarah sits on the map. A query is a verse or a range
 // (2:143, 143, ٢:١٤٣, 142-152); Arabic words, matched as written, then as the dictionary word, in the mushaf's
 // spelling and by root; English words of the translation; or Latin transliteration, read as Arabic by its
@@ -3804,51 +3850,132 @@ const ClaimViz = { mixins:[FitW], props:['spec','verdict'],
     wToggle(it){ const k=it.t[0], i=this.placed.indexOf(k); if(i<0) this.placed.push(k); else this.placed.splice(i,1); },
     wAll(){ this.placed = this.placed.length===this.spec.items.length ? [] : this.spec.items.map(x=>x.t[0]); } } };
 const Dumbbell = { mixins:[FitW], props:['rows','max'],
-  template:`<svg :viewBox="'0 0 '+w+' '+H" role="img" :aria-label="aria">
-    <g v-for="(r,i) in rows" :key="r.key">
-      <text v-if="r.head" class="lblw" x="0" :y="y(i)+4">{{ r.head }}</text>
-      <template v-else>
-        <text class="lbl" x="0" :y="y(i)+4">{{ r.label }}</text>
-        <line class="link" :class="{up:r.own>r.others}" :x1="X(r.others)" :x2="X(r.own)" :y1="y(i)" :y2="y(i)"/>
-        <circle class="oth" :cx="X(r.others)" :cy="y(i)" r="5"/>
-        <circle class="own" :cx="X(r.own)" :cy="y(i)" r="5.5"/>
-      </template>
-    </g>
-    <text v-for="t in ticks" :key="t" :x="X(t)" :y="H-4" text-anchor="middle">{{ $root.dF.d(t,1) }}</text>
-  </svg>`,
-  computed:{ H(){ return this.rows.length*22+24; }, L(){ return Math.min(250, Math.round(this.w*.48)); },
+  // pick a prophet to see only his tellings; point at a telling to read it, tap it to open its first verse
+  data(){ return {hov:-1, pro:''}; },
+  template:`<div class="dmb">
+    <div class="chips dchips" role="group" :aria-label="$root.lang==='ar' ? 'اختر نبيًّا' : 'Pick a prophet'">
+      <button type="button" class="dchip" :aria-pressed="String(!pro)" @click="pro=''; hov=-1">{{ $root.lang==='ar' ? 'الكل' : 'All' }}<span class="n">{{ $root.D(tells.length) }}</span></button>
+      <button v-for="h in heads" :key="h.key" type="button" class="dchip" :aria-pressed="String(pro===h.p)" @click="pro=h.p; hov=-1">{{ h.head }}<span class="n">{{ $root.D(h.n) }}</span></button>
+    </div>
+    <svg :viewBox="'0 0 '+w+' '+H" role="img" :aria-label="aria" @mouseleave="hov=-1">
+      <g v-for="(r,i) in shown" :key="r.key" :class="{hov:hov===i}">
+        <text v-if="r.head" class="lblw" x="0" :y="y(i)+4">{{ r.head }}</text>
+        <template v-else>
+          <rect class="dmb-hit" x="0" :y="y(i)-11" :width="w" height="22" rx="6" @mouseenter="hov=i" @click="open(r, $event)"/>
+          <text class="lbl" x="0" :y="y(i)+4">{{ r.label }}</text>
+          <line class="link" :class="{up:r.own>r.others}" :x1="X(r.others)" :x2="X(r.own)" :y1="y(i)" :y2="y(i)"/>
+          <circle class="oth" :cx="X(r.others)" :cy="y(i)" r="5"/>
+          <circle class="own" :cx="X(r.own)" :cy="y(i)" r="5.5"/>
+        </template>
+      </g>
+      <text v-for="t in ticks" :key="t" :x="X(t)" :y="H-4" text-anchor="middle">{{ $root.dF.d(t,1) }}</text>
+    </svg>
+    <p class="cv-say dmb-say" aria-live="polite">{{ say }}</p>
+  </div>`,
+  computed:{ ar(){ return this.$root.lang==='ar'; },
+    heads(){ return this.rows.filter(r=>r.head).map(r=>({key:r.key, p:r.key.slice(1), head:r.head, n:this.rows.filter(x=>!x.head && x.prophet===r.key.slice(1)).length})); },
+    tells(){ return this.rows.filter(r=>!r.head); },
+    shown(){ return this.pro ? this.rows.filter(r=>r.head ? r.key==='h'+this.pro : r.prophet===this.pro) : this.rows; },
+    H(){ return this.shown.length*22+24; }, L(){ return Math.min(250, Math.round(this.w*.48)); },
     X(){ const L=this.L, w=this.w; return v=>L+10+v/this.max*(w-L-20); }, y(){ return i=>i*22+12; },
     ticks(){ const o=[], st=this.w<480 ? .2 : .1; for(let v=0; v<=this.max+1e-9; v+=st) o.push(+v.toFixed(1)); return o; },
-    aria(){ return this.$root.lang==='ar' ? 'لكل رواية: تشابهها مع سورتها (أخضر) ومع السور الأخرى (رمادي)' : 'For each telling: its likeness to its own surah (green) and to the other surahs (grey)'; } } };
+    say(){ const ar=this.ar, F=this.$root.dF, r=this.shown[this.hov];
+      if(!r || r.head){ const T=this.shown.filter(x=>!x.head), k=T.filter(x=>x.own>x.others).length;
+        return ar ? 'أشر إلى روايةٍ لتقرأها، وانقرها لتفتح أول آياتها. في '+this.$root.D(k)+' من '+this.$root.D(T.length)+' روايةً تقع النقطة الخضراء (سورتها) أبعد إلى اليمين: سورتها أقرب إليها.'
+          : 'Point at a telling to read it; tap it to open its first verse. In '+k+' of these '+T.length+' tellings the green dot (its own surah) sits further right: its own surah is closer.'; }
+      const closer=r.own>r.others;
+      return ar ? r.label+': تشابهها مع بقية سورتها '+F.d(r.own,2)+'، ومع السور الأخرى التي تروي القصة '+F.d(r.others,2)+'. '+(closer ? 'سورتها أقرب إليها.' : 'السور الأخرى أقرب إليها هنا.')
+        : r.label+': '+F.d(r.own,2)+' alike with the rest of its surah, '+F.d(r.others,2)+' with the other surahs that tell the story. '+(closer ? 'Its own surah is closer.' : 'Here the other tellings are closer.'); },
+    aria(){ return this.ar ? 'لكل رواية: تشابهها مع سورتها (أخضر) ومع السور الأخرى (رمادي)' : 'For each telling: its likeness to its own surah (green) and to the other surahs (grey)'; } },
+  methods:{ open(r, e){ if(r.first) this.$root.dOpen(r.first, [r.first], e); } } };
 // Study 7a: each lettered surah, its letters placed by their rank among the 114 surahs (50 is typical)
 const LetterStrip = { mixins:[FitW], props:['rows'],
-  template:`<svg :viewBox="'0 0 '+w+' '+H" role="img" :aria-label="aria">
+  // point at a letter to read where it ranks; tap it to open the surah
+  data(){ return {hov:null}; },
+  template:`<div class="lstrip"><svg :viewBox="'0 0 '+w+' '+H" role="img" :aria-label="aria" @mouseleave="hov=null">
     <line class="grid" :x1="X(50)" :x2="X(50)" y1="0" :y2="H-18"/>
     <g v-for="(r,i) in rows" :key="r.s">
       <text class="lbl" x="0" :y="y(i)+4">{{ r.label }}</text>
       <line class="grid" :x1="X(0)" :x2="X(100)" :y1="y(i)" :y2="y(i)"/>
-      <g v-for="d in r.dots" :key="d.letter"><circle class="dot" :class="{dim:d.pct<50}" :cx="X(d.pct)" :cy="y(i)" r="8"/><text class="ltr" :x="X(d.pct)" :y="y(i)+4" text-anchor="middle">{{ d.letter }}</text></g>
+      <g v-for="(d,j) in r.dots" :key="d.letter" class="ls-dot" :class="{on:hov && hov.i===i && hov.j===j}" tabindex="0" role="button" :aria-label="r.label+' '+d.letter"
+        @mouseenter="hov={i,j}" @focus="hov={i,j}" @click="open(r, $event)" @keydown.enter="open(r, $event)">
+        <circle class="dot" :class="{dim:d.pct<50}" :cx="X(d.pct)" :cy="y(i)" r="8"/><text class="ltr" :x="X(d.pct)" :y="y(i)+4" text-anchor="middle">{{ d.letter }}</text></g>
     </g>
     <text v-for="t in [0,25,50,75,100]" :key="t" :x="X(t)" :y="H-2" text-anchor="middle">{{ $root.dF.n(t) }}</text>
-  </svg>`,
-  computed:{ H(){ return this.rows.length*24+22; }, L(){ return Math.min(230, Math.round(this.w*.46)); },
+  </svg>
+  <p class="cv-say" aria-live="polite">{{ say }}</p></div>`,
+  computed:{ ar(){ return this.$root.lang==='ar'; }, H(){ return this.rows.length*24+22; }, L(){ return Math.min(230, Math.round(this.w*.46)); },
     X(){ const L=this.L, w=this.w; return v=>L+10+v/100*(w-L-20); }, y(){ return i=>i*24+12; },
-    aria(){ return this.$root.lang==='ar' ? 'رتبة كل حرفٍ مقطع في سورته بين السور كلها' : 'The rank of each opening letter in its own surah among all surahs'; } } };
+    say(){ const ar=this.ar, h=this.hov, D=this.$root.D;
+      if(!h){ const all=this.rows.flatMap(r=>r.dots), up=all.filter(d=>d.pct>=50).length;
+        return ar ? 'أشر إلى حرفٍ لترى رتبته. '+D(up)+' من '+D(all.length)+' حرفًا فوق الوسط، وهذا قريبٌ مما تعطيه المصادفة.' : 'Point at a letter to see its rank. '+up+' of the '+all.length+' letters sit above the middle, close to what chance gives.'; }
+      const r=this.rows[h.i], d=r.dots[h.j], k=Math.round(d.pct);
+      return ar ? 'الحرف «'+d.letter+'» في '+r.label+': نصيبه منها أعلى من نصيبه في '+D(k)+'٪ من السور. '+(k>=90 ? 'من الحالات المشهورة حقًّا.' : (k>=50 ? 'فوق الوسط قليلًا.' : 'دون الوسط: أقلّ مما في أكثر السور.'))
+        : 'The letter «'+d.letter+'» in '+r.label+': it makes up more of this surah than of '+k+'% of the surahs. '+(k>=90 ? 'One of the real famous cases.' : (k>=50 ? 'A little above the middle.' : 'Below the middle: rarer here than in most surahs.')); },
+    aria(){ return this.ar ? 'رتبة كل حرفٍ مقطع في سورته بين السور كلها' : 'The rank of each opening letter in its own surah among all surahs'; } },
+  methods:{ open(r, e){ this.$root.dOpen(r.s+':1', [r.s+':1'], e); } } };
 // Study 9: how many different words have been used as the revelation proceeds, with its five periods
 const GrowthCurve = { mixins:[FitW], props:['curve','phases'],
-  template:`<svg :viewBox="'0 0 '+w+' 232'" role="img" :aria-label="aria">
-    <g v-for="(p,i) in phases" :key="p.name"><rect :class="i%2 ? 'band' : 'band2'" :x="X(p.from-.5)" y="10" :width="X(p.to+.5)-X(p.from-.5)" height="170"/>
+  // move along the curve to walk through the revelation, surah by surah
+  data(){ return {hx:-1}; },
+  template:`<div class="gcurve"><svg :viewBox="'0 0 '+w+' 232'" role="slider" tabindex="0" :aria-label="aria" aria-valuemin="1" aria-valuemax="114" :aria-valuenow="hx+1"
+      @pointermove="gMove" @pointerdown="gMove" @mouseleave="hx=-1" @keydown="gKey">
+    <g v-for="(p,i) in phases" :key="p.name"><rect :class="[i%2 ? 'band' : 'band2', {on:ph===i}]" :x="X(p.from-.5)" y="10" :width="X(p.to+.5)-X(p.from-.5)" height="170"/>
       <text v-if="fits(i)" class="lbl" :x="(X(p.from-.5)+X(p.to+.5))/2" y="198" text-anchor="middle">{{ names[i] }}</text></g>
     <path class="line" :d="path"/>
     <text v-for="t in yt" :key="t" x="40" :y="Y(t)+4" text-anchor="end">{{ $root.dF.n(t) }}</text>
     <text :x="w-6" y="226" text-anchor="end" class="lbl">{{ $root.lang==='ar' ? 'ترتيب النزول ›' : 'order of revelation ›' }}</text>
-  </svg>`,
+    <g v-if="hx>=0" class="gc-cur"><line :x1="X(cur[0])" :x2="X(cur[0])" y1="10" y2="180"/><circle :cx="X(cur[0])" :cy="Y(cur[2])" r="6"/></g>
+  </svg>
+  <p class="cv-say" aria-live="polite">{{ say }}</p></div>`,
   computed:{ max(){ return this.curve[this.curve.length-1][2]; }, X(){ const w=this.w; return v=>46+(v-.5)/114*(w-52); }, Y(){ return v=>180-v/this.max*165; },
     path(){ return this.curve.map((c,i)=>(i?'L':'M')+this.X(c[0]).toFixed(1)+' '+this.Y(c[2]).toFixed(1)).join(''); },
     yt(){ return [0,1000,2000,3000,4000]; },
     names(){ const ar=this.$root.lang==='ar'; return ar ? ['مكي أول','مكي أوسط','مكي أخير','مدني أول','مدني أخير'] : ['early Meccan','middle Meccan','late Meccan','early Medinan','late Medinan']; },
+    cur(){ return this.curve[this.hx] || null; },
+    ph(){ const c=this.cur; return c ? this.phases.findIndex(p=>c[0]>=p.from && c[0]<=p.to) : -1; },
+    say(){ const ar=this.$root.lang==='ar', R=this.$root, c=this.cur;
+      if(!c) return ar ? 'حرّك المؤشر على المنحنى لتمشي مع النزول سورةً سورة.' : 'Move along the curve to walk through the revelation, surah by surah.';
+      const prev=this.hx>0 ? this.curve[this.hx-1][2] : 0, add=c[2]-prev, nm=R.surahName(c[1]);
+      return ar ? 'السورة '+R.D(c[0])+' نزولًا: '+nm+' ('+R.D(c[1])+')، '+this.names[this.ph]+'. حتى هنا '+R.dF.n(c[2])+' كلمةً مختلفة، منها '+R.dF.n(add)+' جديدةٌ في هذه السورة.'
+        : 'Revealed '+c[0]+((c[0]%100>=11 && c[0]%100<=13) ? 'th' : (['th','st','nd','rd'][c[0]%10] || 'th'))+': '+nm+' ('+c[1]+'), '+this.names[this.ph]+'. '+R.dF.n(c[2])+' different words so far, '+R.dF.n(add)+' of them new in this surah.'; },
     aria(){ return this.$root.lang==='ar' ? 'عدد الكلمات المختلفة المستعملة مع تقدّم النزول' : 'The number of different words used as the revelation proceeds'; } },
-  methods:{ fits(i){ const p=this.phases[i]; return this.X(p.to+.5)-this.X(p.from-.5) > this.names[i].length*6.6+8; } } };
+  methods:{ fits(i){ const p=this.phases[i]; return this.X(p.to+.5)-this.X(p.from-.5) > this.names[i].length*6.6+8; },
+    gMove(e){ const r=this.$el.querySelector('svg').getBoundingClientRect(), px=(e.clientX-r.left)/r.width*this.w, v=(px-46)/(this.w-52)*114+.5;
+      this.hx=Math.max(0, Math.min(this.curve.length-1, Math.round(v)-1)); },
+    gKey(e){ if(e.key==='ArrowRight' || e.key==='ArrowUp'){ this.hx=Math.min(this.curve.length-1, this.hx+1); e.preventDefault(); }
+      else if(e.key==='ArrowLeft' || e.key==='ArrowDown'){ this.hx=Math.max(0, (this.hx<0 ? 1 : this.hx)-1); e.preventDefault(); } } } };
+// Study 3: one surah's verse endings as a ribbon, one cell a verse, coloured by its rhyme; a gap marks a change.
+// Point at a verse to read its ending, tap it to open it; pick any surah.
+const RhymeRibbon = { props:['cls'],
+  data(){ return {s:19, hov:-1}; },
+  template:`<div class="rrib">
+    <label class="rrib-pick">{{ ar ? 'السورة' : 'Surah' }}
+      <select v-model.number="s" @change="hov=-1"><option v-for="m in $root.DS.surahMeta" :key="m.n" :value="m.n">{{ $root.D(m.n) }}. {{ ar ? m.ar : m.en }} ({{ $root.D(m.verses) }})</option></select></label>
+    <div class="rrib-cells" @mouseleave="hov=-1" :aria-label="ar ? 'فواصل آيات السورة' : 'The surah\\'s verse endings'" role="group">
+      <button v-for="(c,i) in cells" :key="i" type="button" class="rrib-c" :class="{chg:c.chg, on:hov===i}" :style="{background:cls.css[c.k]}"
+        :aria-label="$root.D(s+':'+(i+1))+' '+c.name" @mouseenter="hov=i" @focus="hov=i" @click="open(i, $event)"></button>
+    </div>
+    <p class="cv-say" aria-live="polite">{{ say }}</p>
+  </div>`,
+  mounted(){ this.$root.load('verses'); },
+  computed:{ ar(){ return this.$root.lang==='ar'; },
+    start(){ let o=0; for(const m of this.$root.DS.surahMeta){ if(m.n===this.s) break; o+=m.verses; } return o; },
+    n(){ const m=this.$root.DS.surahMeta.find(x=>x.n===this.s); return m ? m.verses : 0; },
+    cells(){ const R=this.$root.DZ.rhyme.perVerse, out=[];
+      for(let i=0;i<this.n;i++){ const t=R[this.start+i], k=this.cls.cls[this.start+i]; out.push({t, k, name:this.$root.dRhymeName(t), chg:i>0 && t!==R[this.start+i-1]}); }
+      return out; },
+    runs(){ const c=this.cells, out=[]; let a=0; for(let i=1;i<=c.length;i++){ if(i===c.length || c[i].t!==c[a].t){ out.push({a, b:i-1, t:c[a].t}); a=i; } } return out; },
+    say(){ const ar=this.ar, D=this.$root.D, R=this.runs, c=this.cells, nm=this.$root.surahName(this.s);
+      if(!c.length) return '';
+      if(this.hov<0){ const L=R.reduce((m,r)=>r.b-r.a>m.b-m.a ? r : m, R[0]), ch=c.filter(x=>x.chg).length;
+        return ar ? nm+': '+D(c.length)+' آية، تتغيّر فاصلتها '+(ch===0 ? 'صفر مرة' : ch===1 ? 'مرةً واحدة' : ch===2 ? 'مرتين' : (ch<=10 ? D(ch)+' مرات' : D(ch)+' مرة'))+'، وأطول سلسلةٍ '+D(L.b-L.a+1)+' آيةً على «'+this.$root.dRhymeName(L.t)+'». أشر إلى آيةٍ لترى خاتمتها.'
+          : nm+': '+c.length+' verses, the rhyme changes '+ch+' times, and the longest run is '+(L.b-L.a+1)+' verses on «'+this.$root.dRhymeName(L.t)+'». Point at a verse to see how it ends.'; }
+      const i=this.hov, run=R.find(r=>i>=r.a && i<=r.b), k=this.s+':'+(i+1), v=this.$root.V[k], last=v ? v.trim().split(/\s+/).pop() : '';
+      return ar ? D(k)+(last ? ' «'+last+'»' : '')+': فاصلتها «'+c[i].name+'»، الآية '+D(i-run.a+1)+' من سلسلةٍ من '+D(run.b-run.a+1)+'.'+(c[i].chg ? ' هنا تتغيّر الفاصلة.' : '')
+        : k+(last ? ' «'+last+'»' : '')+': rhymes on «'+c[i].name+'», verse '+(i-run.a+1)+' of a run of '+(run.b-run.a+1)+'.'+(c[i].chg ? ' The rhyme changes here.' : ''); } },
+  methods:{ open(i, e){ const run=this.runs.find(r=>i>=r.a && i<=r.b), keys=[]; for(let j=run.a;j<=run.b;j++) keys.push(this.s+':'+(j+1));
+    this.$root.dOpen(this.s+':'+(i+1), keys, e); } } };
 const { createApp } = Vue;
 createApp({
   data(){
@@ -4092,7 +4219,7 @@ createApp({
     dStory(){ const D=this.DZ; if(!D) return null; const t=D.retellings, ar=this.lang==='ar', rows=[];
       const PN={Moses:['Moses','موسى'], Abraham:['Abraham','إبراهيم']};
       Object.keys(t.prophets).forEach(p=>{ rows.push({key:'h'+p, head:(PN[p]||[p,p])[ar?1:0]});
-        t.each.filter(x=>x.prophet===p).forEach(x=>rows.push({key:p+x.s, label:ar ? this.surahName(x.s)+' ('+this.D(x.s)+')، '+this.countOf(x.verses,'verse') : x.s+'. '+this.surahName(x.s)+' · '+this.countOf(x.verses,'verse'), own:x.own, others:x.others})); });
+        t.each.filter(x=>x.prophet===p).forEach(x=>rows.push({key:p+x.s, label:ar ? this.surahName(x.s)+' ('+this.D(x.s)+')، '+this.countOf(x.verses,'verse') : x.s+'. '+this.surahName(x.s)+' · '+this.countOf(x.verses,'verse'), own:x.own, others:x.others, prophet:p, s:x.s, first:x.first})); });
       const mx=Math.max(...t.each.map(x=>Math.max(x.own, x.others)));
       const mo=t.moses||{}; return {rows, max:Math.ceil(mx*10)/10, moses:Object.keys(mo).map(s=>({s:+s, verses:mo[s].verses, first:mo[s].first, words:mo[s].words}))}; },
     // 5: the themes with their names, colours and words, and the chosen surah's mix
@@ -5321,7 +5448,7 @@ createApp({
   }
 }).component('depth-switch', DepthSwitch).component('term-chips', TermChips).component('explain-box', ExplainBox)
   .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell).component('claim-viz', ClaimViz)
-  .component('letter-strip', LetterStrip).component('growth-curve', GrowthCurve).mount('#app');
+  .component('letter-strip', LetterStrip).component('growth-curve', GrowthCurve).component('rhyme-ribbon', RhymeRibbon).mount('#app');
 });
 </script>
 </body>
