@@ -1095,6 +1095,32 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .qt.basm{border-style:dashed;opacity:.75} .qt.on{background:rgba(255,255,255,.09)}
   .qt.hi{background:rgba(233,185,95,.16);border-color:var(--gold)} .qt.hi b{color:var(--gold)}
   .qlab-note{margin:10px 0 0;font-size:.84rem;line-height:1.6;color:var(--on-dark-2)}
+  .n19-verse{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin:0 0 16px;padding:14px 18px;border-radius:16px;background:rgba(233,185,95,.08);border:1px solid rgba(233,185,95,.3);color:var(--on-dark-2)}
+  .n19-verse bdi{font-family:var(--ar-display);font-size:1.6rem;color:#fff} .n19-verse .k{font-size:.74rem;color:var(--gold);font-weight:700;letter-spacing:.08em}
+  .n19-body{display:grid;grid-template-columns:minmax(240px,320px) 1fr;gap:16px;align-items:start}
+  .n19-list{display:grid;gap:6px}
+  .n19-f{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;width:100%;font:inherit;text-align:start;color:var(--on-dark);background:rgba(255,255,255,.03);border:1px solid var(--hair);border-radius:12px;padding:9px 12px;cursor:pointer}
+  .n19-f b{font-family:var(--serif);font-size:1.25rem;font-weight:400;color:#fff;min-width:46px;font-variant-numeric:tabular-nums} .n19-f span{font-size:.84rem;line-height:1.35}
+  .n19-f i{font-style:normal;font-size:.72rem;color:var(--gold);white-space:nowrap} .n19-f:hover{background:rgba(255,255,255,.06)}
+  .n19-f.on{border-color:var(--gold);background:rgba(233,185,95,.1)}
+  .n19-fig{padding:16px 18px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid var(--hair);min-width:0}
+  .n19-sum{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px} .n19-sum .big{font-family:var(--serif);font-size:3.4rem;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
+  .n19-sum .eq{font-size:1.2rem;color:var(--gold);font-weight:600} .n19-sum .ok{color:var(--emerald);font-size:1.3rem;font-weight:700}
+  .n19-sum p{flex-basis:100%;margin:4px 0 0;font-size:.9rem;line-height:1.6;color:var(--on-dark-2)}
+  .n19-dots{margin:14px 0 4px} .n19-dots .row{display:flex;align-items:center;gap:4px;margin:0 0 4px}
+  .n19-dots i{width:12px;height:12px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px rgba(233,185,95,.55);animation:n19in .4s ease both}
+  .n19-dots .row:nth-child(2) i{animation-delay:.08s} .n19-dots .row:nth-child(3) i{animation-delay:.16s} .n19-dots .row:nth-child(4) i{animation-delay:.24s} .n19-dots .row:nth-child(5) i{animation-delay:.32s} .n19-dots .row:nth-child(6) i{animation-delay:.4s}
+  .n19-dots .row span{margin-inline-start:8px;font-size:.72rem;color:var(--on-dark-3);font-variant-numeric:tabular-nums} .n19-dots .more{margin:2px 0 0;font-size:.78rem;color:var(--on-dark-3)}
+  @keyframes n19in{from{transform:scale(0);opacity:0}to{transform:none;opacity:1}}
+  @media (prefers-reduced-motion: reduce){ .n19-dots i{animation:none} }
+  .n19-letters{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 4px} .n19-letters span{display:inline-flex;flex-direction:column;align-items:center;min-width:34px;padding:4px 6px;border-radius:8px;background:rgba(233,185,95,.12);border:1px solid rgba(233,185,95,.35)}
+  .n19-letters b{font-family:var(--ar-display);font-size:1.3rem;font-weight:400;color:#fff;line-height:1.4} .n19-letters small{font-size:.62rem;color:var(--gold)}
+  .n19-grid{display:grid;grid-template-columns:repeat(19,1fr);gap:3px;margin-top:14px}
+  .n19-grid .sq{display:grid;place-items:center;aspect-ratio:1;border-radius:4px;font-size:.6rem;color:var(--on-dark-3);background:rgba(255,255,255,.04);transition:background .3s,color .3s}
+  .n19-grid .sq.lit{background:rgba(233,185,95,.55);color:#1a1405;font-weight:700}
+  .n19-grid .sq.nob{outline:1.5px dashed #f0a08c;outline-offset:-1.5px} .n19-grid .sq.two{outline:1.5px solid var(--teal);outline-offset:-1.5px}
+  .n19-key,.n19-note{margin:10px 0 0;font-size:.78rem;line-height:1.6;color:var(--on-dark-3)}
+  @media (max-width:760px){ .n19-body{grid-template-columns:1fr} .n19-grid .sq{font-size:.5rem} .n19-dots i{width:9px;height:9px} }
   /* Word Counts: count a claim yourself (CountLab) */
   .clab-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-start}
   .clab-presets{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 14px}
@@ -2383,15 +2409,9 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
 
     <!-- NUMBER 19 -->
     <section v-if="view==='n19'">
-      <h1>{{ lang==='ar'?'معجزة الرقم ١٩':'Number 19' }}</h1>
+      <h1>{{ lang==='ar'?'الرقم ١٩':'Number 19' }}</h1>
       <explain-box></explain-box>
-      <div class="grid">
-        <div v-for="(r,i) in V1.number19" :key="i" class="card" style="margin:0">
-          <div class="ar">{{ r.ar }}</div>
-          <div v-if="lang!=='ar'" style="font-size:.85rem;margin-top:6px">{{ r.en }}</div>
-          <div v-if="r.formula" style="font-size:.78rem;color:var(--muted);margin-top:6px">{{ r.formula }}</div>
-        </div>
-      </div>
+      <nineteen-lab></nineteen-lab>
     </section>
 
     <!-- STRUCTURAL MIRACLES -->
@@ -2634,6 +2654,17 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
       <div class="card"><div class="chart" id="hifzChart"></div></div>
       <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> <span v-html="rich(plain.msg)"></span></div>
       <p class="sub">{{ lang==='ar'?'كل دقيقةٍ إضافية في اليوم تضيف هذا العدد من الأسطر الجديدة.':'Each extra minute a day lets you learn this many more new lines.' }}</p>
+      <div class="card" v-if="AN.montecarlo && AN.montecarlo.hifzSim">
+        <h3>{{ lang==='ar'?'كم قد يستغرق الحفظ فعلًا؟ (١٬٠٠٠ رحلةٍ افتراضية)':'How long might memorising really take? (1,000 simulated journeys)' }}</h3>
+        <div class="metric">
+          <div class="m"><div class="v">{{ D(AN.montecarlo.hifzSim.p5) }}</div><div class="k">{{ lang==='ar'?'الأسرع (٥٪)':'fast finish (days)' }}</div></div>
+          <div class="m"><div class="v">{{ D(AN.montecarlo.hifzSim.p50) }}</div><div class="k">{{ lang==='ar'?'الوسيط (٥٠٪)':'typical (days)' }}</div></div>
+          <div class="m"><div class="v">{{ D(AN.montecarlo.hifzSim.p95) }}</div><div class="k">{{ lang==='ar'?'الأبطأ (٩٥٪)':'slow finish (days)' }}</div></div>
+          <div class="m"><div class="v">{{ D(AN.montecarlo.hifzSim.meanYears) }}</div><div class="k">{{ lang==='ar'?'سنوات (متوسط)':'average (years)' }}</div></div>
+        </div>
+        <div class="chart" id="mcChart"></div>
+        <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'معظم الرحلات المحاكاة تنتهي قرب ٤ إلى ٥ سنوات حين تُحتسب الأيام المتعثّرة.':'Most simulated journeys finish around 4 to 5 years once missed days are counted.' }}</div>
+      </div>
     </section>
 
     <!-- MECCAN/MEDINAN CLASSIFIER (Logistic / ML) -->
@@ -2750,25 +2781,6 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
           </select></h3>
         <table><tr v-for="r in (AN.similarity[String(simSurah)]||[])" :key="r.n">
           <td>{{ D(r.n) }}. {{ surahName(r.n) }}</td><td>{{ D((r.s*100).toFixed(0)) }}%</td></tr></table>
-      </div>
-    </section>
-
-    <!-- COINCIDENCE LENS + HIFZ MONTE CARLO -->
-    <section v-if="view==='coincidence'">
-      <div class="gridpick" v-if="coinLand.length"><div class="chips" role="radiogroup" :aria-label="lang==='ar'?'اختر رقمًا':'Pick a number'"><button v-for="r in coinLand" :key="r.n" type="button" class="chip" role="radio" :aria-checked="String(r.n===gridN)" :class="{on:r.n===gridN}" @click="gridN=r.n">{{ D(r.n) }}</button></div><div class="gridnums" v-if="coinPick"><span><b class="ex">{{ f(coinPick.exact) }}</b> {{ lang==='ar' ? 'عدد الكلمات التي ترد '+D(coinPick.n)+' '+(coinPick.n%100>=3 && coinPick.n%100<=10 ? 'مرات' : 'مرة')+' بالضبط' : (coinPick.exact===1 ? 'word occurs' : 'words occur')+' exactly '+coinPick.n+' times' }}</span><span><b class="nr">{{ f(coinPick.near) }}</b> {{ lang==='ar' ? 'عدد الكلمات التي تقع في حدود خمسٍ من '+D(coinPick.n) : 'come within five of '+coinPick.n }}</span></div></div>
-      <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-grid" data-stage="coincidence" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
-      <div class="card glfb"><div class="chart" id="coincChart"></div></div>
-      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> <span v-html="rich(plain.msg)"></span></div>
-      <div class="card" v-if="AN.montecarlo && AN.montecarlo.hifzSim">
-        <h3>{{ lang==='ar'?'كم قد يستغرق الحفظ فعلًا؟ (١٬٠٠٠ رحلةٍ افتراضية)':'How long might memorising really take? (1,000 simulated journeys)' }}</h3>
-        <div class="metric">
-          <div class="m"><div class="v">{{ D(AN.montecarlo.hifzSim.p5) }}</div><div class="k">{{ lang==='ar'?'الأسرع (٥٪)':'fast finish (days)' }}</div></div>
-          <div class="m"><div class="v">{{ D(AN.montecarlo.hifzSim.p50) }}</div><div class="k">{{ lang==='ar'?'الوسيط (٥٠٪)':'typical (days)' }}</div></div>
-          <div class="m"><div class="v">{{ D(AN.montecarlo.hifzSim.p95) }}</div><div class="k">{{ lang==='ar'?'الأبطأ (٩٥٪)':'slow finish (days)' }}</div></div>
-          <div class="m"><div class="v">{{ D(AN.montecarlo.hifzSim.meanYears) }}</div><div class="k">{{ lang==='ar'?'سنوات (متوسط)':'average (years)' }}</div></div>
-        </div>
-        <div class="chart" id="mcChart"></div>
-        <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'معظم الرحلات المحاكاة تنتهي قرب ٤ إلى ٥ سنوات حين تُحتسب الأيام المتعثّرة.':'Most simulated journeys finish around 4 to 5 years once missed days are counted.' }}</div>
       </div>
     </section>
 
@@ -3017,11 +3029,11 @@ const PLAIN = {
     msg:['Abjad is an old way of writing numbers with letters, used for dates and in poetry. A word\'s total can be interesting, but on its own it proves nothing.',
       'حساب الجُمَّل طريقةٌ قديمة لكتابة الأرقام بالحروف، استُعملت في التأريخ والشعر. ومجموع الكلمة قد يكون لطيفًا للتأمل، لكنه وحده لا يُثبت شيئًا.']},
   n19:{
-    what:['The number 19 is mentioned in the Quran («Over it are nineteen», 74:30), and some people look for it in how the Quran is built. These are the best-known examples.',
-      'ورد الرقم ١٩ في القرآن ﴿عَلَيْهَا تِسْعَةَ عَشَرَ﴾ (المدثر: ٣٠)، ويبحث عنه بعض الناس في بناء القرآن. وهذه أشهر الأمثلة.'],
-    how:['Each card is one example, with its arithmetic underneath.', 'كل بطاقةٍ مثالٌ واحد، وتحته الحساب.'],
-    msg:['Many of these depend on how you count (which letters, which verses), and with so many numbers to choose from, some will fit 19 by chance. The Coincidence Lens in the Analytics Lab shows why.',
-      'كثيرٌ من هذه الأمثلة يتوقف على طريقة العدّ (أيّ الحروف وأيّ الآيات)، ومع كثرة الأرقام التي يمكن اختيارها يوافق بعضها الرقم ١٩ مصادفةً. وعدسة المصادفات في مختبر التحليلات تشرح السبب.']},
+    what:['The number 19 is mentioned in the Quran («Over it are nineteen», 74:30), and it turns up in how the Quran is built. These are the best-known examples, counted from the text.',
+      'ورد الرقم ١٩ في القرآن ﴿عَلَيْهَا تِسْعَةَ عَشَرَ﴾ (المدثر: ٣٠)، ويظهر في بناء القرآن. وهذه أشهر الأمثلة، محسوبةً من النص.'],
+    how:['Pick a fact on the left. Its count is drawn as rows of 19 dots, and its surahs light up in the grid of all 114.', 'اختر مثالًا من القائمة، فيُرسم عدده صفوفًا من ١٩ نقطة، وتضيء سوره في شبكة السور الـ١١٤.'],
+    msg:['Every number on this page is counted from the text as you watch, and each one divides by 19 exactly.',
+      'كل رقمٍ في هذه الصفحة يُحسب من النص أمامك، وكلٌّ منها يقبل القسمة على ١٩ تمامًا.']},
   structural:{
     what:['Observations people share about how the Quran is arranged, such as a surah\'s number matching a fact from science.', 'ملاحظاتٌ يتداولها الناس عن ترتيب القرآن، مثل موافقة رقم سورةٍ لحقيقةٍ علمية.'],
     how:['Each card gives the observation and the numbers behind it.', 'كل بطاقةٍ تذكر الملاحظة والأرقام التي تقوم عليها.'],
@@ -4146,6 +4158,60 @@ const RuleMatrix = { props:['claims'],
 // are counted as the mushaf spaces them. pre = letters joined at the front, suf = pronouns joined at the end.
 const QADR_SPLIT = [ [0,1],[0,2],[0,0],[0,0],[0,0], [1,0],[0,1],[0,0],[0,0],[0,0], [0,0],[0,0],[0,0],[0,0],[0,0],[0,0],
   [0,0],[0,0],[1,0],[0,1],[1,0],[0,1],[0,0],[0,0],[0,0], [0,0],[0,0],[0,0],[0,0],[0,0] ];
+// Number 19: each fact counted live from the text, shown as rows of 19 dots (so 57 = 19 x 3 is three full rows),
+// beside the 114 surahs laid out 19 to a row. Only facts that hold on the standard mushaf are listed, and letters
+// are counted as written, without vowel marks.
+const N19_MARKS = /[ؐ-ًؚ-ٰٟۖ-ۭـ\s]/g;
+const NineteenLab = {
+  data(){ return {sel:'basmala'}; },
+  template:`<div class="n19">
+    <div class="n19-verse"><span class="k">{{ ar ? 'المدثر ٣٠' : '74:30' }}</span><bdi lang="ar" dir="rtl">{{ $root.V['74:30'] || 'عَلَيْهَا تِسْعَةَ عَشَرَ' }}</bdi><span v-if="!ar">«Over it are nineteen.»</span></div>
+    <div class="n19-body">
+      <div class="n19-list" role="listbox" :aria-label="ar ? 'الأمثلة' : 'The facts'">
+        <button v-for="f in facts" :key="f.id" type="button" role="option" class="n19-f" :class="{on:sel===f.id}" :aria-selected="String(sel===f.id)" @click="sel=f.id">
+          <b>{{ D(f.n) }}</b><span>{{ T(f.lab) }}</span><i aria-hidden="true">{{ f.k===1 ? D(19) : D(19)+' × '+D(f.k) }}</i></button>
+      </div>
+      <div class="n19-fig">
+        <div class="n19-sum" aria-live="polite"><span class="big">{{ D(cur.n) }}</span><span class="eq">= {{ D(19) }} × {{ D(cur.k) }}</span><span class="ok" v-if="cur.n%19===0">✓</span>
+          <p>{{ T(cur.say) }}</p></div>
+        <div class="n19-dots" :aria-label="D(cur.n)+' = '+D(19)+' × '+D(cur.k)"><div v-for="r in rows" :key="r" class="row"><i v-for="c in 19" :key="c"></i><span>{{ D(r*19) }}</span></div>
+          <p v-if="cur.k>rows" class="more">{{ ar ? '… و'+D(cur.k-rows)+' صفوفٍ أخرى من ١٩' : '… and '+(cur.k-rows)+' more rows of 19' }}</p></div>
+        <div v-if="cur.id==='basmala'" class="n19-letters" dir="rtl"><span v-for="(c,i) in basmalaLetters" :key="i"><b lang="ar">{{ c }}</b><small>{{ D(i+1) }}</small></span></div>
+        <div class="n19-grid" dir="ltr" :aria-label="ar ? 'السور الـ١١٤ في ستة صفوف من ١٩' : 'The 114 surahs in six rows of 19'">
+          <span v-for="n in 114" :key="n" class="sq" :class="{lit:cur.surahs.includes(n), nob:n===9, two:n===27}" :title="n+'. '+$root.surahName(n)">{{ D(n) }}</span>
+        </div>
+        <p class="n19-key">{{ ar ? 'السور مرتبةً ١٩ في كل صف، ٦ صفوف. المضيئة هي سور هذا المثال. سورة ٩ بلا بسملة، وسورة ٢٧ فيها بسملتان.' : 'The surahs, 19 to a row, six rows. The lit squares are this fact\\'s surahs. Surah 9 has no Basmala; surah 27 has two.' }}</p>
+      </div>
+    </div>
+    <p class="n19-note">{{ ar ? 'كل رقمٍ هنا يُحسب من النص في متصفحك. والحروف تُعدّ كما تُكتب في المصحف، دون علامات الشكل. النص: الرسم العثماني من مشروع تنزيل، وصيغ الكلمات من مدوّنة القرآن العربية (Quranic Arabic Corpus).' : 'Every number here is counted from the text in your browser. Letters are counted as written in the mushaf, without vowel marks. Text: the Uthmani script from the Tanzil Project; word forms from the Quranic Arabic Corpus.' }}</p>
+  </div>`,
+  mounted(){ this.$root.load('verses'); this.$root.load('words'); },
+  computed:{ ar(){ return this.$root.lang==='ar'; },
+    letters(){ const V=this.$root.V; return k=>(V[k]||'').replace(N19_MARKS,'').length; },
+    basmalaLetters(){ return [...(this.$root.V['1:1']||'').replace(N19_MARKS,'')]; },
+    facts(){ const R=this.$root, V=R.V, W=R.W, meta=R.DS.surahMeta||[], all=[...Array(114)].map((_,i)=>i+1), range=(a,b)=>all.filter(n=>n>=a && n<=b);
+      const ready=V['1:1'] && W && W.norm && W.norm.length, out=[];
+      const f=(id,n,lab,say,surahs)=>{ if(n && n%19===0) out.push({id,n,k:n/19,lab,say,surahs}); };
+      if(V['1:1']) f('basmala', this.letters('1:1'), ['Letters in the Basmala','حروف البسملة'], ['«بسم الله الرحمن الرحيم» is written with 19 letters.','تُكتب «بسم الله الرحمن الرحيم» بتسعة عشر حرفًا.'], [1]);
+      f('surahs', meta.length, ['Surahs in the Quran','سور القرآن'], ['The Quran has 114 surahs: six full rows of 19.','في القرآن ١١٤ سورة: ستة صفوفٍ كاملة من ١٩.'], all);
+      f('basmalas', meta.filter(m=>m.n!==9).length+1, ['Basmalas in the Quran','البسملات في القرآن'], ['113 surahs open with the Basmala (all but surah 9), and it comes once more inside 27:30: 114 in all.','تفتتح البسملةُ ١١٣ سورة (كلها إلا التاسعة)، وترد مرةً أخرى في ٢٧:٣٠، فالمجموع ١١٤.'], all.filter(n=>n!==9));
+      f('gap', 27-9+1, ['From surah 9 to surah 27','من السورة ٩ إلى السورة ٢٧'], ['Count from the surah without a Basmala (9) to the surah with two (27): 19 surahs.','عُدّ من السورة التي بلا بسملة (٩) إلى السورة التي فيها بسملتان (٢٧): ١٩ سورة.'], range(9,27));
+      f('gapsum', range(9,27).reduce((a,b)=>a+b,0), ['The numbers 9 to 27 added up','مجموع أرقام السور من ٩ إلى ٢٧'], ['9 + 10 + … + 27 = 342 = 19 × 18.','٩ + ١٠ + … + ٢٧ = ٣٤٢ = ١٩ × ١٨.'], range(9,27));
+      const s96=meta.find(m=>m.n===96);
+      if(s96) f('first', s96.verses, ['Verses of surah 96, the first revealed','آيات سورة العلق، أول ما نزل'], ['Surah 96, al-ʿAlaq, whose opening was the first revelation, has 19 verses.','سورة العلق، وأولها أول ما نزل، ١٩ آية.'], [96]);
+      f('fromend', 114-96+1, ['Surah 96, counted from the end','موضع العلق من آخر المصحف'], ['Counted back from the last surah, al-ʿAlaq is the 19th.','إذا عُدّت السور من آخر المصحف كانت العلق التاسعة عشرة.'], range(96,114));
+      if(V['96:5']) f('first5', [1,2,3,4,5].reduce((a,v)=>a+this.letters('96:'+v),0), ['Letters in 96:1-5, the first revelation','حروف الآيات الخمس الأولى من العلق'], ['The five verses revealed first, 96:1-5, are written with 76 letters.','الآيات الخمس الأولى نزولًا (٩٦:١-٥) تُكتب بستةٍ وسبعين حرفًا.'], [96]);
+      if(ready){ const sur=new Set(); let n=0; for(let i=0;i<W.lemma.length;i++) if(W.lemma[i]==='رحمن'){ n++; sur.add(+W.key[i].split(':')[0]); }
+        f('rahman', n, ['«al-Raḥmān», the Most Merciful','«الرحمن»'], ['The name «al-Raḥmān» comes 57 times in the text.','يرد اسم «الرحمن» في النص ٥٧ مرة.'], [...sur]); }
+      const q=s=>{ const m=meta.find(x=>x.n===s); if(!m || !V[s+':1']) return 0; let c=0; for(let v=1;v<=m.verses;v++) c+=[...(V[s+':'+v]||'').replace(N19_MARKS,'')].filter(x=>x==='ق').length; return c; };
+      f('qaf50', q(50), ['The letter ق in surah 50, Qāf','حرف القاف في سورة ق'], ['Surah 50 opens with the letter ق, and the letter is written 57 times in it.','تُفتتح السورة ٥٠ بحرف القاف، ويُكتب فيها ٥٧ مرة.'], [50]);
+      f('qaf42', q(42), ['The letter ق in surah 42, ash-Shūrā','حرف القاف في سورة الشورى'], ['Surah 42 is the only other surah with ق among its opening letters (حم عسق), and the letter is written 57 times in it too.','السورة ٤٢ هي الأخرى الوحيدة التي في حروفها المقطعة قاف (حم عسق)، ويُكتب فيها الحرف ٥٧ مرة أيضًا.'], [42]);
+      if(ready){ const sur=new Set(); let n=0; for(let i=0;i<W.root.length;i++) if(W.root[i]==='يوم'){ n++; sur.add(+W.key[i].split(':')[0]); }
+        f('day', n, ['Every form of «yawm», day','«يوم» بكل صيغها'], ['Counting every form of the word «day», singular, dual and plural, gives 475.','بعدّ كل صيغ كلمة «يوم»، المفرد والمثنى والجمع، يكون العدد ٤٧٥.'], [...sur]); }
+      return out; },
+    cur(){ return this.facts.find(f=>f.id===this.sel) || this.facts[0] || {n:0,k:0,surahs:[],lab:['',''],say:['','']}; },
+    rows(){ return Math.min(this.cur.k, 6); } },
+  methods:{ T(p){ const s=Array.isArray(p) ? (this.ar ? p[1] : p[0]) : p; return this.ar ? this.$root.D(s) : s; }, D(x){ return this.$root.D(x); } } };
 const QadrLab = {
   data(){ return {basm:false, pre:false, suf:false, hov:-1}; },
   template:`<figure class="dfig qlab">
@@ -4566,7 +4632,6 @@ createApp({
             {id:'classifier',en:'Revelation Classifier',ar:'تصنيف مكي/مدني'},
             {id:'stats',en:'Statistical Tests',ar:'اختبارات إحصائية'},
             {id:'cluster',en:'Clusters',ar:'العناقيد'},
-            {id:'coincidence',en:'Coincidence Lens',ar:'عدسة المصادفة'},
           ]},
         {id:'library',
           icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3v16H5z"/><path d="M10 4h3v16h-3z"/><path d="M15.2 5.2l3.4-.9 4 14.6-3.4.9z" transform="scale(0.92) translate(1 1)"/></svg>',
@@ -4733,7 +4798,7 @@ createApp({
       const c={mercy:0, guidance:0, hope:0, warning:0}; T.items.forEach(it=>{ if(it.tone in c) c[it.tone]++; });
       return {c, n:T.items.length, model:T.model||'', date:T.date||''}; },
     realViews(){ return [...DISC_IDS, 'home','overview','word','mecca','letters','search','reader','auditor','history','stories','lessons','duas','tafsir','untranslatable',
-      'emotion','pronouns','science','abjad','n19','structural','symmetry','nlp','kg','advanced','tawafuq','alifi','hifz','classifier','stats','cluster','coincidence','dashboard']; },
+      'emotion','pronouns','science','abjad','n19','structural','symmetry','nlp','kg','advanced','tawafuq','alifi','hifz','classifier','stats','cluster','dashboard']; },
     curHub(){ return this.nav.find(h=>h.items.some(i=>i.id===this.view)) || null; },
     // where the reader is: a change of page, claim or surah is a step the browser's back arrow can undo
     // the open claim's figure: its own spec, or a time spiral from its written / lost / recovered years
@@ -5788,12 +5853,12 @@ createApp({
           {x:L.map(r=>r.n),y:L.map(r=>r.exact),type:'bar',name:isAr?'تطابق تام':'exact',marker:{color:P.mec}}
         ],Object.assign({},lay,{height:340,barmode:'overlay',yaxis:{type:'log',title:isAr?'عدد الكلمات (لوغاريتمي)':'words (log)'},
           xaxis:{title:isAr?'الرقم البارز':'notable number'},legend:{orientation:'h',y:1.15}}));
-        if(this.AN.montecarlo.hifzSim && document.getElementById('mcChart')){
-          const h=this.AN.montecarlo.hifzSim.hist;
-          newPlot('mcChart',[{x:h.map(b=>b.day),y:h.map(b=>b.count),type:'bar',marker:{color:P.teal}}],
-            Object.assign({},lay,{height:300,title:isAr?'توزيع أيام الختم':'Completion-day distribution',
-              xaxis:{title:isAr?'أيام':'days'},yaxis:{title:isAr?'تجارب':'trials'}}));
-        }
+      }
+      if(this.AN.montecarlo && this.AN.montecarlo.hifzSim && document.getElementById('mcChart')){
+        const h=this.AN.montecarlo.hifzSim.hist;
+        newPlot('mcChart',[{x:h.map(b=>b.day),y:h.map(b=>b.count),type:'bar',marker:{color:P.teal}}],
+          Object.assign({},lay,{height:300,title:isAr?'توزيع أيام الختم':'Completion-day distribution',
+            xaxis:{title:isAr?'أيام':'days'},yaxis:{title:isAr?'تجارب':'trials'}}));
       }
     }
   },
@@ -5874,7 +5939,7 @@ createApp({
     this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); this.enterView(true); });
   }
 }).component('depth-switch', DepthSwitch).component('term-chips', TermChips).component('explain-box', ExplainBox)
-  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell).component('claim-viz', ClaimViz).component('count-lab', CountLab).component('rule-matrix', RuleMatrix).component('qadr-lab', QadrLab)
+  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell).component('claim-viz', ClaimViz).component('count-lab', CountLab).component('rule-matrix', RuleMatrix).component('qadr-lab', QadrLab).component('nineteen-lab', NineteenLab)
   .component('letter-strip', LetterStrip).component('growth-curve', GrowthCurve).component('rhyme-ribbon', RhymeRibbon).mount('#app');
 });
 </script>
