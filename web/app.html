@@ -1212,6 +1212,26 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .sl-jump{margin-inline-start:auto;font:inherit;font-size:.78rem;color:#1a1405;background:var(--gold);border:0;border-radius:999px;padding:6px 14px;cursor:pointer}
   @media (max-width:900px){ .sl-kpis{grid-template-columns:repeat(3,1fr)} .sl-grid2{grid-template-columns:1fr} }
   @media (max-width:480px){ .sl-kpis{grid-template-columns:repeat(2,1fr)} .sl-kpi b{font-size:1.7rem} .sl-verse p,.sl-ar{font-size:1.2rem} }
+  /* the floating keyboard */
+  body.fkb-on{padding-bottom:340px}
+  .fkb-pill{position:fixed;inset-inline-end:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:80;width:46px;height:46px;border-radius:50%;border:1px solid var(--gold);background:rgba(16,24,20,.92);color:var(--gold);font-size:1.3rem;cursor:pointer;box-shadow:0 10px 30px -10px rgba(0,0,0,.7)}
+  .fkb{position:fixed;left:50%;bottom:calc(10px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:81;width:min(760px, calc(100vw - 16px));padding:10px;border-radius:18px;background:rgba(12,20,16,.96);backdrop-filter:blur(10px);border:1px solid rgba(233,185,95,.35);box-shadow:0 24px 60px -20px rgba(0,0,0,.85);display:grid;gap:5px}
+  .fkb-enter-active,.fkb-leave-active{transition:transform .28s cubic-bezier(.3,1.3,.5,1),opacity .2s} .fkb-enter-from,.fkb-leave-to{transform:translate(-50%,30px);opacity:0}
+  .fkb-top{display:flex;align-items:center;gap:8px}
+  .fkb-tabs{display:inline-flex;border:1px solid var(--hair);border-radius:999px;padding:2px}
+  .fkb-tabs button{font:inherit;font-size:.76rem;border:0;background:none;color:var(--on-dark-2);border-radius:999px;padding:4px 12px;cursor:pointer} .fkb-tabs button.on{background:var(--gold);color:#1a1405;font-weight:700}
+  .fkb-hint{flex:1;font-size:.7rem;color:var(--on-dark-3);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+  .fkb-x{border:0;background:none;color:var(--on-dark-2);font-size:1rem;cursor:pointer;padding:4px 8px}
+  .fkb-row{display:flex;gap:4px;justify-content:center;flex-wrap:nowrap}
+  .fkb .k{flex:1 1 0;min-width:0;max-width:54px;height:40px;display:grid;place-items:center;font:inherit;font-size:1rem;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:9px;cursor:pointer;padding:0}
+  .fkb .k.ar{font-family:var(--ar-display);font-size:1.3rem} .fkb .k.hz{background:rgba(233,185,95,.12);border-color:rgba(233,185,95,.3)}
+  .fkb .k.mk{font-family:var(--ar-display);font-size:1.45rem;line-height:1;background:rgba(88,200,190,.1);border-color:rgba(88,200,190,.35)}
+  .fkb .marks.q .k.mk{background:rgba(180,156,240,.1);border-color:rgba(180,156,240,.35)}
+  .fkb .marks .lab{flex:none;align-self:center;font-size:.64rem;color:var(--on-dark-3);width:64px;text-align:center;line-height:1.2}
+  .fkb .k:hover{background:rgba(233,185,95,.2)} .fkb .k:active{transform:translateY(1px)} .fkb .k.on{background:var(--gold);color:#1a1405}
+  .fkb .k.wide{max-width:70px} .fkb .k.space{flex:4 1 0;max-width:none}
+  @media (max-width:520px){ .fkb .k{height:36px;font-size:.9rem} .fkb .k.ar{font-size:1.1rem} .fkb .marks .lab{display:none} }
+  @media (prefers-reduced-motion: reduce){ .fkb-enter-active,.fkb-leave-active{transition:none} }
   /* Word Pairs: the balance */
   .bal-pairs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
   .bal-pairs button{display:flex;flex-direction:column;align-items:flex-start;gap:1px;font:inherit;color:var(--on-dark);background:rgba(255,255,255,.03);border:1px solid var(--hair);border-radius:14px;padding:7px 14px;cursor:pointer}
@@ -1686,6 +1706,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
 })();
 </script>
 <div id="app" class="layout" v-cloak :class="{'dir-rtl': lang==='ar'}" :dir="lang==='ar'?'rtl':'ltr'">
+  <float-kbd></float-kbd>
   <header class="topbar">
     <button class="menubtn" type="button" @click="sideOpen=!sideOpen" :aria-expanded="sideOpen?'true':'false'" :aria-label="lang==='ar'?'القائمة':'Menu'">{{ sideOpen?'✕':'☰' }}</button>
     <a class="tbrand" :href="landingHref"><span class="glyph" aria-hidden="true"></span><span class="bname">{{ lang==='ar' ? 'بصائر قرآنية' : 'Quran Insights' }}</span></a>
@@ -2184,14 +2205,6 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
       </div>
       <div>
         <span class="chip" v-for="ex in examples" :key="ex" @click="q=ex;runSearch()">{{ ex }}</span>
-      </div>
-      <div class="arakbd">
-        <button v-for="k in araKeys" :key="k" @click="kbAppend(k)">{{ k }}</button>
-        <button v-for="k in araKeys2" :key="'x'+k" class="alt" @click="kbAppend(k)">{{ k }}</button>
-        <span class="kbmarks" role="group" :aria-label="lang==='ar' ? 'الحركات' : 'Vowel marks'"><button v-for="k in araMarks" :key="'m'+k[1]" class="mark" :title="lang==='ar' ? k[2] : k[1]" :aria-label="lang==='ar' ? k[2] : k[1]" @click="kbAppend(k[0])">{{ '◌'+k[0] }}</button></span>
-        <button class="ctrl space" @click="kbAppend(' ')">{{ lang==='ar'?'مسافة':'Space' }}</button>
-        <button class="ctrl" @click="kbBack()">⌫</button>
-        <button class="ctrl" @click="kbClear()">{{ lang==='ar'?'مسح':'Clear' }}</button>
       </div>
       <div v-if="sres.total>0" class="kpis">
         <div class="kpi"><div class="n">{{ f(sres.total) }}</div><div class="l">{{ lang==='ar'?'إجمالي':'Occurrences' }}</div></div>
@@ -4812,6 +4825,67 @@ const AbjadLab = {
     count(){ cancelAnimationFrame(this._raf); const to=this.sum, from=0, t0=performance.now(), d=900;
       if(matchMedia('(prefers-reduced-motion: reduce)').matches){ this.shown=to; return; }
       const step=n=>{ const p=Math.min(1,(n-t0)/d), e=1-Math.pow(1-p,3); this.shown=Math.round(from+(to-from)*e); if(p<1) this._raf=requestAnimationFrame(step); }; this._raf=requestAnimationFrame(step); } } };
+// A floating keyboard for every text box: Arabic letters, every hamza seat, the vowel marks and the Quranic marks
+// the mushaf uses (so a word can be typed exactly as it is written), English and digits. It rises when a text box
+// takes focus on a computer; on a phone the ⌨ button opens it. Keys keep the focus in the box and type at the caret.
+const KB_MARKS = [['َ','fatha','فتحة'],['ُ','damma','ضمة'],['ِ','kasra','كسرة'],['ْ','sukun','سكون'],['ّ','shadda','شدة'],
+  ['ً','tanween fath','تنوين فتح'],['ٌ','tanween damm','تنوين ضم'],['ٍ','tanween kasr','تنوين كسر']];
+const KB_QURAN = [['ٰ','small alif','ألف خنجرية'],['ٓ','madda','مدّ'],['ٔ','hamza above','همزة فوق'],['ٱ','alif wasla','ألف الوصل'],
+  ['۟','silent letter (small zero)','صفر مستدير: حرفٌ لا يُنطق'],['ۢ','small meem (iqlab)','ميم صغيرة: إقلاب'],['ۥ','small waw','واو صغيرة'],['ۦ','small yaa','ياء صغيرة'],['ۜ','small seen','سين صغيرة']];
+const KB_AR = ['ض ص ث ق ف غ ع ه خ ح ج د','ش س ي ب ل ا ت ن م ك ط','ذ ء ؤ ر ى ة و ز ظ','أ إ آ ئ'].map(r=>r.split(' '));
+const KB_EN = ['q w e r t y u i o p','a s d f g h j k l','z x c v b n m'].map(r=>r.split(' '));
+const FloatKbd = {
+  data(){ return {open:false, tab:'ar', caps:false, target:null, touch:false, shut:false}; },
+  template:`<div class="fkb-root" :class="{rtl: $root.lang==='ar'}">
+    <button v-if="target && !open" type="button" class="fkb-pill" @pointerdown.prevent @click="open=true; shut=false" :aria-label="ar ? 'افتح لوحة المفاتيح' : 'Open the keyboard'">⌨</button>
+    <transition name="fkb">
+    <div v-if="open && target" class="fkb" role="group" :aria-label="ar ? 'لوحة المفاتيح' : 'Keyboard'" @pointerdown.prevent>
+      <div class="fkb-top">
+        <span class="fkb-tabs"><button type="button" :class="{on:tab==='ar'}" @click="tab='ar'">عربي</button><button type="button" :class="{on:tab==='en'}" @click="tab='en'">English</button><button type="button" :class="{on:tab==='num'}" @click="tab='num'">123 ١٢٣</button></span>
+        <span class="fkb-hint">{{ tab==='ar' ? (ar ? 'الحركات والعلامات تُوضع على الحرف الذي قبلها' : 'Marks go on the letter before them') : '' }}</span>
+        <button type="button" class="fkb-x" @click="open=false; shut=true" :aria-label="ar ? 'أغلق' : 'Close'">✕</button>
+      </div>
+      <template v-if="tab==='ar'">
+        <div v-for="(r,i) in arRows" :key="'a'+i" class="fkb-row" dir="rtl"><button v-for="k in r" :key="k" type="button" class="k ar" :class="{hz: 'ءأإآؤئٱ'.includes(k)}" @click="put(k)">{{ k }}</button></div>
+        <div class="fkb-row marks" dir="rtl"><span class="lab">{{ ar ? 'الحركات' : 'Vowels' }}</span><button v-for="m in KB_MARKS" :key="m[1]" type="button" class="k mk" :title="ar ? m[2] : m[1]" :aria-label="ar ? m[2] : m[1]" @click="put(m[0])">{{ '◌'+m[0] }}</button></div>
+        <div class="fkb-row marks q" dir="rtl"><span class="lab">{{ ar ? 'علامات المصحف' : 'Quranic marks' }}</span><button v-for="m in KB_QURAN" :key="m[1]" type="button" class="k mk" :title="ar ? m[2] : m[1]" :aria-label="ar ? m[2] : m[1]" @click="put(m[0])">{{ m[0]==='ٱ' ? m[0] : '◌'+m[0] }}</button></div>
+      </template>
+      <template v-else-if="tab==='en'">
+        <div v-for="(r,i) in KB_EN" :key="'e'+i" class="fkb-row" dir="ltr"><button v-if="i===2" type="button" class="k wide" :class="{on:caps}" @click="caps=!caps">⇧</button><button v-for="k in r" :key="k" type="button" class="k" @click="put(caps ? k.toUpperCase() : k)">{{ caps ? k.toUpperCase() : k }}</button></div>
+      </template>
+      <template v-else>
+        <div class="fkb-row" dir="ltr"><button v-for="k in '1234567890'.split('')" :key="k" type="button" class="k" @click="put(k)">{{ k }}</button></div>
+        <div class="fkb-row" dir="rtl"><button v-for="k in '١٢٣٤٥٦٧٨٩٠'.split('')" :key="k" type="button" class="k ar" @click="put(k)">{{ k }}</button></div>
+        <div class="fkb-row" dir="ltr"><button v-for="k in [':','،',',','.','-','«','»','?','؟']" :key="k" type="button" class="k" @click="put(k)">{{ k }}</button></div>
+      </template>
+      <div class="fkb-row ctl" dir="ltr">
+        <button type="button" class="k wide" @click="move(-1)" :aria-label="ar ? 'المؤشر يسارًا' : 'Caret left'">←</button>
+        <button type="button" class="k space" @click="put(' ')">{{ ar ? 'مسافة' : 'Space' }}</button>
+        <button type="button" class="k wide" @click="move(1)" :aria-label="ar ? 'المؤشر يمينًا' : 'Caret right'">→</button>
+        <button type="button" class="k wide" @click="back()" :aria-label="ar ? 'احذف' : 'Delete'">⌫</button>
+        <button type="button" class="k wide" @click="clear()">{{ ar ? 'مسح' : 'Clear' }}</button>
+      </div>
+    </div></transition>
+  </div>`,
+  mounted(){ this.touch=!!(window.matchMedia && matchMedia('(pointer: coarse)').matches);
+    this._in=e=>{ const el=e.target; if(!this.ok(el)) return; clearTimeout(this._t); this.target=el; if(!this.touch && !this.shut) this.open=true;
+      this.tab = /[؀-ۿ]/.test(el.value||'') || this.$root.lang==='ar' || el.lang==='ar' ? 'ar' : this.tab; };
+    this._out=e=>{ const to=e.relatedTarget; if(to && to.closest && to.closest('.fkb-root')) return; this._t=setTimeout(()=>{ if(document.activeElement!==this.target){ this.open=false; this.target=null; } }, 180); };
+    document.addEventListener('focusin', this._in); document.addEventListener('focusout', this._out); },
+  beforeUnmount(){ document.removeEventListener('focusin', this._in); document.removeEventListener('focusout', this._out); clearTimeout(this._t); },
+  watch:{ open(v){ document.body.classList.toggle('fkb-on', !!v); if(v) this.$nextTick(()=>{ const t=this.target; if(t && t.getBoundingClientRect().bottom > innerHeight-330) t.scrollIntoView({block:'center'}); }); } },
+  computed:{ ar(){ return this.$root.lang==='ar'; }, arRows(){ return KB_AR; }, KB_MARKS(){ return KB_MARKS; }, KB_QURAN(){ return KB_QURAN; }, KB_EN(){ return KB_EN; } },
+  methods:{
+    ok(el){ if(!el || !el.matches) return false; if(el.closest('.fkb-root')) return false;
+      return el.matches('textarea, input:not([type]), input[type=text], input[type=search]') && !el.readOnly && !el.disabled; },
+    // type at the caret and tell Vue the value changed
+    put(t){ const el=this.target; if(!el) return; el.focus(); const a=el.selectionStart ?? el.value.length, b=el.selectionEnd ?? a;
+      el.setRangeText(t, a, b, 'end'); el.dispatchEvent(new Event('input', {bubbles:true})); },
+    back(){ const el=this.target; if(!el) return; el.focus(); const a=el.selectionStart ?? el.value.length, b=el.selectionEnd ?? a;
+      if(a!==b) el.setRangeText('', a, b, 'end'); else if(a>0){ const cp=el.value.codePointAt(a-2)>0xFFFF ? 2 : 1; el.setRangeText('', a-cp, a, 'end'); }
+      el.dispatchEvent(new Event('input', {bubbles:true})); },
+    clear(){ const el=this.target; if(!el) return; el.focus(); el.value=''; el.dispatchEvent(new Event('input', {bubbles:true})); },
+    move(d){ const el=this.target; if(!el) return; el.focus(); const p=Math.max(0, Math.min(el.value.length, (el.selectionStart ?? 0)+d)); el.setSelectionRange(p, p); } } };
 const QadrLab = {
   data(){ return {basm:false, pre:false, suf:false, hov:-1}; },
   template:`<figure class="dfig qlab">
@@ -6556,7 +6630,7 @@ createApp({
     this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); this.enterView(true); });
   }
 }).component('depth-switch', DepthSwitch).component('term-chips', TermChips).component('explain-box', ExplainBox)
-  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell).component('claim-viz', ClaimViz).component('count-lab', CountLab).component('rule-matrix', RuleMatrix).component('qadr-lab', QadrLab).component('nineteen-lab', NineteenLab).component('struct-lab', StructLab).component('balance-lab', BalanceLab).component('abjad-lab', AbjadLab)
+  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell).component('claim-viz', ClaimViz).component('count-lab', CountLab).component('rule-matrix', RuleMatrix).component('qadr-lab', QadrLab).component('nineteen-lab', NineteenLab).component('struct-lab', StructLab).component('balance-lab', BalanceLab).component('abjad-lab', AbjadLab).component('float-kbd', FloatKbd)
   .component('letter-strip', LetterStrip).component('growth-curve', GrowthCurve).component('rhyme-ribbon', RhymeRibbon).mount('#app');
 });
 </script>
