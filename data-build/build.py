@@ -102,13 +102,14 @@ def main():
         fh.write(';\n')
 
     # compact word index for surface/lemma/root search (parallel arrays)
-    widx = {'key': [], 'norm': [], 'lemma': [], 'root': [], 'surface': []}
+    widx = {'key': [], 'norm': [], 'lemma': [], 'root': [], 'surface': [], 'form': []}
     for w in words:
         widx['key'].append(f"{w['sura']}:{w['aya']}")
         widx['norm'].append(w['norm'])
         widx['lemma'].append(normalize(w['lemma']) if w['lemma'] else '')
         widx['root'].append(normalize(w['root']) if w['root'] else '')
         widx['surface'].append(w['surface'])
+        widx['form'].append(w['form'])
     with open(os.path.join(web_dir, 'words.js'), 'w', encoding='utf-8') as fh:
         fh.write('window.QURAN_WORDS = ')
         json.dump(widx, fh, ensure_ascii=False, separators=(',', ':'))
