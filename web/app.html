@@ -1212,6 +1212,28 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .sl-jump{margin-inline-start:auto;font:inherit;font-size:.78rem;color:#1a1405;background:var(--gold);border:0;border-radius:999px;padding:6px 14px;cursor:pointer}
   @media (max-width:900px){ .sl-kpis{grid-template-columns:repeat(3,1fr)} .sl-grid2{grid-template-columns:1fr} }
   @media (max-width:480px){ .sl-kpis{grid-template-columns:repeat(2,1fr)} .sl-kpi b{font-size:1.7rem} .sl-verse p,.sl-ar{font-size:1.2rem} }
+  /* NLP Explorer */
+  .nlp-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0 0 14px}
+  .nlp-kpis div{padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid var(--hair)} .nlp-kpis b{display:block;font-family:var(--serif);font-weight:400;font-size:1.9rem;color:#fff;font-variant-numeric:tabular-nums} .nlp-kpis span{font-size:.74rem;color:var(--on-dark-2)}
+  .nlp-head{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px} .nlp-head h3{margin:0} .nlp-head .q{flex:1 1 200px;max-width:320px;font-family:var(--ar-display);font-size:1.15rem;padding:8px 14px}
+  .nlp-small{font-size:.78rem;color:var(--on-dark-2);display:inline-flex;gap:6px;align-items:center}
+  .nlp-svg{display:block;width:100%;height:auto} .nlp-svg text{direction:ltr}
+  .nlp-br{cursor:pointer;animation:nlpin .5s ease both} @keyframes nlpin{from{opacity:0}to{opacity:1}}
+  .nlp-br .ln{fill:none;stroke-linecap:round;opacity:.55;transition:opacity .2s} .nlp-br .ln.pv{stroke:var(--gold)} .nlp-br .ln.nx{stroke:var(--teal)}
+  .nlp .nlp-svg .nlp-br .w{font-family:var(--ar-display);font-size:19px;fill:#fff} .nlp .nlp-svg .nlp-br .c{font-size:10px;fill:var(--on-dark-3);font-variant-numeric:tabular-nums}
+  .nlp-br:hover .ln,.nlp-br.on .ln{opacity:1} .nlp .nlp-svg .nlp-br:hover .w,.nlp .nlp-svg .nlp-br.on .w{fill:var(--gold)}
+  .nlp-c rect{fill:var(--gold);filter:drop-shadow(0 0 16px rgba(233,185,95,.55))} .nlp .nlp-svg .nlp-c text{font-family:var(--ar-display);font-size:26px;fill:#1a1405}
+  .nlp-svg .nlp-cn{font-size:11px;fill:var(--on-dark-2)}
+  .nlp-read{min-height:2.8em;margin:6px 0 0;padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.04);font-size:.86rem;line-height:1.7;color:var(--on-dark-2)} .nlp-read.sm{min-height:2.2em}
+  .nlp-read b{font-family:var(--ar-display);font-weight:400;font-size:1.15rem;color:var(--gold)} .nlp-read bdi{font-family:var(--ar-display);font-size:1.05rem;color:#fff} .nlp-read .k{color:var(--gold);font-weight:700}
+  .nlp-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
+  .nlp-zsvg{display:block;width:100%;height:auto;cursor:crosshair} .nlp-zsvg .ax{stroke:rgba(255,255,255,.2)} .nlp-zsvg .t{font-size:9px;fill:var(--on-dark-3)}
+  .nlp-zsvg circle{fill:rgba(88,200,190,.55)} .nlp-zsvg circle.on{fill:#fff} .nlp-zsvg circle.cur{fill:var(--gold)} .nlp-zsvg .fit{stroke:var(--gold);stroke-dasharray:4 3;opacity:.8}
+  .nlp-chips{display:flex;flex-wrap:wrap;gap:6px}
+  .nlp-chips button{display:inline-flex;align-items:baseline;gap:8px;font:inherit;color:#fff;background:rgba(255,255,255,.03);border:1px solid var(--hair);border-radius:999px;padding:5px 12px;cursor:pointer}
+  .nlp-chips b{font-family:var(--ar-display);font-weight:400;font-size:1.05rem} .nlp-chips span{font-size:.72rem;color:var(--gold)} .nlp-chips button.on{border-color:var(--gold)}
+  @media (max-width:760px){ .nlp-kpis{grid-template-columns:repeat(2,minmax(0,1fr))} .nlp-grid{grid-template-columns:1fr} .nlp-br .w{font-size:16px} }
+  @media (prefers-reduced-motion: reduce){ .nlp-br{animation:none} }
   /* the floating keyboard */
   body.fkb-on{padding-bottom:340px}
   .fkb-pill{position:fixed;inset-inline-end:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:80;width:46px;height:46px;border-radius:50%;border:1px solid var(--gold);background:rgba(16,24,20,.92);color:var(--gold);font-size:1.3rem;cursor:pointer;box-shadow:0 10px 30px -10px rgba(0,0,0,.7)}
@@ -2646,22 +2668,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
     <section v-if="view==='nlp'">
       <h1>{{ lang==='ar'?'مستكشف NLP':'NLP Explorer' }}</h1>
       <explain-box></explain-box>
-      <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-bars" data-stage="nlp" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
-      <div class="card glfb"><div class="chart" id="biChart"></div></div>
-      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> <span v-html="rich(plain.msg)"></span></div>
-      <div class="card"><h3>{{ lang==='ar'?'سحابة الكلمات الأكثر ورودًا':'Cloud of the most frequent words' }}</h3>
-        <div class="cloudwrap">
-          <span v-for="(w,i) in DS.topWordsLemma.slice(0,40)" :key="i" class="ar"
-            :style="{fontSize:(0.85+ Math.sqrt(w.c/DS.topWordsLemma[0].c)*1.7)+'rem',opacity:(0.55+ Math.sqrt(w.c/DS.topWordsLemma[0].c)*0.45)}"
-            :title="f(w.c)">{{ w.w }}</span>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col card"><h3>{{ lang==='ar'?'عبارات من كلمتين':'Two-word phrases' }}</h3>
-          <table><tr v-for="(b,i) in DS.bigrams.slice(0,12)" :key="i"><td class="ar">{{ b.w }}</td><td>{{ f(b.c) }}</td></tr></table></div>
-        <div class="col card"><h3>{{ lang==='ar'?'عبارات من ثلاث كلمات':'Three-word phrases' }}</h3>
-          <table><tr v-for="(b,i) in DS.trigrams.slice(0,12)" :key="i"><td class="ar">{{ b.w }}</td><td>{{ f(b.c) }}</td></tr></table></div>
-      </div>
+      <nlp-lab></nlp-lab>
     </section>
 
     <!-- ADVANCED ANALYTICS -->
@@ -3214,11 +3221,12 @@ const PLAIN = {
       'كل آيةٍ في القرآن نقطة، بترتيب القراءة. والنقاط المضيئة هي الآيات التي وردت فيها كلمتك، فترى أين تقع في القرآن.'],
     tip:['{P} a dot to see the verse', '{p} نقطةٍ لترى الآية']},
   nlp:{
-    what:['The two-word phrases the Quran uses most, and a cloud of its most frequent words. (NLP means using computers to study language.)',
-      'العباراتُ ذات الكلمتين الأكثرُ ورودًا في القرآن، وسحابةٌ لأكثر كلماته ورودًا. (معالجة اللغة: استعمال الحاسوب في دراسة اللغة.)'],
-    how:['Each bar is one phrase: the longer the bar, the more often it comes.', 'كل شريطٍ عبارةٌ واحدة: كلما طال كثر ورودها.'],
-    tip:['{P} a bar for its number', '{p} شريطٍ لترى عددها'],
-    msg:['The most common phrases are «إن الله» (indeed, Allah) and «الذين آمنوا» (those who believe).', 'أكثر العبارات ورودًا «إن الله» و«الذين آمنوا».']},
+    what:['Natural language processing (NLP) studies text with a computer. Here it maps which words keep company in the Quran, and how often each word is used.',
+      'معالجة اللغة الطبيعية دراسةُ النص بالحاسوب. وهي هنا ترسم الكلمات التي تتصاحب في القرآن، وكم يتكرر كل منها.'],
+    how:['The word tree shows the words that come right before and right after the word in the middle; tap one to move along. The Zipf chart plots every word by rank and frequency; the pairs are the word couples that sit together most.',
+      'تُظهر شجرة الكلمة ما يأتي قبل الكلمة الوسطى وبعدها مباشرة، فانقر كلمةً لتنتقل إليها. ويرسم مخطط زيف كل كلمةٍ بترتيبها وتكرارها، والأزواج هي الكلمات الأكثر تجاورًا.'],
+    msg:['Word frequencies in the Quran follow Zipf\'s law, as they do in most long texts: a few words carry much of the text and most words come rarely.',
+      'تتبع تكرارات الكلمات في القرآن قانونَ زيف، كما في أغلب النصوص الطويلة: كلماتٌ قليلة تحمل كثيرًا من النص، وأكثر الكلمات قليل الورود.']},
   tawafuq:{
     what:['Some readers notice that certain words line up on the pages of the printed mushaf. Here you can turn the pages of the common 604-page mushaf and light up a word to see where it falls.',
       'يلاحظ بعض القرّاء أن كلماتٍ بعينها تتوافق مواضعها على صفحات المصحف المطبوع. وهنا تقلّب صفحات مصحف المدينة ذي الصفحات الـ٦٠٤ وتُضيء كلمةً لترى أين تقع.'],
@@ -3328,7 +3336,7 @@ const jix = () => JIX || (JIX = JEV && window.QURAN_WORDS ? JEV.makeIndex(window
 // so a phone never waits on a blank page for all of it.
 const LAZY = { verses:['corpus.js','translation_en.js'], words:['words.js','lemma-variants.js'], plotly:['https://cdn.plot.ly/plotly-2.27.0.min.js'],
   disc:['discover.js','discoveries.js'], hviz:['content/quran_history_viz.js'] };
-const NEEDS = { symmetry:['words','verses'], abjad:['words'], structural:['words','verses','hviz'], n19:['words','verses'], search:['words','verses'], auditor:['words'], history:['verses','words','hviz'], reader:['verses'], home:['words'],
+const NEEDS = { nlp:['words','verses'], symmetry:['words','verses'], abjad:['words'], structural:['words','verses','hviz'], n19:['words','verses'], search:['words','verses'], auditor:['words'], history:['verses','words','hviz'], reader:['verses'], home:['words'],
   discover:['disc'], 'd-endings':['disc','verses'], 'd-rings':['disc','verses','words'], 'd-rhyme':['disc'], 'd-stories':['disc'], 'd-themes':['disc'],
   'd-companions':['disc'], 'd-letters':['disc'], 'd-repeats':['disc','verses','words'], 'd-chrono':['disc'] };
 const lazyP = {};
@@ -4886,6 +4894,100 @@ const FloatKbd = {
       el.dispatchEvent(new Event('input', {bubbles:true})); },
     clear(){ const el=this.target; if(!el) return; el.focus(); el.value=''; el.dispatchEvent(new Event('input', {bubbles:true})); },
     move(d){ const el=this.target; if(!el) return; el.focus(); const p=Math.max(0, Math.min(el.value.length, (el.selectionStart ?? 0)+d)); el.setSelectionRange(p, p); } } };
+// NLP Explorer: a word tree and Zipf's law, computed from the word list in the browser. The tree puts one word in
+// the middle, the words that come right before it on the right (Arabic reads right to left) and right after it on
+// the left, each line as thick as the pair is common. Particles and pronouns (words with no root) can be shown or hidden.
+let NLP_IX = null;
+function nlpIndex(W){
+  if(NLP_IX && NLP_IX.W===W) return NLP_IX;
+  const cnt=new Map(), surf=new Map(), pairs=new Map(), n=W.lemma.length;
+  for(let i=0;i<n;i++){ const l=W.lemma[i]; if(!l) continue; cnt.set(l,(cnt.get(l)||0)+1);
+    let m=surf.get(l); if(!m){ m=new Map(); surf.set(l,m); } const sf=W.surface[i]; m.set(sf,(m.get(sf)||0)+1);
+    if(i+1<n && W.key[i+1]===W.key[i] && W.root[i] && W.root[i+1] && W.lemma[i+1]){ const k=l+'|'+W.lemma[i+1]; pairs.set(k,(pairs.get(k)||0)+1); } }
+  const best=new Map(); for(const [l,m] of surf){ let b='', bc=-1; for(const [s,c] of m) if(c>bc){ b=s; bc=c; } best.set(l,b); }
+  const ranked=[...cnt.entries()].sort((a,b)=>b[1]-a[1]);
+  const rank=new Map(); ranked.forEach((e,i)=>rank.set(e[0], i+1));
+  // Zipf slope: least squares on log rank against log count, ranks 1 to 1000
+  let sx=0, sy=0, sxx=0, sxy=0, k=0; ranked.slice(0,1000).forEach((e,i)=>{ const x=Math.log10(i+1), y=Math.log10(e[1]); sx+=x; sy+=y; sxx+=x*x; sxy+=x*y; k++; });
+  const slope=(k*sxy-sx*sy)/(k*sxx-sx*sx), icpt=(sy-slope*sx)/k;
+  const top=[...pairs.entries()].sort((a,b)=>b[1]-a[1]).slice(0,14).map(([p,c])=>({a:p.split('|')[0], b:p.split('|')[1], c}));
+  return (NLP_IX={W, cnt, best, ranked, rank, slope, icpt, top, hapax: ranked.filter(e=>e[1]===1).length});
+}
+const NlpLab = { mixins:[FitW],
+  data(){ return {center:'رب', small:false, hov:null, zh:-1, q:''}; },
+  template:`<div class="nlp">
+    <div class="nlp-kpis" v-if="ix">
+      <div><b>{{ f(W.lemma.length) }}</b><span>{{ ar ? 'كلمة في النص' : 'words in the text' }}</span></div>
+      <div><b>{{ f(ix.ranked.length) }}</b><span>{{ ar ? 'كلمة مختلفة (جذع)' : 'distinct words (lemmas)' }}</span></div>
+      <div><b>{{ f(ix.hapax) }}</b><span>{{ ar ? 'كلمةً وردت مرةً واحدة' : 'words that come only once' }}</span></div>
+      <div><b>{{ ar ? D(ix.slope.toFixed(2)) : ix.slope.toFixed(2) }}</b><span>{{ ar ? 'ميل قانون زيف' : 'Zipf slope' }}</span></div>
+    </div>
+    <figure class="dfig nlp-tree">
+      <div class="nlp-head"><h3>{{ ar ? 'شجرة الكلمة' : 'Word tree' }}</h3>
+        <input id="nlp-q" v-model="q" @input="seek" dir="rtl" lang="ar" :placeholder="ar ? 'اكتب كلمةً لتضعها في الوسط' : 'Type a word to put in the middle'" class="q plain">
+        <label class="nlp-small"><input type="checkbox" v-model="small"> {{ ar ? 'أظهر الحروف والضمائر' : 'Show particles and pronouns' }}</label></div>
+      <p class="fsub">{{ ar ? 'يمينًا: الكلمات التي تأتي قبلها. يسارًا: التي تأتي بعدها. سُمك الخط بقدر تكرار الاقتران. انقر كلمةً لتنتقل إليها.' : 'Right: the words that come just before it. Left: the words that come just after. Line thickness shows how often the pair occurs. Tap a word to move to it.' }}</p>
+      <svg v-if="ix" :viewBox="'0 0 '+cw+' '+th" class="nlp-svg" @pointerleave="hov=null">
+        <g v-for="(side,si) in [tree.prev, tree.next]" :key="si">
+          <g v-for="(nd,i) in side" :key="center+si+nd.l" class="nlp-br" :class="{on: hov && hov.l===nd.l && hov.si===si}" :style="{animationDelay: i*45+'ms'}" @pointerenter="hov={l:nd.l, si}" @click="go(nd.l)">
+            <path :d="curve(si, i, side.length)" :stroke-width="1.2+nd.c/tree.max*(cw<600 ? 5 : 11)" class="ln" :class="si ? 'nx' : 'pv'"/>
+            <text :x="ex(si)+(si ? -8 : 8)" :y="ny(i, side.length)+6" :text-anchor="si ? 'end' : 'start'" class="w" lang="ar">{{ nd.s }}</text>
+            <text :x="ex(si)+(si ? 6 : -6)" :y="ny(i, side.length)-7" :text-anchor="si ? 'start' : 'end'" class="c">{{ D(nd.c) }}</text>
+          </g>
+        </g>
+        <g class="nlp-c"><rect :x="cw/2-cwid/2" :y="th/2-26" :width="cwid" height="52" rx="26"/><text :x="cw/2" :y="th/2+9" text-anchor="middle" lang="ar">{{ ix.best.get(center) || center }}</text></g>
+        <text :x="cw/2" :y="th/2+46" text-anchor="middle" class="nlp-cn">{{ ar ? D(ix.cnt.get(center)||0)+' مرة' : (ix.cnt.get(center)||0)+' times' }}</text>
+      </svg>
+      <p class="nlp-read" aria-live="polite"><template v-if="hovEx"><b lang="ar">{{ hovEx.phrase }}</b> · {{ ar ? D(hovEx.c)+' مرة' : hovEx.c+' times' }} · {{ ar ? 'مثلًا' : 'for example' }} <span class="k">{{ D(hovEx.k) }}</span> <bdi lang="ar" dir="rtl">{{ hovEx.v }}</bdi></template>
+        <template v-else>{{ ar ? 'أشر إلى فرعٍ لترى العبارة ومثالًا لها.' : 'Point at a branch to see the phrase and an example.' }}</template></p>
+    </figure>
+    <div class="nlp-grid">
+      <figure class="dfig nlp-zipf"><h3>{{ ar ? 'قانون زيف' : 'Zipf\\u2019s law' }}</h3>
+        <p class="fsub">{{ ar ? 'كل نقطةٍ كلمة: موقعها في الترتيب مقابل عدد مرات ورودها، على مقياسٍ لوغاريتمي. الخط المستقيم يعني أن الكلمة الثانية ترد نحو نصف الأولى، والثالثة نحو ثلثها.' : 'Each dot is a word: its rank against how often it comes, both on log scales. A straight line means the second word comes about half as often as the first, the third about a third.' }}</p>
+        <svg v-if="ix" viewBox="0 0 360 230" class="nlp-zsvg" @pointermove="zMove" @pointerleave="zh=-1" @click="zh>=0 && go(zpts[zh].l)">
+          <line class="ax" x1="34" y1="200" x2="350" y2="200"/><line class="ax" x1="34" y1="10" x2="34" y2="200"/>
+          <text v-for="t in [1,10,100,1000]" :key="'x'+t" :x="zx(t)" y="214" text-anchor="middle" class="t">{{ D(t) }}</text>
+          <text v-for="t in [1,10,100,1000]" :key="'y'+t" x="30" :y="zy(t)+3" text-anchor="end" class="t">{{ D(t) }}</text>
+          <line class="fit" :x1="zx(1)" :y1="zy(Math.pow(10, ix.icpt))" :x2="zx(3000)" :y2="zy(Math.pow(10, ix.icpt+ix.slope*Math.log10(3000)))"/>
+          <circle v-for="(p,i) in zpts" :key="i" :cx="zx(p.r)" :cy="zy(p.c)" :r="p.l===center ? 5 : (i===zh ? 4 : 2)" :class="{on: i===zh, cur: p.l===center}"/>
+          <text x="350" y="226" text-anchor="end" class="t">{{ ar ? 'الترتيب' : 'rank' }}</text>
+        </svg>
+        <p class="nlp-read sm" aria-live="polite">{{ zh>=0 ? (ar ? 'المرتبة '+D(zpts[zh].r)+': «'+(ix.best.get(zpts[zh].l)||zpts[zh].l)+'»، '+D(zpts[zh].c)+' مرة. انقر لتضعها في الشجرة.' : 'Rank '+zpts[zh].r+': «'+(ix.best.get(zpts[zh].l)||zpts[zh].l)+'», '+zpts[zh].c+' times. Tap to put it in the tree.') : (ar ? 'أشر إلى نقطة.' : 'Point at a dot.') }}</p>
+      </figure>
+      <figure class="dfig nlp-pairs"><h3>{{ ar ? 'أقوى العبارات الثنائية' : 'The strongest two-word phrases' }}</h3>
+        <p class="fsub">{{ ar ? 'أكثر كلمتين تتجاوران، دون الحروف والضمائر. انقر لتفتح الشجرة على الأولى.' : 'The word pairs that sit side by side most often, leaving out particles and pronouns. Tap to open the tree on the first word.' }}</p>
+        <div class="nlp-chips" v-if="ix"><button v-for="p in ix.top" :key="p.a+p.b" type="button" @click="go(p.a)" :class="{on: p.a===center}"><b lang="ar">{{ (ix.best.get(p.a)||p.a)+' '+(ix.best.get(p.b)||p.b) }}</b><span>{{ D(p.c) }}</span></button></div>
+      </figure>
+    </div>
+  </div>`,
+  mounted(){ this.$root.load('words'); this.$root.load('verses'); },
+  computed:{ ar(){ return this.$root.lang==='ar'; }, W(){ return this.$root.W; }, ix(){ return this.W && this.W.lemma ? nlpIndex(this.W) : null; },
+    cw(){ return Math.max(340, Math.min(this.w, 980)); }, th(){ return 380; },
+    cwid(){ return Math.max(90, ((this.ix && this.ix.best.get(this.center))||this.center).length*18+40); },
+    tree(){ const W=this.W, c=this.center, prev=new Map(), next=new Map(); if(!W || !W.lemma) return {prev:[], next:[], max:1};
+      const keep=i=>this.small || !!W.root[i];
+      for(let i=0;i<W.lemma.length;i++){ if(W.lemma[i]!==c) continue; const k=W.key[i];
+        for(let j=i-1;j>=0 && W.key[j]===k;j--){ if(keep(j)){ const l=W.lemma[j]; if(l) prev.set(l,(prev.get(l)||0)+1); break; } }
+        for(let j=i+1;j<W.lemma.length && W.key[j]===k;j++){ if(keep(j)){ const l=W.lemma[j]; if(l) next.set(l,(next.get(l)||0)+1); break; } } }
+      const top=m=>[...m.entries()].sort((a,b)=>b[1]-a[1]).slice(0,9).map(([l,cn])=>({l, c:cn, s:this.ix.best.get(l)||l}));
+      const p=top(prev), n=top(next); return {prev:p, next:n, max:Math.max(1,...p.map(x=>x.c),...n.map(x=>x.c))}; },
+    hovEx(){ const h=this.hov, W=this.W; if(!h || !W) return null; const c=this.center, keep=i=>this.small || !!W.root[i];
+      for(let i=0;i<W.lemma.length;i++){ if(W.lemma[i]!==c) continue; const k=W.key[i], step=h.si ? 1 : -1;
+        for(let j=i+step; j>=0 && j<W.lemma.length && W.key[j]===k; j+=step){ if(!keep(j)) continue; if(W.lemma[j]===h.l){ const a=h.si ? i : j, b=h.si ? j : i;
+            const nd=(h.si ? this.tree.next : this.tree.prev).find(x=>x.l===h.l)||{c:0};
+            return {k, c:nd.c, phrase:W.surface.slice(a, b+1).join(' '), v:(this.$root.V[k]||'').split(' ').slice(0,14).join(' ')+'…'}; } break; } }
+      return null; },
+    zpts(){ const ix=this.ix; if(!ix) return []; const out=[]; let last=-1; ix.ranked.forEach((e,i)=>{ const r=i+1, x=Math.round(Math.log10(r)*90); if(x!==last || r<=30){ out.push({r, c:e[1], l:e[0]}); last=x; } }); return out; } },
+  methods:{ D(x){ return this.$root.D(x); }, f(x){ return this.$root.f(x); },
+    go(l){ if(!l) return; this.center=l; this.hov=null; this.q=''; },
+    seek(){ const q=normalize(this.q); if(q && this.ix && this.ix.cnt.has(q)) this.go(q); },
+    ex(si){ return si ? 18+this.cw*0.26 : this.cw-18-this.cw*0.26; },   // where a branch ends: after (si=1) on the left, before on the right
+    ny(i, n){ const h=this.th-40, gap=Math.min(40, h/Math.max(1,n)); return this.th/2 - (n-1)*gap/2 + i*gap; },
+    curve(si, i, n){ const x0=this.cw/2 + (si ? -1 : 1)*(this.cwid/2), y0=this.th/2, x1=this.ex(si), y1=this.ny(i, n), mx=(x0+x1)/2;
+      return 'M'+x0+','+y0+' C'+mx+','+y0+' '+mx+','+y1+' '+x1+','+y1; },
+    zx(r){ return 34+Math.log10(r)/Math.log10(5000)*316; }, zy(c){ return 200-Math.log10(c)/Math.log10(3000)*190; },
+    zMove(e){ const s=e.currentTarget.getBoundingClientRect(), x=(e.clientX-s.left)/s.width*360, y=(e.clientY-s.top)/s.height*230; let b=-1, bd=200;
+      this.zpts.forEach((p,i)=>{ const d=Math.hypot(this.zx(p.r)-x, this.zy(p.c)-y); if(d<bd){ bd=d; b=i; } }); this.zh=bd<18 ? b : -1; } } };
 const QadrLab = {
   data(){ return {basm:false, pre:false, suf:false, hov:-1}; },
   template:`<figure class="dfig qlab">
@@ -6630,7 +6732,7 @@ createApp({
     this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); this.enterView(true); });
   }
 }).component('depth-switch', DepthSwitch).component('term-chips', TermChips).component('explain-box', ExplainBox)
-  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell).component('claim-viz', ClaimViz).component('count-lab', CountLab).component('rule-matrix', RuleMatrix).component('qadr-lab', QadrLab).component('nineteen-lab', NineteenLab).component('struct-lab', StructLab).component('balance-lab', BalanceLab).component('abjad-lab', AbjadLab).component('float-kbd', FloatKbd)
+  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell).component('claim-viz', ClaimViz).component('count-lab', CountLab).component('rule-matrix', RuleMatrix).component('qadr-lab', QadrLab).component('nineteen-lab', NineteenLab).component('struct-lab', StructLab).component('balance-lab', BalanceLab).component('abjad-lab', AbjadLab).component('float-kbd', FloatKbd).component('nlp-lab', NlpLab)
   .component('letter-strip', LetterStrip).component('growth-curve', GrowthCurve).component('rhyme-ribbon', RhymeRibbon).mount('#app');
 });
 </script>
