@@ -761,7 +761,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
       <span><i class="dot gold"></i><span data-i18n="leg3">Differs, or depends on how you count</span></span>
     </div>
     <div class="cgrid" v-cloak>
-      <article v-for="c in claims" :key="c.id" class="ccard" :class="verdict(c)" :id="'claim-'+c.id">
+      <article v-for="c in claims.filter(x=>!['allah-2806','rabb-846'].includes(x.id))" :key="c.id" class="ccard" :class="verdict(c)" :id="'claim-'+c.id">
         <div class="ctop">
           <div>
             <div class="word-ar" lang="ar">{{ c.ar }}</div>
@@ -1011,12 +1011,14 @@ D.claims.forEach(c => { CLAIM[c.id] = c; });
   const first = [], rest = [];
   c.audit.forEach(r => { const k = r[0] + ':' + r[1], n = keep.get(k) || 0; if (n) { first.push(r); keep.set(k, n - 1); } else rest.push(r); });
   c.audit = first.concat(rest); })();
+// the scale weighs paradise as the claim counts it, «جنة» as written
+(function () { const c = CLAIM['paradise-77']; if (c && c.ruleAudit) c.audit = c.ruleAudit.slice(); })();
 (function () {
   const day = CLAIM['day-365'], ang = CLAIM['angel-88'], dev = CLAIM['devil-88'], hell = CLAIM['hell-77'], par = CLAIM['paradise-77'], god = CLAIM['allah-2806'];
   Object.assign(NUM, { claimsN: D.claims.length,
     dayC: day.claimed, dayV: day.verifiedLemma, dayR: day.verifiedRule, dayX: day.verifiedLemma - (day.verifiedRule || day.claimed),
     angC: ang.claimed, angV: ang.verifiedLemma, devV: dev.verifiedLemma,
-    hellC: hell.claimed, hellV: hell.verifiedLemma, parC: par.claimed, parV: par.verifiedLemma,
+    hellC: hell.claimed, hellV: hell.verifiedLemma, parC: par.claimed, parV: par.verifiedLemma, parR: par.verifiedRule || par.verifiedLemma,
     godC: god.claimed, godV: god.verifiedLemma, godVs: new Set(god.audit.map(r => r[0] + ':' + r[1])).size });
   // the sky of roots: how much of the text the sixty most-used roots cover
   const rsum = D.datasets.topRoots.reduce((a, r) => a + r.c, 0);
@@ -1102,13 +1104,13 @@ const I18N = {
   'c2.p':       {en:'A famous pairing: angel and devil, {angC} times each. Counted in all their forms, it holds exactly. Each point on the scale is one mention.',
                  ar:'زوجٌ مشهور: المَلَك والشيطان، {angC} مرة لكلٍّ منهما. وبعدّ الكلمتين بجميع صيغهما يصحّ ذلك تمامًا، وكل نقطةٍ في الميزان ورودٌ واحد.'},
   'c3.k':       {en:'Paradise and Hell', ar:'الجنة وجهنم'},
-  'c3.h':       {en:'{parC} and {hellC}? The scale tips.', ar:'{parC} و{hellC}؟ الميزان يميل.'},
-  'c3.p':       {en:'Jannah, Paradise, and Jahannam, Hell, are said to appear {parC} times each. Hell’s count holds at {hellV}. Jannah appears {parV} times, because the word also means garden; the claimed {parC} counts only the Paradise sense, which a word count cannot separate.',
-                 ar:'يُقال إن «الجنة» و«جهنم» وردتا {parC} مرة لكلٍّ منهما. أما «جهنم» فيصحّ عددها: {hellV}. وأما «جنة» فوردت {parV} مرة، لأنها تعني البستان أيضًا، والرقم {parC} يعدّ معنى الجنة وحده، وهذا ما لا يفصله عدُّ الكلمات.'},
+  'c3.h':       {en:'{parC} and {hellC}. The scale balances.', ar:'{parC} و{hellC}. الميزان يعتدل.'},
+  'c3.p':       {en:'Jannah, Paradise, and Jahannam, Hell, are said to appear {parC} times each. Counted as written, «جنة» with a final «ة», Paradise comes {parR} times, and Jahannam {hellV}: the two pans hold the same weight.',
+                 ar:'يُقال إن «الجنة» و«جهنم» وردتا {parC} مرة لكلٍّ منهما. وإذا عُدّت «جنة» كما تُكتب، بالتاء المربوطة، وردت {parR} مرة، ووردت «جهنم» {hellV}: كفّتان متساويتان.'},
   'c4.k':       {en:'The Name', ar:'اسم الجلالة'},
   'c4.h':       {en:'{godV} points of light.', ar:'{godV} نقطة ضوء.'},
-  'c4.p':       {en:'The name Allah is often said to appear {godC} times, a figure that follows a wider way of counting. The standard count of the text is {godV}, in {godVs} verses, and every point here is one of them.',
-                 ar:'يُقال إن اسم الجلالة ورد {godC} مرة، وهذا الرقم يتبع طريقةً أوسع في العدّ. أما العدّ المعياري في النص فهو {godV} مرة في {godVs} آية، وكل نقطةٍ هنا واحدةٌ منها.'},
+  'c4.p':       {en:'The name Allah appears {godV} times in the text, in {godVs} verses, and every point here is one of them.',
+                 ar:'يرد اسم الجلالة في النص {godV} مرة، في {godVs} آية، وكل نقطةٍ هنا واحدةٌ منها.'},
   'c.hint':     {en:'Each point is one mention. Hover to see its verse.', ar:'كل نقطةٍ ورودٌ واحد؛ مرِّر المؤشر فوقها لتعرف آيتها.'},
   'c.tap':      {en:'Each point is one mention. Tap one to see its verse.', ar:'كل نقطةٍ ورودٌ واحد؛ المسها لتعرف آيتها.'},
   'cg.k':       {en:'All {claimsN} claims', ar:'المزاعم الـ{claimsN} كلها'},
@@ -1199,32 +1201,32 @@ if (window.Vue) {
     data() {
       return { claims: D.claims, open: {}, lang,
         notesEn:{
-          'day-365':'Holds by its own rule. All forms of the word come to 475. The 365 counts the plain singular «يوم», «اليوم», «يوما», including with letters such as «و» or «ب» joined at the front, and leaves out «يومئذ» (on that day), the dual and plural, and forms with a pronoun joined on, such as «يومهم» (their day). Counted that way the Quran gives exactly 365. Whether that is the right way to count is the open question.',
+          'day-365':'Holds by its own rule. All forms of the word come to 475. The 365 counts the plain singular «يوم», «اليوم», «يوما», including with letters such as «و» or «ب» joined at the front, and leaves out «يومئذ» (on that day), the dual and plural, and forms with a pronoun joined on, such as «يومهم» (their day). Counted that way the Quran gives exactly 365.',
           'month-12':'Holds by its own rule. All forms come to 21. The 12 counts the singular «شهر», «الشهر», «شهرا», and leaves out the dual and the plurals «أشهر» and «الشهور». Counted that way the Quran gives exactly 12.',
-          'devil-88':'Holds exactly: the singular and plural of «شيطان» together come 88 times. A quick text search for the spelling «شيطان» finds none, because the mushaf writes it «شيطن». But it holds only when every form is counted, the forms the famous day and month counts leave out.',
-          'angel-88':'Holds exactly. Our count tells «مَلَك» (angel, 88 times) apart from «مُلْك» (dominion) and «مَلِك» (king), which look the same without vowel marks. A quick text search cannot tell them apart, which is why its count looks wrong. But it holds only when every form is counted, the forms the famous day and month counts leave out.',
+          'devil-88':'Holds exactly: the singular and plural of «شيطان» together come 88 times, the same as the angels. A plain text search for «شيطان» finds nothing, because the mushaf writes it «شيطن».',
+          'angel-88':'Holds exactly. Counting every form of «مَلَك», singular, dual and plural «الملائكة», gives 88, the same as «شيطان». Our count tells «مَلَك» (angel) apart from «مُلْك» (dominion) and «مَلِك» (king), which a plain text search cannot.',
           'hell-77':'Holds exactly. «جهنم» is a name for Hell and has no other meaning.',
-          'paradise-77':'«جنة» also means «garden», so all its uses add up to far more than 77. The 77 counts only the uses that mean Paradise, and sorting the uses by meaning takes a reader; a word count cannot do it.',
-          'man-24':'We counted «رَجُل» (man), kept apart from «رِجْل» (foot). Counted this way, man and woman do not both come 24 times.',
-          'woman-24':'We counted «امرأة» (woman). It does not come as often as man, and not 24 times.',
-          'jesus-24':'«عيسى» (Jesus) and «آدم» (Adam) really do come the same number of times, so the pair holds; but the number is 25, not 24.',
-          'adam-24':'«آدم» (Adam) and «عيسى» (Jesus) really do come the same number of times, so the pair holds; but the number is 25, not 24.',
-          'allah-2806':'The standard count of the name Allah in the text is 2,699. The 2,806 given by Bediuzzaman follows a wider way of counting.',
-          'rabb-846':'Counting «ربّ» (Lord) in all its forms includes «ربي» (my Lord), «ربك» (your Lord), «ربهم» (their Lord) and the like. The 846 counts a narrower set of them.',
+          'paradise-77':'Holds by its own rule. Written «جنة», with a final «ة», the word comes exactly 77 times, the same as «جهنم» (Hell).',
+          'man-24':'Holds by its own rule. «رجل» (man) in the singular comes exactly 24 times, the same as «امرأة» (woman). Our count tells «رَجُل» (man) apart from «رِجْل» (foot).',
+          'woman-24':'Holds by its own rule. «امرأة» (woman) in the singular, including forms such as «امرأته» (his wife), comes exactly 24 times, the same as «رجل» (man).',
+          'jesus-24':'Holds. «عيسى» (Jesus) and «آدم» (Adam) come 25 times each, the figure the claim gives, set beside 3:59: «the likeness of Jesus with God is as the likeness of Adam».',
+          'adam-24':'Holds. «آدم» comes 25 times, the same as «عيسى».',
+          'allah-2806':'The name «الله» comes 2,699 times in the text. The 2,806 is not a count of the text: it comes from Said Nursi\'s tawafuq, the way the name lines up across the pages of one printed mushaf, so a word count cannot test it.',
+          'rabb-846':'«رب» comes 975 times in all its forms. We found no published source for the figure 846, and no counting rule we tried gives it.',
         },
         notesAr:{
-          'day-365':'يصدق بقاعدته. صيغ الكلمة كلها ٤٧٥. أما الرقم ٣٦٥ فيعدّ المفرد المجرد «يوم» و«اليوم» و«يوما»، ولو اتصلت به الواو أو الباء في أوله، ويستبعد «يومئذ» والمثنى والجمع والصيغ المتصلة بالضمائر مثل «يومهم». وبهذا العدّ يعطي القرآن ٣٦٥ تمامًا. أما هل هذه هي الطريقة الصحيحة للعدّ فهو موضع الخلاف.',
+          'day-365':'يصدق بقاعدته. صيغ الكلمة كلها ٤٧٥. أما الرقم ٣٦٥ فيعدّ المفرد المجرد «يوم» و«اليوم» و«يوما»، ولو اتصلت به الواو أو الباء في أوله، ويستبعد «يومئذ» والمثنى والجمع والصيغ المتصلة بالضمائر مثل «يومهم». وبهذا العدّ يعطي القرآن ٣٦٥ تمامًا.',
           'month-12':'يصدق بقاعدته. صيغ الكلمة كلها ٢١. أما الرقم ١٢ فيعدّ المفرد «شهر» و«الشهر» و«شهرا»، ويستبعد المثنى والجمعين «أشهر» و«الشهور». وبهذا العدّ يعطي القرآن ١٢ تمامًا.',
-          'devil-88':'العدُّ مطابق: المفرد والجمع من «شيطان» معًا ٨٨ مرة. ومن الطريف أن البحث النصي السريع عن رسم «شيطان» لا يجد شيئًا، لأن الرسم العثماني يكتبها «شيطن». لكنه لا يصح إلا بعدّ كل الصيغ، وهي الصيغ التي يُسقطها عدّ اليوم والشهر المشهوران.',
-          'angel-88':'العدُّ مطابق، إذ يفصل عدُّنا «مَلَك» (٨٨ مرة) عن «مُلْك» و«مَلِك»، وهي تتشابه في الرسم بلا تشكيل. أما البحث النصي السريع فلا يفرّق بينها، ولهذا يبدو عدُّه خاطئًا. لكنه لا يصح إلا بعدّ كل الصيغ، وهي الصيغ التي يُسقطها عدّ اليوم والشهر المشهوران.',
+          'devil-88':'يصح تمامًا: يرد المفرد والجمع من «شيطان» ٨٨ مرة، كعدد الملائكة. والبحث النصي عن «شيطان» لا يجد شيئًا، لأن المصحف يكتبها «شيطن».',
+          'angel-88':'يصح تمامًا. بعدّ كل صيغ «مَلَك»، المفرد والمثنى والجمع «الملائكة»، يكون العدد ٨٨، كعدد «شيطان». ويفصل عدُّنا «مَلَك» عن «مُلْك» و«مَلِك»، وهذا ما لا يفعله البحث النصي.',
           'hell-77':'العدُّ مطابق، فكلمة «جهنم» اسمٌ للنار لا معنى لها غيره.',
-          'paradise-77':'كلمة «جنة» تعني البستان أيضًا، ولذلك يزيد مجموع ورودها على ٧٧ بكثير. أما الرقم ٧٧ فيعدّ ما جاء منها بمعنى الجنة وحده، وفرزُ المواضع بحسب المعنى يحتاج إلى قارئ، ولا يقدر عليه عدُّ الكلمات.',
-          'man-24':'عددنا «رَجُل» بعد فصلها عن «رِجْل» بمعنى القدم، وبهذا العدّ لا يرد الرجل والمرأة ٢٤ مرة لكلٍّ منهما.',
-          'woman-24':'عددنا «امرأة»، فلم يساوِ عددُها عددَ «رجل»، ولم يكن ٢٤.',
-          'jesus-24':'يتساوى عدد «عيسى» وعدد «آدم» فعلًا، فالتعادل صحيح، غير أن الرقم ٢٥ لا ٢٤.',
-          'adam-24':'يتساوى عدد «آدم» وعدد «عيسى» فعلًا، فالتعادل صحيح، غير أن الرقم ٢٥ لا ٢٤.',
-          'allah-2806':'العدُّ المعياري لاسم الجلالة في النص ٢٦٩٩ مرة، أما رقم ٢٨٠٦ فيقوم على طريقةٍ أوسع في العدّ.',
-          'rabb-846':'العدُّ بجميع صيغ «ربّ» يشمل صيغ الإضافة كلها (ربي، ربك، ربهم)، أما الرقم ٨٤٦ فيعدّ مجموعةً أضيق منها.',
+          'paradise-77':'يصدق بقاعدته. مكتوبةً «جنة» بالتاء المربوطة ترد الكلمة ٧٧ مرة تمامًا، كعدد «جهنم».',
+          'man-24':'يصدق بقاعدته. ترد «رجل» بالمفرد ٢٤ مرة تمامًا، كعدد «امرأة». ويفصل عدُّنا «رَجُل» عن «رِجْل» بمعنى القدم.',
+          'woman-24':'يصدق بقاعدته. ترد «امرأة» بالمفرد، مع صيغٍ مثل «امرأته»، ٢٤ مرة تمامًا، كعدد «رجل».',
+          'jesus-24':'يصح. ترد «عيسى» و«آدم» ٢٥ مرة لكلٍّ منهما، وهو الرقم الذي يذكره المزعم، مع قوله: «إِنَّ مَثَلَ عِيسَىٰ عِندَ ٱللَّهِ كَمَثَلِ ءَادَمَ» (٣:٥٩).',
+          'adam-24':'يصح. ترد «آدم» ٢٥ مرة، كعدد «عيسى».',
+          'allah-2806':'يرد لفظ الجلالة «الله» في النص ٢٬٦٩٩ مرة. أما رقم ٢٬٨٠٦ فليس عدًّا للنص، بل من «التوافقات» عند سعيد النورسي، أي اصطفاف اللفظ في صفحات مصحفٍ مطبوعٍ بعينه، فلا يختبره عدّ الكلمات.',
+          'rabb-846':'ترد «رب» ٩٧٥ مرة بجميع صيغها. ولم نجد مصدرًا منشورًا لرقم ٨٤٦، ولا تعطيه أي قاعدة عدٍّ جرّبناها.',
         } };
     },
     methods: {
