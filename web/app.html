@@ -1044,6 +1044,108 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .dtop .sp{flex:1}
   .dtop .step{width:34px;height:34px;padding:0;display:grid;place-items:center;font-size:1.05rem;line-height:1}
   .dtop .step:disabled{opacity:.3;cursor:default}
+  /* History Claims: each claim's own figure (ClaimViz) */
+  .cviz{--cv-match:var(--gold);--cv-flip:#f0a08c;--cv-diff:rgba(255,255,255,.34)}
+  .cviz .cv-say{margin:12px 0 0;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.04);font-size:.9rem;line-height:1.6;color:var(--on-dark);min-height:3.2em}
+  .cviz .cv-say b{color:#fff}
+  .cviz .cv-foot{margin:10px 0 0;font-size:.78rem;line-height:1.55;color:var(--on-dark-3)}
+  /* duel */
+  .cvd-head{display:grid;grid-template-columns:1fr 34px 1fr;gap:10px;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--on-dark-3);padding:0 12px 6px}
+  .cvd-row{display:grid;grid-template-columns:1fr 34px 1fr;gap:10px;align-items:center;width:100%;font:inherit;text-align:start;color:var(--on-dark);background:rgba(255,255,255,.025);border:1px solid var(--hair);border-radius:14px;padding:12px;margin:0 0 8px;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+  .cvd-row:hover,.cvd-row.on{background:rgba(255,255,255,.06)}
+  .cvd-row.on.r-same{border-color:var(--cv-match)} .cvd-row.on.r-flip{border-color:var(--cv-flip)} .cvd-row.on.r-diff{border-color:rgba(255,255,255,.3)}
+  .cvd-rec{font-size:.92rem;line-height:1.45} .cvd-rec small{display:block;font-size:.7rem;color:var(--on-dark-3);margin-bottom:3px}
+  .cvd-qur bdi{display:block;font-family:var(--ar-display);font-size:1.25rem;line-height:1.7;color:#fff}
+  .cvd-qur small{display:block;font-size:.76rem;color:var(--on-dark-2);margin-top:2px}
+  .cvd-rel{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;font-size:1rem;font-weight:700;background:rgba(255,255,255,.05);color:var(--cv-diff)}
+  .r-same .cvd-rel{color:var(--cv-match);background:rgba(233,185,95,.1)} .r-flip .cvd-rel{color:var(--cv-flip);background:rgba(240,160,140,.1)}
+  .cvd-row.on .cvd-rel{box-shadow:0 0 0 4px rgba(255,255,255,.04),0 0 18px currentColor}
+  .cvd-note .t-same{color:var(--cv-match)} .cvd-note .t-flip{color:var(--cv-flip)} .cvd-note .t-diff{color:var(--on-dark-2)}
+  @media (max-width:640px){ .cvd-head{display:none} .cvd-row{grid-template-columns:1fr} .cvd-rel{justify-self:start} }
+  /* era */
+  .cve svg{touch-action:none;cursor:ew-resize;outline:none}
+  .cve svg:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:8px}
+  .cve-z{fill:rgba(255,255,255,.05);stroke:rgba(255,255,255,.08)}
+  .cve-z.z-good{fill:rgba(52,211,153,.13)} .cve-z.z-mid{fill:rgba(233,185,95,.12)} .cve-z.z-bad{fill:rgba(240,160,140,.12)}
+  .cve-z.on{stroke:rgba(255,255,255,.45);stroke-width:1.2}
+  .dfig svg .cve-zl{font-size:11px;fill:var(--on-dark-2)}
+  .cve-win{fill:rgba(56,198,218,.16);stroke:var(--teal);stroke-dasharray:4 3}
+  .cve-et{stroke:rgba(255,255,255,.18)} .cve-ed{fill:var(--on-dark-3)}
+  .dfig svg .cve-el{font-size:11px;fill:var(--on-dark-2)} .dfig svg .cve-ey{font-size:10px;fill:var(--on-dark-3)}
+  .cve .hot .cve-ed{fill:var(--teal)} .dfig svg .hot .cve-el{fill:#fff}
+  .cve-k line{stroke:var(--gold);stroke-width:2} .cve-k circle{fill:var(--gold);filter:drop-shadow(0 0 8px rgba(233,185,95,.7))}
+  .dfig svg .cve-k text{fill:var(--gold);font-weight:700;font-size:12px}
+  /* spiral */
+  .cvs{display:grid;grid-template-columns:minmax(0,400px) minmax(250px,1fr);gap:22px;align-items:center}
+  .cvs-svg{touch-action:none;cursor:grab;outline:none;max-width:440px}
+  .cvs-svg:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:50%}
+  .cvs-arc{fill:none;stroke-width:5;stroke-linecap:round;transition:stroke-width .25s,opacity .25s}
+  .cvs-arc.p-gold{stroke:var(--gold);filter:drop-shadow(0 0 5px rgba(233,185,95,.55))}
+  .cvs-arc.p-dim{stroke:rgba(255,255,255,.14)}
+  .cvs-arc.p-teal{stroke:var(--teal);filter:drop-shadow(0 0 5px rgba(56,198,218,.5))}
+  .cvs-arc.on{stroke-width:8}
+  .cvs-ev circle{fill:var(--night,#06100b);stroke:#fff;stroke-width:1.6} .cvs-ev.near circle{fill:#fff}
+  .cvs-rev path{fill:var(--emerald);filter:drop-shadow(0 0 6px rgba(52,211,153,.8))}
+  .cvs-cur{fill:#fff;stroke:var(--gold);stroke-width:3;filter:drop-shadow(0 0 10px rgba(255,255,255,.6))}
+  .dfig svg .cvs-yr{font-family:var(--serif);font-size:22px;fill:#fff}
+  .cvs-side .cv-say{margin-top:12px}
+  .cvs-evl{display:flex;align-items:center;gap:8px;margin:10px 0 0;font-size:.84rem;color:#fff}
+  .cvs-evl .dot{width:9px;height:9px;border-radius:50%;background:#fff}
+  .cvs-key{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:12px;font-size:.76rem;color:var(--on-dark-2)}
+  .cvs-key i{display:inline-block;width:16px;height:5px;border-radius:3px;margin-inline-end:6px;vertical-align:2px;background:rgba(255,255,255,.18)}
+  .cvs-key .k-gold i{background:var(--gold)} .cvs-key .k-teal i{background:var(--teal)} .cvs-key .k-rev i{background:var(--emerald);width:8px;height:8px;border-radius:50%}
+  @media (max-width:760px){ .cvs{grid-template-columns:1fr} .cvs-svg{margin:0 auto} }
+  /* map */
+  .cvm-land{fill:rgba(233,185,95,.05)}
+  .cvm-sea{fill:rgba(56,198,218,.09);stroke:rgba(56,198,218,.28);stroke-width:1}
+  .cvm-grid line{stroke:rgba(255,255,255,.05)} .dfig svg .cvm-grid text{font-size:9.5px;fill:rgba(255,255,255,.28)}
+  .cvm-riv{fill:none;stroke:rgba(56,198,218,.35);stroke-width:1.3}
+  .cvm-link line{stroke:rgba(255,255,255,.4);stroke-dasharray:4 4}
+  .dfig svg .cvm-link text{font-size:11px;fill:#fff;paint-order:stroke;stroke:rgba(6,14,10,.85);stroke-width:4px}
+  .cvm-site{cursor:pointer;outline:none}
+  .cvm-site circle{fill:var(--gold)} .cvm-site.k-other circle,.cvm-site.k-egypt.k-x circle{fill:var(--teal)} .cvm-site.k-ref circle{fill:rgba(255,255,255,.7)}
+  .cvm-site.k-egypt circle{fill:var(--gold)}
+  .cvm-site .halo{fill:currentColor;opacity:0;transition:opacity .25s} .cvm-site{color:var(--gold)} .cvm-site.k-other{color:var(--teal)} .cvm-site.k-ref{color:#fff}
+  .cvm-site.on .halo,.cvm-site:focus-visible .halo{opacity:.22}
+  .dfig svg .cvm-site text{font-size:12px;fill:var(--on-dark);paint-order:stroke;stroke:rgba(6,14,10,.85);stroke-width:4px}
+  .dfig svg .cvm-site.on text{fill:#fff;font-weight:700}
+  /* weigh */
+  .cvw-post{fill:none;stroke:rgba(255,255,255,.3);stroke-width:3;stroke-linecap:round}
+  .cvw-beam,.cvw-hang{transform-box:view-box;transition:transform .6s cubic-bezier(.3,1.4,.5,1)}
+  .cvw-beam line{stroke:#fff;stroke-width:3;stroke-linecap:round}
+  .cvw-str{fill:none;stroke:rgba(255,255,255,.35);stroke-width:1.2}
+  .cvw-pan{stroke-width:1.5} .cvw-pan.s-for{fill:rgba(52,211,153,.14);stroke:var(--emerald)} .cvw-pan.s-against{fill:rgba(240,160,140,.14);stroke:#f0a08c}
+  .cvw-wt.s-for{fill:var(--emerald)} .cvw-wt.s-against{fill:#f0a08c}
+  .cvw-pin{fill:var(--gold)}
+  .cvw-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+  .cvw-col h4{margin:0 0 8px;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+  .cvw-col.s-for h4{color:var(--emerald)} .cvw-col.s-against h4{color:#f0a08c}
+  .cvw-col h4 .n{display:inline-block;min-width:22px;margin-inline-start:6px;padding:1px 7px;border-radius:99px;background:rgba(255,255,255,.08);color:#fff;text-align:center}
+  .cvw-it{display:flex;gap:10px;align-items:flex-start;width:100%;font:inherit;font-size:.84rem;line-height:1.45;text-align:start;color:var(--on-dark-2);background:rgba(255,255,255,.025);border:1px dashed var(--hair);border-radius:12px;padding:9px 11px;margin:0 0 7px;cursor:pointer;transition:all .2s}
+  .cvw-it:hover{background:rgba(255,255,255,.06)}
+  .cvw-it.on{color:#fff;border-style:solid}
+  .s-for .cvw-it.on{border-color:var(--emerald);background:rgba(52,211,153,.08)} .s-against .cvw-it.on{border-color:#f0a08c;background:rgba(240,160,140,.08)}
+  .cvw-it .wt{display:flex;gap:2px;flex:none;padding-top:5px} .cvw-it .wt i{display:block;width:5px;height:9px;border-radius:2px;background:rgba(255,255,255,.3)}
+  .s-for .cvw-it.on .wt i{background:var(--emerald)} .s-against .cvw-it.on .wt i{background:#f0a08c}
+  .cvw .cv-say{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  @media (max-width:640px){ .cvw-cols{grid-template-columns:1fr} }
+  /* bars */
+  .cvb .dchips{margin:0 0 12px}
+  .cvb-row{display:grid;grid-template-columns:minmax(140px,1fr) 2fr;gap:12px;align-items:center;padding:9px 0;border-top:1px solid var(--hair)}
+  .cvb-row .lab{font-size:.86rem;color:var(--on-dark)}
+  .cvb-row .bar{display:flex;align-items:center;gap:8px}
+  .cvb-row .bar i{display:block;height:16px;border-radius:8px;min-width:4px;background:rgba(255,255,255,.3);transition:width .6s cubic-bezier(.3,1,.4,1)}
+  .cvb-row.t-bad .bar i{background:#f0a08c} .cvb-row.t-good .bar i{background:var(--emerald)} .cvb-row.t-ref .bar i{background:rgba(255,255,255,.22)}
+  .cvb-row .bar b{font-size:.84rem;color:#fff;white-space:nowrap;font-variant-numeric:tabular-nums}
+  @media (max-width:640px){ .cvb-row{grid-template-columns:1fr} }
+  /* convert */
+  .cvc-big{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:0 0 10px}
+  .cvc-big span{display:flex;flex-direction:column;font-size:.78rem;color:var(--on-dark-2)}
+  .cvc-big b{font-family:var(--serif);font-size:2.4rem;line-height:1;font-weight:400;color:#fff;font-variant-numeric:tabular-nums}
+  .cvc-big .sun b{color:var(--gold)} .cvc-big .moon b{color:var(--teal)} .cvc-big .eq{font-size:1.6rem;color:var(--on-dark-3)}
+  .cvc input[type=range]{width:100%;accent-color:var(--gold);margin:4px 0 10px}
+  .cvc-s{fill:var(--gold)} .cvc-l{fill:var(--teal)} .cvc-x{fill:#fff;opacity:.85}
+  .cvc-v{stroke:#fff;stroke-width:1.5;stroke-dasharray:3 3}
   .seg2{display:inline-flex;gap:2px;padding:3px;border-radius:999px;background:rgba(255,255,255,.045);border:1px solid var(--hair);margin:0 0 14px}
   .seg2 button{font:inherit;font-size:.82rem;font-weight:600;color:var(--on-dark-2);background:none;border:0;border-radius:999px;padding:7px 16px;cursor:pointer}
   .seg2 button[aria-pressed=true]{color:#04140d;background:var(--on-dark)}
@@ -2022,6 +2124,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
         <p class="lede">{{ lang==='ar' ? hCur.check_ar : hCur.check_en }}</p>
       </div>
       <div class="metric" v-if="hMetrics(hCur).length"><div class="m" v-for="(m,i) in hMetrics(hCur)" :key="i"><div class="v">{{ m.v }}</div><div class="k">{{ m.k }}</div></div></div>
+      <claim-viz v-if="hViz" :key="hCur.id" :spec="hViz" :verdict="hCur.verdict"></claim-viz>
 
       <div class="hduel">
         <div class="hq rec">
@@ -2880,8 +2983,8 @@ const jix = () => JIX || (JIX = JEV && window.QURAN_WORDS ? JEV.makeIndex(window
 // (about 2.5 MB compressed). They load after the app is on screen, what the current page needs first,
 // so a phone never waits on a blank page for all of it.
 const LAZY = { verses:['corpus.js','translation_en.js'], words:['words.js','lemma-variants.js'], plotly:['https://cdn.plot.ly/plotly-2.27.0.min.js'],
-  disc:['discover.js','discoveries.js'] };
-const NEEDS = { search:['words','verses'], auditor:['words'], history:['verses','words'], reader:['verses'], home:['words'],
+  disc:['discover.js','discoveries.js'], hviz:['content/quran_history_viz.js'] };
+const NEEDS = { search:['words','verses'], auditor:['words'], history:['verses','words','hviz'], reader:['verses'], home:['words'],
   discover:['disc'], 'd-endings':['disc','verses'], 'd-rings':['disc','verses','words'], 'd-rhyme':['disc'], 'd-stories':['disc'], 'd-themes':['disc'],
   'd-companions':['disc'], 'd-letters':['disc'], 'd-repeats':['disc','verses','words'], 'd-chrono':['disc'] };
 const lazyP = {};
@@ -3441,6 +3544,265 @@ const FarrinRing = { mixins:[FitW], props:['f'],
     arc(a, b){ const x1=(this.X(this.f.sections[a][0]-1)+this.X(this.f.sections[a][1]))/2, x2=(this.X(this.f.sections[b][0]-1)+this.X(this.f.sections[b][1]))/2,
       h=Math.min(108, 18+(x2-x1)*.38); return 'M'+x1.toFixed(1)+' 118 C '+x1.toFixed(1)+' '+(118-h).toFixed(1)+', '+x2.toFixed(1)+' '+(118-h).toFixed(1)+', '+x2.toFixed(1)+' 118'; } } };
 // Study 4: each telling, its likeness to its own surah (green) against its average likeness to the other surahs (grey)
+// History Claims: one interactive figure a claim (content/quran_history_viz.js). The spec picks the kind:
+// duel (record beside verse), era (drag a date), spiral (the centuries wound up), map, weigh (the case on a
+// scale), bars and convert. Every kind answers to pointer, touch and keyboard, and reads in both languages.
+const HV_SEAS = [   // a sketch of the seas between the Nile and Iran, [lon, lat]: enough to place a site, not to survey it
+  [[20,46],[20,31.2],[25,31.6],[29.9,31.2],[32.3,31.3],[34.2,31.3],[34.9,32.8],[35.5,33.9],[35.8,35.5],[36.1,36.6],[35,36.8],[34,36.2],[32.5,36.1],[30.6,36.8],[29,36.6],[28,36.8],[27.3,37.5],[26.5,38.5],[26.6,39.5],[26.2,40.1],[26,41],[20,46]],
+  [[32.55,29.95],[33.6,27.9],[34.2,26.7],[35.5,24],[36.9,22],[37.2,21],[38.5,18],[39.5,16],[41.5,14.2],[43.3,12.6],[43.45,12.7],[42.8,14.8],[42.6,16],[41.2,19],[39.2,21.5],[38.1,24.1],[37.2,25.8],[35.6,27.8],[35,29.5],[34.6,28.1],[34.25,27.73],[33.4,28.4],[32.6,29.9]],
+  [[43.45,12.7],[45,12.8],[48,14],[52.2,15.6],[54.1,17],[55.5,17.9],[56.8,18.7],[57.8,19.9],[58.6,20.6],[59.8,22.4],[59,23.6],[58.4,23.6],[57,24.3],[56.4,25.6],[56.4,26.4],[57.3,25.8],[58,25.6],[61,25.2],[62,25],[62,8],[43,8],[43.3,12.6]],
+  [[48,30],[48.4,28.5],[49.6,27],[50.2,26.2],[50.8,25],[51.2,26.1],[51.6,25],[52,24],[54,24.2],[55.3,25.3],[56.1,26],[56.4,26.4],[56.3,27.1],[55.5,26.7],[54,26.7],[52.5,27.5],[51,28.8],[50.3,29.5],[49,30.3]] ];
+const HV_LAKES = [
+  [[42.3,38.6],[42.8,38.95],[43.3,38.95],[43.65,38.6],[43.2,38.35],[42.7,38.45]],
+  [[45.2,37.3],[45.75,37.25],[46.0,37.8],[45.75,38.25],[45.4,38.2],[45.15,37.8]],
+  [[35.38,31.1],[35.6,31.1],[35.57,31.78],[35.47,31.78]],
+  [[49,37.4],[50.3,37.1],[51.8,36.6],[53.9,36.9],[54,38.5],[53.2,39.5],[53.6,40.5],[52.8,41.3],[52.6,42.5],[51.3,43.2],[50,44.5],[49,44.6],[48.3,43],[47.6,42.5],[48.6,41.6],[49.5,40.2],[48.9,38.4]] ];
+const HV_RIVERS = [
+  [[31.6,22.3],[32.3,22.7],[32.9,24],[32.6,25.7],[32.7,26.2],[31.8,27.2],[30.8,28.5],[31.2,30],[30.9,31.3]],
+  [[38.5,37],[39.5,36],[41,34.4],[43.3,32.6],[46,31],[47.5,30.6],[48,30]],
+  [[42.2,37.3],[43.1,36.3],[44.4,33.3],[46.4,32],[47.4,31],[48,30]] ];
+const HV_NOW = 2026;
+const ClaimViz = { mixins:[FitW], props:['spec','verdict'],
+  data(){ return { act:0, y:0, mode:0, placed:[], drag:false, playing:false, sol:300 }; },
+  template:`<figure class="dfig cviz" :class="'cv-'+spec.type">
+    <h3>{{ T(spec.title) }}</h3>
+    <p class="fsub">{{ T(spec.sub) }}</p>
+
+    <!-- duel: the record beside the verse -->
+    <div v-if="spec.type==='duel'" class="cvd">
+      <div class="cvd-head"><span>{{ ar ? 'الأثر والمصادر' : 'The record, and other sources' }}</span><span></span><span>{{ ar ? 'القرآن الكريم' : 'The Quran' }}</span></div>
+      <button v-for="(p,i) in spec.pairs" :key="i" type="button" class="cvd-row" :class="['r-'+p.rel,{on:act===i}]"
+        @mouseenter="act=i" @focus="act=i" @click="act=i" :aria-pressed="String(act===i)">
+        <span class="cvd-rec"><small>{{ T(p.src) }}</small>{{ T(p.rec) }}</span>
+        <span class="cvd-rel" aria-hidden="true">{{ relSign(p.rel) }}</span>
+        <span class="cvd-qur"><bdi lang="ar" dir="rtl">{{ p.ar }}</bdi><small v-if="!ar">{{ p.en }}</small></span>
+      </button>
+      <p class="cvd-note" aria-live="polite"><b :class="'t-'+cur.rel">{{ relName(cur.rel) }}.</b> {{ T(cur.note) }}</p>
+    </div>
+
+    <!-- era: drag a date along the line -->
+    <div v-else-if="spec.type==='era'" class="cve">
+      <svg :viewBox="'0 0 '+w+' 158'" role="slider" tabindex="0" :aria-label="T(spec.marker.label)" :aria-valuemin="spec.marker.min" :aria-valuemax="spec.marker.max" :aria-valuenow="y" :aria-valuetext="yrs(y)"
+        @pointerdown="eDown" @pointermove="eMove" @pointerup="eUp" @pointercancel="eUp" @keydown="eKey">
+        <rect v-for="(z,i) in spec.zones" :key="'z'+i" class="cve-z" :class="['z-'+z.tone,{on:zi===i}]" :x="Math.min(EX(z.a),EX(z.b))" y="34" :width="Math.abs(EX(z.b)-EX(z.a))" height="34" rx="6"/>
+        <text v-for="(z,i) in spec.zones" :key="'zl'+i" v-show="Math.abs(EX(z.b)-EX(z.a))>T(z.lab).length*6.4" class="cve-zl" :x="(EX(z.a)+EX(z.b))/2" y="55" text-anchor="middle">{{ T(z.lab) }}</text>
+        <rect v-if="spec.win" class="cve-win" :x="Math.min(EX(y+spec.win.from),EX(y+spec.win.to))" y="28" :width="Math.abs(EX(y+spec.win.to)-EX(y+spec.win.from))" height="46" rx="6"/>
+        <line class="ax" :x1="EX(spec.range[0])" :x2="EX(spec.range[1])" y1="86" y2="86"/>
+        <g v-for="(e,i) in spec.events" :key="'e'+i" :class="{hot:inWin(e.y)}">
+          <line class="cve-et" :x1="EX(e.y)" :x2="EX(e.y)" y1="70" y2="92"/>
+          <circle class="cve-ed" :cx="EX(e.y)" cy="86" r="3.5"/>
+          <text class="cve-el" :x="EX(e.y)" :y="i%2 ? 136 : 106" :text-anchor="anch(EX(e.y))">{{ T(e.lab) }}</text>
+          <text class="cve-ey" :x="EX(e.y)" :y="i%2 ? 150 : 119" :text-anchor="anch(EX(e.y))">{{ yrs(e.y) }}</text>
+        </g>
+        <g class="cve-k" :transform="'translate('+EX(y)+',0)'">
+          <line y1="16" y2="86"/><circle cy="16" r="9"/>
+          <text y="9" :text-anchor="anch(EX(y))" :dx="anch(EX(y))==='start' ? 14 : (anch(EX(y))==='end' ? -14 : 0)" :dy="anch(EX(y))==='middle' ? -12 : 4">{{ T(spec.marker.label) }} {{ yrs(y) }}</text>
+        </g>
+      </svg>
+      <p class="cv-say" aria-live="polite"><b>{{ yrs(y) }}</b><template v-if="eZone"> · {{ T(eZone.lab) }}</template>. {{ eSay }}</p>
+    </div>
+
+    <!-- spiral: the centuries wound up; drag along it -->
+    <div v-else-if="spec.type==='spiral'" class="cvs">
+      <svg :viewBox="'0 0 '+SW+' '+SW" class="cvs-svg" role="slider" tabindex="0" :aria-label="ar ? 'السنة' : 'Year'" :aria-valuemin="s0" :aria-valuemax="s1" :aria-valuenow="y" :aria-valuetext="yrs(y)"
+        @pointerdown="sDown" @pointermove="sMove" @pointerup="eUp" @pointercancel="eUp" @keydown="sKey">
+        <path v-for="(p,i) in sPaths" :key="i" class="cvs-arc" :class="['p-'+p.tone,{on:sPh===p.i}]" :d="p.d"/>
+        <g v-for="(e,i) in sEvents" :key="'e'+i" class="cvs-ev" :class="{near:sNear===i}">
+          <circle :cx="e.x" :cy="e.y" r="4.5"/>
+        </g>
+        <g v-if="610>=s0 && 610<=s1" class="cvs-rev" :transform="'translate('+sPt(610).x+','+sPt(610).y+')'"><path d="M0-7 2 -2 7 0 2 2 0 7-2 2-7 0-2-2Z"/></g>
+        <circle class="cvs-cur" :cx="sPt(y).x" :cy="sPt(y).y" r="8"/>
+        <text class="cvs-yr" :x="SW/2" :y="SW/2+6" text-anchor="middle">{{ yrs(y) }}</text>
+      </svg>
+      <div class="cvs-side">
+        <button type="button" class="htm-play" @click="sPlay" :aria-pressed="String(playing)">{{ playing ? (ar ? 'إيقاف' : 'Pause') : (ar ? 'شغّل الزمن' : 'Play through time') }}</button>
+        <p class="cv-say" aria-live="polite"><b>{{ yrs(y) }}</b><template v-if="sPhase"> · {{ T(sPhase.lab) }}.</template><br>{{ sPhase ? T(sPhase.say) : '' }}</p>
+        <p v-if="sNear>=0" class="cvs-evl"><span class="dot"></span>{{ T(sEvents[sNear].lab) }}, {{ yrs(sEvents[sNear].yr) }}</p>
+        <div class="cvs-key"><span v-for="p in spec.phases" :key="p.a" :class="'k-'+p.tone"><i></i>{{ T(p.lab) }}</span><span v-if="610>=s0 && 610<=s1" class="k-rev"><i></i>{{ ar ? 'بدء الوحي، ٦١٠م' : 'The revelation, 610 CE' }}</span></div>
+      </div>
+    </div>
+
+    <!-- map: the sites, and the distances between them -->
+    <div v-else-if="spec.type==='map'" class="cvm">
+      <svg :viewBox="'0 0 '+w+' '+MH" role="group" :aria-label="T(spec.title)">
+        <defs><clipPath :id="'cvm'+uid"><rect x="0" y="0" :width="w" :height="MH" rx="14"/></clipPath></defs>
+        <g :clip-path="'url(#cvm'+uid+')'">
+          <rect class="cvm-land" x="0" y="0" :width="w" :height="MH"/>
+          <g class="cvm-grid"><line v-for="g in mGrid" :key="g.k" :x1="g.x1" :y1="g.y1" :x2="g.x2" :y2="g.y2"/>
+            <text v-for="g in mGrid" :key="'t'+g.k" :x="g.tx" :y="g.ty">{{ g.t }}</text></g>
+          <path v-for="(d,i) in mSeas" :key="'s'+i" class="cvm-sea" :d="d"/>
+          <path v-for="(d,i) in mRivers" :key="'r'+i" class="cvm-riv" :d="d"/>
+          <g v-for="(l,i) in mLinks" :key="'l'+i" class="cvm-link"><line :x1="l.x1" :y1="l.y1" :x2="l.x2" :y2="l.y2"/>
+            <text :x="l.tx" :y="l.ty" :text-anchor="l.anchor">{{ l.txt }}</text></g>
+          <g v-for="(s,i) in mSites" :key="'p'+i" class="cvm-site" :class="['k-'+s.k,{on:act===i}]" tabindex="0" role="button" :aria-label="T(s.lab)"
+            @mouseenter="act=i" @focus="act=i" @click="act=i">
+            <circle class="halo" :cx="s.x" :cy="s.y" r="14"/><circle :cx="s.x" :cy="s.y" r="5.5"/>
+            <text :x="s.x+(s.x>w-120 ? -10 : 10)" :y="s.below ? s.y+20 : s.y-9" :text-anchor="s.x>w-120 ? 'end' : 'start'">{{ T(s.lab) }}</text>
+          </g>
+        </g>
+      </svg>
+      <p class="cv-say" aria-live="polite"><b>{{ T(spec.sites[act].lab) }}.</b> {{ T(spec.sites[act].say) }}</p>
+    </div>
+
+    <!-- weigh: place the points on the scale -->
+    <div v-else-if="spec.type==='weigh'" class="cvw">
+      <svg :viewBox="'0 0 '+w+' 190'" aria-hidden="true">
+        <path class="cvw-post" :d="'M'+(w/2)+' 40 V172 M'+(w/2-46)+' 176 H'+(w/2+46)"/>
+        <g class="cvw-beam" :style="{transform:'rotate('+wTilt+'deg)', transformOrigin:(w/2)+'px 40px'}">
+          <line :x1="w/2-WB" y1="40" :x2="w/2+WB" y2="40"/>
+          <g v-for="side in ['for','against']" :key="side" class="cvw-hang" :style="{transform:'rotate('+(-wTilt)+'deg)', transformOrigin:(w/2+wSign(side)*WB)+'px 40px'}">
+            <path class="cvw-str" :d="'M'+(w/2+wSign(side)*WB)+' 40 L'+(w/2+wSign(side)*WB-44)+' 104 M'+(w/2+wSign(side)*WB)+' 40 L'+(w/2+wSign(side)*WB+44)+' 104'"/>
+            <path class="cvw-pan" :class="'s-'+side" :d="'M'+(w/2+wSign(side)*WB-52)+' 104 Q'+(w/2+wSign(side)*WB)+' 128 '+(w/2+wSign(side)*WB+52)+' 104 Z'"/>
+            <rect v-for="(b,j) in wStack(side)" :key="j" class="cvw-wt" :class="'s-'+side" :x="w/2+wSign(side)*WB-14+((j%3)-1)*26" :y="98-Math.floor(j/3)*13-b*4" width="24" :height="b*4+6" rx="3"/>
+          </g>
+        </g>
+        <circle class="cvw-pin" :cx="w/2" cy="40" r="5"/>
+      </svg>
+      <div class="cvw-cols">
+        <div v-for="side in ['for','against']" :key="side" class="cvw-col" :class="'s-'+side">
+          <h4>{{ T(side==='for' ? spec.forLab : spec.againstLab) }} <span class="n">{{ D(wSum(side)) }}</span></h4>
+          <button v-for="it in spec.items.filter(x=>x.side===side)" :key="it.t[0]" type="button" class="cvw-it" :class="{on:placed.includes(it.t[0])}" :aria-pressed="String(placed.includes(it.t[0]))" @click="wToggle(it)">
+            <span class="wt" aria-hidden="true"><i v-for="k in it.w" :key="k"></i></span>{{ T(it.t) }}</button>
+        </div>
+      </div>
+      <p class="cv-say" aria-live="polite">
+        <button type="button" class="dchip" @click="wAll">{{ placed.length===spec.items.length ? (ar ? 'أفرغ الميزان' : 'Clear the scale') : (ar ? 'ضعها كلها' : 'Place them all') }}</button>
+        <span>{{ wSay }}</span></p>
+    </div>
+
+    <!-- bars: quantities on one scale, with readings to switch -->
+    <div v-else-if="spec.type==='bars'" class="cvb">
+      <div class="chips dchips"><button v-for="(m,i) in spec.modes" :key="m.id" type="button" class="dchip" :aria-pressed="String(mode===i)" @click="mode=i">{{ T(m.lab) }}</button></div>
+      <div v-for="(r,i) in spec.modes[mode].rows" :key="spec.modes[mode].id+i" class="cvb-row" :class="'t-'+r.tone">
+        <span class="lab">{{ T(r.lab) }}</span>
+        <span class="bar"><i :style="{width:Math.max(.6, 100*r.v/bMax)+'%'}"></i><b>{{ r.txt ? T(r.txt) : f(r.v) }}</b></span>
+      </div>
+      <p class="cv-say" aria-live="polite">{{ T(spec.modes[mode].say) }}</p>
+    </div>
+
+    <!-- convert: years by the sun, counted in moons -->
+    <div v-else-if="spec.type==='convert'" class="cvc">
+      <div class="cvc-big"><span class="sun"><b>{{ D(sol) }}</b>{{ ar ? 'سنةً شمسية' : 'solar years' }}</span><span class="eq">=</span><span class="moon"><b>{{ D(lun.toFixed(1)) }}</b>{{ ar ? 'سنةً قمرية' : 'lunar years' }}</span></div>
+      <input type="range" min="1" max="400" step="1" v-model.number="sol" :aria-label="ar ? 'السنون الشمسية' : 'Solar years'" :dir="ar ? 'rtl' : 'ltr'">
+      <svg :viewBox="'0 0 '+w+' 92'" aria-hidden="true">
+        <rect class="cvc-s" :x="ar ? w-CX(sol) : 0" y="10" :width="CX(sol)" height="18" rx="9"/>
+        <rect class="cvc-l" :x="ar ? w-CX(lun) : 0" y="40" :width="CX(lun)" height="18" rx="9"/>
+        <rect v-if="lun>sol" class="cvc-x" :x="ar ? w-CX(lun) : CX(sol)" y="40" :width="CX(lun)-CX(sol)" height="18" rx="4"/>
+        <g v-for="m in spec.marks" :key="m.y"><line class="ax" :x1="CP(m.y)" :x2="CP(m.y)" y1="4" y2="66"/><text :x="CP(m.y)" y="82" text-anchor="middle">{{ T(m.lab) }}</text></g>
+        <line class="cvc-v" :x1="CP(300)" :x2="CP(300)" y1="2" y2="66"/>
+      </svg>
+      <p class="cv-say" aria-live="polite">{{ cSay }}</p>
+    </div>
+
+    <p v-if="spec.foot" class="cv-foot">{{ T(spec.foot) }}</p>
+  </figure>`,
+  created(){ this.uid=Math.random().toString(36).slice(2,8); this.reset(); },
+  beforeUnmount(){ cancelAnimationFrame(this._raf); },
+  watch:{ spec(){ this.reset(); } },
+  computed:{
+    ar(){ return this.$root.lang==='ar'; },
+    cur(){ return (this.spec.pairs||[])[this.act] || {}; },
+    // era
+    EX(){ const r=this.spec.range||[0,1], w=this.w, ar=this.ar; return v=>{ const x=18+(Math.min(r[1],Math.max(r[0],v))-r[0])/(r[1]-r[0])*(w-36); return ar ? w-x : x; }; },   // Arabic reads time right to left
+    zi(){ return (this.spec.zones||[]).findIndex(z=>this.y>=z.a && this.y<z.b); },
+    eZone(){ return this.zi>=0 ? this.spec.zones[this.zi] : null; },
+    eSay(){ const s=this.spec; if(!s.win) return this.eZone ? this.T(this.eZone.say) : '';
+      const a=this.y+s.win.from, b=this.y+s.win.to, hit=s.events.filter(e=>e.y>=a && e.y<=b), ar=this.ar;
+      const win=(ar ? 'النافذة من ' : 'The window runs from ')+this.yrs(a)+(ar ? ' إلى ' : ' to ')+this.yrs(b)+'. ';
+      return win + (hit.length ? (ar ? 'يقع فيها: ' : 'Inside it: ')+hit.map(e=>this.T(e.lab)+' ('+this.yrs(e.y)+')').join(ar ? '، ' : ', ')+'.'
+        : (ar ? 'لا يقع فيها أيٌّ من هذه الأحداث.' : 'None of these events falls inside it.')); },
+    // spiral
+    SW(){ return Math.min(this.w, 440); },
+    s0(){ return Math.min(...this.spec.phases.map(p=>p.a)); }, s1(){ return Math.max(...this.spec.phases.map(p=>p.b)); },
+    sTurns(){ return (this.s1-this.s0)/(this.spec.per||500); },
+    sPhIdx(){ return this.spec.phases.findIndex(p=>this.y>=p.a && this.y<=p.b); },
+    sPh(){ return this.sPhIdx; }, sPhase(){ return this.spec.phases[this.sPhIdx] || null; },
+    sPaths(){ return this.spec.phases.map((p,i)=>{ const n=Math.max(8, Math.ceil((p.b-p.a)/(this.s1-this.s0)*700)); let d='';
+      for(let k=0;k<=n;k++){ const q=this.sPt(p.a+(p.b-p.a)*k/n); d+=(k?'L':'M')+q.x.toFixed(1)+' '+q.y.toFixed(1); } return {d, tone:p.tone, i}; }); },
+    sEvents(){ return (this.spec.events||[]).map(e=>Object.assign({yr:e.y}, this.sPt(e.y), {lab:e.lab})); },
+    sNear(){ let best=-1, bd=(this.s1-this.s0)/60; (this.spec.events||[]).forEach((e,i)=>{ const d=Math.abs(e.y-this.y); if(d<=bd){ bd=d; best=i; } }); return best; },
+    // map
+    MH(){ const b=this.spec.box||[0,0,1,1], k=Math.cos((b[1]+b[3])/2*Math.PI/180), r=(b[3]-b[1])/((b[2]-b[0])*k); return Math.round(Math.min(520, Math.max(260, this.w*r))); },
+    MP(){ const b=this.spec.box, k=Math.cos((b[1]+b[3])/2*Math.PI/180), sx=this.w/((b[2]-b[0])*k), sy=this.MH/(b[3]-b[1]), s=Math.min(sx,sy);
+      const ox=(this.w-(b[2]-b[0])*k*s)/2, oy=(this.MH-(b[3]-b[1])*s)/2;
+      return (lon,lat)=>({x:ox+(lon-b[0])*k*s, y:oy+(b[3]-lat)*s}); },
+    mSeas(){ return HV_SEAS.concat(HV_LAKES).map(r=>r.map((p,i)=>{ const q=this.MP(p[0],p[1]); return (i?'L':'M')+q.x.toFixed(1)+' '+q.y.toFixed(1); }).join('')+'Z'); },
+    mRivers(){ return HV_RIVERS.map(r=>r.map((p,i)=>{ const q=this.MP(p[0],p[1]); return (i?'L':'M')+q.x.toFixed(1)+' '+q.y.toFixed(1); }).join('')); },
+    // a label that would sit on a neighbour's goes below its dot instead
+    mSites(){ const out=[]; this.spec.sites.forEach(s=>{ const q=Object.assign({}, s, this.MP(s.lon, s.lat));
+        q.below=out.some(o=>!o.below && Math.abs(o.x-q.x)<130 && Math.abs(o.y-q.y)<26); out.push(q); }); return out; },
+    mGrid(){ const b=this.spec.box, st=(b[2]-b[0])>9 ? 4 : 2, out=[], ar=this.ar;
+      for(let lo=Math.ceil(b[0]/st)*st; lo<=b[2]; lo+=st){ const a=this.MP(lo,b[1]), c=this.MP(lo,b[3]); out.push({k:'o'+lo, x1:a.x, y1:0, x2:c.x, y2:this.MH, tx:a.x+4, ty:this.MH-6, t:this.D(lo)+(ar ? '° شرقًا' : '°E')}); }
+      for(let la=Math.ceil(b[1]/st)*st; la<=b[3]; la+=st){ const a=this.MP(b[0],la); out.push({k:'a'+la, x1:0, y1:a.y, x2:this.w, y2:a.y, tx:4, ty:a.y-4, t:this.D(la)+(ar ? '° شمالًا' : '°N')}); }
+      return out; },
+    mLinks(){ return (this.spec.links||[]).map(l=>{ const a=this.mSites[l.a], b=this.mSites[l.b], km=this.km(a,b);
+      const dx=b.x-a.x, dy=b.y-a.y, L=Math.hypot(dx,dy)||1, off=L<90 ? 26 : 8, nx=-dy/L*off, ny=dx/L*off;   // short lines put their label off to the side
+      const short=L<90;
+      return {x1:a.x, y1:a.y, x2:b.x, y2:b.y, tx:short ? Math.min(a.x,b.x)-12 : (a.x+b.x)/2+nx, ty:short ? (a.y+b.y)/2+4 : (a.y+b.y)/2+ny, anchor:short ? 'end' : 'middle',
+        txt:(l.lab ? this.T(l.lab)+' · ' : '')+(this.ar ? 'نحو '+this.f(km)+' كم' : 'about '+this.f(km)+' km')}; }); },
+    // weigh
+    WB(){ return Math.min(170, this.w*.3); },
+    wTilt(){ const d=this.wSum('against')-this.wSum('for'); return Math.max(-16, Math.min(16, d*2.4))*(this.ar ? -1 : 1); },
+    wSay(){ const ar=this.ar, n=this.placed.length, N=this.spec.items.length, a=this.wSum('against'), f=this.wSum('for');
+      if(!n) return ar ? 'الميزان فارغ.' : 'The scale is empty.';
+      const lean = a>f ? (ar ? 'يميل الميزان ضد المزعم' : 'The scale tips against the claim') : (f>a ? (ar ? 'يميل الميزان لصالح المزعم' : 'The scale tips toward the claim') : (ar ? 'الكفتان متعادلتان' : 'The pans are level'));
+      return lean+(ar ? ' (مع: '+this.D(f)+'، ضد: '+this.D(a)+').' : ' (for '+f+', against '+a+').')+(n===N && this.verdict ? (ar ? ' وحكمنا: ' : ' Our verdict: ')+this.$root.hVerdict(this.verdict)+'.' : ''); },
+    // bars
+    bMax(){ return Math.max(...this.spec.modes.flatMap(m=>m.rows.map(r=>r.v))); },
+    // convert
+    lun(){ return this.sol*this.spec.solarLen/this.spec.lunarLen; },
+    CX(){ const w=this.w; return v=>v/430*w; }, CP(){ const w=this.w, ar=this.ar; return v=>ar ? w-v/430*w : v/430*w; },
+    cSay(){ const ar=this.ar, d=this.lun-this.sol;
+      if(this.sol===300) return ar ? 'هذه مدة الآية: ثلاث مئة سنةٍ شمسية تساوي '+this.D(this.lun.toFixed(1))+' سنةً قمرية، أي ثلاث مئة وتسعًا.' : 'This is the verse\'s span: 300 years by the sun come to '+this.lun.toFixed(1)+' years by the moon, three hundred and nine.';
+      return ar ? 'يزيد العدّ القمري '+this.D(d.toFixed(1))+' سنةً لأن السنة القمرية أقصر بنحو أحد عشر يومًا.' : 'The lunar count runs '+d.toFixed(1)+' years longer, because a lunar year is about eleven days shorter.'; } },
+  methods:{
+    T(p){ if(!p) return ''; const s=Array.isArray(p) ? (this.ar ? p[1] : p[0]) : p; return this.ar ? this.$root.D(s) : s; },
+    D(x){ return this.$root.D(x); }, f(n){ return this.$root.f(n); },
+    yrs(y){ return this.$root.yrPlain(Math.round(y)); },
+    reset(){ const s=this.spec||{}; this.act=0; this.mode=0; this.placed=[]; this.playing=false; cancelAnimationFrame(this._raf);
+      this.y = s.type==='era' ? s.marker.y : (s.type==='spiral' ? Math.max(Math.min(610, Math.max(...s.phases.map(p=>p.b))), Math.min(...s.phases.map(p=>p.a))) : 0);
+      if(s.type==='convert') this.sol=s.solar||300; },
+    relSign(r){ return r==='same' ? '=' : (r==='flip' ? '⇄' : '≠'); },
+    relName(r){ const ar=this.ar; return r==='same' ? (ar ? 'تطابق' : 'A match') : (r==='flip' ? (ar ? 'قلبٌ للمعنى' : 'A reversal') : (ar ? 'اختلاف' : 'A difference')); },
+    anch(x){ return x<70 ? 'start' : (x>this.w-70 ? 'end' : 'middle'); },
+    inWin(y){ const s=this.spec; return !!s.win && y>=this.y+s.win.from && y<=this.y+s.win.to; },
+    // era: the pointer and the keys move the marker
+    eYear(e){ const r=this.$el.querySelector('.cve svg').getBoundingClientRect(), rg=this.spec.range, m=this.spec.marker;
+      let px=(e.clientX-r.left)/r.width*this.w; if(this.ar) px=this.w-px;
+      const v=rg[0]+(px-18)/(this.w-36)*(rg[1]-rg[0]); return Math.round(Math.max(m.min, Math.min(m.max, v))); },
+    eDown(e){ this.drag=true; try{ e.currentTarget.setPointerCapture(e.pointerId); }catch(x){} this.y=this.eYear(e); },
+    eMove(e){ if(this.drag) this.y=this.eYear(e); },
+    eUp(){ this.drag=false; },
+    eKey(e){ const m=this.spec.marker, st=Math.max(1, Math.round((m.max-m.min)/100)) * (e.shiftKey ? 10 : 1);
+      if(e.key==='ArrowRight' || e.key==='ArrowUp'){ this.y=Math.min(m.max, this.y+st); e.preventDefault(); }
+      else if(e.key==='ArrowLeft' || e.key==='ArrowDown'){ this.y=Math.max(m.min, this.y-st); e.preventDefault(); } },
+    // spiral: an Archimedean spiral, the oldest year at the centre
+    sPt(yr){ const S=this.SW, R=S/2-14, r0=S*.12, t=(Math.min(this.s1,Math.max(this.s0,yr))-this.s0)/(this.s1-this.s0), th=t*this.sTurns*2*Math.PI;
+      const r=r0+(R-r0)*t; return {x:S/2+r*Math.sin(th), y:S/2-r*Math.cos(th)}; },
+    sYear(e){ const svg=this.$el.querySelector('.cvs-svg'), r=svg.getBoundingClientRect(), px=(e.clientX-r.left)/r.width*this.SW, py=(e.clientY-r.top)/r.height*this.SW;
+      let best=this.y, bd=1e9; const n=900; for(let k=0;k<=n;k++){ const yr=this.s0+(this.s1-this.s0)*k/n, q=this.sPt(yr), d=(q.x-px)**2+(q.y-py)**2; if(d<bd){ bd=d; best=yr; } }
+      return Math.round(best); },
+    sDown(e){ this.sStop(); this.drag=true; try{ e.currentTarget.setPointerCapture(e.pointerId); }catch(x){} this.y=this.sYear(e); },
+    sMove(e){ if(this.drag) this.y=this.sYear(e); },
+    sKey(e){ const st=Math.max(1, Math.round((this.s1-this.s0)/200))*(e.shiftKey ? 10 : 1);
+      if(e.key==='ArrowRight' || e.key==='ArrowUp'){ this.sStop(); this.y=Math.min(this.s1, this.y+st); e.preventDefault(); }
+      else if(e.key==='ArrowLeft' || e.key==='ArrowDown'){ this.sStop(); this.y=Math.max(this.s0, this.y-st); e.preventDefault(); } },
+    sStop(){ this.playing=false; cancelAnimationFrame(this._raf); },
+    sPlay(){ if(this.playing){ this.sStop(); return; } this.playing=true; if(this.y>=this.s1) this.y=this.s0;
+      const span=this.s1-this.s0, from=this.y, t0=performance.now(), dur=9000*(this.s1-from)/span;
+      const tick=t=>{ if(!this.playing) return; const k=Math.min(1,(t-t0)/Math.max(400,dur)); this.y=Math.round(from+(this.s1-from)*k);
+        if(k<1) this._raf=requestAnimationFrame(tick); else this.playing=false; };
+      this._raf=requestAnimationFrame(tick); },
+    // map: great-circle distance, rounded to a sensible step
+    km(a,b){ const R=6371, rad=Math.PI/180, dl=(b.lat-a.lat)*rad, dn=(b.lon-a.lon)*rad;
+      const h=Math.sin(dl/2)**2+Math.cos(a.lat*rad)*Math.cos(b.lat*rad)*Math.sin(dn/2)**2, d=2*R*Math.asin(Math.sqrt(h));
+      return d<100 ? Math.round(d/5)*5 : Math.round(d/10)*10; },
+    // weigh
+    wSign(side){ return (side==='for' ? -1 : 1)*(this.ar ? -1 : 1); },
+    wSum(side){ return this.spec.items.filter(x=>x.side===side && this.placed.includes(x.t[0])).reduce((t,x)=>t+x.w,0); },
+    wStack(side){ return this.spec.items.filter(x=>x.side===side && this.placed.includes(x.t[0])).map(x=>x.w); },
+    wToggle(it){ const k=it.t[0], i=this.placed.indexOf(k); if(i<0) this.placed.push(k); else this.placed.splice(i,1); },
+    wAll(){ this.placed = this.placed.length===this.spec.items.length ? [] : this.spec.items.map(x=>x.t[0]); } } };
 const Dumbbell = { mixins:[FitW], props:['rows','max'],
   template:`<svg :viewBox="'0 0 '+w+' '+H" role="img" :aria-label="aria">
     <g v-for="(r,i) in rows" :key="r.key">
@@ -3495,7 +3857,7 @@ createApp({
       lang:(new URLSearchParams(location.search).get('lang')==='ar'?'ar':'en'), view:'home', sideOpen:false,
       T: D.stats.totals, DS: D.datasets, MM: D.datasets.meccaMedina||{mecca:{},medina:{}}, claims: D.claims,
       V: window.QURAN_VERSES||{}, W: window.QURAN_WORDS||{key:[],norm:[],lemma:[],root:[],surface:[]},
-      ready:{ verses:!!window.QURAN_VERSES, words:!!window.QURAN_WORDS, plotly:typeof Plotly!=='undefined', disc:false },
+      ready:{ verses:!!window.QURAN_VERSES, words:!!window.QURAN_WORDS, plotly:typeof Plotly!=='undefined', disc:false, hviz:false },
       q:'', mode:'surface', sres:{total:0,surahs:0,verses:0,sample:[]},
       rSurah:1, rVerse:0, rClaim:'', rBack:'', scrollPct:0, railDragging:false, EN:{}, showTrans:(new URLSearchParams(location.search).get('lang')!=='ar'), libQ:'', libCat:'all', stories:[], lessons:[], duas:[], tafsir:[], untranslatable:[], untranslatableIntro:{}, history:[], historyIntro:{}, hSel:'', hYear:610, hPlaying:false, hFilter:'all', hCopied:false,
       V1:{}, abjadInput:'الله',
@@ -3835,6 +4197,18 @@ createApp({
       'emotion','pronouns','science','abjad','n19','structural','symmetry','nlp','kg','advanced','tawafuq','alifi','hifz','classifier','stats','cluster','coincidence','dashboard']; },
     curHub(){ return this.nav.find(h=>h.items.some(i=>i.id===this.view)) || null; },
     // where the reader is: a change of page, claim or surah is a step the browser's back arrow can undo
+    // the open claim's figure: its own spec, or a time spiral from its written / lost / recovered years
+    hViz(){ const h=this.hCur; if(!h || !this.ready.hviz) return null;
+      const own=typeof QURAN_HISTORY_VIZ!=='undefined' ? QURAN_HISTORY_VIZ[h.id] : null; if(own) return own;
+      const ys=[h.written, h.lost, h.recovered].filter(y=>y!=null); if(ys.length<2) return null;
+      const end=2026, ph=[];
+      if(h.written!=null) ph.push({a:h.written, b:h.lost!=null ? h.lost : (h.recovered!=null ? h.recovered : end), tone:'gold', lab:['Readable','مقروء'], say:['People could still read the record.','كان في الناس من يقرأ الأثر.']});
+      if(h.lost!=null) ph.push({a:h.lost, b:h.recovered!=null ? h.recovered : end, tone:'dim', lab:['Nobody can read it','لا أحد يقرؤه'], say:['The knowledge needed to read it has been lost.','ضاع العلم اللازم لقراءته.']});
+      if(h.recovered!=null) ph.push({a:h.recovered, b:end, tone:'teal', lab:['Found again','وُجد من جديد'], say:['The record can be read again.','صار الأثر مقروءًا من جديد.']});
+      const span=end-Math.min(...ys), per=span<=600 ? 100 : (span<=2000 ? 250 : 500);
+      const ev=[['written','written_en','written_ar'],['lost','lost_en','lost_ar'],['recovered','recovered_en','recovered_ar']].filter(k=>h[k[0]]!=null).map(k=>({y:h[k[0]], lab:[h[k[1]]||'', h[k[2]]||'']}));
+      return {type:'spiral', per, phases:ph, events:ev, title:['Could anyone have read it?','هل كان في وسع أحدٍ أن يقرأه؟'],
+        sub:['Drag along the spiral, or press play.','اسحب على اللولب أو شغّل العرض.']}; },
     navKey(){ const r=this.view==='reader'; return [this.view, this.view==='history' ? this.hSel : '', r ? this.rSurah : '', r ? this.rVerse : ''].join('|'); },
     plain(){ const v=this.view, P=PLAIN[v]; if(!P) return null;
       const ar=this.lang==='ar', i=ar?1:0, t=!FINE, pick=k=>P[k] ? P[k][i] : '';
@@ -4946,7 +5320,7 @@ createApp({
     this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); this.enterView(true); });
   }
 }).component('depth-switch', DepthSwitch).component('term-chips', TermChips).component('explain-box', ExplainBox)
-  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell)
+  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell).component('claim-viz', ClaimViz)
   .component('letter-strip', LetterStrip).component('growth-curve', GrowthCurve).mount('#app');
 });
 </script>
