@@ -1264,6 +1264,21 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .cviz .cv-say{margin:12px 0 0;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.04);font-size:.9rem;line-height:1.6;color:var(--on-dark);min-height:3.2em}
   .cviz .cv-say b{color:#fff}
   .cviz .cv-foot{margin:10px 0 0;font-size:.78rem;line-height:1.55;color:var(--on-dark-3)}
+  /* moon */
+  .cvm-sky{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--hair)}
+  .cvm-half{transform-box:view-box;transform-origin:300px 110px;transition:transform .9s cubic-bezier(.3,1.2,.4,1)}
+  .cvm-mtn{fill:#0a120e} .cvm-mtn.far{fill:#13201a}
+  .cvm-lab{font-size:11px;font-weight:700;letter-spacing:.12em;fill:rgba(233,185,95,.85);text-transform:uppercase} .cvm-lab.sm{font-size:9px;letter-spacing:.08em;fill:rgba(255,255,255,.45)}
+  .cvm-star{animation:cvmtw 3.6s ease-in-out infinite alternate} @keyframes cvmtw{from{opacity:.25}to{opacity:.95}}
+  .cvm-ctl{display:flex;align-items:center;gap:10px;margin:12px 0 10px}
+  .cvm-ctl input{flex:1;accent-color:var(--gold)}
+  .cvm-play{flex:none;width:40px;height:40px;border-radius:50%;border:1px solid var(--gold);background:rgba(233,185,95,.14);color:var(--gold);font:inherit;cursor:pointer}
+  .cvm-wit{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:6px}
+  .cvm-wit button{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:start;font:inherit;color:var(--on-dark);background:rgba(255,255,255,.03);border:1px solid var(--hair);border-radius:12px;padding:8px 12px;cursor:pointer}
+  .cvm-wit button b{font-size:.84rem} .cvm-wit button small{font-size:.7rem;color:var(--on-dark-3)}
+  .cvm-wit button.on{border-color:var(--gold);background:rgba(233,185,95,.12)} .cvm-wit button:hover{background:rgba(255,255,255,.06)}
+  .cvm-say .ar{margin:0 0 6px;font-family:var(--ar-display);font-size:1.3rem;line-height:1.9;color:#fff} .cvm-say .en{margin:0 0 6px} .cvm-say .src{font-size:.74rem;color:var(--gold);font-weight:700}
+  @media (prefers-reduced-motion: reduce){ .cvm-half{transition:none} .cvm-star{animation:none} }
   /* duel */
   .cvd-head{display:grid;grid-template-columns:1fr 34px 1fr;gap:10px;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--on-dark-3);padding:0 12px 6px}
   .cvd-row{display:grid;grid-template-columns:1fr 34px 1fr;gap:10px;align-items:center;width:100%;font:inherit;text-align:start;color:var(--on-dark);background:rgba(255,255,255,.025);border:1px solid var(--hair);border-radius:14px;padding:12px;margin:0 0 8px;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
@@ -3880,7 +3895,7 @@ const HV_RIVERS = [
   [[42.2,37.3],[43.1,36.3],[44.4,33.3],[46.4,32],[47.4,31],[48,30]] ];
 const HV_NOW = 2026;
 const ClaimViz = { mixins:[FitW], props:['spec','verdict'],
-  data(){ return { act:0, y:0, mode:0, placed:[], drag:false, playing:false, sol:300 }; },
+  data(){ return { act:0, y:0, mode:0, placed:[], drag:false, playing:false, sol:300, split:100 }; },
   template:`<figure class="dfig cviz" :class="'cv-'+spec.type">
     <h3>{{ T(spec.title) }}</h3>
     <p class="fsub">{{ T(spec.sub) }}</p>
@@ -4011,6 +4026,47 @@ const ClaimViz = { mixins:[FitW], props:['spec','verdict'],
       <p class="cv-say" aria-live="polite">{{ cSay }}</p>
     </div>
 
+    <!-- moon: the reports of the splitting, drawn over Mecca's mountains -->
+    <div v-else-if="spec.type==='moon'" class="cvmoon">
+      <svg viewBox="0 0 600 300" class="cvm-sky" role="img" :aria-label="ar ? 'القمر منشقًّا فوق الجبال كما يصفه '+T(rep.who) : 'The moon split over the mountains, as '+T(rep.who)+' describes it'">
+        <defs>
+          <radialGradient :id="uid+'mg'" cx="40%" cy="36%" r="68%"><stop offset="0" stop-color="#fffdf2"/><stop offset=".55" stop-color="#efe2b8"/><stop offset="1" stop-color="#bba673"/></radialGradient>
+          <radialGradient :id="uid+'ha'"><stop offset="0" stop-color="#f6e6b0" stop-opacity=".45"/><stop offset="1" stop-color="#f6e6b0" stop-opacity="0"/></radialGradient>
+          <linearGradient :id="uid+'sk'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#03070f"/><stop offset=".7" stop-color="#0d1823"/><stop offset="1" stop-color="#1b2632"/></linearGradient>
+          <clipPath :id="uid+'cl'"><path :d="moonHalf('l')"/></clipPath>
+          <clipPath :id="uid+'cr'"><path :d="moonHalf('r')"/></clipPath>
+        </defs>
+        <rect width="600" height="300" :fill="'url(#'+uid+'sk)'"/>
+        <circle v-for="(st,i) in moonStars" :key="i" :cx="st[0]" :cy="st[1]" :r="st[2]" fill="#e9eef7" :opacity="st[3]" class="cvm-star" :style="{animationDelay: (i%9)*.4+'s'}"/>
+        <circle cx="300" cy="110" r="130" :fill="'url(#'+uid+'ha)'" :opacity="1-mE*.8"/>
+        <g v-for="h in ['l','r']" :key="h" class="cvm-half" :style="moonStyle(h)">
+          <g :clip-path="'url(#'+uid+'c'+h+')'">
+            <circle cx="300" cy="110" r="46" :fill="'url(#'+uid+'mg)'"/>
+            <circle v-for="(c,i) in moonCraters" :key="i" :cx="c[0]" :cy="c[1]" :r="c[2]" fill="#a8946a" :opacity="c[3]"/>
+          </g>
+          <path :d="moonCrack" fill="none" stroke="#fff6d8" stroke-width="2" :opacity="mE>0.02 ? .35+Math.sin(Math.PI*Math.min(1,mE*1.6))*.55 : 0" class="cvm-crack"/>
+        </g>
+        <path class="cvm-mtn far" d="M0,300 L0,236 Q50,226 96,214 L150,192 L196,226 Q232,232 262,224 L600,224 L600,300 Z"/>
+        <path class="cvm-mtn far" d="M300,300 L338,226 Q380,232 412,214 L452,188 L494,222 Q540,230 600,226 L600,300 Z"/>
+        <path class="cvm-mtn" d="M0,300 L0,262 Q70,250 140,256 Q200,250 238,226 L270,190 L300,150 L318,172 L334,166 L360,204 Q390,236 440,246 Q520,256 600,250 L600,300 Z"/>
+        <text x="300" y="142" text-anchor="middle" class="cvm-lab">{{ T(spec.mountain) }}</text>
+        <text x="20" y="288" class="cvm-lab sm">{{ ar ? 'منى، شرق مكة' : 'Mina, east of Mecca' }}</text>
+      </svg>
+      <div class="cvm-ctl">
+        <button type="button" class="cvm-play" @click="moonPlay()" :aria-label="ar ? 'شغّل الانشقاق' : 'Play the splitting'">{{ playing ? '❚❚' : '▶' }}</button>
+        <input type="range" min="0" max="100" step="1" v-model.number="split" @input="cancelMoon" :aria-label="ar ? 'مقدار الانشقاق' : 'How far the moon has split'" :dir="ar ? 'rtl' : 'ltr'">
+      </div>
+      <div class="cvm-wit" role="group" :aria-label="ar ? 'الرواة' : 'The reports'">
+        <button v-for="(r,i) in spec.reports" :key="i" type="button" :class="{on:act===i}" :aria-pressed="String(act===i)" @click="moonPick(i)">
+          <b>{{ T(r.who) }}</b><small>{{ T(r.tag) }}</small></button>
+      </div>
+      <div class="cv-say cvm-say" aria-live="polite">
+        <p class="ar" lang="ar" dir="rtl">«{{ rep.ar }}»</p>
+        <p v-if="!ar" class="en">“{{ rep.en }}”</p>
+        <span class="src">{{ T(rep.who) }} · {{ T(rep.src) }}</span>
+      </div>
+    </div>
+
     <p v-if="spec.foot" class="cv-foot">{{ T(spec.foot) }}</p>
   </figure>`,
   created(){ this.uid=Math.random().toString(36).slice(2,8); this.reset(); },
@@ -4019,6 +4075,12 @@ const ClaimViz = { mixins:[FitW], props:['spec','verdict'],
   computed:{
     ar(){ return this.$root.lang==='ar'; },
     cur(){ return (this.spec.pairs||[])[this.act] || {}; },
+    // moon
+    rep(){ return (this.spec.reports||[])[this.act] || {}; },
+    mE(){ const t=Math.max(0,Math.min(1,this.split/100)); return t<.5 ? 2*t*t : 1-Math.pow(-2*t+2,2)/2; },
+    moonStars(){ let a=7; const r=()=>((a=(a*9301+49297)%233280)/233280); return Array.from({length:80},()=>[r()*600, r()*215, .4+r()*1.1, .25+r()*.6]); },
+    moonCraters(){ return [[284,96,9,.32],[318,124,7,.28],[296,132,5,.3],[322,92,6,.22],[276,120,4,.3],[308,104,3.5,.25],[332,110,4,.2]]; },
+    moonCrack(){ return 'M300,60 L303,77 L298,93 L302,110 L297,127 L302,144 L300,160'; },
     // era
     EX(){ const r=this.spec.range||[0,1], w=this.w, ar=this.ar; return v=>{ const x=18+(Math.min(r[1],Math.max(r[0],v))-r[0])/(r[1]-r[0])*(w-36); return ar ? w-x : x; }; },   // Arabic reads time right to left
     zi(){ return (this.spec.zones||[]).findIndex(z=>this.y>=z.a && this.y<z.b); },
@@ -4078,7 +4140,18 @@ const ClaimViz = { mixins:[FitW], props:['spec','verdict'],
     yrs(y){ return this.$root.yrPlain(Math.round(y)); },
     reset(){ const s=this.spec||{}; this.act=0; this.mode=0; this.placed=[]; this.playing=false; cancelAnimationFrame(this._raf);
       this.y = s.type==='era' ? s.marker.y : (s.type==='spiral' ? Math.max(Math.min(610, Math.max(...s.phases.map(p=>p.b))), Math.min(...s.phases.map(p=>p.a))) : 0);
-      if(s.type==='convert') this.sol=s.solar||300; },
+      if(s.type==='convert') this.sol=s.solar||300;
+      if(s.type==='moon') this.split=100; },
+    moonHalf(h){ const c='L303,77 L298,93 L302,110 L297,127 L302,144 L300,160'; return h==='l' ? 'M180,40 L300,60 '+c+' L180,180 Z' : 'M420,40 L300,60 '+c+' L420,180 Z'; },
+    moonStyle(h){ const p=(this.rep.pose||{})[h]||[0,0], e=this.mE, k=h==='l' ? -1 : 1;
+      return {transform:'translate('+(p[0]*e).toFixed(1)+'px,'+(p[1]*e).toFixed(1)+'px) rotate('+(k*9*e).toFixed(1)+'deg)'}; },
+    moonPlay(from){ cancelAnimationFrame(this._raf); if(this.playing){ this.playing=false; return; }
+      if(matchMedia('(prefers-reduced-motion: reduce)').matches){ this.split=100; return; }
+      const a = from!=null ? from : (this.split>=100 ? 0 : this.split), t0=performance.now(), d=2400*(1-a/100)+200; this.split=a; this.playing=true;
+      const step=n=>{ const p=Math.min(1,(n-t0)/d); this.split=a+(100-a)*p; if(p<1) this._raf=requestAnimationFrame(step); else this.playing=false; };
+      this._raf=requestAnimationFrame(step); },
+    cancelMoon(){ cancelAnimationFrame(this._raf); this.playing=false; },
+    moonPick(i){ this.act=i; if(this.split<100) this.moonPlay(this.split); },
     relSign(r){ return r==='same' ? '=' : (r==='flip' ? '⇄' : '≠'); },
     relName(r){ const ar=this.ar; return r==='same' ? (ar ? 'تطابق' : 'A match') : (r==='flip' ? (ar ? 'قلبٌ للمعنى' : 'A reversal') : (ar ? 'اختلاف' : 'A difference')); },
     anch(x){ return x<70 ? 'start' : (x>this.w-70 ? 'end' : 'middle'); },
