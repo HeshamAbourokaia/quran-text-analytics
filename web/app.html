@@ -1212,6 +1212,30 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .sl-jump{margin-inline-start:auto;font:inherit;font-size:.78rem;color:#1a1405;background:var(--gold);border:0;border-radius:999px;padding:6px 14px;cursor:pointer}
   @media (max-width:900px){ .sl-kpis{grid-template-columns:repeat(3,1fr)} .sl-grid2{grid-template-columns:1fr} }
   @media (max-width:480px){ .sl-kpis{grid-template-columns:repeat(2,1fr)} .sl-kpi b{font-size:1.7rem} .sl-verse p,.sl-ar{font-size:1.2rem} }
+  /* BI Dashboard */
+  .dsh-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin:0 0 12px}
+  .dsh-selinfo{font-size:.82rem;color:var(--on-dark)} .dsh-selinfo.hint{color:var(--on-dark-3)} .dsh-selinfo button{font:inherit;font-size:.76rem;margin-inline-start:8px;color:var(--gold);background:none;border:1px solid rgba(233,185,95,.4);border-radius:999px;padding:3px 10px;cursor:pointer}
+  .dsh-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0 0 12px}
+  .dsh-kpis>div{padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid var(--hair);display:grid;gap:3px}
+  .dsh-kpis small{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--on-dark-3)} .dsh-kpis b{font-family:var(--serif);font-weight:400;font-size:2rem;color:#fff;font-variant-numeric:tabular-nums;line-height:1.1}
+  .dsh-kpis .share{display:block;height:4px;border-radius:2px;background:rgba(255,255,255,.08);overflow:hidden} .dsh-kpis .share i{display:block;height:100%;background:var(--gold);transition:width .5s}
+  .dsh-kpis em{font-style:normal;font-size:.7rem;color:var(--on-dark-3)}
+  .dsh-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:12px;margin:0 0 12px}
+  .dsh-tsvg,.dsh-ssvg{display:block;width:100%;height:auto} .dsh-ssvg{touch-action:none;cursor:crosshair}
+  .dsh-tsvg .tile{cursor:pointer} .dsh-tsvg .tile rect{transition:opacity .3s,fill .3s} .dsh-tsvg .tile.mc rect{fill:rgba(233,185,95,.78)} .dsh-tsvg .tile.md rect{fill:rgba(88,200,190,.78)}
+  .dsh-tsvg .tile.dim rect{opacity:.13} .dsh-tsvg .tile:hover rect,.dsh-tsvg .tile.on rect{fill:#fff6dd}
+  .dsh .dsh-tsvg .tile text{font-family:var(--ar-display);font-size:11px;fill:#10170f;pointer-events:none} .dsh .dsh-tsvg .tile.dim text{opacity:.3}
+  .dsh-tip{min-height:1.6em;margin:6px 0 0;font-size:.82rem;color:var(--on-dark-2)}
+  .dsh-ssvg .ax{stroke:rgba(255,255,255,.2)} .dsh .dsh-ssvg .t{font-size:9px;fill:var(--on-dark-3)}
+  .dsh-ssvg circle{cursor:pointer;transition:opacity .3s} .dsh-ssvg circle.mc{fill:rgba(233,185,95,.75)} .dsh-ssvg circle.md{fill:rgba(88,200,190,.75)} .dsh-ssvg circle.dim{opacity:.12} .dsh-ssvg circle.on{fill:#fff;stroke:#fff;stroke-width:2}
+  .dsh-ssvg .brush{fill:rgba(233,185,95,.12);stroke:var(--gold);stroke-dasharray:4 3}
+  .dsh-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:10px;align-items:center;margin:0 0 10px} .dsh-row .lab{font-size:.8rem;color:var(--on-dark-2)}
+  .dsh-row .bars{display:grid;gap:3px} .dsh-row .b{height:18px;border-radius:5px;min-width:2px;position:relative;transition:width .5s} .dsh-row .b.mc{background:var(--gold)} .dsh-row .b.md{background:var(--teal)}
+  .dsh-row .b span{position:absolute;inset-inline-start:calc(100% + 6px);top:0;font-size:.74rem;line-height:18px;color:var(--on-dark);white-space:nowrap;font-variant-numeric:tabular-nums}
+  .dsh-card h3{font-family:var(--ar-display);font-size:2rem;font-weight:400;margin:0} .dsh-card .en{margin:0 0 10px;color:var(--on-dark-2)}
+  .dsh-card dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:0 0 10px} .dsh-card dt{font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--on-dark-3)} .dsh-card dd{margin:0;font-family:var(--serif);font-size:1.4rem;color:#fff}
+  .dsh-card.empty{display:grid;place-items:center;color:var(--on-dark-3);text-align:center}
+  @media (max-width:820px){ .dsh-kpis{grid-template-columns:repeat(2,minmax(0,1fr))} .dsh-grid{grid-template-columns:1fr} .dsh-row{grid-template-columns:1fr} }
   /* NLP Explorer */
   .nlp-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0 0 14px}
   .nlp-kpis div{padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid var(--hair)} .nlp-kpis b{display:block;font-family:var(--serif);font-weight:400;font-size:1.9rem;color:#fff;font-variant-numeric:tabular-nums} .nlp-kpis span{font-size:.74rem;color:var(--on-dark-2)}
@@ -2783,47 +2807,9 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
 
     <!-- BI DASHBOARD (filters + live KPIs) -->
     <section v-if="view==='dashboard'">
-      <div class="card">
-        <div class="searchbar">
-          <label>{{ lang==='ar'?'مكان النزول':'Revelation place' }}:
-            <select v-model="dashPlace" @change="refreshDash" style="padding:6px;border-radius:8px;border:1px solid var(--line)">
-              <option value="all">{{ lang==='ar'?'الكل':'All' }}</option>
-              <option value="Mecca">{{ lang==='ar'?'مكية':'Meccan' }}</option>
-              <option value="Medina">{{ lang==='ar'?'مدنية':'Medinan' }}</option>
-            </select></label>
-          <label>{{ lang==='ar'?'أدنى عدد آيات':'Min verses' }}: {{ D(dashMinVerses) }}
-            <input type="range" min="0" max="286" step="1" v-model.number="dashMinVerses" @input="refreshDash" :dir="lang==='ar'?'rtl':'ltr'" style="width:200px;vertical-align:middle"></label>
-          <label>{{ lang==='ar'?'ترتيب حسب':'Sort by' }}:
-            <select v-model="dashSort" @change="refreshDash" style="padding:6px;border-radius:8px;border:1px solid var(--line)">
-              <option value="n">{{ lang==='ar'?'رقم السورة':'Surah #' }}</option>
-              <option value="verses">{{ lang==='ar'?'الآيات':'Verses' }}</option>
-              <option value="words">{{ lang==='ar'?'الكلمات':'Words' }}</option>
-            </select></label>
-        </div>
-      </div>
-      <div class="metric">
-        <div class="m"><div class="v">{{ D(dashAgg.count) }}</div><div class="k">{{ lang==='ar'?'سور مطابقة':'surahs' }}</div></div>
-        <div class="m"><div class="v">{{ f(dashAgg.verses) }}</div><div class="k">{{ lang==='ar'?'آيات':'verses' }}</div></div>
-        <div class="m"><div class="v">{{ f(dashAgg.words) }}</div><div class="k">{{ lang==='ar'?'كلمات':'words' }}</div></div>
-        <div class="m"><div class="v">{{ D(dashAgg.avg) }}</div><div class="k">{{ lang==='ar'?'كلمة/آية':'words/verse' }}</div></div>
-      </div>
-      <div class="card dcmp" v-if="dashCmp">
-        <h3>{{ lang==='ar' ? 'المكية بجانب المدنية' : 'Meccan beside Medinan' }}</h3>
-        <p class="fsub">{{ lang==='ar'
-          ? 'كل صفٍّ مقياسٌ واحد، والشريطان على مقياسٍ واحد، فالشريط الأطول بضعفين يعني ضعف القيمة. يتبع الصفّان مرشّح عدد الآيات.'
-          : 'One measure a row, both bars on the same scale, so a bar twice as long means twice as much. Both rows follow the minimum-verses filter.' }}</p>
-        <div v-for="r in dashCmp.rows" :key="r.k" class="row3">
-          <div class="lab">{{ r.lab }}<small>{{ r.sub }}</small></div>
-          <div class="bars">
-            <div class="bar mec" :class="{off: dashPlace==='Medina'}"><i :style="{width:r.wm+'%'}"></i><b>{{ r.fm }}</b>{{ lang==='ar' ? 'مكية' : 'Meccan' }}</div>
-            <div class="bar med" :class="{off: dashPlace==='Mecca'}"><i :style="{width:r.wd+'%'}"></i><b>{{ r.fd }}</b>{{ lang==='ar' ? 'مدنية' : 'Medinan' }}<span class="x" v-if="r.x">{{ r.x }}</span></div>
-          </div>
-        </div>
-        <p class="say">{{ dashCmp.say }}</p>
-      </div>
-      <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-columns" data-stage="dashboard" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
-      <div class="card glfb"><div class="chart" id="dashChart"></div></div>
-      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> <span v-html="rich(plain.msg)"></span></div>
+      <h1>{{ lang==='ar'?'لوحة المعلومات':'BI Dashboard' }}</h1>
+      <explain-box></explain-box>
+      <dash-lab></dash-lab>
     </section>
 
     <!-- HIFZ OPTIMISER (Linear Programming) -->
@@ -3272,13 +3258,13 @@ const PLAIN = {
     how:['Drag to move around, scroll or pinch to zoom, and click a dot to read about it.', 'اسحب للتنقّل، وقرّب أو بعّد بالعجلة أو بإصبعين، وانقر نقطةً لتقرأ عنها.']},
   dashboard:{
     title:['Explore the surahs yourself', 'استكشف السور بنفسك'],
-    what:['Choose which surahs to look at (Meccan or Medinan, and how long), and every number and the figure change at once.',
-      'اختر السور التي تريد النظر فيها (مكية أو مدنية، وكم طولها)، فتتغير كل الأرقام والرسم فورًا.'],
-    method:['A page like this is called a dashboard: filters that let you ask your own questions of the data.', 'تُسمّى صفحةٌ كهذه «لوحة معلومات»: مرشّحاتٌ تتيح لك أن تسأل البيانات أسئلتك أنت.'],
-    how:['Each column is one surah that your choices keep, made of its verses.', 'كل عمودٍ سورةٌ تُبقيها اختياراتك، مصنوعٌ من آياتها.'],
-    tip:['{P} a dot to see its verse', '{p} نقطةٍ لترى آيتها'],
-    msg:['The Meccan-beside-Medinan panel answers the page\'s question: fewer Medinan surahs, longer on average, and above all longer verses. Raise the minimum verses to leave the short surahs out and watch which gaps hold.',
-      'لوحة «المكية بجانب المدنية» تجيب عن سؤال الصفحة: سورٌ مدنية أقل، أطول في المتوسط، وأطول آياتٍ قبل كل شيء. ارفع الحد الأدنى للآيات لتستبعد السور القصيرة، وانظر أيّ الفروق يبقى.']},
+    method:['A page like this is called a dashboard: linked charts and filters that let you ask your own questions of the data. Selecting in one chart filters the others; this is called cross-filtering.', 'تُسمّى صفحةٌ كهذه «لوحة معلومات»: مخططاتٌ ومرشّحاتٌ مترابطة تتيح لك أن تسأل البيانات أسئلتك أنت. والتحديد في مخططٍ يرشّح الباقي، ويُسمّى هذا «الترشيح المتقاطع».'],
+    what:['A business-intelligence view of the 114 surahs: how long each is, how long its verses are, and where it was revealed.',
+      'لوحةُ ذكاء أعمال للسور الـ١١٤: طول كل سورة، وطول آياتها، ومكان نزولها.'],
+    how:['The treemap sizes each surah by its words; the scatter plots its verses against words per verse. Drag a box on the scatter to select surahs: the numbers, the treemap and the comparison follow. Tap a surah for its card.',
+      'تُظهر الخريطة الشجرية كل سورةٍ بحجم كلماتها، ويرسم المخطط النقطي آياتها مقابل كلمات الآية. اسحب مربعًا على المخطط النقطي لتحديد سور، فتتبعه الأرقام والخريطة والمقارنة. وانقر سورةً لترى بطاقتها.'],
+    msg:['Medinan surahs are fewer but longer, and their verses run longer too: about 18 words a verse against about 10 in Meccan surahs.',
+      'السور المدنية أقل عددًا وأطول، وآياتها أطول كذلك: نحو ١٨ كلمة في الآية مقابل نحو ١٠ في السور المكية.']},
   hifz:{
     title:['How long would it take to memorise the Quran?', 'كم يستغرق حفظ القرآن؟'],
     what:['Choose how many minutes a day you can give. The page works out how many new lines you could learn each day, how many to review, and how many years it would take to finish.',
@@ -4991,6 +4977,95 @@ const NlpLab = { mixins:[FitW],
     zx(r){ return 34+Math.log10(r)/Math.log10(5000)*316; }, zy(c){ return 200-Math.log10(c)/Math.log10(3000)*190; },
     zMove(e){ const s=e.currentTarget.getBoundingClientRect(), x=(e.clientX-s.left)/s.width*360, y=(e.clientY-s.top)/s.height*230; let b=-1, bd=200;
       this.zpts.forEach((p,i)=>{ const d=Math.hypot(this.zx(p.r)-x, this.zy(p.c)-y); if(d<bd){ bd=d; b=i; } }); this.zh=bd<18 ? b : -1; } } };
+// BI Dashboard: the 114 surahs, cross-filtered. A treemap sizes each surah by its words; a scatter plots verses
+// against words per verse. Drag a box on the scatter to select surahs, or tap tiles; the KPI tiles, the treemap and
+// the Meccan-Medinan comparison all follow the selection. Tap a surah to read its card.
+function squarify(items, x, y, w, h){
+  const out=[], total=items.reduce((a,b)=>a+b.v,0), scale=w*h/(total||1); let rest=items.map(it=>Object.assign({}, it, {a:it.v*scale}));
+  while(rest.length){ const short=Math.min(w,h); let row=[], best=Infinity;
+    for(const it of rest){ const r=row.concat(it), s=r.reduce((a,b)=>a+b.a,0), mx=Math.max(...r.map(b=>b.a)), mn=Math.min(...r.map(b=>b.a)), worst=Math.max(short*short*mx/(s*s), s*s/(short*short*mn));
+      if(worst>best) break; row=r; best=worst; }
+    const s=row.reduce((a,b)=>a+b.a,0);
+    if(w>=h){ const cw=s/h; let cy=y; row.forEach(b=>{ const bh=b.a/cw; out.push(Object.assign(b,{x, y:cy, w:cw, h:bh})); cy+=bh; }); x+=cw; w-=cw; }
+    else { const ch=s/w; let cx=x; row.forEach(b=>{ const bw=b.a/ch; out.push(Object.assign(b,{x:cx, y, w:bw, h:ch})); cx+=bw; }); y+=ch; h-=ch; }
+    rest=rest.slice(row.length); }
+  return out; }
+const DashLab = { mixins:[FitW],
+  data(){ return {place:'all', sel:null, pick:null, hov:null, brush:null}; },
+  template:`<div class="dsh">
+    <div class="dsh-bar">
+      <div class="seg2" role="group" :aria-label="ar ? 'مكان النزول' : 'Place of revelation'"><span>{{ ar ? 'النزول' : 'Revealed in' }}</span>
+        <button v-for="p in [['all',['All','الكل']],['Mecca',['Mecca','مكة']],['Medina',['Medina','المدينة']]]" :key="p[0]" type="button" :class="{on:place===p[0]}" @click="place=p[0]">{{ T(p[1]) }}</button></div>
+      <span class="dsh-selinfo" v-if="sel">{{ ar ? 'محدد: '+D(sel.size)+' سورة' : sel.size+' surahs selected' }} <button type="button" @click="sel=null">{{ ar ? 'إلغاء التحديد' : 'Clear selection' }}</button></span>
+      <span class="dsh-selinfo hint" v-else>{{ ar ? 'اسحب مربعًا على المخطط النقطي لتحديد سور، أو انقر بلاطة.' : 'Drag a box on the scatter to select surahs, or tap a tile.' }}</span>
+    </div>
+    <div class="dsh-kpis">
+      <div v-for="k in kpis" :key="k.k"><small>{{ T(k.lab) }}</small><b>{{ k.v }}</b><span class="share"><i :style="{width: k.share+'%'}"></i></span><em>{{ k.note ? T(k.note) : (ar ? D(k.share.toFixed(0))+'٪ من القرآن' : k.share.toFixed(0)+'% of the Quran') }}</em></div>
+    </div>
+    <div class="dsh-grid">
+      <figure class="dfig dsh-tree"><h3>{{ ar ? 'السور بحجم كلماتها' : 'Every surah, sized by its words' }}</h3>
+        <svg :viewBox="'0 0 '+tw+' 300'" class="dsh-tsvg" @pointerleave="hov=null">
+          <g v-for="t in tiles" :key="t.n" class="tile" :class="[t.place==='Medina' ? 'md' : 'mc', {dim: !inView(t), on: pick===t.n}]" @pointerenter="hov=t.n" @click="tap(t.n, $event)">
+            <rect :x="t.x+.5" :y="t.y+.5" :width="Math.max(0,t.w-1)" :height="Math.max(0,t.h-1)" rx="3"/>
+            <text v-if="t.w>34 && t.h>18" :x="t.x+t.w/2" :y="t.y+t.h/2+4" text-anchor="middle" lang="ar">{{ t.w>70 && t.h>30 ? t.ar : D(t.n) }}</text></g>
+        </svg>
+        <p class="dsh-tip" aria-live="polite">{{ hovS ? (ar ? D(hovS.n)+'. '+hovS.ar+' · '+(hovS.place==='Medina' ? 'مدنية' : 'مكية')+' · '+D(hovS.verses)+' آية · '+f(hovS.words)+' كلمة' : hovS.n+'. '+hovS.en+' · '+(hovS.place==='Medina' ? 'Medinan' : 'Meccan')+' · '+hovS.verses+' verses · '+f(hovS.words)+' words') : (ar ? 'الذهبي مكي، والفيروزي مدني.' : 'Gold is Meccan, teal Medinan.') }}</p>
+      </figure>
+      <figure class="dfig dsh-sc"><h3>{{ ar ? 'طول السورة وطول آياتها' : 'How long, and how long its verses' }}</h3>
+        <svg viewBox="0 0 360 300" class="dsh-ssvg" @pointerdown="bStart" @pointermove="bMove" @pointerup="bEnd" @pointerleave="hov=null">
+          <line class="ax" x1="40" y1="262" x2="352" y2="262"/><line class="ax" x1="40" y1="12" x2="40" y2="262"/>
+          <text v-for="t in [3,10,30,100,286]" :key="'x'+t" :x="sx(t)" y="276" text-anchor="middle" class="t">{{ D(t) }}</text>
+          <text v-for="t in [5,10,20,30]" :key="'y'+t" x="35" :y="sy(t)+3" text-anchor="end" class="t">{{ D(t) }}</text>
+          <text x="352" y="292" text-anchor="end" class="t">{{ ar ? 'عدد الآيات (لوغاريتمي)' : 'verses (log scale)' }}</text>
+          <text x="44" y="10" class="t">{{ ar ? 'كلمة لكل آية' : 'words per verse' }}</text>
+          <circle v-for="s in S" :key="s.n" :cx="sx(s.verses)" :cy="sy(s.words/s.verses)" :r="2.2+Math.sqrt(s.words)/14" :class="[s.place==='Medina' ? 'md' : 'mc', {dim: !inView(s), on: pick===s.n || hov===s.n}]" @pointerenter="hov=s.n" @click.stop="tap(s.n, $event)"/>
+          <rect v-if="brush" class="brush" :x="Math.min(brush.x0,brush.x1)" :y="Math.min(brush.y0,brush.y1)" :width="Math.abs(brush.x1-brush.x0)" :height="Math.abs(brush.y1-brush.y0)"/>
+        </svg>
+      </figure>
+    </div>
+    <div class="dsh-grid">
+      <figure class="dfig dsh-cmp"><h3>{{ ar ? 'المكي بجانب المدني' + (sel ? ' في التحديد' : '') : 'Meccan beside Medinan' + (sel ? ', in the selection' : '') }}</h3>
+        <div v-for="m in compare" :key="m.k" class="dsh-row"><span class="lab">{{ T(m.lab) }}</span>
+          <div class="bars"><div class="b mc" :style="{width: m.mc/m.max*100+'%'}"><span>{{ m.fmt(m.mc) }}</span></div><div class="b md" :style="{width: m.md/m.max*100+'%'}"><span>{{ m.fmt(m.md) }}</span></div></div></div>
+      </figure>
+      <figure class="dfig dsh-card" v-if="pickS"><h3 lang="ar">{{ pickS.ar }}</h3><p class="en" v-if="!ar">{{ pickS.n }}. {{ pickS.en }}</p>
+        <dl><div><dt>{{ ar ? 'النزول' : 'Revealed' }}</dt><dd>{{ pickS.place==='Medina' ? (ar ? 'مدنية' : 'Medinan') : (ar ? 'مكية' : 'Meccan') }}</dd></div>
+          <div><dt>{{ ar ? 'الآيات' : 'Verses' }}</dt><dd>{{ D(pickS.verses) }}</dd></div><div><dt>{{ ar ? 'الكلمات' : 'Words' }}</dt><dd>{{ f(pickS.words) }}</dd></div>
+          <div><dt>{{ ar ? 'كلمة لكل آية' : 'Words per verse' }}</dt><dd>{{ D((pickS.words/pickS.verses).toFixed(1)) }}</dd></div>
+          <div><dt>{{ ar ? 'ترتيبها طولًا' : 'Rank by length' }}</dt><dd>{{ D(rankOf(pickS.n)) }} / {{ D(114) }}</dd></div></dl>
+        <button type="button" class="cclink" data-dopen @click="$root.dOpen(pickS.n+':1', [pickS.n+':1'], $event)">{{ ar ? 'افتحها في المصحف ‹' : 'Open it in the reader ›' }}</button></figure>
+      <figure class="dfig dsh-card empty" v-else><p>{{ ar ? 'انقر سورةً في أي من المخططين لترى بطاقتها.' : 'Tap a surah in either chart to see its card.' }}</p></figure>
+    </div>
+  </div>`,
+  computed:{ ar(){ return this.$root.lang==='ar'; }, S(){ return this.$root.DS.surahMeta||[]; }, tw(){ return 520; },
+    tiles(){ return squarify([...this.S].sort((a,b)=>b.words-a.words).map(s=>Object.assign({v:s.words}, s)), 0, 0, this.tw, 300); },
+    view(){ return this.S.filter(s=>this.inView(s)); },
+    total(){ return this.S.reduce((a,s)=>({v:a.v+s.verses, w:a.w+s.words}), {v:0,w:0}); },
+    kpis(){ const V=this.view, v=V.reduce((a,s)=>a+s.verses,0), w=V.reduce((a,s)=>a+s.words,0), T=this.total;
+      return [ {k:'s', lab:['Surahs','السور'], v:this.D(V.length), share:V.length/114*100},
+        {k:'v', lab:['Verses','الآيات'], v:this.f(v), share:v/T.v*100},
+        {k:'w', lab:['Words','الكلمات'], v:this.f(w), share:w/T.w*100},
+        {k:'r', lab:['Words per verse','كلمة لكل آية'], v:this.D(v ? (w/v).toFixed(1) : '0'), share:Math.min(100, (v ? w/v : 0)/(2*T.w/T.v)*100), note:[ 'Quran average '+(T.w/T.v).toFixed(1), 'متوسط القرآن '+this.D((T.w/T.v).toFixed(1)) ]} ]; },
+    compare(){ const base=this.sel ? this.S.filter(s=>this.sel.has(s.n)) : this.S, g=p=>base.filter(s=>s.place===p);
+      const st=L=>{ const ws=L.map(s=>s.words).sort((a,b)=>a-b), v=L.reduce((a,s)=>a+s.verses,0), w=L.reduce((a,s)=>a+s.words,0);
+        return {n:L.length, avg:L.length ? w/L.length : 0, med:ws.length ? ws[Math.floor(ws.length/2)] : 0, wpv:v ? w/v : 0}; };
+      const a=st(g('Mecca')), b=st(g('Medina')), fi=x=>this.f(Math.round(x)), f1=x=>this.D(x.toFixed(1));
+      return [ {k:'n', lab:['How many surahs','عدد السور'], mc:a.n, md:b.n, fmt:fi}, {k:'avg', lab:['Average words per surah','متوسط الكلمات في السورة'], mc:a.avg, md:b.avg, fmt:fi},
+        {k:'med', lab:['A typical surah (median words)','السورة الوسطى (الوسيط)'], mc:a.med, md:b.med, fmt:fi}, {k:'wpv', lab:['Words per verse','كلمة لكل آية'], mc:a.wpv, md:b.wpv, fmt:f1} ]
+        .map(m=>Object.assign(m, {max:Math.max(m.mc, m.md, 1e-9)})); },
+    hovS(){ return this.S.find(s=>s.n===this.hov) || null; }, pickS(){ return this.S.find(s=>s.n===this.pick) || null; } },
+  methods:{ T(p){ const s=Array.isArray(p) ? (this.ar ? p[1] : p[0]) : p; return this.ar ? this.$root.D(s) : s; }, D(x){ return this.$root.D(x); }, f(x){ return this.$root.f(x); },
+    inView(s){ return (this.place==='all' || s.place===this.place) && (!this.sel || this.sel.has(s.n)); },
+    tap(n){ this.pick=n; },
+    rankOf(n){ return [...this.S].sort((a,b)=>b.words-a.words).findIndex(s=>s.n===n)+1; },
+    sx(v){ return 40+Math.log10(v/3)/Math.log10(290/3)*312; }, sy(r){ return 262-(r-3)/(32-3)*250; },
+    pt(e){ const r=e.currentTarget.getBoundingClientRect(); return {x:(e.clientX-r.left)/r.width*360, y:(e.clientY-r.top)/r.height*300}; },
+    bStart(e){ if(e.target.tagName==='circle') return; const p=this.pt(e); this.brush={x0:p.x, y0:p.y, x1:p.x, y1:p.y}; e.currentTarget.setPointerCapture && e.currentTarget.setPointerCapture(e.pointerId); },
+    bMove(e){ if(!this.brush) return; const p=this.pt(e); this.brush.x1=p.x; this.brush.y1=p.y; },
+    bEnd(){ const b=this.brush; this.brush=null; if(!b || Math.abs(b.x1-b.x0)<6 || Math.abs(b.y1-b.y0)<6) return;
+      const x0=Math.min(b.x0,b.x1), x1=Math.max(b.x0,b.x1), y0=Math.min(b.y0,b.y1), y1=Math.max(b.y0,b.y1);
+      const s=new Set(this.S.filter(s=>{ const x=this.sx(s.verses), y=this.sy(s.words/s.verses); return x>=x0 && x<=x1 && y>=y0 && y<=y1; }).map(s=>s.n));
+      this.sel = s.size ? s : null; } } };
 const QadrLab = {
   data(){ return {basm:false, pre:false, suf:false, hov:-1}; },
   template:`<figure class="dfig qlab">
@@ -6735,7 +6810,7 @@ createApp({
     this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); this.enterView(true); });
   }
 }).component('depth-switch', DepthSwitch).component('term-chips', TermChips).component('explain-box', ExplainBox)
-  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell).component('claim-viz', ClaimViz).component('count-lab', CountLab).component('rule-matrix', RuleMatrix).component('qadr-lab', QadrLab).component('nineteen-lab', NineteenLab).component('struct-lab', StructLab).component('balance-lab', BalanceLab).component('abjad-lab', AbjadLab).component('float-kbd', FloatKbd).component('nlp-lab', NlpLab)
+  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell).component('claim-viz', ClaimViz).component('count-lab', CountLab).component('rule-matrix', RuleMatrix).component('qadr-lab', QadrLab).component('nineteen-lab', NineteenLab).component('struct-lab', StructLab).component('balance-lab', BalanceLab).component('abjad-lab', AbjadLab).component('float-kbd', FloatKbd).component('nlp-lab', NlpLab).component('dash-lab', DashLab)
   .component('letter-strip', LetterStrip).component('growth-curve', GrowthCurve).component('rhyme-ribbon', RhymeRibbon).mount('#app');
 });
 </script>
