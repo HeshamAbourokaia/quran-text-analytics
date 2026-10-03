@@ -1212,6 +1212,18 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .sl-jump{margin-inline-start:auto;font:inherit;font-size:.78rem;color:#1a1405;background:var(--gold);border:0;border-radius:999px;padding:6px 14px;cursor:pointer}
   @media (max-width:900px){ .sl-kpis{grid-template-columns:repeat(3,1fr)} .sl-grid2{grid-template-columns:1fr} }
   @media (max-width:480px){ .sl-kpis{grid-template-columns:repeat(2,1fr)} .sl-kpi b{font-size:1.7rem} .sl-verse p,.sl-ar{font-size:1.2rem} }
+  /* Library atlas */
+  .atl{margin:0 0 14px} .atl-h{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 12px} .atl-h h3{margin:0}
+  .atl-f{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;color:#1a1405;background:var(--gold);border-radius:999px;padding:3px 6px 3px 12px} .atl-f button{border:0;background:rgba(0,0,0,.15);color:#1a1405;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:.7rem}
+  .atl-strip{display:block;width:100%;height:auto;margin-top:8px} .atl-strip .col{cursor:pointer} .atl-strip .hit{fill:transparent} .atl-strip .b{fill:rgba(255,255,255,.12)} .atl-strip .col.has .b{fill:rgba(233,185,95,.7)}
+  .atl-strip .col.hv .b{fill:#fff} .atl-strip .col.on .b{fill:var(--teal)} .atl .atl-strip .t{font-size:8px;fill:var(--on-dark-3)}
+  .atl-read{min-height:1.5em;margin:4px 0 8px;font-size:.8rem;color:var(--on-dark-2)}
+  .atl-mx{overflow-y:auto;border-radius:10px;background:rgba(0,0,0,.18)} .atl-msvg{display:block;width:100%}
+  .atl-msvg .grid{stroke:rgba(255,255,255,.05)} .atl-msvg .row{cursor:pointer} .atl-msvg .hit{fill:transparent} .atl-msvg .row.on .hit{fill:rgba(255,255,255,.06)}
+  .atl-msvg .span{stroke:rgba(255,255,255,.1);stroke-width:1} .atl-msvg .row.on .span{stroke:rgba(255,255,255,.45)}
+  .atl-msvg .c0 circle{fill:var(--gold)} .atl-msvg .c1 circle{fill:var(--teal)} .atl-msvg .c2 circle{fill:#b49cf0} .atl-msvg .c3 circle{fill:#f0a08c} .atl-msvg .c4 circle{fill:#9fc46a} .atl-msvg .c5 circle{fill:#e7e7ef}
+  .atl-msvg .row.on circle{stroke:#fff;stroke-width:1.5}
+  .libcard.flash{animation:libflash 1.6s ease} @keyframes libflash{0%,40%{box-shadow:0 0 0 3px var(--gold),0 0 30px rgba(233,185,95,.5)}100%{box-shadow:none}}
   /* Analytics Lab: shared */
   .stl-btn{font:inherit;font-size:.8rem;font-weight:700;color:#1a1405;background:var(--gold);border:0;border-radius:999px;padding:7px 16px;cursor:pointer} .stl-btn:disabled{opacity:.5;cursor:default} .stl-btn.ghost{background:none;color:var(--gold);border:1px solid rgba(233,185,95,.45)}
   .stl-kpis,.hz-kpis,.clf-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0 0 12px}
@@ -2977,10 +2989,11 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
         <span class="chip ui" :class="{on:libCat==='all'}" @click="libCat='all'">{{ lang==='ar'?'الكل':'All' }}</span>
         <span class="chip ui" v-for="c in libCats" :key="c" :class="{on:libCat===c}" @click="libCat=c">{{ c }}</span>
       </div>
+      <lib-atlas :key="curLib.type"></lib-atlas>
       <div style="color:var(--muted);font-size:.8rem;margin-bottom:4px">{{ libFiltered.length }} {{ lang==='ar'?'عنصر':'items' }}</div>
       <p class="libhint">{{ lang==='ar' ? 'كل بطاقةٍ كاملةٌ كما هي. انقر رقم آيةٍ لتقرأها في المصحف، ثم تنقّل بين آيات البطاقة وعُد إلى هنا.' : 'Each card is complete as it is. Tap a verse reference to read it in the reader, step through the card\'s verses, and come back here.' }}</p>
       <div class="grid">
-        <div v-for="it in libFiltered" :key="it.id" class="card" style="margin:0">
+        <div v-for="it in libFiltered" :key="it.id" :id="'lib-'+it.id" class="card libcard" style="margin:0">
           <template v-if="curLib.type==='tafsir'">
             <div class="ar">{{ it.topic_ar }}</div>
             <div style="font-size:.8rem;color:var(--muted)"><span v-if="lang!=='ar'">{{ it.topic_en }} · </span>{{ it.verse_ref }}</div>
@@ -5342,6 +5355,44 @@ const KMeansLab = {
     reset(){ clearTimeout(this._t); this.playing=false; const r=Math.random; this.cent=this.seedC(this.k, r); this.asg=this.P.map(()=>null); this.it=0; this.done=false; },
     stepOnce(){ if(this.done) return; const a=this.assign(this.cent); const same=this.asg.every((v,i)=>v===a[i]); this.asg=a; this.cent=this.move(a, this.k); this.it++; if(same){ this.done=true; this.playing=false; } },
     play(){ if(this.playing){ this.playing=false; clearTimeout(this._t); return; } this.playing=true; const go=()=>{ if(!this.playing) return; this.stepOnce(); if(!this.done) this._t=setTimeout(go, 650); }; go(); } } };
+// Library atlas: where the page's items live in the Quran. A strip of the 114 surahs (bar = how many items are
+// told there; tap to filter the cards to one surah), and a matrix with a line for each item and a dot for each surah
+// it draws on. Point at a line to light it; tap it to jump to its card.
+const LibAtlas = { mixins:[FitW],
+  data(){ return {hovS:null, hovI:null}; },
+  mounted(){ this.$root.libSurah=0; },
+  template:`<figure class="dfig atl" v-if="rows.length">
+    <div class="atl-h"><h3>{{ ar ? 'أين تُروى في القرآن' : 'Where they are told in the Quran' }}</h3>
+      <span v-if="$root.libSurah" class="atl-f">{{ ar ? 'في سورة '+$root.surahName($root.libSurah) : 'In surah '+$root.libSurah+', '+$root.surahName($root.libSurah) }} <button type="button" @click="$root.libSurah=0" :aria-label="ar ? 'إلغاء' : 'Clear'">✕</button></span></div>
+    <svg :viewBox="'0 0 '+W0+' 92'" class="atl-strip" @pointerleave="hovS=null">
+      <g v-for="n in 114" :key="n" @pointerenter="hovS=n" @click="pickS(n)" class="col" :class="{on: $root.libSurah===n, hv: hovS===n, has: per[n]}">
+        <rect :x="X(n)-cw/2" y="0" :width="cw" height="78" class="hit"/>
+        <rect :x="X(n)-cw*.38" :y="74-(per[n]||0)/perMax*66" :width="cw*.76" :height="(per[n]||0)/perMax*66+(per[n] ? 0 : 1.5)" rx="1.5" class="b"/></g>
+      <text v-for="t in [1,20,40,60,80,100,114]" :key="t" :x="X(t)" y="89" text-anchor="middle" class="t">{{ D(t) }}</text>
+    </svg>
+    <p class="atl-read">{{ hovS ? (ar ? D(hovS)+'. '+$root.surahName(hovS)+' · '+D(per[hovS]||0)+(per[hovS] ? ': '+names(hovS) : '') : hovS+'. '+$root.surahName(hovS)+' · '+(per[hovS]||0)+(per[hovS]===1 ? ' item' : ' items')+(per[hovS] ? ': '+names(hovS) : '')) : (ar ? 'انقر سورةً لترى بطاقاتها وحدها.' : 'Tap a surah to show only its cards.') }}</p>
+    <div class="atl-mx" :style="{height: Math.min(rows.length*13+8, 420)+'px'}">
+      <svg :viewBox="'0 0 '+W0+' '+(rows.length*13+8)" class="atl-msvg" @pointerleave="hovI=null" :style="{height: (rows.length*13+8)*sc+'px'}">
+        <line v-for="n in [10,20,30,40,50,60,70,80,90,100,110]" :key="'g'+n" :x1="X(n)" :x2="X(n)" y1="0" :y2="rows.length*13+8" class="grid"/>
+        <g v-for="(r,i) in rows" :key="r.id" class="row" :class="['c'+r.ci, {on: hovI===i}]" @pointerenter="hovI=i" @click="jump(r)">
+          <rect x="0" :y="i*13+2" :width="W0" height="13" class="hit"/>
+          <line :x1="X(r.min)" :x2="X(r.max)" :y1="i*13+8.5" :y2="i*13+8.5" class="span"/>
+          <circle v-for="d in r.dots" :key="d.s" :cx="X(d.s)" :cy="i*13+8.5" :r="Math.min(5, 2+Math.sqrt(d.v)*.6)"/></g>
+      </svg></div>
+    <p class="atl-read">{{ hovI!=null && rows[hovI] ? rows[hovI].name+' · '+rows[hovI].dots.map(d=>D(d.s)).join(ar ? '، ' : ', ') : (ar ? 'كل سطرٍ بطاقة، وكل نقطةٍ سورةٌ تذكرها. انقر سطرًا لتصل إلى بطاقته.' : 'Each line is a card and each dot a surah it draws on. Tap a line to go to its card.') }}</p>
+  </figure>`,
+  computed:{ ar(){ return this.$root.lang==='ar'; }, W0(){ return 700; }, cw(){ return (this.W0-20)/114; }, sc(){ return Math.min(1.4, this.w/this.W0); },
+    cats(){ return this.$root.libCats; },
+    rows(){ const R=this.$root; return R.libFilteredAll.map(it=>{ const by=new Map(); R.libRefs(it).forEach(r=>{ const s=+r.k.split(':')[0]; by.set(s,(by.get(s)||0)+r.keys.length); });
+        const dots=[...by.entries()].map(([s,v])=>({s,v})).sort((a,b)=>a.s-b.s); if(!dots.length) return null;
+        const cat=this.ar ? (it.cat_ar||it.cat) : it.cat;
+        return {id:it.id, it, dots, min:dots[0].s, max:dots[dots.length-1].s, ci:Math.max(0, this.cats.indexOf(cat))%6, name:this.ar ? (it.ar||it.topic_ar||it.word_ar||'') : (it.en||it.topic_en||it.translit||it.ar||'')}; }).filter(Boolean); },
+    per(){ const p={}; this.rows.forEach(r=>r.dots.forEach(d=>{ p[d.s]=(p[d.s]||0)+1; })); return p; },
+    perMax(){ return Math.max(1, ...Object.values(this.per)); } },
+  methods:{ D(x){ return this.$root.D(x); }, X(n){ return 10+(n-.5)*this.cw; },
+    names(s){ const L=this.rows.filter(r=>r.dots.some(d=>d.s===s)).map(r=>r.name); return L.slice(0,4).join(this.ar ? '، ' : ', ')+(L.length>4 ? (this.ar ? '، …' : ', …') : ''); },
+    pickS(n){ this.$root.libSurah = this.$root.libSurah===n ? 0 : n; },
+    jump(r){ const el=document.getElementById('lib-'+r.id); if(!el){ if(this.$root.libSurah){ this.$root.libSurah=0; this.$nextTick(()=>this.jump(r)); } return; } el.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'center'}); el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash'); } } };
 const QadrLab = {
   data(){ return {basm:false, pre:false, suf:false, hov:-1}; },
   template:`<figure class="dfig qlab">
@@ -5595,7 +5646,7 @@ createApp({
       V: window.QURAN_VERSES||{}, W: window.QURAN_WORDS||{key:[],norm:[],lemma:[],root:[],surface:[]},
       ready:{ verses:!!window.QURAN_VERSES, words:!!window.QURAN_WORDS, plotly:typeof Plotly!=='undefined', disc:false, hviz:false },
       q:'', mode:'surface', sWhole:true, clabPick:null, sfOff:{}, sfCount:null, sfRows:SF_ROWS, sres:{total:0,surahs:0,verses:0,sample:[]},
-      rSurah:1, rVerse:0, rClaim:'', rBack:'', scrollPct:0, railDragging:false, EN:{}, showTrans:(new URLSearchParams(location.search).get('lang')!=='ar'), libQ:'', libCat:'all', stories:[], lessons:[], duas:[], tafsir:[], untranslatable:[], untranslatableIntro:{}, history:[], historyIntro:{}, skyHov:null, sresBy:{}, sresRoots:[], skyGL:false, hSel:'', hYear:610, hPlaying:false, hFilter:'all', hCopied:false,
+      rSurah:1, rVerse:0, rClaim:'', rBack:'', scrollPct:0, railDragging:false, EN:{}, showTrans:(new URLSearchParams(location.search).get('lang')!=='ar'), libQ:'', libCat:'all', libSurah:0, stories:[], lessons:[], duas:[], tafsir:[], untranslatable:[], untranslatableIntro:{}, history:[], historyIntro:{}, skyHov:null, sresBy:{}, sresRoots:[], skyGL:false, hSel:'', hYear:610, hPlaying:false, hFilter:'all', hCopied:false,
       V1:{}, abjadInput:'الله',
       jevOn: !!(JEV && JEV.endpoint()), JD: window.QTA_JEV_DATA||{},
       cc:{text:'', busy:false, res:null}, ask:{text:'', busy:false, res:null}, sit:{text:'', busy:false, res:null},
@@ -6098,7 +6149,8 @@ createApp({
     },
     libCats(){ if(!this.curLib) return []; const s=new Set();
       this.curLib.data.forEach(it=>{ if(it.cat) s.add(this.lang==='ar'?(it.cat_ar||it.cat):it.cat); }); return [...s]; },
-    libFiltered(){ if(!this.curLib) return []; const q=normalize(this.libQ).toLowerCase();
+    libFiltered(){ const n=this.libSurah; return n ? this.libFilteredAll.filter(it=>this.libRefs(it).some(r=>+r.k.split(':')[0]===n)) : this.libFilteredAll; },
+    libFilteredAll(){ if(!this.curLib) return []; const q=normalize(this.libQ).toLowerCase();
       return this.curLib.data.filter(it=>{
         const catLabel=this.lang==='ar'?(it.cat_ar||it.cat):it.cat;
         if(this.libCat!=='all' && catLabel!==this.libCat) return false;
@@ -7086,7 +7138,7 @@ createApp({
     this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); this.enterView(true); });
   }
 }).component('depth-switch', DepthSwitch).component('term-chips', TermChips).component('explain-box', ExplainBox)
-  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell).component('claim-viz', ClaimViz).component('count-lab', CountLab).component('rule-matrix', RuleMatrix).component('qadr-lab', QadrLab).component('nineteen-lab', NineteenLab).component('struct-lab', StructLab).component('balance-lab', BalanceLab).component('abjad-lab', AbjadLab).component('float-kbd', FloatKbd).component('nlp-lab', NlpLab).component('dash-lab', DashLab).component('hifz-lab', HifzLab).component('stats-lab', StatsLab).component('clf-lab', ClfLab).component('kmeans-lab', KMeansLab)
+  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell).component('claim-viz', ClaimViz).component('count-lab', CountLab).component('rule-matrix', RuleMatrix).component('qadr-lab', QadrLab).component('nineteen-lab', NineteenLab).component('struct-lab', StructLab).component('balance-lab', BalanceLab).component('abjad-lab', AbjadLab).component('float-kbd', FloatKbd).component('nlp-lab', NlpLab).component('dash-lab', DashLab).component('hifz-lab', HifzLab).component('stats-lab', StatsLab).component('clf-lab', ClfLab).component('kmeans-lab', KMeansLab).component('lib-atlas', LibAtlas)
   .component('letter-strip', LetterStrip).component('growth-curve', GrowthCurve).component('rhyme-ribbon', RhymeRibbon).mount('#app');
 });
 </script>
