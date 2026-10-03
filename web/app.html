@@ -1073,6 +1073,16 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .librefs button{font:inherit;font-size:.74rem;font-weight:600;color:var(--emerald-deep);background:var(--emerald-bg);border:1px solid rgba(52,211,153,.25);border-radius:99px;padding:4px 10px;cursor:pointer}
   .librefs button:hover{background:rgba(52,211,153,.2);color:#fff}
   .libhint{color:var(--muted);font-size:.8rem;margin:0 0 10px}
+  .rmx-wrap{overflow-x:auto}
+  .rmx table{width:100%;border-collapse:collapse;font-size:.9rem}
+  .rmx th,.rmx td{padding:9px 10px;border-bottom:1px solid var(--hair);text-align:center;font-variant-numeric:tabular-nums}
+  .rmx th.w{text-align:start;font-weight:600;color:#fff} .rmx th.w bdi{font-family:var(--ar-display);font-size:1.15rem;margin-inline-end:8px}
+  .rmx th.w span{color:var(--on-dark-2);font-weight:400;font-size:.84rem}
+  .rmx th button{font:inherit;font-size:.82rem;font-weight:600;color:var(--on-dark-2);background:rgba(255,255,255,.04);border:1px solid var(--hair);border-radius:99px;padding:6px 12px;cursor:pointer}
+  .rmx th.on button{color:#04140d;background:var(--gold);border-color:var(--gold)}
+  .rmx td{color:var(--on-dark-2)} .rmx td.cl{color:var(--on-dark-3)}
+  .rmx td.on{background:rgba(233,185,95,.06);color:#fff} .rmx td.hit{color:var(--emerald);font-weight:700}
+  .rmx td i{font-style:normal;margin-inline-start:5px}
   /* Word Counts: count a claim yourself (CountLab) */
   .clab-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-start}
   .clab-presets{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 14px}
@@ -2078,6 +2088,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
         </div>
       </div>
       <count-lab v-if="ready.words && W && W.norm" :claims="claims"></count-lab>
+      <rule-matrix v-if="ready.words && W && W.norm" :claims="claims"></rule-matrix>
       <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-blocks" data-stage="auditor" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
       <div class="card glfb"><div class="chart" id="audChart"></div></div>
       <div class="grid" style="margin-top:16px">
@@ -3949,8 +3960,8 @@ const COUNT_LABS = [
     yuksel:{ add:['45:27'], addCat:'idh', drop:[['45:17',''],['46:20','فاليوم']] },   // [verse, the form missed there ('' = any)]
     case:{ for:['Applied to every verse, the rule its proponents state gives exactly 365. The count is real, and we found no counting error in it.',
                 'إذا طُبّقت القاعدة التي يذكرها أصحاب المزعم على كل آية أعطت ٣٦٥ تمامًا. فالعدّ صحيح، ولم نجد فيه خطأ.'],
-           against:['The rule is a choice made to fit: it keeps «and a day» but drops «their day», and drops «on that day» although it holds the word (Fahd al-Roomi). The Islamic year is lunar, about 354 days (IslamQA). Defenders answer that the Quran recognises both the sun\'s and the moon\'s year (18:25).',
-                    'القاعدة اختيارٌ يوافق النتيجة: تُبقي «ويوم» وتُسقط «يومهم»، وتُسقط «يومئذ» وفيها الكلمة نفسها (فهد الرومي). والسنة في الإسلام قمرية، نحو ٣٥٤ يومًا (الإسلام سؤال وجواب). ويجيب المؤيدون بأن القرآن يعترف بسنة الشمس وسنة القمر معًا (١٨:٢٥).'] },
+           against:['The rule is chosen to fit, and it changes from claim to claim: day and month count the singular only, but angels and devils count every form (Iyad Qunaibi). It keeps «and a day» but drops «their day» and «on that day» (Fahd al-Roomi). And the Islamic year is lunar, 354 or 355 days (10:5). Defenders answer that the Quran recognises both years (18:25).',
+                    'القاعدة تُختار لتوافق النتيجة، وتتبدل من مزعمٍ إلى آخر: في اليوم والشهر يُعدّ المفرد وحده، وفي الملائكة والشياطين تُعدّ كل الصيغ (إياد قنيبي). وهي تُبقي «ويوم» وتُسقط «يومهم» و«يومئذ» (فهد الرومي). والسنة في الإسلام قمرية، ٣٥٤ أو ٣٥٥ يومًا (١٠:٥). ويجيب المؤيدون بأن القرآن يعترف بالسنتين معًا (١٨:٢٥).'] },
     src:[
       {t:['Abdurrazzaq Nawfal, al-I\'jāz al-\'Adadī lil-Qur\'ān al-Karīm (The Numerical Miracle of the Quran). The origin of the 365, the 12 and most word-count claims; he first noticed the pattern in 1959.','عبد الرزاق نوفل، «الإعجاز العددي للقرآن الكريم». أصل رقم ٣٦٥ ورقم ١٢ وأكثر مزاعم أعداد الكلمات، وقد لاحظ النمط أول مرة سنة ١٩٥٩.']},
       {t:['Fahd al-Roomi, Ittijāhāt al-Tafsīr fī al-Qarn al-Rābi\' \'Ashar, vol. 2, pp. 699-700: the counting is selective, keeping «al-yawm» and «yawman» and leaving out «yawmukum» and «yawmuhum».','فهد الرومي، «اتجاهات التفسير في القرن الرابع عشر»، ٢/٦٩٩-٧٠٠: العدّ انتقائي، يأخذ «اليوم» و«يوما» ويترك «يومكم» و«يومهم».'], u:'https://islamqa.info/en/answers/69741', ul:['as quoted by IslamQA, answer 69741','كما نقله موقع الإسلام سؤال وجواب، الجواب ٦٩٧٤١']},
@@ -3962,6 +3973,8 @@ const COUNT_LABS = [
       {id:'5m45Nc8ZNFw', by:'QuranMiracles', n:['Counts every form: 27 plural, 3 dual, 10 with a pronoun, 70 «on that day».','يعدّ كل الصيغ: ٢٧ جمعًا، و٣ مثنى، و١٠ مع ضمير، و٧٠ «يومئذ».']},
       {id:'_8FOQcbBync', by:'Abdul Daem al-Kaheel', n:['Day 365 and month 12, among a dozen other word counts.','اليوم ٣٦٥ والشهر ١٢، بين عشرات أعداد الكلمات الأخرى.']},
       {id:'2iiGZlyDOXk', by:'Towards Eternity', n:['2.6 million views; repeats day 365, month 12 and angels and devils 88.','٢٫٦ مليون مشاهدة، ويكرر اليوم ٣٦٥ والشهر ١٢ والملائكة والشياطين ٨٨.']},
+      {id:'CoEntq8adIc', by:'Dr Iyad Qunaibi', n:['«Numerical miracle: fact or illusion?» Repeating such counts unchecked can turn into doubt in the Quran once they are debunked; at most a count is a subtlety, not a miracle.','«الإعجاز العددي حقيقة أم وهم؟» تناقل هذه الأعداد دون تثبت قد ينقلب شكًا في القرآن حين تُنقض، وما صحّ منها لطيفة لا إعجاز.']},
+      {id:'wN6cvI3RrkM', by:'Dr Iyad Qunaibi', n:['«The numerical miracle, once more»: grants that day comes 365 times by the claimants\' conditions, objects that the conditions change from claim to claim, and credits Dr Adel Sabour with noticing that a search for يوم also counts القيوم.','«الإعجاز العددي مرةً أخرى»: يسلّم بأن «يوم» تتكرر ٣٦٥ مرة بشروطهم، ويعترض بأن الشروط تتبدل من مزعمٍ إلى آخر، ويشكر الدكتور عادل صبور على ملاحظة أن البحث عن «يوم» يعدّ «القيوم» أيضًا.']},
       {id:'snleXePXJqs', by:'Sheikh Othman al-Khamees', n:['Warns against numerical-miracle claims: the Quran is a book of guidance.','يحذّر من مزاعم الإعجاز العددي: القرآن كتاب هداية.']} ] },
   { id:'month-12', lemma:'شهر', root:'شهر', letters:'شهر', word:['month','شهر'],
     cats:[
@@ -3973,13 +3986,93 @@ const COUNT_LABS = [
       {id:'all', on:['plain','dual','plur'], lab:['Every form','جميع الصيغ'], who:['Every form of the word: 21.','كل صيغ الكلمة: ٢١.']},
       {id:'letters', letters:true, lab:['Letters only','الحروف فقط'], who:['A text search for ش ه ر: 20. It catches «ashhur» but misses «al-shuhūr», whose letters are split by a و.','بحثٌ نصي عن ش ه ر: ٢٠. يلتقط «أشهر» ويفوته «الشهور» لأن الواو تفصل حروفه.']} ],
     case:{ for:['Applied to every verse, the singular rule gives exactly 12.','إذا طُبّقت قاعدة المفرد على كل آية أعطت ١٢ تمامًا.'],
-           against:['The same objection as for «day»: the rule decides the number, and it was chosen once the number was known.','الاعتراض نفسه في «يوم»: القاعدة هي التي تحدد الرقم، وقد اختيرت بعد معرفته.'] },
+           against:['Iyad Qunaibi grants the 12, then asks why the count here drops «two months», «ashhur» and «shuhūr» when the angels count keeps «two angels» and every other form. The rule decides the number.','يسلّم إياد قنيبي بالـ١٢، ثم يسأل: لماذا يُسقط العدّ هنا «شهرين» و«أشهر» و«شهور»، بينما يُبقي عدّ الملائكة «ملكين» وسائر الصيغ؟ القاعدة هي التي تحدد الرقم.'] },
     src:[ {t:['Abdurrazzaq Nawfal, al-I\'jāz al-\'Adadī lil-Qur\'ān al-Karīm.','عبد الرزاق نوفل، «الإعجاز العددي للقرآن الكريم».']} ],
     vids:[
       {id:'_8FOQcbBync', by:'Abdul Daem al-Kaheel', n:['Counts «month» in the singular: «shahr», «al-shahr», «shahran».','يعدّ «شهر» بالمفرد: «شهر» و«الشهر» و«شهرا».']},
-      {id:'2iiGZlyDOXk', by:'Towards Eternity', n:['Repeats month 12 beside day 365.','يكرر الشهر ١٢ بجانب اليوم ٣٦٥.']} ] } ];
-const CAT_CSS = {plain:'var(--emerald-2)', idh:'var(--gold)', pron:'#f0a08c', dual:'var(--teal)', plur:'#b9a2ff', look:'#ff6b6b'};
+      {id:'2iiGZlyDOXk', by:'Towards Eternity', n:['Repeats month 12 beside day 365.','يكرر الشهر ١٢ بجانب اليوم ٣٦٥.']},
+      {id:'wN6cvI3RrkM', by:'Dr Iyad Qunaibi', n:['Grants the singular 12, and asks why the plurals are dropped here but kept for angels.','يسلّم بالمفرد ١٢، ويسأل لماذا يُسقط الجمع هنا ويُبقى في الملائكة.']} ] },
+  { id:'angel-88', lemma:'ملك', root:'ملك', letters:'ملك', word:['angel','ملك'], pair:'devil-88',
+    // the word list writes angel, king and dominion alike (ملك); the vowels tell malak apart
+    match:(n,s,lem)=>lem==='ملك' && (s.includes('مَلَٰٓئِكَ') || /مَلَك/.test(s)),
+    cats:[
+      {k:'plain', test:()=>true, lab:['The singular «angel» (malak)','المفرد «مَلَك»'], ex:'ملك · الملك · ملكا'},
+      {k:'dual', test:(n,s)=>/مَلَكَيْنِ/.test(s), lab:['Dual: «two angels» (2:102, 7:20)','المثنى: «الملكين» (٢:١٠٢، ٧:٢٠)'], ex:'الملكين · ملكين'},
+      {k:'plur', test:(n,s)=>s.includes('مَلَٰٓئِكَ'), lab:['Plural: «the angels» (malā\'ika)','الجمع: «الملائكة»'], ex:'الملائكة · ملائكته'},
+      {k:'kin', lab:['Same root, another word: «mulk» (dominion), «malik» (king), «malakat» (possessed)','من الجذر نفسه وكلمةٌ أخرى: «مُلْك» و«مَلِك» و«مَلَكَتْ»'], ex:'الملك · ملك · ملكت'},
+      {k:'look', lab:['Only shares the letters: «a\'mālakum» (your deeds), «aḥmilukum» (carry you)','تشترك في الحروف فقط: «أعمالكم» و«أحملكم»'], ex:'أعمالكم'} ],
+    presets:[
+      {id:'rule', on:['plain','dual','plur'], lab:['The claim\'s rule','قاعدة المزعم'], who:['Every form of the word, «with all its derivatives» as al-Kaheel puts it: singular, dual and plural.','كل صيغ الكلمة، «بجميع مشتقاتها» كما يقول الكحيل: المفرد والمثنى والجمع.']},
+      {id:'sing', on:['plain'], lab:['Singular only, as for day','المفرد وحده، كما في اليوم'], who:['The rule used for day and month. Applied here, angel and devil no longer match: 13 against 70.','القاعدة المستعملة في اليوم والشهر. وإذا طُبّقت هنا لم يعد الملك والشيطان متساويين: ١٣ مقابل ٧٠.']},
+      {id:'letters', letters:true, lab:['Letters only','الحروف فقط'], who:['A text search for م ل ك mixes in «dominion», «king» and «your deeds», and misses the plural «al-malā\'ika», whose letters are written ملئكة.','البحث النصي عن م ل ك يخلط «المُلك» و«المَلِك» و«أعمالكم»، ويفوته الجمع «الملائكة» لأنه يُكتب ملئكة.']} ],
+    case:{ for:['Counting every form of each word, angels and devils both come to exactly 88.','بعدّ كل صيغ الكلمتين يأتي الملائكة والشياطين ٨٨ مرة لكلٍّ منهما تمامًا.'],
+           against:['This pair holds only if every form is counted, the very forms the day and month counts leave out (Iyad Qunaibi). And a text search cannot see it at all: it mixes angel with king and dominion, and finds no «شيطان», because the mushaf writes «شيطن».','لا يصح التساوي إلا بعدّ كل الصيغ، وهي الصيغ نفسها التي يُسقطها عدّ اليوم والشهر (إياد قنيبي). ولا يراه البحث النصي أصلًا: يخلط الملَك بالملِك والمُلك، ولا يجد «شيطان» لأن المصحف يكتبها «شيطن».'] },
+    src:[ {t:['Abdurrazzaq Nawfal, al-I\'jāz al-\'Adadī lil-Qur\'ān al-Karīm: the pairing of angels and devils.','عبد الرزاق نوفل، «الإعجاز العددي للقرآن الكريم»: مقابلة الملائكة بالشياطين.']} ],
+    vids:[
+      {id:'_8FOQcbBync', by:'Abdul Daem al-Kaheel', n:['Angels «with all their derivatives» 88, devils 88; invites viewers to check with software.','الملائكة «بجميع مشتقاتها» ٨٨، والشياطين ٨٨، ويدعو المشاهد إلى التحقق بالبرنامج.']},
+      {id:'2iiGZlyDOXk', by:'Towards Eternity', n:['Angels and devils 88 each, beside day 365 and month 12.','الملائكة والشياطين ٨٨ لكلٍّ منهما، بجانب اليوم ٣٦٥ والشهر ١٢.']},
+      {id:'wN6cvI3RrkM', by:'Dr Iyad Qunaibi', n:['Points out that this count keeps «two angels» and every form, unlike the month count.','ينبّه إلى أن هذا العدّ يُبقي «ملكين» وكل الصيغ، بخلاف عدّ الشهر.']} ] },
+  { id:'devil-88', lemma:'شيطان', root:'شطن', letters:'شيطان', word:['devil','شيطان'], pair:'angel-88',
+    cats:[
+      {k:'plain', test:()=>true, lab:['The singular «devil» (shayṭān)','المفرد «شيطان»'], ex:'الشيطان · شيطانا · للشيطان'},
+      {k:'plur', test:n=>n.includes('شيطين'), lab:['Plural: «devils» (shayāṭīn)','الجمع: «الشياطين»'], ex:'الشياطين · شياطينهم'} ],
+    presets:[
+      {id:'rule', on:['plain','plur'], lab:['The claim\'s rule','قاعدة المزعم'], who:['Every form of the word: singular and plural, matching the angels count.','كل صيغ الكلمة: المفرد والجمع، كما في عدّ الملائكة.']},
+      {id:'sing', on:['plain'], lab:['Singular only, as for day','المفرد وحده، كما في اليوم'], who:['The day-and-month rule gives 70 here, against 13 for angel.','قاعدة اليوم والشهر تعطي هنا ٧٠، مقابل ١٣ للملك.']},
+      {id:'letters', letters:true, lab:['Letters only','الحروف فقط'], who:['A text search for شيطان finds nothing: the mushaf writes the word «شيطن», with a small alif above.','البحث النصي عن «شيطان» لا يجد شيئًا: فالمصحف يكتبها «شيطن» بألفٍ صغيرة فوقها.']} ],
+    case:{ for:['Counting every form, the devil comes 88 times, the same as the angels.','بعدّ كل الصيغ يرد الشيطان ٨٨ مرة، كعدد الملائكة.'],
+           against:['Same as for the angels: the match needs every form counted, which the day and month counts do not allow.','كما في الملائكة: لا يصح التساوي إلا بعدّ كل الصيغ، وهو ما لا يسمح به عدّ اليوم والشهر.'] },
+    src:[ {t:['Abdurrazzaq Nawfal, al-I\'jāz al-\'Adadī lil-Qur\'ān al-Karīm.','عبد الرزاق نوفل، «الإعجاز العددي للقرآن الكريم».']} ],
+    vids:[ {id:'_8FOQcbBync', by:'Abdul Daem al-Kaheel', n:['Devils «with all their derivatives» 88.','الشياطين «بجميع مشتقاتها» ٨٨.']} ] } ];
+// every mention of a lab's word with its form, and the words that only look like it: 'kin' shares the root but is
+// another word (mulk, malik beside malak), 'look' only shares the letters (al-Qayyum beside yawm). Cached per lab.
+const LAB_ITEMS = new Map();
+function labItems(L, W){
+  if(!W || !W.norm || !W.norm.length) return [];
+  if(LAB_ITEMS.has(L.id)) return LAB_ITEMS.get(L.id);
+  const out=[], ordered=L.cats.filter(c=>c.test && c.k!=='plain'), kin=L.cats.some(c=>c.k==='kin'), look=L.cats.some(c=>c.k==='look');
+  for(let i=0;i<W.norm.length;i++){ const n=W.norm[i], sf=W.surface ? W.surface[i] : n, s=sf.replace(/ّ/g,'');
+    const base={i, k:W.key[i], n, surf:sf};
+    if(L.match ? L.match(n, s, W.lemma[i]) : W.lemma[i]===L.lemma){ const c=ordered.find(c=>c.test(n, s)); out.push(Object.assign(base, {cat:c ? c.k : 'plain'})); }
+    else if(L.letters && n.includes(L.letters)){ const same=W.root[i]===L.root; if(same ? kin : look) out.push(Object.assign(base, {cat:same ? 'kin' : 'look'})); } }
+  LAB_ITEMS.set(L.id, out); return out; }
+// how many a rule counts: 'singular' = the plain form only; 'every' = every form of the word; 'letters' = a text search
+function labCount(L, W, rule){ const it=labItems(L, W);
+  if(rule==='letters') return it.filter(x=>x.n.includes(L.letters)).length;
+  if(rule==='singular') return it.filter(x=>x.cat==='plain').length;
+  if(rule==='every') return it.filter(x=>x.cat!=='kin' && x.cat!=='look').length;
+  const p=L.presets.find(p=>p.id===rule); return p && p.on ? it.filter(x=>p.on.includes(x.cat)).length : 0; }
+const CAT_CSS = {plain:'var(--emerald-2)', idh:'var(--gold)', pron:'#f0a08c', dual:'var(--teal)', plur:'#b9a2ff', kin:'#8a97a8', look:'#ff6b6b'};
 
+// Word Counts: one rule for every claim. A famous count is only as good as its rule; here a single rule is applied to
+// all the claims at once, so you can see which numbers survive when the rule does not change between them.
+const RULE_COLS = [
+  {id:'singular', lab:['Singular only','المفرد وحده'], say:['the plain singular only, the rule behind day 365 and month 12','المفرد المجرد وحده، وهي قاعدة اليوم ٣٦٥ والشهر ١٢']},
+  {id:'every', lab:['Every form','جميع الصيغ'], say:['every form of the word, the rule behind angels and devils 88','كل صيغ الكلمة، وهي قاعدة الملائكة والشياطين ٨٨']},
+  {id:'letters', lab:['Letters only','الحروف فقط'], say:['a plain text search, the way an app or a website counts','بحثٌ نصي مجرد، كما يعدّ تطبيقٌ أو موقع']} ];
+const RuleMatrix = { props:['claims'],
+  data(){ return {col:'singular'}; },
+  template:`<figure class="dfig rmx">
+    <h3>{{ ar ? 'قاعدةٌ واحدة لكل المزاعم' : 'One rule for every claim' }}</h3>
+    <p class="fsub">{{ ar ? 'كل رقمٍ مشهور يصح بقاعدةٍ ما. اختر قاعدةً واحدة وطبّقها على المزاعم كلها، وانظر أيّها يبقى.' : 'Each famous number holds by some rule. Pick one rule, apply it to every claim, and see which numbers survive.' }}</p>
+    <div class="rmx-wrap"><table>
+      <tr><th></th><th>{{ ar ? 'المزعوم' : 'Claimed' }}</th>
+        <th v-for="c in cols" :key="c.id" :class="{on:col===c.id}"><button type="button" @click="col=c.id" :aria-pressed="String(col===c.id)">{{ T(c.lab) }}</button></th></tr>
+      <tr v-for="r in rows" :key="r.id">
+        <th class="w"><bdi lang="ar">{{ r.ar }}</bdi><span v-if="!ar">{{ r.en }}</span></th><td class="cl">{{ D(r.claimed) }}</td>
+        <td v-for="c in cols" :key="c.id" :class="{on:col===c.id, hit:r.n[c.id]===r.claimed}">{{ D(r.n[c.id]) }}<i v-if="r.n[c.id]===r.claimed" aria-label="matches">✓</i></td></tr>
+    </table></div>
+    <p class="cv-say" aria-live="polite">{{ say }}</p>
+  </figure>`,
+  computed:{ ar(){ return this.$root.lang==='ar'; }, cols(){ return RULE_COLS; },
+    rows(){ const W=this.$root.W; return COUNT_LABS.map(L=>{ const c=this.claims.find(x=>x.id===L.id); if(!c) return null;
+      const n={}; RULE_COLS.forEach(r=>{ n[r.id]=labCount(L, W, r.id); }); return {id:L.id, ar:L.word[1], en:L.word[0], claimed:c.claimed, n}; }).filter(Boolean); },
+    say(){ const ar=this.ar, col=RULE_COLS.find(c=>c.id===this.col), R=this.rows, hit=R.filter(r=>r.n[this.col]===r.claimed);
+      const names=x=>x.map(r=>ar ? '«'+r.ar+'»' : r.en).join(ar ? '، ' : ', ');
+      const miss=R.filter(r=>r.n[this.col]!==r.claimed);
+      return ar ? 'بقاعدة '+this.T(col.say)+': يصح '+this.D(hit.length)+' من '+this.D(R.length)+(hit.length ? ' ('+names(hit)+')' : '')+(miss.length ? '، ولا يصح '+names(miss) : '')+'. لا توجد قاعدةٌ واحدة تُصحّ الأرقام المشهورة كلها.'
+        : 'With '+this.T(col.say)+': '+hit.length+' of '+R.length+' hold'+(hit.length ? ' ('+names(hit)+')' : '')+(miss.length ? '; '+names(miss)+' do not' : '')+'. No single rule makes all the famous numbers hold.'; } },
+  methods:{ T(p){ const s=Array.isArray(p) ? (this.ar ? p[1] : p[0]) : p; return this.ar ? this.$root.D(s) : s; }, D(x){ return this.$root.D(x); } } };
 const CountLab = { props:['claims'],
   data(){ return {li:0, preset:'rule', on:['plain'], hov:-1, srcOpen:false}; },
   template:`<figure class="dfig clab">
@@ -4031,12 +4124,7 @@ const CountLab = { props:['claims'],
     lab(){ return this.labs[this.li] || this.labs[0]; }, claim(){ return this.claims.find(c=>c.id===this.lab.id) || {claimed:0}; },
     CAT(){ return CAT_CSS; }, curPreset(){ return this.lab.presets.find(p=>p.id===this.preset) || null; },
     // every mention of the word, with its form; and the words that only share its letters
-    items(){ const W=this.$root.W, L=this.lab; if(!W || !W.norm) return [];
-      const out=[], ordered=L.cats.filter(c=>c.k!=='plain' && c.k!=='look');
-      for(let i=0;i<W.norm.length;i++){ const n=W.norm[i];
-        if(W.lemma[i]===L.lemma){ const c=ordered.find(c=>c.test(n)); out.push({i, k:W.key[i], n, surf:W.surface ? W.surface[i] : n, cat:c ? c.k : 'plain'}); }
-        else if(L.cats.some(c=>c.k==='look') && n.includes(L.letters) && W.root[i]!==L.root) out.push({i, k:W.key[i], n, surf:W.surface ? W.surface[i] : n, cat:'look'}); }
-      return out; },
+    items(){ return labItems(this.lab, this.$root.W); },
     incl(){ const L=this.lab, p=this.curPreset, inc=new Set();
       this.items.forEach(it=>{ let on;
         if(p && p.letters) on = it.n.includes(L.letters);
@@ -4262,8 +4350,8 @@ createApp({
       claimNotesEn:{
         'day-365':'Holds by its own rule. All forms of the word come to 475. The 365 counts the plain singular «يوم», «اليوم», «يوما», including with letters such as «و» or «ب» joined at the front, and leaves out «يومئذ» (on that day), the dual and plural, and forms with a pronoun joined on, such as «يومهم» (their day). Counted that way the Quran gives exactly 365. Whether that is the right way to count is the open question.',
         'month-12':'Holds by its own rule. All forms come to 21. The 12 counts the singular «شهر», «الشهر», «شهرا», and leaves out the dual and the plurals «أشهر» and «الشهور». Counted that way the Quran gives exactly 12.',
-        'devil-88':'Holds exactly: the singular and plural of «شيطان» together come 88 times. A quick text search for the spelling «شيطان» finds none, because the mushaf writes it «شيطن».',
-        'angel-88':'Holds exactly. Our count tells «مَلَك» (angel, 88 times) apart from «مُلْك» (dominion) and «مَلِك» (king), which look the same without vowel marks. A quick text search cannot tell them apart, which is why its count looks wrong.',
+        'devil-88':'Holds exactly: the singular and plural of «شيطان» together come 88 times. A quick text search for the spelling «شيطان» finds none, because the mushaf writes it «شيطن». But it holds only when every form is counted, the forms the famous day and month counts leave out.',
+        'angel-88':'Holds exactly. Our count tells «مَلَك» (angel, 88 times) apart from «مُلْك» (dominion) and «مَلِك» (king), which look the same without vowel marks. A quick text search cannot tell them apart, which is why its count looks wrong. But it holds only when every form is counted, the forms the famous day and month counts leave out.',
         'hell-77':'Holds exactly. «جهنم» is a name for Hell and has no other meaning.',
         'paradise-77':'«جنة» also means «garden», so all its uses add up to far more than 77. The 77 counts only the uses that mean Paradise, and sorting the uses by meaning takes a reader; a word count cannot do it.',
         'man-24':'We counted «رَجُل» (man), kept apart from «رِجْل» (foot). Counted this way, man and woman do not both come 24 times.',
@@ -4276,8 +4364,8 @@ createApp({
       claimNotesAr:{
         'day-365':'يصدق بقاعدته. صيغ الكلمة كلها ٤٧٥. أما الرقم ٣٦٥ فيعدّ المفرد المجرد «يوم» و«اليوم» و«يوما»، ولو اتصلت به الواو أو الباء في أوله، ويستبعد «يومئذ» والمثنى والجمع والصيغ المتصلة بالضمائر مثل «يومهم». وبهذا العدّ يعطي القرآن ٣٦٥ تمامًا. أما هل هذه هي الطريقة الصحيحة للعدّ فهو موضع الخلاف.',
         'month-12':'يصدق بقاعدته. صيغ الكلمة كلها ٢١. أما الرقم ١٢ فيعدّ المفرد «شهر» و«الشهر» و«شهرا»، ويستبعد المثنى والجمعين «أشهر» و«الشهور». وبهذا العدّ يعطي القرآن ١٢ تمامًا.',
-        'devil-88':'العدُّ مطابق: المفرد والجمع من «شيطان» معًا ٨٨ مرة. ومن الطريف أن البحث النصي السريع عن رسم «شيطان» لا يجد شيئًا، لأن الرسم العثماني يكتبها «شيطن».',
-        'angel-88':'العدُّ مطابق، إذ يفصل عدُّنا «مَلَك» (٨٨ مرة) عن «مُلْك» و«مَلِك»، وهي تتشابه في الرسم بلا تشكيل. أما البحث النصي السريع فلا يفرّق بينها، ولهذا يبدو عدُّه خاطئًا.',
+        'devil-88':'العدُّ مطابق: المفرد والجمع من «شيطان» معًا ٨٨ مرة. ومن الطريف أن البحث النصي السريع عن رسم «شيطان» لا يجد شيئًا، لأن الرسم العثماني يكتبها «شيطن». لكنه لا يصح إلا بعدّ كل الصيغ، وهي الصيغ التي يُسقطها عدّ اليوم والشهر المشهوران.',
+        'angel-88':'العدُّ مطابق، إذ يفصل عدُّنا «مَلَك» (٨٨ مرة) عن «مُلْك» و«مَلِك»، وهي تتشابه في الرسم بلا تشكيل. أما البحث النصي السريع فلا يفرّق بينها، ولهذا يبدو عدُّه خاطئًا. لكنه لا يصح إلا بعدّ كل الصيغ، وهي الصيغ التي يُسقطها عدّ اليوم والشهر المشهوران.',
         'hell-77':'العدُّ مطابق، فكلمة «جهنم» اسمٌ للنار لا معنى لها غيره.',
         'paradise-77':'كلمة «جنة» تعني البستان أيضًا، ولذلك يزيد مجموع ورودها على ٧٧ بكثير. أما الرقم ٧٧ فيعدّ ما جاء منها بمعنى الجنة وحده، وفرزُ المواضع بحسب المعنى يحتاج إلى قارئ، ولا يقدر عليه عدُّ الكلمات.',
         'man-24':'عددنا «رَجُل» بعد فصلها عن «رِجْل» بمعنى القدم، وبهذا العدّ لا يرد الرجل والمرأة ٢٤ مرة لكلٍّ منهما.',
@@ -5682,7 +5770,7 @@ createApp({
     this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); this.enterView(true); });
   }
 }).component('depth-switch', DepthSwitch).component('term-chips', TermChips).component('explain-box', ExplainBox)
-  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell).component('claim-viz', ClaimViz).component('count-lab', CountLab)
+  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell).component('claim-viz', ClaimViz).component('count-lab', CountLab).component('rule-matrix', RuleMatrix)
   .component('letter-strip', LetterStrip).component('growth-curve', GrowthCurve).component('rhyme-ribbon', RhymeRibbon).mount('#app');
 });
 </script>
