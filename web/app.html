@@ -4128,7 +4128,7 @@ const COUNT_LABS = [
       {id:'every', on:['plain','dual','plur'], lab:['Every form','جميع الصيغ'], who:['Singular, dual and the plural «rijāl».','المفرد والمثنى والجمع «رجال».']},
       {id:'letters', letters:true, lab:['Letters only','الحروف فقط'], who:['A text search for ر ج ل mixes «man» with «foot» («arjulakum», your feet).','البحث النصي عن ر ج ل يخلط «الرجل» بـ«الرِّجل» (أرجلكم).']} ],
     case:{ for:['In the singular, «man» comes exactly 24 times.','بالمفرد ترد «رجل» ٢٤ مرة تمامًا.'] },
-    src:[ {t:['Abdurrazzaq Nawfal, al-I\'jāz al-\'Adadī: the pairing of man and woman.','عبد الرزاق نوفل، «الإعجاز العددي»: مقابلة الرجل بالمرأة.']} ],
+    src:[ {t:['Abdurrazzaq Nawfal, al-I\'jāz al-\'Adadī lil-Qur\'ān al-Karīm: the pairing of man and woman.','عبد الرزاق نوفل، «الإعجاز العددي للقرآن الكريم»: مقابلة الرجل بالمرأة.']}, {t:['Abdul Daem al-Kaheel, «al-I\'jāz al-\'adadī fī al-Qur\'ān al-Karīm» (kaheel7.net): «man», standalone in the singular, 24 times; «woman», standalone in the singular, 24 times.','عبد الدائم الكحيل، «الإعجاز العددي في القرآن الكريم» (kaheel7.net): «كلمة رجل منفردة تكررت ٢٤ مرة، وكلمة امرأة منفردة تكررت ٢٤ مرة».']} ],
     vids:[ {id:'_8FOQcbBync', by:'Abdul Daem al-Kaheel', n:['«Man» in the singular 24, «woman» in the singular 24.','«رجل» منفردة ٢٤، و«امرأة» منفردة ٢٤.']} ] },
   { id:'woman-24', claimed:24, lemma:'امرات', root:'مرا', letters:'امرا', word:['woman','امرأة'], pair:'man-24',
     cats:[
@@ -4139,7 +4139,7 @@ const COUNT_LABS = [
       {id:'rule', on:['plain','pron'], lab:['The claim\'s rule','قاعدة المزعم'], who:['«Woman» in the singular, as al-Kaheel counts it, keeping forms like «his wife».','«امرأة» بالمفرد كما يعدّه الكحيل، مع صيغٍ مثل «امرأته».']},
       {id:'every', on:['plain','pron','dual'], lab:['Every form','جميع الصيغ'], who:['Every form of «imra\'a». The plural «nisā\'» is a different word.','كل صيغ «امرأة». أما الجمع «نساء» فكلمةٌ أخرى.']} ],
     case:{ for:['Counting the singular with its pronoun forms, «woman» comes exactly 24 times, like «man».','بعدّ المفرد مع صيغ الضمائر ترد «امرأة» ٢٤ مرة تمامًا، كـ«رجل».'] },
-    src:[ {t:['Abdurrazzaq Nawfal, al-I\'jāz al-\'Adadī.','عبد الرزاق نوفل، «الإعجاز العددي».']} ],
+    src:[ {t:['Abdurrazzaq Nawfal, al-I\'jāz al-\'Adadī lil-Qur\'ān al-Karīm.','عبد الرزاق نوفل، «الإعجاز العددي للقرآن الكريم».']}, {t:['Abdul Daem al-Kaheel, «al-I\'jāz al-\'adadī fī al-Qur\'ān al-Karīm» (kaheel7.net): «woman», standalone in the singular, 24 times. The two duals are left out; forms such as «his wife» count, as does the spelling «امرأت».','عبد الدائم الكحيل، «الإعجاز العددي في القرآن الكريم» (kaheel7.net): «كلمة امرأة منفردة تكررت ٢٤ مرة». يُستبعد المثنى، وتُعدّ صيغٌ مثل «امرأته»، وكذلك رسم «امرأت».']} ],
     vids:[ {id:'_8FOQcbBync', by:'Abdul Daem al-Kaheel', n:['«Woman» in the singular 24.','«امرأة» منفردة ٢٤.']} ] },
   { id:'paradise-77', claimed:77, lemma:'جنة', root:'جنن', letters:'جنة', word:['paradise','جنة'], pair:'hell-77',
     cats:[
@@ -4148,7 +4148,7 @@ const COUNT_LABS = [
       {k:'dual', test:n=>/جنتان|جنتين|جنتيهم/.test(n), lab:['Dual: «two gardens»','المثنى: «جنتان»'], ex:'جنتان · جنتين'},
       {k:'pron', test:n=>/جنت(ك|ه|ي)$/.test(n), lab:['With a pronoun joined on: «your garden», «My garden»','مع ضميرٍ متصل: «جنتك»، «جنتي»'], ex:'جنتك · جنته · جنتي'} ],
     presets:[
-      {id:'letters', letters:true, lab:['The claim\'s rule: the spelling «جنة»','قاعدة المزعم: الرسم «جنة»'], who:['The word as written, «جنة» with a final «ة»: 77, equal to «jahannam». The plural and the pronoun forms are written «جنت», so a text search finds only these.','الكلمة كما تُكتب، «جنة» بالتاء المربوطة: ٧٧، كعدد «جهنم». أما الجمع وصيغ الضمائر فتُكتب «جنت»، فلا يجد البحث النصي غير هذه.']},
+      {id:'letters', letters:true, lab:['The claim\'s rule: the spelling «جنة»','قاعدة المزعم: الرسم «جنة»'], who:['The singular as written with a final «ة» and no pronoun joined on: «al-janna» 57 times and «janna» 20 times, 77 in all, equal to «jahannam». The plural and the pronoun forms are written «جنت», so a text search for «جنة» finds exactly these.','المفرد كما يُكتب بالتاء المربوطة ودون ضميرٍ متصل: «الجنة» ٥٧ مرة و«جنة» ٢٠ مرة، فالمجموع ٧٧، كعدد «جهنم». أما الجمع وصيغ الضمائر فتُكتب «جنت»، فلا يجد البحث النصي عن «جنة» غير هذه.']},
       {id:'every', on:['plain','plur','dual','pron'], lab:['Every form','جميع الصيغ'], who:['Every form of the word.','كل صيغ الكلمة.']} ],
     case:{ for:['Written «جنة», with a final «ة», the word comes exactly 77 times, the same as «jahannam».','مكتوبةً «جنة» بالتاء المربوطة ترد الكلمة ٧٧ مرة تمامًا، كعدد «جهنم».'] },
     src:[ {t:['Abdurrazzaq Nawfal, al-I\'jāz al-\'Adadī.','عبد الرزاق نوفل، «الإعجاز العددي».']} ],
