@@ -423,7 +423,7 @@
           else { const pc = placeCol(n), dim = sur[n] % 2 ? .55 : .8; put(S, n, fx, fy, [pc[0] * dim, pc[1] * dim, pc[2] * dim], 0, c * .7, .3 + jit[n] * .7, null); }
         }
         S.hover = n => { const e = lit.get(n); return verseTip(n, e && e.label ? '<b>' + esc(e.label) + '</b>' : ''); };
-        S.link = n => sur[n] + 1;
+        S.link = n => ({ verse: [sur[n] + 1, ver[n] + 1] });   // the verse itself, not the top of its surah
         return S;
       },
 
@@ -722,8 +722,10 @@
       if (!tip || !S) return;
       hovered = n; mat.uniforms.uHover.value = -1; mat.uniforms.uHp.value = -1; hot = -1; hotKind = '';
       const html = n >= 0 && S.hover ? S.hover(n) : null;
-      if (n < 0 || !html) { hovered = -1; document.body.style.cursor = ''; tip.hidden = true; clearTimeout(touchTip); touchTip = 0; kick(); return; }
-      if (S.kind === 'verse') mat.uniforms.uHover.value = sur[n] + 1;
+      if (n < 0 || !html) { hovered = -1; document.body.style.cursor = ''; tip.hidden = true; clearTimeout(touchTip); touchTip = 0; kick();
+        window.dispatchEvent(new CustomEvent('sky:hover', { detail: null })); return; }
+      if (S.kind === 'verse') { mat.uniforms.uHover.value = sur[n] + 1;   // the page can say in words what the tip says
+        window.dispatchEvent(new CustomEvent('sky:hover', { detail: { s: sur[n] + 1, v: ver[n] + 1, place: META[sur[n]].place } })); }
       else if (S.kind === 'group') { hot = S.grpOf ? S.grpOf(n) : S.grp[n]; hotKind = 'group'; }
       else mat.uniforms.uHp.value = n;
       const link = S.link ? S.link(n) : null;

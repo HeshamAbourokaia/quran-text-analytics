@@ -1057,6 +1057,15 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .dnav button.all{color:#04140d;background:var(--gold);border-color:var(--gold)}
   .dnav button.share{background:none;border-style:dashed;color:var(--on-dark-2)}
   /* the same moves at the top of a claim, so nobody has to scroll to the end to leave it */
+  .skyread{margin:-6px 0 16px;padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.04);font-size:.88rem;line-height:1.6;color:var(--on-dark-2);min-height:2.6em;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center}
+  .skyread b{color:#fff} .skyread .k{color:var(--on-dark-3);font-variant-numeric:tabular-nums}
+  .skyread .pl{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:99px}
+  .skyread .pl.mec{color:var(--gold);background:rgba(233,185,95,.12)} .skyread .pl.med{color:var(--emerald);background:rgba(52,211,153,.12)}
+  .skyread .hint{margin-inline-start:auto;font-size:.76rem;color:var(--on-dark-3)}
+  .librefs{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+  .librefs button{font:inherit;font-size:.74rem;font-weight:600;color:var(--emerald-deep);background:var(--emerald-bg);border:1px solid rgba(52,211,153,.25);border-radius:99px;padding:4px 10px;cursor:pointer}
+  .librefs button:hover{background:rgba(52,211,153,.2);color:#fff}
+  .libhint{color:var(--muted);font-size:.8rem;margin:0 0 10px}
   .dtop{display:flex;align-items:center;gap:8px;margin:0 0 18px}
   .dtop button{font:inherit;font-size:.82rem;font-weight:600;color:var(--on-dark);background:rgba(255,255,255,.05);border:1px solid var(--hair);border-radius:999px;padding:7px 14px;cursor:pointer;white-space:nowrap}
   .dtop button:hover{background:rgba(255,255,255,.1)}
@@ -1903,7 +1912,13 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
         <div class="kpi"><div class="n">{{ sres.surahs }}</div><div class="l">{{ lang==='ar'?'سور':'Surahs' }}</div></div>
         <div class="kpi"><div class="n">{{ sres.verses }}</div><div class="l">{{ lang==='ar'?'آيات':'Verses' }}</div></div>
       </div>
-      <template v-if="sres.total>0"><figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-carpet" data-stage="search" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure></template>
+      <template v-if="sres.total>0"><figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-carpet" data-stage="search" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
+      <p class="skyread" aria-live="polite" v-if="sres.total>0 && skyGL"><template v-if="skyHov">
+        <b>{{ surahName(skyHov.s) }}</b> <span class="k">{{ D(skyHov.s+':'+skyHov.v) }}</span>
+        <span class="pl" :class="skyHov.place==='Medina' ? 'med' : 'mec'">{{ skyHov.place==='Medina' ? (lang==='ar' ? 'مدنية' : 'Medinan') : (lang==='ar' ? 'مكية' : 'Meccan') }}</span>
+        <span>{{ sresBy[skyHov.s] ? (lang==='ar' ? 'في هذه السورة '+D(sresBy[skyHov.s])+' من '+D(sres.verses)+' آيةً مطابقة' : sresBy[skyHov.s]+' of the '+sres.verses+' matching verses are in this surah') : (lang==='ar' ? 'لا تطابق في هذه السورة' : 'no match in this surah') }}</span>
+        <span class="hint">{{ lang==='ar' ? 'انقر لتفتح الآية' : 'Click to open this verse' }}</span></template>
+        <template v-else>{{ lang==='ar' ? 'مرّر المؤشر على نقطةٍ لترى سورتها، مكيةً أو مدنية، وكم فيها من المطابقات. والنقاط المضيئة هي الآيات المطابقة.' : 'Point at a dot to see its surah, whether it is Meccan or Medinan, and how many matches it holds. The bright dots are the matching verses.' }}</template></p></template>
       <div v-if="q && !ready.words" class="stub">{{ lang==='ar'?'جارٍ تحميل فهرس الكلمات…':'Loading the word index…' }}</div>
       <div v-else-if="q && sres.total===0" class="stub">{{ lang==='ar'?'لا نتائج':'No matches' }}</div>
       <div v-if="sres.total>0" class="card">
@@ -2707,7 +2722,8 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
         <span class="chip ui" :class="{on:libCat==='all'}" @click="libCat='all'">{{ lang==='ar'?'الكل':'All' }}</span>
         <span class="chip ui" v-for="c in libCats" :key="c" :class="{on:libCat===c}" @click="libCat=c">{{ c }}</span>
       </div>
-      <div style="color:var(--muted);font-size:.8rem;margin-bottom:10px">{{ libFiltered.length }} {{ lang==='ar'?'عنصر':'items' }}</div>
+      <div style="color:var(--muted);font-size:.8rem;margin-bottom:4px">{{ libFiltered.length }} {{ lang==='ar'?'عنصر':'items' }}</div>
+      <p class="libhint">{{ lang==='ar' ? 'كل بطاقةٍ كاملةٌ كما هي. انقر رقم آيةٍ لتقرأها في المصحف، ثم تنقّل بين آيات البطاقة وعُد إلى هنا.' : 'Each card is complete as it is. Tap a verse reference to read it in the reader, step through the card\'s verses, and come back here.' }}</p>
       <div class="grid">
         <div v-for="it in libFiltered" :key="it.id" class="card" style="margin:0">
           <template v-if="curLib.type==='tafsir'">
@@ -2716,6 +2732,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
             <div class="verse" style="font-size:1.25rem;border:0;padding:8px 0;line-height:2">{{ it.verse_ar }}</div>
             <div style="font-size:.85rem">{{ lang==='ar'?it.insight_ar:it.insight_en }}</div>
             <div style="font-size:.75rem;color:var(--teal);margin-top:6px">{{ lang==='ar'?'بقلم: ':'by ' }}{{ lang==='ar'?it.scholar_ar:it.scholar_en }}</div>
+            <div class="librefs"><button v-for="(r,i) in libRefs(it)" :key="r.lab" type="button" data-dopen @click="libOpen(it, i, $event)">{{ lang==='ar' ? 'اقرأ '+D(r.lab)+' ‹' : 'Read '+r.lab+' ›' }}</button></div>
           </template>
           <template v-else-if="curLib.type==='untranslatable'">
             <div style="display:flex;align-items:baseline;justify-content:space-between;gap:8px;flex-wrap:wrap">
@@ -2732,6 +2749,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
             <div style="font-size:.85rem;line-height:1.7">{{ lang==='ar'?it.meaning_ar:it.meaning_en }}</div>
             <div style="font-size:.78rem;color:var(--teal);margin-top:8px">{{ lang==='ar'?it.root_insight_ar:it.root_insight_en }}</div>
             <div v-if="it.source_en" style="font-size:.68rem;color:var(--muted);margin-top:6px">{{ lang==='ar'?it.source_ar:it.source_en }}</div>
+            <div class="librefs"><button v-for="(r,i) in libRefs(it)" :key="r.lab" type="button" data-dopen @click="libOpen(it, i, $event)">{{ lang==='ar' ? 'اقرأ '+D(r.lab)+' ‹' : 'Read '+r.lab+' ›' }}</button></div>
           </template>
           <template v-else>
             <div class="ar">{{ it.ar }}</div>
@@ -2739,7 +2757,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
             <div style="font-size:.85rem;margin-top:8px">{{ lang==='ar'?it.desc_ar:it.desc_en }}</div>
             <div v-if="it.context_en" style="font-size:.8rem;color:var(--muted);margin-top:6px">{{ lang==='ar'?it.context_ar:it.context_en }}</div>
             <div v-if="it.figures_en" style="font-size:.78rem;color:var(--teal);margin-top:6px">👤 {{ lang==='ar'?it.figures_ar:it.figures_en }}</div>
-            <div v-if="it.refs" style="font-size:.72rem;color:var(--muted);margin-top:6px">{{ Array.isArray(it.refs)?it.refs.join(', '):it.refs }}</div>
+            <div v-if="it.refs" class="librefs"><button v-for="(r,i) in libRefs(it)" :key="r.lab" type="button" data-dopen @click="libOpen(it, i, $event)">{{ D(r.lab) }} ›</button></div>
           </template>
         </div>
       </div>
@@ -3986,7 +4004,7 @@ createApp({
       V: window.QURAN_VERSES||{}, W: window.QURAN_WORDS||{key:[],norm:[],lemma:[],root:[],surface:[]},
       ready:{ verses:!!window.QURAN_VERSES, words:!!window.QURAN_WORDS, plotly:typeof Plotly!=='undefined', disc:false, hviz:false },
       q:'', mode:'surface', sres:{total:0,surahs:0,verses:0,sample:[]},
-      rSurah:1, rVerse:0, rClaim:'', rBack:'', scrollPct:0, railDragging:false, EN:{}, showTrans:(new URLSearchParams(location.search).get('lang')!=='ar'), libQ:'', libCat:'all', stories:[], lessons:[], duas:[], tafsir:[], untranslatable:[], untranslatableIntro:{}, history:[], historyIntro:{}, hSel:'', hYear:610, hPlaying:false, hFilter:'all', hCopied:false,
+      rSurah:1, rVerse:0, rClaim:'', rBack:'', scrollPct:0, railDragging:false, EN:{}, showTrans:(new URLSearchParams(location.search).get('lang')!=='ar'), libQ:'', libCat:'all', stories:[], lessons:[], duas:[], tafsir:[], untranslatable:[], untranslatableIntro:{}, history:[], historyIntro:{}, skyHov:null, sresBy:{}, skyGL:false, hSel:'', hYear:610, hPlaying:false, hFilter:'all', hCopied:false,
       V1:{}, abjadInput:'الله',
       jevOn: !!(JEV && JEV.endpoint()), JD: window.QTA_JEV_DATA||{},
       cc:{text:'', busy:false, res:null}, ask:{text:'', busy:false, res:null}, sit:{text:'', busy:false, res:null},
@@ -5009,6 +5027,7 @@ createApp({
       }
       this.sres={total:total,surahs:suras.size,verses:verses.size,sample:sample};
       SKYKEYS = verses.size ? [...verses] : null;
+      const by={}; (SKYKEYS||[]).forEach(k=>{ const n=+String(k).split(':')[0]; by[n]=(by[n]||0)+1; }); this.sresBy=by;
       if(this.view==='search') this.syncSky();
     },
     highlight(vk){
@@ -5180,6 +5199,12 @@ createApp({
         if(from==='reader' && String(st.qv).startsWith('d-') && this.dAnchor){ this.dRestore(st.y||0); return; }
         const put=()=>{ if(USER_AT>t0) return; window.scrollTo(0, st.y||0); };
         put(); [120, 400, 900, 1600].forEach(ms=>setTimeout(put, ms)); }); },
+    searchKeys(){ return [...(SKYKEYS||[])].map(String).sort((a,b)=>{ const [s1,v1]=a.split(':').map(Number), [s2,v2]=b.split(':').map(Number); return s1-s2 || v1-v2; }); },
+    // a library card's references, each a range of verses ('2:30-39'); opening one steps through them all
+    libRefs(it){ const raw=it.refs || it.verse_ref || ''; const L=(Array.isArray(raw) ? raw : String(raw).split(/[,;]\s*/)).filter(Boolean);
+      return L.map(t=>{ const m=String(t).match(/(\d+):(\d+)(?:\s*-\s*(\d+))?/); if(!m) return null; const s=+m[1], a=+m[2], b=m[3] ? +m[3] : a, keys=[];
+        for(let v=a; v<=Math.min(b, a+299); v++) keys.push(s+':'+v); return {lab:t.trim(), k:keys[0], keys}; }).filter(Boolean); },
+    libOpen(it, i, ev){ const R=this.libRefs(it), all=R.flatMap(r=>r.keys); this.dOpen(R[i].k, all, ev); },
     backFromReader(){
       const st=history.state;
       if(st && st.qv==='reader' && this._readerFrom && st.qi===this._readerFrom.qi+1 && this._readerFrom.qv===this.rBack){ history.back(); return; }
@@ -5424,7 +5449,10 @@ createApp({
     if(window.QURAN_EN) this.EN=window.QURAN_EN;
     const sky=SKY(); if(sky) sky.setLang(this.lang);
     window.addEventListener('sky:read', e=>{ const n=e.detail && e.detail.surah; if(n>=1 && n<=114) this.openVerse(n, 0, '', this.view==='reader' ? this.rBack : this.view); });
-    window.addEventListener('sky:verse', e=>{ const d=e.detail||{}; this.openVerse(+d.s, +d.v, d.claim||'', this.view); });
+    window.addEventListener('sky:verse', e=>{ const d=e.detail||{};
+      const ext = this.view==='search' && SKYKEYS && SKYKEYS.length ? {keys:this.searchKeys()} : null;
+      this.openVerse(+d.s, +d.v, d.claim||'', this.view, ext); });
+    window.addEventListener('sky:hover', e=>{ this.skyHov = e.detail || null; });
     document.addEventListener('click', e=>{
       const t=e.target.closest ? e.target.closest('.term[data-term]') : null;
       if(t){ e.preventDefault(); this.openTerm(t.dataset.term, t); return; }
@@ -5435,7 +5463,7 @@ createApp({
     window.addEventListener('sky:search', e=>{ const d=e.detail||{}; if(!d.q) return; this.q=d.q; this.mode=d.mode||'lemma'; this.go('search'); this.$nextTick(()=>this.runSearch()); });
     // the sky draws the staged charts; if it can't (no WebGL), Plotly draws them instead
     const root=document.documentElement;
-    const skyUp=()=>{ this.skyReady=true; this.$nextTick(()=>this.syncStage()); };
+    const skyUp=()=>{ this.skyReady=true; this.skyGL=true; this.$nextTick(()=>this.syncStage()); };
     if(root.classList.contains('gl')) skyUp(); else window.addEventListener('sky:ready', skyUp, {once:true});
     window.addEventListener('sky:nogl', ()=>{ this.skyReady=true; this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); }); });
     setTimeout(()=>{ if(!root.classList.contains('gl') && !root.classList.contains('no-gl')){ root.classList.add('no-gl'); window.dispatchEvent(new Event('sky:nogl')); } }, 9000);
