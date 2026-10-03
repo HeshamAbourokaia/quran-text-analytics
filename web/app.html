@@ -637,7 +637,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
 
   /* ── badges, confusion tables ── */
   .badge{font-size:.64rem;font-weight:700;letter-spacing:.08em;padding:5px 10px;border-radius:999px;white-space:nowrap}
-  .badge.exact{background:rgba(52,211,153,.14);color:#7ae7bd}
+  .badge.exact,.badge.rule{background:rgba(52,211,153,.14);color:#7ae7bd}
   .badge.parity{background:rgba(56,198,218,.14);color:#8fdfeb}
   .badge.differs{background:rgba(233,185,95,.14);color:var(--gold)}
   /* ── History Claims: the lead claim, the time scrubber, one page a claim ── */
@@ -1062,10 +1062,56 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .skyread .pl{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:99px}
   .skyread .pl.mec{color:var(--gold);background:rgba(233,185,95,.12)} .skyread .pl.med{color:var(--emerald);background:rgba(52,211,153,.12)}
   .skyread .hint{margin-inline-start:auto;font-size:.76rem;color:var(--on-dark-3)}
+  .skyread .sv{flex-basis:100%;font-family:var(--ar-display);font-size:1.3rem;line-height:2;color:#fff;margin-top:4px}
+  .skyread .sv .vk{display:none} .skyread .se{flex-basis:100%;font-size:.84rem;line-height:1.6}
+  mark.other{background:none;color:inherit;outline:2px dashed #ff6b6b;outline-offset:1px;border-radius:3px}
+  .rootsplit{margin:6px 0 14px;padding:12px 14px;border-radius:12px;background:rgba(255,107,107,.06);border:1px solid rgba(255,107,107,.2);font-size:.86rem;line-height:1.6;color:var(--on-dark-2)}
+  .rootsplit p{margin:0 0 8px} .rootsplit .chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px}
+  .rootsplit .rs{display:inline-flex;align-items:baseline;gap:6px;padding:4px 10px;border-radius:99px;background:rgba(52,211,153,.1);color:#fff;font-size:.8rem}
+  .rootsplit .rs.other{background:rgba(255,107,107,.12)} .rootsplit .rs bdi{font-family:var(--ar-display);font-size:1rem} .rootsplit .rt{color:var(--on-dark-3);font-size:.72rem}
   .librefs{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
   .librefs button{font:inherit;font-size:.74rem;font-weight:600;color:var(--emerald-deep);background:var(--emerald-bg);border:1px solid rgba(52,211,153,.25);border-radius:99px;padding:4px 10px;cursor:pointer}
   .librefs button:hover{background:rgba(52,211,153,.2);color:#fff}
   .libhint{color:var(--muted);font-size:.8rem;margin:0 0 10px}
+  /* Word Counts: count a claim yourself (CountLab) */
+  .clab-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-start}
+  .clab-presets{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 14px}
+  .clab-pre{display:inline-flex;align-items:center;gap:10px;font:inherit;font-size:.84rem;font-weight:600;color:var(--on-dark);background:rgba(255,255,255,.04);border:1px solid var(--hair);border-radius:12px;padding:9px 14px;cursor:pointer}
+  .clab-pre b{font-family:var(--serif);font-size:1.15rem;font-weight:400;color:#fff;font-variant-numeric:tabular-nums}
+  .clab-pre.on{border-color:var(--gold);background:rgba(233,185,95,.1)} .clab-pre.custom{cursor:default}
+  .clab-total{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin:0 0 14px}
+  .clab-total .n{font-family:var(--serif);font-size:3.2rem;line-height:1;color:#fff;font-variant-numeric:tabular-nums;transition:color .3s}
+  .clab-total .n.hit{color:var(--emerald)}
+  .clab-total .vs{font-size:.92rem;color:var(--on-dark-2)} .clab-total .vs b{color:var(--emerald)}
+  .clab-total .who{flex-basis:100%;margin:2px 0 0;font-size:.86rem;line-height:1.6;color:var(--on-dark-2)}
+  .clab-cats{display:grid;gap:10px}
+  .clab-cat{padding:10px 12px;border-radius:14px;background:rgba(255,255,255,.025);border:1px solid var(--hair);transition:opacity .25s}
+  .clab-cat.off{opacity:.62}
+  .clab-h{display:flex;align-items:center;gap:10px;width:100%;flex-wrap:wrap;font:inherit;text-align:start;color:var(--on-dark);background:none;border:0;padding:0 0 8px;cursor:pointer}
+  .clab-h .sw{width:12px;height:12px;border-radius:3px;flex:none}
+  .clab-h .t{font-size:.88rem;font-weight:600} .clab-h .ex{font-family:var(--ar-display);font-size:1rem;color:var(--on-dark-3)}
+  .clab-h .c{margin-inline-start:auto;font-size:.82rem;color:#fff;font-variant-numeric:tabular-nums}
+  .clab-dots{display:flex;flex-wrap:wrap;gap:3px}
+  .clab-d{width:11px;height:11px;padding:0;border-radius:2px;border:1px solid;background:transparent;cursor:pointer;opacity:.7;transition:transform .12s,opacity .12s}
+  .clab-d.in{opacity:.95;border-color:transparent}
+  .clab-d:hover,.clab-d.on,.clab-d:focus-visible{transform:scale(1.6);opacity:1;outline:none;box-shadow:0 0 0 2px #fff}
+  .clab-read{margin:14px 0 0;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.04);min-height:5.2em}
+  .clab-read .rh{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center;font-size:.86rem;color:var(--on-dark-2)}
+  .clab-read .rh b{color:#fff} .clab-read .k{color:var(--on-dark-3);font-variant-numeric:tabular-nums}
+  .clab-read .tag{font-size:.78rem;font-weight:600} .clab-read .st{margin-inline-start:auto;font-size:.76rem;color:var(--on-dark-3)}
+  .clab-read .rv{margin:8px 0 0;font-family:var(--ar-display);font-size:1.35rem;line-height:2;color:#fff}
+  .clab-read .rv mark{color:#04140d;border-radius:4px;padding:0 3px}
+  .clab-read .re{margin:4px 0 0;font-size:.84rem;line-height:1.6;color:var(--on-dark-2)} .clab-read .hint{margin:0;font-size:.86rem;color:var(--on-dark-3)}
+  .clab-case{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0 0}
+  .clab-case>div{padding:12px 14px;border-radius:12px;font-size:.86rem;line-height:1.6;color:var(--on-dark)}
+  .clab-case b{display:block;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+  .clab-case .for{background:rgba(52,211,153,.07)} .clab-case .for b{color:var(--emerald)}
+  .clab-case .against{background:rgba(240,160,140,.07)} .clab-case .against b{color:#f0a08c}
+  .clab-src{margin:14px 0 0;font-size:.84rem;line-height:1.6;color:var(--on-dark-2)}
+  .clab-src summary{cursor:pointer;font-weight:600;color:var(--on-dark)}
+  .clab-src ul{margin:8px 0;padding-inline-start:18px} .clab-src li{margin:5px 0}
+  .clab-src a{color:var(--gold)} .clab-src .vh{margin:10px 0 0;font-weight:600;color:var(--on-dark)}
+  @media (max-width:640px){ .clab-case{grid-template-columns:1fr} .clab-total .n{font-size:2.6rem} }
   .dtop{display:flex;align-items:center;gap:8px;margin:0 0 18px}
   .dtop button{font:inherit;font-size:.82rem;font-weight:600;color:var(--on-dark);background:rgba(255,255,255,.05);border:1px solid var(--hair);border-radius:999px;padding:7px 14px;cursor:pointer;white-space:nowrap}
   .dtop button:hover{background:rgba(255,255,255,.1)}
@@ -1912,12 +1958,20 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
         <div class="kpi"><div class="n">{{ sres.surahs }}</div><div class="l">{{ lang==='ar'?'سور':'Surahs' }}</div></div>
         <div class="kpi"><div class="n">{{ sres.verses }}</div><div class="l">{{ lang==='ar'?'آيات':'Verses' }}</div></div>
       </div>
+      <div v-if="sres.total>0 && mode==='surface' && sresRoots.length>1" class="rootsplit">
+        <p>{{ lang==='ar' ? 'هذه الحروف ترد في '+(sresRoots.length===2 ? 'كلماتٍ من جذرين مختلفين' : sresRoots.length<=10 ? 'كلماتٍ من '+D(sresRoots.length)+' جذورٍ مختلفة' : 'كلماتٍ من '+D(sresRoots.length)+' جذرًا مختلفًا')+'. البحث «كما كُتبت» يعدّ الحروف لا الكلمة:' : 'These letters turn up in words from '+sresRoots.length+' different roots. «As written» counts letters, not the word:' }}</p>
+        <div class="chips"><span v-for="(g,gi) in sresRoots.slice(0,8)" :key="g.root" class="rs" :class="{other:gi>0}"><b>{{ f(g.n) }}</b> <bdi lang="ar">{{ g.form }}</bdi> <span class="rt">{{ lang==='ar' ? 'جذر '+g.root.split('').join(' ') : 'root '+g.root.split('').join(' ') }}</span></span>
+          <span v-if="sresRoots.length>8" class="rs other">+{{ D(sresRoots.length-8) }}</span></div>
+        <button type="button" class="cclink" @click="mode='lemma';runSearch()">{{ lang==='ar' ? 'اعدد الكلمة نفسها بكل صيغها ‹' : 'Count the word itself, in all its forms ›' }}</button>
+      </div>
       <template v-if="sres.total>0"><figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-carpet" data-stage="search" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
       <p class="skyread" aria-live="polite" v-if="sres.total>0 && skyGL"><template v-if="skyHov">
         <b>{{ surahName(skyHov.s) }}</b> <span class="k">{{ D(skyHov.s+':'+skyHov.v) }}</span>
         <span class="pl" :class="skyHov.place==='Medina' ? 'med' : 'mec'">{{ skyHov.place==='Medina' ? (lang==='ar' ? 'مدنية' : 'Medinan') : (lang==='ar' ? 'مكية' : 'Meccan') }}</span>
         <span>{{ sresBy[skyHov.s] ? (lang==='ar' ? 'في هذه السورة '+D(sresBy[skyHov.s])+' من '+D(sres.verses)+' آيةً مطابقة' : sresBy[skyHov.s]+' of the '+sres.verses+' matching verses are in this surah') : (lang==='ar' ? 'لا تطابق في هذه السورة' : 'no match in this surah') }}</span>
-        <span class="hint">{{ lang==='ar' ? 'انقر لتفتح الآية' : 'Click to open this verse' }}</span></template>
+        <span class="hint">{{ lang==='ar' ? 'انقر لتفتح الآية' : 'Click to open this verse' }}</span>
+        <span class="sv" lang="ar" dir="rtl" v-if="V[skyHov.s+':'+skyHov.v]" v-html="highlight(skyHov.s+':'+skyHov.v)"></span>
+        <span class="se" v-if="lang!=='ar' && EN[skyHov.s+':'+skyHov.v]">{{ EN[skyHov.s+':'+skyHov.v] }}</span></template>
         <template v-else>{{ lang==='ar' ? 'مرّر المؤشر على نقطةٍ لترى سورتها، مكيةً أو مدنية، وكم فيها من المطابقات. والنقاط المضيئة هي الآيات المطابقة.' : 'Point at a dot to see its surah, whether it is Meccan or Medinan, and how many matches it holds. The bright dots are the matching verses.' }}</template></p></template>
       <div v-if="q && !ready.words" class="stub">{{ lang==='ar'?'جارٍ تحميل فهرس الكلمات…':'Loading the word index…' }}</div>
       <div v-else-if="q && sres.total===0" class="stub">{{ lang==='ar'?'لا نتائج':'No matches' }}</div>
@@ -2023,6 +2077,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
           </template>
         </div>
       </div>
+      <count-lab v-if="ready.words && W && W.norm" :claims="claims"></count-lab>
       <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-blocks" data-stage="auditor" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
       <div class="card glfb"><div class="chart" id="audChart"></div></div>
       <div class="grid" style="margin-top:16px">
@@ -2033,7 +2088,8 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
           </div>
           <div class="kpis" style="margin:12px 0 4px">
             <div class="kpi" style="min-width:90px"><div class="n" style="color:var(--muted)">{{ f(c.claimed) }}</div><div class="l">{{ lang==='ar'?'المزعوم':'claimed' }}</div></div>
-            <div class="kpi" style="min-width:90px"><div class="n" :style="{color: c.verifiedLemma===c.claimed?'var(--emerald)':'var(--amber)'}">{{ f(c.verifiedLemma) }}</div><div class="l">{{ lang==='ar'?'المحقّق':'verified' }}</div></div>
+            <div v-if="c.verifiedRule!=null" class="kpi" style="min-width:90px"><div class="n" :style="{color: c.verifiedRule===c.claimed?'var(--emerald)':'var(--amber)'}">{{ f(c.verifiedRule) }}</div><div class="l">{{ lang==='ar'?'بقاعدة المزعم':'by its rule' }}</div></div>
+            <div class="kpi" style="min-width:90px"><div class="n" :style="{color: c.verifiedLemma===c.claimed?'var(--emerald)':'var(--amber)'}">{{ f(c.verifiedLemma) }}</div><div class="l">{{ c.verifiedRule!=null ? (lang==='ar'?'بجميع الصيغ':'every form') : (lang==='ar'?'المحقّق':'verified') }}</div></div>
           </div>
           <div style="font-size:.78rem;color:var(--muted)">{{ lang==='ar'?'البحث النصي السريع (جزء كلمة / كلمة كاملة)':'quick text search (part of a word / whole word)' }}: {{ f(c.rawSubstring) }} / {{ f(c.rawWholeWord) }}</div>
           <div style="font-size:.84rem;color:var(--on-dark-2);margin-top:8px;line-height:1.6">{{ (lang==='ar' ? claimNotesAr[c.id] : claimNotesEn[c.id]) || c.note_en }}</div>
@@ -3867,6 +3923,152 @@ const ClaimViz = { mixins:[FitW], props:['spec','verdict'],
     wStack(side){ return this.spec.items.filter(x=>x.side===side && this.placed.includes(x.t[0])).map(x=>x.w); },
     wToggle(it){ const k=it.t[0], i=this.placed.indexOf(k); if(i<0) this.placed.push(k); else this.placed.splice(i,1); },
     wAll(){ this.placed = this.placed.length===this.spec.items.length ? [] : this.spec.items.map(x=>x.t[0]); } } };
+// Word Counts: count a famous claim yourself. Every mention of the word is a square, sorted by its form; switch
+// the forms on and off, or apply the rule a named source used, and the total follows. The rules and the sources
+// come from the people who make and answer the claim (see `src`), so the page counts their way, not ours.
+const POSS_END = /(كم|هم|ها|نا|كن|هن)$/;
+const COUNT_LABS = [
+  { id:'day-365', lemma:'يوم', root:'يوم', letters:'يوم', word:['day','يوم'],
+    cats:[
+      {k:'plain', test:n=>true, lab:['The singular «day»','المفرد «يوم»'], ex:'يوم · اليوم · يوما · ويوم · فاليوم · بيوم'},
+      {k:'idh', test:n=>n.includes('ئذ'), lab:['«On that day» (yawma\'idhin), written as one word','«يومئذ»، تُكتب كلمةً واحدة'], ex:'يومئذ · فيومئذ'},
+      {k:'pron', test:n=>POSS_END.test(n), lab:['With a pronoun joined on: «your day», «their day»','مع ضميرٍ متصل: «يومكم»، «يومهم»'], ex:'يومكم · يومهم'},
+      {k:'dual', test:n=>n.endsWith('ين'), lab:['Dual: «two days»','المثنى: «يومين»'], ex:'يومين'},
+      {k:'plur', test:n=>/ايام|اييم/.test(n), lab:['Plural: «days» (ayyām)','الجمع: «أيام»'], ex:'أيام · الأيام · أياما'},
+      {k:'look', lab:['Not this word at all: «al-Qayyūm», the Self-Subsisting (root ق و م), which only shares the letters','ليست هذه الكلمة أصلًا: «القيوم» (من جذر ق و م)، تشترك معها في الحروف فقط'], ex:'القيوم'} ],
+    presets:[
+      {id:'rule', on:['plain'], lab:['The claim\'s rule','قاعدة المزعم'],
+        who:['Nawfal\'s count, restated by Shabir Ally, al-Kaheel and intellaren: the singular noun, with «and», «so», «by», «for» or «the» joined at the front, but not «on that day», the dual and plural, or a pronoun joined on.',
+             'عدّ نوفل كما أعاد عرضه شبير علي والكحيل وانتلايز: الاسم المفرد، ولو اتصلت به الواو أو الفاء أو الباء أو اللام أو «ال» في أوله، دون «يومئذ» والمثنى والجمع والضمائر المتصلة.']},
+      {id:'all', on:['plain','idh','pron','dual','plur'], lab:['Every form','جميع الصيغ'],
+        who:['Every form of the word, as Daniel Lomax listed them in 1996 and the QuranMiracles video counts them: 475.','كل صيغ الكلمة، كما حصرها دانيال لوماكس سنة ١٩٩٦ وكما يعدّها مقطع QuranMiracles: ٤٧٥.']},
+      {id:'letters', letters:true, lab:['Letters only','الحروف فقط'],
+        who:['A text search for the three letters ي و م: 451. intellaren starts here and removes «al-Qayyūm» by hand. The plural «ayyām» is missed, because its letters are not in that order.','بحثٌ نصي عن الحروف الثلاثة ي و م: ٤٥١. ومن هنا يبدأ انتلايز ثم يحذف «القيوم» يدويًا. ويفوت البحثَ الجمعُ «أيام» لأن حروفه ليست بهذا الترتيب.']},
+      {id:'yuksel', list:'yuksel', lab:['Yuksel\'s 1996 list','قائمة يوكسل ١٩٩٦'],
+        who:['The best-known published list of the 365, by Edip Yuksel. Checked verse by verse it holds 364: it counts «on that day» in 45:27, and misses 45:17 and «so today» in 46:20.','أشهر قائمةٍ منشورة للـ٣٦٥، لإديب يوكسل. وبمراجعتها آيةً آية تضم ٣٦٤: تعدّ «يومئذ» في ٤٥:٢٧، وتُغفل ٤٥:١٧ و«فاليوم» في ٤٦:٢٠.']} ],
+    yuksel:{ add:['45:27'], addCat:'idh', drop:[['45:17',''],['46:20','فاليوم']] },   // [verse, the form missed there ('' = any)]
+    case:{ for:['Applied to every verse, the rule its proponents state gives exactly 365. The count is real, and we found no counting error in it.',
+                'إذا طُبّقت القاعدة التي يذكرها أصحاب المزعم على كل آية أعطت ٣٦٥ تمامًا. فالعدّ صحيح، ولم نجد فيه خطأ.'],
+           against:['The rule is a choice made to fit: it keeps «and a day» but drops «their day», and drops «on that day» although it holds the word (Fahd al-Roomi). The Islamic year is lunar, about 354 days (IslamQA). Defenders answer that the Quran recognises both the sun\'s and the moon\'s year (18:25).',
+                    'القاعدة اختيارٌ يوافق النتيجة: تُبقي «ويوم» وتُسقط «يومهم»، وتُسقط «يومئذ» وفيها الكلمة نفسها (فهد الرومي). والسنة في الإسلام قمرية، نحو ٣٥٤ يومًا (الإسلام سؤال وجواب). ويجيب المؤيدون بأن القرآن يعترف بسنة الشمس وسنة القمر معًا (١٨:٢٥).'] },
+    src:[
+      {t:['Abdurrazzaq Nawfal, al-I\'jāz al-\'Adadī lil-Qur\'ān al-Karīm (The Numerical Miracle of the Quran). The origin of the 365, the 12 and most word-count claims; he first noticed the pattern in 1959.','عبد الرزاق نوفل، «الإعجاز العددي للقرآن الكريم». أصل رقم ٣٦٥ ورقم ١٢ وأكثر مزاعم أعداد الكلمات، وقد لاحظ النمط أول مرة سنة ١٩٥٩.']},
+      {t:['Fahd al-Roomi, Ittijāhāt al-Tafsīr fī al-Qarn al-Rābi\' \'Ashar, vol. 2, pp. 699-700: the counting is selective, keeping «al-yawm» and «yawman» and leaving out «yawmukum» and «yawmuhum».','فهد الرومي، «اتجاهات التفسير في القرن الرابع عشر»، ٢/٦٩٩-٧٠٠: العدّ انتقائي، يأخذ «اليوم» و«يوما» ويترك «يومكم» و«يومهم».'], u:'https://islamqa.info/en/answers/69741', ul:['as quoted by IslamQA, answer 69741','كما نقله موقع الإسلام سؤال وجواب، الجواب ٦٩٧٤١']},
+      {t:['Edip Yuksel\'s list of the 365, and Daniel Lomax\'s verse-by-verse audit of it, soc.religion.islam, January to February 1996.','قائمة إديب يوكسل للـ٣٦٥، ومراجعة دانيال لوماكس لها آيةً آية، مجموعة soc.religion.islam، يناير إلى فبراير ١٩٩٦.'], u:'https://19.org/blog/365days/', ul:['19.org','19.org']},
+      {t:['The counting rule stated in full: only the singular, with no pronoun joined on.','نص قاعدة العدّ كاملة: المفرد وحده، دون ضميرٍ متصل.'], u:'https://quranaloneislam.org/miracle-of-the-word-day/', ul:['quranaloneislam.org','quranaloneislam.org']} ],
+    vids:[
+      {id:'XmnQSZhtnVs', by:'Shabir Ally (MercifulServant)', n:['States the rule and answers the solar-year objection with 18:25.','يذكر القاعدة ويجيب عن اعتراض السنة الشمسية بآية ١٨:٢٥.']},
+      {id:'q3bPyaaudkA', by:'intellaren', n:['Runs the count on screen: from 451 text matches to 365, removing «al-Qayyūm» on the way.','يجري العدّ أمامك: من ٤٥١ تطابقًا نصيًا إلى ٣٦٥، ويحذف «القيوم» في الطريق.']},
+      {id:'5m45Nc8ZNFw', by:'QuranMiracles', n:['Counts every form: 27 plural, 3 dual, 10 with a pronoun, 70 «on that day».','يعدّ كل الصيغ: ٢٧ جمعًا، و٣ مثنى، و١٠ مع ضمير، و٧٠ «يومئذ».']},
+      {id:'_8FOQcbBync', by:'Abdul Daem al-Kaheel', n:['Day 365 and month 12, among a dozen other word counts.','اليوم ٣٦٥ والشهر ١٢، بين عشرات أعداد الكلمات الأخرى.']},
+      {id:'2iiGZlyDOXk', by:'Towards Eternity', n:['2.6 million views; repeats day 365, month 12 and angels and devils 88.','٢٫٦ مليون مشاهدة، ويكرر اليوم ٣٦٥ والشهر ١٢ والملائكة والشياطين ٨٨.']},
+      {id:'snleXePXJqs', by:'Sheikh Othman al-Khamees', n:['Warns against numerical-miracle claims: the Quran is a book of guidance.','يحذّر من مزاعم الإعجاز العددي: القرآن كتاب هداية.']} ] },
+  { id:'month-12', lemma:'شهر', root:'شهر', letters:'شهر', word:['month','شهر'],
+    cats:[
+      {k:'plain', test:n=>true, lab:['The singular «month»','المفرد «شهر»'], ex:'شهر · الشهر · شهرا · والشهر · بالشهر'},
+      {k:'dual', test:n=>n.endsWith('ين'), lab:['Dual: «two months»','المثنى: «شهرين»'], ex:'شهرين'},
+      {k:'plur', test:n=>/اشهر|شهور/.test(n), lab:['Plural: «months» (ashhur, shuhūr)','الجمع: «أشهر» و«الشهور»'], ex:'أشهر · الأشهر · الشهور'} ],
+    presets:[
+      {id:'rule', on:['plain'], lab:['The claim\'s rule','قاعدة المزعم'], who:['The singular noun only, as Nawfal and al-Kaheel count it: «shahr», «al-shahr», «shahran».','الاسم المفرد وحده كما يعدّه نوفل والكحيل: «شهر» و«الشهر» و«شهرا».']},
+      {id:'all', on:['plain','dual','plur'], lab:['Every form','جميع الصيغ'], who:['Every form of the word: 21.','كل صيغ الكلمة: ٢١.']},
+      {id:'letters', letters:true, lab:['Letters only','الحروف فقط'], who:['A text search for ش ه ر: 20. It catches «ashhur» but misses «al-shuhūr», whose letters are split by a و.','بحثٌ نصي عن ش ه ر: ٢٠. يلتقط «أشهر» ويفوته «الشهور» لأن الواو تفصل حروفه.']} ],
+    case:{ for:['Applied to every verse, the singular rule gives exactly 12.','إذا طُبّقت قاعدة المفرد على كل آية أعطت ١٢ تمامًا.'],
+           against:['The same objection as for «day»: the rule decides the number, and it was chosen once the number was known.','الاعتراض نفسه في «يوم»: القاعدة هي التي تحدد الرقم، وقد اختيرت بعد معرفته.'] },
+    src:[ {t:['Abdurrazzaq Nawfal, al-I\'jāz al-\'Adadī lil-Qur\'ān al-Karīm.','عبد الرزاق نوفل، «الإعجاز العددي للقرآن الكريم».']} ],
+    vids:[
+      {id:'_8FOQcbBync', by:'Abdul Daem al-Kaheel', n:['Counts «month» in the singular: «shahr», «al-shahr», «shahran».','يعدّ «شهر» بالمفرد: «شهر» و«الشهر» و«شهرا».']},
+      {id:'2iiGZlyDOXk', by:'Towards Eternity', n:['Repeats month 12 beside day 365.','يكرر الشهر ١٢ بجانب اليوم ٣٦٥.']} ] } ];
+const CAT_CSS = {plain:'var(--emerald-2)', idh:'var(--gold)', pron:'#f0a08c', dual:'var(--teal)', plur:'#b9a2ff', look:'#ff6b6b'};
+
+const CountLab = { props:['claims'],
+  data(){ return {li:0, preset:'rule', on:['plain'], hov:-1, srcOpen:false}; },
+  template:`<figure class="dfig clab">
+    <div class="clab-top">
+      <div><h3>{{ ar ? 'عُدّها بنفسك' : 'Count it yourself' }}</h3>
+        <p class="fsub">{{ ar ? 'كل مربعٍ مرةٌ تَرِد فيها الكلمة، مرتبةً بحسب صيغتها. شغّل الصيغ أو أطفئها، أو طبّق قاعدةَ مصدرٍ بعينه، فيتغير العدد معها. أشر إلى مربعٍ لترى آيته، وانقره لتفتحها.' : 'Every square is one mention of the word, sorted by its form. Switch forms on and off, or apply the rule a named source used, and the total follows. Point at a square to see its verse; tap it to open it.' }}</p></div>
+      <div class="chips dchips" role="group" :aria-label="ar ? 'اختر الكلمة' : 'Pick the word'">
+        <button v-for="(L,i) in labs" :key="L.id" type="button" class="dchip" :aria-pressed="String(li===i)" @click="pick(i)"><b lang="ar">{{ L.word[1] }}</b>{{ ar ? '' : ' '+L.word[0] }}</button></div>
+    </div>
+    <div class="clab-presets" role="group" :aria-label="ar ? 'طرق العدّ' : 'Ways of counting'">
+      <button v-for="p in lab.presets" :key="p.id" type="button" class="clab-pre" :class="{on:preset===p.id}" :aria-pressed="String(preset===p.id)" @click="apply(p)">{{ T(p.lab) }}<b>{{ D(countFor(p)) }}</b></button>
+      <span v-if="preset==='custom'" class="clab-pre on custom">{{ ar ? 'اختيارك' : 'Your choice' }}<b>{{ D(total) }}</b></span>
+    </div>
+    <div class="clab-total" aria-live="polite">
+      <span class="n" :class="{hit:total===claim.claimed}">{{ D(total) }}</span>
+      <span class="vs">{{ ar ? 'والمزعوم '+D(claim.claimed) : 'the claim says '+claim.claimed }}<b v-if="total===claim.claimed">{{ ar ? ' · مطابق' : ' · a match' }}</b></span>
+      <p class="who">{{ curPreset ? T(curPreset.who) : (ar ? 'عددٌ بالصيغ التي اخترتها.' : 'A count by the forms you picked.') }}</p>
+    </div>
+    <div class="clab-cats">
+      <div v-for="c in cats" :key="c.k" class="clab-cat" :class="{off:!catOn(c.k)}">
+        <button type="button" class="clab-h" @click="toggle(c.k)" :aria-pressed="String(catOn(c.k))">
+          <i class="sw" :style="{background:CAT[c.k]}"></i><span class="t">{{ T(c.lab) }}</span><span class="ex" lang="ar">{{ c.ex }}</span><span class="c">{{ D(c.inN) }} / {{ D(c.items.length) }}</span></button>
+        <div class="clab-dots" @mouseleave="hov=-1">
+          <button v-for="it in c.items" :key="it.i" type="button" class="clab-d" :class="{in:it.inc, on:hov===it.i}" :style="it.inc ? {background:CAT[c.k]} : {borderColor:CAT[c.k]}"
+            :aria-label="D(it.k)+' '+it.surf" @mouseenter="hov=it.i" @focus="hov=it.i" @click="open(it, $event)"></button>
+        </div>
+      </div>
+    </div>
+    <div class="clab-read" aria-live="polite">
+      <template v-if="hovItem"><div class="rh"><b>{{ $root.surahName(+hovItem.k.split(':')[0]) }}</b> <span class="k">{{ D(hovItem.k) }}</span>
+        <span class="tag" :style="{color:CAT[hovItem.cat]}">{{ T(catOf(hovItem.cat).lab) }}</span><span class="st">{{ hovItem.inc ? (ar ? 'محسوبة' : 'counted') : (ar ? 'غير محسوبة' : 'not counted') }}</span></div>
+        <p class="rv" lang="ar" dir="rtl" v-html="verseHtml(hovItem)"></p>
+        <p class="re" v-if="!ar && $root.EN[hovItem.k]">{{ $root.EN[hovItem.k] }}</p></template>
+      <p v-else class="hint">{{ ar ? 'أشر إلى مربعٍ لتقرأ آيته هنا، وتُعلَّم الكلمة فيها.' : 'Point at a square to read its verse here, with the word marked.' }}</p>
+    </div>
+    <div class="clab-case">
+      <div class="for"><b>{{ ar ? 'ما يثبت' : 'What holds' }}</b>{{ T(lab.case.for) }}</div>
+      <div class="against"><b>{{ ar ? 'ما يُعترض به' : 'The objection' }}</b>{{ T(lab.case.against) }}</div>
+    </div>
+    <details class="clab-src" :open="srcOpen" @toggle="srcOpen=$event.target.open">
+      <summary>{{ ar ? 'من يقول بهذا، والمصادر' : 'Who makes this claim, and the sources' }}</summary>
+      <ul><li v-for="(s,i) in lab.src" :key="i">{{ T(s.t) }} <a v-if="s.u" :href="s.u" target="_blank" rel="noopener">{{ T(s.ul) }} ↗</a></li></ul>
+      <p class="vh">{{ ar ? 'مقاطع راجعنا نصّها:' : 'Videos we read the transcripts of:' }}</p>
+      <ul class="vids"><li v-for="v in lab.vids" :key="v.id"><a :href="'https://www.youtube.com/watch?v='+v.id" target="_blank" rel="noopener"><bdi>{{ v.by }}</bdi> ↗</a> {{ T(v.n) }}</li></ul>
+    </details>
+  </figure>`,
+  mounted(){ this.$root.load('verses'); },
+  computed:{ ar(){ return this.$root.lang==='ar'; }, labs(){ return COUNT_LABS.filter(L=>this.claims.some(c=>c.id===L.id)); },
+    lab(){ return this.labs[this.li] || this.labs[0]; }, claim(){ return this.claims.find(c=>c.id===this.lab.id) || {claimed:0}; },
+    CAT(){ return CAT_CSS; }, curPreset(){ return this.lab.presets.find(p=>p.id===this.preset) || null; },
+    // every mention of the word, with its form; and the words that only share its letters
+    items(){ const W=this.$root.W, L=this.lab; if(!W || !W.norm) return [];
+      const out=[], ordered=L.cats.filter(c=>c.k!=='plain' && c.k!=='look');
+      for(let i=0;i<W.norm.length;i++){ const n=W.norm[i];
+        if(W.lemma[i]===L.lemma){ const c=ordered.find(c=>c.test(n)); out.push({i, k:W.key[i], n, surf:W.surface ? W.surface[i] : n, cat:c ? c.k : 'plain'}); }
+        else if(L.cats.some(c=>c.k==='look') && n.includes(L.letters) && W.root[i]!==L.root) out.push({i, k:W.key[i], n, surf:W.surface ? W.surface[i] : n, cat:'look'}); }
+      return out; },
+    incl(){ const L=this.lab, p=this.curPreset, inc=new Set();
+      this.items.forEach(it=>{ let on;
+        if(p && p.letters) on = it.n.includes(L.letters);
+        else if(p && p.list==='yuksel'){ const y=L.yuksel; on = (it.cat==='plain' && !y.drop.some(d=>d[0]===it.k && (!d[1] || it.n===d[1]))) || (it.cat===y.addCat && y.add.includes(it.k)); }
+        else on = this.on.includes(it.cat);
+        if(on) inc.add(it.i); });
+      return inc; },
+    cats(){ const inc=this.incl; return this.lab.cats.map(c=>{ const items=this.items.filter(it=>it.cat===c.k).map(it=>Object.assign({}, it, {inc:inc.has(it.i)}));
+      return Object.assign({}, c, {items, inN:items.filter(x=>x.inc).length}); }).filter(c=>c.items.length); },
+    total(){ return this.incl.size; },
+    hovItem(){ if(this.hov<0) return null; const it=this.items.find(x=>x.i===this.hov); return it ? Object.assign({}, it, {inc:this.incl.has(it.i)}) : null; } },
+  methods:{
+    T(p){ if(!p) return ''; const s=Array.isArray(p) ? (this.ar ? p[1] : p[0]) : p; return this.ar ? this.$root.D(s) : s; }, D(x){ return this.$root.D(x); },
+    catOf(k){ return this.lab.cats.find(c=>c.k===k) || {lab:['','']}; },
+    catOn(k){ const p=this.curPreset; if(p && (p.letters || p.list)) return this.cats.some(c=>c.k===k && c.inN>0); return this.on.includes(k); },
+    pick(i){ this.li=i; this.hov=-1; this.apply(this.labs[i].presets[0]); },
+    apply(p){ this.preset=p.id; if(p.on) this.on=p.on.slice(); },
+    toggle(k){ const base = this.curPreset && this.curPreset.on ? this.curPreset.on : this.cats.filter(c=>c.inN>0).map(c=>c.k);
+      const on=new Set(this.preset==='custom' ? this.on : base); if(on.has(k)) on.delete(k); else on.add(k);
+      this.on=[...on]; const same=this.lab.presets.find(p=>p.on && p.on.length===on.size && p.on.every(x=>on.has(x)));
+      this.preset = same ? same.id : 'custom'; },
+    countFor(p){ const L=this.lab; let n=0;
+      this.items.forEach(it=>{ let on;
+        if(p.letters) on=it.n.includes(L.letters);
+        else if(p.list==='yuksel'){ const y=L.yuksel; on=(it.cat==='plain' && !y.drop.some(d=>d[0]===it.k && (!d[1] || it.n===d[1]))) || (it.cat===y.addCat && y.add.includes(it.k)); }
+        else on=p.on.includes(it.cat);
+        if(on) n++; }); return n; },
+    // the verse with this mention marked: the verse text and the word list line up word for word
+    verseHtml(it){ const R=this.$root, t=R.V[it.k]; if(!t) return '…'; const span=verseSpan(it.k), toks=t.split(' ');
+      const at = span ? it.i-span[0] : -1, esc=x=>x.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+      return toks.map((w,j)=>j===at ? '<mark style="background:'+CAT_CSS[it.cat]+'">'+esc(w)+'</mark>' : esc(w)).join(' '); },
+    open(it, e){ const keys=[...new Set(this.items.filter(x=>this.incl.has(x.i)).map(x=>x.k))]; this.$root.dOpen(it.k, keys.includes(it.k) ? keys : [it.k], e); } } };
 const Dumbbell = { mixins:[FitW], props:['rows','max'],
   // pick a prophet to see only his tellings; point at a telling to read it, tap it to open its first verse
   data(){ return {hov:-1, pro:''}; },
@@ -4004,7 +4206,7 @@ createApp({
       V: window.QURAN_VERSES||{}, W: window.QURAN_WORDS||{key:[],norm:[],lemma:[],root:[],surface:[]},
       ready:{ verses:!!window.QURAN_VERSES, words:!!window.QURAN_WORDS, plotly:typeof Plotly!=='undefined', disc:false, hviz:false },
       q:'', mode:'surface', sres:{total:0,surahs:0,verses:0,sample:[]},
-      rSurah:1, rVerse:0, rClaim:'', rBack:'', scrollPct:0, railDragging:false, EN:{}, showTrans:(new URLSearchParams(location.search).get('lang')!=='ar'), libQ:'', libCat:'all', stories:[], lessons:[], duas:[], tafsir:[], untranslatable:[], untranslatableIntro:{}, history:[], historyIntro:{}, skyHov:null, sresBy:{}, skyGL:false, hSel:'', hYear:610, hPlaying:false, hFilter:'all', hCopied:false,
+      rSurah:1, rVerse:0, rClaim:'', rBack:'', scrollPct:0, railDragging:false, EN:{}, showTrans:(new URLSearchParams(location.search).get('lang')!=='ar'), libQ:'', libCat:'all', stories:[], lessons:[], duas:[], tafsir:[], untranslatable:[], untranslatableIntro:{}, history:[], historyIntro:{}, skyHov:null, sresBy:{}, sresRoots:[], skyGL:false, hSel:'', hYear:610, hPlaying:false, hFilter:'all', hCopied:false,
       V1:{}, abjadInput:'الله',
       jevOn: !!(JEV && JEV.endpoint()), JD: window.QTA_JEV_DATA||{},
       cc:{text:'', busy:false, res:null}, ask:{text:'', busy:false, res:null}, sit:{text:'', busy:false, res:null},
@@ -4058,8 +4260,8 @@ createApp({
       alifi:null, alifiPage:0, alifiOverlay:true,
       examples:['يوم','الله','رحمة','ملك','أله'],
       claimNotesEn:{
-        'day-365':'Counting the word in all its forms gives more than 365. The famous 365 counts only the plain singular «يوم», leaving out the dual (two days), «يومئذ» (on that day) and forms with a pronoun joined on, such as «يومهم» (their day).',
-        'month-12':'Counting the word in all its forms gives more than 12. The famous 12 counts only the singular «شهر», leaving out the plural «أشهر» (months) and the dual (two months).',
+        'day-365':'Holds by its own rule. All forms of the word come to 475. The 365 counts the plain singular «يوم», «اليوم», «يوما», including with letters such as «و» or «ب» joined at the front, and leaves out «يومئذ» (on that day), the dual and plural, and forms with a pronoun joined on, such as «يومهم» (their day). Counted that way the Quran gives exactly 365. Whether that is the right way to count is the open question.',
+        'month-12':'Holds by its own rule. All forms come to 21. The 12 counts the singular «شهر», «الشهر», «شهرا», and leaves out the dual and the plurals «أشهر» and «الشهور». Counted that way the Quran gives exactly 12.',
         'devil-88':'Holds exactly: the singular and plural of «شيطان» together come 88 times. A quick text search for the spelling «شيطان» finds none, because the mushaf writes it «شيطن».',
         'angel-88':'Holds exactly. Our count tells «مَلَك» (angel, 88 times) apart from «مُلْك» (dominion) and «مَلِك» (king), which look the same without vowel marks. A quick text search cannot tell them apart, which is why its count looks wrong.',
         'hell-77':'Holds exactly. «جهنم» is a name for Hell and has no other meaning.',
@@ -4072,8 +4274,8 @@ createApp({
         'rabb-846':'Counting «ربّ» (Lord) in all its forms includes «ربي» (my Lord), «ربك» (your Lord), «ربهم» (their Lord) and the like. The 846 counts a narrower set of them.',
       },
       claimNotesAr:{
-        'day-365':'العدُّ بجميع صيغ الكلمة يزيد على ٣٦٥. أما الرقم المتداول ٣٦٥ فيقتصر على الاسم المفرد «يوم»، ويُسقط المثنى وكلمة «يومئذ» والصيغ المتصلة بالضمائر مثل «يومهم».',
-        'month-12':'العدُّ بجميع صيغ الكلمة يزيد على ١٢. أما الرقم ١٢ فيقتصر على المفرد «شهر»، ويُسقط الجمع «أشهر» والمثنى.',
+        'day-365':'يصدق بقاعدته. صيغ الكلمة كلها ٤٧٥. أما الرقم ٣٦٥ فيعدّ المفرد المجرد «يوم» و«اليوم» و«يوما»، ولو اتصلت به الواو أو الباء في أوله، ويستبعد «يومئذ» والمثنى والجمع والصيغ المتصلة بالضمائر مثل «يومهم». وبهذا العدّ يعطي القرآن ٣٦٥ تمامًا. أما هل هذه هي الطريقة الصحيحة للعدّ فهو موضع الخلاف.',
+        'month-12':'يصدق بقاعدته. صيغ الكلمة كلها ٢١. أما الرقم ١٢ فيعدّ المفرد «شهر» و«الشهر» و«شهرا»، ويستبعد المثنى والجمعين «أشهر» و«الشهور». وبهذا العدّ يعطي القرآن ١٢ تمامًا.',
         'devil-88':'العدُّ مطابق: المفرد والجمع من «شيطان» معًا ٨٨ مرة. ومن الطريف أن البحث النصي السريع عن رسم «شيطان» لا يجد شيئًا، لأن الرسم العثماني يكتبها «شيطن».',
         'angel-88':'العدُّ مطابق، إذ يفصل عدُّنا «مَلَك» (٨٨ مرة) عن «مُلْك» و«مَلِك»، وهي تتشابه في الرسم بلا تشكيل. أما البحث النصي السريع فلا يفرّق بينها، ولهذا يبدو عدُّه خاطئًا.',
         'hell-77':'العدُّ مطابق، فكلمة «جهنم» اسمٌ للنار لا معنى لها غيره.',
@@ -5009,29 +5211,34 @@ createApp({
     kbBack(){ this.q = this.q.slice(0,-1); this.runSearch(); },
     kbClear(){ this.q=''; this.runSearch(); },
     tawGoPage(p){ this.tawPage=p; },
-    cverdict(c){ if(c.verifiedLemma===c.claimed) return 'exact';
+    cverdict(c){ if(c.verifiedLemma===c.claimed) return 'exact'; if(c.verifiedRule!=null && c.verifiedRule===c.claimed) return 'rule';
       const p=this.claims.find(x=>x.id===c.pair); if(p&&p.verifiedLemma===c.verifiedLemma) return 'parity'; return 'differs'; },
     cbadge(c){ const v=this.cverdict(c);
-      if(this.lang==='ar') return v==='exact'?'مطابق':v==='parity'?'تعادل':'مختلف';
-      return v==='exact'?'EXACT':v==='parity'?'PAIR EQUAL':'DIFFERS'; },
+      if(this.lang==='ar') return v==='exact'?'مطابق':v==='rule'?'يصدق بقاعدته':v==='parity'?'تعادل':'مختلف';
+      return v==='exact'?'EXACT':v==='rule'?'HOLDS BY ITS RULE':v==='parity'?'PAIR EQUAL':'DIFFERS'; },
     runSearch(){
       if(!this.ready.words){ this.load('words'); return; }   // runs again when the index arrives
       const W=this.W, q=normalize(this.q);
       if(!q){ this.sres={total:0,surahs:0,verses:0,sample:[]}; SKYKEYS=null; if(this.view==='search') this.syncSky(); return; }
-      let total=0; const suras=new Set(), verses=new Set(), sample=[];
+      let total=0; const suras=new Set(), verses=new Set(), sample=[], roots=new Map();
       for(let i=0;i<W.norm.length;i++){
         let field = this.mode==='surface'?W.norm[i] : this.mode==='lemma'?W.lemma[i] : W.root[i];
         let m = this.mode==='surface' ? field.includes(q) : field===q;
         if(m){ total++; const k=W.key[i]; suras.add(k.split(':')[0]);
+          if(this.mode==='surface'){ const r=W.root[i]||'', g=roots.get(r) || roots.set(r, {root:r, n:0, forms:new Map(), k}).get(r); g.n++; g.forms.set(W.surface[i], (g.forms.get(W.surface[i])||0)+1); }
           if(!verses.has(k)){ verses.add(k); if(sample.length<40) sample.push(k); } }
       }
       this.sres={total:total,surahs:suras.size,verses:verses.size,sample:sample};
+      this.sresRoots=[...roots.values()].sort((a,b)=>b.n-a.n).map(g=>({root:g.root, n:g.n, k:g.k, form:[...g.forms.entries()].sort((a,b)=>b[1]-a[1])[0][0]}));
       SKYKEYS = verses.size ? [...verses] : null;
       const by={}; (SKYKEYS||[]).forEach(k=>{ const n=+String(k).split(':')[0]; by[n]=(by[n]||0)+1; }); this.sresBy=by;
       if(this.view==='search') this.syncSky();
     },
     highlight(vk){
       const t=this.V[vk]||''; const q=normalize(this.q); if(!q) return t;
+      const main=this.mode==='surface' && this.sresRoots.length>1 ? this.sresRoots[0].root : null, span=main && this.W.root ? verseSpan(vk) : null;
+      if(span) return t.split(' ').map((w,j)=>{ const nw=normalize(w); if(!nw.includes(q)) return w;
+          const r=this.W.root[span[0]+j]; return r===main ? '<mark>'+w+'</mark>' : '<mark class="other" title="'+(this.lang==='ar' ? 'كلمةٌ أخرى تشترك في الحروف' : 'another word that shares the letters')+'">'+w+'</mark>'; }).join(' ') + ' <span class="vk">'+vk+'</span>';
       // highlight words whose normalized form contains/equals q
       return t.split(' ').map(w=>{ const nw=normalize(w);
         const hit = this.mode==='surface'? nw.includes(q): nw===q || nw.includes(q);
@@ -5475,7 +5682,7 @@ createApp({
     this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); this.enterView(true); });
   }
 }).component('depth-switch', DepthSwitch).component('term-chips', TermChips).component('explain-box', ExplainBox)
-  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell).component('claim-viz', ClaimViz)
+  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell).component('claim-viz', ClaimViz).component('count-lab', CountLab)
   .component('letter-strip', LetterStrip).component('growth-curve', GrowthCurve).component('rhyme-ribbon', RhymeRibbon).mount('#app');
 });
 </script>

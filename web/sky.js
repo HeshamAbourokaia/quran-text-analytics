@@ -419,7 +419,7 @@
         (d.lit || []).forEach(e => { const n = keyIdx(e.k); if (n >= 0) lit.set(n, e); });
         for (let n = 0; n < N; n++) {
           const r = Math.floor(n / C), q = n % C, e = lit.get(n), fx = (ox + (q + .5) * c) / bx.w, fy = (oy + (r + .5) * c) / bx.h;
-          if (e) put(S, n, fx, fy, colorOf(e.color || 'amber'), 1, c * 2.1, jit[n] * .4, null);
+          if (e) { put(S, n, fx, fy, colorOf(e.color || 'amber'), 1, c * 2.1, jit[n] * .4, null); (S.prefer || (S.prefer = new Uint8Array(N)))[n] = 1; }
           else { const pc = placeCol(n), dim = sur[n] % 2 ? .55 : .8; put(S, n, fx, fy, [pc[0] * dim, pc[1] * dim, pc[2] * dim], 0, c * .7, .3 + jit[n] * .7, null); }
         }
         S.hover = n => { const e = lit.get(n); return verseTip(n, e && e.label ? '<b>' + esc(e.label) + '</b>' : ''); };
@@ -758,7 +758,7 @@
       if (inStage(e.clientX, e.clientY) && !blocked(e.target)) {
         if (e.pointerType === 'mouse' || (!e.pointerType && fine)) { if (hovered >= 0 && stageHover) { const L2 = st.S.link ? st.S.link(hovered) : null; if (L2) { setStageHover(-1); follow(L2); } } return; }
         mouse = { x: e.clientX, y: e.clientY };
-        const n = pick(e.clientX, e.clientY, 20, st.S.on);
+        const lit = st.S.prefer ? pick(e.clientX, e.clientY, 28, st.S.prefer) : -1, n = lit >= 0 ? lit : pick(e.clientX, e.clientY, 20, st.S.on);
         stageHover = true;
         if (n < 0) { setStageHover(-1); return; }
         setStageHover(n, true); clearTimeout(touchTip); touchTip = setTimeout(() => setStageHover(-1), 5000);
@@ -833,7 +833,8 @@
       if (g2 > .5) { rotX *= .8; rotY *= .8; }
       group.rotation.set(rotX, rotY, 0); stars.rotation.set(rotX * .5, rotY * .5 + now / 1000 * .003, 0);
 
-      if (mouse && fine && moved && stageHover && inStage(mouse.x, mouse.y)) { moved = false; setStageHover(pick(mouse.x, mouse.y, 12, st.S.on)); }
+      if (mouse && fine && moved && stageHover && inStage(mouse.x, mouse.y)) { moved = false;   // a lit point within reach wins over the dim ones
+        const lit = st.S.prefer ? pick(mouse.x, mouse.y, 24, st.S.prefer) : -1; setStageHover(lit >= 0 ? lit : pick(mouse.x, mouse.y, 12, st.S.on)); }
       else if (mouse && fine && moved && pickable()) { moved = false; setHover(pick(mouse.x, mouse.y, 14)); }
       else if (hovered >= 0 && !stageHover && !pickable() && !touchTip) setHover(-1);
       renderer.render(scene3, cam);
