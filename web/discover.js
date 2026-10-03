@@ -564,8 +564,6 @@ window.DALEEL_DISCOVER = (function () {
       items: [
         { t: ['al-Suyūṭī, in al-Itqān, reports al-Zarkashī\'s view that a surah opening with a letter is built largely on words with that letter, so ق could not stand where ن stands.',
             'ينقل السيوطي في الإتقان رأي الزركشي أن السورة المفتتحة بحرفٍ تُبنى في أكثرها على كلماتٍ فيها ذلك الحرف، فلا يصلح أن تقع القاف موضع النون.'], u: 'https://www.islamicbook.ws/qbook/alom/alitqan-006.html' },
-        { t: ['Rashad Khalifa (1973) built numerical claims on the counts of these letters, for example ق 57 times in both surah 42 and surah 50; they have been rebutted (e.g., Philips, 1987).',
-            'بنى رشاد خليفة (١٩٧٣) دعاوى عددية على إحصاء هذه الحروف، كورود القاف ٥٧ مرة في السورتين ٤٢ و٥٠، ورُدّت عليه (مثل فيليبس، ١٩٨٧).'] },
         { t: ['Islam Dayeh, «Al-Ḥawāmīm: Intertextuality and Coherence in Meccan Surahs», in The Qur\'an in Context (2010): the Ḥā-Mīm surahs are linked in form, set phrases and themes.',
             'إسلام دية، «الحواميم: التناص والتماسك في السور المكية»، في كتاب «القرآن في سياقه» (٢٠١٠): سور «حم» مترابطةٌ في الشكل والعبارات الثابتة والموضوعات.'], u: 'https://www.academia.edu/8297605/Al_Hawamim_Intertextuality_and_Coherence_in_Meccan_Suras' },
         { t: ['We found no earlier statistical test of the letters being over-represented in their surahs.', 'لم نجد اختبارًا إحصائيًّا سابقًا لكثرة الحروف المقطعة في سورها.'] },

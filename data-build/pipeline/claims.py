@@ -42,28 +42,28 @@ REGISTRY = [
          claimed=77, pair='paradise-77', rule=None,
          note_en='Exact by lemma. Jahannam is an unambiguous proper noun for Hell.'),
     dict(id='paradise-77', en='Paradise (jannah)', key='paradise', lem='جنة', surf='جنة',
-         claimed=77, pair='hell-77', rule=None,
+         claimed=77, pair='hell-77', rule='spelling',   # the word as written, «جنة» with a final ة
          note_en='Lemma jannah also means "garden(s)", so it totals far above 77. The 77 figure counts only the Paradise sense, which needs meaning-level tagging.'),
     dict(id='man-24', en='Man (rajul)', key='man', lem='رجل', surf='رجل',
-         claimed=24, pair='woman-24', rule=None,
+         claimed=24, pair='woman-24', rule='singular',   # al-Kaheel: «رجل» in the singular
          note_en='Lemma rajul (man), separated from rijl (foot). The man=woman=24 pairing does not hold under lemma counting.'),
     # The corpus files woman under امْرَأَت, the spelling the mushaf uses in phrases like امرأت العزيز; the
     # card shows the dictionary form. 'show' changes only what is displayed, never what is counted.
     dict(id='woman-24', en="Woman (imra'a)", key='woman', lem='امرات', surf='امرات', show='امْرَأَة',
-         claimed=24, pair='man-24', rule=None,
+         claimed=24, pair='man-24', rule='singular-pron',   # al-Kaheel: «امرأة» in the singular, forms like «his wife» kept
          note_en="Lemma imra'a. Not equal to man, and not 24."),
     dict(id='jesus-24', en='Jesus (Isa)', key='jesus', lem='عيسي', surf='عيسي',
-         claimed=24, pair='adam-24', rule=None,
-         note_en='Lemma Isa equals Adam. The parity holds; the figure is 25, not 24.'),
+         claimed=25, pair='adam-24', rule=None,   # al-Kaheel and the common versions give 25 each
+         note_en='Holds: Isa and Adam come 25 times each, the figure the claim gives.'),
     dict(id='adam-24', en='Adam', key='adam', lem='ادم', surf='ادم',
-         claimed=24, pair='jesus-24', rule=None,
-         note_en='Lemma Adam equals Isa. The parity holds; the figure is 25, not 24.'),
+         claimed=25, pair='jesus-24', rule=None,
+         note_en='Holds: Adam and Isa come 25 times each, the figure the claim gives.'),
     dict(id='allah-2806', en='Allah', key='allah', lem='الله', surf='الله',
          claimed=2806, pair=None, rule=None,
-         note_en='Standard count of the name Allah is 2699 (this corpus). Bediuzzaman\'s 2806 uses a wider convention.'),
+         note_en='The name Allah comes 2699 times in the text. 2806 is not a count of the text: it comes from Said Nursi\'s tawafuq, the way the name lines up across the pages of one printed mushaf.'),
     dict(id='rabb-846', en='Lord (Rabb)', key='rabb', lem='رب', surf='رب',
          claimed=846, pair=None, rule=None,
-         note_en='Lemma Rabb includes possessive forms (rabbi, rabbuka, rabbihim). The 846 figure counts a narrower set.'),
+         note_en='Rabb comes 975 times in all its forms. We found no published source for 846, and no counting rule we tried gives it.'),
 ]
 
 def _select_lemma(words, lem_skeleton):
@@ -104,7 +104,7 @@ def _singular_core(words, lemma, plural=()):
         n = w['norm']
         if 'ئذ' in n:            # yawma'idhin compound
             continue
-        if n.endswith('ين'):     # dual
+        if n.endswith('ين') or n.endswith('ان'):     # dual
             continue
         if n.endswith(_POSS):    # plural possessive
             continue
@@ -123,6 +123,12 @@ def compute(words, verses_norm):
         rule_val, rule_locs = None, None
         if c['rule'] == 'singular' and lemma:
             rule_locs = _singular_core(words, lemma, c.get('plural', ()))
+            rule_val = len(rule_locs)
+        elif c['rule'] == 'singular-pron' and lemma:   # the singular, pronoun forms kept: only the dual goes
+            rule_locs = [[w['sura'], w['aya']] for w in words if w['lemma'] == lemma and not (w['norm'].endswith('ين') or w['norm'].endswith('ان'))]
+            rule_val = len(rule_locs)
+        elif c['rule'] == 'spelling' and lemma:   # the word as it is written, final ة and all
+            rule_locs = [[w['sura'], w['aya']] for w in words if w['lemma'] == lemma and surf_skel in w['norm']]
             rule_val = len(rule_locs)
         out.append({
             'id': c['id'], 'en': c['en'], 'ar': c.get('show') or lemma or c['lem'], 'pair': c['pair'],
