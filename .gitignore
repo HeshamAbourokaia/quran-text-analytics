@@ -51,3 +51,4 @@ quran_corpus/graphify-out/cache/
 
 # Jev batch answers (cached so re-runs don't pay twice; mock output lives here too)
 data-build/jev/cache/
+dashboards/

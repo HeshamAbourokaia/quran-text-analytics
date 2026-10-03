@@ -594,6 +594,23 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .arakbd button{min-width:38px;padding:6px 10px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);border-radius:10px;
     font-family:var(--ar-display);font-size:1.3rem;cursor:pointer;color:var(--on-dark);box-shadow:0 2px 0 rgba(0,0,0,.45);
     transition:transform .15s var(--ease),box-shadow .15s,background .2s,border-color .2s}
+  .arakbd .kbmarks{display:contents} .arakbd button.mark{font-family:var(--ar-display);font-size:1.35rem;line-height:1;min-width:42px;border-color:rgba(88,200,190,.35);background:rgba(88,200,190,.08)}
+  .smatch{margin:10px 0 0;font-size:.82rem;line-height:1.55;color:var(--on-dark-2);max-width:780px}
+  .sform{margin:18px 0 0;padding:16px 18px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid var(--hair)}
+  .sform-h{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px} .sform-h h3{margin:0}
+  .sform-p{display:inline-flex;gap:6px} .sform-p button{font:inherit;font-size:.78rem;color:var(--on-dark-2);background:none;border:1px solid var(--hair);border-radius:999px;padding:5px 12px;cursor:pointer}
+  .sform-p button.on,.sform-p button:hover{border-color:var(--gold);color:var(--gold)}
+  .sform-s{margin:6px 0 12px;font-size:.82rem;color:var(--on-dark-3);line-height:1.5}
+  .sform-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:10px;align-items:center;margin:0 0 8px}
+  .sform-l{font-size:.76rem;font-weight:700;letter-spacing:.04em;color:var(--on-dark-2)}
+  .sform-bar{display:flex;gap:3px;min-width:0}
+  .sform-bar .seg{flex-basis:0;min-width:64px;display:flex;flex-direction:column;align-items:flex-start;gap:1px;font:inherit;text-align:start;padding:7px 10px;border:0;border-radius:9px;cursor:pointer;color:#10170f;transition:opacity .2s,filter .2s,flex-grow .4s}
+  .sform-bar .seg b{font-size:1rem;font-variant-numeric:tabular-nums} .sform-bar .seg span{font-size:.7rem;line-height:1.25;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
+  .sform-bar .c0{background:var(--gold)} .sform-bar .c1{background:#58c8be} .sform-bar .c2{background:#b49cf0} .sform-bar .c3{background:#f0a08c} .sform-bar .c4{background:#9fc46a}
+  .sform-bar .seg.off{opacity:.28;filter:grayscale(1);text-decoration:line-through}
+  .sform-bar .seg:focus-visible{outline:2px solid #fff;outline-offset:2px}
+  .sform-t{margin:10px 0 0;font-size:.86rem;color:var(--on-dark-2)} .sform-t b{font-family:var(--serif);font-size:1.6rem;font-weight:400;color:#fff;margin-inline-end:6px}
+  @media (max-width:640px){ .sform-row{grid-template-columns:1fr} }
   .arakbd button:hover{background:rgba(233,185,95,.14);border-color:rgba(233,185,95,.4)}
   .arakbd button:active{transform:translateY(2px);box-shadow:none}
   .arakbd button.alt{background:rgba(233,185,95,.08);color:var(--gold)}
@@ -2072,10 +2089,18 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
           <button :class="{on:mode==='lemma'}" @click="mode='lemma';runSearch()">{{ lang==='ar'?'كل الصيغ':'All forms' }}<span class="segn" v-if="searchModes">{{ f(searchModes.lemma) }}</span></button>
           <button :class="{on:mode==='root'}" @click="mode='root';runSearch()">{{ lang==='ar'?'الجذر':'Root' }}<span class="segn" v-if="searchModes">{{ f(searchModes.root) }}</span></button>
         </div>
+        <div class="seg" v-if="mode==='surface'" role="group" :aria-label="lang==='ar' ? 'مدى المطابقة' : 'How much of the word to match'">
+          <button :class="{on:sWhole}" :aria-pressed="String(sWhole)" @click="sWhole=true;runSearch()">{{ lang==='ar'?'الكلمة بعينها':'Exact word' }}</button>
+          <button :class="{on:!sWhole}" :aria-pressed="String(!sWhole)" @click="sWhole=false;runSearch()">{{ lang==='ar'?'داخل الكلمات':'Inside words' }}</button>
+        </div>
         <div class="seg">
           <button :class="{on:showTrans}" :aria-pressed="showTrans" @click="showTrans=!showTrans">{{ lang==='ar'?'الترجمة':'Translation' }}</button>
         </div>
       </div>
+      <p v-if="mode==='surface' && q" class="smatch">{{ searchPrecise
+          ? (lang==='ar' ? 'مطابقةٌ دقيقة: الهمزة والحركات التي كتبتَها يجب أن تكون في الكلمة نفسها، والحروف بلا حركات تقبل أي حركة.' : 'Exact match: the hamza and any marks you typed must be on that letter in the mushaf. Letters typed without marks accept any marks.')
+          : (lang==='ar' ? 'تُطابَق الحروف دون الهمزات والحركات. اكتب الهمزة (أ إ ء) أو الحركات من الأزرار لتضييق البحث.' : 'Matching the letters only, ignoring hamza and vowel marks. Type the hamza (أ إ ء) or add marks from the keys to narrow it.') }}
+        {{ sWhole ? (lang==='ar' ? 'الكلمة بعينها، بلا شيءٍ قبلها أو بعدها.' : 'Exact word: nothing joined before or after it.') : (lang==='ar' ? 'داخل الكلمات: حيثما وردت هذه الحروف.' : 'Inside words: wherever these letters appear.') }}</p>
       <div v-if="searchHint" class="shint">
         <template v-if="searchHint.type==='spelling'">{{ lang==='ar' ? 'في المصحف تُكتب هذه الكلمة هكذا:' : 'The mushaf spells this word differently. Try:' }} <span class="chip" v-for="s in searchHint.forms" :key="s" @click="q=s;runSearch()">{{ s }}</span></template>
         <template v-else>«<span class="ar" lang="ar">{{ searchHint.norm }}</span>» {{ lang==='ar' ? 'رسمٌ يجمع أكثر من كلمةٍ معجمية، والبحث بـ«كل الصيغ» يعدّها معًا:' : 'is the spelling of more than one dictionary word, and searching «All forms» counts them together:' }}
@@ -2087,6 +2112,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
       <div class="arakbd">
         <button v-for="k in araKeys" :key="k" @click="kbAppend(k)">{{ k }}</button>
         <button v-for="k in araKeys2" :key="'x'+k" class="alt" @click="kbAppend(k)">{{ k }}</button>
+        <span class="kbmarks" role="group" :aria-label="lang==='ar' ? 'الحركات' : 'Vowel marks'"><button v-for="k in araMarks" :key="'m'+k[1]" class="mark" :title="lang==='ar' ? k[2] : k[1]" :aria-label="lang==='ar' ? k[2] : k[1]" @click="kbAppend(k[0])">{{ '◌'+k[0] }}</button></span>
         <button class="ctrl space" @click="kbAppend(' ')">{{ lang==='ar'?'مسافة':'Space' }}</button>
         <button class="ctrl" @click="kbBack()">⌫</button>
         <button class="ctrl" @click="kbClear()">{{ lang==='ar'?'مسح':'Clear' }}</button>
@@ -2095,6 +2121,20 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
         <div class="kpi"><div class="n">{{ f(sres.total) }}</div><div class="l">{{ lang==='ar'?'إجمالي':'Occurrences' }}</div></div>
         <div class="kpi"><div class="n">{{ sres.surahs }}</div><div class="l">{{ lang==='ar'?'سور':'Surahs' }}</div></div>
         <div class="kpi"><div class="n">{{ sres.verses }}</div><div class="l">{{ lang==='ar'?'آيات':'Verses' }}</div></div>
+      </div>
+      <div v-if="sfCount && (sres.total>0 || Object.keys(sfOff).length)" class="sform">
+        <div class="sform-h"><h3>{{ lang==='ar' ? 'كيف بُنيت الكلمة' : 'How the word is built' }}</h3>
+          <span class="sform-p"><button type="button" @click="sfPreset('all')" :class="{on:!Object.keys(sfOff).length}">{{ lang==='ar' ? 'كل الصيغ' : 'Every form' }}</button><button type="button" @click="sfPreset('sing')">{{ lang==='ar' ? 'المفرد بلا ضمير' : 'Singular, no pronoun' }}</button></span></div>
+        <p class="sform-s">{{ lang==='ar' ? 'من تقسيم مدوّنة القرآن العربية لكل كلمة إلى سوابق وجذع ولواحق. انقر جزءًا لتُخرجه من العدّ، وتتبعه الأرقام والآيات.' : 'From the Quranic Arabic Corpus, which splits every word into what is joined at the front, the stem, and what is joined at the end. Tap a part to leave it out of the count; the numbers and verses follow.' }}</p>
+        <div v-for="row in sfRows" :key="row.k" class="sform-row">
+          <span class="sform-l">{{ lang==='ar' ? row.lab[1] : row.lab[0] }}</span>
+          <div class="sform-bar">
+            <button v-for="(o,oi) in row.opts.filter(o=>sfCount[row.k][o[0]])" :key="o[0]" type="button" class="seg" :class="['c'+oi,{off:sfOff[sfKey(row.k,o[0])]}]" :style="{flexGrow: sfCount[row.k][o[0]]}"
+              :aria-pressed="String(!sfOff[sfKey(row.k,o[0])])" @click="sfToggle(row.k,o[0])" :title="(lang==='ar' ? o[1][1] : o[1][0])+': '+sfCount[row.k][o[0]]">
+              <b>{{ f(sfCount[row.k][o[0]]) }}</b><span>{{ lang==='ar' ? o[1][1] : o[1][0] }}</span></button>
+          </div>
+        </div>
+        <p class="sform-t"><b>{{ f(sres.total) }}</b> {{ lang==='ar' ? 'في العدّ بعد هذه الاختيارات' : 'counted with these choices' }}</p>
       </div>
       <div v-if="sres.total>0 && mode==='surface' && sresRoots.length>1" class="rootsplit">
         <p>{{ lang==='ar' ? 'هذه الحروف ترد في '+(sresRoots.length===2 ? 'كلماتٍ من جذرين مختلفين' : sresRoots.length<=10 ? 'كلماتٍ من '+D(sresRoots.length)+' جذورٍ مختلفة' : 'كلماتٍ من '+D(sresRoots.length)+' جذرًا مختلفًا')+'. البحث «كما كُتبت» يعدّ الحروف لا الكلمة:' : 'These letters turn up in words from '+sresRoots.length+' different roots. «As written» counts letters, not the word:' }}</p>
@@ -3004,6 +3044,35 @@ function normalize(s){
   s = s.replace(/[ٱآأإ]/g,'ا').replace(/ى/g,'ي');
   return s.trim();
 }
+// "As written" search. A word is cut into letters, each carrying its vowel marks. A hamza seat the reader typed
+// (أ إ آ ؤ ئ ء) must be that same seat, and every mark typed on a letter (fatha, damma, kasra, shadda, sukun,
+// tanween, the small alif) must be on that letter in the mushaf; letters typed bare accept any marks, and a bare
+// alif accepts any alif. "Exact word" compares the whole word; "Inside words" finds the letters anywhere in one.
+const AR_MARK1 = /[ؐ-ًؚ-ٰٟۖ-ۭ]/, AR_HAMZA = /[أإآؤئء]/;
+function arUnits(s){ const out=[]; for(const ch of String(s||'').replace(/[ـ﻿]/g,'').normalize('NFC')){
+  if(AR_MARK1.test(ch)){ if(out.length) out[out.length-1].m+=ch; } else if(!/\s/.test(ch)) out.push({b:ch, m:''}); } return out; }
+function arUnitEq(q, w){ let qb=q.b==='ٱ' ? 'ا' : q.b, wb=w.b==='ٱ' ? 'ا' : w.b; if(qb==='ى') qb='ي'; if(wb==='ى') wb='ي';
+  if(AR_HAMZA.test(qb)){ if(qb!==wb) return false; } else if(qb==='ا'){ if(!/[اأإآ]/.test(wb)) return false; } else if(qb!==wb) return false;
+  for(const m of q.m) if(!w.m.includes(m)) return false; return true; }
+function surfTest(raw, whole){
+  const q=normalize(raw); if(!q) return null;
+  const precise = !/\s/.test(raw.trim()) && (AR_HAMZA.test(raw) || AR_MARK1.test(raw));
+  if(!precise) return whole ? (surf, norm)=>norm===q : (surf, norm)=>norm.includes(q);
+  const qu=arUnits(raw);
+  return (surf)=>{ const wu=arUnits(surf);
+    if(whole) return wu.length===qu.length && qu.every((u,i)=>arUnitEq(u, wu[i]));
+    for(let i=0;i+qu.length<=wu.length;i++){ let ok=true; for(let j=0;j<qu.length;j++) if(!arUnitEq(qu[j], wu[i+j])){ ok=false; break; } if(ok) return true; }
+    return false; }; }
+// How a word is built, from the corpus segmentation in words.js (form = 'prefixes/number/suffix').
+// Three questions a counting rule answers: which form (singular, dual, plural, written as one with another word,
+// verb), what is joined at the front (nothing, «ال», a particle such as و ف ب ل ك س), and whether a pronoun is joined at the end.
+const SF_ROWS = [
+  {k:'num', lab:['Form','الصيغة'], opts:[['S',['Singular','مفرد']],['D',['Dual','مثنى']],['P',['Plural','جمع']],['C',['Written as one with another word, like يومئذ','مركّبة مع كلمةٍ أخرى، مثل يومئذ']],['V',['Verb','فعل']]]},
+  {k:'front', lab:['Joined at the front','ما يتصل بأولها'], opts:[['none',['Nothing','لا شيء']],['al',['«the», ال','أداة التعريف «ال»']],['part',['A particle: و ف ب ل ك س','حرفٌ متصل: و ف ب ل ك س']]]},
+  {k:'end', lab:['Joined at the end','ما يتصل بآخرها'], opts:[['none',['No pronoun','بلا ضمير']],['pron',['A pronoun, like «their day»','ضميرٌ متصل، مثل «يومهم»']]]} ];
+function sfCats(code){ if(!code) return null; const [pre, n, suf]=code.split('/');
+  return { num: n.includes('+') ? 'C' : (n[0]||'S'), front: !pre ? 'none' : (pre.replace(/ال$/,'')==='' ? 'al' : 'part'), end: suf ? 'pron' : 'none' }; }
+let SHITS = null;   // indexes of the words the current search marks, after the form filters
 const JEV = window.QTA_JEV || null;
 const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const FINE = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
@@ -4757,7 +4826,7 @@ createApp({
       T: D.stats.totals, DS: D.datasets, MM: D.datasets.meccaMedina||{mecca:{},medina:{}}, claims: D.claims,
       V: window.QURAN_VERSES||{}, W: window.QURAN_WORDS||{key:[],norm:[],lemma:[],root:[],surface:[]},
       ready:{ verses:!!window.QURAN_VERSES, words:!!window.QURAN_WORDS, plotly:typeof Plotly!=='undefined', disc:false, hviz:false },
-      q:'', mode:'surface', sres:{total:0,surahs:0,verses:0,sample:[]},
+      q:'', mode:'surface', sWhole:true, sfOff:{}, sfCount:null, sfRows:SF_ROWS, sres:{total:0,surahs:0,verses:0,sample:[]},
       rSurah:1, rVerse:0, rClaim:'', rBack:'', scrollPct:0, railDragging:false, EN:{}, showTrans:(new URLSearchParams(location.search).get('lang')!=='ar'), libQ:'', libCat:'all', stories:[], lessons:[], duas:[], tafsir:[], untranslatable:[], untranslatableIntro:{}, history:[], historyIntro:{}, skyHov:null, sresBy:{}, sresRoots:[], skyGL:false, hSel:'', hYear:610, hPlaying:false, hFilter:'all', hCopied:false,
       V1:{}, abjadInput:'الله',
       jevOn: !!(JEV && JEV.endpoint()), JD: window.QTA_JEV_DATA||{},
@@ -4841,6 +4910,7 @@ createApp({
       },
       araKeys:'ابتثجحخدذرزسشصضطظعغفقكلمنهوي'.split(''),
       araKeys2:'ءآأإئؤةى'.split(''),
+      araMarks:[['َ','fatha','فتحة'],['ُ','damma','ضمة'],['ِ','kasra','كسرة'],['ّ','shadda','شدة'],['ْ','sukun','سكون'],['ً','tanween fath','تنوين فتح'],['ٌ','tanween damm','تنوين ضم'],['ٍ','tanween kasr','تنوين كسر'],['ٰ','small alif','ألف خنجرية']],
       nav:[
         {id:'homeHub',
           icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M6 10.5V20h12v-9.5"/></svg>',
@@ -5074,7 +5144,11 @@ createApp({
       const how = r.method ? (ar ? `وقرأه على أنه عدٌّ ${this.methodName(this.ccImplied())}.` : `It read the claim as counting ${this.methodName(this.ccImplied())}.`)
         : (ar ? 'ولا يحدّد الزعم طريقة العدّ، فاعتمدنا كل صيغ الكلمة.' : 'The claim doesn’t say how it counts, so all forms of the word are used.');
       return word ? word + ' ' + how : how; },
-    searchModes(){ if(!this.ready.words) return null; const ix=jix(); if(!ix || !normalize(this.q)) return null; return JEV.modeCounts(ix, this.q); },
+    searchModes(){ if(!this.ready.words) return null; const ix=jix(); if(!ix || !normalize(this.q)) return null;
+      const c=Object.assign({}, JEV.modeCounts(ix, this.q)), st=surfTest(this.q, this.sWhole), W=this.W; let n=0;
+      if(st && W && W.surface) for(let i=0;i<W.surface.length;i++) if(st(W.surface[i], W.norm[i])) n++;
+      c.surface=n; return c; },
+    searchPrecise(){ const r=this.q||''; return !/\s/.test(r.trim()) && (AR_HAMZA.test(r) || AR_MARK1.test(r)); },
     searchHint(){ if(!this.ready.words) return null; const ix=jix(), q=normalize(this.q); if(!ix || !q) return null;
       const c=JEV.modeCounts(ix, q);
       if(!c.surface && !c.lemma && !c.root){ const forms=JEV.mushafSpelling(ix, q); return forms ? {type:'spelling', forms} : null; }
@@ -5758,6 +5832,9 @@ createApp({
     surahName(n){ const s=(this.DS.surahMeta||[]).find(x=>x.n===n); return s?(this.lang==='ar'?s.ar:s.en):n; },
     applyDir(){ const ar=this.lang==='ar'; const el=document.documentElement;
       el.setAttribute('dir', ar?'rtl':'ltr'); el.setAttribute('lang', ar?'ar':'en'); },
+    sfKey(r,o){ return r==='num' ? o : (r==='front' ? 'f:' : 'e:')+o; },
+    sfToggle(r,o){ const k=this.sfKey(r,o), n=Object.assign({}, this.sfOff); if(n[k]) delete n[k]; else n[k]=true; this.sfOff=n; this.runSearch(); },
+    sfPreset(id){ this.sfOff = id==='sing' ? {D:true,P:true,C:true,V:true,'e:pron':true} : {}; this.runSearch(); },
     kbAppend(ch){ this.q += ch; this.runSearch(); },
     kbBack(){ this.q = this.q.slice(0,-1); this.runSearch(); },
     kbClear(){ this.q=''; this.runSearch(); },
@@ -5770,16 +5847,17 @@ createApp({
     runSearch(){
       if(!this.ready.words){ this.load('words'); return; }   // runs again when the index arrives
       const W=this.W, q=normalize(this.q);
-      if(!q){ this.sres={total:0,surahs:0,verses:0,sample:[]}; SKYKEYS=null; if(this.view==='search') this.syncSky(); return; }
-      let total=0; const suras=new Set(), verses=new Set(), sample=[], roots=new Map();
+      if(!q){ this.sres={total:0,surahs:0,verses:0,sample:[]}; this.sfCount=null; SHITS=null; SKYKEYS=null; if(this.view==='search') this.syncSky(); return; }
+      let total=0; const suras=new Set(), verses=new Set(), sample=[], roots=new Map(), st=surfTest(this.q, this.sWhole);
+      const F=W.form, cnt={num:{},front:{},end:{}}, off=this.sfOff, hits=new Set();
       for(let i=0;i<W.norm.length;i++){
-        let field = this.mode==='surface'?W.norm[i] : this.mode==='lemma'?W.lemma[i] : W.root[i];
-        let m = this.mode==='surface' ? field.includes(q) : field===q;
-        if(m){ total++; const k=W.key[i]; suras.add(k.split(':')[0]);
+        let m = this.mode==='surface' ? st(W.surface[i], W.norm[i]) : (this.mode==='lemma' ? W.lemma[i] : W.root[i])===q;
+        if(m && F){ const c=sfCats(F[i]); if(c){ for(const r in c) cnt[r][c[r]]=(cnt[r][c[r]]||0)+1; if(off[c.num] || off['f:'+c.front] || off['e:'+c.end]) m=false; } }
+        if(m){ total++; hits.add(i); const k=W.key[i]; suras.add(k.split(':')[0]);
           if(this.mode==='surface'){ const r=W.root[i]||'', g=roots.get(r) || roots.set(r, {root:r, n:0, forms:new Map(), k}).get(r); g.n++; g.forms.set(W.surface[i], (g.forms.get(W.surface[i])||0)+1); }
           if(!verses.has(k)){ verses.add(k); if(sample.length<40) sample.push(k); } }
       }
-      this.sres={total:total,surahs:suras.size,verses:verses.size,sample:sample};
+      this.sres={total:total,surahs:suras.size,verses:verses.size,sample:sample}; this.sfCount=F ? cnt : null; SHITS=F ? hits : null;
       this.sresRoots=[...roots.values()].sort((a,b)=>b.n-a.n).map(g=>({root:g.root, n:g.n, k:g.k, form:[...g.forms.entries()].sort((a,b)=>b[1]-a[1])[0][0]}));
       SKYKEYS = verses.size ? [...verses] : null;
       const by={}; (SKYKEYS||[]).forEach(k=>{ const n=+String(k).split(':')[0]; by[n]=(by[n]||0)+1; }); this.sresBy=by;
@@ -5788,11 +5866,14 @@ createApp({
     highlight(vk){
       const t=this.V[vk]||''; const q=normalize(this.q); if(!q) return t;
       const main=this.mode==='surface' && this.sresRoots.length>1 ? this.sresRoots[0].root : null, span=main && this.W.root ? verseSpan(vk) : null;
-      if(span) return t.split(' ').map((w,j)=>{ const nw=normalize(w); if(!nw.includes(q)) return w;
+      const hs=SHITS && verseSpan(vk);
+      if(hs){ let j=hs[0]-1; return t.split(' ').map(w=>{ if(!/[\u0621-\u064A\u0671]/.test(w)) return w; j++; return SHITS.has(j) ? '<mark>'+w+'</mark>' : w; }).join(' ') + ' <span class="vk">'+vk+'</span>'; }
+      const st=this.mode==='surface' ? surfTest(this.q, this.sWhole) : null;
+      if(span) return t.split(' ').map((w,j)=>{ const nw=normalize(w); if(!st(w, nw)) return w;
           const r=this.W.root[span[0]+j]; return r===main ? '<mark>'+w+'</mark>' : '<mark class="other" title="'+(this.lang==='ar' ? 'كلمةٌ أخرى تشترك في الحروف' : 'another word that shares the letters')+'">'+w+'</mark>'; }).join(' ') + ' <span class="vk">'+vk+'</span>';
       // highlight words whose normalized form contains/equals q
       return t.split(' ').map(w=>{ const nw=normalize(w);
-        const hit = this.mode==='surface'? nw.includes(q): nw===q || nw.includes(q);
+        const hit = st ? st(w, nw) : (nw===q || nw.includes(q));
         return hit? '<mark>'+w+'</mark>':w; }).join(' ') + ' <span class="vk">'+vk+'</span>';
     },
     renderReader(){ /* reactive via computed */ },

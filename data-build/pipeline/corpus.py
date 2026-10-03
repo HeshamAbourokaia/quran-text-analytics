@@ -49,6 +49,22 @@ def _feat(feats, key):
     m = re.search(key + r':([^|]+)', feats)
     return m.group(1) if m else None
 
+def _form(segs, stem):
+    """How the word is built, as 'prefixes/number/suffix' from the corpus segmentation.
+    prefixes: the joined particles, normalized (و ف ب ل ك س ال ...); number: S, D or P for the stem
+    (V for a verb), with '+' when two stems are written as one word (يومئذ); suffix: the attached
+    pronoun's person tag (3MS, 2MP, 1S ...) or empty."""
+    pre = ''.join(normalize(s['form']) for s in segs if '|PREF' in s['feats'] or s['feats'].startswith('PREF'))
+    suf = ','.join(m.group(0) for s in segs if 'PRON|SUFF' in s['feats']
+                   for m in [re.search(r'\b[123]?[MF]?[SDP]\b', s['feats'].split('SUFF', 1)[1])] if m)
+    stems = [s for s in segs if '|PREF' not in s['feats'] and '|SUFF' not in s['feats'] and not s['feats'].startswith('PREF')]
+    if stem['pos'] == 'V':
+        num = 'V'
+    else:
+        m = re.search(r'(?:^|\|)[MF]?([SDP])(?:\||$)', stem['feats'])
+        num = m.group(1) if m else 'S'
+    return f"{pre}/{num}{'+' if len(stems) > 1 else ''}/{suf}"
+
 def load_words():
     """Return word-level tokens with lemma/root/pos and positions."""
     rows = _read_rows()
@@ -71,6 +87,7 @@ def load_words():
         if stem is None:
             stem = next((s for s in segs if 'LEM:' in s['feats']), segs[0])
         words.append({
+            'form': _form(segs, stem),
             'sura': k[0], 'aya': k[1], 'word': k[2],
             'surface': surface,
             'norm': normalize(surface),
