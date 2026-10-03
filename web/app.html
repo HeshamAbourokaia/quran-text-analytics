@@ -254,6 +254,19 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
     transition:border-color .4s var(--ease),transform .45s var(--ease)}
   .metric .m:hover{border-color:rgba(255,255,255,.18);transform:translateY(-2px)}
   .metric .m .v{font-family:var(--serif);font-size:2.1rem;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
+  /* dashboard: Meccan beside Medinan, one measure a row, so a gap of "twice" is a bar twice as long */
+  .dcmp h3{margin:0 0 4px} .dcmp .fsub{margin:0 0 14px;color:var(--on-dark-2);font-size:.9rem}
+  .dcmp .row3{display:grid;grid-template-columns:minmax(150px,1.1fr) 3fr;gap:6px 14px;align-items:center;padding:10px 0;border-top:1px solid var(--hair)}
+  .dcmp .lab{font-size:.88rem;color:var(--on-dark)} .dcmp .lab small{display:block;color:var(--on-dark-2);font-size:.76rem;margin-top:2px}
+  .dcmp .bars{display:grid;gap:5px}
+  .dcmp .bar{display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--on-dark-2)}
+  .dcmp .bar i{display:block;height:14px;border-radius:7px;min-width:3px;transition:width .5s ease}
+  .dcmp .bar.mec i{background:var(--gold)} .dcmp .bar.med i{background:var(--emerald-2)}
+  .dcmp .bar.off{opacity:.28}
+  .dcmp .bar b{color:#fff;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .dcmp .x{color:var(--gold);font-weight:700;margin-inline-start:4px}
+  .dcmp .say{margin:14px 0 0;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.04);font-size:.92rem;line-height:1.6}
+  @media (max-width:640px){ .dcmp .row3{grid-template-columns:1fr} }
   .metric .m:first-child .v{color:var(--gold)}
   html[lang=ar] .metric .m .v{font-family:var(--ar-display);font-size:1.9rem;line-height:1.2}
   .metric .m .k{margin-top:8px;font-size:.66rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-3)}
@@ -1023,6 +1036,14 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .dnav button:hover{background:rgba(255,255,255,.1)}
   .dnav button.all{color:#04140d;background:var(--gold);border-color:var(--gold)}
   .dnav button.share{background:none;border-style:dashed;color:var(--on-dark-2)}
+  /* the same moves at the top of a claim, so nobody has to scroll to the end to leave it */
+  .dtop{display:flex;align-items:center;gap:8px;margin:0 0 18px}
+  .dtop button{font:inherit;font-size:.82rem;font-weight:600;color:var(--on-dark);background:rgba(255,255,255,.05);border:1px solid var(--hair);border-radius:999px;padding:7px 14px;cursor:pointer;white-space:nowrap}
+  .dtop button:hover{background:rgba(255,255,255,.1)}
+  .dtop button.all{color:#04140d;background:var(--gold);border-color:var(--gold)}
+  .dtop .sp{flex:1}
+  .dtop .step{width:34px;height:34px;padding:0;display:grid;place-items:center;font-size:1.05rem;line-height:1}
+  .dtop .step:disabled{opacity:.3;cursor:default}
   .seg2{display:inline-flex;gap:2px;padding:3px;border-radius:999px;background:rgba(255,255,255,.045);border:1px solid var(--hair);margin:0 0 14px}
   .seg2 button{font:inherit;font-size:.82rem;font-weight:600;color:var(--on-dark-2);background:none;border:0;border-radius:999px;padding:7px 16px;cursor:pointer}
   .seg2 button[aria-pressed=true]{color:#04140d;background:var(--on-dark)}
@@ -1792,7 +1813,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
           ? 'الترجمة الإنجليزية: محمد مرمدوك بكتهول، «معاني القرآن المجيد» (١٩٣٠)، ملكية عامة. النص الرقمي المدقق من مشروع تنزيل.'
           : 'English translation: M. M. Pickthall, The Meaning of the Glorious Koran (1930), public domain. Verse-aligned digital text from the Tanzil Project.' }}</div>
       </div>
-      <div v-if="rClaimObj || rExt" class="rbar" role="group" :aria-label="rClaimObj ? (lang==='ar' ? 'التنقل بين آيات هذه الكلمة' : 'Move between the verses of this word') : (lang==='ar' ? 'التنقل بين آيات القائمة' : 'Move between the verses of the list')">
+      <div v-if="rClaimObj || rExt || rBack" class="rbar" role="group" :aria-label="rClaimObj ? (lang==='ar' ? 'التنقل بين آيات هذه الكلمة' : 'Move between the verses of this word') : (lang==='ar' ? 'التنقل بين آيات القائمة' : 'Move between the verses of the list')">
         <a v-if="rBack==='landing'" class="rb-back" :href="rBackHref">{{ lang==='ar' ? '→ العودة إلى المزاعم' : '← Back to the claims' }}</a>
         <button v-else type="button" class="rb-back" @click="backFromReader">{{ rBackLabel }}</button>
         <span class="rb-what"><b lang="ar" v-if="rClaimObj">{{ rClaimObj.ar }}</b>{{ rWhere }}</span>
@@ -1988,6 +2009,12 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
 
     <!-- HISTORY CLAIMS: one claim -->
     <section v-if="view==='history' && hCur" class="disc dpage hist">
+      <nav class="dtop" :aria-label="lang==='ar' ? 'التنقل بين المزاعم' : 'Move between claims'">
+        <button type="button" class="all" @click="hGo('')">{{ lang==='ar' ? '→ كل المزاعم' : '← All the claims' }}</button>
+        <span class="sp"></span>
+        <button type="button" class="step" :disabled="hIdx<=0" @click="hGo(history[hIdx-1].id)" :title="hIdx>0 ? (lang==='ar' ? history[hIdx-1].short_ar : history[hIdx-1].short_en) : ''" :aria-label="lang==='ar' ? 'المزعم السابق' : 'Previous claim'">{{ lang==='ar' ? '›' : '‹' }}</button>
+        <button type="button" class="step" :disabled="hIdx>=history.length-1" @click="hGo(history[hIdx+1].id)" :title="hIdx<history.length-1 ? (lang==='ar' ? history[hIdx+1].short_ar : history[hIdx+1].short_en) : ''" :aria-label="lang==='ar' ? 'المزعم التالي' : 'Next claim'">{{ lang==='ar' ? '‹' : '›' }}</button>
+      </nav>
       <p class="dkick"><span class="dnum">{{ lang==='ar' ? 'المزعم '+D(hIdx+1)+' من '+D(history.length) : 'Claim '+(hIdx+1)+' of '+history.length }}</span><span>·</span><span>{{ hRegion(hCur.region) }}</span></p>
       <h1>{{ lang==='ar' ? hCur.title_ar : hCur.title_en }}</h1>
       <div class="verdict" :class="hVb(hCur.verdict)">
@@ -2349,6 +2376,20 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
         <div class="m"><div class="v">{{ f(dashAgg.words) }}</div><div class="k">{{ lang==='ar'?'كلمات':'words' }}</div></div>
         <div class="m"><div class="v">{{ D(dashAgg.avg) }}</div><div class="k">{{ lang==='ar'?'كلمة/آية':'words/verse' }}</div></div>
       </div>
+      <div class="card dcmp" v-if="dashCmp">
+        <h3>{{ lang==='ar' ? 'المكية بجانب المدنية' : 'Meccan beside Medinan' }}</h3>
+        <p class="fsub">{{ lang==='ar'
+          ? 'كل صفٍّ مقياسٌ واحد، والشريطان على مقياسٍ واحد، فالشريط الأطول بضعفين يعني ضعف القيمة. يتبع الصفّان مرشّح عدد الآيات.'
+          : 'One measure a row, both bars on the same scale, so a bar twice as long means twice as much. Both rows follow the minimum-verses filter.' }}</p>
+        <div v-for="r in dashCmp.rows" :key="r.k" class="row3">
+          <div class="lab">{{ r.lab }}<small>{{ r.sub }}</small></div>
+          <div class="bars">
+            <div class="bar mec" :class="{off: dashPlace==='Medina'}"><i :style="{width:r.wm+'%'}"></i><b>{{ r.fm }}</b>{{ lang==='ar' ? 'مكية' : 'Meccan' }}</div>
+            <div class="bar med" :class="{off: dashPlace==='Mecca'}"><i :style="{width:r.wd+'%'}"></i><b>{{ r.fd }}</b>{{ lang==='ar' ? 'مدنية' : 'Medinan' }}<span class="x" v-if="r.x">{{ r.x }}</span></div>
+          </div>
+        </div>
+        <p class="say">{{ dashCmp.say }}</p>
+      </div>
       <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-columns" data-stage="dashboard" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
       <div class="card glfb"><div class="chart" id="dashChart"></div></div>
       <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> <span v-html="rich(plain.msg)"></span></div>
@@ -2407,7 +2448,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
         </table>
         <div v-if="jevRev.dis.length" style="margin-top:12px">
           <div class="ccmuted">{{ lang==='ar' ? 'حيث يخالف Jev التصنيف المعتمد:' : 'Where Jev disagrees with the standard label:' }}</div>
-          <span class="chip small" v-for="it in jevRev.dis.slice(0,24)" :key="it.n" @click="rSurah=it.n;go('reader')">{{ surahName(it.n) }} ({{ D(it.n) }}) · {{ it.pred==='medinan' ? (lang==='ar'?'مدني':'Medinan') : (lang==='ar'?'مكي':'Meccan') }}<span class="n" v-if="it.confidence!=null">{{ pct(it.confidence) }}</span></span>
+          <span class="chip small" v-for="it in jevRev.dis.slice(0,24)" :key="it.n" @click="openVerse(it.n, 0, '', view)">{{ surahName(it.n) }} ({{ D(it.n) }}) · {{ it.pred==='medinan' ? (lang==='ar'?'مدني':'Medinan') : (lang==='ar'?'مكي':'Meccan') }}<span class="n" v-if="it.confidence!=null">{{ pct(it.confidence) }}</span></span>
         </div>
         <div class="jevnote">{{ jevRev.model }} · {{ jevRev.date }}</div>
       </div>
@@ -2778,8 +2819,8 @@ const PLAIN = {
     method:['A page like this is called a dashboard: filters that let you ask your own questions of the data.', 'تُسمّى صفحةٌ كهذه «لوحة معلومات»: مرشّحاتٌ تتيح لك أن تسأل البيانات أسئلتك أنت.'],
     how:['Each column is one surah that your choices keep, made of its verses.', 'كل عمودٍ سورةٌ تُبقيها اختياراتك، مصنوعٌ من آياتها.'],
     tip:['{P} a dot to see its verse', '{p} نقطةٍ لترى آيتها'],
-    msg:['Try Meccan only, then Medinan only: there are fewer Medinan surahs, but they are about twice as long in words.',
-      'جرّب المكية وحدها ثم المدنية وحدها: السور المدنية أقل عددًا، لكنها أطول بنحو الضعف في كلماتها.']},
+    msg:['The Meccan-beside-Medinan panel answers the page\'s question: fewer Medinan surahs, longer on average, and above all longer verses. Raise the minimum verses to leave the short surahs out and watch which gaps hold.',
+      'لوحة «المكية بجانب المدنية» تجيب عن سؤال الصفحة: سورٌ مدنية أقل، أطول في المتوسط، وأطول آياتٍ قبل كل شيء. ارفع الحد الأدنى للآيات لتستبعد السور القصيرة، وانظر أيّ الفروق يبقى.']},
   hifz:{
     title:['How long would it take to memorise the Quran?', 'كم يستغرق حفظ القرآن؟'],
     what:['Choose how many minutes a day you can give. The page works out how many new lines you could learn each day, how many to review, and how many years it would take to finish.',
@@ -3793,6 +3834,8 @@ createApp({
     realViews(){ return [...DISC_IDS, 'home','overview','word','mecca','letters','search','reader','auditor','history','stories','lessons','duas','tafsir','untranslatable',
       'emotion','pronouns','science','abjad','n19','structural','symmetry','nlp','kg','advanced','tawafuq','alifi','hifz','classifier','stats','cluster','coincidence','dashboard']; },
     curHub(){ return this.nav.find(h=>h.items.some(i=>i.id===this.view)) || null; },
+    // where the reader is: a change of page, claim or surah is a step the browser's back arrow can undo
+    navKey(){ const r=this.view==='reader'; return [this.view, this.view==='history' ? this.hSel : '', r ? this.rSurah : '', r ? this.rVerse : ''].join('|'); },
     plain(){ const v=this.view, P=PLAIN[v]; if(!P) return null;
       const ar=this.lang==='ar', i=ar?1:0, t=!FINE, pick=k=>P[k] ? P[k][i] : '';
       const x={title:pick('title'), what:pick('what'), method:pick('method'), how:pick('how'), msg:pick('msg'), tip:'',
@@ -3853,6 +3896,27 @@ createApp({
     dashFiltered(){ let r=(this.DS.surahMeta||[]).filter(s=>
         (this.dashPlace==='all'||s.place===this.dashPlace) && s.verses>=this.dashMinVerses);
       const k=this.dashSort; r=r.slice().sort((a,b)=> k==='n'?a.n-b.n : b[k]-a[k]); return r; },
+    // the same surahs, split by where they were revealed: counts, a typical surah, and the length of a verse
+    dashCmp(){ const all=(this.DS.surahMeta||[]).filter(x=>x.verses>=this.dashMinVerses), ar=this.lang==='ar';
+      const grp=p=>{ const r=all.filter(x=>x.place===p), v=r.reduce((t,x)=>t+x.verses,0), w=r.reduce((t,x)=>t+x.words,0), ws=r.map(x=>x.words).sort((a,b)=>a-b);
+        const med=!ws.length ? 0 : ws.length%2 ? ws[(ws.length-1)/2] : Math.round((ws[ws.length/2-1]+ws[ws.length/2])/2);
+        return {n:r.length, avg:r.length ? Math.round(w/r.length) : 0, med, wpv:v ? Math.round(w/v*10)/10 : 0}; };
+      const A=grp('Mecca'), B=grp('Medina'); if(!A.n && !B.n) return null;
+      const times=(a,b)=>{ if(!a || !b) return ''; const t=b/a; return Math.abs(t-1)<.05 ? '' : (t>1 ? (ar ? '× '+this.D(t.toFixed(1)) : t.toFixed(1)+'×') : ''); };
+      const row=(k,lab,sub,a,b,dec)=>{ const m=Math.max(a,b)||1, fm=dec ? this.D(a.toFixed(1)) : this.f(a), fd=dec ? this.D(b.toFixed(1)) : this.f(b);
+        return {k,lab,sub,fm,fd,wm:100*a/m,wd:100*b/m,x:times(a,b)}; };
+      const rows=[
+        row('n', ar?'عدد السور':'How many surahs', ar?'كم سورةً في كل جانب':'surahs on each side', A.n, B.n),
+        row('avg', ar?'متوسط كلمات السورة':'Average words per surah', ar?'مجموع الكلمات ÷ عدد السور':'all the words ÷ the number of surahs', A.avg, B.avg),
+        row('med', ar?'السورة النموذجية (الوسيط)':'A typical surah (median)', ar?'السورة التي تقع في الوسط إذا رُتّبت حسب الطول':'the surah in the middle when they are lined up by length', A.med, B.med),
+        row('wpv', ar?'كلمات الآية الواحدة':'Words per verse', ar?'مجموع الكلمات ÷ عدد الآيات':'all the words ÷ all the verses', A.wpv, B.wpv, true)];
+      let say;
+      if(!A.n || !B.n) say = ar ? 'لم يبقَ مع هذا المرشّح إلا جانبٌ واحد، فلا مقارنة. خفّض الحد الأدنى للآيات.' : 'Only one side is left at this filter, so there is nothing to compare. Lower the minimum verses.';
+      else { const ra=B.avg/A.avg, rm=B.med/A.med, rv=B.wpv/A.wpv;
+        say = ar
+          ? 'السور المدنية أقل عددًا ('+this.D(B.n)+' مقابل '+this.D(A.n)+'). ومتوسط كلماتها أكبر بنحو '+this.D(ra.toFixed(1))+' مرة، لكن جزءًا كبيرًا من ذلك تصنعه سورٌ طويلةٌ جدًا كالبقرة: فالسورة النموذجية أطول بنحو '+this.D(rm.toFixed(1))+' مرة فقط. والفرق الأوضح في الآية نفسها: الآية المدنية أطول بنحو '+this.D(rv.toFixed(1))+' مرة ('+this.D(B.wpv.toFixed(1))+' كلمة مقابل '+this.D(A.wpv.toFixed(1))+').'
+          : 'Medinan surahs are fewer ('+B.n+' against '+A.n+'). On average they hold '+ra.toFixed(1)+'× the words, but much of that comes from a few very long ones such as al-Baqarah: a typical Medinan surah is only '+rm.toFixed(1)+'× a typical Meccan one. The clearest gap is inside the verse: a Medinan verse runs '+rv.toFixed(1)+'× as long ('+B.wpv.toFixed(1)+' words against '+A.wpv.toFixed(1)+').'; }
+      return {rows, say}; },
     dashAgg(){ const r=this.dashFiltered, v=r.reduce((t,s)=>t+s.verses,0), w=r.reduce((t,s)=>t+s.words,0);
       return {count:r.length, verses:v, words:w, avg:(v?(w/v):0).toFixed(1)}; },
     labCur(){ const m=(this.lang==='ar'?this.labMetaAr:this.labMeta); return m[this.view]||null; },
@@ -3944,7 +4008,7 @@ createApp({
     rWhere(){ const ar=this.lang==='ar', n=this.rList.length, i=this.rPos; if(!this.rClaimObj && n<=1) return '';
       return i<0 ? (ar ? this.D(n)+' آية' : n+' verses') : (ar ? 'الآية '+this.D(i+1)+' من '+this.D(n) : 'verse '+(i+1)+' of '+n); },
     rBackHref(){ return this.landingHref + '#claim-' + this.rClaim; },
-    rBackLabel(){ const ar=this.lang==='ar', t=({auditor: ar?'مدقّق المزاعم':'the Claim Auditor', history: ar?'شواهد التاريخ':'History Claims', symmetry: ar?'أزواج الكلمات':'Word Pairs'})[this.rBack] || (String(this.rBack).startsWith('d-') ? this.viewName(this.rBack) : '');
+    rBackLabel(){ const ar=this.lang==='ar', b=String(this.rBack||''), t=({auditor: ar?'مدقّق المزاعم':'the Claim Auditor', history: ar?'شواهد التاريخ':'History Claims', symmetry: ar?'أزواج الكلمات':'Word Pairs'})[b] || (b && b!=='reader' && b!=='landing' && b!=='home' ? this.viewName(b) : '');
       return t ? (ar ? '→ العودة إلى '+t : '← Back to '+t) : (ar ? '→ العودة' : '← Back'); },
     readerVerses(){
       const out=[]; const n=this.rSurah;
@@ -4202,7 +4266,7 @@ createApp({
         if(/[0-9]/.test(t.textContent)) t.textContent = t.textContent.replace(/[0-9]/g,d=>map[d]);
       });
     },
-    go(id){ const changed=id!==this.view;
+    go(id){ const changed=id!==this.view; if(changed) this.saveY();
       (NEEDS[id]||[]).forEach(k=>this.load(k));
       if(id!=='reader'){ this.rClaim=''; this.rVerse=0; this.rBack=''; this.rExt=null; }
       if(id==='history' ? this.view==='history' : id!=='reader') this.hSel='';   // the tab itself opens the index; back from the reader keeps the claim
@@ -4553,7 +4617,7 @@ createApp({
         this._hRaf=requestAnimationFrame(tick); };
       this._hRaf=requestAnimationFrame(tick); },
     // open one claim ('' = back to the index)
-    hGo(id){ this.hStop(); this.hSel=id; this.hCopied=false; window.scrollTo(0,0);
+    hGo(id){ if(id!==this.hSel) this.saveY(); this.hStop(); this.hSel=id; this.hCopied=false; window.scrollTo(0,0);
       this.$nextTick(()=>{ this.revealScan(); this.animateHead(); }); },
     hShare(){ const url=location.origin+location.pathname+'?view=history&c='+this.hSel+(this.lang==='ar' ? '&lang=ar' : '');
       const done=()=>{ this.hCopied=true; clearTimeout(this._hCp); this._hCp=setTimeout(()=>{ this.hCopied=false; }, 2400); };
@@ -4563,6 +4627,7 @@ createApp({
       if(!(s>=1 && s<=114)) return;
       const fromStudy = String(back||'').startsWith('d-');
       if(fromStudy) this.dScrollY=window.scrollY;   // coming back puts the page where it was
+      if(this.view!=='reader') this._readerFrom = history.state && history.state.qv ? {qi:history.state.qi, qv:history.state.qv} : null;
       this.go('reader');
       this.rSurah=s; this.rVerse=v||0; this.rClaim=claim||''; this.rBack=back||'';
       this.rExt = ext || (fromStudy ? {keys:[s+':'+(v||1)]} : null);
@@ -4588,7 +4653,35 @@ createApp({
       if(j<0 || j>=L.length) return;
       const [s,v]=L[j].split(':').map(Number); this.rSurah=s; this.rVerse=v; this.focusVerse(true);
     },
+    // ---- browser history: every page, claim and surah gets its own entry, so back and forward work ----
+    navUrl(){ const q=new URLSearchParams();
+      if(this.view!=='home') q.set('view', this.view);
+      if(this.view==='history' && this.hSel) q.set('c', this.hSel);
+      if(this.view==='reader'){ q.set('s', this.rSurah); if(this.rVerse) q.set('v', this.rVerse); if(this.rClaim) q.set('m', this.rClaim); if(this.rBack==='landing') q.set('back', 'landing'); }
+      if(this.lang==='ar') q.set('lang', 'ar');
+      const qs=q.toString(); return location.pathname + (qs ? '?'+qs : ''); },
+    navState(qi){ return {qv:this.view, c:this.hSel, s:this.rSurah, v:this.rVerse, m:this.rClaim, b:this.rBack,
+      x:this.rExt && this.rExt.keys ? {keys:[...this.rExt.keys].map(String)} : null, qi, y:0}; },
+    // the page being left keeps its scroll, so coming back lands where the reader was
+    saveY(){ try{ const st=history.state; if(st && st.qv) history.replaceState(Object.assign({}, st, {y:window.scrollY}), ''); }catch(e){} },
+    syncUrl(push){ try{ const st=history.state, qi=st && st.qv ? st.qi : 0;
+        if(push) history.pushState(this.navState(qi+1), '', this.navUrl());
+        else history.replaceState(Object.assign(this.navState(qi), {y: st && st.y || 0}), '', this.navUrl()); }catch(e){} },
+    onPop(e){ const st=e.state; if(!st || !st.qv || !this.realViews.includes(st.qv)) return;
+      const from=this.view, t0=Date.now(); this._popping=true;
+      this.dBack = true;   // a page returned to keeps its open panels and selections
+      this.go(st.qv);
+      if(st.qv==='history') this.hSel = st.c || '';
+      if(st.qv==='reader'){ this.rSurah=st.s||1; this.rVerse=st.v||0; this.rClaim=st.m||''; this.rBack=st.b||''; this.rExt=st.x||null;
+        if(this.rClaim) this.load('words'); }
+      this.$nextTick(()=>{ this._popping=false;
+        if(st.qv==='reader' && st.v){ this.focusVerse(); return; }
+        if(from==='reader' && String(st.qv).startsWith('d-') && this.dAnchor){ this.dRestore(st.y||0); return; }
+        const put=()=>{ if(USER_AT>t0) return; window.scrollTo(0, st.y||0); };
+        put(); [120, 400, 900, 1600].forEach(ms=>setTimeout(put, ms)); }); },
     backFromReader(){
+      const st=history.state;
+      if(st && st.qv==='reader' && this._readerFrom && st.qi===this._readerFrom.qi+1 && this._readerFrom.qv===this.rBack){ history.back(); return; }
       const b=this.rBack, y=this.dScrollY; this.rClaim=''; this.rVerse=0; this.rBack='';
       this.dBack = String(b).startsWith('d-');
       this.go(b || 'home');
@@ -4779,7 +4872,9 @@ createApp({
       }
     }
   },
-  watch:{ lang(v){ this.applyDir(); this.showTrans = (v!=='ar'); this.applySitCat(); const sky=SKY(); if(sky) sky.setLang(v);
+  watch:{ navKey(n, o){ if(this._popping || !this._navReady) return; const a=String(o).split('|'), b=String(n).split('|');
+      this.syncUrl(a[0]!==b[0] || a[1]!==b[1] || a[2]!==b[2]); },
+    lang(v){ this.applyDir(); this.showTrans = (v!=='ar'); this.applySitCat(); const sky=SKY(); if(sky) sky.setLang(v);
       this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); this.revealScan(); this.syncStage(); if(this.term) this.placeTerm(); }); },
     dashFiltered(){ if(this.view==='dashboard') this.$nextTick(()=>this.syncStage()); },
     gridN(){ if(this.view==='coincidence') this.syncStage(); },
@@ -4812,6 +4907,9 @@ createApp({
       if(wantView==='auditor' && wantClaim){ this.cc.text = wantClaim.slice(0,400); this.$nextTick(()=>this.checkClaim()); }
     }
     this.applyDir();
+    try{ history.replaceState(this.navState(0), '', this.navUrl() + location.hash); }catch(e){}
+    window.addEventListener('popstate', e=>this.onPop(e));
+    this.$nextTick(()=>{ this._navReady=true; try{ history.replaceState(this.navState(0), '', this.navUrl() + location.hash); }catch(e){} });
     window.addEventListener('resize', ()=>this.resizeCharts());
     if(typeof QURAN_STORIES!=='undefined') this.stories=QURAN_STORIES;
     if(typeof QURAN_LESSONS!=='undefined') this.lessons=QURAN_LESSONS;
@@ -4824,7 +4922,7 @@ createApp({
     if(window.V1DATA) this.V1=window.V1DATA;
     if(window.QURAN_EN) this.EN=window.QURAN_EN;
     const sky=SKY(); if(sky) sky.setLang(this.lang);
-    window.addEventListener('sky:read', e=>{ const n=e.detail && e.detail.surah; if(n>=1 && n<=114){ this.rSurah=n; this.go('reader'); } });
+    window.addEventListener('sky:read', e=>{ const n=e.detail && e.detail.surah; if(n>=1 && n<=114) this.openVerse(n, 0, '', this.view==='reader' ? this.rBack : this.view); });
     window.addEventListener('sky:verse', e=>{ const d=e.detail||{}; this.openVerse(+d.s, +d.v, d.claim||'', this.view); });
     document.addEventListener('click', e=>{
       const t=e.target.closest ? e.target.closest('.term[data-term]') : null;
