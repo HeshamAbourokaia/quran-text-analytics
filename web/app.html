@@ -1301,6 +1301,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .nlp-c rect{fill:var(--gold);filter:drop-shadow(0 0 16px rgba(233,185,95,.55))} .nlp .nlp-svg .nlp-c text{font-family:var(--ar-display);font-size:26px;fill:#1a1405}
   .nlp-svg .nlp-cn{font-size:11px;fill:var(--on-dark-2)}
   .nlp-read{min-height:2.8em;margin:6px 0 0;padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.04);font-size:.86rem;line-height:1.7;color:var(--on-dark-2)} .nlp-read.sm{min-height:2.2em}
+  .nlp-acts{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:6px} .nlp-acts .cclink{margin:0}
   .nlp-read b{font-family:var(--ar-display);font-weight:400;font-size:1.15rem;color:var(--gold)} .nlp-read bdi{font-family:var(--ar-display);font-size:1.05rem;color:#fff} .nlp-read .k{color:var(--gold);font-weight:700}
   .nlp-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
   .nlp-zsvg{display:block;width:100%;height:auto;cursor:crosshair} .nlp-zsvg .ax{stroke:rgba(255,255,255,.2)} .nlp-zsvg .t{font-size:9px;fill:var(--on-dark-3)}
@@ -4891,7 +4892,7 @@ function nlpIndex(W){
   return (NLP_IX={W, cnt, best, ranked, rank, slope, icpt, top, hapax: ranked.filter(e=>e[1]===1).length});
 }
 const NlpLab = { mixins:[FitW],
-  data(){ return {center:'رب', small:false, hov:null, zh:-1, q:''}; },
+  data(){ return {center:'رب', small:false, hov:null, pin:null, zh:-1, q:''}; },
   template:`<div class="nlp">
     <div class="nlp-kpis" v-if="ix">
       <div><b>{{ f(W.lemma.length) }}</b><span>{{ ar ? 'كلمة في النص' : 'words in the text' }}</span></div>
@@ -4906,7 +4907,7 @@ const NlpLab = { mixins:[FitW],
       <p class="fsub">{{ ar ? 'يمينًا: الكلمات التي تأتي قبلها. يسارًا: التي تأتي بعدها. سُمك الخط بقدر تكرار الاقتران. انقر كلمةً لتنتقل إليها.' : 'Right: the words that come just before it. Left: the words that come just after. Line thickness shows how often the pair occurs. Tap a word to move to it.' }}</p>
       <svg v-if="ix" :viewBox="'0 0 '+cw+' '+th" class="nlp-svg" @pointerleave="hov=null">
         <g v-for="(side,si) in [tree.prev, tree.next]" :key="si">
-          <g v-for="(nd,i) in side" :key="center+si+nd.l" class="nlp-br" :class="{on: hov && hov.l===nd.l && hov.si===si}" :style="{animationDelay: i*45+'ms'}" @pointerenter="hov={l:nd.l, si}" @click="go(nd.l)">
+          <g v-for="(nd,i) in side" :key="center+si+nd.l" class="nlp-br" :class="{on: (hov && hov.l===nd.l && hov.si===si) || (pin && pin.l===nd.l && pin.si===si)}" :style="{animationDelay: i*45+'ms'}" @pointerenter="hov={l:nd.l, si}" @click="tapBranch(nd.l, si)">
             <path :d="curve(si, i, side.length)" :stroke-width="1.2+nd.c/tree.max*(cw<600 ? 5 : 11)" class="ln" :class="si ? 'nx' : 'pv'"/>
             <text :x="ex(si)+(si ? -8 : 8)" :y="ny(i, side.length)+6" :text-anchor="si ? 'end' : 'start'" class="w" lang="ar">{{ nd.s }}</text>
             <text :x="ex(si)+(si ? 6 : -6)" :y="ny(i, side.length)-7" :text-anchor="si ? 'start' : 'end'" class="c">{{ D(nd.c) }}</text>
@@ -4915,8 +4916,9 @@ const NlpLab = { mixins:[FitW],
         <g class="nlp-c"><rect :x="cw/2-cwid/2" :y="th/2-26" :width="cwid" height="52" rx="26"/><text :x="cw/2" :y="th/2+9" text-anchor="middle" lang="ar">{{ ix.best.get(center) || center }}</text></g>
         <text :x="cw/2" :y="th/2+46" text-anchor="middle" class="nlp-cn">{{ ar ? D(ix.cnt.get(center)||0)+' مرة' : (ix.cnt.get(center)||0)+' times' }}</text>
       </svg>
-      <p class="nlp-read" aria-live="polite"><template v-if="hovEx"><b lang="ar">{{ hovEx.phrase }}</b> · {{ ar ? D(hovEx.c)+' مرة' : hovEx.c+' times' }} · {{ ar ? 'مثلًا' : 'for example' }} <span class="k">{{ D(hovEx.k) }}</span> <bdi lang="ar" dir="rtl">{{ hovEx.v }}</bdi></template>
-        <template v-else>{{ ar ? 'أشر إلى فرعٍ لترى العبارة ومثالًا لها.' : 'Point at a branch to see the phrase and an example.' }}</template></p>
+      <div class="nlp-read" aria-live="polite"><template v-if="hovEx"><b lang="ar">{{ hovEx.phrase }}</b> · {{ ar ? D(hovEx.c)+' مرة' : hovEx.c+' times' }} · {{ ar ? 'مثلًا' : 'for example' }} <span class="k">{{ D(hovEx.k) }}</span> <bdi lang="ar" dir="rtl">{{ hovEx.v }}</bdi>
+          <span class="nlp-acts" v-if="pin && !hov"><button type="button" class="cclink" data-dopen @click="$root.dOpen(hovEx.k,[hovEx.k],$event)">{{ ar ? 'افتح الآية ‹' : 'Open the verse ›' }}</button><button type="button" class="cclink" @click="go(pin.l)">{{ ar ? 'انقل الشجرة إلى «'+(ix.best.get(pin.l)||pin.l)+'» ‹' : 'Move the tree to «'+(ix.best.get(pin.l)||pin.l)+'» ›' }}</button></span></template>
+        <template v-else>{{ ar ? 'أشر إلى فرعٍ لترى العبارة ومثالًا لها. انقره مرةً ليثبت هنا، ومرتين لتنتقل إليه.' : 'Point at a branch to see the phrase and an example. Tap once to keep it here; tap again to move the tree to it.' }}</template></div>
     </figure>
     <div class="nlp-grid">
       <figure class="dfig nlp-zipf"><h3>{{ ar ? 'قانون زيف' : 'Zipf\\u2019s law' }}</h3>
@@ -4948,7 +4950,7 @@ const NlpLab = { mixins:[FitW],
         for(let j=i+1;j<W.lemma.length && W.key[j]===k;j++){ if(keep(j)){ const l=W.lemma[j]; if(l) next.set(l,(next.get(l)||0)+1); break; } } }
       const top=m=>[...m.entries()].sort((a,b)=>b[1]-a[1]).slice(0,9).map(([l,cn])=>({l, c:cn, s:this.ix.best.get(l)||l}));
       const p=top(prev), n=top(next); return {prev:p, next:n, max:Math.max(1,...p.map(x=>x.c),...n.map(x=>x.c))}; },
-    hovEx(){ const h=this.hov, W=this.W; if(!h || !W) return null; const c=this.center, keep=i=>this.small || !!W.root[i];
+    hovEx(){ const h=this.hov || this.pin, W=this.W; if(!h || !W) return null; const c=this.center, keep=i=>this.small || !!W.root[i];
       for(let i=0;i<W.lemma.length;i++){ if(W.lemma[i]!==c) continue; const k=W.key[i], step=h.si ? 1 : -1;
         for(let j=i+step; j>=0 && j<W.lemma.length && W.key[j]===k; j+=step){ if(!keep(j)) continue; if(W.lemma[j]===h.l){ const a=h.si ? i : j, b=h.si ? j : i;
             const nd=(h.si ? this.tree.next : this.tree.prev).find(x=>x.l===h.l)||{c:0};
@@ -4956,11 +4958,21 @@ const NlpLab = { mixins:[FitW],
       return null; },
     zpts(){ const ix=this.ix; if(!ix) return []; const out=[]; let last=-1; ix.ranked.forEach((e,i)=>{ const r=i+1, x=Math.round(Math.log10(r)*90); if(x!==last || r<=30){ out.push({r, c:e[1], l:e[0]}); last=x; } }); return out; } },
   methods:{ D(x){ return this.$root.D(x); }, f(x){ return this.$root.f(x); },
-    go(l){ if(!l) return; this.center=l; this.hov=null; },
+    go(l){ if(!l) return; this.center=l; this.hov=null; this.pin=null; },
+    tapBranch(l, si){ if(this.pin && this.pin.l===l && this.pin.si===si) this.go(l); else this.pin={l, si}; },
+    // what the reader typed, as a word in the tree: first as written in the mushaf (the commonest word written that
+    // way), then with و ف ب ل ال taken off the front, so «الطول» finds «طول»
+    resolve(q){ const W=this.W, ix=this.ix; if(!W || !ix) return null; const ok=l=>l && ix.cnt.has(l) && (this.small || l.length>=2);
+      if(!this._norm || this._normW!==W){ const m=new Map(); for(let i=0;i<W.norm.length;i++){ const n=W.norm[i], l=W.lemma[i]; if(!l) continue; let e=m.get(n); if(!e){ e=new Map(); m.set(n,e); } e.set(l,(e.get(l)||0)+1); }
+        this._norm=m; this._normW=W; }
+      const byNorm=n=>{ const e=this._norm.get(n); if(!e) return null; let b=null, bc=0; for(const [l,c] of e) if(c>bc && ok(l)){ b=l; bc=c; } return b; };
+      if(ok(q) && W.root[W.lemma.indexOf(q)]) return q;
+      const hit=byNorm(q); if(hit) return hit;
+      for(const pre of ['وال','فال','بال','كال','لل','ال','و','ف','ب','ل']) if(q.startsWith(pre) && q.length-pre.length>=2){ const r=q.slice(pre.length); const h=byNorm(r) || (ok(r) ? r : null); if(h) return h; }
+      return null; },
     // typing moves the tree only to a real word: one with a root, so single-letter particles such as «ت» never
     // hijack a word still being typed; the box keeps what was typed
-    seek(){ const q=normalize(this.q), W=this.W; if(!q || !this.ix || !this.ix.cnt.has(q)) return;
-      const i=W.lemma.indexOf(q); if(q.length>=2 && (this.small || (i>=0 && W.root[i]))){ this.center=q; this.hov=null; } },
+    seek(){ const q=normalize(this.q); if(!q || q.length<2) return; const l=this.resolve(q); if(l && l!==this.center){ this.center=l; this.hov=null; this.pin=null; } },
     ex(si){ return si ? 18+this.cw*0.26 : this.cw-18-this.cw*0.26; },   // where a branch ends: after (si=1) on the left, before on the right
     ny(i, n){ const h=this.th-40, gap=Math.min(40, h/Math.max(1,n)); return this.th/2 - (n-1)*gap/2 + i*gap; },
     curve(si, i, n){ const x0=this.cw/2 + (si ? -1 : 1)*(this.cwid/2), y0=this.th/2, x1=this.ex(si), y1=this.ny(i, n), mx=(x0+x1)/2;
