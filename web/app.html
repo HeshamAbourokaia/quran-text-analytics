@@ -1205,6 +1205,9 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .lt-link{margin:10px 0 0}
   @media (prefers-reduced-motion: reduce){ .lt-t.add{animation:none} }
   @media (max-width:760px){ .lt-text{font-size:1.3rem} .lt-t{font-size:.95rem;min-width:1.5em;height:1.8em} }
+  /* a page that took in another: each part keeps a heading and its own short explanation */
+  .msec{margin:44px 0 4px;scroll-margin-top:84px}
+  .msub{margin:0 0 14px;max-width:72ch;font-size:.92rem;line-height:1.65;color:var(--on-dark-2)}
   .kpilink{display:block;margin:6px auto 0;font:inherit;font-size:.7rem;color:var(--teal);background:none;border:0;padding:0;cursor:pointer} .kpilink:hover{text-decoration:underline}
   @media (prefers-reduced-motion: reduce){ .wt-p.cut{animation:none} .wt-bar span{transition:none} }
   @media (max-width:760px){ .wt-hero{grid-template-columns:1fr} .wt-fig b{font-size:2.6rem} .wt-total b{font-size:2.9rem}
@@ -1896,14 +1899,23 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   }
 </style>
 <script>
+  // Short links: every page has a one-word address (quraninsights.vercel.app/19, /history ...); vercel.json sends them to this page.
+  window.QI_SLUG = {home:'app', reader:'reader', search:'search', tawafuq:'mushaf-layouts', hifz:'hifz', auditor:'word-counts',
+    symmetry:'word-pairs', n19:'19', structural:'iron-bee-noah', abjad:'abjad', wordcount:'how-many-words', lettercount:'how-many-letters',
+    history:'history', science:'science', discover:'discoveries', 'd-endings':'verse-endings', 'd-rings':'mirrors', 'd-rhyme':'rhyme',
+    'd-stories':'retellings', 'd-themes':'themes', 'd-companions':'companions', 'd-letters':'opening-letters', 'd-repeats':'near-repeats', 'd-chrono':'revelation-order',
+    overview:'overview', word:'words', letters:'letters', mecca:'mecca-medina', emotion:'tone', cluster:'similar-surahs',
+    kg:'knowledge-graph', stories:'stories', lessons:'lessons', duas:'duas', tafsir:'insights', untranslatable:'untranslatable'};
   // Vercel Web Analytics: page views only, no cookies, nothing that identifies a visitor.
   // Each view is sent as a clean path (/app/<view>[/<claim or surah>], /ar/ for Arabic) and every other query value is dropped.
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   window.va('beforeSend', function (ev) {
     try {
       var u = new URL(ev.url), q = u.searchParams, p = u.pathname.replace(/\/index\.html$/, '/');
-      if (/\/app(\.html)?$/.test(p)) {
-        var v = q.get('view') || 'home';
+      var seg = p.replace(/^\/+|\/+$/g, ''), S = window.QI_SLUG || {}, sv = null;
+      for (var k in S) if (S[k] === seg) sv = k;
+      if (sv || /\/app(\.html)?$/.test(p)) {
+        var v = sv || q.get('view') || 'home';
         p = '/app/' + v + (v === 'history' && q.get('c') ? '/' + q.get('c') : '') + (v === 'reader' && q.get('s') ? '/' + q.get('s') : '');
       }
       if (q.get('lang') === 'ar') p = '/ar' + p;
@@ -2324,22 +2336,6 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
       </template>
     </section>
 
-    <!-- Analytics Lab: the page's explainer (any lab view), in plain words or for scientists -->
-    <div v-if="labCur" class="course" :class="{sci: sciShown}">
-      <div class="xhead" v-if="sciHas"><span class="xkick">{{ depthKicker }}</span><depth-switch></depth-switch></div>
-      <div class="tech">{{ plain && plain.title ? plain.title : labCur.technique }}</div>
-      <div class="techname" v-if="plain && plain.title">{{ labCur.technique }}</div>
-      <term-chips></term-chips>
-      <div class="explain xbody" v-if="sciShown">
-        <div class="box" v-for="r in sciRows" :key="r.k"><span class="lab">{{ r.label }}</span><span v-html="r.html"></span></div>
-      </div>
-      <div class="explain xbody" v-else>
-        <div class="box"><span class="lab">{{ lang==='ar'?'ما هذا؟':'What is this?' }}</span><span v-html="rich(plain ? plain.what : labCur.what)"></span></div>
-        <div class="box" v-if="plain && plain.method"><span class="lab">{{ lang==='ar'?'الطريقة ببساطة':'The method, simply' }}</span><span v-html="rich(plain.method)"></span></div>
-        <div class="box" v-if="!plain || !plain.staged"><span class="lab">{{ lang==='ar'?'كيف تقرؤه':'How to read it' }}</span><span v-html="rich(plain ? plain.how : labCur.howToRead)"></span></div>
-      </div>
-    </div>
-
     <!-- OVERVIEW -->
     <section v-if="view==='overview'">
       <h1>{{ lang==='ar' ? 'نظرة عامة' : 'Overview' }}</h1>
@@ -2365,11 +2361,15 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
         <div class="card" style="margin:0"><b>{{ lang==='ar'?'الجذور والكلمات':'Roots and words' }}</b>
           <div style="margin-top:6px">{{ f(DS.distinctRoots) }} {{ lang==='ar'?'جذر،':'roots,' }} {{ f(DS.distinctLemmas) }} {{ lang==='ar'?'كلمة مختلفة.':'different words.' }}</div></div>
       </div>
+
+      <h2 class="msec" id="sec-dashboard">{{ lang==='ar' ? 'كل السور في لمحة' : 'Every surah at a glance' }}</h2>
+      <p class="msub" v-if="plainOf('dashboard')" v-html="rich(plainOf('dashboard').what)"></p>
+      <dash-lab></dash-lab>
     </section>
 
     <!-- WORD ANALYSIS -->
     <section v-if="view==='word'">
-      <h1>{{ lang==='ar' ? 'تحليل الكلمات' : 'Word Analysis' }}</h1>
+      <h1>{{ lang==='ar' ? 'الكلمات' : 'Words' }}</h1>
       <explain-box></explain-box>
       <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-bars" data-stage="word" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
       <div class="card glfb"><div class="chart" id="lemChart"></div></div>
@@ -2382,11 +2382,15 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
           <table><tr v-for="r in DS.topWordsSurface.slice(0,12)" :key="r.w"><td class="ar">{{ r.w }}</td><td>{{ f(r.c) }}</td></tr></table>
         </div>
       </div>
+
+      <h2 class="msec" id="sec-nlp">{{ lang==='ar' ? 'شجرة الكلمات والعبارات' : 'Word tree and phrases' }}</h2>
+      <p class="msub" v-if="plainOf('nlp')" v-html="rich(plainOf('nlp').what)"></p>
+      <nlp-lab></nlp-lab>
     </section>
 
     <!-- MECCA VS MEDINA -->
     <section v-if="view==='mecca'">
-      <h1>{{ lang==='ar' ? 'مكة والمدينة' : 'Mecca vs Medina' }}</h1>
+      <h1>{{ lang==='ar' ? 'مكة والمدينة' : 'Mecca and Medina' }}</h1>
       <explain-box></explain-box>
       <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-lengths" data-stage="mecca" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
       <div class="card glfb"><div class="chart" id="mmChart"></div></div>
@@ -2405,11 +2409,37 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
             <div class="kpi"><div class="n">{{ MM.medina.avgWordsPerVerse }}</div><div class="l">{{ lang==='ar'?'متوسط كلمات/آية':'avg words/verse' }}</div></div>
           </div></div>
       </div>
+
+      <h2 class="msec" id="sec-stats">{{ lang==='ar' ? 'هل الفرق حقيقي؟' : 'Is the gap real?' }}</h2>
+      <p class="msub" v-if="plainOf('stats')" v-html="rich(plainOf('stats').what)"></p>
+      <stats-lab></stats-lab>
+
+      <h2 class="msec" id="sec-classifier">{{ lang==='ar' ? 'هل يميّز الحاسوب بينهما؟' : 'Can a computer tell them apart?' }}</h2>
+      <p class="msub" v-if="plainOf('classifier')" v-html="rich(plainOf('classifier').what)"></p>
+      <clf-lab></clf-lab>
+      <div class="card" v-if="jevRev">
+        <h3>{{ lang==='ar' ? 'رأيٌ ثانٍ من Jev' : 'A second opinion from Jev' }}</h3>
+        <p class="ccsub">{{ lang==='ar' ? 'قرأ Jev من TypeSafe مطلع كل سورة وحكم: مكية أم مدنية. هذا حكمُ نموذجٍ لغوي على الأسلوب، لا فتوى في أسباب النزول.' : 'TypeSafe’s Jev read the opening of every surah and judged: Meccan or Medinan? This is a language model’s judgement of style, not a ruling on when a surah was revealed.' }}</p>
+        <div class="metric">
+          <div class="m"><div class="v">{{ D(jevRev.pct.toFixed(1)) }}%</div><div class="k">{{ lang==='ar' ? 'يوافق التصنيف المعتمد' : 'agrees with the standard label' }}</div></div>
+          <div class="m"><div class="v">{{ D(jevRev.n) }}</div><div class="k">{{ lang==='ar' ? 'سورة' : 'surahs' }}</div></div>
+        </div>
+        <table class="conf">
+          <tr><th></th><th>{{ lang==='ar'?'Jev: مكي':'Jev: Meccan' }}</th><th>{{ lang==='ar'?'Jev: مدني':'Jev: Medinan' }}</th></tr>
+          <tr><th>{{ lang==='ar'?'مكي':'Meccan' }}</th><td class="hit">{{ D(jevRev.conf.meccan.meccan) }}</td><td class="miss">{{ D(jevRev.conf.meccan.medinan) }}</td></tr>
+          <tr><th>{{ lang==='ar'?'مدني':'Medinan' }}</th><td class="miss">{{ D(jevRev.conf.medinan.meccan) }}</td><td class="hit">{{ D(jevRev.conf.medinan.medinan) }}</td></tr>
+        </table>
+        <div v-if="jevRev.dis.length" style="margin-top:12px">
+          <div class="ccmuted">{{ lang==='ar' ? 'حيث يخالف Jev التصنيف المعتمد:' : 'Where Jev disagrees with the standard label:' }}</div>
+          <span class="chip small" v-for="it in jevRev.dis.slice(0,24)" :key="it.n" @click="openVerse(it.n, 0, '', view)">{{ surahName(it.n) }} ({{ D(it.n) }}) · {{ it.pred==='medinan' ? (lang==='ar'?'مدني':'Medinan') : (lang==='ar'?'مكي':'Meccan') }}<span class="n" v-if="it.confidence!=null">{{ pct(it.confidence) }}</span></span>
+        </div>
+        <div class="jevnote">{{ jevRev.model }} · {{ jevRev.date }}</div>
+      </div>
     </section>
 
     <!-- LETTER FREQUENCY -->
     <section v-if="view==='letters'">
-      <h1>{{ lang==='ar' ? 'تكرار الحروف' : 'Letter Frequency' }}</h1>
+      <h1>{{ lang==='ar' ? 'الحروف' : 'Letters' }}</h1>
       <explain-box></explain-box>
       <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-bars-v" data-stage="letters" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
       <div class="card glfb"><div class="chart" id="letChart"></div></div>
@@ -2498,7 +2528,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
 
     <!-- READER -->
     <section v-if="view==='reader'" class="reader-view" :class="{withbar: !!rClaimObj || !!rExt}">
-      <h1>{{ lang==='ar' ? 'المصحف' : 'Quran Reader' }}</h1>
+      <h1>{{ lang==='ar' ? 'المصحف' : 'Reader' }}</h1>
       <reader-head></reader-head>
       <div class="searchbar">
         <select v-model.number="rSurah" @change="rVerse=0" style="padding:10px;border-radius:10px;border:1px solid var(--line);font-size:1rem">
@@ -2546,7 +2576,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
 
     <!-- CLAIM AUDITOR -->
     <section v-if="view==='auditor'">
-      <h1>{{ lang==='ar' ? 'مدقّق المزاعم' : 'Claim Auditor' }}</h1>
+      <h1>{{ lang==='ar' ? 'أعداد الكلمات' : 'Word Counts' }}</h1>
       <explain-box></explain-box>
       <div class="card claimcheck">
         <h3>{{ lang==='ar' ? 'دقّق أي زعمٍ بنفسك' : 'Check any claim' }}</h3>
@@ -2821,7 +2851,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
 
     <!-- EMOTIONAL PROFILING -->
     <section v-if="view==='emotion'">
-      <h1>{{ lang==='ar'?'البصمة العاطفية':'Emotional Profiling' }}</h1>
+      <h1>{{ lang==='ar'?'النبرة والضمائر':'Tone and Voice' }}</h1>
       <explain-box></explain-box>
       <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-heaps" data-stage="emotion" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
       <div class="card glfb"><div class="chart" id="emoChart"></div></div>
@@ -2840,15 +2870,10 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
         </div>
         <div class="jevnote">{{ lang==='ar' ? 'عدد السور بحسب النبرة الغالبة على مطلعها' : 'Number of surahs by the main tone of their opening' }} · {{ jevTone.model }} · {{ jevTone.date }}</div>
       </div>
-    </section>
 
-    <!-- DIVINE PRONOUNS -->
-    <section v-if="view==='pronouns'">
-      <h1>{{ lang==='ar'?'ضمائر الذات الإلهية':'Divine Pronouns' }}</h1>
-      <explain-box></explain-box>
-      <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-heaps" data-stage="pronouns" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
-      <div class="card glfb"><div class="chart" id="proChart"></div></div>
-      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> <span v-html="rich(plain.msg)"></span></div>
+      <h2 class="msec" id="sec-pronouns">{{ lang==='ar' ? 'نحن وأنا وهو' : 'We, I and He' }}</h2>
+      <p class="msub" v-if="plainOf('pronouns')" v-html="rich(plainOf('pronouns').what)"></p>
+      <div class="card"><div class="chart" id="proChart"></div></div>
       <div class="kpis">
         <div class="kpi"><div class="ar" style="font-size:1.6rem">نَحْنُ</div><div class="n">{{ f(V1.pronouns.we) }}</div><div class="l">{{ lang==='ar'?'نحن':'We' }}</div></div>
         <div class="kpi"><div class="ar" style="font-size:1.6rem">أَنَا</div><div class="n">{{ f(V1.pronouns.i) }}</div><div class="l">{{ lang==='ar'?'أنا':'I' }}</div></div>
@@ -2856,9 +2881,10 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
       </div>
     </section>
 
+
     <!-- SCIENTIFIC REFERENCES -->
     <section v-if="view==='science'">
-      <h1>{{ lang==='ar'?'الإشارات العلمية':'Scientific References' }}</h1>
+      <h1>{{ lang==='ar'?'الإشارات العلمية':'Science Verses' }}</h1>
       <explain-box></explain-box>
       <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-carpet" data-stage="science" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
       <div class="card glfb"><div class="chart" id="sciChart"></div></div>
@@ -2873,7 +2899,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
 
     <!-- ABJAD CALCULATOR -->
     <section v-if="view==='abjad'">
-      <h1>{{ lang==='ar'?'حساب الجُمّل':'Abjad Numerals' }}</h1>
+      <h1>{{ lang==='ar'?'حساب الجُمّل':'Abjad' }}</h1>
       <explain-box></explain-box>
       <abjad-lab></abjad-lab>
     </section>
@@ -2885,41 +2911,25 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
       <nineteen-lab></nineteen-lab>
     </section>
 
-    <!-- STRUCTURAL MIRACLES -->
+    <!-- IRON, BEE AND NOAH -->
     <section v-if="view==='structural'">
-      <h1>{{ lang==='ar'?'معجزات هيكلية':'Structural Miracles' }}</h1>
+      <h1>{{ lang==='ar'?'الحديد والنحل ونوح':'Iron, Bee and Noah' }}</h1>
       <explain-box></explain-box>
       <struct-lab></struct-lab>
     </section>
 
     <!-- WORD PAIRS & BALANCE (merged Word Symmetries + Antonym Pairs + Waw) -->
     <section v-if="view==='symmetry'">
-      <h1>{{ lang==='ar'?'توازن الأزواج':'Word Pairs & Balance' }}</h1>
+      <h1>{{ lang==='ar'?'توازن الأزواج':'Word Pairs' }}</h1>
       <explain-box></explain-box>
       <balance-lab></balance-lab>
     </section>
 
-    <!-- NLP EXPLORER -->
-    <section v-if="view==='nlp'">
-      <h1>{{ lang==='ar'?'مستكشف NLP':'NLP Explorer' }}</h1>
-      <explain-box></explain-box>
-      <nlp-lab></nlp-lab>
-    </section>
 
-    <!-- ADVANCED ANALYTICS -->
-    <section v-if="view==='advanced'">
-      <h1>{{ lang==='ar'?'تحليلات متقدمة':'Advanced Analytics' }}</h1>
-      <explain-box></explain-box>
-      <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-scatter" data-stage="advanced" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
-      <div class="card glfb"><div class="chart" id="advScatter"></div></div>
-      <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> <span v-html="rich(plain.msg)"></span></div>
-      <div class="card"><div class="chart" id="advLen"></div></div>
-      <div class="chartnote"><b>{{ lang==='ar'?'الخلاصة':'Takeaway' }}:</b> {{ lang==='ar'?'هذه السور لديها أطول متوسط لطول الآية.':'These surahs have the longest average verse length.' }}</div>
-    </section>
 
     <!-- TAWAFUQ MUSHAF EXPLORER -->
     <section v-if="view==='tawafuq'">
-      <h1>{{ lang==='ar'?'مستكشف توافق المصحف':'Tawafuq Mushaf Explorer' }}</h1>
+      <h1>{{ lang==='ar'?'تخطيط المصحف':'Mushaf Layouts' }}</h1>
       <explain-box></explain-box>
       <div class="searchbar">
         <button class="seg" @click="tawGoPage(Math.max(1,tawPage-1))">‹ {{ lang==='ar'?'السابق':'Prev' }}</button>
@@ -2955,11 +2965,8 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
         {{ lang==='ar'?'ملاحظة أمينة: هذه المدوّنة هي مصحف المدينة المعياري (مجمع الملك فهد، ٦٠٤ صفحات). أرقام الصفحات الشهيرة في الفيديو (مثل ٤٢٢) تعود لطبعة "المصحف التوافقي" بترقيم مختلف، لذا قد تظهر على صفحة أخرى هنا. ظاهرة التوافق نفسها حقيقية وقابلة للتصفّح.':'Honest note: this is the standard Madani Mushaf (King Fahd Complex, 604 pages). The famous page numbers in the video (e.g. 422) come from the tawafuqlu print with different pagination, so they may land on a different page here. The alignment phenomenon itself is real and browsable.' }}
         <div style="margin-top:6px">{{ lang==='ar'?'الصفحة ٤٢٢ الشهيرة في الفيديو تعود لمصحف خسرو (Sandal 2026، الشكل ٨).':'The video\'s famous page 422 is from the Husrev Mushaf (Sandal 2026, Fig. 8).' }}</div>
       </div>
-    </section>
 
-    <!-- ALIFI MUSHAF VIEWER -->
-    <section v-if="view==='alifi'">
-      <h1>{{ lang==='ar'?'مصحف ألفي (كل سطر يبدأ بألف)':'Alifi Mushaf (every line begins with Alif)' }}</h1>
+      <h2 class="msec" id="sec-alifi">{{ lang==='ar' ? 'مصحف ألفي: كل سطرٍ يبدأ بالألف' : 'The Alifi mushaf: every line begins with alif' }}</h2>
       <p class="sub">{{ lang==='ar'?'مصحف من لاهور، ٢١ سطراً في كل صفحة، يبدأ كل سطر بحرف الألف. كتبه عالم في ١٢ عاماً صائماً.':'A Mushaf from Lahore: 21 lines per page, every single line begins with the letter Alif. Written by a scholar over 12 years of continuous fasting.' }}</p>
 
       <div class="card okcard">
@@ -2994,9 +3001,10 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
       </div>
     </section>
 
+
     <!-- KNOWLEDGE GRAPH -->
     <section v-if="view==='kg'">
-      <h1>{{ lang==='ar'?'خريطة المعرفة القرآنية':'Quranic Knowledge Graph' }}</h1>
+      <h1>{{ lang==='ar'?'خريطة المعرفة':'Knowledge Graph' }}</h1>
       <explain-box></explain-box>
       <div class="kpis">
         <div class="kpi"><div class="n">439</div><div class="l">{{ lang==='ar'?'عقدة':'Nodes' }}</div></div>
@@ -3016,54 +3024,20 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
       </div>
     </section>
 
-    <!-- BI DASHBOARD (filters + live KPIs) -->
-    <section v-if="view==='dashboard'">
-      <h1>{{ lang==='ar'?'لوحة المعلومات':'BI Dashboard' }}</h1>
-      <explain-box></explain-box>
-      <dash-lab></dash-lab>
-    </section>
 
     <!-- HIFZ OPTIMISER (Linear Programming) -->
     <section v-if="view==='hifz'">
-      <h1>{{ lang==='ar'?'مُحسِّن الحفظ':'Hifz Optimiser' }}</h1>
+      <h1>{{ lang==='ar'?'خطة الحفظ':'Hifz Planner' }}</h1>
       <explain-box></explain-box>
       <hifz-lab></hifz-lab>
     </section>
 
-    <!-- MECCAN/MEDINAN CLASSIFIER (Logistic / ML) -->
-    <section v-if="view==='classifier'">
-      <h1>{{ lang==='ar'?'تصنيف مكي/مدني':'Revelation Classifier' }}</h1>
-      <explain-box></explain-box>
-      <clf-lab></clf-lab>
-      <div class="card" v-if="jevRev">
-        <h3>{{ lang==='ar' ? 'رأيٌ ثانٍ من Jev' : 'A second opinion from Jev' }}</h3>
-        <p class="ccsub">{{ lang==='ar' ? 'قرأ Jev من TypeSafe مطلع كل سورة وحكم: مكية أم مدنية. هذا حكمُ نموذجٍ لغوي على الأسلوب، لا فتوى في أسباب النزول.' : 'TypeSafe’s Jev read the opening of every surah and judged: Meccan or Medinan? This is a language model’s judgement of style, not a ruling on when a surah was revealed.' }}</p>
-        <div class="metric">
-          <div class="m"><div class="v">{{ D(jevRev.pct.toFixed(1)) }}%</div><div class="k">{{ lang==='ar' ? 'يوافق التصنيف المعتمد' : 'agrees with the standard label' }}</div></div>
-          <div class="m"><div class="v">{{ D(jevRev.n) }}</div><div class="k">{{ lang==='ar' ? 'سورة' : 'surahs' }}</div></div>
-        </div>
-        <table class="conf">
-          <tr><th></th><th>{{ lang==='ar'?'Jev: مكي':'Jev: Meccan' }}</th><th>{{ lang==='ar'?'Jev: مدني':'Jev: Medinan' }}</th></tr>
-          <tr><th>{{ lang==='ar'?'مكي':'Meccan' }}</th><td class="hit">{{ D(jevRev.conf.meccan.meccan) }}</td><td class="miss">{{ D(jevRev.conf.meccan.medinan) }}</td></tr>
-          <tr><th>{{ lang==='ar'?'مدني':'Medinan' }}</th><td class="miss">{{ D(jevRev.conf.medinan.meccan) }}</td><td class="hit">{{ D(jevRev.conf.medinan.medinan) }}</td></tr>
-        </table>
-        <div v-if="jevRev.dis.length" style="margin-top:12px">
-          <div class="ccmuted">{{ lang==='ar' ? 'حيث يخالف Jev التصنيف المعتمد:' : 'Where Jev disagrees with the standard label:' }}</div>
-          <span class="chip small" v-for="it in jevRev.dis.slice(0,24)" :key="it.n" @click="openVerse(it.n, 0, '', view)">{{ surahName(it.n) }} ({{ D(it.n) }}) · {{ it.pred==='medinan' ? (lang==='ar'?'مدني':'Medinan') : (lang==='ar'?'مكي':'Meccan') }}<span class="n" v-if="it.confidence!=null">{{ pct(it.confidence) }}</span></span>
-        </div>
-        <div class="jevnote">{{ jevRev.model }} · {{ jevRev.date }}</div>
-      </div>
-    </section>
 
-    <!-- STATISTICAL TESTS (Hypothesis testing + regression) -->
-    <section v-if="view==='stats'">
-      <h1>{{ lang==='ar'?'اختبارات إحصائية':'Statistical Tests' }}</h1>
-      <explain-box></explain-box>
-      <stats-lab></stats-lab>
-    </section>
 
     <!-- CLUSTERS & SIMILARITY (k-means + TF-IDF) -->
     <section v-if="view==='cluster'">
+      <h1>{{ lang==='ar' ? 'السور المتشابهة' : 'Similar Surahs' }}</h1>
+      <explain-box></explain-box>
       <!-- how the map is made: the surahs' own verse points move through the steps of PCA, then take the k-means colours -->
       <div class="pcawalk" v-if="pcaModel">
         <span class="xkick">{{ lang==='ar' ? 'كيف رُسمت هذه الخريطة؟ خطوةً خطوة' : 'How this map is made, step by step' }}</span>
@@ -3290,7 +3264,7 @@ const PAIR_EN = {'ان الله':'indeed Allah','الذين ءامنوا':'those
 // Every analysis page explained in plain words, for readers who are not analysts: what it is, how to read it,
 // what it tells us, and for the lab's methods what the method does. [English, Arabic] for each line.
 // In "tip", {P}/{p} become "Point at" or "Tap" (مرّر المؤشر على / انقر على) to suit the device; "click" is added only with a mouse.
-const PLAIN_NOTED = ['overview','word','mecca','letters','emotion','pronouns','science','symmetry','nlp','advanced','dashboard','hifz','classifier','stats','cluster','coincidence'];   // pages whose message sits under the figure
+const PLAIN_NOTED = ['overview','word','mecca','letters','emotion','science','symmetry','hifz','cluster'];   // pages whose message sits under the figure
 const PLAIN = {
   overview:{
     what:['The Quran in numbers: how many surahs, verses and words it has, counted here straight from the text.',
@@ -3330,8 +3304,8 @@ const PLAIN = {
     msg:['Guidance words come most often (1,026), then mercy (779) and warning (710), which are close; hope comes least (379). Together, words of mercy, guidance and hope outnumber words of warning about three to one.',
       'كلمات الهداية الأكثر ورودًا (١٬٠٢٦)، ثم الرحمة (٧٧٩) والتحذير (٧١٠) وهما متقاربتان، والأمل أقلها (٣٧٩). ومجموع كلمات الرحمة والهداية والأمل يفوق كلمات التحذير بنحو ثلاثة أضعاف.']},
   pronouns:{
-    what:['The Quran speaks of God as «We» (نحن), «I» (أنا) and «He» (هو). This page counts how often each is used.',
-      'يتحدّث القرآن عن الله بصيغة «نحن» و«أنا» و«هو». وهذه الصفحة تعدّ كم مرةً وردت كلٌّ منها.'],
+    what:['The Quran speaks of God as «We» (نحن), «I» (أنا) and «He» (هو). Here is how often each is used.',
+      'يتحدّث القرآن عن الله بصيغة «نحن» و«أنا» و«هو». وهنا كم مرةً وردت كلٌّ منها.'],
     how:['Each heap has one dot for every time the word is counted.', 'في كل كومةٍ نقطةٌ لكل موضعٍ معدود.'],
     tip:['{P} a heap for its number', '{p} كومةٍ لترى عددها'],
     msg:['«We» is used most. In Arabic, a king or a great one says «We» to express majesty, not number: God is One.',
@@ -3403,7 +3377,7 @@ const PLAIN = {
     msg:['Every number on this page is counted from the text as you watch, and each one divides by 19 exactly.',
       'كل رقمٍ في هذه الصفحة يُحسب من النص أمامك، وكلٌّ منها يقبل القسمة على ١٩ تمامًا.']},
   structural:{
-    what:['Patterns in how the Quran is arranged, each one shown as a figure you can explore.', 'أنماطٌ في ترتيب القرآن، كلٌّ منها في شكلٍ تتفاعل معه.'],
+    what:['Three facts people share about how the Quran is numbered: iron and surah 57, the bee and surah 16, Noah and surah 71. Each is drawn as a figure you can explore.', 'ثلاث حقائق يتداولها الناس عن أرقام القرآن: الحديد والسورة ٥٧، والنحل والسورة ١٦، ونوح والسورة ٧١. وكلٌّ منها مرسومٌ في شكلٍ تتفاعل معه.'],
     how:['Pick a finding from the tiles along the top. Its figure builds itself; point at any part of it to read it, and tap a verse to open it.', 'اختر نتيجةً من المربعات في الأعلى، فيُبنى شكلها أمامك. أشر إلى أي جزءٍ منه لتقرأه، وانقر الآية لتفتحها.'],
     msg:['Every count is taken from the text in your browser, and the method is named under each finding.', 'كل عدٍّ هنا مأخوذٌ من النص في متصفحك، والطريقة مذكورةٌ تحت كل نتيجة.']},
   auditor:{
@@ -3446,8 +3420,8 @@ const PLAIN = {
       'الدقة: كم مرةً يصيب. [[baseline|خط الأساس]]: ما تحصل عليه لو قلت «مكية» دائمًا لأنها الأكثر. [[auc|المساحة تحت المنحنى]]: من ٠٫٥ (تخمينٌ محض) إلى ١ (إصابةٌ تامة). و[[confusion|الجدول]] يعدّ إصاباته وأخطاءه.']},
   stats:{
     title:['Are Medinan verses really longer?', 'هل آيات المدينة أطول حقًّا؟'],
-    what:['Medinan verses look longer than Meccan ones. This page checks whether the difference is real, or could just be chance.',
-      'تبدو الآيات المدنية أطول من المكية. وهذه الصفحة تتحقق: هل الفرق حقيقي، أم قد يكون مصادفة؟'],
+    what:['Medinan verses look longer than Meccan ones. Here we check whether the difference is real, or could just be chance.',
+      'تبدو الآيات المدنية أطول من المكية. وهنا نتحقق: هل الفرق حقيقي، أم قد يكون مصادفة؟'],
     method:['The check is called a [[ttest|t-test]]. Its [[pvalue|p-value]] is the chance of seeing a gap this big if there were really no difference: the smaller it is, the surer we are. The second part, [[ols|regression]], estimates how much being Medinan adds to a verse\'s length.',
       'هذا الفحص اسمه [[ttest|«اختبار t»]]. و[[pvalue|القيمة الاحتمالية]] فيه هي احتمال أن نرى فرقًا بهذا الحجم لو لم يكن هناك فرقٌ حقيقي: كلما صغرت ازددنا يقينًا. والجزء الثاني، [[ols|«الانحدار»]]، يقدّر كم يضيف كون السورة مدنيةً إلى طول الآية.'],
     how:['Each dot is one verse, placed by how many words it has; the two lines mark the average length of each group.', 'كل نقطةٍ آيةٌ واحدة بحسب عدد كلماتها، والخطّان يدلّان على متوسط الطول في كل مجموعة.'],
@@ -3477,8 +3451,25 @@ const PLAIN = {
       'الأرقام الصغيرة يوافقها كثيرٌ من الكلمات فلا غرابة في توافقها، أما الكبيرة فيوافقها القليل، فالتوافق عندها لافت. والتوافق الذي يُعثر عليه بعد تجريب أرقامٍ كثيرة دليلٌ ضعيف: وهذا [[lookelsewhere|أثر البحث في كل مكان]].']},
 };
 // Pages whose main chart the verse sky draws itself (a stage); their Plotly chart is kept for a device without WebGL.
-const STAGED = {overview:'ovChart', word:'lemChart', letters:'letChart', mecca:'mmChart', emotion:'emoChart', pronouns:'proChart', science:'sciChart',
-  advanced:'advScatter', nlp:'biChart', symmetry:'antChart', auditor:'audChart', dashboard:'dashChart', stats:'statChart', cluster:'clusterChart', coincidence:'coincChart'};
+const STAGED = {overview:'ovChart', word:'lemChart', letters:'letChart', mecca:'mmChart', emotion:'emoChart', science:'sciChart',
+  symmetry:'antChart', auditor:'audChart', cluster:'clusterChart'};
+// Pages whose main chart the sky draws but that hold a second, ordinary chart.
+const EXTRA_PLOTS = {emotion:['proChart']};
+// Pages that took in others: each section keeps its own title and explanation.
+const MERGED = {
+  overview:[{k:'dashboard', t:['Every surah at a glance','كل السور في لمحة']}],
+  mecca:[{k:'stats', t:['Is the gap real?','هل الفرق حقيقي؟']}, {k:'classifier', t:['Can a computer tell them apart?','هل يميّز الحاسوب بينهما؟']}],
+  word:[{k:'nlp', t:['Word tree and phrases','شجرة الكلمات والعبارات']}],
+  emotion:[{k:'pronouns', t:['We, I and He','نحن وأنا وهو']}],
+  tawafuq:[{k:'alifi', t:['The Alifi mushaf','مصحف ألفي']}] };
+// Old page addresses keep working: each goes to the page that took it in, and to its section there.
+const VIEW_ALIAS = { advanced:['overview','sec-dashboard'], dashboard:['overview','sec-dashboard'], stats:['mecca','sec-stats'],
+  classifier:['mecca','sec-classifier'], nlp:['word','sec-nlp'], pronouns:['emotion','sec-pronouns'], alifi:['tawafuq','sec-alifi'],
+  coincidence:['n19'], antonyms:['symmetry'], waw:['symmetry'], insights:['overview'],
+  claims:['auditor'], read:['reader'], explore:['overview'], library:['stories'] };
+// Short links: quraninsights.vercel.app/19, /history, /how-many-letters ... (the table is in the page head, vercel.json maps them)
+const SLUG = window.QI_SLUG || {}, SLUG_VIEW = Object.fromEntries(Object.entries(SLUG).map(([v,k])=>[k,v]));
+const PRETTY = location.protocol!=='file:' && !/^(localhost|127\.0\.0\.1|\[::1\]|0\.0\.0\.0)$/.test(location.hostname) && !/github\.io$/.test(location.hostname);
 const noGL = () => document.documentElement.classList.contains('no-gl') && !document.documentElement.classList.contains('gl');
 let JIX = null;   // word index for the claim checker and search hints; built on first use, outside Vue's reactivity
 const jix = () => JIX || (JIX = JEV && window.QURAN_WORDS ? JEV.makeIndex(window.QURAN_WORDS, window.QURAN_LEMMA_VARIANTS, window.QURAN_FORM_SENSES) : null);
@@ -3487,7 +3478,7 @@ const jix = () => JIX || (JIX = JEV && window.QURAN_WORDS ? JEV.makeIndex(window
 // so a phone never waits on a blank page for all of it.
 const LAZY = { verses:['corpus.js','translation_en.js'], words:['words.js','lemma-variants.js'], plotly:['https://cdn.plot.ly/plotly-2.27.0.min.js'],
   disc:['discover.js','discoveries.js'], hviz:['content/quran_history_viz.js'] };
-const NEEDS = { reader:['verses','words'], stats:['words'], classifier:['words'], nlp:['words','verses'], symmetry:['words','verses'], abjad:['words'], structural:['words','verses','hviz'], n19:['words','verses'], search:['words','verses'], auditor:['words'], history:['verses','words','hviz'], reader:['verses'], home:['words'],
+const NEEDS = { reader:['verses','words'], mecca:['words'], word:['words','verses'], symmetry:['words','verses'], abjad:['words'], structural:['words','verses','hviz'], n19:['words','verses'], search:['words','verses'], auditor:['words'], history:['verses','words','hviz'], reader:['verses'], home:['words'],
   discover:['disc'], 'd-endings':['disc','verses'], 'd-rings':['disc','verses','words'], 'd-rhyme':['disc'], 'd-stories':['disc'], 'd-themes':['disc'],
   'd-companions':['disc'], 'd-letters':['disc'], 'd-repeats':['disc','verses','words'], 'd-chrono':['disc'] };
 const lazyP = {};
@@ -3501,10 +3492,10 @@ const EXPL = window.DALEEL_EXPLAIN || null;
 const XLAB = {purpose:['Purpose','الغاية'], data:['Data','البيانات'], method:['Method','المنهج'], result:['Result','النتيجة'],
   also:['Also on this page','وفي الصفحة أيضًا'], limits:['Assumptions and limits','الافتراضات والحدود']};
 const TLAB = [['In plain words','بكلماتٍ بسيطة'], ['What it does here','ماذا يفعل هنا'], ['What it showed us','ماذا كشف لنا'], ['For scientists','للمتخصصين']];
-const TERMS = { overview:['lemma','root','hapax','normalization'], word:['lemma','zipf'], letters:['normalization'], mecca:['ttest','effect'],
-  stats:['ttest','pvalue','ci','effect','ols'], classifier:['logreg','tfidf','cv','baseline','auc','confusion'], cluster:['pca','kmeans','zscore','cosine','tfidf'],
-  coincidence:['zipf','lookelsewhere','montecarlo','percentile'], hifz:['lp','shadow'], emotion:['lexicon'], search:['lemma','root','normalization'],
-  auditor:['lemma','lookelsewhere'], symmetry:['lemma','root'], nlp:['ngram','normalization'], n19:['lemma'], structural:['lemma'],
+const TERMS = { overview:['lemma','root','hapax','normalization'], word:['lemma','zipf','ngram','normalization'], letters:['normalization'],
+  mecca:['ttest','pvalue','ci','effect','ols','logreg','tfidf','cv','baseline','auc','confusion'], cluster:['pca','kmeans','zscore','cosine','tfidf'],
+  hifz:['lp','shadow'], emotion:['lexicon'], search:['lemma','root','normalization'],
+  auditor:['lemma','lookelsewhere'], symmetry:['lemma','root'], n19:['lemma'], structural:['lemma'],
   discover:['prereg','shuffle','pvalue','multiple','lookelsewhere'], 'd-endings':['logreg','cv','baseline','shuffle','multiple','tfidf'], 'd-rings':['cosine','shuffle','multiple'],
   'd-rhyme':['cosine','shuffle','pvalue'], 'd-stories':['cosine','shuffle'], 'd-themes':['nmf','tfidf','lemma'], 'd-companions':['pmi','multiple','pvalue'],
   'd-letters':['percentile','zscore','shuffle','cosine'], 'd-repeats':['lemma','normalization'], 'd-chrono':['spearman','shuffle','pvalue'] };
@@ -5198,50 +5189,19 @@ const StructLab = { mixins:[FitW],
           <p class="sl-cap" v-if="hov>0">{{ D(hov) }}. {{ $root.surahName(hov) }}: {{ noahBy[hov] ? (ar ? D(noahBy[hov].c)+' مرة' : noahBy[hov].c+(noahBy[hov].c>1?' times':' time')) : (ar ? 'لا ذِكر' : 'not named') }}</p>
           <p class="sl-cap" v-else>{{ ar ? 'عدد السور التي ذُكر فيها: ' : 'Surahs that name him: ' }}<b>{{ D(noahSurahs) }}</b>{{ ar ? '، وعدد آيات سورة نوح: ' : '; verses in Surah Nuh: ' }}<b>{{ D(28) }}</b>.</p></div>
       </div>
-
-      <!-- MIDDLE -->
-      <div v-else-if="sel==='middle'" class="sl-panel">
-        <h4>{{ ar ? 'آيات البقرة الـ٢٨٦ بطول كلٍّ منها (عدد الكلمات)' : 'The 286 verses of al-Baqara, each drawn by its length in words' }}</h4>
-        <svg :viewBox="'0 0 '+cw+' 170'" class="sl-prof" role="slider" tabindex="0" :aria-valuenow="cur" aria-valuemin="1" aria-valuemax="286" :aria-label="ar ? 'الآية' : 'Verse'"
-          @pointerdown="pDrag" @pointermove="e=>e.buttons && pDrag(e)" @keydown.left.prevent="cur=Math.max(1,cur-(ar?-1:1))" @keydown.right.prevent="cur=Math.min(286,cur+(ar?-1:1))">
-          <rect v-for="(n,i) in baqLens" :key="i" :class="i+1<143 ? 'a' : (i+1===143 ? 'm' : 'b')" :x="px(i+1)-pw/2" :y="140-n*bs*t" :width="Math.max(1,pw-.6)" :height="n*bs*t"/>
-          <line class="mid" :x1="px(143)" :x2="px(143)" y1="0" y2="150"/>
-          <g class="cur" :transform="'translate('+px(cur)+',0)'"><line y1="0" y2="150"/><circle cy="150" r="7"/></g>
-          <text class="l" :x="px(1)" y="166" :text-anchor="ar ? 'end' : 'start'">{{ D(1) }}</text><text class="l" :x="px(143)" y="166" text-anchor="middle">{{ D(143) }}</text><text class="l" :x="px(286)" y="166" :text-anchor="ar ? 'start' : 'end'">{{ D(286) }}</text>
-        </svg>
-        <div class="sl-mid">
-          <span class="k">2:{{ D(cur) }}</span><span>{{ ar ? 'قبلها '+D(cur-1)+' آية، وبعدها '+D(286-cur) : (cur-1)+' verses before it, '+(286-cur)+' after' }}</span>
-          <button type="button" class="sl-jump" @click="cur=143">{{ ar ? 'انتقل إلى الوسط (٢٨٦ ÷ ٢ = ١٤٣)' : 'Jump to the middle (286 ÷ 2 = 143)' }}</button>
-        </div>
-        <p class="sl-ar" lang="ar" dir="rtl"><span v-for="(g,i) in toks('2:'+cur,['وسطا'])" :key="cur+'-'+i" :class="{hl:g.h}">{{ g.t+' ' }}</span></p>
-        <p class="sl-cap" v-if="cur!==143">{{ ar ? 'اسحب على الشكل، أو استعمل الأسهم، لتنتقل بين الآيات.' : 'Drag across the figure, or use the arrow keys, to move along the verses.' }}</p>
-      </div>
-
-      <!-- QADR -->
-      <div v-else-if="sel==='qadr'"><qadr-lab v-if="$root.W && $root.W.norm"></qadr-lab></div>
-
-      <!-- CAVE -->
-      <div v-else-if="sel==='cave'"><claim-viz v-if="cave" :spec="cave" verdict="holds"></claim-viz>
-        <div class="sl-verse"><span class="k">18:25</span><p lang="ar" dir="rtl"><span v-for="(g,i) in toks('18:25',['وازدادوا','تسعا'])" :key="i" :class="{hl:g.h}">{{ g.t+' ' }}</span></p></div></div>
     </div>
   </div>`,
-  mounted(){ this.$root.load('words'); this.$root.load('verses'); this.$root.load('hviz'); this.build(); },
+  mounted(){ this.$root.load('words'); this.$root.load('verses'); this.build(); },
   beforeUnmount(){ cancelAnimationFrame(this._raf); },
   computed:{ ar(){ return this.$root.lang==='ar'; }, cw(){ return Math.max(280, this.w-44); },
     kpis(){ return [
       {id:'iron', n:57, cat:['Chemistry','الكيمياء'], lab:['Iron, element 26','الحديد، العنصر ٢٦']},
       {id:'bee', n:16, cat:['Biology','الأحياء'], lab:['The bee, 128 = 16 × 8','النحل، ١٢٨ = ١٦ × ٨']},
-      {id:'noah', n:43, cat:['Word count','عدّ الكلمات'], lab:['Noah, 71 - 28','نوح، ٧١ - ٢٨']},
-      {id:'middle', n:143, cat:['Position','الموضع'], lab:['The middle verse','الآية الوسطى']},
-      {id:'qadr', n:27, cat:['Position','الموضع'], lab:['The Night of Power','ليلة القدر']},
-      {id:'cave', n:309, cat:['Calendar','التقويم'], lab:['The Sleepers, 300 + 9','أهل الكهف، ٣٠٠ + ٩']} ]; },
+      {id:'noah', n:43, cat:['Word count','عدّ الكلمات'], lab:['Noah, 71 - 28','نوح، ٧١ - ٢٨']} ]; },
     f(){ return ({
       iron:{ head:['Iron: surah 57, element 26','الحديد: السورة ٥٧ والعنصر ٢٦'], insight:['The letters of «ḥadīd» add up to 26, the atomic number of iron. And 57, the surah number, is one of the four stable forms of iron found in nature: Fe-57.','حروف «حديد» مجموعها ٢٦ بحساب الجُمَّل، وهو العدد الذري للحديد. والرقم ٥٧، رقم السورة، أحد النظائر الأربعة المستقرة للحديد في الطبيعة: الحديد-٥٧.'], method:['Abjad letter values · isotope abundances (IUPAC)','قيم حروف الجُمَّل · نِسَب النظائر (IUPAC)'] },
       bee:{ head:['The bee: surah 16','النحل: السورة ١٦'], insight:['Surah 16, an-Naḥl, has 128 verses: exactly 16 × 8. A male honeybee carries 16 chromosomes. And the verses speak to the bee in the feminine, as the workers are female.','سورة النحل رقمها ١٦ وآياتها ١٢٨: أي ١٦ × ٨ تمامًا. وذكر نحل العسل يحمل ١٦ كروموسومًا. والآيات تخاطب النحلة بصيغة المؤنث، والعاملات إناث.'], method:['Verse count · honeybee genetics','عدد الآيات · وراثة نحل العسل'] },
       noah:{ head:['Noah: 71 - 28 = 43','نوح: ٧١ - ٢٨ = ٤٣'], insight:['Surah Nuh is number 71 and has 28 verses: 71 - 28 = 43. Noah is named 43 times in the Quran, and in exactly 28 surahs, the same number as the verses of his surah.','سورة نوح رقمها ٧١ وآياتها ٢٨: ٧١ - ٢٨ = ٤٣. واسم نوح يرد في القرآن ٤٣ مرة، في ٢٨ سورةً بالضبط، بعدد آيات سورته.'], method:['Name count by lemma · Quranic Arabic Corpus','عدّ الاسم بالجذع · مدوّنة القرآن العربية'] },
-      middle:{ head:['The middle verse speaks of the middle','الآية الوسطى تتحدث عن الوسط'], insight:['Al-Baqara, the longest surah, has 286 verses. Half of 286 is 143, and verse 143 is the one that calls the believers «a middle nation».','البقرة أطول السور، وآياتها ٢٨٦. ونصف ٢٨٦ هو ١٤٣، والآية ١٤٣ هي التي تقول: ﴿أُمَّةً وَسَطًا﴾.'], method:['Verse position · verse length in words','موضع الآية · طول الآية بالكلمات'] },
-      qadr:{ head:['The Night of Power and word 27','ليلة القدر والكلمة ٢٧'], insight:['Surah al-Qadr has 30 words. The 27th is «hiya», «it is», and many seek the Night of Power on the 27th night of Ramadan.','سورة القدر ثلاثون كلمة، والكلمة السابعة والعشرون «هي»، وكثيرون يتحرّون ليلة القدر في ليلة السابع والعشرين من رمضان.'], method:['Word position, counted as written','موضع الكلمة، تُعدّ كما تُكتب'] },
-      cave:{ head:['Three hundred years, and nine more','ثلاث مئة سنين وازدادوا تسعًا'], insight:['300 years by the sun is about 309 years by the moon: the «and nine more» of 18:25.','ثلاث مئة سنةٍ شمسية تعدل نحو ٣٠٩ سنواتٍ قمرية: وهو قوله ﴿وَٱزْدَادُوا۟ تِسْعًا﴾.'], method:['Solar year 365.24 days · lunar year 354.37 days','السنة الشمسية ٣٦٥٫٢٤ يومًا · القمرية ٣٥٤٫٣٧ يومًا'] }
     })[this.sel]; },
     // iron
     ironLetters(){ return [{l:'ح',v:8},{l:'د',v:4},{l:'ي',v:10},{l:'د',v:4}]; },
@@ -5263,7 +5223,7 @@ const StructLab = { mixins:[FitW],
     // middle
     baqLens(){ const W=this.$root.W, out=Array(286).fill(0); if(!W || !W.key) return out; for(let i=0;i<W.key.length;i++){ const k=W.key[i]; if(k.charCodeAt(0)===50 && k[1]===':') out[+k.slice(2)-1]++; else if(out[285]) break; } return out; },
     pw(){ return (this.cw-8)/286; }, bs(){ return 130/Math.max(1,...this.baqLens); },
-    cave(){ return this.$root.ready.hviz && typeof QURAN_HISTORY_VIZ!=='undefined' ? QURAN_HISTORY_VIZ.sleepers : null; } },
+  },
   methods:{ T(p){ const s=Array.isArray(p) ? (this.ar ? p[1] : p[0]) : p; return this.ar ? this.$root.D(s) : s; }, D(x){ return this.$root.D(x); },
     go(id){ this.sel=id; this.hov=-1; this.build(); },
     build(){ cancelAnimationFrame(this._raf); if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches){ this.t=1; return; }
@@ -6343,46 +6303,6 @@ createApp({
       skyReady:false, gridN:19,
       depth:readDepth(), term:null, termLayer:0, termStyle:{}, termSheet:false, pcaStep:PCA_LAST, pcaAngle:150,
       DZ:null, DT:null, dFailed:false, dCopied:false, dBack:false, dAnchor:null, dScan:false, dRingSel:null, dRingFind:'', dRhyme:-1, dTheme:-1, dSurah:2, dWord:'', dWordQ:'', dRepTab:'ref', dRepN:20, dScrollY:0, rExt:null,
-      labMeta:{
-        dashboard:{technique:'Interactive BI Dashboard (filters + live KPIs)',
-          what:'A business-intelligence dashboard lets you slice the data live: choose filters and every KPI and chart updates instantly. Here you filter all 114 surahs by where they were revealed and by length.',
-          howToRead:'Pick a revelation place and a minimum length. The cards recompute on the fly to show how many surahs match and their totals, and the chart redraws to just those surahs.'},
-        hifz:{technique:'Linear Programming & Sensitivity Analysis',
-          what:'Linear programming finds the best decision when you have a goal and limits. Here we maximise the new lines memorised per day while staying inside a daily time budget and a rule that you must review enough to retain. The "shadow price" tells you what one extra resource (one more minute a day) is worth.',
-          howToRead:'Drag the slider to set your daily minutes. The numbers re-solve instantly: how many new and review lines that buys, how many years to finish, and the value of one more minute. The curve shows finishing time dropping as you invest more minutes.'},
-        classifier:{technique:'Logistic Regression / Classification (Machine Learning)',
-          what:'A classifier learns to label things from examples. Here it reads the words of each surah and predicts whether it was revealed in Mecca or Medina. It never sees the answer for the surahs it is tested on; it learns the pattern from the others.',
-          howToRead:'Accuracy is how often it is right. The baseline is what you would get by always guessing the most common answer, so beating it means it learned something real. AUC near 1.0 is excellent. The confusion matrix shows correct (green) versus mistaken (amber) predictions, and the chips are the words that most signal a Medinan surah.'},
-        stats:{technique:'Hypothesis Testing & Linear Regression',
-          what:'A t-test asks whether a difference between two groups is real or could just be chance. Here: are Medinan verses genuinely longer than Meccan ones? Regression then models how verse length depends on several factors at once.',
-          howToRead:'The p-value is the chance of seeing this difference if there were really none; a tiny p (here far below 0.05) means the difference is real, stated at the 5% significance level. The 95% confidence interval is the plausible range for the true difference. R-squared is how much of the variation the model explains.'},
-        cluster:{technique:'k-means Clustering & PCA (Unsupervised Learning)',
-          what:'Clustering groups items that resemble each other without being told the groups in advance. PCA squashes many features down to two so we can plot them. Cosine similarity measures how alike two surahs are by their word profiles.',
-          howToRead:'Each dot is a surah and its colour is the natural group it fell into; dots close together are similar. Pick a surah in the dropdown to see its nearest neighbours by word usage, with a similarity percentage.'},
-        coincidence:{technique:'Monte Carlo Simulation & the Look-Elsewhere Effect',
-          what:'Monte Carlo runs thousands of "what if" trials to see the range of outcomes. It does two honest things here: it shows how common it is for some word to land on a notable number, so we do not over-read coincidences; and it simulates a real memorisation schedule with good and bad days to show how long finishing might actually take.',
-          howToRead:'In the landscape chart, tall bars mean many words sit near that number (a match there is unremarkable); short bars at large numbers mean a match there is rare and noteworthy. The histogram shows the spread of finishing times across 1,000 simulated journeys; P5, P50 and P95 are the fast, typical and slow cases.'},
-      },
-      labMetaAr:{
-        dashboard:{technique:'لوحة معلومات تفاعلية (مرشّحات ومؤشّرات حيّة)',
-          what:'تتيح لوحة ذكاء الأعمال تقطيع البيانات حيّاً: تختار المرشّحات فتتحدّث كل المؤشّرات والرسوم فوراً. هنا ترشّح السور الـ١١٤ حسب مكان النزول والطول.',
-          howToRead:'اختر مكان النزول وحدّاً أدنى للطول، فتُعاد المؤشّرات لحظياً لتُظهر عدد السور المطابقة ومجاميعها، ويُعاد رسم المخطط ليقتصر على تلك السور.'},
-        hifz:{technique:'البرمجة الخطية وتحليل الحساسية',
-          what:'تجد البرمجة الخطية القرار الأمثل عندما يكون لديك هدف وقيود. هنا نُعظّم عدد الأسطر الجديدة التي تحفظها يومياً مع البقاء ضمن ميزانية وقت يومية وقاعدةٍ تُلزمك بمراجعةٍ كافية للتثبيت. و«سعر الظل» يخبرك بقيمة كل مورد إضافي، أي ماذا تساوي دقيقة إضافية في اليوم.',
-          howToRead:'حرّك المؤشّر لتحديد دقائقك اليومية فتُحَلّ المسألة فوراً: كم سطراً جديداً ومراجعةً يشتري ذلك، وكم سنة تحتاج للختم، وقيمة كل دقيقة إضافية. ويُظهر المنحنى انخفاض زمن الختم كلما زادت الدقائق.'},
-        classifier:{technique:'الانحدار اللوجستي والتصنيف (تعلّم الآلة)',
-          what:'يتعلّم المُصنِّف وضع التصنيفات من الأمثلة. هنا يقرأ كلمات كل سورة ويتنبّأ هل نزلت في مكة أم المدينة، دون أن يرى الإجابة للسور التي يُختبَر عليها، بل يتعلّم النمط من بقية السور.',
-          howToRead:'الدقّة هي نسبة إصابته. وخط الأساس هو ما تحصل عليه لو خمّنت دائماً الإجابة الأكثر شيوعاً، فتجاوزه يعني أنه تعلّم شيئاً حقيقياً. وكلما اقتربت المساحة تحت المنحنى من واحد كان أفضل. وتُظهر مصفوفة الالتباس التنبؤات الصحيحة (بالأخضر) مقابل الخاطئة (بالكهرماني)، والكلمات المعروضة هي الأكثر دلالةً على السورة المدنية.'},
-        stats:{technique:'اختبار الفرضيات والانحدار الخطي',
-          what:'يسأل الاختبار التائي: هل الفرق بين مجموعتين حقيقي أم قد يكون محض مصادفة؟ هنا: هل آيات المدينة أطول فعلاً من آيات مكة؟ ثم يُنمذِج الانحدار كيف يعتمد طول الآية على عدة عوامل معاً.',
-          howToRead:'القيمة الاحتمالية هي احتمال رؤية هذا الفرق لو لم يكن هناك فرق حقيقي؛ وضآلتها هنا (أقل بكثير من ٠٫٠٥) تعني أن الفرق حقيقي عند مستوى دلالة ٥٪. وفترة الثقة ٩٥٪ هي المدى المعقول للفرق الحقيقي. ومعامل التحديد يبيّن كم من التباين يفسّره النموذج.'},
-        cluster:{technique:'التجميع بالمتوسّطات وتحليل المكوّنات الرئيسية (تعلّم غير موجَّه)',
-          what:'يجمع التجميعُ العناصرَ المتشابهة دون إخباره بالمجموعات مسبقاً. ويضغط تحليلُ المكوّنات الرئيسية عدة خصائص إلى بُعدين كي نرسمها. ويقيس تشابهُ جيب التمام مدى تقارب سورتين حسب بصمة كلماتهما.',
-          howToRead:'كل نقطة سورة، ولونها هو المجموعة التي انتمت إليها طبيعياً؛ والنقاط المتقاربة متشابهة. اختر سورة من القائمة لترى أقرب السور إليها في استخدام الكلمات مع نسبة التشابه.'},
-        coincidence:{technique:'محاكاة مونت كارلو وأثر تعدّد الاحتمالات',
-          what:'تُجري محاكاة مونت كارلو آلاف التجارب الافتراضية لترى مدى تنوّع النتائج. وتفعل هنا أمرين بأمانة: تُظهر كم هو شائع أن تقع كلمةٌ ما على رقم بارز حتى لا نبالغ في قراءة المصادفات؛ وتُحاكي خطة حفظٍ واقعية بأيام جيدة وأخرى متعثّرة لتُظهر كم قد يستغرق الختم فعلاً.',
-          howToRead:'في رسم المشهد، الأعمدة العالية تعني أن كلمات كثيرة تقع قرب ذلك الرقم (فالتطابق هناك غير لافت)؛ والأعمدة القصيرة عند الأرقام الكبيرة تعني أن التطابق نادر وجدير بالملاحظة. ويُظهر المُدرَّج توزُّع أزمنة الختم عبر ١٬٠٠٠ رحلة محاكاة؛ والقيم عند الخُمس الأدنى والوسيط والخُمس الأعلى تمثّل الحالة السريعة والمتوسطة والبطيئة.'},
-      },
       mushaf:null, mushafLoading:false, tawPage:1, tawSel:'', tawSelLabel:'',
       tawExamples:[{l:'الله',t:'الله'},{l:'رب',t:'رب'},{l:'رحمن',t:'الرحمن'}],
       alifi:null, alifiPage:0, alifiOverlay:true,
@@ -6420,14 +6340,35 @@ createApp({
         {id:'homeHub',
           icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M6 10.5V20h12v-9.5"/></svg>',
           en:'Home',ar:'الرئيسية',
-          blurb_en:'',blurb_ar:'',
-          items:[{id:'home',en:'Home',ar:'الرئيسية'}]},
+          blurb_en:'',
+          blurb_ar:'',
+          items:[
+            {id:'home',en:'Home',ar:'الرئيسية'}]},
+        {id:'readerHub',
+          icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5c2.6-1.4 5.2-1.4 8 .3 2.8-1.7 5.4-1.7 8-.3v13c-2.6-1.4-5.2-1.4-8 .3-2.8-1.7-5.4-1.7-8-.3z"/><path d="M12 5.8v13"/></svg>',
+          en:'Read',ar:'اقرأ',
+          blurb_en:'The mushaf, a search for any word in the whole text, how the printed pages are laid out, and a plan for memorising it.',
+          blurb_ar:'المصحف، وبحثٌ عن أي كلمةٍ في النص كله، وتخطيط صفحات المصحف المطبوع، وخطةٌ لحفظه.',
+          items:[
+            {id:'reader',en:'Reader',ar:'المصحف'},
+            {id:'search',en:'Word Search',ar:'بحث في الكلمات'},
+            {id:'tawafuq',en:'Mushaf Layouts',ar:'تخطيط المصحف'},
+            {id:'hifz',en:'Hifz Planner',ar:'خطة الحفظ'}]},
         {id:'auditorHub',
           icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 2.8v5.4c0 4.4-2.9 7.4-7 9-4.1-1.6-7-4.6-7-9V5.8z"/><path d="M9 12l2 2 4-4.5"/></svg>',
-          en:'Claim Auditor',ar:'مدقّق المزاعم',
-          blurb_en:'Famous claims about the Quran, from word counts to ancient history, each checked against the text and the record.',
-          blurb_ar:'نعيد فحص ما يتداوله الناس عن القرآن، من أعداد كلماته إلى شواهد التاريخ، على النص نفسه وعلى الآثار.',
-          items:[{id:'auditor',en:'Word Counts',ar:'أعداد الكلمات'},{id:'wordcount',en:'How many words?',ar:'كم كلمة؟'},{id:'lettercount',en:'How many letters?',ar:'كم حرفًا؟'},{id:'history',en:'History Claims',ar:'شواهد التاريخ'}]},
+          en:'Claims',ar:'المزاعم',
+          blurb_en:'Famous claims about the Quran, from word counts and the number 19 to ancient history, each checked against the text and the record.',
+          blurb_ar:'مزاعم مشهورة عن القرآن، من أعداد الكلمات والرقم ١٩ إلى شواهد التاريخ، كلٌّ منها مدقَّقٌ على النص وعلى الآثار.',
+          items:[
+            {id:'auditor',en:'Word Counts',ar:'أعداد الكلمات'},
+            {id:'symmetry',en:'Word Pairs',ar:'توازن الأزواج'},
+            {id:'n19',en:'Number 19',ar:'الرقم ١٩'},
+            {id:'structural',en:'Iron, Bee and Noah',ar:'الحديد والنحل ونوح'},
+            {id:'abjad',en:'Abjad',ar:'حساب الجُمّل'},
+            {id:'wordcount',en:'How many words?',ar:'كم كلمة؟'},
+            {id:'lettercount',en:'How many letters?',ar:'كم حرفًا؟'},
+            {id:'history',en:'History Claims',ar:'شواهد التاريخ'},
+            {id:'science',en:'Science Verses',ar:'الإشارات العلمية'}]},
         {id:'discoverHub',
           icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><path d="M12 8.2l1.2 2.6 2.6 1.2-2.6 1.2L12 15.8l-1.2-2.6L8.2 12l2.6-1.2z"/></svg>',
           en:'Discoveries',ar:'اكتشافات',
@@ -6448,73 +6389,27 @@ createApp({
         {id:'explore',
           icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M5 20V11"/><path d="M11 20V4"/><path d="M17 20v-6"/><path d="M3 20h18"/></svg>',
           en:'Explore',ar:'استكشف',
-          blurb_en:'Charts and statistics across words, letters, revelation and themes.',
-          blurb_ar:'رسومٌ وإحصاءات تغطي الكلمات والحروف ومواضع النزول وموضوعات السور.',
+          blurb_en:'The text in numbers: its size, its words and letters, Mecca and Medina compared and tested, its tone, which surahs resemble each other, and how its people, places and themes connect.',
+          blurb_ar:'النص بالأرقام: حجمه، وكلماته وحروفه، ومكة والمدينة مقارنةً واختبارًا، ونبرته، والسور المتشابهة، وكيف يتصل أشخاصه وأماكنه وموضوعاته.',
           items:[
             {id:'overview',en:'Overview',ar:'نظرة عامة'},
             {id:'word',en:'Words',ar:'الكلمات'},
             {id:'letters',en:'Letters',ar:'الحروف'},
-            {id:'mecca',en:'Mecca vs Medina',ar:'مكة والمدينة'},
-            {id:'emotion',en:'Emotion',ar:'البصمة العاطفية'},
-            {id:'pronouns',en:'Pronouns',ar:'الضمائر'},
-            {id:'science',en:'Science',ar:'إشارات علمية'},
-            {id:'advanced',en:'Big Picture',ar:'الصورة الكبرى'},
-          ]},
-        {id:'searchHub',
-          icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg>',
-          en:'Search & NLP',ar:'البحث واللغة',
-          blurb_en:'Find any word, in all its forms or by its root, and see every verse where it comes.',
-          blurb_ar:'ابحث عن أي كلمة، بجميع صيغها أو بجذرها، وطالع كل آيةٍ وردت فيها.',
-          items:[
-            {id:'search',en:'Word Search',ar:'بحث'},
-            {id:'nlp',en:'NLP Explorer',ar:'مستكشف اللغة'},
-          ]},
-        {id:'readerHub',
-          icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5c2.6-1.4 5.2-1.4 8 .3 2.8-1.7 5.4-1.7 8-.3v13c-2.6-1.4-5.2-1.4-8 .3-2.8-1.7-5.4-1.7-8-.3z"/><path d="M12 5.8v13"/></svg>',
-          en:'Reader',ar:'المصحف',
-          blurb_en:'The full mushaf in Uthmani script, plus two page-alignment explorers.',
-          blurb_ar:'اقرأ المصحف كاملًا بالرسم العثماني، مع مستكشفَين لتوافق الكلمات على الصفحات.',
-          items:[
-            {id:'reader',en:'Reader',ar:'القراءة'},
-            {id:'tawafuq',en:'Tawafuq',ar:'توافق'},
-            {id:'alifi',en:'Alifi',ar:'مصحف ألفي'},
-          ]},
-        {id:'patterns',
-          icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M9.5 4 7.5 20"/><path d="M16.5 4l-2 16"/><path d="M5 9.5h15"/><path d="M4 14.5h15"/></svg>',
-          en:'Patterns & Numbers',ar:'أنماط وأرقام',
-          blurb_en:'Word pairs, abjad values and number patterns, verified honestly.',
-          blurb_ar:'أزواج الكلمات المتقابلة وحساب الجُمّل وأنماط الأرقام، معروضةً بتدقيقٍ أمين.',
-          items:[
-            {id:'symmetry',en:'Word Pairs',ar:'توازن الأزواج'},
-            {id:'abjad',en:'Abjad',ar:'حساب الجمّل'},
-            {id:'n19',en:'Number 19',ar:'الرقم ١٩'},
-            {id:'structural',en:'Structure',ar:'هيكلية'},
-          ]},
-        {id:'lab',
-          icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v6.2L4.6 18.6A1.6 1.6 0 0 0 6 21h12a1.6 1.6 0 0 0 1.4-2.4L14 9.2V3"/><path d="M8.5 3h7"/><path d="M7.5 15h9"/></svg>',
-          en:'Analytics Lab',ar:'مختبر التحليلات',
-          blurb_en:'Six studios where the computer tests ideas about the Quran\'s text, each explained in plain words.',
-          blurb_ar:'ست أدواتٍ يختبر فيها الحاسوب أفكارًا عن نص القرآن، لكلٍّ منها شرحٌ بلغةٍ بسيطة.',
-          items:[
-            {id:'dashboard',en:'BI Dashboard',ar:'لوحة المعلومات'},
-            {id:'hifz',en:'Hifz Optimiser',ar:'مُحسِّن الحفظ'},
-            {id:'classifier',en:'Revelation Classifier',ar:'تصنيف مكي/مدني'},
-            {id:'stats',en:'Statistical Tests',ar:'اختبارات إحصائية'},
-            {id:'cluster',en:'Clusters',ar:'العناقيد'},
-          ]},
+            {id:'mecca',en:'Mecca and Medina',ar:'مكة والمدينة'},
+            {id:'emotion',en:'Tone and Voice',ar:'النبرة والضمائر'},
+            {id:'cluster',en:'Similar Surahs',ar:'السور المتشابهة'},
+            {id:'kg',en:'Knowledge Graph',ar:'خريطة المعرفة'}]},
         {id:'library',
           icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3v16H5z"/><path d="M10 4h3v16h-3z"/><path d="M15.2 5.2l3.4-.9 4 14.6-3.4.9z" transform="scale(0.92) translate(1 1)"/></svg>',
           en:'Library',ar:'المكتبة',
-          blurb_en:"Stories, lessons, du'as, scholarly insights and a knowledge graph.",
-          blurb_ar:'قصص الأنبياء ودروس السور وأدعية القرآن وبصائر العلماء، تتوّجها خريطة معرفة تفاعلية.',
+          blurb_en:'Stories of the prophets, lessons, du’as, scholars’ insights, and the words no translation can carry.',
+          blurb_ar:'قصص الأنبياء ودروس السور وأدعية القرآن وبصائر العلماء، وكلماتٌ تعجز عنها الترجمة.',
           items:[
             {id:'stories',en:'Stories',ar:'القصص'},
             {id:'lessons',en:'Lessons',ar:'الدروس'},
             {id:'duas',en:"Du'as",ar:'الأدعية'},
-            {id:'tafsir',en:'Insights',ar:'بصائر'},
-            {id:'untranslatable',en:'Untranslatable',ar:'كلمات تعجز الترجمة'},
-            {id:'kg',en:'Knowledge Graph',ar:'خريطة المعرفة'},
-          ]},
+            {id:'tafsir',en:'Scholars’ Insights',ar:'بصائر'},
+            {id:'untranslatable',en:'Untranslatable Words',ar:'كلمات تعجز الترجمة'}]}
       ],
     };
   },
@@ -6600,7 +6495,11 @@ createApp({
     sciShown(){ return this.sciOn && this.sciHas; },
     depthKicker(){ const ar=this.lang==='ar'; return this.sciShown ? (ar ? 'للمتخصصين: المنهج والأرقام' : 'For scientists: method and numbers') : (ar ? 'بكلماتٍ بسيطة' : 'In plain words'); },
     sciRows(){ const S=EXPL && EXPL.SCI[this.view]; if(!S) return []; const i=this.lang==='ar'?1:0;
-      return ['purpose','data','method','result','also','limits'].filter(k=>S[k]).map(k=>({k, label:XLAB[k][i], html:this.rich(S[k][i])})); },
+      const rows=['purpose','data','method','result','also','limits'].filter(k=>S[k]).map(k=>({k, label:XLAB[k][i], html:this.rich(S[k][i])}));
+      (MERGED[this.view]||[]).forEach(m=>{ const T=EXPL.SCI[m.k]; if(!T) return;
+        const txt=['method','result'].filter(k=>T[k]).map(k=>T[k][i]).join(' ');
+        if(txt) rows.push({k:'m-'+m.k, label:m.t[i], html:this.rich(txt)}); });
+      return rows; },
     viewTerms(){ return EXPL ? (TERMS[this.view]||[]).filter(k=>EXPL.GLOSS[k]) : []; },
     termCard(){ const t=this.term, g=t && EXPL && EXPL.GLOSS[t.key]; if(!g) return null; const i=this.lang==='ar'?1:0;
       return {key:t.key, full:g.full[i], page:g.page, pageName:this.viewName(g.page),
@@ -6671,7 +6570,7 @@ createApp({
       const c={mercy:0, guidance:0, hope:0, warning:0}; T.items.forEach(it=>{ if(it.tone in c) c[it.tone]++; });
       return {c, n:T.items.length, model:T.model||'', date:T.date||''}; },
     realViews(){ return [...DISC_IDS, 'home','overview','word','mecca','letters','search','reader','auditor','wordcount','lettercount','history','stories','lessons','duas','tafsir','untranslatable',
-      'emotion','pronouns','science','abjad','n19','structural','symmetry','nlp','kg','advanced','tawafuq','alifi','hifz','classifier','stats','cluster','dashboard']; },
+      'emotion','science','abjad','n19','structural','symmetry','kg','tawafuq','hifz','cluster']; },
     curHub(){ return this.nav.find(h=>h.items.some(i=>i.id===this.view)) || null; },
     // where the reader is: a change of page, claim or surah is a step the browser's back arrow can undo
     // the open claim's figure: its own spec, or a time spiral from its written / lost / recovered years
@@ -6687,19 +6586,7 @@ createApp({
       return {type:'spiral', per, phases:ph, events:ev, title:['Could anyone have read it?','هل كان في وسع أحدٍ أن يقرأه؟'],
         sub:['Drag along the spiral, or press play.','اسحب على اللولب أو شغّل العرض.']}; },
     navKey(){ const r=this.view==='reader'; return [this.view, this.view==='history' ? this.hSel : '', r ? this.rSurah : '', r ? this.rVerse : ''].join('|'); },
-    plain(){ const v=this.view, P=PLAIN[v]; if(!P) return null;
-      const ar=this.lang==='ar', i=ar?1:0, t=!FINE, pick=k=>P[k] ? P[k][i] : '';
-      const x={title:pick('title'), what:pick('what'), method:pick('method'), how:pick('how'), msg:pick('msg'), tip:'',
-        staged:!!STAGED[v] || v==='search', noted:PLAIN_NOTED.includes(v)};   // a staged page's «how» describes its stage, so it shows under the stage (and not with the fallback chart)
-      if(P.tip){ const hv = ar ? (t ? 'انقر على' : 'مرّر المؤشر على') : (t ? 'Tap' : 'Point at'); x.tip=P.tip[i].replace('{P}',hv).replace('{p}',hv)+(!t && P.click ? P.click[i] : '')+'.'; }
-      const c=this.AN.classifier;
-      if(v==='classifier' && c && c.confusion){ const pc=q=>this.D(Math.round(q*100)), mec=c.confusion[0], med=c.confusion[1], nMec=mec[0]+mec[1], nMed=med[0]+med[1];
-        const allMec = mec[1]===0;
-        x.msg = ar ? 'يصيب '+pc(c.accuracy)+' مرةً من كل ١٠٠، وهذا أفضل من '+pc(c.baseline)+' لو قلنا «مكية» دائمًا. '+(allMec ? 'يعرف كل السور المكية' : 'يعرف '+this.D(mec[0])+' من '+this.D(nMec)+' سورةً مكية')+'، لكنه يحسب '+this.D(med[0])+' من السور المدنية الـ'+this.D(nMed)+' مكية. وكلماتٌ مثل «الله» و«رسول» و«آمن» تميل به نحو المدينة.'
-          : 'It is right '+pc(c.accuracy)+' times out of 100, better than the '+pc(c.baseline)+' you would get by always saying «Meccan». '+(allMec ? 'It recognises every Meccan surah' : 'It recognises '+mec[0]+' of the '+nMec+' Meccan surahs')+', but takes '+med[0]+' of the '+nMed+' Medinan surahs for Meccan. Words like Allah, messenger (رسول) and believe (آمن) point it towards Medina.'; }
-      return x; },
-    coinLand(){ const mc=this.AN.montecarlo && this.AN.montecarlo.coincidence; return mc && mc.landscape ? mc.landscape : []; },
-    coinPick(){ return this.coinLand.find(r=>r.n===this.gridN) || this.coinLand[0] || null; },
+    plain(){ return this.plainOf(this.view); },
     // what each page's stage draws, for screen readers (label) and as the hint under it (cap)
     stageInfo(){ const ar=this.lang==='ar', t=!FINE, v=this.view;
       const hv = ar ? (t ? 'انقر' : 'مرّر المؤشر') : (t ? 'Tap' : 'Hover');
@@ -6770,7 +6657,6 @@ createApp({
       return {rows, say}; },
     dashAgg(){ const r=this.dashFiltered, v=r.reduce((t,s)=>t+s.verses,0), w=r.reduce((t,s)=>t+s.words,0);
       return {count:r.length, verses:v, words:w, avg:(v?(w/v):0).toFixed(1)}; },
-    labCur(){ const m=(this.lang==='ar'?this.labMetaAr:this.labMeta); return m[this.view]||null; },
     hifzLive(){
       const p=(this.AN.hifz&&this.AN.hifz.params)||{tNew:4,tRev:0.5,rho:10,totalLines:9060};
       const N=this.hifzMins/(p.tNew+p.tRev*p.rho);
@@ -6828,7 +6714,7 @@ createApp({
         stories:{type:'stories',data:this.stories,title_en:'Stories',title_ar:'القصص'},
         lessons:{type:'lessons',data:this.lessons,title_en:'Lessons',title_ar:'الدروس'},
         duas:{type:'duas',data:this.duas,title_en:"Du'as",title_ar:'الأدعية'},
-        tafsir:{type:'tafsir',data:this.tafsir,title_en:'Scholarly Insights',title_ar:'بصائر'},
+        tafsir:{type:'tafsir',data:this.tafsir,title_en:'Scholars’ Insights',title_ar:'بصائر'},
         untranslatable:{type:'untranslatable',data:this.untranslatable,title_en:'Untranslatable Words',title_ar:'كلمات تعجز الترجمة عنها'},
       };
       return map[this.view]||null;
@@ -6860,7 +6746,7 @@ createApp({
     rWhere(){ const ar=this.lang==='ar', n=this.rList.length, i=this.rPos; if(!this.rClaimObj && n<=1) return '';
       return i<0 ? (ar ? this.D(n)+' آية' : n+' verses') : (ar ? 'الآية '+this.D(i+1)+' من '+this.D(n) : 'verse '+(i+1)+' of '+n); },
     rBackHref(){ return this.landingHref + '#claim-' + this.rClaim; },
-    rBackLabel(){ const ar=this.lang==='ar', b=String(this.rBack||''), t=({auditor: ar?'مدقّق المزاعم':'the Claim Auditor', history: ar?'شواهد التاريخ':'History Claims', symmetry: ar?'أزواج الكلمات':'Word Pairs'})[b] || (b && b!=='reader' && b!=='landing' && b!=='home' ? this.viewName(b) : '');
+    rBackLabel(){ const ar=this.lang==='ar', b=String(this.rBack||''), t=({auditor: ar?'أعداد الكلمات':'Word Counts', history: ar?'شواهد التاريخ':'History Claims', symmetry: ar?'توازن الأزواج':'Word Pairs'})[b] || (b && b!=='reader' && b!=='landing' && b!=='home' ? this.viewName(b) : '');
       return t ? (ar ? '→ العودة إلى '+t : '← Back to '+t) : (ar ? '→ العودة' : '← Back'); },
     readerVerses(){
       const out=[]; const n=this.rSurah;
@@ -6870,6 +6756,18 @@ createApp({
     }
   },
   methods:{
+    // a page's explanation in plain words; merged pages also show the explanations of the pages they took in
+    plainOf(v){ const P=PLAIN[v]; if(!P) return null;
+      const ar=this.lang==='ar', i=ar?1:0, t=!FINE, pick=k=>P[k] ? P[k][i] : '';
+      const x={title:pick('title'), what:pick('what'), method:pick('method'), how:pick('how'), msg:pick('msg'), tip:'',
+        staged:!!STAGED[v] || v==='search', noted:PLAIN_NOTED.includes(v)};   // a staged page's «how» describes its stage, so it shows under the stage (and not with the fallback chart)
+      if(P.tip){ const hv = ar ? (t ? 'انقر على' : 'مرّر المؤشر على') : (t ? 'Tap' : 'Point at'); x.tip=P.tip[i].replace('{P}',hv).replace('{p}',hv)+(!t && P.click ? P.click[i] : '')+'.'; }
+      const c=this.AN.classifier;
+      if(v==='classifier' && c && c.confusion){ const pc=q=>this.D(Math.round(q*100)), mec=c.confusion[0], med=c.confusion[1], nMec=mec[0]+mec[1], nMed=med[0]+med[1];
+        const allMec = mec[1]===0;
+        x.msg = ar ? 'يصيب '+pc(c.accuracy)+' مرةً من كل ١٠٠، وهذا أفضل من '+pc(c.baseline)+' لو قلنا «مكية» دائمًا. '+(allMec ? 'يعرف كل السور المكية' : 'يعرف '+this.D(mec[0])+' من '+this.D(nMec)+' سورةً مكية')+'، لكنه يحسب '+this.D(med[0])+' من السور المدنية الـ'+this.D(nMed)+' مكية. وكلماتٌ مثل «الله» و«رسول» و«آمن» تميل به نحو المدينة.'
+          : 'It is right '+pc(c.accuracy)+' times out of 100, better than the '+pc(c.baseline)+' you would get by always saying «Meccan». '+(allMec ? 'It recognises every Meccan surah' : 'It recognises '+mec[0]+' of the '+nMec+' Meccan surahs')+', but takes '+med[0]+' of the '+nMed+' Medinan surahs for Meccan. Words like Allah, messenger (رسول) and believe (آمن) point it towards Medina.'; }
+      return x; },
     // ---- Discoveries ----
     // a text from discover.js in the page's language: [English, Arabic], or a function of the results that returns them
     dx(v){ if(v==null) return ''; const i=this.lang==='ar'?1:0;
@@ -7050,7 +6948,7 @@ createApp({
     askLabel(t){ const ar=this.lang==='ar';
       if(t.view==='reader' && t.s) return (ar?'سورة ':'Surah ') + this.surahName(t.s) + ' (' + this.D(t.s) + ')';
       if(t.view==='search' && t.q) return (ar?'البحث عن ':'Search for ') + '«' + t.q + '»';
-      if(t.view==='auditor' && t.claim) return ar ? 'مدقّق المزاعم، مع زعمك' : 'The Claim Auditor, with your claim';
+      if(t.view==='auditor' && t.claim) return ar ? 'أعداد الكلمات، مع زعمك' : 'Word Counts, with your claim';
       for(const g of this.nav){ const it=g.items.find(x=>x.id===t.view); if(it) return ar?it.ar:it.en; }
       return t.view; },
     async askSite(){
@@ -7118,7 +7016,8 @@ createApp({
         if(/[0-9]/.test(t.textContent)) t.textContent = t.textContent.replace(/[0-9]/g,d=>map[d]);
       });
     },
-    go(id){ const changed=id!==this.view; if(changed) this.saveY();
+    go(id){ const al=VIEW_ALIAS[id]; if(al){ id=al[0]; this._toAnchor=al[1]||''; }
+      const changed=id!==this.view; if(changed) this.saveY();
       (NEEDS[id]||[]).forEach(k=>this.load(k));
       if(id!=='reader'){ this.rClaim=''; this.rVerse=0; this.rBack=''; this.rExt=null; }
       if(id==='history' ? this.view==='history' : id!=='reader') this.hSel='';   // the tab itself opens the index; back from the reader keeps the claim
@@ -7128,9 +7027,15 @@ createApp({
       if(id!=='cluster'){ this.pcaStop(); this.pcaStep=PCA_LAST; }
       this.closeTerm();
       this.view=id; this.sideOpen=false; this.libQ=''; this.libCat='all'; this.sit.res=null;
-      if(id==='tawafuq') this.ensureMushaf(); if(id==='alifi') this.ensureAlifi();
+      if(id==='tawafuq'){ this.ensureMushaf(); this.ensureAlifi(); }
       if(changed){ window.scrollTo(0,0); if(!FINE && navigator.vibrate) try{ navigator.vibrate(6); }catch(e){} }
-      this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); this.enterView(changed); }); },
+      this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); this.enterView(changed); this.toAnchor(); }); },
+    // after an old address opens the page that took it in, bring its section into view
+    toAnchor(){ const a=this._toAnchor; this._toAnchor=''; if(!a) return;
+      const to=how=>{ const el=document.getElementById(a); if(el) el.scrollIntoView({behavior:how, block:'start'}); };
+      setTimeout(()=>to(REDUCED ? 'auto' : 'smooth'), 450);
+      // charts above it can still be growing; land on it again once they have
+      setTimeout(()=>{ const el=document.getElementById(a); if(el && Math.abs(el.getBoundingClientRect().top-84)>40) to('auto'); }, 1700); },
     // ---- the landing's motion, carried into the app ----
     enterView(animate){
       const sky=SKY(); if(sky){ sky.setView(this.view); this.syncSky(); this.syncStage(); }
@@ -7143,28 +7048,18 @@ createApp({
       const m100=n=>n%100, times = ar ? n=>(m100(n)>=3 && m100(n)<=10 ? 'مرات' : 'مرة') : 'times';   // Arabic counted nouns change with the number
       switch(this.view){
         case 'overview': return {type:'columns', data:{}};
-        case 'dashboard': return {type:'columns', data:{order:this.dashFiltered.map(s=>s.n), peaks:3}};
         case 'mecca': return {type:'lengths', data:{means:{mecca:this.MM.mecca.avgWordsPerVerse, medina:this.MM.medina.avgWordsPerVerse}}};
-        case 'stats': return AN.ttest ? {type:'lengths', data:{means:{mecca:AN.ttest.meccanMean, medina:AN.ttest.medinanMean}, showMeans:true}} : null;
         case 'word': return {type:'bars', data:{orient:'h', search:'lemma', unit:times,
           items:(DS.topWordsLemma||[]).slice(0,15).map(x=>({label:x.w, sub:LEMMA_EN[x.w]||'', c:x.c}))}};
-        case 'nlp': return {type:'bars', data:{orient:'h', labelW:.3, unit:times, from:'teal', to:'emerald',
-          items:(DS.bigrams||[]).slice(0,12).map(x=>({label:x.w, sub:PAIR_EN[x.w]||'', c:x.c}))}};
         case 'letters': { const tot=(DS.letterFreq||[]).reduce((a,x)=>a+x.c,0)||1;
           return {type:'bars', data:{orient:'v', showShare:true, unit:ar ? n=>(m100(n)>=3 && m100(n)<=10 ? 'أحرف' : m100(n)>=11 ? 'حرفًا' : 'حرف') : 'letters', from:'amber', to:'teal',
             items:(DS.letterFreq||[]).map(x=>({label:x.l, c:x.c, short: x.c/tot>=.01 ? this.D(Math.round(x.c/tot*100))+(ar?'٪':'%') : ''}))}}; }
         case 'emotion': { const S=V1.sentiment||[], t=this.emotionTotals;
           const g=(k,a,l,c)=>({ar:a, label:l, c:t[k], color:c, per:S.map(x=>({s:x.n, c:x[k]})).filter(e=>e.c>0)});
           return {type:'heaps', data:{groups:[g('mercy','رحمة','Mercy','emerald'), g('guidance','هداية','Guidance','teal'), g('hope','أمل','Hope','amber'), g('warning','تحذير','Warning','rose')]}}; }
-        case 'pronouns': { const p=V1.pronouns||{};
-          return {type:'heaps', data:{groups:[{ar:'نَحْنُ', label:'We', c:p.we||0, color:'amber'}, {ar:'أَنَا', label:'I', c:p.i||0, color:'emerald'}, {ar:'هُوَ', label:'He', c:DS.huwaCount||p.he||0, color:'teal'}]}}; }
         case 'science': { const R=V1.scientificRefs||[], cats=[...new Set(R.map(r=>r.cat_en))], pal=['amber','teal','rose','violet','emerald','gold','green'];
           return R.length ? {type:'carpet', data:{lit:R.map(r=>({k:r.s+':'+r.v, color:pal[cats.indexOf(r.cat_en)%pal.length], label:ar ? r.cat_ar+' · '+r.t_ar : r.cat_en+' · '+r.t_en}))}} : null; }
         case 'search': return SKYKEYS ? {type:'carpet', data:{lit:SKYKEYS.map(k=>({k, color:'amber'}))}} : null;
-        case 'advanced': { const sm=DS.surahMeta||[];
-          return {type:'scatter', data:{logx:true, logy:true, xr:[2.5,330], yr:[8,8000], xTicks:[3,10,30,100,300], yTicks:[10,100,1000],
-            xTitle:ar?'آيات ›':'verses ›', yTitle:ar?'كلمات':'words', legend:[{color:'gold', label:ar?'مكية':'Meccan'}, {color:'green', label:ar?'مدنية':'Medinan'}],
-            pts:sm.map(x=>({n:x.n, x:x.verses, y:x.words, info:this.countOf(x.verses,'verse')+' · '+this.countOf(x.words,'word')+' · '+this.D((x.words/x.verses).toFixed(1))+(ar?' كلمة للآية':' words a verse')}))}}; }
         case 'cluster': { const cs=AN.clusters||[]; if(!cs.length) return null;
           const st=this.pcaStep, M=this.pcaModel, sm=DS.surahMeta||[];
           const placeLeg=[{color:'gold', label:ar?'مكية':'Meccan'}, {color:'green', label:ar?'مدنية':'Medinan'}];
@@ -7205,8 +7100,6 @@ createApp({
             xTitle: ar ? 'ترتيب النزول ›' : 'order of revelation ›', yTitle: ar ? 'كلمة/آية' : 'words/verse',
             legend:[{color:'gold', label:ar?'مكية':'Meccan'}, {color:'green', label:ar?'مدنية':'Medinan'}],
             pts:C.points.map(p=>({n:p[1], x:p[0], y:p[2], info:ar ? 'ترتيبها في النزول '+this.D(p[0])+'، و'+this.dF.d(p[2],1)+' كلمة للآية' : 'order of revelation '+p[0]+' · '+this.dF.d(p[2],1)+' words a verse'}))}}; }
-        case 'coincidence': { const p=this.coinPick, mc=AN.montecarlo && AN.montecarlo.coincidence;
-          return p && mc ? {type:'grid', data:{total:mc.nLemmas, n:p.n, exact:p.exact, near:p.near}} : null; }
       }
       return null; },
     syncStage(){ const sky=SKY(); if(!sky || !sky.setStage) return;
@@ -7530,11 +7423,12 @@ createApp({
     },
     // ---- browser history: every page, claim and surah gets its own entry, so back and forward work ----
     navUrl(){ const q=new URLSearchParams();
-      if(this.view!=='home') q.set('view', this.view);
+      if(this.view!=='home' && !PRETTY) q.set('view', this.view);
       if(this.view==='history' && this.hSel) q.set('c', this.hSel);
       if(this.view==='reader'){ q.set('s', this.rSurah); if(this.rVerse) q.set('v', this.rVerse); if(this.rClaim) q.set('m', this.rClaim); if(this.rBack==='landing') q.set('back', 'landing'); }
       if(this.lang==='ar') q.set('lang', 'ar');
-      const qs=q.toString(); return location.pathname + (qs ? '?'+qs : ''); },
+      const qs=q.toString(), path = PRETTY ? '/'+(SLUG[this.view]||'app') : location.pathname;
+      return path + (qs ? '?'+qs : ''); },
     navState(qi){ return {qv:this.view, c:this.hSel, s:this.rSurah, v:this.rVerse, m:this.rClaim, b:this.rBack,
       x:this.rExt && this.rExt.keys ? {keys:[...this.rExt.keys].map(String)} : null, qi, y:0}; },
     // the page being left keeps its scroll, so coming back lands where the reader was
@@ -7570,7 +7464,7 @@ createApp({
       this.$nextTick(()=>{ const f=document.querySelector('main .stagefig'); if(f) f.scrollIntoView({block:'center'}); });
     },
     renderCharts(){
-      if(STAGED[this.view] && !noGL() && this.view!=='advanced' && this.view!=='coincidence') return;   // the sky draws this page's chart
+      if(STAGED[this.view] && !noGL() && !EXTRA_PLOTS[this.view]) return;   // the sky draws this page's chart (pages with a second chart go on)
       if(typeof Plotly==='undefined'){ this.load('plotly'); return; }   // drawn when it arrives
       const isAr = this.lang==='ar';
       const mob = window.innerWidth < 480;
@@ -7616,21 +7510,6 @@ createApp({
         newPlot('letChart',[{x:t.map(x=>x.l),y:t.map(x=>x.c),type:'bar',marker:{color:P.mec}}],
           Object.assign({},lay,{height:340,xaxis:{tickfont:{family:'Amiri',size:18}}}));
       }
-      if(this.view==='advanced' && document.getElementById('advScatter')){
-        const sm=this.DS.surahMeta;
-        const grp=p=>sm.filter(s=>s.place===p);
-        const trace=(p,c,nm)=>({x:grp(p).map(s=>s.verses),y:grp(p).map(s=>s.words),text:grp(p).map(s=>s.n+'. '+(this.lang==='ar'?s.ar:s.en)),
-          mode:'markers',type:'scatter',name:nm,marker:{color:c,size:9,opacity:.75}});
-        newPlot('advScatter',[trace('Mecca',P.mec,isAr?'مكية':'Mecca'),trace('Medina',P.med,isAr?'مدنية':'Medina')],
-          Object.assign({},lay,{height:380,xaxis:{title:isAr?'آيات':'Verses'},yaxis:{title:isAr?'كلمات':'Words'},legend:{orientation:'h',y:1.12}}));
-        const byLen=sm.slice().sort((a,b)=>b.words/b.verses-a.words/a.verses).slice(0,20);
-        const lenTr={x:byLen.map(s=>this.lang==='ar'?s.ar:s.en),y:byLen.map(s=>+(s.words/s.verses).toFixed(1)),
-          type:'bar',marker:{color:P.teal}};
-        const lenTitle=isAr?'أطول متوسط آية (كلمة/آية)':'Longest avg verse (words/verse)';
-        newPlot('advLen',[mob?flip(lenTr):lenTr],
-          mob ? hLay(byLen.length,22,{title:lenTitle,yaxis:{automargin:true,autorange:'reversed',tickfont:isAr?{family:'Amiri',size:13}:{size:11}}})
-              : Object.assign({},lay,{height:360,title:lenTitle,xaxis:{tickangle:-40,tickfont:isAr?{family:'Amiri',size:12}:{size:10}}}));
-      }
       if(this.view==='mecca' && document.getElementById('mmChart')){
         const m=this.MM;
         newPlot('mmChart',[
@@ -7644,7 +7523,7 @@ createApp({
           y:[t.mercy,t.guidance,t.hope,t.warning],type:'bar',marker:{color:[P.med,P.teal,P.mec,P.rose]},
           text:[t.mercy,t.guidance,t.hope,t.warning],textposition:'outside',cliponaxis:false}],Object.assign({},lay,{height:340,yaxis:{range:[0,Math.max(t.mercy,t.guidance,t.hope,t.warning)*1.18]}}));
       }
-      if(this.view==='pronouns' && document.getElementById('proChart')){
+      if(this.view==='emotion' && document.getElementById('proChart')){
         const p=this.V1.pronouns||{};
         newPlot('proChart',[{x:isAr?['نحن','أنا','هو']:['نحن / We','أنا / I','هو / He'],y:[p.we,p.i,this.DS.huwaCount||p.he],type:'bar',
           marker:{color:P.mec},text:[p.we,p.i,this.DS.huwaCount||p.he],textposition:'outside',cliponaxis:false}],
@@ -7672,12 +7551,6 @@ createApp({
           mob ? hLay(c.length,26,{xaxis:{range:[0,sciMax]}})
               : Object.assign({},lay,{height:360,yaxis:{range:[0,sciMax]},xaxis:{tickangle:-30,tickfont:{size:10}}}));
       }
-      if(this.view==='nlp' && document.getElementById('biChart')){
-        const b=this.DS.bigrams.slice(0,12).reverse();
-        newPlot('biChart',[{y:b.map(x=>x.w),x:b.map(x=>x.c),type:'bar',orientation:'h',marker:{color:P.med},
-          text:b.map(x=>x.c),textposition:'outside',cliponaxis:false}],Object.assign({},lay,{height:400,xaxis:{range:[0,Math.max(...b.map(x=>x.c))*1.22]},yaxis:{automargin:true,tickfont:{family:'Amiri',size:15}},
-          title:isAr?'أكثر العبارات ذات الكلمتين':'Most common two-word phrases'}));
-      }
       if(this.view==='auditor' && document.getElementById('audChart')){
         const c=this.claims; const clab=c.map(x=>isAr?x.ar:x.en);
         const audTr=[
@@ -7687,36 +7560,6 @@ createApp({
         newPlot('audChart',mob?audTr.map(flip):audTr,
           mob ? hLay(c.length,40,{barmode:'group',legend:{orientation:'h',x:0,y:1,yanchor:'bottom'},yaxis:{automargin:true,autorange:'reversed',tickfont:isAr?{family:'Amiri',size:14}:{size:11}}})
               : Object.assign({},lay,{height:380,barmode:'group',legend:{orientation:'h',y:1.1},xaxis:{tickangle:-35,tickfont:isAr?{family:'Amiri',size:13}:{size:10}}}));
-      }
-      if(this.view==='classifier' && this.AN.classifier && document.getElementById('clfChart')){
-        const c=this.AN.classifier;
-        const med=c.topMedinan.slice(0,6), mec=c.topMeccan.slice(0,6);
-        const rows=mec.map(w=>({w:w.w,c:w.c})).concat(med.slice().reverse().map(w=>({w:w.w,c:w.c})));
-        const cv=rows.map(r=>r.c), cmax=Math.max(...cv), cmin=Math.min(...cv), cpad=(cmax-cmin)*0.18;
-        const clfTitle=isAr?'الكلمات التي تدلّ أكثر على المدينة (أخضر) أو مكة (ذهبي)':'Words that point most to Medina (green) or to Mecca (gold)';
-        const clfLay=Object.assign({},lay,{height:360,margin:{t:48,r:44,b:84,l:80},xaxis:{range:[cmin-cpad,cmax+cpad]},yaxis:{tickfont:{family:'Amiri',size:15}},
-            title:clfTitle},
-            // phones: title on two lines, labels sized to fit, and room beside zero for the Meccan values
-            mob?{height:400,margin:{t:66,r:40,b:44,l:8},xaxis:{range:[cmin-cpad*2.4,cmax+cpad]},yaxis:{automargin:true,tickfont:{family:'Amiri',size:15}},
-              title:clfTitle.replace(': ',':<br>')}:{});
-        newPlot('clfChart',[{y:rows.map(r=>r.w),x:cv,type:'bar',orientation:'h',
-          marker:{color:rows.map(r=>r.c>=0?P.med:P.mec)},hovertemplate:'%{y}<extra></extra>'}],
-          clfLay);
-      }
-      if(this.view==='stats' && this.AN.ttest && document.getElementById('statChart')){
-        const t=this.AN.ttest;
-        newPlot('statChart',[{x:[isAr?'مكي':'Meccan',isAr?'مدني':'Medinan'],y:[t.meccanMean,t.medinanMean],
-          type:'bar',marker:{color:[P.mec,P.med]},text:[t.meccanMean,t.medinanMean],textposition:'outside',cliponaxis:false}],
-          Object.assign({},lay,{height:300,title:isAr?'متوسط طول الآية (كلمات)':'Mean verse length (words)',
-            yaxis:{title:isAr?'كلمات':'words',range:[0,Math.max(t.meccanMean,t.medinanMean)*1.2]}}));
-      }
-      if(this.view==='dashboard' && document.getElementById('dashChart')){
-        const r=this.dashFiltered;
-        newPlot('dashChart',[{x:r.map(s=>s.n),y:r.map(s=>s.verses),type:'bar',
-          marker:{color:r.map(s=>s.place==='Medina'?P.med:P.mec)},
-          text:r.map(s=>(isAr?s.ar:s.en)),textposition:'none',hovertemplate:'%{text}<br>%{y}<extra></extra>'}],
-          Object.assign({},lay,{height:380,title:isAr?'الآيات حسب السورة (مُرشَّح)':'Verses by surah (filtered)',
-            xaxis:{title:isAr?'رقم السورة':'Surah #'},yaxis:{title:isAr?'آيات':'verses'}}));
       }
       if(this.view==='hifz' && this.AN.hifz && document.getElementById('hifzChart')){
         const g=this.AN.hifz.sensitivity;
@@ -7737,14 +7580,6 @@ createApp({
           mob?{margin:Object.assign({},lay.margin,{t:86}),title:{text:clTitle,y:.985,yanchor:'top',font:lay.title.font},
             legend:{orientation:'h',x:0,y:1.02,yanchor:'bottom'}}:{}));
       }
-      if(this.view==='coincidence' && this.AN.montecarlo && document.getElementById('coincChart')){
-        const L=this.AN.montecarlo.coincidence.landscape;
-        newPlot('coincChart',[
-          {x:L.map(r=>r.n),y:L.map(r=>r.near),type:'bar',name:isAr?'كلمات قريبة (±٥)':'words near (±5)',marker:{color:P.ghost}},
-          {x:L.map(r=>r.n),y:L.map(r=>r.exact),type:'bar',name:isAr?'تطابق تام':'exact',marker:{color:P.mec}}
-        ],Object.assign({},lay,{height:340,barmode:'overlay',yaxis:{type:'log',title:isAr?'عدد الكلمات (لوغاريتمي)':'words (log)'},
-          xaxis:{title:isAr?'الرقم البارز':'notable number'},legend:{orientation:'h',y:1.15}}));
-      }
       if(this.AN.montecarlo && this.AN.montecarlo.hifzSim && document.getElementById('mcChart')){
         const h=this.AN.montecarlo.hifzSim.hist;
         newPlot('mcChart',[{x:h.map(b=>b.day),y:h.map(b=>b.count),type:'bar',marker:{color:P.teal}}],
@@ -7757,8 +7592,6 @@ createApp({
       this.syncUrl(a[0]!==b[0] || a[1]!==b[1] || a[2]!==b[2]); },
     lang(v){ this.applyDir(); this.showTrans = (v!=='ar'); this.applySitCat(); const sky=SKY(); if(sky) sky.setLang(v);
       this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); this.revealScan(); this.syncStage(); if(this.term) this.placeTerm(); }); },
-    dashFiltered(){ if(this.view==='dashboard') this.$nextTick(()=>this.syncStage()); },
-    gridN(){ if(this.view==='coincidence') this.syncStage(); },
     pcaStep(){ if(this.view==='cluster') this.syncStage(); },
     pcaAngle(){ if(this.view==='cluster' && !PCA_RAF) PCA_RAF=requestAnimationFrame(()=>{ PCA_RAF=0; this.syncStage(); }); },   // one redraw a frame while the line turns
     rSurah(){ if(this.view==='reader') this.syncSky(); },
@@ -7768,7 +7601,9 @@ createApp({
     window.addEventListener('scroll', this.onPageScroll, { passive:true });
     window.addEventListener('resize', this.onPageScroll);
     this.onPageScroll();
-    const qs = new URLSearchParams(location.search), wantView = qs.get('view');
+    const qs = new URLSearchParams(location.search), seg = location.pathname.replace(/^\/+|\/+$/g,'').replace(/\.html$/,'');
+    let wantView = qs.get('view') || SLUG_VIEW[seg] || (VIEW_ALIAS[seg] ? seg : '');
+    if(VIEW_ALIAS[wantView]){ this._toAnchor = VIEW_ALIAS[wantView][1] || ''; wantView = VIEW_ALIAS[wantView][0]; }
     if(wantView && this.realViews.includes(wantView)){
       this.view = wantView;
       const wantSurah = Number(qs.get('s'));
@@ -7780,8 +7615,7 @@ createApp({
         if(qs.get('back')==='landing') this.rBack='landing';
         this.focusVerse();
       }
-      if(wantView==='tawafuq') this.ensureMushaf();
-      if(wantView==='alifi') this.ensureAlifi();
+      if(wantView==='tawafuq'){ this.ensureMushaf(); this.ensureAlifi(); }
       const wantClaim = qs.get('claim');
       const wantHist = qs.get('c');
       if(wantView==='history' && wantHist && typeof QURAN_HISTORY!=='undefined' && QURAN_HISTORY.some(h=>h.id===wantHist)) this.hSel=wantHist;
@@ -7790,7 +7624,7 @@ createApp({
     this.applyDir();
     try{ history.replaceState(this.navState(0), '', this.navUrl() + location.hash); }catch(e){}
     window.addEventListener('popstate', e=>this.onPop(e));
-    this.$nextTick(()=>{ this._navReady=true; try{ history.replaceState(this.navState(0), '', this.navUrl() + location.hash); }catch(e){} });
+    this.$nextTick(()=>{ this._navReady=true; try{ history.replaceState(this.navState(0), '', this.navUrl() + location.hash); }catch(e){} this.toAnchor(); });
     window.addEventListener('resize', ()=>this.resizeCharts());
     if(typeof QURAN_STORIES!=='undefined') this.stories=QURAN_STORIES;
     if(typeof QURAN_LESSONS!=='undefined') this.lessons=QURAN_LESSONS;

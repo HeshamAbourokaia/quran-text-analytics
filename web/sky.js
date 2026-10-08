@@ -28,9 +28,9 @@
   // Which arrangement each page uses. Pages with a stage keep the rest of the field as quiet dust.
   const FORM = {
     home: 'hero',
-    overview: 'dust', word: 'dust', letters: 'dust', nlp: 'dust', advanced: 'dust', emotion: 'dust', pronouns: 'dust', dashboard: 'dust',
-    mecca: 'dust', classifier: 'split', stats: 'dust', cluster: 'dust', hifz: 'split',
-    auditor: 'dust', wordcount: 'dust', lettercount: 'dust', symmetry: 'dust', n19: 'dust', abjad: 'dust', structural: 'dust', coincidence: 'dust', science: 'dust',
+    overview: 'dust', word: 'dust', letters: 'dust', emotion: 'dust',
+    mecca: 'dust', cluster: 'dust', hifz: 'split',
+    auditor: 'dust', wordcount: 'dust', lettercount: 'dust', symmetry: 'dust', n19: 'dust', abjad: 'dust', structural: 'dust', science: 'dust',
     'd-endings': 'dust', 'd-rhyme': 'dust', 'd-themes': 'dust', 'd-repeats': 'dust', 'd-chrono': 'dust',
   };
   const formOf = v => FORM[v] || 'galaxy';

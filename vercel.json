@@ -2,6 +2,14 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "outputDirectory": "web",
   "functions": {
-    "api/decide.js": { "maxDuration": 15 }
-  }
+    "api/decide.js": {
+      "maxDuration": 15
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/:slug(app|reader|search|mushaf-layouts|hifz|word-counts|word-pairs|19|iron-bee-noah|abjad|how-many-words|how-many-letters|history|science|discoveries|verse-endings|mirrors|rhyme|retellings|themes|companions|opening-letters|near-repeats|revelation-order|overview|words|letters|mecca-medina|tone|similar-surahs|knowledge-graph|stories|lessons|duas|insights|untranslatable|claims|read|explore|library)",
+      "destination": "/app.html"
+    }
+  ]
 }

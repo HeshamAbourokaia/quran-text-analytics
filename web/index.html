@@ -612,8 +612,8 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   <a class="navbrand" href="./"><span class="glyph"></span><span class="bname" data-i18n="brand">Quran Insights</span></a>
   <div class="navlinks">
     <a class="plain" href="#tour" data-i18n="nav.tour">The tour</a>
-    <a class="plain" href="#claims" data-i18n="nav.claims">Claim auditor</a>
-    <a class="plain" href="#lab" data-i18n="nav.lab">The lab</a>
+    <a class="plain" href="#claims" data-i18n="nav.claims">Claims</a>
+    <a class="plain" href="#lab" data-i18n="nav.lab">Mecca and Medina</a>
     <span class="langpill" role="group" aria-label="Language">
       <button type="button" data-setlang="en" class="on" aria-pressed="true">English</button>
       <button type="button" data-setlang="ar" lang="ar" aria-pressed="false">العربية</button>
@@ -717,7 +717,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   <div class="wrap">
     <header class="sechead rv">
       <span class="ayah" aria-hidden="true">۝٥</span>
-      <p class="kick" data-i18n="cl.kicker">Claim auditor</p>
+      <p class="kick" data-i18n="cl.kicker">Claims</p>
       <h2 class="display" data-i18n="cl.h2">Famous claims, audited.</h2>
       <p class="sub" data-i18n-html="cl.p">Every famous word-count claim, checked against the real corpus.</p>
     </header>
@@ -885,10 +885,10 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
       <p class="sub" data-i18n="feat.p">Every number on this site is counted live from the Quran's text in your browser and checked by automatic tests.</p>
     </header>
     <div class="bento">
-      <a class="tile t-lab rv" data-view="classifier" href="app.html?view=classifier">
+      <a class="tile t-lab rv" data-view="mecca" href="app.html?view=mecca">
         <span class="go" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2.5 8h10M9 4.5 12.5 8 9 11.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        <h3 data-i18n="lab.h3">The Analytics Lab</h3>
-        <p data-i18n="lab.p">Six working studios.</p>
+        <h3 data-i18n="lab.h3">Mecca and Medina, tested</h3>
+        <p data-i18n="lab.p">Is the gap real, and can a computer tell them apart?</p>
         <div class="viz minibars" aria-hidden="true"><i style="height:38%"></i><i style="height:62%"></i><i style="height:45%"></i><i style="height:88%"></i><i style="height:30%"></i><i style="height:72%"></i><i style="height:55%"></i><i style="height:96%"></i><i style="height:66%"></i><i style="height:41%"></i></div>
       </a>
       <a class="tile t-search rv" data-view="search" href="app.html?view=search">
@@ -1034,8 +1034,8 @@ const I18N = {
   'brand':      {en:'Quran Insights', ar:'بصائر قرآنية'},
   'skip':       {en:'Skip to the tour', ar:'انتقل إلى الجولة'},
   'nav.tour':   {en:'The tour', ar:'الجولة'},
-  'nav.claims': {en:'Claim auditor', ar:'مدقّق المزاعم'},
-  'nav.lab':    {en:'The lab', ar:'المختبر'},
+  'nav.claims': {en:'Claims', ar:'المزاعم'},
+  'nav.lab':    {en:'Mecca and Medina', ar:'مكة والمدينة'},
   'nav.open':   {en:'Open the app', ar:'افتح التطبيق'},
   'eyebrow':    {en:'Free, in English and Arabic', ar:'مجانًا، بالعربية والإنجليزية'},
   'h1a':        {en:'The Quran,', ar:'القرآن'},
@@ -1081,7 +1081,7 @@ const I18N = {
   'g.written':  {en:'written', ar:'written'},
   'fn.note':    {en:'{hapax} written forms occur only once. The most frequent root, {topRoot}, appears {topRootC} times.',
                  ar:'{hapax} صيغة لا ترد إلا مرةً واحدة، والجذر الأكثر ورودًا هو {topRoot}، إذ يرد {topRootC} مرة.'},
-  'cl.kicker':  {en:'Claim auditor', ar:'مدقّق المزاعم'},
+  'cl.kicker':  {en:'Claims', ar:'المزاعم'},
   'cl.h2':      {en:'Famous claims, audited.', ar:'الأعداد المتداولة، تحت التدقيق.'},
   'cl.p':       {en:'Famous claims about how often a word appears in the Quran, each checked against the text itself. We show the <b>claimed</b> number, our careful count of the word in <b>all its forms</b>, and what a <b>quick text search</b> finds. Nothing hidden.',
                  ar:'نأخذ كل قولٍ متداول عن عدد ورود كلمةٍ في القرآن ونختبره على نص القرآن نفسه، فنعرض الرقم <b>المزعوم</b>، وعدَّنا الدقيق للكلمة <b>بجميع صيغها</b>، وما يجده <b>البحث النصي السريع</b>، من غير أي إخفاء.'},
@@ -1143,9 +1143,9 @@ const I18N = {
   'feat.h2':    {en:'Built like an instrument,<br>not a brochure.', ar:'بُني أداةَ قياسٍ دقيقة،<br>لا نشرةً دعائية.'},
   'feat.p':     {en:'Every number on this site is counted live from the Quran\'s text in your browser and checked by automatic tests. Nothing is typed in by hand, nothing is hidden.',
                  ar:'كل رقم يظهر في هذا الموقع يُعَدّ لحظيًا من نص القرآن داخل متصفحك وتتحقق منه اختباراتٌ آلية، فليس فيه إدخالٌ يدوي ولا حسابٌ خفي.'},
-  'lab.h3':     {en:'The Analytics Lab', ar:'مختبر التحليلات'},
-  'lab.p':      {en:'Six working studios, each explained in plain words: a computer that learns to tell Meccan from Medinan surahs, groups of surahs that are alike, a check of whether a difference is real or chance, thousands of «what if» trials, a memorisation planner, and filters to explore the surahs yourself.',
-                 ar:'ست أدواتٍ عاملة، لكلٍّ منها شرحٌ بلغةٍ بسيطة: حاسوبٌ يتعلّم تمييز السور المكية من المدنية، ومجموعاتٌ من السور المتشابهة، وفحصٌ لمعرفة هل الفرق حقيقي أم مصادفة، وآلاف التجارب الافتراضية، ومخطِّطٌ للحفظ، ومرشّحاتٌ تستكشف بها السور بنفسك.'},
+  'lab.h3':     {en:'Mecca and Medina, tested', ar:'مكة والمدينة تحت الاختبار'},
+  'lab.p':      {en:'Medinan verses run longer than Meccan ones. A permutation test checks whether the gap is real, and a model trained in your browser learns to tell the two apart from their words alone.',
+                 ar:'آيات المدني أطول من آيات المكي. يختبر اختبار التبديل هل الفرق حقيقي، ويتعلّم نموذجٌ يُدرَّب في متصفحك أن يميّز بينهما من كلماتهما وحدها.'},
   'search.h3':  {en:'Word Search', ar:'بحث في الكلمات'},
   'search.p':   {en:'Look up any word by its exact spelling, in all its forms, or by its root letters, with a full Arabic keyboard on screen and every verse where it comes.',
                  ar:'ابحث عن أي كلمةٍ برسمها نفسه، أو بجميع صيغها، أو بحروف جذرها، عبر لوحة مفاتيح عربية كاملة على الشاشة، وطالع كل آيةٍ وردت فيها.'},
