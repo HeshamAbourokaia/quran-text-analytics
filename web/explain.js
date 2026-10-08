@@ -202,6 +202,18 @@ window.DALEEL_EXPLAIN = (function () {
       limits: ['Conventions differ: the Maghribi order gives some letters other values, and ة and hamza are treated in several ways. A total is arithmetic, not evidence of meaning.',
         'الأعراف مختلفة: فالترتيب المغربي يعطي بعض الحروف قيمًا أخرى، وللتاء المربوطة والهمزة معاملاتٌ متعددة. والمجموع حسابٌ لا دليلٌ على معنى.'] },
 
+    wordcount: {
+      purpose: ['Show why published word totals for the Quran differ, by counting one text under each rule people use.',
+        'بيان سبب اختلاف الأعداد المنشورة لكلمات القرآن، بعدّ نصٍّ واحد بكل قاعدةٍ يعتمدها الناس.'],
+      data: ['The Quranic Arabic Corpus morphology: 130,030 segments in 77,429 written words. The King Fahd Complex page layout of the Madinah mushaf (604 pages) gives the same 77,429 words in every one of the 6,236 verses. The figure 77,439 is from al-Qurtubi’s introduction to al-Jami li-Ahkam al-Quran, «in the saying of Ata ibn Yasar».',
+        'المدوّنة الصرفية للقرآن الكريم (Quranic Arabic Corpus): ١٣٠٬٠٣٠ مقطعًا في ٧٧٬٤٢٩ كلمةً مكتوبة. ويعطي تخطيط صفحات مصحف المدينة من مجمّع الملك فهد (٦٠٤ صفحات) الكلمات الـ٧٧٬٤٢٩ نفسها في كل آيةٍ من الآيات الـ٦٬٢٣٦. أما ٧٧٬٤٣٩ فمن مقدمة القرطبي في «الجامع لأحكام القرآن»، «في قول عطاء بن يسار».'],
+      method: ['Each rule is a class of corpus segments counted as words of their own: the joined vocative يا (361), the ها of attention before أنتم and هنا (8), the second noun of يبنؤم (1), two words written as one (562), joined particles (19,914), the article (8,377), attached pronouns (21,380, of them 208 understood but not written) and the other attached pieces (1,998). The classes do not overlap, so they add, and all of them together give the 130,030 segments. The Basmala adds 4 words at 112 surah heads (448); the opening letters can count as 30 words, as 78, or not at all.',
+        'كل قاعدةٍ صنفٌ من مقاطع المدوّنة يُعدّ كلٌّ منها كلمةً مستقلة: «يا» الموصولة (٣٦١)، و«ها» التنبيه قبل أنتم وهنا (٨)، والاسم الثاني في يبنؤم (١)، والكلمتان المكتوبتان كلمةً واحدة (٥٦٢)، والحروف المتصلة (١٩٬٩١٤)، وأداة التعريف (٨٬٣٧٧)، والضمائر المتصلة (٢١٬٣٨٠، منها ٢٠٨ مقدّرة غير مكتوبة)، وسائر الأجزاء المتصلة (١٬٩٩٨). ولا تتداخل الأصناف، فتُجمع، ومجموعها كلها المقاطع الـ١٣٠٬٠٣٠. وتضيف البسملة ٤ كلماتٍ في رأس ١١٢ سورة (٤٤٨)، وتُعدّ الحروف المقطّعة ٣٠ كلمة، أو ٧٨، أو لا تُعدّ.'],
+      result: ['As printed 77,429; in modern spelling 77,799; with every Basmala 77,877; every piece 130,030. None of the 1,536 combinations of these rules gives 77,439.',
+        'كما في المصحف ٧٧٬٤٢٩، وبالإملاء الحديث ٧٧٬٧٩٩، ومع كل بسملة ٧٧٬٨٧٧، وبكل الأجزاء ١٣٠٬٠٣٠. ولا يعطي أيٌّ من التوافيق الـ١٬٥٣٦ لهذه القواعد ٧٧٬٤٣٩.'],
+      limits: ['The rules behind 77,439 were not recorded, and it was counted on a hand-copied mushaf, so its 10-word difference cannot be traced word by word. The corpus’s segmentation is one linguistic analysis; another would split some words differently and move the larger totals.',
+        'لم تُدوَّن قواعد عدّ ٧٧٬٤٣٩، وقد عُدّ على مصحفٍ منسوخٍ باليد، فلا يمكن تتبّع فرق الكلمات العشر كلمةً كلمة. وتقسيم المدوّنة تحليلٌ لغويٌّ واحد، وقد يقسم تحليلٌ آخر بعض الكلمات تقسيمًا مختلفًا فتتغير المجاميع الكبيرة.'] },
+
     n19: {
       purpose: ['Present the best-known claims that the number 19 structures the text (74:30).', 'عرض أشهر المزاعم بأن الرقم ١٩ يحكم بناء النص (المدثر: ٣٠).'],
       data: ['8 claims, with the arithmetic their sources give, collected for the site\'s first version.', '٨ مزاعم بالحساب الذي تذكره مصادرها، جُمعت للنسخة الأولى من الموقع.'],

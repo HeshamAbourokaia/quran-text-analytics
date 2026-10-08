@@ -30,7 +30,7 @@
     home: 'hero',
     overview: 'dust', word: 'dust', letters: 'dust', nlp: 'dust', advanced: 'dust', emotion: 'dust', pronouns: 'dust', dashboard: 'dust',
     mecca: 'dust', classifier: 'split', stats: 'dust', cluster: 'dust', hifz: 'split',
-    auditor: 'dust', symmetry: 'dust', n19: 'dust', abjad: 'dust', structural: 'dust', coincidence: 'dust', science: 'dust',
+    auditor: 'dust', wordcount: 'dust', symmetry: 'dust', n19: 'dust', abjad: 'dust', structural: 'dust', coincidence: 'dust', science: 'dust',
     'd-endings': 'dust', 'd-rhyme': 'dust', 'd-themes': 'dust', 'd-repeats': 'dust', 'd-chrono': 'dust',
   };
   const formOf = v => FORM[v] || 'galaxy';
