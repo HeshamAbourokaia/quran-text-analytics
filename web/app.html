@@ -4456,23 +4456,11 @@ const COUNT_LABS = [
     case:{ for:['Counting the singular with its pronoun forms, «woman» comes exactly 24 times, like «man».','بعدّ المفرد مع صيغ الضمائر ترد «امرأة» ٢٤ مرة تمامًا، كـ«رجل».'] },
     src:[ {t:['Abdurrazzaq Nawfal, al-I\'jāz al-\'Adadī lil-Qur\'ān al-Karīm.','عبد الرزاق نوفل، «الإعجاز العددي للقرآن الكريم».']}, {t:['Abdul Daem al-Kaheel, «al-I\'jāz al-\'adadī fī al-Qur\'ān al-Karīm» (kaheel7.net): «woman», standalone in the singular, 24 times. The two duals are left out; forms such as «his wife» count, as does the spelling «امرأت».','عبد الدائم الكحيل، «الإعجاز العددي في القرآن الكريم» (kaheel7.net): «كلمة امرأة منفردة تكررت ٢٤ مرة». يُستبعد المثنى، وتُعدّ صيغٌ مثل «امرأته»، وكذلك رسم «امرأت».']} ],
     vids:[ {id:'_8FOQcbBync', by:'Abdul Daem al-Kaheel', n:['«Woman» in the singular 24.','«امرأة» منفردة ٢٤.']} ] },
-  { id:'paradise-77', claimed:77, lemma:'جنة', root:'جنن', letters:'جنة', word:['paradise','جنة'], pair:'hell-77',
-    cats:[
-      {k:'plain', test:()=>true, lab:['The singular «janna», no pronoun','المفرد «جنة» بلا ضمير'], ex:'الجنة · جنة · وجنة'},
-      {k:'plur', test:(n,s)=>s.includes('جَنَٰت') || n.includes('جنات'), lab:['Plural: «gardens» (jannāt)','الجمع: «جنات»'], ex:'جنات · الجنات'},
-      {k:'dual', test:n=>/جنتان|جنتين|جنتيهم/.test(n), lab:['Dual: «two gardens»','المثنى: «جنتان»'], ex:'جنتان · جنتين'},
-      {k:'pron', test:n=>/جنت(ك|ه|ي)$/.test(n), lab:['With a pronoun joined on: «your garden», «My garden»','مع ضميرٍ متصل: «جنتك»، «جنتي»'], ex:'جنتك · جنته · جنتي'} ],
-    presets:[
-      {id:'letters', letters:true, lab:['The claim\'s rule: the spelling «جنة»','قاعدة المزعم: الرسم «جنة»'], who:['The singular as written with a final «ة» and no pronoun joined on: «al-janna» 57 times and «janna» 20 times, 77 in all, equal to «jahannam». The plural and the pronoun forms are written «جنت», so a text search for «جنة» finds exactly these.','المفرد كما يُكتب بالتاء المربوطة ودون ضميرٍ متصل: «الجنة» ٥٧ مرة و«جنة» ٢٠ مرة، فالمجموع ٧٧، كعدد «جهنم». أما الجمع وصيغ الضمائر فتُكتب «جنت»، فلا يجد البحث النصي عن «جنة» غير هذه.']},
-      {id:'every', on:['plain','plur','dual','pron'], lab:['Every form','جميع الصيغ'], who:['Every form of the word.','كل صيغ الكلمة.']} ],
-    case:{ for:['Written «جنة», with a final «ة», the word comes exactly 77 times, the same as «jahannam».','مكتوبةً «جنة» بالتاء المربوطة ترد الكلمة ٧٧ مرة تمامًا، كعدد «جهنم».'] },
-    src:[ {t:['Abdurrazzaq Nawfal, al-I\'jāz al-\'Adadī.','عبد الرزاق نوفل، «الإعجاز العددي».']} ],
-    vids:[] },
-  { id:'hell-77', claimed:77, lemma:'جهنم', root:'', letters:'جهنم', word:['Hell','جهنم'], pair:'paradise-77',
+  { id:'hell-77', claimed:77, lemma:'جهنم', root:'', letters:'جهنم', word:['Hell','جهنم'],
     cats:[ {k:'plain', test:()=>true, lab:['«Jahannam», a name with one form','«جهنم»، اسمٌ له صيغةٌ واحدة'], ex:'جهنم · لجهنم · بجهنم'} ],
     presets:[ {id:'rule', on:['plain'], lab:['The claim\'s rule','قاعدة المزعم'], who:['Every mention of the name: it has only one form.','كل ورودٍ للاسم، فليس له إلا صيغةٌ واحدة.']} ],
     case:{ for:['«Jahannam» comes 77 times by any rule.','ترد «جهنم» ٧٧ مرة بأي قاعدة.'] },
-    src:[ {t:['Abdurrazzaq Nawfal, al-I\'jāz al-\'Adadī lil-Qur\'ān al-Karīm: paradise and hell, 77 each.','عبد الرزاق نوفل، «الإعجاز العددي للقرآن الكريم»: الجنة وجهنم، ٧٧ لكلٍّ منهما.']} ], vids:[] },
+    src:[ {t:['Abdurrazzaq Nawfal, al-I\'jāz al-\'Adadī lil-Qur\'ān al-Karīm: hell, 77.','عبد الرزاق نوفل، «الإعجاز العددي للقرآن الكريم»: جهنم، ٧٧ مرة.']} ], vids:[] },
   { id:'dunya-115', claimed:115, lemma:'دنيا', root:'دنو', letters:'دنيا', word:['this world','الدنيا'], pair:'akhira-115',
     cats:[ {k:'plain', test:()=>true, lab:['«al-dunyā», always in this one form','«الدنيا»، بصيغةٍ واحدةٍ دائمًا'], ex:'الدنيا'} ],
     presets:[ {id:'rule', on:['plain'], lab:['The claim\'s rule','قاعدة المزعم'], who:['Every mention: the word appears in one form only.','كل ورود، فالكلمة لا ترد إلا بصيغةٍ واحدة.']} ],
@@ -4534,7 +4522,7 @@ const RULE_COLS = [
   {id:'singular', lab:['Singular, no pronoun','المفرد بلا ضمير'], say:['the plain singular with no pronoun joined on, the rule behind day 365 and month 12','المفرد المجرد من الضمائر، وهي قاعدة اليوم ٣٦٥ والشهر ١٢']},
   {id:'singpron', lab:['Singular, with pronouns','المفرد مع الضمائر'], say:['the singular including forms like «his wife», the rule behind man and woman 24','المفرد ومعه صيغٌ مثل «امرأته»، وهي قاعدة الرجل والمرأة ٢٤']},
   {id:'every', lab:['Every form','جميع الصيغ'], say:['every form of the word, the rule behind angels and devils 88','كل صيغ الكلمة، وهي قاعدة الملائكة والشياطين ٨٨']},
-  {id:'letters', lab:['Letters only','الحروف فقط'], say:['a plain text search, the way an app or a website counts, and the rule behind paradise 77','بحثٌ نصي مجرد، كما يعدّ تطبيقٌ أو موقع، وهي قاعدة الجنة ٧٧']} ];
+  {id:'letters', lab:['Letters only','الحروف فقط'], say:['a plain text search, the way an app or a website counts','بحثٌ نصي مجرد، كما يعدّ تطبيقٌ أو موقع']} ];
 const RuleMatrix = { props:['claims'],
   data(){ return {col:'singular'}; },
   template:`<figure class="dfig rmx">
@@ -6169,7 +6157,6 @@ createApp({
         'devil-88':'Holds exactly: the singular and plural of «شيطان» together come 88 times, the same as the angels. A plain text search for «شيطان» finds nothing, because the mushaf writes it «شيطن».',
         'angel-88':'Holds exactly. Counting every form of «مَلَك», singular, dual and plural «الملائكة», gives 88, the same as «شيطان». Our count tells «مَلَك» (angel) apart from «مُلْك» (dominion) and «مَلِك» (king), which a plain text search cannot.',
         'hell-77':'Holds exactly. «جهنم» is a name for Hell and has no other meaning.',
-        'paradise-77':'Holds by its own rule. Written «جنة», with a final «ة», the word comes exactly 77 times, the same as «جهنم» (Hell).',
         'man-24':'Holds by its own rule. «رجل» (man) in the singular comes exactly 24 times, the same as «امرأة» (woman). Our count tells «رَجُل» (man) apart from «رِجْل» (foot).',
         'woman-24':'Holds by its own rule. «امرأة» (woman) in the singular, including forms such as «امرأته» (his wife), comes exactly 24 times, the same as «رجل» (man).',
         'jesus-24':'Holds. «عيسى» (Jesus) and «آدم» (Adam) come 25 times each, the figure the claim gives, set beside 3:59: «the likeness of Jesus with God is as the likeness of Adam».',
@@ -6183,7 +6170,6 @@ createApp({
         'devil-88':'يصح تمامًا: يرد المفرد والجمع من «شيطان» ٨٨ مرة، كعدد الملائكة. والبحث النصي عن «شيطان» لا يجد شيئًا، لأن المصحف يكتبها «شيطن».',
         'angel-88':'يصح تمامًا. بعدّ كل صيغ «مَلَك»، المفرد والمثنى والجمع «الملائكة»، يكون العدد ٨٨، كعدد «شيطان». ويفصل عدُّنا «مَلَك» عن «مُلْك» و«مَلِك»، وهذا ما لا يفعله البحث النصي.',
         'hell-77':'العدُّ مطابق، فكلمة «جهنم» اسمٌ للنار لا معنى لها غيره.',
-        'paradise-77':'يصدق بقاعدته. مكتوبةً «جنة» بالتاء المربوطة ترد الكلمة ٧٧ مرة تمامًا، كعدد «جهنم».',
         'man-24':'يصدق بقاعدته. ترد «رجل» بالمفرد ٢٤ مرة تمامًا، كعدد «امرأة». ويفصل عدُّنا «رَجُل» عن «رِجْل» بمعنى القدم.',
         'woman-24':'يصدق بقاعدته. ترد «امرأة» بالمفرد، مع صيغٍ مثل «امرأته»، ٢٤ مرة تمامًا، كعدد «رجل».',
         'jesus-24':'يصح. ترد «عيسى» و«آدم» ٢٥ مرة لكلٍّ منهما، وهو الرقم الذي يذكره المزعم، مع قوله: «إِنَّ مَثَلَ عِيسَىٰ عِندَ ٱللَّهِ كَمَثَلِ ءَادَمَ» (٣:٥٩).',
@@ -6513,7 +6499,7 @@ createApp({
         advanced:['Each surah as a disc of its verses, by verses and words', 'Each surah is a disc of its verses, placed by its verse and word counts (log scales). '+hv+' a disc to see the surah.'],
         cluster:['The surahs in groups of similar ones', 'Each surah is a disc of its verses at its place on the two directions, coloured by its group. '+hv+' a disc to see the surah.'],
         symmetry:['Word pairs: counted against claimed', 'One point per word found; a dashed outline holds the number claimed for each word.'],
-        auditor:['The twelve claims: counted against claimed', 'One point per mention counted, in mushaf order. A dashed outline holds the claimed number: green where they match; anything past it spills in gold. '+hv+' a point to see its verse.'],
+        auditor:['Every claim: counted against claimed', 'One point per mention counted, in mushaf order. A dashed outline holds the claimed number: green where they match; anything past it spills in gold. '+hv+' a point to see its verse.'],
         coincidence:['The Quran\'s different words as points, lit by the chosen number', 'Each dot is one of the 4,771 different words. The lit dots show how many land on the number, not which ones.'],
       };
       const x=I[v], pl=this.plain; if(!x) return {label:'', cap:''};
@@ -6963,7 +6949,7 @@ createApp({
             legend: byPlace ? placeLeg : Array.from({length:K},(_,k)=>({color:CL[k%5], label:lab(k)})),
             pts:cs.map(c=>({n:c.n, x:c.x, y:c.y, color: byPlace ? null : CL[c.cluster%5], info: byPlace ? placeOf(c.n) : lab(c.cluster)}))}}; }
         case 'symmetry': { const C=this.claims||[], byId=id=>C.find(c=>c.id===id), items=[];
-          [['angel-88','devil-88'],['paradise-77','hell-77'],['man-24','woman-24'],['adam-24','jesus-24']].forEach(pr=>pr.forEach(id=>{ const c=byId(id);
+          [['angel-88','devil-88'],['man-24','woman-24'],['adam-24','jesus-24']].forEach(pr=>pr.forEach(id=>{ const c=byId(id);
             if(c) items.push({id:c.id, ar:c.ar, label:c.en, claimed:c.claimed, counted:c.verifiedLemma, audit:c.audit||[]}); }));
           return items.length ? {type:'blocks', data:{items, wide:1.6, perRow:4, cell:7}} : null; }
         case 'auditor': return {type:'blocks', data:{items:(this.claims||[]).map(c=>({id:c.id, ar:c.ar, label:c.en, claimed:c.claimed, counted:c.verifiedLemma, audit:c.audit||[]}))}};

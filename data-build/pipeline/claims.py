@@ -39,11 +39,8 @@ REGISTRY = [
          claimed=88, pair='devil-88', rule=None,
          note_en='Exact by lemma. Morphology separates malak (angel, 88) from mulk (dominion) and malik (king); a plain text search cannot, which is why a naive count looks wrong.'),
     dict(id='hell-77', en='Hell (jahannam)', key='hell', lem='جهنم', surf='جهنم',
-         claimed=77, pair='paradise-77', rule=None,
+         claimed=77, pair=None, rule=None,
          note_en='Exact by lemma. Jahannam is an unambiguous proper noun for Hell.'),
-    dict(id='paradise-77', en='Paradise (jannah)', key='paradise', lem='جنة', surf='جنة',
-         claimed=77, pair='hell-77', rule='spelling',   # the word as written, «جنة» with a final ة
-         note_en='Lemma jannah also means "garden(s)", so it totals far above 77. The 77 figure counts only the Paradise sense, which needs meaning-level tagging.'),
     dict(id='man-24', en='Man (rajul)', key='man', lem='رجل', surf='رجل',
          claimed=24, pair='woman-24', rule='singular',   # al-Kaheel: «رجل» in the singular
          note_en='Lemma rajul (man), separated from rijl (foot). The man=woman=24 pairing does not hold under lemma counting.'),
@@ -126,9 +123,6 @@ def compute(words, verses_norm):
             rule_val = len(rule_locs)
         elif c['rule'] == 'singular-pron' and lemma:   # the singular, pronoun forms kept: only the dual goes
             rule_locs = [[w['sura'], w['aya']] for w in words if w['lemma'] == lemma and not (w['norm'].endswith('ين') or w['norm'].endswith('ان'))]
-            rule_val = len(rule_locs)
-        elif c['rule'] == 'spelling' and lemma:   # the word as it is written, final ة and all
-            rule_locs = [[w['sura'], w['aya']] for w in words if w['lemma'] == lemma and surf_skel in w['norm']]
             rule_val = len(rule_locs)
         out.append({
             'id': c['id'], 'en': c['en'], 'ar': c.get('show') or lemma or c['lem'], 'pair': c['pair'],

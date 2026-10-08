@@ -17,12 +17,31 @@ from scipy import stats
 from sklearn.decomposition import NMF
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import GroupKFold, cross_val_predict
+from sklearn.model_selection import cross_val_predict
 
 from .corpus import normalize, _read_rows
 
 HERE = os.path.dirname(__file__)
 ALPHA = 0.05
+
+
+class SurahFolds:
+    """Five folds that keep each surah whole: the largest surahs first, each to the fold with the fewest verses so far
+    (GroupKFold's rule), with surahs of equal size taken later surah first. GroupKFold breaks those ties with numpy's
+    default sort, whose order differs between machines, so the same code gave study 1 an accuracy of 0.3565 on the
+    machine that published it and 0.3435 on another. A stable sort fixes the published folds everywhere."""
+    def __init__(self, n_splits=5):
+        self.n_splits = n_splits
+    def get_n_splits(self, X=None, y=None, groups=None):
+        return self.n_splits
+    def split(self, X, y=None, groups=None):
+        u, gi = np.unique(groups, return_inverse=True); n = np.bincount(gi)
+        load, fold = np.zeros(self.n_splits), np.zeros(len(u), int)
+        for i in np.argsort(n, kind='stable')[::-1]:
+            f = int(np.argmin(load)); load[f] += n[i]; fold[i] = f
+        of, idx = fold[gi], np.arange(len(gi))
+        for f in range(self.n_splits):
+            yield idx[of != f], idx[of == f]
 
 
 # ---------------------------------------------------------------- common ground
@@ -110,7 +129,7 @@ def endings(words, V, perms=2000):
     classes = sorted(keep, key=lambda e: (-cnt[e], e))   # ties in order of the roots, so the output does not depend on hashing
     cidx = {e: i for i, e in enumerate(classes)}
     y = np.array([cidx[r['end']] for r in rows]); groups = np.array([r['s'] for r in rows])
-    clf = LogisticRegression(max_iter=3000, C=3.0); cv = GroupKFold(n_splits=5)
+    clf = LogisticRegression(max_iter=3000, C=3.0); cv = SurahFolds(5)
 
     def docs(drop):
         """Each verse's lemmas before its last two words, leaving out the words whose root is in drop[i]."""
@@ -162,7 +181,7 @@ def endings(words, V, perms=2000):
                       'top': [str(t) for t in vocab[np.argsort(full.coef_[i])[-8:][::-1]]]})
     ptrue = proba[np.arange(len(y)), y]
     surprising = [{'k': f"{rows[i]['s']}:{rows[i]['a']}", 'end': int(y[i]), 'expected': int(pred[i]), 'p': round(float(ptrue[i]), 3)}
-                  for i in np.argsort(ptrue)[:15]]
+                  for i in np.argsort(ptrue, kind="stable")[:15]]   # ties (a refrain repeats the same verse) in mushaf order
     return {'nVerses': len(rows), 'nSurahs': int(len(set(groups))), 'nAllNameEndings': int(sum(cnt.values())),
             'accuracy': round(acc, 4), 'baseline': round(float(np.bincount(y).max() / len(y)), 4),
             'nullAll': _summ(nullA, acc), 'pAll': round(pA, 4), 'nullWithin': _summ(nullB, acc), 'pWithin': round(pB, 4),

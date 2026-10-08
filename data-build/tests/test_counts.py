@@ -32,7 +32,6 @@ GOLDEN_LEMMA = {
     'devil-88': 88,      # exact match to the claim
     'angel-88': 88,      # exact - morphology separates malak from mulk/malik
     'hell-77': 77,       # exact
-    'paradise-77': 147,
     'man-24': 29,
     'woman-24': 26,
     'jesus-24': 25,
@@ -58,8 +57,17 @@ def test_jesus_equals_adam():
 # The proponents' singular rule (pipeline/claims.py). These two hold exactly; earlier builds gave 392 and 13
 # because the plural ayyam and shuhur were counted as singulars.
 def test_singular_rule_counts():
-    for cid, expected in {'day-365': 365, 'month-12': 12, 'man-24': 24, 'woman-24': 24, 'paradise-77': 77}.items():
+    for cid, expected in {'day-365': 365, 'month-12': 12, 'man-24': 24, 'woman-24': 24}.items():
         assert _CLAIMS[cid]['verifiedRule'] == expected, f"{cid}: rule gave {_CLAIMS[cid]['verifiedRule']}, expected {expected}"
+
+# Paradise = Hell 77 was taken off the site (8 Oct 2026). Written «جنة», the letters come 77 times, but 12 of
+# those words are other words with the same letters: جِنَّة (jinn, madness) 10 times and جُنَّة (shield) twice.
+# The Paradise (garden) word written «جنة» comes 65 times, so the claim is false on the text.
+def test_paradise_spelling_is_not_77():
+    assert 'paradise-77' not in _CLAIMS
+    spelled = [w for w in _WORDS if 'جنة' in w['norm'] and normalize(w['lemma'] or '') == 'جنة']
+    garden = [w for w in spelled if w['lemma'].startswith('جَ')]
+    assert (len(spelled), len(garden), len(spelled) - len(garden)) == (77, 65, 12)
 
 def test_datasets_reconcile_to_totals():
     mm = _DS['meccaMedina']
