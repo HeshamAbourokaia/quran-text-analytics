@@ -748,11 +748,11 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   </div>
   <div class="step" id="c3">
     <div class="panel rv">
-      <span class="ayah word" lang="ar" aria-hidden="true">جَنَّة · جَهَنَّم</span>
-      <p class="kick" data-i18n="c3.k">Paradise and Hell</p>
-      <h3 class="display" data-i18n="c3.h">77 and 77? The scale tips.</h3>
-      <p data-i18n="c3.p">Jannah appears 147 times; jahannam 77.</p>
-      <div class="tally" data-cl="paradise-77,hell-77"></div>
+      <span class="ayah word" lang="ar" aria-hidden="true">عِيسَىٰ · ءَادَم</span>
+      <p class="kick" data-i18n="c3.k">Jesus and Adam</p>
+      <h3 class="display" data-i18n="c3.h">25 and 25. The scale balances.</h3>
+      <p data-i18n="c3.p">«The likeness of Jesus with God is as the likeness of Adam» (3:59).</p>
+      <div class="tally" data-cl="jesus-24,adam-24"></div>
       <p class="hint"><i aria-hidden="true"></i><span class="chint" data-i18n="c.hint">Hover a point to see its verse.</span></p>
     </div>
   </div>
@@ -771,7 +771,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
 <section class="sec claims cards" id="claim-cards">
   <div class="wrap" id="claims-app">
     <header class="sechead rv">
-      <p class="kick" data-i18n="cg.k">All twelve claims</p>
+      <p class="kick" data-i18n="cg.k">All eleven claims</p>
       <h3 class="display" data-i18n="cg.h">Every claim, card by card.</h3>
     </header>
     <div class="clegend rv">
@@ -1007,14 +1007,12 @@ D.claims.forEach(c => { CLAIM[c.id] = c; });
   const first = [], rest = [];
   c.audit.forEach(r => { const k = r[0] + ':' + r[1], n = keep.get(k) || 0; if (n) { first.push(r); keep.set(k, n - 1); } else rest.push(r); });
   c.audit = first.concat(rest); })();
-// the scale weighs paradise as the claim counts it, «جنة» as written
-(function () { const c = CLAIM['paradise-77']; if (c && c.ruleAudit) c.audit = c.ruleAudit.slice(); })();
 (function () {
-  const day = CLAIM['day-365'], ang = CLAIM['angel-88'], dev = CLAIM['devil-88'], hell = CLAIM['hell-77'], par = CLAIM['paradise-77'], god = CLAIM['allah-2806'];
+  const day = CLAIM['day-365'], ang = CLAIM['angel-88'], dev = CLAIM['devil-88'], jes = CLAIM['jesus-24'], adam = CLAIM['adam-24'], god = CLAIM['allah-2806'];
   Object.assign(NUM, { claimsN: D.claims.length,
     dayC: day.claimed, dayV: day.verifiedLemma, dayR: day.verifiedRule, dayX: day.verifiedLemma - (day.verifiedRule || day.claimed),
     angC: ang.claimed, angV: ang.verifiedLemma, devV: dev.verifiedLemma,
-    hellC: hell.claimed, hellV: hell.verifiedLemma, parC: par.claimed, parV: par.verifiedLemma, parR: par.verifiedRule || par.verifiedLemma,
+    jesC: jes.claimed, jesV: jes.verifiedLemma, adamV: adam.verifiedLemma,
     godC: god.claimed, godV: god.verifiedLemma, godVs: new Set(god.audit.map(r => r[0] + ':' + r[1])).size });
   // the sky of roots: how much of the text the sixty most-used roots cover
   const rsum = D.datasets.topRoots.reduce((a, r) => a + r.c, 0);
@@ -1099,10 +1097,10 @@ const I18N = {
   'c2.h':       {en:'{angV} and {devV}. The scale balances.', ar:'{angV} و{devV}، والميزان معتدل.'},
   'c2.p':       {en:'A famous pairing: angel and devil, {angC} times each. Counted in all their forms, it holds exactly. Each point on the scale is one mention.',
                  ar:'زوجٌ مشهور: المَلَك والشيطان، {angC} مرة لكلٍّ منهما. وبعدّ الكلمتين بجميع صيغهما يصحّ ذلك تمامًا، وكل نقطةٍ في الميزان ورودٌ واحد.'},
-  'c3.k':       {en:'Paradise and Hell', ar:'الجنة وجهنم'},
-  'c3.h':       {en:'{parC} and {hellC}. The scale balances.', ar:'{parC} و{hellC}. الميزان يعتدل.'},
-  'c3.p':       {en:'Jannah, Paradise, and Jahannam, Hell, are said to appear {parC} times each. Counted as written, «جنة» with a final «ة», Paradise comes {parR} times, and Jahannam {hellV}: the two pans hold the same weight.',
-                 ar:'يُقال إن «الجنة» و«جهنم» وردتا {parC} مرة لكلٍّ منهما. وإذا عُدّت «جنة» كما تُكتب، بالتاء المربوطة، وردت {parR} مرة، ووردت «جهنم» {hellV}: كفّتان متساويتان.'},
+  'c3.k':       {en:'Jesus and Adam', ar:'عيسى وآدم'},
+  'c3.h':       {en:'{jesV} and {adamV}. The scale balances.', ar:'{jesV} و{adamV}. الميزان يعتدل.'},
+  'c3.p':       {en:'«The likeness of Jesus with God is as the likeness of Adam» (3:59). The two names are said to appear {jesC} times each, and they do: Jesus {jesV} times, Adam {adamV}. Each point on the scale is one mention.',
+                 ar:'﴿إِنَّ مَثَلَ عِيسَىٰ عِندَ اللَّهِ كَمَثَلِ آدَمَ﴾ (آل عمران: ٥٩). يُقال إن الاسمين وردا {jesC} مرة لكلٍّ منهما، وهو كذلك: «عيسى» {jesV} مرة، و«آدم» {adamV} مرة. وكل نقطةٍ في الميزان ورودٌ واحد.'},
   'c4.k':       {en:'The Name', ar:'اسم الجلالة'},
   'c4.h':       {en:'{godV} points of light.', ar:'{godV} نقطة ضوء.'},
   'c4.p':       {en:'The name Allah appears {godV} times in the text, in {godVs} verses, and every point here is one of them.',
@@ -1193,7 +1191,6 @@ if (window.Vue) {
           'devil-88':'Holds exactly: the singular and plural of «شيطان» together come 88 times, the same as the angels. A plain text search for «شيطان» finds nothing, because the mushaf writes it «شيطن».',
           'angel-88':'Holds exactly. Counting every form of «مَلَك», singular, dual and plural «الملائكة», gives 88, the same as «شيطان». Our count tells «مَلَك» (angel) apart from «مُلْك» (dominion) and «مَلِك» (king), which a plain text search cannot.',
           'hell-77':'Holds exactly. «جهنم» is a name for Hell and has no other meaning.',
-          'paradise-77':'Holds by its own rule. Written «جنة», with a final «ة», the word comes exactly 77 times, the same as «جهنم» (Hell).',
           'man-24':'Holds by its own rule. «رجل» (man) in the singular comes exactly 24 times, the same as «امرأة» (woman). Our count tells «رَجُل» (man) apart from «رِجْل» (foot).',
           'woman-24':'Holds by its own rule. «امرأة» (woman) in the singular, including forms such as «امرأته» (his wife), comes exactly 24 times, the same as «رجل» (man).',
           'jesus-24':'Holds. «عيسى» (Jesus) and «آدم» (Adam) come 25 times each, the figure the claim gives, set beside 3:59: «the likeness of Jesus with God is as the likeness of Adam».',
@@ -1207,7 +1204,6 @@ if (window.Vue) {
           'devil-88':'يصح تمامًا: يرد المفرد والجمع من «شيطان» ٨٨ مرة، كعدد الملائكة. والبحث النصي عن «شيطان» لا يجد شيئًا، لأن المصحف يكتبها «شيطن».',
           'angel-88':'يصح تمامًا. بعدّ كل صيغ «مَلَك»، المفرد والمثنى والجمع «الملائكة»، يكون العدد ٨٨، كعدد «شيطان». ويفصل عدُّنا «مَلَك» عن «مُلْك» و«مَلِك»، وهذا ما لا يفعله البحث النصي.',
           'hell-77':'العدُّ مطابق، فكلمة «جهنم» اسمٌ للنار لا معنى لها غيره.',
-          'paradise-77':'يصدق بقاعدته. مكتوبةً «جنة» بالتاء المربوطة ترد الكلمة ٧٧ مرة تمامًا، كعدد «جهنم».',
           'man-24':'يصدق بقاعدته. ترد «رجل» بالمفرد ٢٤ مرة تمامًا، كعدد «امرأة». ويفصل عدُّنا «رَجُل» عن «رِجْل» بمعنى القدم.',
           'woman-24':'يصدق بقاعدته. ترد «امرأة» بالمفرد، مع صيغٍ مثل «امرأته»، ٢٤ مرة تمامًا، كعدد «رجل».',
           'jesus-24':'يصح. ترد «عيسى» و«آدم» ٢٥ مرة لكلٍّ منهما، وهو الرقم الذي يذكره المزعم، مع قوله: «إِنَّ مَثَلَ عِيسَىٰ عِندَ ٱللَّهِ كَمَثَلِ ءَادَمَ» (٣:٥٩).',
@@ -1680,7 +1676,7 @@ async function initScene() {
   const TH = [null,
     { kind: 'cal', cl: [CLAIM['day-365']], boost: 5.5 },
     { kind: 'bal', cl: [CLAIM['angel-88'], CLAIM['devil-88']], boost: 4.2 },
-    { kind: 'bal', cl: [CLAIM['paradise-77'], CLAIM['hell-77']], boost: 4.2 },
+    { kind: 'bal', cl: [CLAIM['jesus-24'], CLAIM['adam-24']], boost: 5.5 },
     { kind: 'name', cl: [CLAIM['allah-2806']], boost: 2.5 }];
   const SIDE = [null], OCC = [null], REF = [null], CP = [null], CC = [null], CDL = [null];
   const EMER = [.32, .9, .66], AMBER = [.98, .76, .4], WARM = [1, .88, .62];

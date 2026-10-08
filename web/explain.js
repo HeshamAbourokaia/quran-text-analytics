@@ -170,19 +170,19 @@ window.DALEEL_EXPLAIN = (function () {
 
     auditor: {
       purpose: ['Check popular numerical claims against the text.', 'التحقق من المزاعم العددية المتداولة بالرجوع إلى النص.'],
-      data: ['12 claims; the Quranic Arabic Corpus.', '١٢ زعمًا؛ والمدوّنة الصرفية للقرآن الكريم.'],
+      data: ['The claims on this page; the Quranic Arabic Corpus.', 'المزاعم في هذه الصفحة؛ والمدوّنة الصرفية للقرآن الكريم.'],
       method: ['For each claim, the target [[lemma]] is the most frequent lemma whose unvowelled form matches the claimed word (this picks مَلَك, angel, over مُلْك, dominion). The count is every word with that lemma: singular, plural, with pronouns attached. Shown beside it: a narrower rule where a claim relies on one (such as the singular only), and a quick text search, to show how plain searching goes wrong.',
         'لكل زعمٍ يُختار [[lemma|المدخل المعجمي]] الأكثر ورودًا من المداخل التي يطابق رسمُها بلا حركات الكلمةَ المزعومة (فيُختار مَلَك لا مُلْك). والعدد كل كلمةٍ لها ذلك المدخل: مفردًا وجمعًا ومع الضمائر. وإلى جانبه قاعدةٌ أضيق حين يعتمد الزعم عليها (كالمفرد وحده)، وبحثٌ نصيٌّ سريع يبيّن كيف يخطئ البحث البسيط.'],
-      result: ['3 of the 12 claims hold exactly by lemma: angel 88, devil 88 and Hell 77. Others match only under a narrower rule, or not at all: يَوْم (day) is 475 in all forms, 392 in the singular rule, against the claimed 365.',
-        '٣ من المزاعم الـ١٢ تصحّ تمامًا بالمدخل المعجمي: الملائكة ٨٨، والشيطان ٨٨، وجهنم ٧٧. وغيرها لا يوافق إلا بقاعدةٍ أضيق أو لا يوافق أصلًا: «يَوْم» ٤٧٥ بكل صيغها و٣٩٢ بقاعدة المفرد، مقابل ٣٦٥ المزعومة.'],
+      result: ['Three claims hold exactly by lemma: angel 88, devil 88 and Hell 77. Others match only under a narrower rule, or not at all: يَوْم (day) is 475 in all forms and exactly 365 under the claim’s own singular rule.',
+        'ثلاثة مزاعم تصحّ تمامًا بالمدخل المعجمي: الملائكة ٨٨، والشيطان ٨٨، وجهنم ٧٧. وغيرها لا يوافق إلا بقاعدةٍ أضيق أو لا يوافق أصلًا: «يَوْم» ٤٧٥ بكل صيغها، و٣٦٥ تمامًا بقاعدة المفرد التي يعدّ بها المزعم.'],
       limits: ['Every claim fixes its own way of counting, and a claim that holds under one convention and fails under another is not evidence either way. Borderline cases follow the corpus\'s tagging.',
         'كل زعمٍ يحدّد طريقته في العدّ، والزعم الذي يصحّ بطريقةٍ ويسقط بأخرى ليس دليلًا في أيّ الاتجاهين. والحالات الحدّية تتبع توسيم المدوّنة.'] },
 
     symmetry: {
       purpose: ['Test popular «balanced pairs»: two opposite words said to occur equally often.', 'اختبار «الأزواج المتوازنة» المتداولة: كلمتان متقابلتان يُقال إنهما وردتا بالعدد نفسه.'],
       method: ['Each word is counted as in the Claim Auditor (every form of its [[lemma]]); a pair is equal when the two counts match.', 'تُعَدّ كل كلمةٍ كما في مدقّق المزاعم (بكل صيغ [[lemma|مدخلها المعجمي]])، ويتساوى الزوج حين يتطابق العددان.'],
-      result: ['Equal: angels and devils (88 each), Adam and Jesus (25 each, though 24 is claimed). Not equal: Paradise 147 against Hell 77, man 29 against woman 26.',
-        'متساوية: الملائكة والشياطين (٨٨ لكلٍّ منهما)، وآدم وعيسى (٢٥ لكلٍّ منهما، والمزعوم ٢٤). وغير متساوية: الجنة ١٤٧ مقابل جهنم ٧٧، والرجل ٢٩ مقابل المرأة ٢٦.'],
+      result: ['Equal: angels and devils (88 each), Adam and Jesus (25 each). Not equal: man 29 against woman 26.',
+        'متساوية: الملائكة والشياطين (٨٨ لكلٍّ منهما)، وآدم وعيسى (٢٥ لكلٍّ منهما). وغير متساوية: الرجل ٢٩ مقابل المرأة ٢٦.'],
       limits: ['With many candidate pairs and many ways of counting, some equal pairs are expected by chance (see the Coincidence page); only the pairs usually quoted are checked here.',
         'مع كثرة الأزواج الممكنة وطرق العدّ، يُتوقع تساوي بعضها مصادفةً (انظر صفحة المصادفات)، ولا يُفحص هنا إلا الأزواج المتداولة.'] },
 
