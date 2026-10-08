@@ -2,7 +2,7 @@
 
 **Quran Insights** (بصائر قرآنية) counts every word of the Quran and explains what it finds: check any claim about the Quran's words against the corpus itself, find your way through the text, and see which patterns hold up when tested against chance. Its Arabic name uses *baṣāʾir*, the Quran's own word for insights (45:20).
 
-> A fully bilingual (Arabic + English) NLP and visualization platform for the Quranic corpus, 114 surahs, 6,236 verses, 77,449 words. Built with Vue 3, Plotly, and Electron, with an experimental LLM-vision-judged auto-tuning loop for chart quality.
+> A fully bilingual (Arabic + English) NLP and visualization platform for the Quranic corpus, 114 surahs, 6,236 verses, 77,429 words. Built with Vue 3, Plotly, and Electron, with an experimental LLM-vision-judged auto-tuning loop for chart quality.
 
 <p align="center">
   <img src="docs/screenshots/hero-overview.png" alt="Quran Insights overview (Arabic UI)" width="800"/>
@@ -87,7 +87,7 @@ Each study page has the verdict, the figure (drawn in the verse sky where one po
 ## Features
 
 ### Visualization (Page 17, Advanced Analytics)
-- **Animated hero stats dashboard**: 114 surahs · 6,236 verses · 77,449 words · 30 juz · 86 Meccan · 28 Medinan
+- **Animated hero stats dashboard**: 114 surahs · 6,236 verses · 77,429 words · 30 juz · 86 Meccan · 28 Medinan
 - **Did-You-Know carousel**: 10 curated insights surfacing patterns most readers never notice (Bismillah's 113 occurrences, Ar-Rahman's 31x refrain, the perfect 30-juz word-count balance)
 - **Revelation Pulse chart**: all 114 surahs in chronological order with the Hijra dashed line marking the Meccan→Medinan stylistic shift
 - **3 sunburst charts**: Quran structure, 30 juz, and scholarly thematic classification

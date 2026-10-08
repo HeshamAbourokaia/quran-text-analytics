@@ -1116,6 +1116,86 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .qt.basm{border-style:dashed;opacity:.75} .qt.on{background:rgba(255,255,255,.09)}
   .qt.hi{background:rgba(233,185,95,.16);border-color:var(--gold)} .qt.hi b{color:var(--gold)}
   .qlab-note{margin:10px 0 0;font-size:.84rem;line-height:1.6;color:var(--on-dark-2)}
+  /* How many words? */
+  .wt-hero{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;align-items:stretch;margin:0 0 14px}
+  .wt-fig,.wt-gapfig{display:flex;flex-direction:column;gap:4px;padding:16px 18px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid var(--hair)}
+  .wt-fig b{font-family:var(--serif);font-weight:400;font-size:3.2rem;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
+  .wt-fig.em{border-color:rgba(52,211,153,.35);background:linear-gradient(160deg,rgba(52,211,153,.10),rgba(255,255,255,.02) 60%)} .wt-fig.em b{color:var(--emerald-deep)}
+  .wt-fig.gold{border-color:rgba(233,185,95,.4);background:linear-gradient(160deg,rgba(233,185,95,.12),rgba(255,255,255,.02) 60%)} .wt-fig.gold b{color:var(--gold)}
+  .wt-fig span,.wt-gapfig span{font-size:.92rem;color:var(--on-dark);font-weight:600} .wt-fig small,.wt-gapfig small{font-size:.76rem;line-height:1.55;color:var(--on-dark-3)}
+  .wt-gapfig{align-items:center;justify-content:center;text-align:center;min-width:150px;border-style:dashed}
+  .wt-gapfig b{font-family:var(--serif);font-weight:400;font-size:2.6rem;line-height:1;color:#fff}
+  .wt-lead{margin:0 0 16px;font-size:1rem;line-height:1.7;color:var(--on-dark-2);max-width:72ch}
+  .wt-stage{padding:18px 20px;border-radius:20px;background:radial-gradient(120% 80% at 50% 0%,rgba(56,198,218,.06),transparent 60%),rgba(255,255,255,.03);border:1px solid var(--hair);min-width:0}
+  .wt-top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 18px}
+  .wt-total{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
+  .wt-total b{font-family:var(--serif);font-weight:400;font-size:3.8rem;line-height:1;color:#fff;font-variant-numeric:tabular-nums;min-width:5ch}
+  .wt-total span{font-size:.9rem;color:var(--on-dark-2)}
+  .wt-total em{font-style:normal;font-size:.8rem;font-weight:700;color:var(--teal);background:var(--teal-bg);border-radius:999px;padding:3px 10px;font-variant-numeric:tabular-nums}
+  .wt-total em.neg{color:#f0a08c;background:rgba(240,160,140,.12)}
+  .wt-pre,.wt-smp{display:flex;flex-wrap:wrap;gap:6px}
+  .wt-chip{display:inline-flex;align-items:baseline;gap:8px;font:inherit;font-size:.8rem;color:var(--on-dark);background:rgba(255,255,255,.03);border:1px solid var(--hair);border-radius:999px;padding:6px 13px;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+  .wt-chip b{font-variant-numeric:tabular-nums;color:var(--on-dark-2);font-weight:600} .wt-chip:hover{background:rgba(255,255,255,.07);transform:translateY(-1px)}
+  .wt-chip.on{border-color:var(--gold);background:rgba(233,185,95,.12)} .wt-chip.on b{color:var(--gold)} .wt-chip.small{padding:4px 11px;font-size:.76rem}
+  .wt-ruler{position:relative;height:122px;margin:18px 6px 6px}
+  .wt-axis{position:absolute;left:0;right:0;top:60px;height:2px;border-radius:2px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.28) 6%,rgba(255,255,255,.28) 94%,transparent)}
+  .wt-tick{position:absolute;top:0;bottom:0;width:0} .wt-tick i{position:absolute;top:56px;height:10px;width:1px;background:rgba(255,255,255,.3)}
+  .wt-tick small{position:absolute;top:106px;transform:translateX(-50%);font-size:.64rem;color:var(--on-dark-3);white-space:nowrap;font-variant-numeric:tabular-nums}
+  .wt-mark{position:absolute;top:0;bottom:0;width:0;--mc:var(--emerald)} .wt-mark.t-gold{--mc:var(--gold)} .wt-mark.t-teal{--mc:var(--teal)} .wt-mark.t-lil{--mc:#c9a7ff}
+  .wt-mark i{position:absolute;top:32px;height:34px;width:2px;margin-left:-1px;border-radius:2px;background:var(--mc);box-shadow:0 0 10px var(--mc)}
+  .wt-mark .lab{position:absolute;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;font-size:.68rem;line-height:1.25;color:var(--on-dark-2);white-space:nowrap}
+  .wt-mark .lab b{font-size:.84rem;color:var(--mc);font-variant-numeric:tabular-nums}
+  .wt-mark.r0 .lab{top:0} .wt-mark.r1 .lab{top:70px;flex-direction:column-reverse}
+  .wt-mark.nolab .lab{display:none}
+  .wt-mark.e-l .lab{transform:translateX(-12px);align-items:flex-start} .wt-mark.e-r .lab{transform:translateX(calc(-100% + 12px));align-items:flex-end}
+  .wt-pin{position:absolute;top:0;bottom:0;width:0;z-index:2}
+  .wt-pin i{position:absolute;top:52px;left:-9px;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.18),0 0 22px rgba(255,255,255,.85)}
+  .wt-bar{display:flex;height:10px;border-radius:999px;overflow:hidden;background:rgba(255,255,255,.05);margin:4px 0 18px}
+  .wt-bar span{display:block;height:100%;transition:width .6s cubic-bezier(.2,.8,.2,1)} .wt-bar span+span{box-shadow:inset 1px 0 0 rgba(0,0,0,.35)}
+  .wt-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px 16px}
+  .wt-group h4{margin:0 0 2px;font-size:.95rem;color:#fff} .wt-sub{margin:0 0 10px;font-size:.8rem;line-height:1.55;color:var(--on-dark-3)}
+  .wt-rule{--c:var(--teal);padding:10px 12px;border-radius:14px;border:1px solid var(--hair);background:rgba(0,0,0,.16);margin:0 0 8px;transition:border-color .25s,background .25s}
+  .wt-rule.on{border-color:color-mix(in srgb,var(--c) 60%,transparent);background:color-mix(in srgb,var(--c) 9%,rgba(0,0,0,.16))}
+  .wt-rh{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .wt-sw{display:inline-flex;align-items:center;gap:10px;font:inherit;font-size:.88rem;font-weight:600;color:var(--on-dark);background:none;border:0;padding:0;cursor:pointer;text-align:start}
+  .wt-sw i{flex:none;position:relative;width:34px;height:20px;border-radius:999px;background:rgba(255,255,255,.12);transition:background .25s}
+  .wt-sw i::after{content:'';position:absolute;top:3px;inset-inline-start:3px;width:14px;height:14px;border-radius:50%;background:#fff;transition:inset-inline-start .25s cubic-bezier(.2,1.4,.4,1)}
+  .wt-sw[aria-checked="true"] i{background:var(--c)} .wt-sw[aria-checked="true"] i::after{inset-inline-start:17px}
+  .wt-n{font-variant-numeric:tabular-nums;font-size:.86rem;color:var(--on-dark-3)} .wt-rule.on .wt-n{color:var(--c)}
+  .wt-say{margin:6px 0 6px;font-size:.8rem;line-height:1.6;color:var(--on-dark-2)} .wt-say bdi,.wt-sub bdi{white-space:nowrap}
+  .wt-ex{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+  .wt-exw{display:inline-flex;align-items:baseline;gap:6px;font:inherit;color:var(--on-dark);background:rgba(255,255,255,.04);border:1px solid var(--hair);border-radius:10px;padding:2px 10px;cursor:pointer}
+  .wt-exw:hover{background:rgba(255,255,255,.08)} .wt-exw bdi{font-family:var(--ar-display);font-size:1.3rem;line-height:1.7}
+  .wt-exw bdi span+span{margin-inline-start:.22em} .wt-exw bdi span.cut{color:var(--c)} .wt-exw small{font-size:.7rem;color:var(--on-dark-3);font-variant-numeric:tabular-nums}
+  .wt-where{font:inherit;font-size:.74rem;color:var(--teal);background:none;border:0;cursor:pointer;padding:2px 4px} .wt-where.on{color:var(--gold);font-weight:700}
+  .wt-seg{display:flex;flex-wrap:wrap;gap:6px}
+  .wt-seg button{font:inherit;font-size:.8rem;color:var(--on-dark);background:rgba(255,255,255,.03);border:1px solid var(--hair);border-radius:12px;padding:7px 12px;cursor:pointer}
+  .wt-seg button b{font-variant-numeric:tabular-nums;color:var(--on-dark-3);margin-inline-start:4px} .wt-seg button.on{border-color:var(--gold);background:rgba(233,185,95,.12)} .wt-seg button.on b{color:var(--gold)}
+  .wt-panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px;margin:14px 0}
+  .wt-card{padding:16px 18px;border-radius:20px;background:rgba(255,255,255,.03);border:1px solid var(--hair);min-width:0}
+  .wt-card h4{margin:0 0 8px;font-size:.95rem;color:#fff}
+  .wt-verse{display:flex;flex-wrap:wrap;gap:.45em .5em;margin:14px 0 10px;font-family:var(--ar-display);font-size:1.75rem;line-height:1.75;color:#fff}
+  .wt-w{display:inline-flex;align-items:baseline;transition:opacity .3s}
+  .wt-p{border-radius:6px;transition:color .3s,background .3s} .wt-p.cut{color:var(--c);background:color-mix(in srgb,var(--c) 15%,transparent);margin-inline:.1em;padding:0 .08em;animation:wtpop .4s cubic-bezier(.2,1.5,.4,1) both}
+  .wt-p.ghost{font-size:.7em;opacity:.85}
+  .wt-w.gone{opacity:.28;text-decoration:line-through;text-decoration-thickness:2px}
+  @keyframes wtpop{from{transform:scale(.6);opacity:0}to{transform:none;opacity:1}}
+  .wt-vcount{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;margin:0;font-size:.8rem;color:var(--on-dark-2)}
+  .wt-x{font:inherit;font-size:.8rem;color:var(--on-dark-2);background:rgba(255,255,255,.06);border:0;border-radius:50%;width:22px;height:22px;cursor:pointer}
+  .wt-map{display:grid;grid-template-columns:repeat(19,1fr);gap:3px}
+  .wt-map .sq{display:grid;place-items:center;aspect-ratio:1;min-width:0;padding:0;border:0;border-radius:4px;font:inherit;font-size:.56rem;color:var(--on-dark-3);background:rgba(255,255,255,.04);cursor:pointer;transition:background .35s,color .35s,transform .2s}
+  .wt-map .sq.lit{background:rgba(233,185,95,var(--a,.6));color:#1a1405;font-weight:700} .wt-map .sq.neg{background:rgba(240,160,140,var(--a,.6));color:#1a0d08;font-weight:700}
+  .wt-map .sq.here,.wt-map .sq:focus-visible{transform:scale(1.3);box-shadow:0 0 0 2px #fff;position:relative;z-index:1}
+  .wt-read{min-height:2.6em;margin:10px 0 0;font-size:.8rem;line-height:1.6;color:var(--on-dark-2)}
+  .wt-src p{margin:0 0 10px;font-size:.86rem;line-height:1.7;color:var(--on-dark-2)}
+  .wt-src blockquote{margin:4px 0 14px;padding:10px 16px;border-inline-start:3px solid var(--gold);background:rgba(233,185,95,.06);border-radius:10px;font-family:var(--ar-display);font-size:1.3rem;line-height:1.9;color:#fff}
+  .wt-src cite{display:block;font-family:var(--sans);font-style:normal;font-size:.74rem;color:var(--on-dark-3)}
+  .wt-links{display:flex;flex-wrap:wrap;gap:8px 18px} .wt-links a{color:var(--teal);text-decoration:none;font-size:.82rem} .wt-links a:hover{text-decoration:underline}
+  .kpilink{display:block;margin:6px auto 0;font:inherit;font-size:.7rem;color:var(--teal);background:none;border:0;padding:0;cursor:pointer} .kpilink:hover{text-decoration:underline}
+  @media (prefers-reduced-motion: reduce){ .wt-p.cut{animation:none} .wt-bar span{transition:none} }
+  @media (max-width:760px){ .wt-hero{grid-template-columns:1fr} .wt-fig b{font-size:2.6rem} .wt-total b{font-size:2.9rem}
+    .wt-stage{padding:14px} .wt-mark .lab{font-size:.6rem} .wt-mark .lab b{font-size:.74rem} .wt-verse{font-size:1.45rem} .wt-map{gap:2px} .wt-map .sq{font-size:.45rem}
+    .wt-groups,.wt-panels{grid-template-columns:1fr} }
   .n19-verse{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin:0 0 16px;padding:14px 18px;border-radius:16px;background:rgba(233,185,95,.08);border:1px solid rgba(233,185,95,.3);color:var(--on-dark-2)}
   .n19-verse bdi{font-family:var(--ar-display);font-size:1.6rem;color:#fff} .n19-verse .k{font-size:.74rem;color:var(--gold);font-weight:700;letter-spacing:.08em}
   .n19-body{display:grid;gap:14px}
@@ -1913,7 +1993,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
         <div class="kpis">
           <div class="kpi"><div class="n">{{ T.suras }}</div><div class="l">{{ lang==='ar'?'سورة':'Surahs' }}</div></div>
           <div class="kpi"><div class="n">{{ f(T.verses) }}</div><div class="l">{{ lang==='ar'?'آية':'Verses' }}</div></div>
-          <div class="kpi"><div class="n">{{ f(T.words) }}</div><div class="l">{{ lang==='ar'?'كلمة':'Words' }}</div></div>
+          <div class="kpi"><div class="n">{{ f(T.words) }}</div><div class="l">{{ lang==='ar'?'كلمة':'Words' }}</div><button type="button" class="kpilink" @click="go('wordcount')">{{ lang==='ar' ? 'ولماذا يُقال ٧٧٬٤٣٩؟' : 'Why some say 77,439 ›' }}</button></div>
           <div class="kpi"><div class="n">{{ f(DS.distinctRoots) }}</div><div class="l">{{ lang==='ar'?'جذر':'Roots' }}</div></div>
         </div>
       </div>
@@ -2253,7 +2333,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
       <div class="kpis">
         <div class="kpi"><div class="n">{{ T.suras }}</div><div class="l">{{ lang==='ar'?'سورة':'Surahs' }}</div></div>
         <div class="kpi"><div class="n">{{ f(T.verses) }}</div><div class="l">{{ lang==='ar'?'آية':'Verses' }}</div></div>
-        <div class="kpi"><div class="n">{{ f(T.words) }}</div><div class="l">{{ lang==='ar'?'كلمة':'Words' }}</div></div>
+        <div class="kpi"><div class="n">{{ f(T.words) }}</div><div class="l">{{ lang==='ar'?'كلمة':'Words' }}</div><button type="button" class="kpilink" @click="go('wordcount')">{{ lang==='ar' ? 'ولماذا يُقال ٧٧٬٤٣٩؟' : 'Why some say 77,439 ›' }}</button></div>
         <div class="kpi"><div class="n">{{ f(DS.uniqueWords) }}</div><div class="l">{{ lang==='ar'?'صيغة مكتوبة':'Written forms' }}</div></div>
         <div class="kpi"><div class="n">{{ f(DS.distinctLemmas) }}</div><div class="l">{{ lang==='ar'?'كلمة مختلفة':'Different words' }}</div></div>
         <div class="kpi"><div class="n">{{ f(DS.distinctRoots) }}</div><div class="l">{{ lang==='ar'?'جذر':'Roots' }}</div></div>
@@ -2518,6 +2598,13 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
           <div v-else style="font-size:.84rem;color:var(--on-dark-2);margin-top:8px;line-height:1.6">{{ (lang==='ar' ? claimNotesAr[c.id] : claimNotesEn[c.id]) || c.note_en }}</div>
         </div>
       </div>
+    </section>
+
+    <!-- HOW MANY WORDS: the same text counted under each rule -->
+    <section v-if="view==='wordcount'">
+      <h1>{{ lang==='ar' ? 'كم كلمةً في القرآن؟' : 'How many words are in the Quran?' }}</h1>
+      <explain-box></explain-box>
+      <word-total-lab></word-total-lab>
     </section>
 
     <!-- HISTORY CLAIMS: the index -->
@@ -3273,6 +3360,13 @@ const PLAIN = {
       'كل مربعٍ حرف، وعموده مرسومٌ بمقياس قيمته، والمجموع يُعدّ بجانبها. وقاعدتان تغيّران المجموع: الترتيب المشرقي أو المغربي، وعدّ «ة» هاءً أو تاءً. وتُعرض كلمات القرآن التي لها المجموع نفسه.'],
     msg:['Abjad is an old way of writing numbers with letters. Poets and builders used it to date events: a line or an inscription whose letters add up to the year.',
       'حساب الجُمَّل طريقةٌ قديمة لكتابة الأرقام بالحروف، استعملها الشعراء والبنّاؤون في التأريخ: بيتٌ أو نقشٌ تجتمع حروفه على السنة.']},
+  wordcount:{
+    what:['How many words are in the Quran? The printed mushaf has 77,429. The count reported from Ata ibn Yasar, about 1,300 years ago, is 77,439. Both are right: they count the same text with different ideas of what a word is.',
+      'كم كلمةً في القرآن؟ في المصحف المطبوع ٧٧٬٤٢٩ كلمة، وفي قول عطاء بن يسار قبل نحو ثلاثة عشر قرنًا ٧٧٬٤٣٩. والعددان صحيحان: فهما عدٌّ للنص نفسه بفهمين مختلفين لحدود الكلمة.'],
+    how:['Each switch is a rule about what counts as a word. Turn one on and your total moves along the ruler, the verse below splits into its new words, and the map lights the surahs that change most. Tap an example word or a surah to open it.',
+      'كل مفتاحٍ قاعدةٌ فيما يُعدّ كلمة. شغّل قاعدةً فيتحرك مجموعك على المسطرة، وتنقسم الآية في الأسفل إلى كلماتها الجديدة، وتضيء الخريطة أكثر السور تغيّرًا. انقر كلمةً من الأمثلة أو سورةً لتفتحها.'],
+    msg:['The letters never change, only the rule for where one word ends and the next begins. A count made by hand some 1,300 years ago is within 10 words of a computer count of today’s mushaf.',
+      'الحروف لا تتغير، وإنما تتغير قاعدة الفصل بين كلمةٍ وأخرى. وعدٌّ باليد قبل نحو ١٣٠٠ عام لا يبعد عن عدّ الحاسوب لمصحف اليوم إلا عشر كلمات.']},
   n19:{
     what:['The number 19 is mentioned in the Quran («Over it are nineteen», 74:30), and it turns up in how the Quran is built. These are the best-known examples, counted from the text.',
       'ورد الرقم ١٩ في القرآن ﴿عَلَيْهَا تِسْعَةَ عَشَرَ﴾ (المدثر: ٣٠)، ويظهر في بناء القرآن. وهذه أشهر الأمثلة، محسوبةً من النص.'],
@@ -4587,6 +4681,225 @@ const NineteenLab = {
       this._raf=requestAnimationFrame(step); },
     toggle(){ if(this.playing){ cancelAnimationFrame(this._raf); this.playing=false; } else this.play(false); },
     scrub(e){ cancelAnimationFrame(this._raf); this.playing=false; this.pin=-1; this.shown=+e.target.value; } } };
+// How many words? The same text counted under each rule (data in QURAN_DATA.wordcount, from data-build/pipeline/
+// wordcount.py). The printed mushaf has 77,429 written words; each rule counts pieces the corpus already separates
+// as words of their own. The pieces never overlap, so the rules add. The ruler zooms to fit your total and 77,439.
+const WT_PARTS = [
+  {id:'basmala', g:'text', c:'#e9b95f', lab:['The Basmala at each surah’s head','البسملة في رأس كل سورة'],
+    say:['«بسم الله الرحمن الرحيم» opens 112 more surahs, where it is not numbered as a verse. Count it there too: 4 words each time.','تفتتح «بسم الله الرحمن الرحيم» ١١٢ سورةً أخرى لا تُعدّ فيها آية. اعددها هناك أيضًا: أربع كلماتٍ في كل مرة.']},
+  {id:'voc', g:'spell', c:'#38c6da', lab:['«يا» written joined','«يا» الموصولة'],
+    say:['The mushaf writes the call «O» joined to the next word: يَٰٓأَيُّهَا. Modern spelling writes it apart: يا أيها.','يكتب المصحف حرف النداء موصولًا بما بعده: يَٰٓأَيُّهَا، ويكتبه الإملاء الحديث مفصولًا: يا أيها.']},
+  {id:'haAttn', g:'spell', c:'#38c6da', lab:['«ها» written joined','«ها» الموصولة'],
+    say:['هَٰٓأَنتُمْ and هَٰهُنَا in the mushaf are ها أنتم and ها هنا in modern spelling.','هَٰٓأَنتُمْ وهَٰهُنَا في المصحف هما ها أنتم وها هنا في الإملاء الحديث.']},
+  {id:'ibnUmm', g:'spell', c:'#38c6da', lab:['«يبنؤم» in 20:94','«يبنؤم» في طه ٩٤'],
+    say:['One written word here, three in modern spelling: يا ابن أم. In 7:150 the mushaf itself writes ٱبْنَ أُمَّ apart.','كلمةٌ واحدة في الرسم هنا، وثلاث في الإملاء الحديث: يا ابن أم. وفي الأعراف ١٥٠ يكتب المصحف نفسه ٱبْنَ أُمَّ مفصولتين.']},
+  {id:'fused', g:'gram', c:'#34d399', lab:['Two words written as one','كلمتان كُتبتا كلمة'],
+    say:['إِنَّمَا is إنّ + ما, يَوْمَئِذٍ is يوم + إذ, مِمَّا is مِن + ما: written as one word, built from two.','إِنَّمَا من إنّ وما، ويَوْمَئِذٍ من يوم وإذ، ومِمَّا من مِن وما: تُكتب كلمةً وتُبنى من كلمتين.']},
+  {id:'particles', g:'gram', c:'#8fb6ff', lab:['Joined particles','الحروف المتصلة'],
+    say:['The one-letter words written onto the next: و and, ف so, ب with, ل to, ك like, س will, and the question أ.','حروف المعاني ذات الحرف الواحد المكتوبة متصلةً بما بعدها: الواو والفاء والباء واللام والكاف والسين وهمزة الاستفهام.']},
+  {id:'article', g:'gram', c:'#c9a7ff', lab:['The article «ال»','«ال» التعريف'],
+    say:['ٱلْأَرْضِ is ال + أرض. In Arabic grammar the article is a word of its own: a particle.','ٱلْأَرْضِ من «ال» و«أرض». وأداة التعريف في النحو كلمةٌ مستقلة من نوع الحرف.']},
+  {id:'pronouns', g:'gram', c:'#f0a08c', lab:['Attached pronouns','الضمائر المتصلة'],
+    say:['قَالُوا۟ is قال + وا (they), فِيهَا is في + ها (it). In grammar each attached pronoun is a word.','قَالُوا۟ من «قال» و«واو الجماعة»، وفِيهَا من «في» و«ها». وفي النحو كل ضميرٍ متصلٍ كلمة.']},
+  {id:'small', g:'gram', c:'#a9bfb4', lab:['Other small pieces','قطعٌ صغيرة أخرى'],
+    say:['The ها of هَٰذَا, the لِ and كَ of ذَٰلِكَ, the emphatic نَّ: pieces with a meaning of their own, written inside a word.','هاء التنبيه في هَٰذَا، واللام والكاف في ذَٰلِكَ، ونون التوكيد: أجزاءٌ لها معناها، كُتبت داخل الكلمة.']},
+];
+const WT_GROUPS = [
+  {id:'text', lab:['What do you count?','ماذا تعدّ؟'], sub:['The verses only, or the Basmala too.','الآيات وحدها، أم البسملة معها.']},
+  {id:'spell', lab:['Which spelling?','بأيّ رسم؟'], sub:['The mushaf’s own spelling joins some words that modern spelling writes apart.','رسم المصحف يصل كلماتٍ يفصلها الإملاء الحديث.']},
+  {id:'gram', lab:['What counts as one word?','ما الذي يُعدّ كلمة؟'], sub:['Grammar finds smaller words inside a written word: «and», «the», an attached «his».','يرى النحو كلماتٍ أصغر داخل الكلمة المكتوبة: واو العطف، وأداة التعريف، والضمير المتصل.']},
+];
+const WT_LET = [
+  {id:'one', lab:['One word each, as printed','كلمةٌ لكلٍّ منها، كما تُطبع']},
+  {id:'each', lab:['A word for each letter','كلمةٌ لكل حرف']},
+  {id:'none', lab:['Leave them out','لا تُعدّ']},
+];
+const WT_PRE = [
+  {id:'printed', on:[], let:'one', lab:['As printed','كما في المصحف']},
+  {id:'modern', on:['voc','haAttn','ibnUmm'], let:'one', lab:['Modern spelling','بالإملاء الحديث']},
+  {id:'basmala', on:['basmala'], let:'one', lab:['With every Basmala','مع كل بسملة']},
+  {id:'every', on:['voc','haAttn','ibnUmm','fused','particles','article','pronouns','small'], let:'one', lab:['Every piece of meaning','كل جزءٍ له معنى']},
+];
+const WT_ATA = 77439;
+const WT_NOJOIN = /[اأإآٱدذرزوؤةءى]$/;   // letters that never join the letter after them
+const WT_MARK = /[\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06ED\u08D3-\u08FF]/g;
+const WT_MARK1 = /[\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06ED\u08D3-\u08FF]/;
+const WT_ZWJ = '\u200D';
+const WordTotalLab = {
+  data(){ return {on:[], let:'one', smp:'2:21', shown:77429, d0:77380, d1:77490, focus:'', hov:0}; },
+  template:`<div class="wt" v-if="WC">
+    <div class="wt-hero">
+      <div class="wt-fig em"><b>{{ f(WC.base) }}</b><span>{{ T(['written words in the printed mushaf','كلمةً مكتوبة في المصحف المطبوع']) }}</span>
+        <small>{{ T(['Counted by computer in the Madinah mushaf. Two separate sources give this number, verse by verse.','عدّها الحاسوب في مصحف المدينة، ويعطي هذا العدد مصدران مستقلان، آيةً آية.']) }}</small></div>
+      <div class="wt-gapfig"><b>{{ D(ata-WC.base) }}</b><span>{{ T(['words apart','كلماتٍ بينهما']) }}</span>
+        <small>{{ T(['about one word in '+f(Math.round(WC.base/(ata-WC.base))),'نحو كلمةٍ من كل '+f(Math.round(WC.base/(ata-WC.base)))]) }}<br>{{ T([pctSame+'% the same', 'متطابقان بنسبة '+pctSame+'٪']) }}</small></div>
+      <div class="wt-fig gold"><b>{{ f(ata) }}</b><span>{{ T(['in the count of Ata ibn Yasar','في قول عطاء بن يسار']) }}</span>
+        <small>{{ T(['A scholar of Madinah in the generation after the Companions, who died about 103 AH. Recorded by al-Qurtubi.','من تابعي المدينة، تُوفّي نحو سنة ١٠٣ هـ، ونقل قولَه القرطبي.']) }}</small></div>
+    </div>
+    <p class="wt-lead">{{ T(['Both numbers are right. They count the same letters with different ideas of where one word ends and the next begins. Switch the rules below and watch the total move.','العددان صحيحان كلاهما: فهما عدٌّ للحروف نفسها، لكن بفهمين مختلفين لموضع انتهاء الكلمة وبدء التي تليها. غيّر القواعد في الأسفل وشاهد المجموع يتحرك.']) }}</p>
+
+    <div class="wt-stage">
+      <div class="wt-top">
+        <div class="wt-total" aria-live="polite"><b>{{ f(Math.round(shown)) }}</b><span>{{ T(['words, by your rules','كلمة، بقواعدك']) }}</span>
+          <em v-if="total!==WC.base" :class="{neg: total<WC.base}">{{ deltaText }}</em></div>
+        <div class="wt-pre" role="group" :aria-label="T(['Ready-made counts','أعدادٌ جاهزة'])">
+          <button v-for="p in presets" :key="p.id" type="button" class="wt-chip" :class="{on: preset===p.id}" :aria-pressed="String(preset===p.id)" @click="usePre(p)">
+            <span>{{ T(p.lab) }}</span><b>{{ f(p.n) }}</b></button>
+        </div>
+      </div>
+      <div class="wt-ruler" dir="ltr" role="img" :aria-label="rulerLabel">
+        <div class="wt-axis"></div>
+        <span v-for="t in ticks" :key="t" class="wt-tick" :style="{left: x(t)+'%'}"><i></i><small>{{ f(t) }}</small></span>
+        <span v-for="m in marks" :key="m.id" class="wt-mark" :class="['t-'+m.tone, 'r'+m.row, 'e-'+m.edge, {nolab: !m.showLab}]" :style="{left: m.x+'%'}">
+          <i></i><span class="lab"><b>{{ f(m.n) }}</b>{{ T(m.lab) }}</span></span>
+        <span class="wt-pin" :style="{left: x(shown)+'%'}"><i></i></span>
+      </div>
+      <div class="wt-bar" :aria-label="T(['What your total is made of','مكوّنات مجموعك'])">
+        <span v-for="s in bar" :key="s.id" :style="{width: s.w+'%', background: s.c}" :title="s.t"></span>
+      </div>
+
+      <div class="wt-groups">
+        <div v-for="g in groups" :key="g.id" class="wt-group">
+          <h4>{{ T(g.lab) }}</h4><p class="wt-sub" v-html="$root.rich(T(g.sub))"></p>
+          <div v-for="r in g.rules" :key="r.id" class="wt-rule" :class="{on: on.includes(r.id)}" :style="{'--c': r.c}">
+            <div class="wt-rh">
+              <button type="button" role="switch" class="wt-sw" :aria-checked="String(on.includes(r.id))" @click="tog(r.id)"><i></i><span>{{ T(r.lab) }}</span></button>
+              <b class="wt-n">+{{ f(r.n) }}</b>
+            </div>
+            <p class="wt-say" v-html="$root.rich(T(r.say))"></p>
+            <div class="wt-ex">
+              <button v-for="e in r.ex.slice(0, r.id==='basmala' ? 1 : 3)" :key="e.k+e.w" type="button" class="wt-exw" data-dopen @click="$root.dOpen(e.k,[e.k],$event)" :title="T(['Open ','افتح '])+D(e.k)">
+                <bdi lang="ar" dir="rtl"><span v-for="(p,j) in exPieces(e)" :key="j" :class="{cut: p.cut}">{{ p.t }}</span></bdi><small v-if="r.id!=='basmala'">×{{ D(e.n) }}</small></button>
+              <button type="button" class="wt-where" :class="{on: focus===r.id}" @click="focus = focus===r.id ? '' : r.id">{{ T(['Where?','أين؟']) }}</button>
+            </div>
+          </div>
+        </div>
+        <div class="wt-group">
+          <h4>{{ T(['The opening letters','الحروف المقطّعة']) }}</h4>
+          <p class="wt-sub" v-html="$root.rich(T(['الٓمٓ is read as three letters: alif, lam, mim. The mushaf prints these openings as '+WC.letters.words+' words holding '+WC.letters.letters+' letters.','تُقرأ الٓمٓ ثلاثة أحرف: ألف، لام، ميم. ويطبع المصحف هذه الفواتح '+WC.letters.words+' كلمةً فيها '+WC.letters.letters+' حرفًا.']))"></p>
+          <div class="wt-seg" role="radiogroup" :aria-label="T(['The opening letters','الحروف المقطّعة'])">
+            <button v-for="o in lets" :key="o.id" type="button" role="radio" :aria-checked="String(let===o.id)" :class="{on: let===o.id}" @click="let=o.id">
+              {{ T(o.lab) }} <b>{{ o.id==='one' ? '±0' : (o.id==='each' ? '+'+f(WC.letters.letters-WC.letters.words) : '-'+f(WC.letters.words)) }}</b></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wt-panels">
+      <div class="wt-card wt-vpanel">
+        <h4>{{ T(['One verse, split by your rules','آيةٌ واحدة بقواعدك']) }}</h4>
+        <div class="wt-smp" role="group" :aria-label="T(['Pick a verse','اختر آية'])">
+          <button v-for="s in WC.samples" :key="s.k" type="button" class="wt-chip small" :class="{on: smp===s.k}" :aria-pressed="String(smp===s.k)" @click="smp=s.k">{{ D(s.k) }}</button>
+        </div>
+        <p class="wt-verse" lang="ar" dir="rtl">
+          <span v-for="(w,i) in verse" :key="smp+i" class="wt-w" :class="{gone: w.gone, bas: w.bas}">
+            <span v-for="(p,j) in w.p" :key="j" class="wt-p" :class="{cut: p.c, ghost: p.ghost}" :style="p.c ? {'--c': p.c} : null" :title="p.ghost ? T(['A pronoun understood but not written','ضميرٌ مقدّرٌ غير مكتوب']) : null">{{ p.ghost ? '◌' : p.t }}</span></span>
+        </p>
+        <p class="wt-vcount">{{ T([vCount+' words here; '+sample.words.length+' as printed.', 'عدد الكلمات هنا '+vCount+'، وفي المصحف '+sample.words.length+'.']) }}
+          <button type="button" class="n19-open" data-dopen @click="$root.dOpen(smp,[smp],$event)">{{ T(['Open the verse ›','افتح الآية ‹']) }}</button></p>
+      </div>
+      <div class="wt-card wt-mpanel">
+        <h4>{{ T(['Which surahs change most','أكثر السور تغيّرًا']) }}</h4>
+        <p class="wt-sub" v-if="focus">{{ T(['Showing one rule: ','تُعرض قاعدةٌ واحدة: ']) }}<b>{{ T(partOf(focus).lab) }}</b> <button type="button" class="wt-x" @click="focus=''" :aria-label="T(['Show all the rules that are on','اعرض كل القواعد المفعّلة'])">✕</button></p>
+        <p class="wt-sub" v-else>{{ T(['Each square is a surah, 19 to a row. The brighter it is, the larger the share of its words your rules add. Tap one to open it.','كل مربعٍ سورة، ١٩ في كل صف. وكلما اشتدّ لونه كبرت نسبة ما تضيفه قواعدك إلى كلماتها. انقره لتفتح السورة.']) }}</p>
+        <div class="wt-map" dir="ltr" @pointerleave="hov=0">
+          <button v-for="c in mapV" :key="c.n" type="button" class="sq" :class="{lit: c.add>0, neg: c.add<0, here: hov===c.n}" :style="c.add ? {'--a': (0.18+0.82*Math.abs(c.share)/mapMax).toFixed(3)} : null"
+            :title="c.n+'. '+$root.surahName(c.n)" @pointerenter="hov=c.n" @focus="hov=c.n" @click="$root.dOpen(c.n+':1',[c.n+':1'],$event)">{{ D(c.n) }}</button>
+        </div>
+        <p class="wt-read" aria-live="polite">{{ mapRead }}</p>
+      </div>
+    </div>
+
+    <div class="wt-card wt-src">
+      <h4>{{ T(['Where the two numbers come from','من أين جاء العددان']) }}</h4>
+      <p>{{ T(['77,439 is the count al-Qurtubi records in the introduction to his tafsir, al-Jami li-Ahkam al-Quran, «in the saying of Ata ibn Yasar». Al-Qurtubi adds that the early counts disagree, and points to Abu Amr al-Dani’s al-Bayan for the details.','العدد ٧٧٬٤٣٩ ينقله القرطبي في مقدمة تفسيره «الجامع لأحكام القرآن»، وهو «في قول عطاء بن يسار». ويذكر القرطبي أن في هذه الأعداد خلافًا مذكورًا في كتاب «البيان» لأبي عمرو الداني.']) }}</p>
+      <blockquote lang="ar" dir="rtl">«جميع كلمات القرآن، في قول عطاء بن يسار، سبعة وسبعون ألفًا وأربعمائة وتسع وثلاثون كلمة»<cite>{{ T(['al-Qurtubi, al-Jami li-Ahkam al-Quran, introduction','القرطبي، الجامع لأحكام القرآن، المقدمة']) }}</cite></blockquote>
+      <p>{{ T(['77,429 is counted by computer from two separate files: the Quranic Arabic Corpus, and the page layout of the Madinah mushaf printed by the King Fahd Complex. They agree on every one of the 6,236 verses.','أما ٧٧٬٤٢٩ فيعدّه الحاسوب من ملفين مستقلين: المدوّنة القرآنية العربية (Quranic Arabic Corpus)، وتخطيط صفحات مصحف المدينة الذي يطبعه مجمّع الملك فهد. ويتفقان في كل آيةٍ من الآيات الـ٦٬٢٣٦.']) }}</p>
+      <p>{{ T(['The rules behind 77,439 were not written down, and the count was made on a mushaf copied by hand. No rule on this page, alone or with others, lands exactly on it, so the 10 words between the two counts cannot be pinned to particular places. What the gap does show is how close a count made by hand came, some 1,300 years ago.','لم تُدوَّن القواعد التي عُدّ بها ٧٧٬٤٣٩، وقد كان العدّ على مصحفٍ منسوخٍ باليد. ولا تصل إليه أيّ قاعدةٍ في هذه الصفحة، وحدها أو مع غيرها، فلا يمكن تعيين مواضع الكلمات العشر بين العددين. لكن الفرق يُظهر كم اقترب عدٌّ باليد قبل نحو ١٣٠٠ عام.']) }}</p>
+      <p class="wt-links"><a href="https://ar.wikisource.org/wiki/%D8%A7%D9%84%D8%AC%D8%A7%D9%85%D8%B9_%D9%84%D8%A3%D8%AD%D9%83%D8%A7%D9%85_%D8%A7%D9%84%D9%82%D8%B1%D8%A2%D9%86/%D8%A7%D9%84%D9%85%D9%82%D8%AF%D9%85%D8%A9/%D9%81%D8%B5%D9%84_%D9%88%D8%A3%D9%85%D8%A7_%D8%B9%D8%AF%D8%AF_%D8%AD%D8%B1%D9%88%D9%81%D9%87_%D9%88%D8%A3%D8%AC%D8%B2%D8%A7%D8%A6%D9%87" target="_blank" rel="noopener">{{ T(['Read al-Qurtubi’s passage','اقرأ نص القرطبي']) }} ›</a>
+        <a href="https://corpus.quran.com/" target="_blank" rel="noopener">Quranic Arabic Corpus ›</a></p>
+    </div>
+    <p class="n19-note">{{ T(['Every number here comes from the corpus’s word pieces, and the page adds them up as you switch rules. The rules never overlap, so with every one on the total is the corpus’s 130,030 pieces.','كل رقمٍ هنا مأخوذٌ من أجزاء الكلمات في المدوّنة، وتجمعها الصفحة كلما غيّرت قاعدة. والقواعد لا تتداخل، فإذا شغّلتها كلها كان المجموع أجزاء المدوّنة الـ١٣٠٬٠٣٠.']) }}</p>
+  </div>`,
+  created(){ if(this.WC){ this.shown = this.WC.base; [this.d0, this.d1] = this.domFor(this.WC.base); } },
+  beforeUnmount(){ cancelAnimationFrame(this._raf); clearTimeout(this._land); },
+  watch:{ total(){ this.animate(); } },
+  computed:{ ar(){ return this.$root.lang==='ar'; }, lets(){ return WT_LET; }, ata(){ return WT_ATA; },
+    WC(){ return (window.QURAN_DATA||{}).wordcount || null; },
+    letDelta(){ const L=this.WC.letters; return this.let==='each' ? L.letters-L.words : (this.let==='none' ? -L.words : 0); },
+    total(){ return this.on.reduce((t,p)=>t+this.WC.rules[p].n, this.WC.base) + this.letDelta; },
+    pctSame(){ return this.dec(100*(1-(WT_ATA-this.WC.base)/WT_ATA), 3); },
+    deltaText(){ const d=this.total-this.WC.base, n=this.f(Math.abs(d));
+      return d>0 ? this.T(['+'+n+' on the printed count', '+'+n+' على عدّ المصحف']) : this.T([n+' fewer than the printed count', n+' أقل من عدّ المصحف']); },
+    presets(){ const R=this.WC.rules; return WT_PRE.map(p=>({...p, n: p.on.reduce((t,id)=>t+R[id].n, this.WC.base)})); },
+    preset(){ const s=[...this.on].sort().join(); const p=WT_PRE.find(p=>[...p.on].sort().join()===s && p.let===this.let); return p ? p.id : ''; },
+    groups(){ return WT_GROUPS.map(g=>({...g, rules: WT_PARTS.filter(p=>p.g===g.id).map(p=>({...p, ...this.WC.rules[p.id]}))})); },
+    ticks(){ const span=this.d1-this.d0, step=wtNice(span/6), out=[]; for(let t=Math.ceil(this.d0/step)*step; t<=this.d1; t+=step) out.push(t); return out; },
+    marks(){ const T=this.WC.totals, list=[
+        {id:'printed', n:T.printed, lab:['As printed','المصحف المطبوع'], tone:'em', row:0, pri:1},
+        {id:'ata', n:WT_ATA, lab:['Ata ibn Yasar','عطاء بن يسار'], tone:'gold', row:1, pri:2},
+        {id:'every', n:T.everyPiece, lab:['Every piece','كل الأجزاء'], tone:'lil', row:0, pri:3},
+        {id:'modern', n:T.modern, lab:['Modern spelling','الإملاء الحديث'], tone:'teal', row:0, pri:4},
+        {id:'basmala', n:T.basmala, lab:['With every Basmala','مع كل بسملة'], tone:'gold', row:1, pri:5}];
+      const placed=[[],[]];
+      return list.map(m=>({...m, x:this.x(m.n)})).filter(m=>m.x>=-0.5 && m.x<=100.5).map(m=>{
+        const near=placed[m.row].some(v=>Math.abs(v-m.x)<17); if(!near) placed[m.row].push(m.x); return {...m, showLab:!near, edge: m.x<9 ? 'l' : (m.x>91 ? 'r' : '')}; }); },
+    rulerLabel(){ return this.T(['Your total, '+this.f(this.total)+', on a ruler with the printed count ('+this.f(this.WC.base)+') and Ata ibn Yasar’s ('+this.f(WT_ATA)+').',
+      'مجموعك ('+this.f(this.total)+') على مسطرةٍ مع عدّ المصحف ('+this.f(this.WC.base)+') وعدّ عطاء بن يسار ('+this.f(WT_ATA)+').']); },
+    bar(){ const tot=Math.max(1,this.total), R=this.WC.rules, base=this.WC.base+Math.min(0,this.letDelta);
+      const out=[{id:'base', w:base/tot*100, c:'rgba(255,255,255,.22)', t:this.T(['Printed words','كلمات المصحف'])+': '+this.f(base)}];
+      WT_PARTS.forEach(p=>{ if(this.on.includes(p.id)) out.push({id:p.id, w:Math.max(.4,R[p.id].n/tot*100), c:p.c, t:this.T(p.lab)+': +'+this.f(R[p.id].n)}); });
+      if(this.letDelta>0) out.push({id:'let', w:Math.max(.4,this.letDelta/tot*100), c:'#e9b95f', t:this.T(['Opening letters','الحروف المقطّعة'])+': +'+this.f(this.letDelta)});
+      return out; },
+    sample(){ return this.WC.samples.find(s=>s.k===this.smp) || this.WC.samples[0]; },
+    letKeys(){ const m={}; this.WC.letters.list.forEach(x=>{ m[x.k]=x; }); return m; },
+    verse(){ const on=new Set(this.on), s=this.sample, [su,ay]=s.k.split(':').map(Number), out=[];
+      if(on.has('basmala') && ay===1 && su!==1 && su!==9) this.WC.rules.basmala.ex[0].p.forEach(([t])=>out.push({p:[{t, c:'#e9b95f'}], bas:true}));
+      s.words.forEach((segs,i)=>{
+        const L=this.letKeys[s.k], isLet=L && i===0 && segs.map(x=>x[0]).join('')===L.w;
+        if(isLet && this.let==='none'){ out.push({p:[{t:L.w}], gone:true}); return; }
+        if(isLet && this.let==='each'){ out.push({p:wtJoin(wtLetters(L.w).map(t=>({t, c:'#e9b95f'})))}); return; }
+        const ps=[]; let cur=null;
+        segs.forEach(([t,p])=>{ if(p && on.has(p)){ ps.push({t, c:this.partOf(p).c, ghost: !t}); cur=null; }
+          else if(t || cur){ if(!cur){ cur={t:''}; ps.push(cur); } cur.t+=t; } });   // an unwritten piece left whole adds no word
+        out.push({p:wtJoin(ps)}); });
+      return out; },
+    vCount(){ return this.verse.reduce((n,w)=>n+(w.gone ? 0 : w.p.length), 0); },
+    letBy(){ const a=Array(114).fill(0); if(this.let==='one') return a;
+      this.WC.letters.list.forEach(x=>{ const s=+x.k.split(':')[0]; a[s-1]+= this.let==='each' ? x.l-1 : -1; }); return a; },
+    mapV(){ const S=((window.QURAN_DATA||{}).stats||{}).surahStats||{}, R=this.WC.rules, parts=this.focus ? [this.focus] : this.on;
+      return [...Array(114)].map((_,i)=>{ let add=parts.reduce((t,p)=>t+R[p].bySurah[i], 0); if(!this.focus) add+=this.letBy[i];
+        const base=(S[i+1]||{}).words||1; return {n:i+1, add, share:add/base}; }); },
+    mapMax(){ return Math.max(1e-9, ...this.mapV.map(c=>Math.abs(c.share))); },
+    mapRead(){ const c=this.hov ? this.mapV[this.hov-1] : null, R=this.$root;
+      if(c) return R.surahName(c.n)+' · '+(c.add>=0 ? '+' : '-')+this.f(Math.abs(c.add))+this.T([' words (',' (']) + this.dec(c.share*100, 1)+this.T(['% of the surah)','٪ من كلمات السورة)']);
+      const top=this.mapV.filter(c=>c.add>0).sort((a,b)=>b.share-a.share).slice(0,3);
+      if(!top.length) return this.T(['Switch a rule on to see where it adds words.','شغّل قاعدةً لترى أين تضيف كلمات.']);
+      return this.T(['Most changed: ','الأكثر تغيّرًا: '])+top.map(c=>R.surahName(c.n)+' (+'+this.dec(c.share*100, 1)+this.T(['%)','٪)'])).join(this.T([', ','، '])); } },
+  methods:{ T(p){ const s=Array.isArray(p) ? (this.ar ? p[1] : p[0]) : p; return this.ar ? this.$root.D(s) : s; }, D(x){ return this.$root.D(x); }, f(n){ return this.$root.f(n); },
+    dec(x, k){ const s=this.D(x.toFixed(k)); return this.ar ? s.replace('.','٫') : s; },
+    partOf(id){ return WT_PARTS.find(p=>p.id===id) || {c:'', lab:['','']}; },
+    x(n){ return (n-this.d0)/(this.d1-this.d0)*100; },
+    // the ruler always holds your total and both famous counts, with room either side
+    domFor(t){ const lo=Math.min(t, this.WC.base), hi=Math.max(t, WT_ATA), span=Math.max(60, hi-lo), pad=span*.16; return [lo-pad, hi+pad]; },
+    tog(id){ this.on = this.on.includes(id) ? this.on.filter(x=>x!==id) : [...this.on, id]; },
+    usePre(p){ this.on=[...p.on]; this.let=p.let; this.focus=''; },
+    exPieces(e){ return wtJoin(e.p.map(([t,c])=>({t, cut:!!c}))); },
+    // the total counts and the ruler zooms together; a hidden tab gets no animation frames, so a timer makes sure both land
+    animate(){ cancelAnimationFrame(this._raf); clearTimeout(this._land); const to=this.total, [e0,e1]=this.domFor(to);
+      const land=()=>{ cancelAnimationFrame(this._raf); this.shown=to; this.d0=e0; this.d1=e1; };
+      if(document.hidden || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)){ land(); return; }
+      const s0=this.shown, a0=this.d0, a1=this.d1, t0=performance.now(), dur=700;
+      const step=now=>{ const p=Math.min(1,(now-t0)/dur), k=1-Math.pow(1-p,3);
+        this.shown=s0+(to-s0)*k; this.d0=a0+(e0-a0)*k; this.d1=a1+(e1-a1)*k;
+        if(p<1) this._raf=requestAnimationFrame(step); };
+      this._raf=requestAnimationFrame(step); this._land=setTimeout(land, dur+200); } } };
+function wtNice(x){ const p=Math.pow(10, Math.floor(Math.log10(x))), m=x/p; return (m<1.5 ? 1 : m<3.5 ? 2 : m<7.5 ? 5 : 10)*p; }
+// cut a word into its letters, each keeping its marks
+function wtLetters(w){ const out=[]; for(const ch of w){ if(WT_MARK1.test(ch) && out.length) out[out.length-1]+=ch; else out.push(ch); } return out; }
+// pieces of one word keep the shapes they have inside it: a joiner on each side of a cut between two joining letters
+function wtJoin(ps){ const out=ps.map(p=>({...p})); for(let j=0;j<out.length-1;j++){ const a=out[j], b=out[j+1];
+    if(!a.t || !b.t || WT_NOJOIN.test(a.t.replace(WT_MARK,''))) continue; a.t+=WT_ZWJ; b.t=WT_ZWJ+b.t; } return out; }
 // Structure: six findings laid out like a dashboard. A row of KPI tiles picks the finding; the stage builds its
 // figure (abjad sum and isotopes, honeycomb of verses, waterfall, verse-length profile, the Qadr word count, the
 // solar and lunar calendars) and names the method under it. Every count is taken from the text in the browser.
@@ -5892,7 +6205,7 @@ createApp({
           en:'Claim Auditor',ar:'مدقّق المزاعم',
           blurb_en:'Famous claims about the Quran, from word counts to ancient history, each checked against the text and the record.',
           blurb_ar:'نعيد فحص ما يتداوله الناس عن القرآن، من أعداد كلماته إلى شواهد التاريخ، على النص نفسه وعلى الآثار.',
-          items:[{id:'auditor',en:'Word Counts',ar:'أعداد الكلمات'},{id:'history',en:'History Claims',ar:'شواهد التاريخ'}]},
+          items:[{id:'auditor',en:'Word Counts',ar:'أعداد الكلمات'},{id:'wordcount',en:'How many words?',ar:'كم كلمة؟'},{id:'history',en:'History Claims',ar:'شواهد التاريخ'}]},
         {id:'discoverHub',
           icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><path d="M12 8.2l1.2 2.6 2.6 1.2-2.6 1.2L12 15.8l-1.2-2.6L8.2 12l2.6-1.2z"/></svg>',
           en:'Discoveries',ar:'اكتشافات',
@@ -6135,7 +6448,7 @@ createApp({
     jevTone(){ const T=this.JD && this.JD.tone; if(!T || !Array.isArray(T.items) || !T.items.length) return null;
       const c={mercy:0, guidance:0, hope:0, warning:0}; T.items.forEach(it=>{ if(it.tone in c) c[it.tone]++; });
       return {c, n:T.items.length, model:T.model||'', date:T.date||''}; },
-    realViews(){ return [...DISC_IDS, 'home','overview','word','mecca','letters','search','reader','auditor','history','stories','lessons','duas','tafsir','untranslatable',
+    realViews(){ return [...DISC_IDS, 'home','overview','word','mecca','letters','search','reader','auditor','wordcount','history','stories','lessons','duas','tafsir','untranslatable',
       'emotion','pronouns','science','abjad','n19','structural','symmetry','nlp','kg','advanced','tawafuq','alifi','hifz','classifier','stats','cluster','dashboard']; },
     curHub(){ return this.nav.find(h=>h.items.some(i=>i.id===this.view)) || null; },
     // where the reader is: a change of page, claim or surah is a step the browser's back arrow can undo
@@ -7295,7 +7608,7 @@ createApp({
     this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); this.enterView(true); });
   }
 }).component('depth-switch', DepthSwitch).component('term-chips', TermChips).component('explain-box', ExplainBox)
-  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell).component('claim-viz', ClaimViz).component('count-lab', CountLab).component('rule-matrix', RuleMatrix).component('qadr-lab', QadrLab).component('nineteen-lab', NineteenLab).component('struct-lab', StructLab).component('balance-lab', BalanceLab).component('abjad-lab', AbjadLab).component('float-kbd', FloatKbd).component('nlp-lab', NlpLab).component('dash-lab', DashLab).component('hifz-lab', HifzLab).component('stats-lab', StatsLab).component('clf-lab', ClfLab).component('kmeans-lab', KMeansLab).component('lib-atlas', LibAtlas).component('reader-head', ReaderHead).component('word-card', WordCard)
+  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell).component('claim-viz', ClaimViz).component('count-lab', CountLab).component('rule-matrix', RuleMatrix).component('qadr-lab', QadrLab).component('nineteen-lab', NineteenLab).component('word-total-lab', WordTotalLab).component('struct-lab', StructLab).component('balance-lab', BalanceLab).component('abjad-lab', AbjadLab).component('float-kbd', FloatKbd).component('nlp-lab', NlpLab).component('dash-lab', DashLab).component('hifz-lab', HifzLab).component('stats-lab', StatsLab).component('clf-lab', ClfLab).component('kmeans-lab', KMeansLab).component('lib-atlas', LibAtlas).component('reader-head', ReaderHead).component('word-card', WordCard)
   .component('letter-strip', LetterStrip).component('growth-curve', GrowthCurve).component('rhyme-ribbon', RhymeRibbon).mount('#app');
 });
 </script>
