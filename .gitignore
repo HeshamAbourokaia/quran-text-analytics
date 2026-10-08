@@ -1,10 +1,3 @@
-# Project-local git repo for autoresearch loop isolation.
-# Created 2026-05-01 — see /Users/Hesham/.claude/plans/g-day-partitioned-pony.md
-
-# Node
-electron-app/node_modules/
-electron-app/dist/
-
 # Python
 __pycache__/
 *.pyc
@@ -12,43 +5,25 @@ __pycache__/
 venv/
 .env
 
-# Autoresearch artifacts (per-run logs, screenshots — not commit history)
-autoresearch/runs/
-autoresearch/STOP
-
-# OS
+# OS and editors
 .DS_Store
 *.swp
-
-# Editor
 .vscode/
 .idea/
 
-# Internal video artifacts (not part of the published product)
-working_videos/
+# Local tool settings (launch.json is shared on purpose)
+.claude/*
+!.claude/launch.json
 
-# Build/temp artifacts that shouldn't be tracked
-electron-app/dist/
-electron-app/*.app/
-*.app.backup
-.claude/
+# Knowledge-graph tool state (graph.json, graph.html and the reports are kept)
+data-build/knowledge-graph/corpus/graphify-out/.graphify_*
+data-build/knowledge-graph/corpus/graphify-out/cache/
 
-# Internal pre-migration backups and one-off migration scripts
-electron-app/_backup_*/
-electron-app/_migrate_*.py
-
-# Phase 2 generated artifacts (will be regenerated)
-electron-app/data/embeddings.bin
-electron-app/data/topics.json
-
-# graphify internal state (tracked outputs: graph.html, graph.json, GRAPH_REPORT.md, manifest.json, cost.json)
-graphify-out/.graphify_*
-graphify-out/cache/
-
-# Quran content graph internal state
-quran_corpus/graphify-out/.graphify_*
-quran_corpus/graphify-out/cache/
-
-# Jev batch answers (cached so re-runs don't pay twice; mock output lives here too)
+# Jev batch answers, cached so re-runs don't pay twice
 data-build/jev/cache/
+
+# Local only
 dashboards/
+working_videos/
+.archive/
+CLAUDE.md

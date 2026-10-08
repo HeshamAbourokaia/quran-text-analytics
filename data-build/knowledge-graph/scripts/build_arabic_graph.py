@@ -2,17 +2,17 @@
 """
 Build an Arabic-labeled version of the Quranic knowledge graph.
 
-Loads quran_corpus/graphify-out/graph.json, translates every node label
+Loads data-build/knowledge-graph/corpus/graphify-out/graph.json, translates every node label
 to Arabic via a comprehensive translation map + pattern matching, then
 re-exports as graph_ar.html using graphify's to_html function.
 
-Output: quran_corpus/graphify-out/quran_graph_ar.html
+Output: data-build/knowledge-graph/corpus/graphify-out/quran_graph_ar.html
 
 This is then bundled into the Electron asar alongside the English version
 so the app can swap based on the lang toggle.
 
 Run:
-    python3 scripts/build_arabic_graph.py
+    python3 data-build/knowledge-graph/scripts/build_arabic_graph.py
 """
 
 import json
@@ -21,7 +21,7 @@ from pathlib import Path
 from networkx.readwrite import json_graph
 
 ROOT = Path(__file__).parent.parent
-GRAPH_DIR = ROOT / "quran_corpus" / "graphify-out"
+GRAPH_DIR = ROOT / "corpus" / "graphify-out"
 
 # ──────────────────────────────────────────────────────────
 # Translation: community labels (28)
@@ -387,7 +387,7 @@ EXPLICIT = {
 # Surah Arabic titles (load from source data)
 # ──────────────────────────────────────────────────────────
 def load_surah_titles_ar():
-    meta = json.load(open(ROOT / "data" / "surah.json", encoding="utf-8"))
+    meta = json.load(open(ROOT / "quranjson" / "surah.json", encoding="utf-8"))
     return {int(m["index"]): m["titleAr"] for m in meta}
 
 SURAH_AR = load_surah_titles_ar()

@@ -8,14 +8,14 @@ Generates ~140 documents:
 - 10 theme files (scholarly thematic clusters)
 - ~5 special-pattern files (Bismillah, Ar-Rahman refrain, Iron miracle, etc.)
 
-Output: quran_corpus/
+Output: data-build/knowledge-graph/corpus/
 
 Designed to be ingested by graphify to produce a true Quranic knowledge graph
 where communities cluster thematically, prophets appear as god-nodes, and
 verse-level entities cross-reference across the entire mushaf.
 
 Run:
-    python3 scripts/build_quran_corpus.py
+    python3 data-build/knowledge-graph/scripts/build_quran_corpus.py
 """
 
 import json
@@ -24,7 +24,7 @@ from pathlib import Path
 from collections import defaultdict
 
 ROOT = Path(__file__).parent.parent
-CORPUS = ROOT / "quran_corpus"
+CORPUS = ROOT / "corpus"
 SURAH_DIR = CORPUS / "surahs"
 ENTITY_DIR = CORPUS / "entities"
 THEME_DIR = CORPUS / "themes"
@@ -187,14 +187,14 @@ for slug, t in THEMES.items():
 # ─────────────────────────────────────────────────────────
 
 def load_meta():
-    return json.load(open(ROOT / "data" / "surah.json", encoding="utf-8"))
+    return json.load(open(ROOT / "quranjson" / "surah.json", encoding="utf-8"))
 
 def load_surah_ar(n):
-    p = ROOT / "data" / "surah" / f"surah_{n}.json"
+    p = ROOT / "quranjson" / "surah" / f"surah_{n}.json"
     return json.load(open(p, encoding="utf-8"))
 
 def load_surah_en(n):
-    p = ROOT / "data" / "translation" / "en" / f"en_translation_{n}.json"
+    p = ROOT / "quranjson" / "translation" / "en" / f"en_translation_{n}.json"
     return json.load(open(p, encoding="utf-8"))
 
 def normalize_arabic(text):
@@ -479,7 +479,7 @@ Source documents for a graphify-based knowledge graph of the Quran itself (not t
 ## Regenerate
 
 ```bash
-python3 scripts/build_quran_corpus.py
+python3 data-build/knowledge-graph/scripts/build_quran_corpus.py
 ```
 
 Re-running is idempotent (overwrites files in place). Source data lives in `data/surah/`, `data/translation/en/`, and `data/surah.json`.
@@ -487,7 +487,7 @@ Re-running is idempotent (overwrites files in place). Source data lives in `data
 ## Ingest into graphify
 
 ```bash
-cd quran_corpus
+cd data-build/knowledge-graph/corpus
 /graphify .
 ```
 

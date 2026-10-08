@@ -12,7 +12,7 @@ Adds 5 new dimensions on top of the existing surahs/entities/themes/special corp
 Also adds revelation-phase + chronological-rank metadata to every existing surah file.
 
 Run:
-    python3 scripts/enrich_quran_corpus.py
+    python3 data-build/knowledge-graph/scripts/enrich_quran_corpus.py
 """
 
 import json
@@ -20,7 +20,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
-CORPUS = ROOT / "quran_corpus"
+CORPUS = ROOT / "corpus"
 
 # ───────────────────────────────────────────────────────────
 # Traditional revelation order (surah_number -> chronological rank 1..114)
@@ -768,8 +768,8 @@ Total: ~215 markdown documents covering text, history, scholarship, and structur
 ## Regenerate
 
 ```bash
-python3 scripts/build_quran_corpus.py    # base layer (surahs, entities, themes, special)
-python3 scripts/enrich_quran_corpus.py   # adds timeline, events, asbab_nuzul, tafsir_traditions, sciences
+python3 data-build/knowledge-graph/scripts/build_quran_corpus.py    # base layer (surahs, entities, themes, special)
+python3 data-build/knowledge-graph/scripts/enrich_quran_corpus.py   # adds timeline, events, asbab_nuzul, tafsir_traditions, sciences
 ```
 
 Re-running is idempotent (overwrites files in place).
@@ -777,7 +777,7 @@ Re-running is idempotent (overwrites files in place).
 ## Ingest into graphify
 
 ```bash
-cd quran_corpus
+cd data-build/knowledge-graph/corpus
 /graphify .
 ```
 """
