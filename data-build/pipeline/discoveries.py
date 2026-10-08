@@ -640,7 +640,7 @@ def near_repeats(V, keys, ratio=0.8):
 
 # ---------------------------------------------------------------- 9. style over the order of revelation
 def rev_order():
-    src = open(os.path.join(HERE, '..', '..', 'scripts', 'enrich_quran_corpus.py'), encoding='utf-8').read()
+    src = open(os.path.join(HERE, '..', 'knowledge-graph', 'scripts', 'enrich_quran_corpus.py'), encoding='utf-8').read()
     m = re.search(r'REV_ORDER = (\{.*?\})', src, re.S)
     return {int(k): int(v) for k, v in ast.literal_eval(m.group(1)).items()}
 
