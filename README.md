@@ -1,448 +1,82 @@
-# Quran Insights · Quran Text Analytics
+# Quran Insights
 
-**Quran Insights** (بصائر قرآنية) counts every word of the Quran and explains what it finds: check any claim about the Quran's words against the corpus itself, find your way through the text, and see which patterns hold up when tested against chance. Its Arabic name uses *baṣāʾir*, the Quran's own word for insights (45:20).
+**The Quran, in numbers.** Famous claims checked against the text, nine questions tested against chance, and the whole mushaf to read and search. Everything is counted from the Quran's own text, explained in plain words, in English and Arabic.
 
-> A fully bilingual (Arabic + English) NLP and visualization platform for the Quranic corpus, 114 surahs, 6,236 verses, 77,429 words. Built with Vue 3, Plotly, and Electron, with an experimental LLM-vision-judged auto-tuning loop for chart quality.
+**Live:** [quraninsights.vercel.app](https://quraninsights.vercel.app)
 
-<p align="center">
-  <img src="docs/screenshots/hero-overview.png" alt="Quran Insights overview (Arabic UI)" width="800"/>
-</p>
+![The landing page](docs/screenshots/landing.png)
 
-<p align="center">
-  <a href="#live-demo">Live demo</a> ·
-  <a href="#bilingual-by-design">Bilingual</a> ·
-  <a href="#features">Features</a> ·
-  <a href="#jev-features-optional">Jev features</a> ·
-  <a href="#screenshots">Screenshots</a> ·
-  <a href="#architecture">Architecture</a> ·
-  <a href="ROADMAP.md">Roadmap</a> ·
-  <a href="#install">Install</a>
-</p>
+## What is on the site
 
----
+The menu has five sections. Every page has a short address you can send to someone.
 
-## Live demo
-
-| Surface | Status | Link |
-|---------|--------|------|
-| Web app (desktop and mobile) | Live | [quraninsights.vercel.app](https://quraninsights.vercel.app/) |
-| Old addresses | Forward to the new one | [quran-daleel.vercel.app](https://quran-daleel.vercel.app/), [heshamabourokaia.github.io/quran-text-analytics](https://heshamabourokaia.github.io/quran-text-analytics/) |
-| Desktop app (macOS universal) | Available | [Download v1.0](releases) |
-
-Deep-link any page in either language: [`app.html?view=advanced&lang=en`](https://quraninsights.vercel.app/app.html?view=advanced&lang=en) opens the Advanced Analytics page in English, [`app.html?view=search&lang=ar`](https://quraninsights.vercel.app/app.html?view=search&lang=ar) opens the Word Search concordance in Arabic.
-
-## What it does
-
-A single-file Vue.js 3 application (~9,900 lines) that turns the Quranic corpus into 19 interactive pages of structured analytics. **Fully bilingual Arabic and English** throughout (see [Bilingual by design](#bilingual-by-design)), no backend, runs as a desktop Electron app or static web build.
-
-## Bilingual by design
-
-This is not a translation layer bolted onto an English app. Every single user-facing string, chart label, Plotly hover template, category badge, scholarly tafsir entry, search result, and navigation control is implemented in **both Arabic and English in parallel**, with a single runtime `lang` toggle that swaps the entire interface (including RTL/LTR text direction, RTL chart axis layout, and right-aligned typography for Arabic).
-
-The reason: as a native Arabic speaker now studying analytics in English, I think in both languages and wanted a tool that respected both, rather than forcing one to feel like the translated cousin of the other.
-
-| Layer | Arabic | English |
-|-------|--------|---------|
-| UI strings | Hand-authored Amiri-font Arabic | Hand-authored English |
-| Plotly chart hover templates | Bilingual via runtime template selection | Same |
-| Tafsir insights (74 entries) | Original Arabic + scholar attribution | Original English (not machine translated) |
-| Stories index, du'as, lessons | Full Arabic content | Full English content |
-| Text direction | RTL across charts, search, lists | LTR |
-| Search & concordance | Tashkeel-aware Arabic input via on-screen Arabic keyboard | Standard English input |
-
-See the [Screenshots](#screenshots) section below for the same pages rendered in both languages side by side.
-
-### Written for readers, not analysts
-
-Most visitors are not statisticians, so every analysis page on the web app opens with a short box in plain words, in both languages: **what it is**, **how to read** the figure (under the figure itself), and **what it tells us**. The Analytics Lab's pages lead with a plain question ("Can a computer tell a Meccan surah from a Medinan one?", "Are Medinan verses really longer?") and name the method in one simple sentence (machine learning, a t-test, k-means, Monte Carlo, linear programming), with the technical name kept small underneath. Labels such as p-value, AUC and shadow price carry a plain gloss next to them, and pages of number patterns (19, structure, abjad) say gently that a match depends on how you count. The texts live in one place, `PLAIN` in `web/app.html`.
-
-### Two layers: simple and scientific
-
-Each explanation box has a **Simple | Scientific** switch. The choice is remembered from page to page, and a link can ask for it with `?depth=sci`. The scientific layer gives, for 21 pages in both languages, the page's **purpose**, its **data**, the **method** with its settings (for example, Welch's t-test with α = 0.05, TF-IDF with logistic regression checked by stratified 5-fold cross-validation, or k-means with K = 4 and PCA on standardized measurements), the **result** with its numbers, and its **assumptions and limits**. The limits say plainly where a method is weaker than it looks: verses of one surah are not independent, the Medinan label is one of the clustering inputs, and the emotion counts depend on one English translation and fixed word lists.
-
-Technical terms in these texts (27 of them, from PCA and k-means to the p-value, AUC, Zipf's law and the look-elsewhere effect) open as a **card of four layers**, like a small deck: in plain words, what it does here, what it showed us, and for scientists. A card links to the page where its method is at work. On a phone it opens as a sheet from the bottom.
-
-On the Clusters page, a **walk-through** shows how the map is made. The page's own verse points move through each step: two measurements on a common scale, a line you can turn to find the widest direction (with the share of the spread it keeps), flattening onto that line, the same idea with all four measurements (with the variance each direction keeps and what it is made of), and finally the k-means groups. The PCA is computed in the browser and matches the pipeline's map.
-
-The texts live in `web/explain.js`. The numbers they quote that the site does not show elsewhere (effect size, medians, the PCA variance shares, the silhouette check behind K = 4, the vocabulary's Zipf slope) are pinned by `data-build/tests/test_methods.py`.
-
-## Discoveries: nine questions, tested before they were asked
-
-The **Discoveries** section asks whether careful counting can find something new in the Quran, and answers the way a scientist would. Before any study was run, the nine studies were written down in [`data-build/discover/PREREGISTRATION.md`](data-build/discover/PREREGISTRATION.md) and pushed (commit `1a7b768`): the data, the test, the number of shuffles and the bar for a yes (5%). An addendum on study 2, telling apart three claims that al-Baqarah is a mirror, was written down the same way before it was run. Each study compares the Quran with thousands of shuffled copies of itself (a permutation test), corrects for its own number of tests, and reports every answer, including the no's. Each page also says what scholars had found before, so that confirming a known result is not presented as a discovery.
-
-| Study | Question | Answer |
+| Section | Pages | Short links |
 |---|---|---|
-| 1 | Do the divine names that close a verse fit what the verse says? | Holds, modestly (36% right against 31%; p = 0.002 and 0.0075 after Holm; [corrected](data-build/discover/PREREGISTRATION.md#corrections-after-publication) on 30 September 2026) |
-| 2 | Is al-Baqarah built as a mirror? Three claims, told apart | The ring does not show in the words: not verse by verse (p = 0.26; no long surah passes) and not in Farrin's section pairing (p = 0.25; [added before running](data-build/discover/PREREGISTRATION.md#addendum-a-the-mirror-claims-told-apart-written-on-30-september-2026-before-any-of-it-was-run)). 2:143, «a middle nation», does end the first half of the 286 verses in the Kufan count, but it comes 41% of the way through the words. In Ayat al-Kursi, one of the four mirror pairs shares roots (exploratory) |
-| 3 | Does the rhyme change where the topic changes? | Holds (p = 0.0005) |
-| 4 | Is each retelling of a prophet's story tuned to its own surah? | Holds (19 of 23 tellings; p = 0.0002) |
-| 5 | What are the main themes, and where do they run? | A map: 10 stable themes of 12 |
-| 6 | Which words travel together? | A map: 1,207 of 86,945 pairs pass a significance filter |
-| 7 | Do the opening letters mark anything? | (a) more common in their own surahs: does not hold (p = 0.059); (b) families share vocabulary: holds (p = 0.009), partly because they are neighbours |
-| 8 | Which verses nearly repeat? | A map: 74 refrains and 217 near pairs, with the differing words marked |
-| 9 | Does the style change over the order of revelation? | Holds (ρ = 0.67): a known result, found again |
+| **Read** | Reader, Word Search, Mushaf Layouts, Hifz Planner | `/reader`, `/search`, `/mushaf-layouts`, `/hifz` |
+| **Claims** | Word Counts, Word Pairs, Number 19, Iron, Bee and Noah, Abjad, How many words?, How many letters?, History Claims, Science Verses | `/word-counts`, `/word-pairs`, `/19`, `/iron-bee-noah`, `/abjad`, `/how-many-words`, `/how-many-letters`, `/history`, `/science` |
+| **Discoveries** | Nine studies, each tested against chance with the test written down first | `/discoveries`, `/verse-endings`, `/mirrors`, `/rhyme`, `/retellings`, `/themes`, `/companions`, `/opening-letters`, `/near-repeats`, `/revelation-order` |
+| **Explore** | Overview, Words, Letters, Mecca and Medina, Tone and Voice, Similar Surahs, Knowledge Graph | `/overview`, `/words`, `/letters`, `/mecca-medina`, `/tone`, `/similar-surahs`, `/knowledge-graph` |
+| **Library** | Stories, Lessons, Du'as, Scholars' Insights, Untranslatable Words | `/stories`, `/lessons`, `/duas`, `/insights`, `/untranslatable` |
 
-Each study page has the verdict, the figure (drawn in the verse sky where one point per verse fits), the test against chance as a histogram of the shuffled copies with the text itself marked, a simple and a scientific layer, what was known before, and lists of verses that open in the reader. The texts live in `web/discover.js`; the results in `web/discoveries.js`, written by `data-build/pipeline/discoveries.py` (`python3 -m pipeline.discoveries --write`, run from `data-build`, takes about ten minutes). `data-build/tests/test_discoveries.py` checks that the committed results still match the code and pins the numbers the texts quote. Both files load only when a Discoveries page is opened.
+Add `?lang=ar` to any address for Arabic. A verse opens with `/reader?s=2&v=255`, and a history claim with `/history?c=weep`. Older links such as `app.html?view=n19` still work and land on the same page.
 
-## Features
+Most pages explain themselves twice: in plain words, and for scientists (data, method, result, limits), with a switch at the top of the page.
 
-### Visualization (Page 17, Advanced Analytics)
-- **Animated hero stats dashboard**: 114 surahs · 6,236 verses · 77,429 words · 30 juz · 86 Meccan · 28 Medinan
-- **Did-You-Know carousel**: 10 curated insights surfacing patterns most readers never notice (Bismillah's 113 occurrences, Ar-Rahman's 31x refrain, the perfect 30-juz word-count balance)
-- **Revelation Pulse chart**: all 114 surahs in chronological order with the Hijra dashed line marking the Meccan→Medinan stylistic shift
-- **3 sunburst charts**: Quran structure, 30 juz, and scholarly thematic classification
-- **Surah DNA radar**: multi-dimensional comparison with 12 preset surah groups, smart dimension filter, find-similar-surahs, comparison matrix, correlation map, and galaxy view
-- **Treemap, heatmap, box plots, parallel coordinates, polar area**: every dimension of the text visualized
+| | |
+|---|---|
+| ![Word Counts](docs/screenshots/claims-word-counts.png) | ![How many words?](docs/screenshots/how-many-words.png) |
+| ![Discoveries](docs/screenshots/discoveries.png) | ![Mecca and Medina](docs/screenshots/mecca-medina.png) |
 
-### NLP Explorer (Page 18)
-- **Word cloud** with click-through to concordance
-- **N-gram explorer** (bigrams through 5-grams) with Plotly bar chart and paginated results table
+## How it is built
 
-### Concordance (Page 15)
-- KWIC (Key Word In Context) view of every matching verse
-- Tashkeel-aware Arabic search with bilingual results
-- Meccan/Medinan color coding
-- Paginated 50 results per batch
+- **`web/`** is the whole site: a landing page (`index.html`) and one Vue 3 app (`app.html`) with no build step. The numbers come from generated data files (`data.js`, `words.js`, `corpus.js`), loaded as each page needs them.
+- **`data-build/`** is the Python pipeline that produces those files from the Quranic Arabic Corpus, with tests that pin every published number.
+- **`api/`** holds one Vercel function that lets a few boxes ask TypeSafe's Jev a typed question. It is optional; without it the site works the same with plain matching.
 
-### Tafsir Insights (Page 14)
-- **74 scholarly insights** spanning 11 surahs and 8 named scholars (Al-Samarrai, Ibn Kathir, Al-Tabari, Al-Qurtubi, Al-Sa'di, Ibn Ashur, Al-Sha'rawi, Sayyid Qutb)
-- Categorized: Divine Wisdom · Linguistic Miracle · Scientific Signs · Historical Context · Quranic Rhetoric · Theology · Ethics · Recitation
-- Each insight linked to YouTube lectures or scholarly tafsir sources where applicable
-- Full-text search with on-screen Arabic keyboard
+[ARCHITECTURE.md](ARCHITECTURE.md) has the details: the page system, short links, the data pipeline, the knowledge graph and Jev.
 
-### Mushaf Reader, Stories Index, Du'a Library, Lessons
-- Madani mushaf layout
-- Searchable Quranic stories index with cast of figures and themes
-- 100+ du'as cataloged by topic
-- Educational lesson cards
-
-### Experimental: AutoResearch chart-tuning loop (`autoresearch/`)
-- Adapts [Karpathy's autoresearch pattern](https://github.com/karpathy/autoresearch) (released March 2026) to Plotly chart configuration
-- Iteratively mutates `electron-app/charts/configs/radar.json`
-- Scores each mutation with a hybrid evaluator: heuristic metrics + Claude Vision API judging rendered screenshots
-- Commits wins on the `autoresearch/radar` branch
-- See [`autoresearch/README.md`](autoresearch/README.md) for the experiment design
-
-### Two knowledge graphs (`graphify-out/`)
-
-This project ships **two** distinct knowledge graphs, both built with [graphify](https://github.com/safishamsi/graphify) (Karpathy-adjacent open-source tool for turning any folder into a queryable graph). Together they cover the full ML/data-science pipeline applied to one corpus: code structure AND content semantics.
-
-#### 1. Code knowledge graph: the project itself, indexed
-
-A hybrid AST + Claude-subagent extraction of every Python file, Vue component, screenshot, design doc, and the autoresearch loop. **631 nodes, 749 edges, 63 communities**, generated from a parallel pipeline (Python AST for deterministic structural edges + 6 parallel Claude general-purpose subagents for semantic and rationale edges across docs, screenshots, and the 9,900-line Vue app).
-
-<p align="center">
-  <img src="docs/screenshots/knowledge-graph.png" alt="Code knowledge graph: 631 nodes clustered into 63 communities" width="800"/>
-</p>
-
-| Output | Purpose |
-|--------|---------|
-| [`graphify-out/graph.html`](graphify-out/graph.html) | Interactive force-directed graph, open in any browser, click any node to inspect, filter by community |
-| [`graphify-out/GRAPH_REPORT.md`](graphify-out/GRAPH_REPORT.md) | Audit report: god nodes, surprising cross-community connections, suggested questions, hyperedges, per-community deep-dives |
-| [`graphify-out/graph.json`](graphify-out/graph.json) | Raw graph data for GraphRAG, agent retrieval, or Neo4j import |
-
-**Top "god nodes"** (most central abstractions the graph surfaced):
-
-| Rank | Node | Connections | Why it matters |
-|------|------|-------------|----------------|
-| 1 | `run()` in `autoresearch/orchestrator.py` | 27 | The iteration loop's central bridge. 6.6% of all shortest paths in the graph pass through this one function. |
-| 2 | `Vue 3 Root Component` | 26 | The single source of truth for the entire app's reactive state. |
-| 3 | `app.html` (~9,900 lines) | 17 | The project's main artifact, the file that everything else either feeds into or screenshots. |
-| 4 | `tokenize_arabic()` | 16 | The linguistic backbone, used by every NLP feature. |
-| 5 | `RadarRenderer` | 14 | The autoresearch subject of study, the chart being auto-tuned. |
-
-**Benchmark**: graphify queries cost **15.9x fewer tokens** than naive grep over the same corpus (42,066 tokens corpus → ~2,644 tokens per query).
-
-To regenerate after code changes: `/graphify --update` (incremental, only re-extracts changed files).
-
-#### 2. Quranic content knowledge graph
-
-The same technique applied to the Quran itself. **439 nodes, 929 edges, 28 communities, 72 hyperedges** generated from a 215-document markdown corpus covering nine layers of Quranic knowledge:
-
-| Layer | Count | What it covers |
-|-------|-------|----------------|
-| `surahs/` | 114 | Every surah, full Arabic + English text, themes, entities, revelation phase metadata |
-| `entities/` | 36 | 25 prophets + 6 other figures (Mary, Pharaoh, Iblis, Gabriel, etc.) + 7 places + 4 divine attributes |
-| `themes/` | 10 | Scholarly thematic clusters (Faith, Legislation, Prophets, Judgment, Warning, Ethics, Worship, Nature, Community, Patience) |
-| `special/` | 6 | Distinctive structural patterns (Bismillah occurrences, Ar-Rahman refrain, Iron miracle, Number 19, Cave 309-years, longest-to-shortest arrangement) |
-| `timeline/` | 5 | The five revelation phases (Early/Middle/Late Mecca + Early/Late Medina) with CE and Hijri dates |
-| `events/` | 14 | Major historical events from Cave of Hira (610 CE) through the Farewell Pilgrimage (632 CE) |
-| `asbab_nuzul/` | 15 | Classical occasions of revelation (change of qibla, slander of Aisha, Pleading Woman, Verse of Perfection, etc.) |
-| `tafsir_traditions/` | 8 | The major tafsir scholars: Tabari, Ibn Kathir, Qurtubi, Sa'di, Ibn Ashur, Sha'rawi, Sayyid Qutb, Al-Samarrai |
-| `sciences/` | 6 | Ulum al-Quran disciplines (Asbab al-Nuzul methodology, Nasikh-Mansukh abrogation, Muhkam-Mutashabih, Makki-Madani classification, Qira'at canonical readings, I'jaz inimitability) |
-
-<p align="center">
-  <img src="docs/screenshots/quran-knowledge-graph.png" alt="Knowledge graph of the Quran itself, 536 nodes, 86 thematic communities" width="800"/>
-</p>
-
-| Output | Purpose |
-|--------|---------|
-| [`quran_corpus/graphify-out/graph.html`](quran_corpus/graphify-out/graph.html) | Interactive force-directed graph of Quranic content |
-| [`quran_corpus/graphify-out/GRAPH_REPORT.md`](quran_corpus/graphify-out/GRAPH_REPORT.md) | Audit report: god surahs, surprising thematic bridges, suggested questions |
-| [`quran_corpus/graphify-out/graph.json`](quran_corpus/graphify-out/graph.json) | Raw graph data |
-| [`quran_corpus/`](quran_corpus/) | Source corpus (167 markdown files) |
-| [`scripts/build_quran_corpus.py`](scripts/build_quran_corpus.py) | Corpus regeneration script (idempotent) |
-
-**Top god nodes** (most-connected bridges in the graph):
-
-| Rank | Node | Connections | Why it's the most connected |
-|------|------|-------------|---------------------------|
-| 1 | **Al-Baqara (The Cow)** | 49 | The longest surah; touches every major theme (creation, law, prophets, Bani Israel, prayer, fasting, hajj, marriage, debt, riba, qibla) |
-| 2 | **Early Meccan Phase (610-615 CE)** | 42 | The revelation phase that contains the most surahs; the temporal hub of the graph |
-| 3 | **Aal-Imran** | 31 | Family of Mary, Battle of Uhud, Mubahala with Najran Christians |
-| 4 | **An-Nisa'** (The Women) | 27 | Family law, inheritance, post-Uhud orphan/widow protections |
-| 5 | **At-Tawba** | 27 | The Tabuk expedition, declaration of immunity, hypocrites |
-| 6 | **Al-An'am** (The Cattle) | 26 | Abraham's debate, cattle dietary laws, prophetic lineage |
-| 7 | **Al-Ma'ida** (The Table Spread) | 24 | Christianity, food laws, Verse of Perfection (last legislative) |
-| 8 | **Al-A'raf** (The Heights) | 24 | Extensive prophet narratives (Adam, Noah, Hud, Salih, Lot, Shu'ayb, Moses) |
-| 9 | **Maryam** | 24 | Mary, Jesus, John the Baptist; bridges Jewish and Christian narratives |
-| 10 | **Middle Meccan Phase (615-619 CE)** | 24 | Second temporal hub: Isra-Mi'raj, Migration to Abyssinia, intensified opposition |
-
-**Sample surprising connections** the graph surfaced:
-
-- `Moses` narrates the conflict with `Pharaoh` across 17 surahs simultaneously
-- `Rabb (the Lord)` is the most-cross-referenced divine name (97 surahs) yet the analytics around it are scattered
-- `Surah 6 Al-An'am` (Cattle, Mecca) is thematically nearer to `Noah and the flood narrative` than to surrounding Meccan surahs
-- The `tawaffa verse` in Surah 39:42 (sleep / death of souls) is semantically tied to Surah 3:55 (Jesus's ascension), validating the linguistic-miracle reading captured in the tafsir insights
-
-**Top thematic communities** the graph clustered (post-enrichment, 28 communities total):
-
-| Community | Size | What it groups |
-|-----------|------|----------------|
-| Late Medinan: Hijab, Zaynab, Divine Names | 65 | Late-period legal surahs + the asbab al-nuzul for hijab and Zaynab's marriage |
-| Divine Names Hub (Allah, Ar-Rahman, Ar-Rahim) | 62 | The most-cross-referenced entities in the graph |
-| Pleading Woman + Farewell Pilgrimage | 57 | Late-Medinan asbab cluster centered on Khawla bint Tha'laba and the Farewell sermon |
-| Battle of Uhud + Mubahala + Adam | 55 | Aal-Imran centric cluster with the Uhud aftermath verses and the Najran Christian debate |
-| Al-Baqara: Bani Israel, Adam, Ibrahim arcs | 50 | The longest surah's internal narrative arcs |
-| Asbab al-Nuzul Methodology | 18 | The classical occasions-of-revelation discipline and its key cases |
-| Late Meccan Eschatology | 16 | The detailed Day-of-Judgment surahs from the Late Mecca phase |
-| Historical Punishment Stories | 15 | Abu Lahab, People of the Elephant, People of the Trench, destroyed-nations narrative |
-| Tafsir Methodological Schools | 13 | bil-Mathur (transmitted), Muyassar (accessible), and the Israiliyyat critique |
-| Year of Sorrow + Destroyed Nations (Aad, Thamud) | 13 | The 619 CE death of Khadijah/Abu Talib + parallel pre-Islamic nations destroyed by God |
-| Farewell Pilgrimage + Tawhid | 12 | The 632 CE event + the doctrinal capstone surahs |
-| Early Mecca: Cave of Hira + Boycott | 11 | The first revelation + the social/economic boycott of Banu Hashim |
-| Al-Samarrai's Linguistic Bayani School | 10 | The tafsir tradition behind the app's Linguistic Miracle insights |
-| Special Patterns (Mu'awwidhatan, Refrain, Night of Decree) | 9 | The signature structural-numerical patterns |
-| Aisha Cluster (Slander, Light Verse) | 5 | Surah An-Nur centered on the al-Ifk incident |
-
-**Benchmark**: queries on this graph cost **3.5x fewer tokens** than naive grep (29,266 tokens corpus -> ~8,000 tokens per query). The reduction is lower than the code graph because the corpus is denser (more entities-per-node), but the *interpretive* value is higher: cross-thematic questions can now be answered with full historical and scholarly context in a single query.
-
-**What questions this graph can now answer that the previous version couldn't:**
-- "Which surahs were revealed during/about the Battle of Uhud?" - traces via `revealed_about` edges to event nodes
-- "What did Ibn Kathir say about verses with weak asbab narrations?" - traces from scholar -> approach -> sciences -> asbab cluster
-- "Which late-Medinan surahs introduce new legal rulings?" - traces via revelation phase + legislation theme
-- "How does the Tawaffa verse (39:42) connect to Jesus's ascension (3:55)?" - direct `semantically_similar_to` edge surfaced by the agent during extraction
-- "Trace Moses from his birth in Surah 28 through his confrontation with Pharaoh across the entire mushaf" - via entity hub + narrates edges
-
-To regenerate after corpus changes:
-```bash
-python3 scripts/build_quran_corpus.py   # base layer (surahs + entities + themes + special)
-python3 scripts/enrich_quran_corpus.py  # historical + scholarly layers
-cd quran_corpus && /graphify --update   # incremental graphify on changes only
-```
-
-## Jev features (optional)
-
-The site is a static page, and everything below works with plain matching in the browser. When a Jev endpoint is configured, a few judgement calls also go to [TypeSafe's Jev](https://typesafe.ai), which answers typed questions (yes/no, pick one) about a piece of text with probabilities instead of prose. Every number the site shows still comes from the corpus; Jev only decides things like which word a claim means.
-
-| Feature | Where | Without Jev | With Jev |
-|---|---|---|---|
-| **Check any claim** | Claim Auditor | Finds the word in an English or Arabic claim (modern or mushaf spelling) and counts it three ways: exactly as written, all forms of the word, the whole root. Says which count, if any, gives the claimed number, and how many "as written" hits are other words with the same spelling | Also decides which word the claim means when a spelling covers several (ملك: angel, king, dominion) and which way of counting it implies |
-| **Search hints** | Word Search | Each mode button shows its count; suggests the mushaf spelling when a modern one finds nothing (الملائكة → الملئكة); splits a spelling into the dictionary words it covers | No Jev call |
-| **Ask the site** | Home | Surah names, claims and single words go straight to their page; other questions are matched by keywords | Picks the page for open questions, and says when a question isn't about the Quran |
-| **A du'a or lesson for how you feel** | Du'as, Lessons | Keyword matching to a category | Picks the category from a description in your own words |
-| **Second opinions** | Classifier, Emotion | Hidden | Jev's Meccan/Medinan and tone judgements for the opening of every surah, from a batch run |
-| **Library tag review** | `data-build/reports/` | Not available | A maintainer report of du'as and lessons whose category Jev disagrees with. Nothing on the site changes from it |
-
-Jev replaces what plain matching found only when the two agree, when plain matching found nothing, or when Jev is reasonably sure (confidence 0.5 or more); otherwise its pick is offered as an alternative. If Jev can't be reached or refuses a call, the box shows the plain-matching result as if Jev were off, and the rest of the visit doesn't ask it again.
-
-**Privacy and safety.** With Jev on, the text typed into the claim, ask and situation boxes is sent to the site's `/api/decide` function on Vercel and from there to TypeSafe's Jev (through Vercel's AI Gateway, unless a TypeSafe key is set); each box says so. A description that mentions self-harm is never sent anywhere: the page shows a note with a link to [find a helpline](https://findahelpline.com) instead. With `jevEndpoint` empty (the default), nothing leaves the browser.
-
-### Turning it on
-
-1. Import this repository as a project on [Vercel](https://vercel.com), with the framework preset **Other**. `vercel.json` serves `web/` as the site and `api/decide.js` as the function; there is no build step and no key to add.
-2. On Vercel the function reaches Jev through [Vercel's AI Gateway](https://vercel.com/docs/ai-gateway/sdks-and-apis/typesafe), signed in with the project's own OIDC token, so calls are billed to the Vercel account as AI Gateway usage. Jev isn't covered by the gateway's free monthly credit (its free launch promotion ended on 26 September 2026), so it answers only once the account has paid AI Gateway credit. Until then the gateway refuses every call and the site quietly carries on with plain matching, without a message, and stops asking Jev for the rest of the visit. With credit, set an [AI Gateway budget](https://vercel.com/docs/ai-gateway/observability-and-spend/budgets): the per-IP rate limit is kept per serverless instance, so it is a speed bump, not a cap.
-3. Put the function's URL in `web/config.js`, for example `window.QTA_CONFIG = { jevEndpoint: 'https://your-project.vercel.app/api/decide' };`, and push. GitHub Pages redeploys and the features switch on.
-
-Optional settings, in the Vercel project's **Settings → Environment Variables**:
-
-| Variable | Default | What it does |
-|---|---|---|
-| `TYPESAFE_API_KEY` | not set | A key from a TypeSafe account ([console.typesafe.ai](https://console.typesafe.ai), Settings → Keys). When set, Jev is asked on TypeSafe's own API instead of the gateway, and billed there. |
-| `AI_GATEWAY_API_KEY` | not set | An AI Gateway key, for running the function or the batch jobs outside Vercel |
-| `ALLOWED_ORIGINS` | `https://heshamabourokaia.github.io` | The sites allowed to call the function, separated by commas |
-| `RATE_LIMIT_PER_MINUTE` | 30 | Requests per IP address per minute |
-| `JEV_MODEL` | `typesafe-ai/jev` on the gateway, `jev-latest` on TypeSafe | Which Jev model to ask |
-
-Keep any key there only: never commit it or paste it anywhere else.
-
-The endpoint can only ask the three fixed kinds of question in `api/_jev.js` (claim, route, situation), rejects other origins, caps the text length, and answers only "off topic" for text that isn't about the Quran, so it can't be used as a general-purpose classifier. The request and answer shapes follow TypeSafe's documentation, which the gateway serves unchanged; `parseAnswer` in `api/_jev.js` is the one place to adjust if the live API differs.
-
-### Batch jobs
+## Run it locally
 
 ```bash
-node data-build/jev/run-batch.js --dry-run            # how many Jev calls a run needs (341 for everything)
-AI_GATEWAY_API_KEY=... node data-build/jev/run-batch.js # surahs + tags (or TYPESAFE_API_KEY=...)
+python3 -m http.server 8765 --directory web
 ```
 
-This writes `web/content/jev-data.js` (shown in the Classifier and Emotion views) and `data-build/reports/jev-tag-review.md`. Each surah is one call that asks both questions. Answers are cached in `data-build/jev/cache/` (gitignored), so a re-run only pays for new questions. Use `--jobs surahs` or `--jobs tags` for one job and `--limit N` for a sample.
+Then open <http://localhost:8765/app.html>. Locally the short links are off, so pages use `app.html?view=...` addresses.
 
-### Developing without a key
+## Rebuild the data
 
 ```bash
-node data-build/jev/mock-jev.js &     # a stand-in for Jev on :8788
-JEV_URL=http://127.0.0.1:8788/v1/systemone TYPESAFE_API_KEY=test node data-build/jev/dev-server.js
-# open http://localhost:8000/app.html: config.js is served with the endpoint switched on
-node data-build/jev/test-client.js && node data-build/jev/test-endpoint.js
-node data-build/jev/run-batch.js --mock   # writes under data-build/jev/cache/mock only
+cd data-build
+/usr/bin/python3 build.py
+for t in tests/test_*.py; do /usr/bin/python3 "$t"; done
 ```
 
-The mock answers by keyword overlap and labels itself `jev-mock`; its output is refused anywhere under `web/` or `data-build/reports/`.
+Use a Python with a working scikit-learn (the macOS system Python here). The build stops if the corpus totals change: 114 surahs, 6,236 verses, 77,429 words.
 
-## Screenshots
+## Repository
 
-The same page rendered in both languages. Every chart label, badge, hover template, and content card swaps via the runtime `lang` toggle. Notice the bidirectional layout: RTL/LTR text direction, chart axis flipping, and right-aligned vs left-aligned typography all swap together.
-
-### Advanced Analytics (page 17): hero stats, Did-You-Know carousel, Revelation Pulse chart
-
-| Arabic UI | English UI |
-|:---:|:---:|
-| ![Advanced Analytics in Arabic](docs/screenshots/hero-overview.png) | ![Advanced Analytics in English](docs/screenshots/hero-overview-en.png) |
-
-### NLP Explorer (page 18): word cloud + N-gram explorer
-
-| Arabic UI | English UI |
-|:---:|:---:|
-| ![NLP Explorer in Arabic](docs/screenshots/nlp-explorer.png) | ![NLP Explorer in English](docs/screenshots/nlp-explorer-en.png) |
-
-### Concordance (page 15): tashkeel-aware KWIC search
-
-| Arabic UI | English UI |
-|:---:|:---:|
-| ![Concordance in Arabic](docs/screenshots/concordance.png) | ![Concordance in English](docs/screenshots/concordance-en.png) |
-
-### Numerical Insights (page 14): verifiable Bismillah counts, 19-multiples, abjad patterns
-
-| Arabic UI | English UI |
-|:---:|:---:|
-| ![Numerical Insights in Arabic](docs/screenshots/tafsir-insights.png) | ![Numerical Insights in English](docs/screenshots/tafsir-insights-en.png) |
-
-## Architecture
-
-```mermaid
-graph LR
-    subgraph "Data pipeline (Python, offline)"
-        A[semarketir/quranjson] --> B[enrich_data.py]
-        B --> C[verses_compact.json]
-        B --> D[surah_extended.json]
-        B --> E[quran_madani.json]
-    end
-
-    subgraph "Frontend (single-file Vue app)"
-        C --> F[app.html<br/>~9,900 lines]
-        D --> F
-        E --> F
-        F --> G[19 interactive pages]
-        G --> H[Plotly visualizations]
-        G --> I[KWIC concordance]
-        G --> J[NLP Explorer]
-        G --> K[Tafsir search]
-    end
-
-    subgraph "Distribution"
-        F --> L[Electron .app<br/>universal binary]
-        F --> M[Static web build<br/>planned]
-    end
-
-    subgraph "Experimental: AutoResearch"
-        N[mutate.py] --> O[radar.json config]
-        O --> P[render.py<br/>headless screenshot]
-        P --> Q[Claude Vision API<br/>+ heuristic evaluator]
-        Q --> R{best?}
-        R -->|yes| S[git commit on<br/>autoresearch/radar]
-        R -->|no| N
-    end
 ```
-
-See [ARCHITECTURE.md](ARCHITECTURE.md) for the detailed deep-dive.
-
-## Tech stack
-
-| Layer | Technology |
-|-------|------------|
-| UI framework | Vue.js 3 (single-file app, no build step) |
-| Charts | Plotly.js 2.27 |
-| Animation | GSAP 3.15 with ScrollTrigger and SplitText (landing page scroll story); Lenis 1.3 smooth scrolling on the landing page for a mouse or trackpad (touch keeps native scrolling, and it stays off under reduced motion); in the app, headline reveals, magnetic buttons and tilting tiles |
-| 3D | three.js r170: the landing page draws every one of the 6,236 verses as a point and re-arranges them as you scroll; in its claim theater the same points gather into four famous claims, one point per mention (a calendar for يوم, a scale that balances angels against devils and tips for Paradise against Hell, and the name الله written in its 2,699 mentions), each hoverable to its verse; further down it becomes a sky of the 60 most-used roots (circles sized by count), the coincidence explorer's 4,771 lemma points lit by the chosen number, and a map of the 114 surahs placed only by vocabulary similarity (each linked to its five closest by lemma TF-IDF), where the Medinan surahs gather together; the same field sits behind the app (`web/sky.js`), changes shape for each page, and lights up the surah you are reading; on the app's chart pages it draws the page's main figure itself in a transparent stage that follows the page as you scroll (each surah's verses as columns, every verse by its length, lemma and letter counts as bars of light, heaps of one point per emotion word or pronoun, the whole Quran as a carpet of verses with a search's matches or the cited verses lit, surahs as discs of their verses, the twelve claims as outlines of the claimed number filled by one point per counted mention, and the coincidence grid), hoverable to what each point is, with the Plotly chart as the fallback where WebGL isn't available |
-| Judgement calls (optional) | TypeSafe Jev through one Vercel function (`api/decide.js`); see [Jev features](#jev-features-optional) |
-| Desktop | Electron 28 (universal Intel + ARM Mac binary) |
-| Data preprocessing | Python 3 (pandas, openpyxl) |
-| AutoResearch evaluator | Anthropic Claude Sonnet 4.5 (Vision API) |
-| Planned: NLP backend | Python (sentence-transformers, BERTopic), Ollama for local LLM |
-
-## Roadmap
-
-The shipped release focuses on descriptive analytics. Phase 2 extends into applied ML, see [ROADMAP.md](ROADMAP.md) for technical detail and milestones.
-
-- [ ] **Semantic search** via `intfloat/multilingual-e5-large` embeddings, in-browser cosine similarity over 6,236 pre-computed verse vectors (~38 MB bundled)
-- [ ] **Topic clustering** with BERTopic (offline Python pipeline → JSON topic map, interactive Plotly visualization)
-- [ ] **RAG Q&A**, Ollama (local, Electron) or hidden Anthropic API (web demo). Top-K retrieval from embeddings + cited verse responses
-- [ ] **Public web demo**, static Vercel build with embeddings/topics bundled
-
-## Install
-
-### Desktop (macOS)
-
-```bash
-git clone https://github.com/HeshamAbourokaia/quran-text-analytics
-cd quran-text-analytics/electron-app
-nvm use 20    # requires Node 20
-npm install
-npm run build-mac
-open dist/mac-universal/Quran\ Text\ Analytics.app
+web/            the site (deployed by Vercel)
+data-build/     the data pipeline, its tests, and the knowledge-graph builder
+api/            the optional Jev function
+docs/           design notes, screenshots, a Tableau workbook
+vercel.json     what Vercel serves, and the short links
 ```
-
-### Development (browser)
-
-```bash
-cd quran-text-analytics/electron-app
-python3 -m http.server 8000
-# Visit http://localhost:8000/app.html
-```
-
-### AutoResearch loop (advanced)
-
-Requires an Anthropic API key for the vision evaluator.
-
-```bash
-cd quran-text-analytics
-python3 -m venv .venv && source .venv/bin/activate
-pip install -e autoresearch/
-export ANTHROPIC_API_KEY='sk-ant-...'
-python autoresearch/orchestrator.py --iterations 20
-```
-
-See [`autoresearch/README.md`](autoresearch/README.md) for full options.
 
 ## Data sources
 
-- Quran Arabic text: [semarketir/quranjson](https://github.com/semarketir/quranjson) (Madani mushaf, Hafs riwayah)
-- English translations: Sahih International, Yusuf Ali (public domain)
-- Tafsir insights: original synthesis from Al-Samarrai's *Lamasat Bayania* lectures, Ibn Kathir, Al-Tabari, Al-Qurtubi, Al-Sa'di, Ibn Ashur, Al-Sha'rawi, Sayyid Qutb
-- Thematic classification: scholarly categorization of all 114 surahs
+- **Word-level morphology:** the [Quranic Arabic Corpus](https://corpus.quran.com) (Kais Dukes, University of Leeds), via [mustafa0x/quran-morphology](https://github.com/mustafa0x/quran-morphology), used with attribution.
+- **Page layout of the Madinah mushaf:** [zonetecde/mushaf-layout](https://github.com/zonetecde/mushaf-layout), from the King Fahd Complex's 604-page print.
+- **English translation:** M. M. Pickthall, *The Meaning of the Glorious Koran* (1930), public domain, verse-aligned text from the [Tanzil Project](https://tanzil.net/trans/).
+- **Early word and letter counts:** al-Qurtubi, introduction to *al-Jami li-Ahkam al-Quran*.
+- **Scholars' insights:** an original synthesis from al-Samarrai's *Lamasat Bayania* lectures, Ibn Kathir, al-Tabari, al-Qurtubi, al-Sa'di, Ibn Ashur, al-Sha'rawi and Sayyid Qutb.
 
-## License
+## Licence
 
-[MIT](LICENSE), text and visualizations are open for reuse with attribution. The underlying Quranic text is in the public domain.
+[MIT](LICENSE). The Quranic text is in the public domain.
 
 ## Author
 
-**Hesham (Sam) Abourokaia**, Data Scientist with 14+ years in insurance analytics, currently completing a Master of Business Analytics at Deakin University in Australia.
+**Hesham (Sam) Abourokaia**, Melbourne. A claims professional moving into analytics, finishing a Master of Business Analytics at Deakin University. Arabic is my first language, which is why the site was built in Arabic and English side by side from the first commit rather than translated afterwards.
 
-Native Arabic speaker (Egyptian background) and fluent English (working and studying in English daily). This dual-language fluency is the reason the project was built bilingually from the first commit: every chart label, hover template, scholarly tafsir entry, and UI control swaps cleanly between Arabic and English via a runtime toggle, with proper RTL/LTR handling on both sides. It is not a translation layer, it is a parallel implementation.
-
-Reach me on [LinkedIn](https://www.linkedin.com/in/heshamabourokaia/) or [GitHub](https://github.com/HeshamAbourokaia).
-
----
-
-<sub>Built between April and May 2026 as a learning project to apply NLP and information-design techniques to a corpus I care about. Feedback, issues, and PRs welcome.</sub>
+[LinkedIn](https://www.linkedin.com/in/heshamabourokaia/) · [GitHub](https://github.com/HeshamAbourokaia)
