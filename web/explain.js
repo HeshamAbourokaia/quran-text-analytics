@@ -202,6 +202,18 @@ window.DALEEL_EXPLAIN = (function () {
       limits: ['Conventions differ: the Maghribi order gives some letters other values, and ة and hamza are treated in several ways. A total is arithmetic, not evidence of meaning.',
         'الأعراف مختلفة: فالترتيب المغربي يعطي بعض الحروف قيمًا أخرى، وللتاء المربوطة والهمزة معاملاتٌ متعددة. والمجموع حسابٌ لا دليلٌ على معنى.'] },
 
+    lettercount: {
+      purpose: ['Show why the early letter counts of the Quran differ from each other and from a modern count, by counting one text under each rule.',
+        'بيان سبب اختلاف الأعداد القديمة لحروف القرآن فيما بينها وعن العدّ الحديث، بعدّ نصٍّ واحد بكل قاعدة.'],
+      data: ['The Quranic Arabic Corpus in Uthmani script: 325,665 letters (the letters of the Uthmani spelling; vowel marks, small signs and the tatweel left out), the count the Letters page uses. The early counts are from al-Qurtubi’s introduction to al-Jami li-Ahkam al-Quran.',
+        'المدوّنة القرآنية العربية بالرسم العثماني: ٣٢٥٬٦٦٥ حرفًا (حروف الرسم العثماني، بلا حركاتٍ ولا علاماتٍ صغيرة ولا تطويل)، وهو العدد الذي تعتمده صفحة الحروف. والأعداد القديمة من مقدمة القرطبي في «الجامع لأحكام القرآن».'],
+      method: ['Each word is read sign by sign. A written letter is one; under the rules, a shadda adds its letter again (22,678), a small alif not resting on ى adds an alif (6,652), the small waw and ya add a letter each (2,252), tanween adds a nun (8,893), the opening letters give way to their names (+135), and a standalone hamza ء is dropped (3,059). The Basmala adds 19 letters at 112 surah heads (2,128), and its own 3 doubled letters and small alif when those rules are on. The rules add exactly.',
+        'تُقرأ كل كلمةٍ علامةً علامة. الحرف المكتوب واحد؛ وبالقواعد تضيف الشدّة حرفها مرةً ثانية (٢٢٬٦٧٨)، وتضيف الألف الصغيرة التي لا تقع على الياء ألفًا (٦٬٦٥٢)، وتضيف الواو والياء الصغيرتان حرفًا لكلٍّ منهما (٢٬٢٥٢)، ويضيف التنوين نونًا (٨٬٨٩٣)، وتحلّ أسماء الحروف المقطّعة محلّ رسمها (+١٣٥)، وتُحذف الهمزة المنفردة ء (٣٬٠٥٩). وتضيف البسملة ١٩ حرفًا في رأس ١١٢ سورة (٢٬١٢٨)، مع حروفها المشددة الثلاثة وألفها الصغيرة حين تُفعَّل تلك القواعد. والقواعد تُجمع جمعًا تامًّا.'],
+      result: ['As printed 325,665; as first written (no hamza) 322,606, between Mujahid’s 321,180 and Ata’s 323,015; every letter read aloud 366,275. None of the 128 rule sets gives an early count exactly; the nearest are 274 from Ata’s and 202 from al-Himmani’s.',
+        'كما في المصحف ٣٢٥٬٦٦٥؛ وكما كُتب أول مرة (بلا همزة) ٣٢٢٬٦٠٦، بين عدّ مجاهد ٣٢١٬١٨٠ وعدّ عطاء ٣٢٣٬٠١٥؛ وبكل حرفٍ يُقرأ ٣٦٦٬٢٧٥. ولا تعطي أيٌّ من مجموعات القواعد الـ١٢٨ عددًا قديمًا تمامًا، وأقربها على بُعد ٢٧٤ من عدّ عطاء و٢٠٢ من عدّ الحِمّاني.'],
+      limits: ['The early counters’ rules and manuscripts are not known in detail, so a near fit shows how large each rule is, not how they counted. Pronunciation follows the Hafs reading as printed; assimilation (idgham) and the other recitation rules are not modelled.',
+        'لا تُعرف قواعد العادّين الأوائل ولا مصاحفهم بالتفصيل، فالتوفيق القريب يدلّ على حجم أثر كل قاعدة لا على طريقتهم. والنطق هنا نطق رواية حفص كما في المصحف المطبوع، ولا يُحسب الإدغام ولا غيره من أحكام التلاوة.'] },
+
     wordcount: {
       purpose: ['Show why published word totals for the Quran differ, by counting one text under each rule people use.',
         'بيان سبب اختلاف الأعداد المنشورة لكلمات القرآن، بعدّ نصٍّ واحد بكل قاعدةٍ يعتمدها الناس.'],
