@@ -16,6 +16,7 @@ from pipeline import optimisation as optim_mod
 from pipeline import montecarlo as mc_mod
 from pipeline import lemma_variants as lemma_variants_mod
 from pipeline import wordcount as wordcount_mod
+from pipeline import lettercount as lettercount_mod
 
 OUT = os.path.join(os.path.dirname(__file__), 'out')
 DATA_VERSION = '2.0.0'
@@ -91,7 +92,7 @@ def main():
     os.makedirs(web_dir, exist_ok=True)
     payload = {'stats': {'totals': stats, 'surahStats': surah_stats, 'verseWords': verse_words},
                'claims': claim_rows, 'datasets': datasets, 'analytics': analytics, 'manifest': manifest,
-               'wordcount': wordcount_mod.build()}
+               'wordcount': wordcount_mod.build(), 'lettercount': lettercount_mod.build()}
     with open(os.path.join(web_dir, 'data.js'), 'w', encoding='utf-8') as fh:
         fh.write('window.QURAN_DATA = ')
         json.dump(payload, fh, ensure_ascii=False, separators=(',', ':'))

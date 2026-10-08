@@ -1162,7 +1162,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .wt-sw i::after{content:'';position:absolute;top:3px;inset-inline-start:3px;width:14px;height:14px;border-radius:50%;background:#fff;transition:inset-inline-start .25s cubic-bezier(.2,1.4,.4,1)}
   .wt-sw[aria-checked="true"] i{background:var(--c)} .wt-sw[aria-checked="true"] i::after{inset-inline-start:17px}
   .wt-n{font-variant-numeric:tabular-nums;font-size:.86rem;color:var(--on-dark-3)} .wt-rule.on .wt-n{color:var(--c)}
-  .wt-say{margin:6px 0 6px;font-size:.8rem;line-height:1.6;color:var(--on-dark-2)} .wt-say bdi,.wt-sub bdi{white-space:nowrap}
+  .wt-say{margin:6px 0 6px;font-size:.8rem;line-height:1.6;color:var(--on-dark-2)} .wt-say bdi,.wt-sub bdi{white-space:nowrap;font-family:var(--ar-display);font-size:1.18em;line-height:1}
   .wt-ex{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
   .wt-exw{display:inline-flex;align-items:baseline;gap:6px;font:inherit;color:var(--on-dark);background:rgba(255,255,255,.04);border:1px solid var(--hair);border-radius:10px;padding:2px 10px;cursor:pointer}
   .wt-exw:hover{background:rgba(255,255,255,.08)} .wt-exw bdi{font-family:var(--ar-display);font-size:1.3rem;line-height:1.7}
@@ -1191,6 +1191,20 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .wt-src blockquote{margin:4px 0 14px;padding:10px 16px;border-inline-start:3px solid var(--gold);background:rgba(233,185,95,.06);border-radius:10px;font-family:var(--ar-display);font-size:1.3rem;line-height:1.9;color:#fff}
   .wt-src cite{display:block;font-family:var(--sans);font-style:normal;font-size:.74rem;color:var(--on-dark-3)}
   .wt-links{display:flex;flex-wrap:wrap;gap:8px 18px} .wt-links a{color:var(--teal);text-decoration:none;font-size:.82rem} .wt-links a:hover{text-decoration:underline}
+  /* How many letters? (shares the wt- styles) */
+  .lt-hero{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+  .lt-near{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin:12px 0 0;font-size:.78rem;color:var(--on-dark-3)}
+  .lt-nearnote{margin:8px 0 0;font-size:.8rem;line-height:1.6;color:var(--gold)}
+  .wt-mark.s-l .lab{transform:translateX(calc(-100% + 8px));align-items:flex-end} .wt-mark.s-r .lab{transform:translateX(-8px);align-items:flex-start}
+  .lt-text{margin:12px 0 8px;font-family:var(--ar-display);font-size:1.6rem;line-height:1.9;color:#fff}
+  .lt-tiles{display:flex;flex-wrap:wrap;gap:10px 14px;margin:0 0 10px}
+  .lt-w{display:inline-flex;flex-wrap:wrap;gap:3px}
+  .lt-t{display:grid;place-items:center;min-width:1.7em;height:2em;padding:0 .2em;border-radius:6px;background:rgba(255,255,255,.07);font-family:var(--ar-display);font-size:1.1rem;line-height:1;color:#fff;transition:background .3s,color .3s}
+  .lt-t.add{color:var(--c);background:color-mix(in srgb,var(--c) 20%,transparent);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c) 55%,transparent);animation:wtpop .4s cubic-bezier(.2,1.5,.4,1) both}
+  .lt-t.off{color:var(--c);opacity:.5;text-decoration:line-through;text-decoration-thickness:2px;background:transparent;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c) 45%,transparent)}
+  .lt-link{margin:10px 0 0}
+  @media (prefers-reduced-motion: reduce){ .lt-t.add{animation:none} }
+  @media (max-width:760px){ .lt-text{font-size:1.3rem} .lt-t{font-size:.95rem;min-width:1.5em;height:1.8em} }
   .kpilink{display:block;margin:6px auto 0;font:inherit;font-size:.7rem;color:var(--teal);background:none;border:0;padding:0;cursor:pointer} .kpilink:hover{text-decoration:underline}
   @media (prefers-reduced-motion: reduce){ .wt-p.cut{animation:none} .wt-bar span{transition:none} }
   @media (max-width:760px){ .wt-hero{grid-template-columns:1fr} .wt-fig b{font-size:2.6rem} .wt-total b{font-size:2.9rem}
@@ -2400,6 +2414,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
       <figure class="stagefig" :class="{wait: !skyReady}"><div class="stage st-bars-v" data-stage="letters" role="img" :aria-label="stageInfo.label"></div><figcaption class="stcap" v-if="stageInfo.cap"><span class="ic" aria-hidden="true"></span>{{ stageInfo.cap }}</figcaption></figure>
       <div class="card glfb"><div class="chart" id="letChart"></div></div>
       <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> <span v-html="rich(plain.msg)"></span></div>
+      <p class="lt-link"><button type="button" class="kpilink" style="margin:0" @click="go('lettercount')">{{ lang==='ar' ? 'كم حرفًا في القرآن كله، ولماذا اختلفت الأعداد القديمة؟ ‹' : 'How many letters in all, and why the early counts differ ›' }}</button></p>
     </section>
 
     <!-- WORD SEARCH -->
@@ -2605,6 +2620,13 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
       <h1>{{ lang==='ar' ? 'كم كلمةً في القرآن؟' : 'How many words are in the Quran?' }}</h1>
       <explain-box></explain-box>
       <word-total-lab></word-total-lab>
+    </section>
+
+    <!-- HOW MANY LETTERS: the same text counted under each rule -->
+    <section v-if="view==='lettercount'">
+      <h1>{{ lang==='ar' ? 'كم حرفًا في القرآن؟' : 'How many letters are in the Quran?' }}</h1>
+      <explain-box></explain-box>
+      <letter-total-lab></letter-total-lab>
     </section>
 
     <!-- HISTORY CLAIMS: the index -->
@@ -3360,6 +3382,13 @@ const PLAIN = {
       'كل مربعٍ حرف، وعموده مرسومٌ بمقياس قيمته، والمجموع يُعدّ بجانبها. وقاعدتان تغيّران المجموع: الترتيب المشرقي أو المغربي، وعدّ «ة» هاءً أو تاءً. وتُعرض كلمات القرآن التي لها المجموع نفسه.'],
     msg:['Abjad is an old way of writing numbers with letters. Poets and builders used it to date events: a line or an inscription whose letters add up to the year.',
       'حساب الجُمَّل طريقةٌ قديمة لكتابة الأرقام بالحروف، استعملها الشعراء والبنّاؤون في التأريخ: بيتٌ أو نقشٌ تجتمع حروفه على السنة.']},
+  lettercount:{
+    what:['How many letters are in the Quran? The printed mushaf has 325,665. Al-Qurtubi records three early counts: 321,180 (Mujahid), 323,015 (Ata ibn Yasar) and 340,740 (al-Himmani). They count the same text with different ideas of what a letter is.',
+      'كم حرفًا في القرآن؟ في المصحف المطبوع ٣٢٥٬٦٦٥ حرفًا. وينقل القرطبي ثلاثة أعدادٍ قديمة: ٣٢١٬١٨٠ (مجاهد)، و٣٢٣٬٠١٥ (عطاء بن يسار)، و٣٤٠٬٧٤٠ (الحِمّاني). وكلها عدٌّ للنص نفسه بفهمٍ مختلف لما يُعدّ حرفًا.'],
+    how:['Each switch is a rule about what counts as a letter. Turn one on and your total moves along the ruler, the verse below shows every letter as a tile (letters a rule adds in colour, letters it leaves out struck through), and the map lights the surahs that change most.',
+      'كل مفتاحٍ قاعدةٌ فيما يُعدّ حرفًا. شغّل قاعدةً فيتحرك مجموعك على المسطرة، وتظهر الآية في الأسفل حرفًا حرفًا (ما تضيفه القاعدة ملوّن، وما تحذفه مشطوب)، وتضيء الخريطة أكثر السور تغيّرًا.'],
+    msg:['Written the way the first mushafs were, without the hamza, the count falls between two of the early ones. The rest of the gap comes from what each counter took a letter to be: the shapes on the page, or the sounds read aloud.',
+      'إذا كُتب النص كما كُتبت المصاحف الأولى، بلا همزة، وقع العدد بين عددين من الأعداد القديمة. وما بقي من الفرق يأتي مما عدّه كلُّ عادٍّ حرفًا: الأشكال على الصفحة، أم الأصوات في القراءة.']},
   wordcount:{
     what:['How many words are in the Quran? The printed mushaf has 77,429. The count reported from Ata ibn Yasar, about 1,300 years ago, is 77,439. Both are right: they count the same text with different ideas of what a word is.',
       'كم كلمةً في القرآن؟ في المصحف المطبوع ٧٧٬٤٢٩ كلمة، وفي قول عطاء بن يسار قبل نحو ثلاثة عشر قرنًا ٧٧٬٤٣٩. والعددان صحيحان: فهما عدٌّ للنص نفسه بفهمين مختلفين لحدود الكلمة.'],
@@ -4805,7 +4834,8 @@ const WordTotalLab = {
       <p>{{ T(['77,429 is counted by computer from two separate files: the Quranic Arabic Corpus, and the page layout of the Madinah mushaf printed by the King Fahd Complex. They agree on every one of the 6,236 verses.','أما ٧٧٬٤٢٩ فيعدّه الحاسوب من ملفين مستقلين: المدوّنة القرآنية العربية (Quranic Arabic Corpus)، وتخطيط صفحات مصحف المدينة الذي يطبعه مجمّع الملك فهد. ويتفقان في كل آيةٍ من الآيات الـ٦٬٢٣٦.']) }}</p>
       <p>{{ T(['The rules behind 77,439 were not written down, and the count was made on a mushaf copied by hand. No rule on this page, alone or with others, lands exactly on it, so the 10 words between the two counts cannot be pinned to particular places. What the gap does show is how close a count made by hand came, some 1,300 years ago.','لم تُدوَّن القواعد التي عُدّ بها ٧٧٬٤٣٩، وقد كان العدّ على مصحفٍ منسوخٍ باليد. ولا تصل إليه أيّ قاعدةٍ في هذه الصفحة، وحدها أو مع غيرها، فلا يمكن تعيين مواضع الكلمات العشر بين العددين. لكن الفرق يُظهر كم اقترب عدٌّ باليد قبل نحو ١٣٠٠ عام.']) }}</p>
       <p class="wt-links"><a href="https://ar.wikisource.org/wiki/%D8%A7%D9%84%D8%AC%D8%A7%D9%85%D8%B9_%D9%84%D8%A3%D8%AD%D9%83%D8%A7%D9%85_%D8%A7%D9%84%D9%82%D8%B1%D8%A2%D9%86/%D8%A7%D9%84%D9%85%D9%82%D8%AF%D9%85%D8%A9/%D9%81%D8%B5%D9%84_%D9%88%D8%A3%D9%85%D8%A7_%D8%B9%D8%AF%D8%AF_%D8%AD%D8%B1%D9%88%D9%81%D9%87_%D9%88%D8%A3%D8%AC%D8%B2%D8%A7%D8%A6%D9%87" target="_blank" rel="noopener">{{ T(['Read al-Qurtubi’s passage','اقرأ نص القرطبي']) }} ›</a>
-        <a href="https://corpus.quran.com/" target="_blank" rel="noopener">Quranic Arabic Corpus ›</a></p>
+        <a href="https://corpus.quran.com/" target="_blank" rel="noopener">Quranic Arabic Corpus ›</a>
+        <button type="button" class="wt-where" @click="$root.go('lettercount')">{{ T(['And the letters? How many letters ›','والحروف؟ كم حرفًا ‹']) }}</button></p>
     </div>
     <p class="n19-note">{{ T(['Every number here comes from the corpus’s word pieces, and the page adds them up as you switch rules. The rules never overlap, so with every one on the total is the corpus’s 130,030 pieces.','كل رقمٍ هنا مأخوذٌ من أجزاء الكلمات في المدوّنة، وتجمعها الصفحة كلما غيّرت قاعدة. والقواعد لا تتداخل، فإذا شغّلتها كلها كان المجموع أجزاء المدوّنة الـ١٣٠٬٠٣٠.']) }}</p>
   </div>`,
@@ -4888,6 +4918,212 @@ function wtLetters(w){ const out=[]; for(const ch of w){ if(WT_MARK1.test(ch) &&
 // pieces of one word keep the shapes they have inside it: a joiner on each side of a cut between two joining letters
 function wtJoin(ps){ const out=ps.map(p=>({...p})); for(let j=0;j<out.length-1;j++){ const a=out[j], b=out[j+1];
     if(!a.t || !b.t || WT_NOJOIN.test(a.t.replace(WT_MARK,''))) continue; a.t+=WT_ZWJ; b.t=WT_ZWJ+b.t; } return out; }
+// How many letters? The same text counted under each rule (data in QURAN_DATA.lettercount, from data-build/pipeline/
+// lettercount.py). The printed mushaf has 325,665 written letters; al-Qurtubi records three early counts. Each rule
+// changes what counts as a letter, counted letter by letter in every word, so the rules add. The Basmala has its own
+// doubled letters and small alif, which count at each surah head when those rules are on too.
+const LT_PARTS = [
+  {id:'basmala', g:'text', c:'#e9b95f', lab:['The Basmala at each surah’s head','البسملة في رأس كل سورة'],
+    say:['«بسم الله الرحمن الرحيم» opens 112 more surahs, where it is not numbered as a verse. Its 19 written letters count there too.','تفتتح «بسم الله الرحمن الرحيم» ١١٢ سورةً أخرى لا تُعدّ فيها آية. وتُعدّ حروفها المكتوبة التسعة عشر هناك أيضًا.']},
+  {id:'hamza', g:'first', c:'#f0a08c', lab:['Leave out the hamza «ء»','بلا همزة «ء»'],
+    say:['The first mushafs did not write the hamza; its sign was added later. Take away the hamzas written on their own, as in شَىْءٍ and ٱلسَّمَآءِ.','لم تكن المصاحف الأولى تكتب الهمزة، وإنما أُضيفت علامتها لاحقًا. احذف الهمزات المكتوبة منفردةً، كما في شَىْءٍ وٱلسَّمَآءِ.']},
+  {id:'smallAlif', g:'small', c:'#38c6da', lab:['The small alif','الألف الصغيرة'],
+    say:['Read as a long a but written small above the line: ٱلرَّحْمَٰنِ, ذَٰلِكَ. Count it as a letter.','تُقرأ مدًّا بالألف وتُكتب صغيرةً فوق السطر: ٱلرَّحْمَٰنِ، ذَٰلِكَ. اعددها حرفًا.']},
+  {id:'smallWawYa', g:'small', c:'#8fb6ff', lab:['The small waw and ya','الواو والياء الصغيرتان'],
+    say:['They mark a long vowel after a pronoun: بِهِۦ, لَهُۥ. Count each as a letter.','تدلّان على مدٍّ بعد الضمير: بِهِۦ، لَهُۥ. اعدد كلًّا منهما حرفًا.']},
+  {id:'shadda', g:'aloud', c:'#c9a7ff', lab:['A doubled letter is two','الحرف المشدد بحرفين'],
+    say:['The shadda marks a letter said twice: ٱللَّهِ has two lams in speech, one on the page.','الشدّة علامةُ حرفٍ يُنطق مرتين: في ٱللَّهِ لامان في النطق ولامٌ واحدة في الرسم.']},
+  {id:'tanween', g:'aloud', c:'#34d399', lab:['The n of tanween','نون التنوين'],
+    say:['أَحَدٌ ends in an n sound that is not written as a letter. Count it.','تنتهي أَحَدٌ بصوت نونٍ لا يُكتب حرفًا. اعددها.']},
+  {id:'names', g:'aloud', c:'#f5c46a', lab:['The opening letters by name','الحروف المقطّعة بأسمائها'],
+    say:['الٓمٓ is read alif, lam, mim: 9 letters, not 3.','تُقرأ الٓمٓ: ألف، لام، ميم، أي تسعة أحرف لا ثلاثة.']},
+];
+const LT_GROUPS = [
+  {id:'text', lab:['What do you count?','ماذا تعدّ؟'], sub:['The verses only, or the Basmala too.','الآيات وحدها، أم البسملة معها.']},
+  {id:'first', lab:['As it was first written','كما كُتب أول مرة'], sub:['The early counters worked from mushafs copied by hand.','عدّ الأوائل من مصاحف منسوخةٍ باليد.']},
+  {id:'small', lab:['Letters written small','حروفٌ تُكتب صغيرة'], sub:['Small signs in the printed mushaf that are read as letters.','علاماتٌ صغيرة في المصحف المطبوع تُقرأ حروفًا.']},
+  {id:'aloud', lab:['As it is read aloud','كما يُقرأ بصوتٍ مسموع'], sub:['Count the sounds, not the shapes on the page.','اعدد الأصوات، لا الأشكال على الصفحة.']},
+];
+const LT_PRE = [
+  {id:'printed', on:[], lab:['As printed','كما في المصحف']},
+  {id:'first', on:['hamza'], lab:['As first written','كما كُتب أول مرة']},
+  {id:'basmala', on:['basmala'], lab:['With every Basmala','مع كل بسملة']},
+  {id:'aloud', on:['smallAlif','smallWawYa','shadda','tanween','names'], lab:['Every letter read aloud','كل حرفٍ يُقرأ']},
+];
+const LT_EARLY = {mujahid:{lab:['Mujahid','مجاهد'], by:['reported by Abdullah ibn Kathir','برواية عبد الله بن كثير'],
+    q:'هو ثلثمائة ألف حرف وأحد وعشرون ألف حرف ومائة وثمانون حرفا'},
+  ata:{lab:['Ata ibn Yasar','عطاء بن يسار'], by:['reported by al-Fadl ibn Shadhan','برواية الفضل بن شاذان'],
+    q:'وحروفه ثلثمائة ألف وثلاثة وعشرون ألفا وخمسة عشر حرفا'},
+  hammani:{lab:['al-Himmani','الحِمّاني'], by:['one of the reciters and scribes al-Hajjaj gathered to count','ممن جمعهم الحجاج من القرّاء والكتّاب للعدّ'],
+    q:'فأجمعنا على أن القرآن ثلثمائة ألف حرف وأربعون ألف حرف وسبعمائة حرف وأربعون حرفا'}};
+const LetterTotalLab = {
+  data(){ return {on:[], smp:'1:1', shown:325665, d0:320000, d1:342000, focus:'', hov:0, near:''}; },
+  template:`<div class="wt lt" v-if="LC">
+    <div class="wt-hero lt-hero">
+      <div class="wt-fig em"><b>{{ f(LC.base) }}</b><span>{{ T(['letters in the printed mushaf','حرفًا في المصحف المطبوع']) }}</span>
+        <small>{{ T(['Counted by computer: the letters as written, without vowel marks or small signs.','عدّها الحاسوب: الحروف كما تُكتب، بلا حركاتٍ ولا علاماتٍ صغيرة.']) }}</small></div>
+      <div v-for="e in early" :key="e.id" class="wt-fig gold"><b>{{ f(e.n) }}</b><span>{{ T(e.lab) }}</span><small>{{ T(e.by) }}</small></div>
+    </div>
+    <p class="wt-lead">{{ T(['Four counts of the same letters. The three early ones, recorded by al-Qurtubi, were made by hand some 1,300 years ago from mushafs that did not yet write the hamza, and their rules were not written down. Switch the rules below and watch the total move.','أربعة أعدادٍ للحروف نفسها. والثلاثة الأولى، كما نقلها القرطبي، عُدّت باليد قبل نحو ١٣٠٠ عام من مصاحف لم تكن تكتب الهمزة بعد، ولم تُدوَّن قواعدها. غيّر القواعد في الأسفل وشاهد المجموع يتحرك.']) }}</p>
+
+    <div class="wt-stage">
+      <div class="wt-top">
+        <div class="wt-total" aria-live="polite"><b>{{ f(Math.round(shown)) }}</b><span>{{ T(['letters, by your rules','حرفًا، بقواعدك']) }}</span>
+          <em v-if="total!==LC.base" :class="{neg: total<LC.base}">{{ deltaText }}</em></div>
+        <div class="wt-pre" role="group" :aria-label="T(['Ready-made counts','أعدادٌ جاهزة'])">
+          <button v-for="p in presets" :key="p.id" type="button" class="wt-chip" :class="{on: preset===p.id}" :aria-pressed="String(preset===p.id)" @click="usePre(p)">
+            <span>{{ T(p.lab) }}</span><b>{{ f(p.n) }}</b></button>
+        </div>
+      </div>
+      <div class="lt-near" role="group" :aria-label="T(['Get as close as the rules allow','اقترب قدر ما تسمح القواعد'])">
+        <span>{{ T(['Get as close as the rules allow to','اقترب قدر ما تسمح القواعد من']) }}</span>
+        <button v-for="e in early" :key="e.id" type="button" class="wt-chip small" :class="{on: near===e.id && nearOk}" @click="goNear(e.id)">{{ T(e.lab) }}</button>
+      </div>
+      <p class="lt-nearnote" v-if="nearNote">{{ nearNote }}</p>
+      <div class="wt-ruler" dir="ltr" role="img" :aria-label="rulerLabel">
+        <div class="wt-axis"></div>
+        <span v-for="t in ticks" :key="t" class="wt-tick" :style="{left: x(t)+'%'}"><i></i><small>{{ f(t) }}</small></span>
+        <span v-for="m in marks" :key="m.id" class="wt-mark" :class="['t-'+m.tone, 'r'+m.row, 's-'+m.side, {nolab: !m.showLab}]" :style="{left: m.x+'%'}">
+          <i></i><span class="lab"><b>{{ f(m.n) }}</b>{{ T(m.lab) }}</span></span>
+        <span class="wt-pin" :style="{left: x(shown)+'%'}"><i></i></span>
+      </div>
+      <div class="wt-bar" :aria-label="T(['What your total is made of','مكوّنات مجموعك'])">
+        <span v-for="s in bar" :key="s.id" :style="{width: s.w+'%', background: s.c}" :title="s.t"></span>
+      </div>
+
+      <div class="wt-groups">
+        <div v-for="g in groups" :key="g.id" class="wt-group">
+          <h4>{{ T(g.lab) }}</h4><p class="wt-sub" v-html="$root.rich(T(g.sub))"></p>
+          <div v-for="r in g.rules" :key="r.id" class="wt-rule" :class="{on: on.includes(r.id)}" :style="{'--c': r.c}">
+            <div class="wt-rh">
+              <button type="button" role="switch" class="wt-sw" :aria-checked="String(on.includes(r.id))" @click="tog(r.id)"><i></i><span>{{ T(r.lab) }}</span></button>
+              <b class="wt-n">{{ r.n<0 ? '-'+f(-r.n) : '+'+f(r.n) }}</b>
+            </div>
+            <p class="wt-say" v-html="$root.rich(T(r.say))"></p>
+            <div class="wt-ex">
+              <button v-for="e in r.ex.slice(0, r.id==='basmala' ? 1 : 3)" :key="e.k+e.w" type="button" class="wt-exw" data-dopen @click="$root.dOpen(e.k,[e.k],$event)" :title="T(['Open ','افتح '])+D(e.k)">
+                <bdi lang="ar" dir="rtl">{{ e.w }}</bdi><small v-if="r.id!=='basmala'">{{ e.n<0 ? '-'+f(-e.n) : '+'+f(e.n) }}</small></button>
+              <button type="button" class="wt-where" :class="{on: focus===r.id}" @click="focus = focus===r.id ? '' : r.id">{{ T(['Where?','أين؟']) }}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wt-panels">
+      <div class="wt-card wt-vpanel">
+        <h4>{{ T(['One verse, letter by letter','آيةٌ واحدة، حرفًا حرفًا']) }}</h4>
+        <div class="wt-smp" role="group" :aria-label="T(['Pick a verse','اختر آية'])">
+          <button v-for="s in LC.samples" :key="s.k" type="button" class="wt-chip small" :class="{on: smp===s.k}" :aria-pressed="String(smp===s.k)" @click="smp=s.k">{{ D(s.k) }}</button>
+        </div>
+        <p class="lt-text" lang="ar" dir="rtl">{{ sample.text.join(' ') }}</p>
+        <div class="lt-tiles" lang="ar" dir="rtl">
+          <span v-for="(w,i) in verse" :key="smp+i" class="lt-w" :class="{bas: w.bas}">
+            <span v-for="(t,j) in w.t" :key="j" class="lt-t" :class="{add: t.add, off: t.off}" :style="t.c ? {'--c': t.c} : null">{{ t.ch }}</span></span>
+        </div>
+        <p class="wt-vcount">{{ T([vCount+' letters here; '+vBase+' as written.', 'عدد الحروف هنا '+vCount+'، وفي الرسم '+vBase+'.']) }}
+          <button type="button" class="n19-open" data-dopen @click="$root.dOpen(smp,[smp],$event)">{{ T(['Open the verse ›','افتح الآية ‹']) }}</button></p>
+      </div>
+      <div class="wt-card wt-mpanel">
+        <h4>{{ T(['Which surahs change most','أكثر السور تغيّرًا']) }}</h4>
+        <p class="wt-sub" v-if="focus">{{ T(['Showing one rule: ','تُعرض قاعدةٌ واحدة: ']) }}<b>{{ T(partOf(focus).lab) }}</b> <button type="button" class="wt-x" @click="focus=''" :aria-label="T(['Show all the rules that are on','اعرض كل القواعد المفعّلة'])">✕</button></p>
+        <p class="wt-sub" v-else>{{ T(['Each square is a surah, 19 to a row. The brighter it is, the larger the change your rules make to its letters. Tap one to open it.','كل مربعٍ سورة، ١٩ في كل صف. وكلما اشتدّ لونه كبر التغيير الذي تُحدثه قواعدك في حروفها. انقره لتفتح السورة.']) }}</p>
+        <div class="wt-map" dir="ltr" @pointerleave="hov=0">
+          <button v-for="c in mapV" :key="c.n" type="button" class="sq" :class="{lit: c.add>0, neg: c.add<0, here: hov===c.n}" :style="c.add ? {'--a': (0.18+0.82*Math.abs(c.share)/mapMax).toFixed(3)} : null"
+            :title="c.n+'. '+$root.surahName(c.n)" @pointerenter="hov=c.n" @focus="hov=c.n" @click="$root.dOpen(c.n+':1',[c.n+':1'],$event)">{{ D(c.n) }}</button>
+        </div>
+        <p class="wt-read" aria-live="polite">{{ mapRead }}</p>
+      </div>
+    </div>
+
+    <div class="wt-card wt-src">
+      <h4>{{ T(['Where the numbers come from','من أين جاءت الأعداد']) }}</h4>
+      <p>{{ T(['Al-Qurtubi records three early counts of the letters in the introduction to his tafsir, al-Jami li-Ahkam al-Quran, and notes himself that they disagree:','ينقل القرطبي في مقدمة تفسيره «الجامع لأحكام القرآن» ثلاثة أعدادٍ قديمة للحروف، وينبّه هو نفسه إلى أنها تختلف:']) }}</p>
+      <blockquote v-for="e in early" :key="e.id" lang="ar" dir="rtl">«{{ e.q }}»<cite>{{ T(e.lab) }}{{ T([', ','، ']) }}{{ T(e.by) }}</cite></blockquote>
+      <p>{{ T(['325,665 is counted by computer from the Quranic Arabic Corpus, the same count as the Letters page: the letters of the Uthmani spelling, without vowel marks or the small signs added for reading.','أما ٣٢٥٬٦٦٥ فيعدّه الحاسوب من المدوّنة القرآنية العربية (Quranic Arabic Corpus)، وهو عدد صفحة الحروف نفسه: حروف الرسم العثماني، بلا حركاتٍ ولا العلامات الصغيرة التي أُضيفت للقراءة.']) }}</p>
+      <p>{{ T(['Written as the first mushafs were, without the hamza, the count is '+f(LC.totals.firstMushaf)+', between Mujahid’s and Ata’s. None of the '+f(nCombos)+' rule sets on this page lands exactly on any of the three, so their rules cannot be rebuilt from their totals. The nearest-rules buttons show how close a fit can come, not how they counted.','وبكتابة المصاحف الأولى، بلا همزة، يكون العدد '+f(LC.totals.firstMushaf)+'، بين عدّ مجاهد وعدّ عطاء. ولا تصل أيّ مجموعةٍ من مجموعات القواعد الـ'+f(nCombos)+' في هذه الصفحة إلى أيٍّ من الأعداد الثلاثة تمامًا، فلا يمكن إعادة بناء قواعدهم من مجاميعهم. وأزرار «اقترب» تُظهر إلى أيّ حدٍّ يقترب التوفيق بين القواعد، لا كيف عدّوا.']) }}</p>
+      <p class="wt-links"><a href="https://ar.wikisource.org/wiki/%D8%A7%D9%84%D8%AC%D8%A7%D9%85%D8%B9_%D9%84%D8%A3%D8%AD%D9%83%D8%A7%D9%85_%D8%A7%D9%84%D9%82%D8%B1%D8%A2%D9%86/%D8%A7%D9%84%D9%85%D9%82%D8%AF%D9%85%D8%A9/%D9%81%D8%B5%D9%84_%D9%88%D8%A3%D9%85%D8%A7_%D8%B9%D8%AF%D8%AF_%D8%AD%D8%B1%D9%88%D9%81%D9%87_%D9%88%D8%A3%D8%AC%D8%B2%D8%A7%D8%A6%D9%87" target="_blank" rel="noopener">{{ T(['Read al-Qurtubi’s passage','اقرأ نص القرطبي']) }} ›</a>
+        <button type="button" class="wt-where" @click="$root.go('wordcount')">{{ T(['And the words? How many words ›','والكلمات؟ كم كلمة ‹']) }}</button>
+        <button type="button" class="wt-where" @click="$root.go('letters')">{{ T(['Each letter’s count ›','عدد كل حرف ‹']) }}</button></p>
+    </div>
+    <p class="n19-note">{{ T(['Every number here comes from the corpus’s letters, word by word, and the page adds them up as you switch rules.','كل رقمٍ هنا مأخوذٌ من حروف المدوّنة، كلمةً كلمة، وتجمعها الصفحة كلما غيّرت قاعدة.']) }}</p>
+  </div>`,
+  created(){ if(this.LC){ this.shown=this.LC.base; [this.d0, this.d1] = this.domFor(this.LC.base); } },
+  beforeUnmount(){ cancelAnimationFrame(this._raf); clearTimeout(this._land); },
+  watch:{ total(){ this.animate(); } },
+  computed:{ ar(){ return this.$root.lang==='ar'; },
+    LC(){ return (window.QURAN_DATA||{}).lettercount || null; },
+    early(){ return this.LC.reported.map(r=>({...r, ...LT_EARLY[r.id]})); },
+    nCombos(){ return Math.pow(2, LT_PARTS.length); },
+    total(){ return this.sum(this.on); },
+    deltaText(){ const d=this.total-this.LC.base, n=this.f(Math.abs(d));
+      return d>0 ? this.T(['+'+n+' on the printed count','+'+n+' على عدّ المصحف']) : this.T([n+' fewer than the printed count', n+' أقل من عدّ المصحف']); },
+    presets(){ return LT_PRE.map(p=>({...p, n:this.sum(p.on)})); },
+    preset(){ const s=[...this.on].sort().join(); const p=LT_PRE.find(p=>[...p.on].sort().join()===s); return p ? p.id : ''; },
+    // every rule set, its total, for the nearest-rules buttons
+    combos(){ const ids=LT_PARTS.map(p=>p.id), out=[]; for(let m=0;m<(1<<ids.length);m++){ const on=ids.filter((_,i)=>m&(1<<i)); out.push({on, t:this.sum(on)}); } return out; },
+    nearSet(){ const out={}; this.early.forEach(e=>{ out[e.id]=this.combos.slice().sort((a,b)=>Math.abs(a.t-e.n)-Math.abs(b.t-e.n) || a.on.length-b.on.length)[0]; }); return out; },
+    nearOk(){ const c=this.near && this.nearSet[this.near]; return !!c && [...c.on].sort().join()===[...this.on].sort().join(); },
+    nearNote(){ if(!this.nearOk) return ''; const e=this.early.find(x=>x.id===this.near), d=this.total-e.n, n=this.f(Math.abs(d)), who=this.T(e.lab);
+      return this.T(['The nearest these rules come to '+who+'’s '+this.f(e.n)+': '+n+(d<0 ? ' letters short' : ' letters over')+'. A fit, not his method: his rules were not recorded.',
+        'أقرب ما تصل إليه هذه القواعد من عدّ '+who+' ('+this.f(e.n)+'): الفرق '+n+(d<0 ? ' نقصًا' : ' زيادةً')+'. وهذا توفيقٌ بين القواعد لا طريقته، فقواعده لم تُدوَّن.']); },
+    groups(){ return LT_GROUPS.map(g=>({...g, rules: LT_PARTS.filter(p=>p.g===g.id).map(p=>({...p, ...this.LC.rules[p.id]}))})); },
+    ticks(){ const span=this.d1-this.d0, step=wtNice(span/6), out=[]; for(let t=Math.ceil(this.d0/step)*step; t<=this.d1; t+=step) out.push(t); return out; },
+    // early counts sit below the axis; Mujahid's label opens to the left and Ata's to the right, so the two close counts stay readable
+    marks(){ const side={mujahid:'l', ata:'r', hammani:'c'}, list=[{id:'printed', n:this.LC.base, lab:['As printed','المصحف المطبوع'], tone:'em', row:0, side:'c', pri:1}]
+        .concat(this.early.map((e,i)=>({id:e.id, n:e.n, lab:e.lab, tone:'gold', row:1, side:side[e.id], pri:2+i})));
+      const W=15, span=m=>m.side==='l' ? [m.x-W, m.x] : (m.side==='r' ? [m.x, m.x+W] : [m.x-W/2, m.x+W/2]), placed=[[],[]];
+      return list.map(m=>({...m, x:this.x(m.n)})).filter(m=>m.x>=-0.5 && m.x<=100.5).sort((a,b)=>a.pri-b.pri).map(m=>{ const [a,b]=span(m);
+        const near=placed[m.row].some(([c,d])=>a<d && c<b); if(!near) placed[m.row].push([a,b]); return {...m, showLab:!near}; }); },
+    rulerLabel(){ return this.T(['Your total, '+this.f(this.total)+', on a ruler with the printed count and the three early counts.','مجموعك ('+this.f(this.total)+') على مسطرةٍ مع عدّ المصحف والأعداد الثلاثة القديمة.']); },
+    bar(){ const tot=Math.max(1,this.total), R=this.LC.rules, neg=this.on.includes('hamza') ? R.hamza.n : 0, base=this.LC.base+neg;
+      const out=[{id:'base', w:base/tot*100, c:'rgba(255,255,255,.22)', t:this.T(['Written letters','الحروف المكتوبة'])+': '+this.f(base)}];
+      LT_PARTS.forEach(p=>{ if(p.id!=='hamza' && this.on.includes(p.id)){ const n=R[p.id].n+(p.id==='basmala' ? this.basWith : 0);
+        out.push({id:p.id, w:Math.max(.4,n/tot*100), c:p.c, t:this.T(p.lab)+': +'+this.f(n)}); } });
+      return out; },
+    basWith(){ const W=this.LC.rules.basmala.with||{}; return Object.keys(W).reduce((t,r)=>t+(this.on.includes(r) ? W[r] : 0), 0); },
+    sample(){ return this.LC.samples.find(s=>s.k===this.smp) || this.LC.samples[0]; },
+    verse(){ const s=this.sample, [su,ay]=s.k.split(':').map(Number), out=[];
+      if(this.on.includes('basmala') && ay===1 && su!==1 && su!==9) this.LC.rules.basmala.tiles.forEach(ts=>out.push({t:this.tilesOf(ts, '#e9b95f'), bas:true}));
+      s.words.forEach(ts=>out.push({t:this.tilesOf(ts)})); return out; },
+    vCount(){ return this.verse.reduce((n,w)=>n+w.t.filter(t=>!t.off).length, 0); },
+    vBase(){ return this.sample.words.reduce((n,ts)=>n+ts.filter(t=>t[1]==='' || t[1]==='hamza').length, 0); },
+    mapV(){ const R=this.LC.rules, B=this.LC.baseBySurah, parts=this.focus ? [this.focus] : this.on;
+      return B.map((b,i)=>{ let add=parts.reduce((t,p)=>t+R[p].bySurah[i], 0);
+        if(parts.includes('basmala') && R.basmala.bySurah[i]) add+=Object.keys(R.basmala.with||{}).reduce((t,r)=>t+(this.on.includes(r) ? R.basmala.with[r]/112 : 0), 0);
+        return {n:i+1, add, share:add/(b||1)}; }); },
+    mapMax(){ return Math.max(1e-9, ...this.mapV.map(c=>Math.abs(c.share))); },
+    mapRead(){ const c=this.hov ? this.mapV[this.hov-1] : null, R=this.$root;
+      if(c) return R.surahName(c.n)+' · '+(c.add>=0 ? '+' : '-')+this.f(Math.abs(c.add))+this.T([' letters (',' (']) + this.dec(Math.abs(c.share)*100, 1)+this.T(['% of the surah)','٪ من حروف السورة)']);
+      const top=this.mapV.filter(c=>c.add!==0).sort((a,b)=>Math.abs(b.share)-Math.abs(a.share)).slice(0,3);
+      if(!top.length) return this.T(['Switch a rule on to see where it changes the count.','شغّل قاعدةً لترى أين تغيّر العدد.']);
+      return this.T(['Most changed: ','الأكثر تغيّرًا: '])+top.map(c=>R.surahName(c.n)+' ('+(c.add>0 ? '+' : '-')+this.dec(Math.abs(c.share)*100, 1)+this.T(['%)','٪)'])).join(this.T([', ','، '])); } },
+  methods:{ T(p){ const s=Array.isArray(p) ? (this.ar ? p[1] : p[0]) : p; return this.ar ? this.$root.D(s) : s; }, D(x){ return this.$root.D(x); }, f(n){ return this.$root.f(n); },
+    dec(x, k){ const s=this.D(x.toFixed(k)); return this.ar ? s.replace('.','٫') : s; },
+    partOf(id){ return LT_PARTS.find(p=>p.id===id) || {c:'', lab:['','']}; },
+    sum(on){ const R=this.LC.rules, W=R.basmala.with||{}; let t=on.reduce((t,p)=>t+R[p].n, this.LC.base);
+      if(on.includes('basmala')) Object.keys(W).forEach(r=>{ if(on.includes(r)) t+=W[r]; }); return t; },
+    // one word's letters as tiles under the rules that are on: written letters, letters a rule adds (coloured), hamzas left out (struck)
+    tilesOf(ts, color){ const on=new Set(this.on), names=on.has('names') && ts.some(t=>t[1]==='names'), out=[];
+      ts.forEach(([ch,r])=>{ if(names && (r==='' || r==='hamza')) return;
+        if(r==='') out.push({ch, c:color||null, add:!!color});
+        else if(r==='hamza') out.push(on.has('hamza') ? {ch, off:true, c:this.partOf('hamza').c} : {ch, c:color||null, add:!!color});
+        else if(on.has(r)) out.push({ch, add:true, c:this.partOf(r).c}); });
+      return out; },
+    x(n){ return (n-this.d0)/(this.d1-this.d0)*100; },
+    // the ruler always holds your total, the printed count and the three early counts
+    domFor(t){ const lo=Math.min(t, 321180), hi=Math.max(t, 340740), pad=(hi-lo)*.07; return [lo-pad, hi+pad]; },
+    tog(id){ this.on = this.on.includes(id) ? this.on.filter(x=>x!==id) : [...this.on, id]; },
+    usePre(p){ this.on=[...p.on]; this.focus=''; this.near=''; },
+    goNear(id){ this.near=id; this.on=[...this.nearSet[id].on]; this.focus=''; },
+    animate(){ cancelAnimationFrame(this._raf); clearTimeout(this._land); const to=this.total, [e0,e1]=this.domFor(to);
+      const land=()=>{ cancelAnimationFrame(this._raf); this.shown=to; this.d0=e0; this.d1=e1; };
+      if(document.hidden || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)){ land(); return; }
+      const s0=this.shown, a0=this.d0, a1=this.d1, t0=performance.now(), dur=700;
+      const step=now=>{ const p=Math.min(1,(now-t0)/dur), k=1-Math.pow(1-p,3);
+        this.shown=s0+(to-s0)*k; this.d0=a0+(e0-a0)*k; this.d1=a1+(e1-a1)*k;
+        if(p<1) this._raf=requestAnimationFrame(step); };
+      this._raf=requestAnimationFrame(step); this._land=setTimeout(land, dur+200); } } };
 // Structure: six findings laid out like a dashboard. A row of KPI tiles picks the finding; the stage builds its
 // figure (abjad sum and isotopes, honeycomb of verses, waterfall, verse-length profile, the Qadr word count, the
 // solar and lunar calendars) and names the method under it. Every count is taken from the text in the browser.
@@ -6191,7 +6427,7 @@ createApp({
           en:'Claim Auditor',ar:'مدقّق المزاعم',
           blurb_en:'Famous claims about the Quran, from word counts to ancient history, each checked against the text and the record.',
           blurb_ar:'نعيد فحص ما يتداوله الناس عن القرآن، من أعداد كلماته إلى شواهد التاريخ، على النص نفسه وعلى الآثار.',
-          items:[{id:'auditor',en:'Word Counts',ar:'أعداد الكلمات'},{id:'wordcount',en:'How many words?',ar:'كم كلمة؟'},{id:'history',en:'History Claims',ar:'شواهد التاريخ'}]},
+          items:[{id:'auditor',en:'Word Counts',ar:'أعداد الكلمات'},{id:'wordcount',en:'How many words?',ar:'كم كلمة؟'},{id:'lettercount',en:'How many letters?',ar:'كم حرفًا؟'},{id:'history',en:'History Claims',ar:'شواهد التاريخ'}]},
         {id:'discoverHub',
           icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><path d="M12 8.2l1.2 2.6 2.6 1.2-2.6 1.2L12 15.8l-1.2-2.6L8.2 12l2.6-1.2z"/></svg>',
           en:'Discoveries',ar:'اكتشافات',
@@ -6434,7 +6670,7 @@ createApp({
     jevTone(){ const T=this.JD && this.JD.tone; if(!T || !Array.isArray(T.items) || !T.items.length) return null;
       const c={mercy:0, guidance:0, hope:0, warning:0}; T.items.forEach(it=>{ if(it.tone in c) c[it.tone]++; });
       return {c, n:T.items.length, model:T.model||'', date:T.date||''}; },
-    realViews(){ return [...DISC_IDS, 'home','overview','word','mecca','letters','search','reader','auditor','wordcount','history','stories','lessons','duas','tafsir','untranslatable',
+    realViews(){ return [...DISC_IDS, 'home','overview','word','mecca','letters','search','reader','auditor','wordcount','lettercount','history','stories','lessons','duas','tafsir','untranslatable',
       'emotion','pronouns','science','abjad','n19','structural','symmetry','nlp','kg','advanced','tawafuq','alifi','hifz','classifier','stats','cluster','dashboard']; },
     curHub(){ return this.nav.find(h=>h.items.some(i=>i.id===this.view)) || null; },
     // where the reader is: a change of page, claim or surah is a step the browser's back arrow can undo
@@ -7594,7 +7830,7 @@ createApp({
     this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); this.enterView(true); });
   }
 }).component('depth-switch', DepthSwitch).component('term-chips', TermChips).component('explain-box', ExplainBox)
-  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell).component('claim-viz', ClaimViz).component('count-lab', CountLab).component('rule-matrix', RuleMatrix).component('qadr-lab', QadrLab).component('nineteen-lab', NineteenLab).component('word-total-lab', WordTotalLab).component('struct-lab', StructLab).component('balance-lab', BalanceLab).component('abjad-lab', AbjadLab).component('float-kbd', FloatKbd).component('nlp-lab', NlpLab).component('dash-lab', DashLab).component('hifz-lab', HifzLab).component('stats-lab', StatsLab).component('clf-lab', ClfLab).component('kmeans-lab', KMeansLab).component('lib-atlas', LibAtlas).component('reader-head', ReaderHead).component('word-card', WordCard)
+  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell).component('claim-viz', ClaimViz).component('count-lab', CountLab).component('rule-matrix', RuleMatrix).component('qadr-lab', QadrLab).component('nineteen-lab', NineteenLab).component('word-total-lab', WordTotalLab).component('letter-total-lab', LetterTotalLab).component('struct-lab', StructLab).component('balance-lab', BalanceLab).component('abjad-lab', AbjadLab).component('float-kbd', FloatKbd).component('nlp-lab', NlpLab).component('dash-lab', DashLab).component('hifz-lab', HifzLab).component('stats-lab', StatsLab).component('clf-lab', ClfLab).component('kmeans-lab', KMeansLab).component('lib-atlas', LibAtlas).component('reader-head', ReaderHead).component('word-card', WordCard)
   .component('letter-strip', LetterStrip).component('growth-curve', GrowthCurve).component('rhyme-ribbon', RhymeRibbon).mount('#app');
 });
 </script>
