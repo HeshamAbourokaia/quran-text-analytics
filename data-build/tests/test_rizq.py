@@ -70,13 +70,23 @@ def test_models_read_whole_verses():
 
 def test_dua_traceability():
     S = _R['dua']['sum']
-    assert {k: S['full'][k] for k in ('segments', 'text', 'shift', 'pctRizq', 'pctQuran')} == {'segments': 36, 'text': 20, 'shift': 16, 'pctRizq': 66, 'pctQuran': 86}
-    assert {k: S['short'][k] for k in ('segments', 'text', 'shift', 'pctRizq', 'pctQuran')} == {'segments': 15, 'text': 10, 'shift': 5, 'pctRizq': 74, 'pctQuran': 90}
+    keys = ('segments', 'text', 'shift', 'whole', 'words', 'kept', 'pctKept', 'pctRizq', 'pctQuran')
+    assert {k: S['full'][k] for k in keys} == {'segments': 36, 'text': 20, 'shift': 16, 'whole': 6, 'words': 237, 'kept': 136, 'pctKept': 57, 'pctRizq': 66, 'pctQuran': 86}
+    assert {k: S['short'][k] for k in keys} == {'segments': 15, 'text': 10, 'shift': 5, 'whole': 7, 'words': 69, 'kept': 54, 'pctKept': 78, 'pctRizq': 74, 'pctQuran': 90}
     assert S['full']['ctx'] == ['2:127', '65:2'] and S['short']['ctx'] == ['2:127']
     segs = [s for p in _R['dua']['full'] for s in p['segs']] + _R['dua']['short']
     assert [p['ar'] for p in _R['dua']['full']] == ['النداء', 'الثناء بأسماء الرزق', 'الإقرار: التوحيد والافتقار', 'الطلب بصيغ القرآن', 'العهد: ما قرنته الآيات بالرزق', 'الغاية والختم']
     for s in segs:
         assert s['mode'] in ('text', 'shift') and s['src']
+        shown = s['t'].split(' ')
+        assert len(s['kw']) == len(shown) and set(s['kw']) <= {0, 1}, s['t']
+        bag = {w for src in s['src'] for w in _V[src['k']].split()}
+        bag = {norm(w) for w in bag} | {norm(w).lstrip('وف') for w in bag}
+        for w, k in zip(shown, s['kw']):
+            n = norm(w.strip('،,.:؛'))
+            assert k == (1 if (n in bag or n.lstrip('وف') in bag) else 0), (s['t'], w)   # a solid underline means the word stands in a source verse
+        if s['whole']:
+            assert s['mode'] == 'text' and all(s['kw']), s['t']                             # a whole phrase is verbatim, so every word is kept
         for src in s['src']:
             assert src['ctx'] == (src['k'] not in _RIZQ), src['k']
             words = _V[src['k']].split()

@@ -1217,9 +1217,10 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .rz-part{margin:0 0 14px}
   .rz-plabel{display:block;font-family:var(--sans);font-size:.72rem;letter-spacing:.04em;color:var(--on-dark-3);margin:0 0 2px}
   .rz-line{margin:0;font-family:var(--ar-display);font-size:1.7rem;line-height:2.15;color:#fff}
-  .rz-seg{all:unset;cursor:pointer;border-bottom:3px solid rgba(52,211,153,.7);padding-bottom:1px;border-radius:2px;transition:background .15s}
-  .rz-seg.shift{border-bottom:3px dotted rgba(233,185,95,.9)}
-  .rz-seg:hover,.rz-seg:focus-visible,.rz-seg.on{background:rgba(52,211,153,.16)} .rz-seg.shift:hover,.rz-seg.shift:focus-visible,.rz-seg.shift.on{background:rgba(233,185,95,.16)}
+  .rz-seg{all:unset;cursor:pointer;border-radius:2px;transition:background .15s}
+  .rz-seg span.k{border-bottom:3px solid rgba(52,211,153,.75);padding-bottom:1px}
+  .rz-seg span.a{border-bottom:3px dotted rgba(233,185,95,.9);padding-bottom:1px}
+  .rz-seg:hover,.rz-seg:focus-visible,.rz-seg.on{background:rgba(52,211,153,.14)} .rz-seg.shift:hover,.rz-seg.shift:focus-visible,.rz-seg.shift.on{background:rgba(233,185,95,.14)}
   .rz-sep{color:var(--on-dark-3)}
   .rz-src{margin:14px 0 0;padding:14px 0 0;border-top:1px dashed var(--hair)}
   .rz-srchead{margin:0 0 10px;font-size:.84rem;color:var(--on-dark-2)} .rz-srchead b.text{color:var(--emerald)} .rz-srchead b.shift{color:var(--gold)}
@@ -3433,8 +3434,8 @@ const PLAIN = {
   rizq:{
     what:['Every verse in the Quran where provision (rizq, the root ر ز ق) is named: 109 verses, read together. Who gives it, what the verses pair it with, and how the prophets asked for it. From those phrases, word for word, a du’a for provision.',
       'كل آيةٍ في القرآن ذُكر فيها الرزق (الجذر ر ز ق): ١٠٩ آيات تُقرأ معًا. من يرزق، وما الذي تقرنه الآيات بالرزق، وكيف طلبه الأنبياء. ومن هذه الصيغ، كلمةً كلمة، دعاءٌ للرزق.'],
-    how:['The du’a comes first. A solid line under a phrase means it is a verse’s words exactly; a dotted line means the verse said it of God and the du’a says it to Him. Tap any phrase to see its verse with the kept words lit. Below, the bars say who provides and which words sit with provision, and the 109 verses can be sifted by theme and by Mecca or Medina.',
-      'الدعاء أولًا. الخطّ المتصل تحت المقطع يعني أنه لفظ الآية بعينه، والمنقّط يعني أن الآية قالته عن الله والدعاء يقوله له. انقر أي مقطعٍ لترى آيته وكلماته مضاءة. وفي الأسفل تقول الأشرطة من يرزق وأي الكلمات تجاور الرزق، وتُرشَّح الآيات الـ١٠٩ بالموضوع وبالمكي والمدني.'],
+    how:['The du’a comes first. Under each word, a solid line means it stands in the verse as written; a dotted line means it was adapted: the verse said it of God and the du’a says it to Him, or the words were recast. Tap any phrase to see its verse with the kept words lit. Below, the bars say who provides and which words sit with provision, and the 109 verses can be sifted by theme and by Mecca or Medina.',
+      'الدعاء أولًا. تحت كل كلمةٍ خطٌّ: المتصل يعني أنها في الآية كما هي، والمنقّط يعني أنها محوّلة: قالتها الآية عن الله والدعاء يقولها له، أو أُعيد نظم الكلمات. انقر أي مقطعٍ لترى آيته وكلماته المحفوظة مضاءة. وفي الأسفل تقول الأشرطة من يرزق وأي الكلمات تجاور الرزق، وتُرشَّح الآيات الـ١٠٩ بالموضوع وبالمكي والمدني.'],
     msg:['In the Quran no one provides for themselves: in every one of the 61 verbs the giver is God, or the verb is a plea to Him, or it tells people to provide for the weak from what He gave. And what the verses pair with provision most is not asking but four acts: eating of the good things, spending, prayer and thanks. The du’a is built in that order.',
       'في القرآن لا أحد يرزق نفسه: في الأفعال الـ٦١ كلها الرازق هو الله، أو الفعل دعاءٌ إليه، أو أمرٌ للناس أن يرزقوا الضعفاء مما أعطاهم. وأكثر ما تقرنه الآيات بالرزق ليس الطلب بل أربعة أفعال: الأكل من الطيبات، والإنفاق، والصلاة، والشكر. وعلى هذا الترتيب بُني الدعاء.']},
   wordcount:{
@@ -5211,7 +5212,7 @@ const RizqLab = {
       <div class="wt-fig"><b>{{ D(R.totals.surahs) }}</b><span>{{ T(['surahs','سورة']) }}</span><small>{{ T(['of 114','من ١١٤']) }}</small></div>
       <div class="wt-fig gold"><b>{{ D(R.totals.mecca) }}<i>/</i>{{ D(R.totals.medina) }}</b><span>{{ T(['Meccan / Medinan','مكية / مدنية']) }}</span><small>{{ T(['by the surah’s period','بحسب نزول السورة']) }}</small></div>
     </div>
-    <p class="wt-lead">{{ T(['Two forms: a full du’a in six movements that follow the order of the prophets’ du’as in the rizq verses, and a short one to learn by heart. Every phrase is taken from one of the 109 verses, or from the verse right beside one, and a solid or dotted line says how.','صيغتان: كاملةٌ في ست حركاتٍ تتبع ترتيب أدعية الأنبياء في آيات الرزق، ومختصرةٌ للحفظ. كل مقطعٍ مأخوذٌ من إحدى الآيات الـ١٠٩ أو من آيةٍ مجاورةٍ لها مباشرة، والخطّ تحته متصلٌ أو منقّطٌ يقول كيف.']) }}</p>
+    <p class="wt-lead">{{ T(['Two forms: a full du’a in six movements that follow the order of the prophets’ du’as in the rizq verses, and a short one to learn by heart. Every phrase is taken from one of the 109 verses, or from the verse right beside one. Under each word, a solid line means it stands in the verse as written, a dotted line that it was adapted.','صيغتان: كاملةٌ في ست حركاتٍ تتبع ترتيب أدعية الأنبياء في آيات الرزق، ومختصرةٌ للحفظ. كل مقطعٍ مأخوذٌ من إحدى الآيات الـ١٠٩ أو من آيةٍ مجاورةٍ لها مباشرة. وتحت كل كلمةٍ خطٌّ: متصلٌ إن كانت في الآية كما هي، ومنقّطٌ إن كانت محوّلة.']) }}</p>
 
     <div class="wt-card rz-duabox">
       <div class="rz-tools">
@@ -5221,15 +5222,15 @@ const RizqLab = {
         </div>
         <button type="button" class="rz-copy" @click="copy">{{ copied || T(['Copy the du’a','نسخ الدعاء']) }}</button>
       </div>
-      <p class="rz-legend"><span class="rz-key text">{{ T(['a verse’s words exactly','نص الآية بلفظه']) }}</span><span class="rz-key shift">{{ T(['the pronoun changed','محوّل بتغيير الضمير']) }}</span><span>{{ T(['Tap a phrase to see its verse.','انقر أي مقطع لترى آيته.']) }}</span></p>
+      <p class="rz-legend"><span class="rz-key text">{{ T(['a word as it stands in the verse','كلمةٌ كما هي في الآية']) }}</span><span class="rz-key shift">{{ T(['adapted: a pronoun changed, or the words recast','محوّلة: تغيّر الضمير أو أُعيد نظم الكلمات']) }}</span><span>{{ T(['Tap a phrase to see its verse.','انقر أي مقطع لترى آيته.']) }}</span></p>
       <div class="rz-dua" lang="ar" dir="rtl">
         <div v-for="(p,pi) in parts" :key="ver+pi" class="rz-part">
           <span class="rz-plabel" :lang="ar?'ar':'en'" :dir="ar?'rtl':'ltr'">{{ ar ? p.ar : p.en }}</span>
-          <p class="rz-line"><template v-for="(s,si) in p.segs" :key="s.i"><button type="button" class="rz-seg" :class="[s.mode, {on: pick===s.i}]" :aria-pressed="String(pick===s.i)" @click="pickSeg(s.i)">{{ s.t }}</button><span class="rz-sep" v-if="si<p.segs.length-1">، </span></template></p>
+          <p class="rz-line"><template v-for="(s,si) in p.segs" :key="s.i"><button type="button" class="rz-seg" :class="[s.mode, {on: pick===s.i}]" :aria-pressed="String(pick===s.i)" @click="pickSeg(s.i)"><span v-for="(w,wi) in s.t.split(' ')" :key="wi" :class="s.kw[wi] ? 'k' : 'a'">{{ w }}{{ wi < s.kw.length-1 ? ' ' : '' }}</span></button><span class="rz-sep" v-if="si<p.segs.length-1">، </span></template></p>
         </div>
       </div>
       <div class="rz-src" v-if="seg" aria-live="polite">
-        <p class="rz-srchead"><b :class="seg.mode">{{ seg.mode==='text' ? T(['A verse’s words exactly','نصٌّ قرآنيٌّ حرفي']) : T(['The pronoun changed','محوّلٌ بتغيير الضمير']) }}</b>{{ T([' from ',' من: ']) }}{{ seg.src.map(s=>refOf(s.k)).join(ar ? '، ' : ', ') }}</p>
+        <p class="rz-srchead"><b :class="seg.mode">{{ seg.whole ? T(['A verse’s words exactly as shown','لفظ الآية بعينه']) : (seg.mode==='text' ? T(['Built on a verse’s phrase, found word for word','مبنيٌّ على عبارةٍ من الآية بلفظها']) : T(['Adapted from the verse','محوّلٌ عن الآية'])) }}</b>{{ T([' · from ',' · من: ']) }}{{ seg.src.map(s=>refOf(s.k)).join(ar ? '، ' : ', ') }}</p>
         <div v-for="s in seg.src" :key="s.k" class="rz-srcv">
           <div class="rz-ref"><button type="button" class="linkish" data-dopen @click="$root.dOpen(s.k,[s.k],$event)">{{ refOf(s.k) }}</button><span v-if="s.ctx" class="rz-tag">{{ T(['the verse beside a rizq verse','الآية المجاورة لآية رزق']) }}</span></div>
           <p class="rz-q" lang="ar" dir="rtl" v-html="verseHtml(s.k, s.hi)"></p>
@@ -5237,9 +5238,9 @@ const RizqLab = {
       </div>
       <div class="rz-sum">
         <div><b>{{ D(sum.segments) }}</b>{{ T(['phrases in this form','مقطعًا في هذه الصيغة']) }}</div>
-        <div><b>{{ D(sum.text) }}</b>{{ T(['a verse’s words exactly','منها نصٌّ قرآنيٌّ حرفي']) }}</div>
-        <div><b>{{ D(sum.shift) }}</b>{{ T(['the pronoun changed, nothing else','محوّلةٌ بتغيير الضمير فقط']) }}</div>
-        <div><b>{{ D(sum.pctQuran) }}%</b>{{ T(['of its words occur in the Quran as written, '+sum.pctRizq+'% in the rizq verses themselves','من كلماته وردت في القرآن بلفظها، و'+sum.pctRizq+'٪ في آيات الرزق نفسها']) }}</div>
+        <div><b>{{ D(sum.text) }}</b>{{ T(['built on a verse’s phrase found word for word; '+sum.whole+' of them are the whole phrase as shown','مبنيةٌ على عبارةٍ من الآية بلفظها؛ منها '+sum.whole+' المقطع كله كما هو']) }}</div>
+        <div><b>{{ D(sum.shift) }}</b>{{ T(['adapted: a pronoun changed, or the words recast','محوّلة: تغيّر الضمير أو أُعيد نظم الكلمات']) }}</div>
+        <div><b>{{ D(sum.pctKept) }}%</b>{{ T(['of its words stand in their verses as written; '+sum.pctQuran+'% occur somewhere in the Quran, '+sum.pctRizq+'% in the rizq verses','من كلماته كما هي في آياتها؛ و'+sum.pctQuran+'٪ وردت في القرآن في موضعٍ ما، و'+sum.pctRizq+'٪ في آيات الرزق']) }}</div>
       </div>
       <p class="wt-sub" style="margin:0">{{ T(['Every source is one of the 109 rizq verses, except the verse right beside one: '+ctxRefs+'. Nothing from outside them.','كل مصادر الدعاء من آيات الرزق الـ١٠٩، عدا آيةٍ مجاورةٍ لها مباشرة: '+ctxRefs+'. ولا شيء من خارجها.']) }}</p>
     </div>

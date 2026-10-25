@@ -9,10 +9,13 @@ period of each verse. The nine themes, the conditions the verses pair with provi
 prophetic du'as read span by span are hand labels, kept here so the page and the tests share them.
 
 The du'a has two forms, long (six movements, 36 phrases) and short (15 phrases). Each phrase names
-the verses it is taken from; the module checks every phrase against its verses and marks it «text»
-when the Quranic core is found word for word in a source verse, or «shift» when only the pronoun
-changed (the verse says of God "He provides", the du'a says to Him "You provide"). The highlighted
-words of each source verse are computed here too, so the page only marks them.
+the verses it is taken from, and the Quranic phrase it is built on (q, or the whole phrase when it has
+no q). The module checks every phrase against its verses: the mode is «text» when that Quranic phrase
+is found word for word in a source verse and «shift» when it is not (the verse says of God "He
+provides", the du'a says to Him "You provide", or the words were recast); «whole» says whether the
+phrase exactly as shown stands in a source verse; and kw flags each shown word as standing in a source
+verse as written (1) or adapted (0), which is what the page underlines solid or dotted. The lit words
+of each source verse are computed here too, so the page only marks them.
 
 The page reads the verse texts from corpus.js; this key holds positions, labels and the du'a.
 """
@@ -263,18 +266,32 @@ def _span_shift(words, text):
     bag = {_strip(x) for x in _words(text)}
     return [i for i, w in enumerate(words, 1) if _strip(norm(w)) in bag and len(_strip(norm(w))) > 2]
 
+_PUNCT = re.compile('[،,.:؛]')
+
 def _check(seg, verses, rizq, ctx, vocab):
     q = seg.get('q', seg['t'])
     nq = norm(q)
     hits = [k for k in seg['src'] if nq in norm(verses[k])]
     mode = 'text' if hits else 'shift'
+    shown = seg['t'].split(' ')
+    bag, bag_s = set(), set()
+    for k in seg['src']:
+        if k not in rizq and k not in ctx:
+            raise ValueError(f'du\'a source {k} is neither a rizq verse nor next to one')
+        for w in _words(verses[k]):
+            bag.add(w); bag_s.add(_strip(w))
+    def kept(w):
+        n = norm(_PUNCT.sub('', w))
+        return 1 if (n in bag or _strip(n) in bag_s) else 0
+    kw = [kept(w) for w in shown]
+    whole = any(_span_core(verses[k].split(), _PUNCT.sub(' ', seg['t'])) for k in seg['src'])
     src = []
     for k in seg['src']:
         words = verses[k].split()
-        hi = _span_core(words, q) if (mode == 'text' and k in hits) else _span_shift(words, seg['t'])
-        src.append({'k': k, 'ctx': k not in rizq, 'hi': hi})
-        if k not in rizq and k not in ctx:
-            raise ValueError(f'du\'a source {k} is neither a rizq verse nor next to one')
+        hi = set(_span_shift(words, seg['t']))
+        if mode == 'text' and k in hits:
+            hi |= set(_span_core(words, q))
+        src.append({'k': k, 'ctx': k not in rizq, 'hi': sorted(hi)})
     ws = _words(seg['t'])
     def tier(w):
         for cand in (w, _strip(w) if w[:1] in 'وف' else None):
@@ -283,14 +300,17 @@ def _check(seg, verses, rizq, ctx, vocab):
                     if cand in vocab[name]:
                         return name
         return 'shift'
-    return {'t': seg['t'], 'mode': mode, 'src': src}, [tier(w) for w in ws]
+    return {'t': seg['t'], 'mode': mode, 'whole': whole, 'kw': kw, 'src': src}, [tier(w) for w in ws]
 
 def _summary(segs, tiers):
     n = len(segs)
     exact = sum(1 for s in segs if s['mode'] == 'text')
     tot = len(tiers)
     c = collections.Counter(tiers)
-    return {'segments': n, 'text': exact, 'shift': n - exact, 'words': tot,
+    shown = sum(len(s['kw']) for s in segs)
+    kept = sum(sum(s['kw']) for s in segs)
+    return {'segments': n, 'text': exact, 'shift': n - exact, 'whole': sum(1 for s in segs if s['whole']),
+            'words': shown, 'kept': kept, 'pctKept': round(100 * kept / shown),
             'pctRizq': round(100 * c['rizq'] / tot), 'pctQuran': round(100 * (tot - c['shift']) / tot),
             'ctx': sorted({s['k'] for seg in segs for s in seg['src'] if s['ctx']}, key=_order)}
 
