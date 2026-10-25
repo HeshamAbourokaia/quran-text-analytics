@@ -16,7 +16,7 @@ The menu has five sections. Every page has a short address you can send to someo
 | **Claims** | Word Counts, Word Pairs, Number 19, Iron, Bee and Noah, Abjad, How many words?, How many letters?, History Claims, Science Verses | `/word-counts`, `/word-pairs`, `/19`, `/iron-bee-noah`, `/abjad`, `/how-many-words`, `/how-many-letters`, `/history`, `/science` |
 | **Discoveries** | Nine studies, each tested against chance with the test written down first | `/discoveries`, `/verse-endings`, `/mirrors`, `/rhyme`, `/retellings`, `/themes`, `/companions`, `/opening-letters`, `/near-repeats`, `/revelation-order` |
 | **Explore** | Overview, Words, Letters, Mecca and Medina, Tone and Voice, Similar Surahs, Knowledge Graph | `/overview`, `/words`, `/letters`, `/mecca-medina`, `/tone`, `/similar-surahs`, `/knowledge-graph` |
-| **Library** | Stories, Lessons, Du'as, Scholars' Insights, Untranslatable Words | `/stories`, `/lessons`, `/duas`, `/insights`, `/untranslatable` |
+| **Library** | Stories, Lessons, Du'as, Rizq Verses and Du'a, Scholars' Insights, Untranslatable Words | `/stories`, `/lessons`, `/duas`, `/rizq`, `/insights`, `/untranslatable` |
 
 Add `?lang=ar` to any address for Arabic. A verse opens with `/reader?s=2&v=255`, and a history claim with `/history?c=weep`. Older links such as `app.html?view=n19` still work and land on the same page.
 
