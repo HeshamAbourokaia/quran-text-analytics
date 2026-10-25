@@ -382,6 +382,7 @@
     stories: ['story', 'stories', 'prophet', 'moses', 'musa', 'yusuf', 'joseph', 'noah', 'nuh', 'abraham', 'ibrahim', 'jesus', 'pharaoh', 'قصة', 'قصص', 'نبي', 'موسي', 'يوسف', 'نوح', 'ابراهيم', 'فرعون'],
     lessons: ['lesson', 'lessons', 'advice', 'teach', 'moral', 'how should i', 'درس', 'دروس', 'نصيحة', 'عبرة'],
     duas: ['dua', "du'a", 'duaa', 'supplication', 'prayer for', 'pray for', 'دعاء', 'ادعية', 'ادعو'],
+    wahhab: ['wahhab', 'bestower', 'hiba', 'grant me', 'grant us', 'الوهاب', 'وهاب', 'هب لي', 'هب لنا', 'هبه', 'يهب'],
     rizq: ['rizq', 'provision', 'provide', 'provider', 'sustenance', 'livelihood', 'رزق', 'الرزق', 'يرزق', 'ارزق', 'رازق', 'الرزاق'],
     tafsir: ['tafsir', 'commentary', 'scholar', 'explanation', 'interpret', 'تفسير', 'مفسر', 'بصائر'],
     untranslatable: ['translate', 'translation', 'untranslatable', 'meaning of the word', 'ترجمة', 'معني'],

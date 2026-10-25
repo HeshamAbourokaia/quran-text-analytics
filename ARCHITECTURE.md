@@ -49,6 +49,7 @@ Each page explains itself in two layers that the reader switches between. The pl
 | `optimisation.py`, `montecarlo.py` | The Hifz planner's plan and its simulations |
 | `wordcount.py`, `lettercount.py` | The rules behind *How many words?* and *How many letters?* |
 | `discoveries.py` | The nine studies (`python3 -m pipeline.discoveries --write`; slow) |
+| `names.py` with `rizq.py`, `wahhab.py` | The Name studies (*Rizq Verses and Du'a*, *Hiba Verses and Du'a*): one engine, and one config per Name holding its hand labels, its du'a and the page's sentences |
 | `mushaf.py`, `lemma_variants.py` | The mushaf page layout, and the homograph tables the claim checker uses |
 
 - `tests/` pin every number the site publishes. Run them with a Python that has a working scikit-learn; on this Mac that is `/usr/bin/python3`.

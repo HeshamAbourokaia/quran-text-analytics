@@ -70,9 +70,9 @@ def test_models_read_whole_verses():
 
 def test_dua_traceability():
     S = _R['dua']['sum']
-    keys = ('segments', 'text', 'shift', 'whole', 'words', 'kept', 'pctKept', 'pctRizq', 'pctQuran')
-    assert {k: S['full'][k] for k in keys} == {'segments': 36, 'text': 20, 'shift': 16, 'whole': 6, 'words': 237, 'kept': 136, 'pctKept': 57, 'pctRizq': 66, 'pctQuran': 86}
-    assert {k: S['short'][k] for k in keys} == {'segments': 15, 'text': 10, 'shift': 5, 'whole': 7, 'words': 69, 'kept': 54, 'pctKept': 78, 'pctRizq': 74, 'pctQuran': 90}
+    keys = ('segments', 'text', 'shift', 'whole', 'words', 'kept', 'pctKept', 'pctTarget', 'pctQuran')
+    assert {k: S['full'][k] for k in keys} == {'segments': 36, 'text': 20, 'shift': 16, 'whole': 6, 'words': 237, 'kept': 136, 'pctKept': 57, 'pctTarget': 66, 'pctQuran': 86}
+    assert {k: S['short'][k] for k in keys} == {'segments': 15, 'text': 10, 'shift': 5, 'whole': 7, 'words': 69, 'kept': 54, 'pctKept': 78, 'pctTarget': 74, 'pctQuran': 90}
     assert S['full']['ctx'] == ['2:127', '65:2'] and S['short']['ctx'] == ['2:127']
     segs = [s for p in _R['dua']['full'] for s in p['segs']] + _R['dua']['short']
     assert [p['ar'] for p in _R['dua']['full']] == ['النداء', 'الثناء بأسماء الرزق', 'الإقرار: التوحيد والافتقار', 'الطلب بصيغ القرآن', 'العهد: ما قرنته الآيات بالرزق', 'الغاية والختم']
@@ -105,7 +105,8 @@ def test_page_content_rules():
     blob = json.dumps(_R, ensure_ascii=False)
     for ch in (chr(0x2014), chr(0x2013), chr(0x2212)):         # em dash, en dash, minus sign
         assert ch not in blob
-    assert len(blob.encode()) < 32000                          # the key stays small: texts come from corpus.js
+    assert len(blob.encode()) < 42000                          # the key stays small: verse texts come from corpus.js
+    assert set(_R['copy']) >= {'lead', 'ctxNote', 'agentsAha', 'chronoAha'} and all(len(v) == 2 or isinstance(v[0], list) for v in _R['copy'].values())
 
 def test_revelation_order():
     ch = _R['chrono']                                           # the standard Egyptian order: position -> surah

@@ -1,58 +1,26 @@
 # -*- coding: utf-8 -*-
-"""The verses of rizq (root ر ز ق) and a du'a built from them, phrase by phrase.
+"""The verses of rizq (root ر ز ق) and a du'a built from them: the config of the first Name study.
 
 Every word whose root is ر ز ق in the Quranic Arabic Corpus: 123 words in 109 verses of 44 surahs
-(72 Meccan, 37 Medinan). From the morphology the module reads who provides (the verb's subject),
-which roots sit in the same verse far more often than in the rest of the Quran (log-odds with a
-smoothing prior, as in Monroe, Colaresi and Quinn's "Fightin' Words"), and the Meccan or Medinan
-period of each verse. The nine themes, the conditions the verses pair with provision and the three
-prophetic du'as read span by span are hand labels, kept here so the page and the tests share them.
-
-The du'a has two forms, long (six movements, 36 phrases) and short (15 phrases). Each phrase names
-the verses it is taken from, and the Quranic phrase it is built on (q, or the whole phrase when it has
-no q). The module checks every phrase against its verses: the mode is «text» when that Quranic phrase
-is found word for word in a source verse and «shift» when it is not (the verse says of God "He
-provides", the du'a says to Him "You provide", or the words were recast); «whole» says whether the
-phrase exactly as shown stands in a source verse; and kw flags each shown word as standing in a source
-verse as written (1) or adapted (0), which is what the page underlines solid or dotted. The lit words
-of each source verse are computed here too, so the page only marks them.
-
-The page's charts read three more things kept here: the standard Egyptian order of revelation (CHRONO,
-position to surah), the macro group of each theme (God provides, what is asked of the servant, the
-hereafter) that colours the verses, and the group of each associated root (God's act, the servant's act,
-the provision itself) that colours the root network. The network's links are the verses two roots share,
-which the page counts from each root's verse list.
-
-The page reads the verse texts from corpus.js; this key holds positions, labels and the du'a.
+(72 Meccan, 37 Medinan). pipeline/names.py reads the corpus and checks everything here against it;
+this module holds what a person decided after reading the verses: the nine themes and their three
+groups, the group of each root in the network, the conditions the verses pair with provision, the
+three prophetic du'as read span by span, the du'a (long: six movements, 36 phrases; short: 15), and
+the page's own sentences in both languages (COPY; a {placeholder} is filled by the build when it is a
+count, and by the page otherwise).
 """
-import collections, math, re
-from .corpus import _read_rows, load_verses, load_words
-from .datasets import _surah_meta
+import sys
+from . import names
+from .names import norm, CHRONO   # noqa: F401  (the tests and other modules read them here)
 
+SLUG = 'rizq'
 ROOT = 'رزق'
-
-# ---------------------------------------------------------------- normalisation (Uthmani -> plain letters)
-_MARKS = re.compile('[ؐ-ًؚ-ٟۖ-ۭـ࣓-ࣿ]')
-
-def norm(s):
-    """Plain letters from Uthmani text: wasla and dagger alif resolved, hamza seats, ة as ه, ى as ي."""
-    s = s.replace('ٱ', 'ا')                              # alif wasla
-    s = s.replace('وٰ', 'ا').replace('ىٰ', 'ي')     # Uthmani long vowels (ٱلصَّلَوٰةَ, عَلَىٰ)
-    s = s.replace('ٰ', 'ا')                              # dagger alif elsewhere
-    s = re.sub('ـ[ً-ْ]*ٔ[ً-ْ]*', 'ئ', s)   # hamza on a tatweel seat
-    s = _MARKS.sub('', s)
-    s = re.sub('[أإآ]', 'ا', s)
-    s = s.replace('ءا', 'ا').replace('ة', 'ه').replace('ى', 'ي')
-    for a, b in (('هاذ', 'هذ'), ('ذالك', 'ذلك'), ('اولائك', 'اولئك'), ('لاكن', 'لكن'),
-                 ('الرحمان', 'الرحمن'), ('ابراهم', 'ابراهيم')):
-        s = s.replace(a, b)
-    return re.sub(r'\s+', ' ', s).strip()
-
-def _words(s):
-    return [w for w in re.split(r'[\s،,.:؛]+', norm(s)) if w]
-
-def _strip(w):
-    return w[1:] if w[:1] in 'وف' else w
+NAME = ('الرزّاق', 'Ar-Razzaq')
+TITLE = ('آيات الرزق ودعاؤها', 'Rizq Verses and Du’a')
+SECTIONS = ['models', 'agents', 'assoc', 'net', 'conditions', 'grid', 'chrono']
+CTX_WINDOW = 1      # a du'a source may be the verse right beside a rizq verse
+MIN_IN = 3          # a root must sit in three of the verses to be compared
+NET_DEFAULT = None  # every shown root has its network group below
 
 # ---------------------------------------------------------------- hand labels
 # the nine themes, in the order the page shows them; every one of the 109 verses is in exactly one
@@ -89,12 +57,6 @@ NET_GROUP_OF = {}
 for _r in ('بسط', 'قدر', 'نزل', 'حسب', 'نعم', 'منن', 'خلف', 'فضل', 'أتي', 'خلق', 'ملك', 'حيي', 'موت', 'خرج', 'جزي', 'جعل'): NET_GROUP_OF[_r] = 0
 for _r in ('نفق', 'أكل', 'شكر', 'صلو', 'عبد', 'صبر', 'وقي', 'وكل', 'علن', 'سرر', 'هجر', 'ذكر', 'كفر', 'قتل', 'فري', 'شرك', 'عمل', 'صلح', 'أمن', 'تجر'): NET_GROUP_OF[_r] = 1
 for _r in ('طيب', 'كرم', 'حسن', 'حلل', 'حرم', 'ثمر', 'سمو', 'أرض', 'بلد', 'دبب', 'طعم', 'ضرب', 'موه', 'ولد', 'بحر', 'غفر', 'جنن', 'نهر', 'كسو', 'ذرر'): NET_GROUP_OF[_r] = 2
-
-# the standard Egyptian order of revelation (the 1924 Cairo edition): position -> surah number; 86 Meccan, then 28 Medinan
-CHRONO = [96, 68, 73, 74, 1, 111, 81, 87, 92, 89, 93, 94, 103, 100, 108, 102, 107, 109, 105, 113, 114, 112, 53, 80, 97, 91, 85, 95, 106, 101,
-          75, 104, 77, 50, 90, 86, 54, 38, 7, 72, 36, 25, 35, 19, 20, 56, 26, 27, 28, 17, 10, 11, 12, 15, 6, 37, 31, 34, 39, 40,
-          41, 42, 43, 44, 45, 46, 51, 88, 18, 16, 71, 14, 21, 23, 32, 52, 67, 69, 70, 78, 79, 82, 84, 30, 29, 83,
-          2, 8, 3, 33, 60, 4, 99, 57, 47, 13, 55, 76, 65, 98, 59, 24, 22, 63, 58, 49, 66, 64, 61, 62, 48, 5, 9, 110]
 
 # what the verses pair with provision: name, the verses, and the words of the verse that say it
 CONDITIONS = [
@@ -204,7 +166,8 @@ AGENTS = [
     ('people', 'أمر للناس: ارزُقوهم', 'A command to people: provide for them (ارزُقوهم)'),
     ('you', 'خطاب لله: تَرزُق من تشاء', 'Addressed to God: You provide (تَرزُق)'),
 ]
-NOUNS = [('rizq', 'رِزْق', 'rizq, provision'), ('raziq', 'رازِق', 'raziq, provider'), ('razzaq', 'الرَّزَّاق', 'ar-Razzaq, the Provider')]
+# the nouns, by lemma
+NOUNS = [('rizq', 'رِزْق', 'rizq, provision', ('رِزْق',)), ('raziq', 'رازِق', 'raziq, provider', ('رازِق',)), ('razzaq', 'الرَّزَّاق', 'ar-Razzaq, the Provider', ('رَزّاق',))]
 
 # the roots that sit with rizq: shown with the word they usually come as; roots too common to say anything are left out
 GLOSS = {'طيب': ('الطيّبات', 'the good things'), 'نفق': ('الإنفاق', 'spending'), 'بسط': ('يبسط الرزق', 'He widens'), 'ثمر': ('الثمرات', 'fruits'),
@@ -221,243 +184,72 @@ GLOSS = {'طيب': ('الطيّبات', 'the good things'), 'نفق': ('الإن
 GENERIC = {'أله', 'شيأ', 'قوم', 'كون', 'قول', 'علم', 'ربب', 'أيي', 'نفس', 'كلل', 'يوم', 'أخر', 'دنو'}
 N_ASSOC = 16
 
-# ---------------------------------------------------------------- the corpus
-def _read():
-    """Verse texts in mushaf order, the roots in each verse, and every ر ز ق token with its word position."""
-    verses = {f'{s}:{a}': t for (s, a), t in load_verses(load_words()).items()}
-    roots = collections.defaultdict(list)
-    tokens = collections.defaultdict(list)
-    for r in _read_rows():
-        key = f"{r['sura']}:{r['aya']}"
-        feats = r['feats'].split('|')
-        root = next((p[5:] for p in feats if p.startswith('ROOT:')), None)
-        if root:
-            roots[key].append(root)
-        if root == ROOT:
-            lem = next((p[4:] for p in feats if p.startswith('LEM:')), None)
-            tokens[key].append({'w': r['word'], 'form': r['form'], 'pos': r['pos'], 'lemma': lem,
-                                'tags': {p for p in feats if not p.startswith(('ROOT:', 'LEM:'))}})
-    return verses, roots, tokens
+# ---------------------------------------------------------------- the page's own sentences, [English, Arabic]
+COPY = {
+    'heroForms': ('Every form: رزق, يرزق, الرازقين, الرزّاق.',
+        'بكل صيغها: رزق، يرزق، الرازقين، الرزّاق.'),
+    'lead': ('Two forms: a full du’a in six movements that follow the order of the prophets’ du’as in the rizq verses, and a short one to learn by heart. Every phrase is taken from one of the 109 verses, or from the verse right beside one. Under each word, a solid line means it stands in the verse as written, a dotted line that it was adapted.',
+        'صيغتان: كاملةٌ في ست حركاتٍ تتبع ترتيب أدعية الأنبياء في آيات الرزق، ومختصرةٌ للحفظ. كل مقطعٍ مأخوذٌ من إحدى الآيات الـ١٠٩ أو من آيةٍ مجاورةٍ لها مباشرة. وتحت كل كلمةٍ خطٌّ: متصلٌ إن كانت في الآية كما هي، ومنقّطٌ إن كانت محوّلة.'),
+    'ctxTag': ('the verse beside a rizq verse',
+        'الآية المجاورة لآية رزق'),
+    'sumWords': ('of its words stand in their verses as written; {pctQuran}% occur somewhere in the Quran, {pctTarget}% in the rizq verses',
+        'من كلماته كما هي في آياتها؛ و{pctQuran}٪ وردت في القرآن في موضعٍ ما، و{pctTarget}٪ في آيات الرزق'),
+    'ctxNote': ('Every source is one of the 109 rizq verses, except the verse right beside one: {ctx}. Nothing from outside them.',
+        'كل مصادر الدعاء من آيات الرزق الـ١٠٩، عدا آيةٍ مجاورةٍ لها مباشرة: {ctx}. ولا شيء من خارجها.'),
+    'modelsLead': ('Only three du’as in the Quran ask for provision with the imperative «provide» (ارزُق), all on prophets’ lips. Read span by span they share one shape, and the du’a above follows it: a call; a request higher than provision first (safety, prayer, a sign from God); then provision for one’s people rather than oneself; then thanks or praise to close. Provision is never asked for alone.',
+        'في القرآن ثلاثة أدعيةٍ فقط يُطلب فيها الرزق بصيغة الأمر «ارزُقْ»، كلها على ألسنة الأنبياء. قُرئ بناؤها كلمةً كلمة فخرج نمطٌ واحد، وعليه بُني الدعاء أعلاه: النداء؛ ثم طلبٌ أعلى من الرزق يسبقه (الأمن، أو الصلاة، أو آيةٌ من الله)؛ ثم طلب الرزق للأهل والجماعة لا للنفس وحدها؛ ثم شكرٌ أو ثناءٌ يُختم به. الرزق في هذه الأدعية لا يُطلب وحده أبدًا.'),
+    'modelsNote': [
+        ('The rizq verses also show how the one provided for answers: Maryam returns her provision to its source, «it is from God» (3:37), and Shu’ayb ties a good provision to reliance, «on Him I rely and to Him I turn» (11:88). The du’a’s «acknowledging» and «pledge» movements come from there.',
+         'وفي آيات الرزق أيضًا أدب المرزوق: مريم تردّ الرزق إلى مصدره «هو من عند الله» (آل عمران ٣:٣٧)، وشعيب يقرن الرزق الحسن بالتوكل «عليه توكلت وإليه أنيب» (هود ١١:٨٨). ومن هنا جاءت حركتا الإقرار والعهد في الدعاء.'),
+    ],
+    'agentsH': ('Who provides?',
+        'من يرزق؟'),
+    'agentsSub': ('The verb رزق comes {verbs} times. Its subject, from the morphology:',
+        'يرد الفعل «رزق» {verbs} مرة. وفاعله بحسب الصرف:'),
+    'nounsLine': ('And as a noun: rizq {n_rizq} times, raziq (provider) {n_raziq}, ar-Razzaq once (51:58).',
+        'وبالاسم: «رزق» {n_rizq} مرة، و«رازق» {n_raziq}، و«الرزّاق» مرةً واحدة (الذاريات ٥١:٥٨).'),
+    'agentsAha': ('In 50 of the 61 the provider is God, by name or by pronoun. The 5 passive verbs leave Him understood, the 3 pleas are addressed to Him, and the only 2 that command people are about providing for orphans and the weak from His wealth (4:5, 4:8). No verb has anyone providing for themselves: provision is always given, which is why the du’a opens with praise of the Provider rather than a list of needs.',
+        'في ٥٠ من الأفعال الـ٦١ الفاعل هو الله، باسمه أو بضميره. والأفعال الخمسة المبنية للمجهول فاعلها محذوفٌ والمراد هو، والثلاثة الدعائية موجّهةٌ إليه، والموضعان الوحيدان اللذان يُؤمر فيهما البشر أن يرزقوا هما إرزاق اليتامى والسفهاء والمساكين من مال الله (النساء ٤:٥ و٤:٨). ولا فعلٌ فيها فاعله مخلوقٌ يرزق نفسه: الرزق دائمًا يُعطى، ولذلك افتُتح الدعاء بالثناء على الرازق لا بتعداد الحاجات.'),
+    'assocH': ('What sits with provision in the same verse?',
+        'ما الذي يلازم الرزق في الآية نفسها؟'),
+    'assocSub': ('For each root: the bar is its share of the 109 rizq verses, the white mark its share of the whole Quran. Ranked by the strength of the evidence. Tap a root to see its verses below.',
+        'لكل جذر: الشريط نسبة آيات الرزق الـ١٠٩ التي يرد فيها، والعلامة البيضاء نسبته في القرآن كله. مرتّبةٌ بقوة الدليل. انقر جذرًا لترى آياته في الأسفل.'),
+    'assocAha': ('What clings to provision most in the Quran is not asking but four acts of the servant: eating of the good things and not forbidding them, spending from what was given, keeping the prayer, and giving thanks; and one act of God: He widens and He measures. These five are the spine of the du’a’s «pledge».',
+        'أكثر ما يلتصق بالرزق في القرآن ليس الدعاء، بل أربعة أفعالٍ من العبد: يأكل من الطيّبات ولا يحرّمها، ويُنفق مما رُزق، ويُقيم الصلاة، ويشكر. وفعلٌ واحد من الله: يبسط ويَقدِر بحكمته. وهذه الخمسة عمود حركة «العهد» في الدعاء.'),
+    'netSub': ('The same sixteen roots, drawn as a ring around provision. A line between two roots means they share at least two of the 109 verses, and the thicker it is the more verses they share. Point at a root to see its companions; tap it to list its verses below.',
+        'الجذور الستة عشر نفسها، حلقةً حول الرزق. الخطّ بين جذرَين يعني أنهما يجتمعان في آيتَين أو أكثر من الآيات الـ١٠٩، وكلما غلُظ كثُرت الآيات المشتركة. أشر إلى جذرٍ لترى ما يجاوره، وانقره لتظهر آياته في الأسفل.'),
+    'netAria': ('The sixteen roots that sit with provision, joined where they share verses',
+        'الجذور الستة عشر التي تجاور الرزق، موصولةٌ حيث تشترك في آيات'),
+    'netIn': (' sits in {n} of the 109 verses.',
+        ' في {n} آية من آيات الرزق الـ109.'),
+    'condH': ('What the verses pair with provision',
+        'ما الذي قرنته الآيات بالرزق؟'),
+    'condSub': ('The conditions as the verses themselves name them, ordered by how many verses say each one together with provision. Under each is the verse’s own wording. Tap one to see its verses below.',
+        'الشروط كما تذكرها الآيات نفسها، مرتّبةً بعدد الآيات التي تذكر كل شرطٍ مع الرزق. وتحت كل شرطٍ الشاهد من الآية. انقر شرطًا لترى آياته في الأسفل.'),
+    'versesSub': ('The word of provision is lit in every verse. Above the list, a grid of the 114 surahs says where the verses sit in the mushaf and a row of dots says when each came down; tap a surah in either to keep only its verses. Then sift by theme (the line under a theme is its Meccan share in gold and its Medinan share in green), by Mecca or Medina, or search any word. Tap a reference to read the verse in the mushaf.',
+        'كلمة الرزق مضاءةٌ في كل آية. وفوق القائمة شبكةُ السور الـ١١٤ تقول أين تقع الآيات في المصحف، وصفُّ نقاطٍ يقول متى نزلت كل آية؛ انقر سورةً في أيٍّ منهما لتبقى آياتها وحدها. ثم رشّح بالموضوع (الخطّ تحت الموضوع نصيبه المكي بالذهبي والمدني بالأخضر)، أو بالمكي والمدني، أو ابحث بأي كلمة. وانقر رقم الآية لتقرأها في المصحف.'),
+    'gridSub': ('Each cell is a surah, in mushaf order; the brighter it is, the more verses of provision it holds. Tap a lit surah to keep only its verses.',
+        'كل خليةٍ سورة بترتيب المصحف؛ وكلما أضاءت كثُرت آيات الرزق فيها. انقر سورةً مضاءة لتبقى آياتها وحدها.'),
+    'gridAria': ('The 114 surahs, each shaded by how many verses of provision it holds',
+        'السور الـ١١٤، كلٌّ ملوّنة بعدد آيات الرزق فيها'),
+    'gridTop': ('{top} hold most of the 109 verses; {none} of the 114 surahs have none.',
+        '{top} فيها أكثر الآيات الـ109؛ و{none} سورةً من 114 ليس فيها آية رزق.'),
+    'gridHas': ('{cnt} of its {m} verses name provision. Tap to keep only them.',
+        '{cnt} من آياتها الـ{m} تذكر الرزق. انقر لإبقائها وحدها.'),
+    'gridNone': ('none of its {m} verses names provision.',
+        'لا تذكر الرزق آيةٌ من آياتها الـ{m}.'),
+    'chronoSub': ('The 109 verses in the order of revelation, one dot each, stacked by surah. The colour is the verse’s theme group. Dots fade when a filter leaves them out, so a chosen theme shows where it sits in time.',
+        'الآيات الـ١٠٩ على ترتيب النزول، نقطةٌ لكل آية متراكمةً بالسورة. واللون مجموعةُ موضوع الآية. وتخفت النقاط التي يُخرجها الترشيح، فيظهر موضع كل موضوعٍ في الزمن.'),
+    'chronoAha': ('The first verse of provision to come down, in this order, is {first}: «He measured his provision, so he says: my Lord has humiliated me», a correction of how a narrowed provision is read, before any promise of widening. The last is {last}, Isa’s prayer: «provide for us, You are the best of providers».',
+        'أول ما نزل في الرزق، على هذا الترتيب، {first}: «فقدر عليه رزقه فيقول ربي أهانن»، تصحيحٌ لفهم التضييق قبل أي وعدٍ بالتوسعة. وآخرها {last}، دعاء عيسى: «وارزقنا وأنت خير الرازقين».'),
+}
 
-def _agent(tok):
-    t = tok['tags']
-    if tok['pos'] != 'V':
-        return {'رَزّاق': 'razzaq', 'رازِق': 'raziq'}.get(tok['lemma'], 'rizq')
-    if 'PASS' in t: return 'passive'
-    if 'IMPV' in t and '2MS' in t: return 'ask'
-    if 'IMPV' in t and '2MP' in t: return 'people'
-    if '1P' in t: return 'we'
-    if '3MS' in t: return 'he'
-    if '2MS' in t: return 'you'
-    return 'other'
-
-def _association(all_keys, roots, target):
-    """Which roots come in the target verses more than in the rest: log-odds with a Dirichlet prior (alpha 0.5) and its z."""
-    a, b = collections.Counter(), collections.Counter()
-    for k in all_keys:
-        (a if k in target else b).update(set(roots[k]) - {ROOT})
-    n1, n2, n = len(target), len(all_keys) - len(target), len(all_keys)
-    rows = []
-    for r in set(a) | set(b):
-        x, y = a[r], b[r]
-        if x < 3:
-            continue
-        d = math.log((x + .5) / (n1 - x + .5)) - math.log((y + .5) / (n2 - y + .5))
-        var = 1 / (x + .5) + 1 / (n1 - x + .5) + 1 / (y + .5) + 1 / (n2 - y + .5)
-        rows.append({'root': r, 'n': x, 'rest': y, 'pct': round(100 * x / n1, 1), 'pctAll': round(100 * (x + y) / n, 1),
-                     'lift': round((x / n1) / ((x + y) / n), 2), 'z': round(d / math.sqrt(var), 2)})
-    rows.sort(key=lambda r: (-r['z'], r['root']))
-    return rows
-
-# ---------------------------------------------------------------- the du'a against its verses
-def _span_core(words, core):
-    """1-based positions of the core phrase inside the verse, or of it with a joined و / ف allowed on the first word."""
-    ws = [norm(w) for w in words]
-    target = norm(core).split()
-    n = len(target)
-    for strip in (False, True):
-        for i in range(len(ws) - n + 1):
-            seg = ws[i:i + n]
-            if strip:
-                seg, tgt = [_strip(x) for x in seg], [_strip(x) for x in target]
-            else:
-                tgt = target
-            if seg == tgt:
-                return list(range(i + 1, i + n + 1))
-    return []
-
-def _span_shift(words, text):
-    """For a phrase with a changed pronoun: the verse words that the du'a kept (three letters or more)."""
-    bag = {_strip(x) for x in _words(text)}
-    return [i for i, w in enumerate(words, 1) if _strip(norm(w)) in bag and len(_strip(norm(w))) > 2]
-
-_PUNCT = re.compile('[،,.:؛]')
-
-def _check(seg, verses, rizq, ctx, vocab):
-    q = seg.get('q', seg['t'])
-    nq = norm(q)
-    hits = [k for k in seg['src'] if nq in norm(verses[k])]
-    mode = 'text' if hits else 'shift'
-    shown = seg['t'].split(' ')
-    bag, bag_s = set(), set()
-    for k in seg['src']:
-        if k not in rizq and k not in ctx:
-            raise ValueError(f'du\'a source {k} is neither a rizq verse nor next to one')
-        for w in _words(verses[k]):
-            bag.add(w); bag_s.add(_strip(w))
-    def kept(w):
-        n = norm(_PUNCT.sub('', w))
-        return 1 if (n in bag or _strip(n) in bag_s) else 0
-    kw = [kept(w) for w in shown]
-    whole = any(_span_core(verses[k].split(), _PUNCT.sub(' ', seg['t'])) for k in seg['src'])
-    src = []
-    for k in seg['src']:
-        words = verses[k].split()
-        hi = set(_span_shift(words, seg['t']))
-        if mode == 'text' and k in hits:
-            hi |= set(_span_core(words, q))
-        src.append({'k': k, 'ctx': k not in rizq, 'hi': sorted(hi)})
-    ws = _words(seg['t'])
-    def tier(w):
-        for cand in (w, _strip(w) if w[:1] in 'وف' else None):
-            if cand:
-                for name in ('rizq', 'ctx', 'quran'):
-                    if cand in vocab[name]:
-                        return name
-        return 'shift'
-    return {'t': seg['t'], 'mode': mode, 'whole': whole, 'kw': kw, 'src': src}, [tier(w) for w in ws]
-
-def _summary(segs, tiers):
-    n = len(segs)
-    exact = sum(1 for s in segs if s['mode'] == 'text')
-    tot = len(tiers)
-    c = collections.Counter(tiers)
-    shown = sum(len(s['kw']) for s in segs)
-    kept = sum(sum(s['kw']) for s in segs)
-    return {'segments': n, 'text': exact, 'shift': n - exact, 'whole': sum(1 for s in segs if s['whole']),
-            'words': shown, 'kept': kept, 'pctKept': round(100 * kept / shown),
-            'pctRizq': round(100 * c['rizq'] / tot), 'pctQuran': round(100 * (tot - c['shift']) / tot),
-            'ctx': sorted({s['k'] for seg in segs for s in seg['src'] if s['ctx']}, key=_order)}
-
-def _order(k):
-    s, a = k.split(':')
-    return int(s), int(a)
-
-# ---------------------------------------------------------------- build
 def build():
-    verses, roots, tokens = _read()
-    all_keys = list(verses)
-    rizq_keys = [k for k in all_keys if k in tokens]
-    rizq = set(rizq_keys)
-    meta = _surah_meta()
-    period = lambda k: 'm' if meta[int(k.split(':')[0])]['p'] == 'Mecca' else 'd'
-
-    if sorted(CHRONO) != list(range(1, 115)):
-        raise ValueError('the order of revelation is not a permutation of the 114 surahs')
-    theme_of = {}
-    for i, (ar, _, ks) in enumerate(THEMES):
-        if ar not in GROUP_OF_THEME: raise ValueError(f'theme {ar} has no group')
-        for k in ks:
-            if k not in rizq: raise ValueError(f'theme verse {k} has no ر ز ق word')
-            if k in theme_of: raise ValueError(f'theme verse {k} labelled twice')
-            theme_of[k] = i
-    if set(theme_of) != rizq:
-        raise ValueError(f'unlabelled rizq verses: {sorted(rizq - set(theme_of), key=_order)}')
-
-    ctx = set()
-    for k in rizq_keys:
-        s, a = _order(k)
-        for d in (-1, 1):
-            kk = f'{s}:{a + d}'
-            if kk in verses and kk not in rizq:
-                ctx.add(kk)
-    vocab = {'rizq': {w for k in rizq for w in _words(verses[k])},
-             'ctx': {w for k in ctx for w in _words(verses[k])},
-             'quran': {w for k in verses for w in _words(verses[k])}}
-
-    # the du'a, each phrase checked
-    full, tiers_f = [], []
-    for ar, en, segs in FULL:
-        out = []
-        for seg in segs:
-            s, t = _check(seg, verses, rizq, ctx, vocab)
-            out.append(s); tiers_f += t
-        full.append({'ar': ar, 'en': en, 'segs': out})
-    short, tiers_s = [], []
-    for seg in SHORT:
-        s, t = _check(seg, verses, rizq, ctx, vocab)
-        short.append(s); tiers_s += t
-    flat_full = [s for p in full for s in p['segs']]
-
-    # who provides
-    counts = collections.Counter()
-    examples = collections.defaultdict(list)
-    for k in rizq_keys:
-        for tok in tokens[k]:
-            lab = _agent(tok)
-            counts[lab] += 1
-            if len(examples[lab]) < 4:
-                examples[lab].append(k)
-    if counts['other']:
-        raise ValueError('a ر ز ق verb with no subject tag')
-    agents = [{'id': i, 'ar': ar, 'en': en, 'n': counts[i], 'ex': examples[i]} for i, ar, en in AGENTS]
-    nouns = [{'id': i, 'ar': ar, 'en': en, 'n': counts[i], 'ex': examples[i]} for i, ar, en in NOUNS]
-
-    # what sits with rizq in the same verse
-    assoc = []
-    for r in _association(all_keys, roots, rizq):
-        if r['root'] in GENERIC:
-            continue
-        g = GLOSS.get(r['root'], (r['root'], r['root']))
-        if r['root'] not in NET_GROUP_OF: raise ValueError(f"root {r['root']} has no network group")
-        r.update({'ar': g[0], 'en': g[1], 'g': NET_GROUP_OF[r['root']], 'verses': [k for k in rizq_keys if r['root'] in roots[k]]})
-        if len(r['verses']) != r['n']:
-            raise ValueError(f"root {r['root']}: {len(r['verses'])} verses listed, {r['n']} counted")
-        assoc.append(r)
-        if len(assoc) == N_ASSOC:
-            break
-
-    models = []
-    for k, ar, en, spans in MODELS:
-        n = len(verses[k].split())
-        if spans[-1][1] > n:
-            raise ValueError(f'{k} has {n} words, span to {spans[-1][1]}')
-        models.append({'k': k, 'ar': ar, 'en': en, 'spans': [list(s) for s in spans]})
-
-    conditions = []
-    for ar, en, ks, ev in CONDITIONS:
-        for k in ks:
-            if k not in rizq: raise ValueError(f'condition verse {k} has no ر ز ق word')
-        conditions.append({'ar': ar, 'en': en, 'n': len(ks), 'verses': sorted(ks, key=_order), 'ev': ev})
-
-    vs = [{'k': k, 'p': period(k), 't': theme_of[k], 'w': [t['w'] for t in tokens[k]]} for k in rizq_keys]
-    surahs = {int(k.split(':')[0]) for k in rizq_keys}
-    return {
-        'totals': {'tokens': sum(len(v) for v in tokens.values()), 'verses': len(rizq_keys), 'surahs': len(surahs),
-                   'mecca': sum(1 for v in vs if v['p'] == 'm'), 'medina': sum(1 for v in vs if v['p'] == 'd'),
-                   'verbs': sum(a['n'] for a in agents), 'nouns': sum(x['n'] for x in nouns), 'quran': len(all_keys)},
-        'themes': [{'ar': ar, 'en': en, 'n': len(ks), 'mecca': sum(1 for k in ks if period(k) == 'm'), 'g': GROUP_OF_THEME[ar]} for ar, en, ks in THEMES],
-        'groups': [{'ar': ar, 'en': en} for ar, en in GROUPS],
-        'netGroups': [{'ar': ar, 'en': en} for ar, en in NET_GROUPS],
-        'chrono': list(CHRONO),
-        'verses': vs,
-        'agents': agents, 'nouns': nouns,
-        'assoc': assoc,
-        'conditions': conditions,
-        'models': models,
-        'dua': {'full': full, 'short': short,
-                'sum': {'full': _summary(flat_full, tiers_f), 'short': _summary(short, tiers_s)}},
-    }
+    return names.build(sys.modules[__name__])
 
 if __name__ == '__main__':
     import json
     R = build()
     print(json.dumps(R['totals'], ensure_ascii=False))
-    print('themes', [(t['ar'], t['n'], t['mecca']) for t in R['themes']])
-    print('agents', [(a['id'], a['n']) for a in R['agents']], 'nouns', [(a['id'], a['n']) for a in R['nouns']])
-    print('assoc', [(r['root'], r['n'], r['rest'], r['z']) for r in R['assoc']])
     print('dua', R['dua']['sum'])
-    for p in R['dua']['full']:
-        for s in p['segs']:
-            print(' ', s['mode'], s['t'], [(x['k'], x['hi']) for x in s['src']])
     print('bytes', len(json.dumps(R, ensure_ascii=False, separators=(',', ':')).encode()))

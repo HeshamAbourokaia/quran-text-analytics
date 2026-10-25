@@ -1279,6 +1279,36 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .rz-grid text{font-family:var(--sans);pointer-events:none} .rz-grid .num{font-size:10px;fill:var(--on-dark-3)} .rz-grid .cnt{font-weight:700;font-size:17px} .rz-grid .nm{font-size:9.5px;fill:var(--on-dark-2)} .rz-grid .nm.arab{font-family:var(--ar);font-size:10.5px}
   .rz-chrono text{font-family:var(--sans);font-size:11px;fill:var(--on-dark-3);pointer-events:none} .rz-chrono .nm{fill:var(--on-dark-2);font-size:11.5px} .rz-chrono .nm.arab{font-family:var(--ar)} .rz-chrono .ax{stroke:rgba(255,255,255,.22)} .rz-chrono .split{stroke:rgba(255,255,255,.35);stroke-dasharray:4 4}
   .rz-chrono .dt{cursor:pointer;transition:opacity .25s} .rz-chrono .dt .hit{fill:transparent} .rz-chrono .dt circle+circle{stroke:var(--night);stroke-width:1.5} .rz-chrono .dt.off{opacity:.16} .rz-chrono .dt.hov circle+circle{stroke:#fff;stroke-width:2}
+  /* the Names series strip, the English meanings under the du'a, and the parts the Hiba page adds: sankey, findings, forms, formulas, themes, table, mushaf strip */
+  .rz-series{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:0 0 16px;font-size:.78rem;color:var(--on-dark-3)}
+  .rz-mlist{display:flex;flex-direction:column;gap:10px}
+  .rz-mrow{font-family:var(--ar-display);font-size:1.55rem;line-height:2.05;color:#fff}
+  .rz-mean{display:block;margin:0 0 2px;font-family:var(--sans);font-size:.84rem;line-height:1.55;color:var(--on-dark-2);text-align:left}
+  .rz-mean i{font-style:normal;font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--on-dark-3);margin-right:8px}
+  .rz-en{margin:6px 0 0;font-size:.86rem;line-height:1.6;color:var(--on-dark-2)}
+  .rz-sankey .lk{fill:rgba(52,211,153,.22);transition:fill .2s,opacity .2s} .rz-sankey .lk.on{fill:rgba(52,211,153,.55)} .rz-sankey .lk.off{opacity:.35}
+  .rz-sankey .nd{cursor:pointer;outline:none} .rz-sankey .part rect{fill:var(--gold)} .rz-sankey .sur rect{fill:var(--emerald)} .rz-sankey .nd.sel rect{stroke:#fff;stroke-width:2}
+  .rz-sankey text{font-family:var(--sans);font-size:12px;fill:var(--on-dark)} .rz-sankey text.arab{font-family:var(--ar-display);font-size:14px} .rz-sankey .part text{font-weight:600}
+  .rz-fgrid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+  .rz-fbody{font-size:.8rem;line-height:1.6;color:var(--on-dark-2)} .rz-refs{font-size:.72rem;color:var(--on-dark-3);font-variant-numeric:tabular-nums}
+  .rz-tree svg,.rz-strip svg{display:block;width:100%;height:auto;direction:ltr} .rz-tree .box{fill:rgba(255,255,255,.03);stroke:var(--hair)}
+  .rz-tree .gl{font-family:var(--sans);font-size:12px;font-weight:600;fill:var(--on-dark-2)} .rz-tree .gl.arab{font-family:var(--ar-display);font-size:14px}
+  .rz-tree .lf{cursor:pointer;outline:none;transition:opacity .2s} .rz-tree .lf.dim{opacity:.55} .rz-tree .lf rect{fill-opacity:.85;stroke:transparent;stroke-width:2} .rz-tree .lf.sel rect{stroke:#fff;fill-opacity:1}
+  .rz-tree .fm{font-family:var(--ar-display);fill:#fff;pointer-events:none} .rz-tree .fn{font-family:var(--sans);font-size:11px;font-weight:700;fill:rgba(255,255,255,.85);pointer-events:none}
+  .rz-flist{display:grid;gap:6px}
+  .rz-frow{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(90px,.8fr);align-items:center;gap:6px 14px;font:inherit;color:var(--on-dark);background:rgba(0,0,0,.16);border:1px solid var(--hair);border-radius:12px;padding:6px 12px;text-align:start;cursor:pointer;transition:border-color .2s,background .2s}
+  .rz-frow:hover{background:rgba(255,255,255,.05)} .rz-frow.on{border-color:var(--gold);background:rgba(233,185,95,.1)} .rz-frow .rz-n{min-width:0;white-space:nowrap}
+  .rz-fq{font-family:var(--ar-display);font-size:1.3rem;line-height:1.8;color:#fff;text-align:start}
+  .rz-stack{overflow:hidden} .rz-stack i{border-radius:0} .rz-stack i.m{background:var(--gold)} .rz-stack i.d{background:var(--emerald)}
+  .rz-mx{display:grid;grid-template-columns:minmax(160px,2.4fr) repeat(var(--cols),minmax(56px,1fr));gap:4px;min-width:500px;align-items:stretch}
+  .rz-mxh{font-size:.7rem;line-height:1.3;color:var(--on-dark-3);text-align:center;align-self:end;padding:0 2px 4px}
+  .rz-mxl{font-size:.78rem;line-height:1.35;color:var(--on-dark);align-self:center}
+  .rz-mxc{font:inherit;font-size:.82rem;font-weight:700;color:#fff;background:rgba(20,147,111,var(--a,0));border:1px solid var(--hair);border-radius:8px;min-height:30px;cursor:pointer;font-variant-numeric:tabular-nums}
+  .rz-mxc:disabled{background:rgba(255,255,255,.03);cursor:default} .rz-mxc.on{outline:2px solid var(--gold);outline-offset:1px}
+  .rz-strip text{font-family:var(--sans);font-size:11px;fill:var(--on-dark-3);pointer-events:none} .rz-strip text.arab{font-family:var(--ar-display);font-size:13px} .rz-strip .nm{fill:var(--on-dark-2)}
+  .rz-strip .band{fill:rgba(255,255,255,.06)} .rz-strip .band.odd{fill:rgba(255,255,255,.11)} .rz-strip .band.has{cursor:pointer} .rz-strip .band.hov{fill:rgba(255,255,255,.22)} .rz-strip .band.sel{fill:rgba(233,185,95,.35)}
+  .rz-strip .tk{stroke-width:2.4;pointer-events:none;transition:stroke-opacity .25s} .rz-strip .tk.off{stroke-opacity:.18} .rz-strip .hit{fill:transparent;cursor:pointer}
+  @media (max-width:760px){ .rz-mrow{font-size:1.3rem;line-height:1.95} .rz-frow{grid-template-columns:minmax(0,1fr) auto} .rz-frow .rz-refs{grid-column:1 / -1} }
   @media (max-width:760px){ .rz-line{font-size:1.35rem;line-height:2} .rz-q{font-size:1.25rem} .rz-row{grid-template-columns:minmax(100px,1fr) minmax(60px,1.4fr) auto} .rz-copy{width:100%} }
   /* a page that took in another: each part keeps a heading and its own short explanation */
   .msec{margin:44px 0 4px;scroll-margin-top:84px}
@@ -1980,7 +2010,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
     history:'history', science:'science', discover:'discoveries', 'd-endings':'verse-endings', 'd-rings':'mirrors', 'd-rhyme':'rhyme',
     'd-stories':'retellings', 'd-themes':'themes', 'd-companions':'companions', 'd-letters':'opening-letters', 'd-repeats':'near-repeats', 'd-chrono':'revelation-order',
     overview:'overview', word:'words', letters:'letters', mecca:'mecca-medina', emotion:'tone', cluster:'similar-surahs',
-    kg:'knowledge-graph', stories:'stories', lessons:'lessons', duas:'duas', rizq:'rizq', tafsir:'insights', untranslatable:'untranslatable'};
+    kg:'knowledge-graph', stories:'stories', lessons:'lessons', duas:'duas', rizq:'rizq', wahhab:'wahhab', tafsir:'insights', untranslatable:'untranslatable'};
   // Vercel Web Analytics: page views only, no cookies, nothing that identifies a visitor.
   // Each view is sent as a clean path (/app/<view>[/<claim or surah>], /ar/ for Arabic) and every other query value is dropped.
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -3153,11 +3183,11 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
       <div class="chartnote" v-if="plain && plain.msg"><b>{{ lang==='ar'?'ماذا يخبرنا':'What it tells us' }}:</b> <span v-html="rich(plain.msg)"></span></div>
     </section>
 
-    <!-- RIZQ: every verse with the root ر ز ق, and a du'a built from their phrases -->
-    <section v-if="view==='rizq'" class="rz-page">
-      <h1>{{ lang==='ar' ? 'آيات الرزق ودعاؤها' : 'Rizq Verses and Du’a' }}</h1>
+    <!-- NAME STUDIES (/rizq, /wahhab): every verse whose root carries a Name of God, and a du'a built from their phrases -->
+    <section v-if="nameView" class="rz-page">
+      <h1>{{ lang==='ar' ? nameView.title.ar : nameView.title.en }}</h1>
       <explain-box></explain-box>
-      <rizq-lab></rizq-lab>
+      <name-lab :slug="view" :key="view"></name-lab>
     </section>
 
     <!-- LIBRARY: Stories / Lessons / Du'as / Tafsir -->
@@ -3452,6 +3482,13 @@ const PLAIN = {
       'الدعاء أولًا. تحت كل كلمةٍ خطٌّ: المتصل يعني أنها في الآية كما هي، والمنقّط يعني أنها محوّلة: قالتها الآية عن الله والدعاء يقولها له، أو أُعيد نظم الكلمات. انقر أي مقطعٍ لترى آيته وكلماته المحفوظة مضاءة. وفي الأسفل تقول الأشرطة من يرزق وأي الكلمات تجاور الرزق، وتُظهر حلقةُ الجذور أيّها يجتمع في الآيات نفسها، وتقول شبكةُ السور الـ١١٤ وصفُّ النقاط على ترتيب النزول أين تقع الآيات ومتى نزلت، وتُرشَّح الآيات الـ١٠٩ بالموضوع وبالسورة وبالمكي والمدني.'],
     msg:['In the Quran no one provides for themselves: in every one of the 61 verbs the giver is God, or the verb is a plea to Him, or it tells people to provide for the weak from what He gave. And what the verses pair with provision most is not asking but four acts: eating of the good things, spending, prayer and thanks. The du’a is built in that order.',
       'في القرآن لا أحد يرزق نفسه: في الأفعال الـ٦١ كلها الرازق هو الله، أو الفعل دعاءٌ إليه، أو أمرٌ للناس أن يرزقوا الضعفاء مما أعطاهم. وأكثر ما تقرنه الآيات بالرزق ليس الطلب بل أربعة أفعال: الأكل من الطيبات، والإنفاق، والصلاة، والشكر. وعلى هذا الترتيب بُني الدعاء.']},
+  wahhab:{
+    what:['Every verse in the Quran where giving (hiba, the root و ه ب) is named: 22 verses, read together, with the Name al-Wahhab, the Giver. Who gives, what is given, what the verses pair with the gift, and the seven du’as that ask «grant me». From those phrases, word for word, a du’a in the name of al-Wahhab.',
+      'كل آيةٍ في القرآن ذُكرت فيها الهبة (الجذر و ه ب): ٢٢ آية تُقرأ معًا، ومعها اسم الله الوهّاب. من يهب، وماذا يُوهَب، وما الذي تقرنه الآيات بالهبة، والأدعية السبعة التي تقول «هب لي». ومن هذه الصيغ، كلمةً كلمة، دعاءٌ باسم الوهاب.'],
+    how:['The du’a comes first, with a plain English meaning under each phrase. Under each Arabic word, a solid line means it stands in the verse as written; a dotted line means it was adapted. Tap any phrase to see its verse with the kept words lit. Every chart below is a filter: tap a finding, a bar, a root, a form, a phrase, a cell of the table or a surah, and the 22 verses at the bottom narrow to match.',
+      'الدعاء أولًا. تحت كل كلمةٍ خطٌّ: المتصل يعني أنها في الآية كما هي، والمنقّط يعني أنها محوّلة. انقر أي مقطعٍ لترى آيته وكلماته المحفوظة مضاءة. وكل رسمٍ في الأسفل مرشِّح: انقر نتيجةً أو شريطًا أو جذرًا أو صيغةً أو عبارةً أو خانةً من الجدول أو سورة، فتضيق الآيات الـ٢٢ في آخر الصفحة على ما اخترت.'],
+    msg:['What the Quran calls a gift is what no effort earns: thirteen of the 22 verses are about children, the rest about mercy, wisdom, family and a kingdom, and not one about wealth or food. Seven du’as ask for it, five are answered within the next two verses, and twice the asking closes with the Name: «truly You are the Giver».',
+      'ما يسمّيه القرآن هبةً هو ما لا يُكتسب بسعي: ثلاث عشرة آيةً من الـ٢٢ عن الولد، والباقي عن الرحمة والحكم والأهل والملك، ولا آية عن مالٍ أو طعام. وسبعة أدعيةٍ تطلبها، خمسةٌ منها تُجاب في الآيتين التاليتين، ومرتين يُختم الطلب بالاسم: «إنك أنت الوهاب».']},
   wordcount:{
     what:['How many words are in the Quran? The printed mushaf has 77,429. The count reported from Ata ibn Yasar, about 1,300 years ago, is 77,439. Both are right: they count the same text with different ideas of what a word is.',
       'كم كلمةً في القرآن؟ في المصحف المطبوع ٧٧٬٤٢٩ كلمة، وفي قول عطاء بن يسار قبل نحو ثلاثة عشر قرنًا ٧٧٬٤٣٩. والعددان صحيحان: فهما عدٌّ للنص نفسه بفهمين مختلفين لحدود الكلمة.'],
@@ -3567,7 +3604,7 @@ const jix = () => JIX || (JIX = JEV && window.QURAN_WORDS ? JEV.makeIndex(window
 // so a phone never waits on a blank page for all of it.
 const LAZY = { verses:['corpus.js','translation_en.js'], words:['words.js','lemma-variants.js'], plotly:['https://cdn.plot.ly/plotly-2.27.0.min.js'],
   disc:['discover.js','discoveries.js'], hviz:['content/quran_history_viz.js'] };
-const NEEDS = { reader:['verses','words'], mecca:['words'], word:['words','verses'], symmetry:['words','verses'], abjad:['words'], structural:['words','verses','hviz'], n19:['words','verses'], search:['words','verses'], auditor:['words'], history:['verses','words','hviz'], reader:['verses'], home:['words'], rizq:['verses'],
+const NEEDS = { reader:['verses','words'], mecca:['words'], word:['words','verses'], symmetry:['words','verses'], abjad:['words'], structural:['words','verses','hviz'], n19:['words','verses'], search:['words','verses'], auditor:['words'], history:['verses','words','hviz'], reader:['verses'], home:['words'], rizq:['verses'], wahhab:['verses'],
   discover:['disc'], 'd-endings':['disc','verses'], 'd-rings':['disc','verses','words'], 'd-rhyme':['disc'], 'd-stories':['disc'], 'd-themes':['disc'],
   'd-companions':['disc'], 'd-letters':['disc'], 'd-repeats':['disc','verses','words'], 'd-chrono':['disc'] };
 const lazyP = {};
@@ -5208,26 +5245,47 @@ const LetterTotalLab = {
 // figure (abjad sum and isotopes, honeycomb of verses, waterfall, verse-length profile, the Qadr word count, the
 // solar and lunar calendars) and names the method under it. Every count is taken from the text in the browser.
 const SL_NORM = s => s.replace(N19_MARKS,'').replace(/ٱ/g,'ا');
-// Rizq Verses and Du'a: every verse whose root is ر ز ق, and a du'a built from their phrases (data in QURAN_DATA.rizq,
-// from data-build/pipeline/rizq.py; the verse texts come from corpus.js). Each phrase of the du'a opens its source
-// verses with the kept words lit in green and the word of provision in gold. The bars read who provides and which
-// roots sit with provision in the same verse; the 109 verses sift by theme, by period, by a root or a condition, and by any word.
-// plain letters from Uthmani text, as data-build/pipeline/rizq.py reads it: wasla and dagger alif resolved (طَيِّبَٰتِ finds «طيبات»),
+// Name studies (Rizq Verses and Du'a, Hiba Verses and Du'a): every verse whose root carries a Name of God, and a du'a built
+// from their phrases. One component for every study: the data is QURAN_DATA[slug], from data-build/pipeline/names.py with one
+// config per Name (rizq.py, wahhab.py); the verse texts come from corpus.js. A study's own sentences are in its key (copy, each
+// [English, Arabic]; a {placeholder} is filled here), and its list of sections says which charts it shows. Each phrase of the
+// du'a opens its source verses with the kept words lit in green and the word of the root in gold. Every chart and card filters
+// the verse cards at the bottom through one selection (sel), the surah (surah), the themes, the period and the search.
+// plain letters from Uthmani text, as data-build/pipeline/names.py reads it: wasla and dagger alif resolved (طَيِّبَٰتِ finds «طيبات»),
 // hamza seats, ة as ه, ى as ي; so a modern spelling typed in the search box finds the mushaf's
 const RZ_MARKS = /[ؐ-ًؚ-ٟۖ-ۭـ࣓-ࣿ]/g;
 function rzNorm(s){ return String(s||'').replace(/ٱ/g,'ا').replace(/وٰ/g,'ا').replace(/ىٰ/g,'ي').replace(/ٰ/g,'ا')
   .replace(/ـ[ً-ْ]*ٔ[ً-ْ]*/g,'ئ').replace(RZ_MARKS,'').replace(/[أإآ]/g,'ا').replace(/ءا/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي').replace(/\s+/g,' ').trim(); }
 const RZ_GCOL = ['#14936f', '#b98527', '#9085e9'];   // the three groups, on the dark surface
-const RizqLab = {
-  data(){ return {ver:'full', pick:-1, copied:'', period:'all', themes:[], root:'', cond:-1, q:'', surah:0, hr:'', hs:0, hd:'', w:640}; },
+const NAME_VIEWS = ['rizq', 'wahhab'];               // the Names series, in order; a study's view id is its slug
+// a squarified treemap (Bruls, Huizing and van Wijk): items {v} laid out in the box x, y, w, h, largest first, rows kept near square
+function rzSquarify(items, x, y, w, h){
+  const out=[], tot=items.reduce((a,o)=>a+o.v,0); if(!tot || w<=0 || h<=0) return out;
+  const k=w*h/tot, rest=items.slice().sort((a,b)=>b.v-a.v).map(o=>Object.assign({}, o, {a:o.v*k}));
+  const worst=(row, side)=>{ const s=row.reduce((a,o)=>a+o.a,0), mx=Math.max(...row.map(o=>o.a)), mn=Math.min(...row.map(o=>o.a)); return Math.max(side*side*mx/(s*s), s*s/(side*side*mn)); };
+  while(rest.length){ const side=Math.min(w, h), row=[rest.shift()];
+    while(rest.length && worst(row.concat(rest[0]), side)<=worst(row, side)) row.push(rest.shift());
+    const s=row.reduce((a,o)=>a+o.a,0);
+    if(w>=h){ const cw=s/h; let yy=y; row.forEach(o=>{ const hh=o.a/cw; out.push(Object.assign(o, {x, y:yy, w:cw, h:hh})); yy+=hh; }); x+=cw; w-=cw; }
+    else { const ch=s/w; let xx=x; row.forEach(o=>{ const ww=o.a/ch; out.push(Object.assign(o, {x:xx, y, w:ww, h:ch})); xx+=ww; }); y+=ch; h-=ch; } }
+  return out; }
+// a label in up to two lines of about n characters, split at a space
+function rzWrap(s, n){ if(s.length<=n) return [s]; const ws=s.split(' '); let a='';
+  for(const w of ws){ if((a+' '+w).trim().length>n && a) break; a=(a+' '+w).trim(); }
+  return [a, s.slice(a.length).trim()].filter(Boolean); }
+const NameLab = {
+  props:['slug'],
+  data(){ return {ver:'full', pick:-1, copied:'', period:'all', themes:[], sel:null, q:'', surah:0, hr:'', hs:0, hd:'', hm:'', hk:'', w:640}; },
   template:`<div class="rz" v-if="R">
+    <nav class="rz-series" v-if="series.length>1" :aria-label="T(['The Names series','سلسلة الأسماء'])"><span>{{ T(['The Names series','سلسلة الأسماء']) }}</span>
+      <button v-for="s in series" :key="s.slug" type="button" class="wt-chip small" :class="{on: s.slug===slug}" :aria-current="s.slug===slug ? 'page' : null" @click="s.slug!==slug && $root.go(s.slug)"><span>{{ ar ? s.name.ar : s.name.en }}</span><b>{{ T([s.totals.verses+' verses', s.totals.verses+' آية']) }}</b></button></nav>
     <div class="wt-hero rz-hero">
-      <div class="wt-fig em"><b>{{ D(R.totals.tokens) }}</b><span>{{ T(['words with the root ر ز ق','كلمة جذرها ر ز ق']) }}</span><small>{{ T(['Every form: رزق, يرزق, الرازقين, الرزّاق.','بكل صيغها: رزق، يرزق، الرازقين، الرزّاق.']) }}</small></div>
+      <div class="wt-fig em"><b>{{ D(R.totals.tokens) }}</b><span>{{ T(['words with the root '+rootL,'كلمة جذرها '+rootL]) }}</span><small>{{ C('heroForms') }}</small></div>
       <div class="wt-fig"><b>{{ D(R.totals.verses) }}</b><span>{{ T(['verses','آية']) }}</span><small>{{ T(['of the Quran’s 6,236','من آيات القرآن الـ٦٬٢٣٦']) }}</small></div>
       <div class="wt-fig"><b>{{ D(R.totals.surahs) }}</b><span>{{ T(['surahs','سورة']) }}</span><small>{{ T(['of 114','من ١١٤']) }}</small></div>
       <div class="wt-fig gold"><b>{{ D(R.totals.mecca) }}<i>/</i>{{ D(R.totals.medina) }}</b><span>{{ T(['Meccan / Medinan','مكية / مدنية']) }}</span><small>{{ T(['by the surah’s period','بحسب نزول السورة']) }}</small></div>
     </div>
-    <p class="wt-lead">{{ T(['Two forms: a full du’a in six movements that follow the order of the prophets’ du’as in the rizq verses, and a short one to learn by heart. Every phrase is taken from one of the 109 verses, or from the verse right beside one. Under each word, a solid line means it stands in the verse as written, a dotted line that it was adapted.','صيغتان: كاملةٌ في ست حركاتٍ تتبع ترتيب أدعية الأنبياء في آيات الرزق، ومختصرةٌ للحفظ. كل مقطعٍ مأخوذٌ من إحدى الآيات الـ١٠٩ أو من آيةٍ مجاورةٍ لها مباشرة. وتحت كل كلمةٍ خطٌّ: متصلٌ إن كانت في الآية كما هي، ومنقّطٌ إن كانت محوّلة.']) }}</p>
+    <p class="wt-lead">{{ C('lead') }}</p>
 
     <div class="wt-card rz-duabox">
       <div class="rz-tools">
@@ -5241,68 +5299,126 @@ const RizqLab = {
       <div class="rz-dua" lang="ar" dir="rtl">
         <div v-for="(p,pi) in parts" :key="ver+pi" class="rz-part">
           <span class="rz-plabel" :lang="ar?'ar':'en'" :dir="ar?'rtl':'ltr'">{{ ar ? p.ar : p.en }}</span>
-          <p class="rz-line"><template v-for="(s,si) in p.segs" :key="s.i"><button type="button" class="rz-seg" :class="[s.mode, {on: pick===s.i}]" :aria-pressed="String(pick===s.i)" @click="pickSeg(s.i)"><span v-for="(w,wi) in s.t.split(' ')" :key="wi" :class="s.kw[wi] ? 'k' : 'a'">{{ w }}{{ wi < s.kw.length-1 ? ' ' : '' }}</span></button><span class="rz-sep" v-if="si<p.segs.length-1">، </span></template></p>
+          <div v-if="meanings" class="rz-mlist">
+            <div v-for="s in p.segs" :key="s.i" class="rz-mrow"><button type="button" class="rz-seg" :class="[s.mode, {on: pick===s.i}]" :aria-pressed="String(pick===s.i)" @click="pickSeg(s.i)"><span v-for="(w,wi) in s.t.split(' ')" :key="wi" :class="s.kw[wi] ? 'k' : 'a'">{{ w }}{{ wi < s.kw.length-1 ? ' ' : '' }}</span></button>
+              <span v-if="s.en" class="rz-mean" lang="en" dir="ltr"><i>meaning</i>{{ s.en }}</span></div>
+          </div>
+          <p v-else class="rz-line"><template v-for="(s,si) in p.segs" :key="s.i"><button type="button" class="rz-seg" :class="[s.mode, {on: pick===s.i}]" :aria-pressed="String(pick===s.i)" @click="pickSeg(s.i)"><span v-for="(w,wi) in s.t.split(' ')" :key="wi" :class="s.kw[wi] ? 'k' : 'a'">{{ w }}{{ wi < s.kw.length-1 ? ' ' : '' }}</span></button><span class="rz-sep" v-if="si<p.segs.length-1">، </span></template></p>
         </div>
       </div>
       <div class="rz-src" v-if="seg" aria-live="polite">
         <p class="rz-srchead"><b :class="seg.mode">{{ seg.whole ? T(['A verse’s words exactly as shown','لفظ الآية بعينه']) : (seg.mode==='text' ? T(['Built on a verse’s phrase, found word for word','مبنيٌّ على عبارةٍ من الآية بلفظها']) : T(['Adapted from the verse','محوّلٌ عن الآية'])) }}</b>{{ T([' · from ',' · من: ']) }}{{ seg.src.map(s=>refOf(s.k)).join(ar ? '، ' : ', ') }}</p>
         <div v-for="s in seg.src" :key="s.k" class="rz-srcv">
-          <div class="rz-ref"><button type="button" class="linkish" data-dopen @click="$root.dOpen(s.k,[s.k],$event)">{{ refOf(s.k) }}</button><span v-if="s.ctx" class="rz-tag">{{ T(['the verse beside a rizq verse','الآية المجاورة لآية رزق']) }}</span></div>
+          <div class="rz-ref"><button type="button" class="linkish" data-dopen @click="$root.dOpen(s.k,[s.k],$event)">{{ refOf(s.k) }}</button><span v-if="s.ctx" class="rz-tag">{{ C('ctxTag') }}</span></div>
           <p class="rz-q" lang="ar" dir="rtl" v-html="verseHtml(s.k, s.hi)"></p>
+          <p v-if="R.trans && !ar && EN[s.k]" class="rz-en" lang="en">{{ EN[s.k] }}</p>
         </div>
       </div>
       <div class="rz-sum">
         <div><b>{{ D(sum.segments) }}</b>{{ T(['phrases in this form','مقطعًا في هذه الصيغة']) }}</div>
         <div><b>{{ D(sum.text) }}</b>{{ T(['built on a verse’s phrase found word for word; '+sum.whole+' of them are the whole phrase as shown','مبنيةٌ على عبارةٍ من الآية بلفظها؛ منها '+sum.whole+' المقطع كله كما هو']) }}</div>
         <div><b>{{ D(sum.shift) }}</b>{{ T(['adapted: a pronoun changed, or the words recast','محوّلة: تغيّر الضمير أو أُعيد نظم الكلمات']) }}</div>
-        <div><b>{{ D(sum.pctKept) }}%</b>{{ T(['of its words stand in their verses as written; '+sum.pctQuran+'% occur somewhere in the Quran, '+sum.pctRizq+'% in the rizq verses','من كلماته كما هي في آياتها؛ و'+sum.pctQuran+'٪ وردت في القرآن في موضعٍ ما، و'+sum.pctRizq+'٪ في آيات الرزق']) }}</div>
+        <div><b>{{ D(sum.pctKept) }}%</b>{{ C('sumWords', {pctQuran: sum.pctQuran, pctTarget: sum.pctTarget}) }}</div>
       </div>
-      <p class="wt-sub" style="margin:0">{{ T(['Every source is one of the 109 rizq verses, except the verse right beside one: '+ctxRefs+'. Nothing from outside them.','كل مصادر الدعاء من آيات الرزق الـ١٠٩، عدا آيةٍ مجاورةٍ لها مباشرة: '+ctxRefs+'. ولا شيء من خارجها.']) }}</p>
+      <p class="wt-sub" style="margin:0">{{ sum.ctx.length ? C('ctxNote', {ctx: ctxRefs}) : T(['Every source of this form is one of the '+R.totals.verses+' verses themselves. Nothing from outside them.','كل مصادر هذه الصيغة من الآيات الـ'+R.totals.verses+' نفسها. ولا شيء من خارجها.']) }}</p>
     </div>
 
-    <div class="wt-card">
+    <div class="wt-card" v-if="has('models')">
       <h4>{{ T(['Why this order','لماذا بهذا الترتيب؟']) }}</h4>
-      <p class="wt-sub">{{ T(['Only three du’as in the Quran ask for provision with the imperative «provide» (ارزُق), all on prophets’ lips. Read span by span they share one shape, and the du’a above follows it: a call; a request higher than provision first (safety, prayer, a sign from God); then provision for one’s people rather than oneself; then thanks or praise to close. Provision is never asked for alone.','في القرآن ثلاثة أدعيةٍ فقط يُطلب فيها الرزق بصيغة الأمر «ارزُقْ»، كلها على ألسنة الأنبياء. قُرئ بناؤها كلمةً كلمة فخرج نمطٌ واحد، وعليه بُني الدعاء أعلاه: النداء؛ ثم طلبٌ أعلى من الرزق يسبقه (الأمن، أو الصلاة، أو آيةٌ من الله)؛ ثم طلب الرزق للأهل والجماعة لا للنفس وحدها؛ ثم شكرٌ أو ثناءٌ يُختم به. الرزق في هذه الأدعية لا يُطلب وحده أبدًا.']) }}</p>
+      <p class="wt-sub">{{ C('modelsLead') }}</p>
       <div v-for="m in R.models" :key="m.k" class="rz-model">
         <div class="rz-mhead">{{ ar ? m.ar : m.en }}<button type="button" class="linkish" data-dopen @click="$root.dOpen(m.k,[m.k],$event)">{{ refOf(m.k) }}</button></div>
         <div class="rz-mline" lang="ar" dir="rtl"><span v-for="(sp,i) in m.spans" :key="i" class="rz-mseg"><span class="rz-mlab" :lang="ar?'ar':'en'" :dir="ar?'rtl':'ltr'">{{ ar ? sp[2] : sp[3] }}</span><span class="rz-q">{{ spanText(m.k, sp[0], sp[1]) }}</span></span></div>
       </div>
-      <p class="wt-sub" style="margin:10px 0 0">{{ T(['The rizq verses also show how the one provided for answers: Maryam returns her provision to its source, «it is from God» (3:37), and Shu’ayb ties a good provision to reliance, «on Him I rely and to Him I turn» (11:88). The du’a’s «acknowledging» and «pledge» movements come from there.','وفي آيات الرزق أيضًا أدب المرزوق: مريم تردّ الرزق إلى مصدره «هو من عند الله» (آل عمران ٣:٣٧)، وشعيب يقرن الرزق الحسن بالتوكل «عليه توكلت وإليه أنيب» (هود ١١:٨٨). ومن هنا جاءت حركتا الإقرار والعهد في الدعاء.']) }}</p>
+      <p v-for="(p,i) in R.copy.modelsNote" :key="'mn'+i" class="wt-sub" style="margin:10px 0 0">{{ T(p) }}</p>
     </div>
 
-    <div class="wt-panels">
-      <div class="wt-card">
-        <h4>{{ T(['Who provides?','من يرزق؟']) }}</h4>
-        <p class="wt-sub">{{ T(['The verb رزق comes '+R.totals.verbs+' times. Its subject, from the morphology:','يرد الفعل «رزق» '+R.totals.verbs+' مرة. وفاعله بحسب الصرف:']) }}</p>
+    <div class="wt-card" v-if="has('sankey')">
+      <h4>{{ C('sankeyH') }}</h4>
+      <p class="wt-sub">{{ C('sankeySub') }}</p>
+      <div class="rz-fig rz-scroll rz-sankey" @pointerleave="hk=''">
+        <svg :width="sankey.W" :height="sankey.H" :viewBox="'0 0 '+sankey.W+' '+sankey.H" role="img" :aria-label="C('sankeyAria')">
+          <path v-for="l in sankey.links" :key="l.id" :d="l.d" class="lk" :class="{on: hkOn(l), off: hk && !hkOn(l)}" @pointerenter="hk='l'+l.id"/>
+          <g v-for="p in sankey.parts" :key="'p'+p.i" class="nd part" :class="{sel: isSel('part', p.i)}" tabindex="0" role="button" :aria-pressed="String(isSel('part', p.i))" :aria-label="(ar ? p.ar : p.en)+' '+D(p.v)" @pointerenter="hk='p'+p.i" @focus="hk='p'+p.i" @click="pickSel('part', p.i)" @keydown.enter.prevent="pickSel('part', p.i)" @keydown.space.prevent="pickSel('part', p.i)">
+            <rect :x="sankey.xP" :y="p.y0" :width="sankey.nodeW" :height="Math.max(2, p.y1-p.y0)" rx="3"/>
+            <text :class="{arab: ar}" :text-anchor="sankey.aP"><tspan v-for="(ln,li) in p.lines" :key="li" :x="sankey.lxP" :y="(p.y0+p.y1)/2+(li-(p.lines.length-1)/2)*15+4">{{ ln }}</tspan></text>
+          </g>
+          <g v-for="s in sankey.surahs" :key="'s'+s.n" class="nd sur" :class="{sel: surah===s.n}" tabindex="0" role="button" :aria-pressed="String(surah===s.n)" :aria-label="$root.surahName(s.n)+' '+D(s.v)" @pointerenter="hk='s'+s.n" @focus="hk='s'+s.n" @click="setSurah(s.n, true)" @keydown.enter.prevent="setSurah(s.n, true)" @keydown.space.prevent="setSurah(s.n, true)">
+            <rect :x="sankey.xS" :y="s.y0" :width="sankey.nodeW" :height="Math.max(2, s.y1-s.y0)" rx="3"/>
+            <text :class="{arab: ar}" :x="sankey.lxS" :y="(s.y0+s.y1)/2+4" :text-anchor="sankey.aS">{{ $root.surahName(s.n) }} {{ D(s.v) }}</text>
+          </g>
+        </svg>
+      </div>
+      <p class="rz-read" aria-live="polite" v-html="sankeyRead"></p>
+      <p class="rz-aha">{{ C('sankeyAha') }}</p>
+    </div>
+
+    <div class="wt-card" v-if="has('findings')">
+      <h4>{{ C('findingsH') }}</h4>
+      <p class="wt-sub">{{ C('findingsSub') }}</p>
+      <div class="rz-condgrid rz-fgrid">
+        <button v-for="(f,i) in R.findings" :key="i" type="button" class="rz-cond rz-find" :class="{on: isSel('find', i)}" :aria-pressed="String(isSel('find', i))" @click="pickSel('find', i)">
+          <span class="rz-cname">{{ ar ? f.ar : f.en }}</span>
+          <span class="rz-fbody">{{ T([f.ben, f.bar]) }}</span>
+          <span class="rz-refs">{{ f.verses.map(k=>refOf(k)).join(ar ? '، ' : ', ') }}</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="wt-panels" v-if="has('agents') || has('assoc')">
+      <div class="wt-card" v-if="has('agents')">
+        <h4>{{ C('agentsH') }}</h4>
+        <p class="wt-sub">{{ C('agentsSub') }}</p>
         <div class="rz-bars">
           <div v-for="a in R.agents" :key="a.id" class="rz-row"><span class="rz-lab">{{ ar ? a.ar : a.en }}</span><span class="rz-bar"><i :style="{width: pct(a.n, maxAgent)+'%'}"></i></span><b class="rz-n">{{ D(a.n) }}</b></div>
         </div>
-        <p class="wt-sub">{{ T(['And as a noun: rizq '+nounN('rizq')+' times, raziq (provider) '+nounN('raziq')+', ar-Razzaq once (51:58).','وبالاسم: «رزق» '+nounN('rizq')+' مرة، و«رازق» '+nounN('raziq')+'، و«الرزّاق» مرةً واحدة (الذاريات ٥١:٥٨).']) }}</p>
-        <p class="rz-aha">{{ T(['In 50 of the 61 the provider is God, by name or by pronoun. The 5 passive verbs leave Him understood, the 3 pleas are addressed to Him, and the only 2 that command people are about providing for orphans and the weak from His wealth (4:5, 4:8). No verb has anyone providing for themselves: provision is always given, which is why the du’a opens with praise of the Provider rather than a list of needs.','في ٥٠ من الأفعال الـ٦١ الفاعل هو الله، باسمه أو بضميره. والأفعال الخمسة المبنية للمجهول فاعلها محذوفٌ والمراد هو، والثلاثة الدعائية موجّهةٌ إليه، والموضعان الوحيدان اللذان يُؤمر فيهما البشر أن يرزقوا هما إرزاق اليتامى والسفهاء والمساكين من مال الله (النساء ٤:٥ و٤:٨). ولا فعلٌ فيها فاعله مخلوقٌ يرزق نفسه: الرزق دائمًا يُعطى، ولذلك افتُتح الدعاء بالثناء على الرازق لا بتعداد الحاجات.']) }}</p>
+        <p class="wt-sub">{{ C('nounsLine') }}</p>
+        <p class="rz-aha">{{ C('agentsAha') }}</p>
       </div>
-      <div class="wt-card">
-        <h4>{{ T(['What sits with provision in the same verse?','ما الذي يلازم الرزق في الآية نفسها؟']) }}</h4>
-        <p class="wt-sub">{{ T(['For each root: the bar is its share of the 109 rizq verses, the white mark its share of the whole Quran. Ranked by the strength of the evidence. Tap a root to see its verses below.','لكل جذر: الشريط نسبة آيات الرزق الـ١٠٩ التي يرد فيها، والعلامة البيضاء نسبته في القرآن كله. مرتّبةٌ بقوة الدليل. انقر جذرًا لترى آياته في الأسفل.']) }}</p>
+      <div class="wt-card" v-if="has('assoc')">
+        <h4>{{ C('assocH') }}</h4>
+        <p class="wt-sub">{{ C('assocSub') }}</p>
         <div class="rz-bars">
-          <button v-for="r in R.assoc" :key="r.root" type="button" class="rz-row rz-click" :class="{on: root===r.root}" :aria-pressed="String(root===r.root)" @click="setRoot(r.root)">
+          <button v-for="r in R.assoc" :key="r.root" type="button" class="rz-row rz-click" :class="{on: isSel('root', r.root)}" :aria-pressed="String(isSel('root', r.root))" @click="setRoot(r.root)">
             <span class="rz-lab"><bdi lang="ar" dir="rtl">{{ r.ar }}</bdi><small v-if="!ar"> {{ r.en }}</small> <small class="rz-root">(<bdi lang="ar">{{ r.root.split('').join(' ') }}</bdi>)</small></span>
             <span class="rz-bar"><i :style="{width: pct(r.pct, maxPct)+'%'}"></i><u :style="{insetInlineStart: pct(r.pctAll, maxPct)+'%'}"></u></span>
             <b class="rz-n">{{ D(r.pct) }}%</b></button>
         </div>
-        <p class="rz-aha">{{ T(['What clings to provision most in the Quran is not asking but four acts of the servant: eating of the good things and not forbidding them, spending from what was given, keeping the prayer, and giving thanks; and one act of God: He widens and He measures. These five are the spine of the du’a’s «pledge».','أكثر ما يلتصق بالرزق في القرآن ليس الدعاء، بل أربعة أفعالٍ من العبد: يأكل من الطيّبات ولا يحرّمها، ويُنفق مما رُزق، ويُقيم الصلاة، ويشكر. وفعلٌ واحد من الله: يبسط ويَقدِر بحكمته. وهذه الخمسة عمود حركة «العهد» في الدعاء.']) }}</p>
+        <p class="rz-aha">{{ C('assocAha') }}</p>
       </div>
     </div>
 
-    <div class="wt-card rz-netcard">
+    <div class="wt-panels" v-if="has('objects') || has('themes')">
+      <div class="wt-card rz-objcard" v-if="has('objects')">
+        <h4>{{ C('objectsH') }}</h4>
+        <p class="wt-sub">{{ C('objectsSub') }}</p>
+        <div class="rz-bars">
+          <button v-for="(o,i) in R.objects" :key="i" type="button" class="rz-row rz-click" :class="{on: isSel('obj', i)}" :aria-pressed="String(isSel('obj', i))" @click="pickSel('obj', i)"><span class="rz-lab">{{ ar ? o.ar : o.en }}</span><span class="rz-bar"><i :style="{width: pct(o.n, maxObj)+'%'}"></i></span><b class="rz-n">{{ D(o.n) }}</b></button>
+        </div>
+        <p class="rz-aha">{{ C('objectsAha') }}</p>
+      </div>
+      <div class="wt-card" v-if="has('themes')">
+        <h4>{{ C('themesH') }}</h4>
+        <p class="wt-sub">{{ C('themesSub') }}</p>
+        <p class="rz-lg"><span><i style="background:var(--gold)"></i>{{ T(['Meccan','مكية']) }}</span><span><i style="background:var(--emerald)"></i>{{ T(['Medinan','مدنية']) }}</span></p>
+        <div class="rz-bars">
+          <button v-for="(t,i) in R.themes" :key="i" type="button" class="rz-row rz-click" :class="{on: themes.includes(i)}" :aria-pressed="String(themes.includes(i))" @click="togTheme(i)"><span class="rz-lab">{{ ar ? t.ar : t.en }}</span>
+            <span class="rz-bar rz-stack"><i class="m" :style="{width: pct(t.mecca, maxTheme)+'%'}"></i><i class="d" :style="{insetInlineStart: pct(t.mecca, maxTheme)+'%', width: pct(t.n-t.mecca, maxTheme)+'%'}"></i></span><b class="rz-n">{{ D(t.n) }}</b></button>
+        </div>
+        <p class="rz-aha">{{ C('themesAha') }}</p>
+      </div>
+    </div>
+
+    <div class="wt-card rz-netcard" v-if="has('net')">
       <h4>{{ T(['Which roots keep company','أي الجذور تتجاور؟']) }}</h4>
-      <p class="wt-sub">{{ T(['The same sixteen roots, drawn as a ring around provision. A line between two roots means they share at least two of the 109 verses, and the thicker it is the more verses they share. Point at a root to see its companions; tap it to list its verses below.','الجذور الستة عشر نفسها، حلقةً حول الرزق. الخطّ بين جذرَين يعني أنهما يجتمعان في آيتَين أو أكثر من الآيات الـ١٠٩، وكلما غلُظ كثُرت الآيات المشتركة. أشر إلى جذرٍ لترى ما يجاوره، وانقره لتظهر آياته في الأسفل.']) }}</p>
+      <p class="wt-sub">{{ C('netSub') }}</p>
       <p class="rz-lg"><span v-for="(g,i) in R.netGroups" :key="i"><i :style="{background: GCOL[i]}"></i>{{ ar ? g.ar : g.en }}</span></p>
       <div class="rz-fig rz-scroll rz-net" @pointerleave="hr=''">
-        <svg :width="net.W" :height="net.H" :viewBox="'0 0 '+net.W+' '+net.H" role="img" :aria-label="T(['The sixteen roots that sit with provision, joined where they share verses','الجذور الستة عشر التي تجاور الرزق، موصولةٌ حيث تشترك في آيات'])">
+        <svg :width="net.W" :height="net.H" :viewBox="'0 0 '+net.W+' '+net.H" role="img" :aria-label="C('netAria')">
           <line v-for="n in net.nodes" :key="'s'+n.root" class="sp" :x1="net.cx" :y1="net.cy" :x2="n.x" :y2="n.y" :style="{strokeWidth: 1+n.n/8, opacity: hr && hr!==n.root ? .3 : 1}"/>
           <path v-for="l in net.links" :key="l.a+l.b" :d="l.d" fill="none" :class="{on: hr && (hr===l.a || hr===l.b), off: hr && hr!==l.a && hr!==l.b}" :style="{strokeWidth: 1+l.w*.75, stroke: hr && (hr===l.a || hr===l.b) ? GCOL[net.by[hr].g] : null}"/>
-          <g class="ctr" :transform="'translate('+net.cx+','+net.cy+')'"><circle r="30"/><text class="nm" y="-1" text-anchor="middle">رزق</text><text class="cn" y="16" text-anchor="middle">{{ D(R.totals.verses) }}</text></g>
-          <g v-for="n in net.nodes" :key="n.root" class="nd" :class="{dim: hr && hr!==n.root && !net.nb[hr].has(n.root), sel: root===n.root}" :transform="'translate('+n.x+','+n.y+')'" tabindex="0" role="button" :aria-pressed="String(root===n.root)" :aria-label="(ar ? n.ar : n.en)+' '+D(n.n)" @pointerenter="hr=n.root" @focus="hr=n.root" @click="setRoot(n.root)" @keydown.enter.prevent="setRoot(n.root)" @keydown.space.prevent="setRoot(n.root)">
+          <g class="ctr" :transform="'translate('+net.cx+','+net.cy+')'"><circle r="30"/><text class="nm" y="-1" text-anchor="middle">{{ R.root }}</text><text class="cn" y="16" text-anchor="middle">{{ D(R.totals.verses) }}</text></g>
+          <g v-for="n in net.nodes" :key="n.root" class="nd" :class="{dim: hr && hr!==n.root && !net.nb[hr].has(n.root), sel: isSel('root', n.root)}" :transform="'translate('+n.x+','+n.y+')'" tabindex="0" role="button" :aria-pressed="String(isSel('root', n.root))" :aria-label="(ar ? n.ar : n.en)+' '+D(n.n)" @pointerenter="hr=n.root" @focus="hr=n.root" @click="setRoot(n.root)" @keydown.enter.prevent="setRoot(n.root)" @keydown.space.prevent="setRoot(n.root)">
             <circle :r="n.r" :fill="GCOL[n.g]"/>
             <text class="cn" y="4" text-anchor="middle">{{ D(n.n) }}</text>
             <text class="lb" :class="{arab: ar}" :x="n.lx" :y="n.ly" :text-anchor="n.anc">{{ ar ? n.ar : n.en }}</text>
@@ -5313,24 +5429,88 @@ const RizqLab = {
       <p class="rz-read" aria-live="polite" v-html="netRead"></p>
     </div>
 
-    <div class="wt-card">
-      <h4>{{ T(['What the verses pair with provision','ما الذي قرنته الآيات بالرزق؟']) }}</h4>
-      <p class="wt-sub">{{ T(['The conditions as the verses themselves name them, ordered by how many verses say each one together with provision. Under each is the verse’s own wording. Tap one to see its verses below.','الشروط كما تذكرها الآيات نفسها، مرتّبةً بعدد الآيات التي تذكر كل شرطٍ مع الرزق. وتحت كل شرطٍ الشاهد من الآية. انقر شرطًا لترى آياته في الأسفل.']) }}</p>
+    <div class="wt-card" v-if="has('forms')">
+      <h4>{{ C('formsH') }}</h4>
+      <p class="wt-sub">{{ C('formsSub') }}</p>
+      <p class="rz-lg"><span v-for="g in R.formGroups" :key="g.g"><i :style="{background: GCOL[g.g]}"></i>{{ ar ? g.ar : g.en }}</span></p>
+      <div class="rz-fig rz-tree" @pointerleave="hk=''">
+        <svg :viewBox="'0 0 '+tree.W+' '+tree.H" role="img" :aria-label="C('formsAria')">
+          <g v-for="b in tree.boxes" :key="'b'+b.g"><rect class="box" :x="b.x+1" y="1" :width="Math.max(0, b.w-2)" :height="tree.H-2" rx="8"/>
+            <text v-if="b.w>130" class="gl" :class="{arab: ar}" :x="ar ? b.x+b.w-8 : b.x+8" y="15" :text-anchor="ar ? 'end' : 'start'">{{ ar ? b.ar : b.en }} {{ D(b.v) }}</text></g>
+          <g v-for="l in tree.leaves" :key="l.i" class="lf" :class="{sel: isSel('form', l.i), dim: hk && hk!=='f'+l.i}" :transform="'translate('+l.x+','+l.y+')'" tabindex="0" role="button" :aria-pressed="String(isSel('form', l.i))" :aria-label="R.forms[l.i].u+' '+D(R.forms[l.i].n)" @pointerenter="hk='f'+l.i" @focus="hk='f'+l.i" @click="pickSel('form', l.i)" @keydown.enter.prevent="pickSel('form', l.i)" @keydown.space.prevent="pickSel('form', l.i)">
+            <rect x="1.5" y="1.5" :width="Math.max(0, l.w-3)" :height="Math.max(0, l.h-3)" rx="5" :fill="GCOL[R.forms[l.i].g]"/>
+            <text v-if="l.w>40 && l.h>28" class="fm" :x="l.w/2" :y="l.h/2+(l.h>50 ? 0 : 6)" text-anchor="middle" :style="{fontSize: Math.min(26, 10+l.w/9)+'px'}">{{ R.forms[l.i].u }}</text>
+            <text v-if="l.w>40 && l.h>50" class="fn" :x="l.w/2" :y="l.h/2+20" text-anchor="middle">{{ D(R.forms[l.i].n) }}</text>
+          </g>
+        </svg>
+      </div>
+      <p class="rz-read" aria-live="polite" v-html="treeRead"></p>
+    </div>
+
+    <div class="wt-card" v-if="has('formulas')">
+      <h4>{{ C('formulasH') }}</h4>
+      <p class="wt-sub">{{ C('formulasSub') }}</p>
+      <div class="rz-flist">
+        <button v-for="(f,i) in R.formulas" :key="i" type="button" class="rz-frow" :class="{on: isSel('formula', i)}" :aria-pressed="String(isSel('formula', i))" @click="pickSel('formula', i)">
+          <span class="rz-fq" lang="ar" dir="rtl">{{ f.u }}</span><b class="rz-n">{{ T([f.n+' verses', f.n+' آيات']) }}</b><span class="rz-refs">{{ f.verses.map(k=>D(k)).join(ar ? '، ' : ', ') }}</span></button>
+      </div>
+    </div>
+
+    <div class="wt-card" v-if="has('matrix')">
+      <h4>{{ C('matrixH') }}</h4>
+      <p class="wt-sub">{{ C('matrixSub') }}</p>
+      <div class="rz-scroll"><div class="rz-mx" :style="{'--cols': matrix.cols.length}">
+        <span class="rz-mxh"></span><span v-for="(c,ci) in matrix.cols" :key="'h'+ci" class="rz-mxh">{{ ar ? c.ar : c.en }}</span>
+        <template v-for="(r,ri) in matrix.rows" :key="r.i"><span class="rz-mxl">{{ ar ? r.ar : r.en }}</span>
+          <button v-for="(c,ci) in r.cells" :key="ci" type="button" class="rz-mxc" :class="{on: isSel('cell', ri+','+ci)}" :disabled="!c.n" :style="c.n ? {'--a': (.18+.82*c.n/matrix.max).toFixed(3)} : null" :aria-label="c.n ? (ar ? r.ar : r.en)+' · '+(ar ? matrix.cols[ci].ar : matrix.cols[ci].en)+' '+D(c.n) : null" @click="pickSel('cell', ri+','+ci)">{{ c.n ? D(c.n) : '' }}</button></template>
+      </div></div>
+      <p class="rz-aha">{{ C('matrixAha') }}</p>
+    </div>
+
+    <div class="wt-card" v-if="has('conditions')">
+      <h4>{{ C('condH') }}</h4>
+      <p class="wt-sub">{{ C('condSub') }}</p>
       <div class="rz-condgrid">
-        <button v-for="c in conds" :key="c.i" type="button" class="rz-cond" :class="{on: cond===c.i}" :aria-pressed="String(cond===c.i)" @click="setCond(c.i)">
+        <button v-for="c in conds" :key="c.i" type="button" class="rz-cond" :class="{on: isSel('cond', c.i)}" :aria-pressed="String(isSel('cond', c.i))" @click="setCond(c.i)">
           <span class="rz-cname">{{ ar ? c.ar : c.en }}<b>{{ D(c.n) }}</b></span>
           <span class="rz-cev" lang="ar" dir="rtl">{{ c.ev }}</span>
         </button>
       </div>
     </div>
 
+    <div class="wt-card" v-if="has('adab')">
+      <h4>{{ C('adabH') }}</h4>
+      <p class="wt-sub">{{ C('adabSub') }}</p>
+      <div class="rz-condgrid">
+        <button v-for="(a,i) in R.adab" :key="i" type="button" class="rz-cond" :class="{on: isSel('adab', i)}" :aria-pressed="String(isSel('adab', i))" @click="pickSel('adab', i)">
+          <span class="rz-cname">{{ ar ? a.ar : a.en }}<b>{{ D(a.verses.length) }}</b></span>
+          <span v-if="ar" class="rz-cev" lang="ar" dir="rtl">{{ D(a.nar) }}</span><span v-else class="rz-fbody">{{ a.nen }}</span>
+        </button>
+      </div>
+    </div>
+
     <div class="rz-verses">
-      <h4>{{ T(['The 109 verses','الآيات الـ١٠٩ كاملة']) }}</h4>
-      <p class="wt-sub">{{ T(['The word of provision is lit in every verse. Above the list, a grid of the 114 surahs says where the verses sit in the mushaf and a row of dots says when each came down; tap a surah in either to keep only its verses. Then sift by theme (the line under a theme is its Meccan share in gold and its Medinan share in green), by Mecca or Medina, or search any word. Tap a reference to read the verse in the mushaf.','كلمة الرزق مضاءةٌ في كل آية. وفوق القائمة شبكةُ السور الـ١١٤ تقول أين تقع الآيات في المصحف، وصفُّ نقاطٍ يقول متى نزلت كل آية؛ انقر سورةً في أيٍّ منهما لتبقى آياتها وحدها. ثم رشّح بالموضوع (الخطّ تحت الموضوع نصيبه المكي بالذهبي والمدني بالأخضر)، أو بالمكي والمدني، أو ابحث بأي كلمة. وانقر رقم الآية لتقرأها في المصحف.']) }}</p>
+      <h4>{{ T(['The '+R.totals.verses+' verses','الآيات الـ'+R.totals.verses+' كاملة']) }}</h4>
+      <p class="wt-sub">{{ C('versesSub') }}</p>
       <div class="rz-map">
-        <div class="rz-maphead"><h5>{{ T(['Where in the mushaf','أين في المصحف؟']) }}</h5><span class="wt-sub">{{ T(['Each cell is a surah, in mushaf order; the brighter it is, the more verses of provision it holds. Tap a lit surah to keep only its verses.','كل خليةٍ سورة بترتيب المصحف؛ وكلما أضاءت كثُرت آيات الرزق فيها. انقر سورةً مضاءة لتبقى آياتها وحدها.']) }}</span></div>
+        <template v-if="has('mushaf')">
+          <div class="rz-maphead"><h5>{{ C('mushafH') }}</h5><span class="wt-sub">{{ C('mushafSub') }}</span></div>
+          <div class="rz-fig rz-strip" @pointerleave="hs=0;hm=''">
+            <svg :viewBox="'0 0 '+strip.W+' '+strip.H" role="img" :aria-label="C('mushafAria')">
+              <text class="end" :x="strip.xStart" y="10" :text-anchor="strip.aStart">{{ T(['al-Fatiha','الفاتحة']) }}</text>
+              <text class="end" :x="strip.xEnd" y="10" :text-anchor="strip.aEnd">{{ T(['an-Nas','الناس']) }}</text>
+              <rect v-for="b in strip.bands" :key="'b'+b.n" class="band" :class="{odd: b.odd, has: b.cnt, sel: surah===b.n, hov: hs===b.n}" :x="b.x" y="18" :width="b.w" height="52" @pointerenter="hs=b.n;hm=''" @click="setSurah(b.n)"/>
+              <line v-for="t in strip.ticks" :key="'t'+t.k" class="tk" :class="{off: !shownSet.has(t.k)}" :x1="t.x" :x2="t.x" y1="15" y2="73" :stroke="GCOL[t.g]"/>
+              <rect v-for="t in strip.ticks" :key="'h'+t.k" class="hit" :x="t.x-4" y="13" width="8" height="62" @pointerenter="hm=t.k;hs=t.s" @click="setSurah(t.s)"/>
+              <text v-for="l in strip.labels" :key="'l'+l.n" class="nm" :class="{arab: ar}" :x="l.x" y="88" text-anchor="middle">{{ l.name }} {{ D(l.c) }}</text>
+            </svg>
+          </div>
+          <p class="rz-read" aria-live="polite" v-html="stripRead"></p>
+        </template>
+        <template v-if="has('grid')">
+        <div class="rz-maphead"><h5>{{ T(['Where in the mushaf','أين في المصحف؟']) }}</h5><span class="wt-sub">{{ C('gridSub') }}</span></div>
         <div class="rz-fig rz-grid" @pointerleave="hs=0">
-          <svg :viewBox="'0 0 '+cw+' '+grid.H" role="img" :aria-label="T(['The 114 surahs, each shaded by how many verses of provision it holds','السور الـ١١٤، كلٌّ ملوّنة بعدد آيات الرزق فيها'])">
+          <svg :viewBox="'0 0 '+cw+' '+grid.H" role="img" :aria-label="C('gridAria')">
             <g v-for="c in grid.cells" :key="c.n" :class="{has: c.cnt>0, sel: surah===c.n, faded: c.cnt>0 && !c.live && surah!==c.n}" :transform="'translate('+c.x+','+c.y+')'" :tabindex="c.cnt ? 0 : null" :role="c.cnt ? 'button' : null" :aria-pressed="c.cnt ? String(surah===c.n) : null" :aria-label="c.cnt ? c.name+' '+D(c.cnt) : null" @pointerenter="hs=c.n" @focus="hs=c.n" @click="setSurah(c.n)" @keydown.enter.prevent="setSurah(c.n)" @keydown.space.prevent="setSurah(c.n)">
               <rect :width="grid.size" :height="grid.size" rx="5" :fill="c.cnt ? 'var(--emerald)' : 'rgba(255,255,255,.05)'" :fill-opacity="c.cnt ? .16+.84*c.cnt/grid.max : 1" :class="{hov: hs===c.n}"/>
               <text v-if="grid.size>=30" class="num" :x="ar ? grid.size-5 : 5" y="11" :text-anchor="ar ? 'end' : 'start'" :style="{fill: c.cnt/grid.max>.55 ? 'var(--night)' : null}">{{ D(c.n) }}</text>
@@ -5340,10 +5520,12 @@ const RizqLab = {
           </svg>
         </div>
         <p class="rz-read" aria-live="polite" v-html="gridRead"></p>
-        <div class="rz-maphead"><h5>{{ T(['When it came down','متى نزلت؟']) }}</h5><span class="wt-sub">{{ T(['The 109 verses in the order of revelation, one dot each, stacked by surah. The colour is the verse’s theme group. Dots fade when a filter leaves them out, so a chosen theme shows where it sits in time.','الآيات الـ١٠٩ على ترتيب النزول، نقطةٌ لكل آية متراكمةً بالسورة. واللون مجموعةُ موضوع الآية. وتخفت النقاط التي يُخرجها الترشيح، فيظهر موضع كل موضوعٍ في الزمن.']) }}</span></div>
+        </template>
+        <template v-if="has('chrono')">
+        <div class="rz-maphead"><h5>{{ T(['When it came down','متى نزلت؟']) }}</h5><span class="wt-sub">{{ C('chronoSub') }}</span></div>
         <p class="rz-lg"><span v-for="(g,i) in R.groups" :key="i"><i :style="{background: GCOL[i]}"></i>{{ ar ? g.ar : g.en }}</span></p>
         <div class="rz-fig rz-scroll rz-chrono" @pointerleave="hd=''">
-          <svg :width="chrono.W" :height="chrono.H" :viewBox="'0 0 '+chrono.W+' '+chrono.H" role="img" :aria-label="T(['The 109 verses in the order of revelation','الآيات الـ١٠٩ على ترتيب النزول'])">
+          <svg :width="chrono.W" :height="chrono.H" :viewBox="'0 0 '+chrono.W+' '+chrono.H" role="img" :aria-label="T(['The '+R.totals.verses+' verses in the order of revelation','الآيات الـ'+R.totals.verses+' على ترتيب النزول'])">
             <line class="ax" :x1="chrono.x0" :x2="chrono.x1" :y1="chrono.base+8" :y2="chrono.base+8"/>
             <line class="split" :x1="chrono.split" :x2="chrono.split" y1="14" :y2="chrono.base+8"/>
             <text :x="chrono.xMec" y="20" :text-anchor="chrono.aMec">{{ T(['Meccan period: 86 surahs','العهد المكي: ٨٦ سورة']) }}</text>
@@ -5359,6 +5541,7 @@ const RizqLab = {
         </div>
         <p class="rz-read" aria-live="polite" v-html="chronoRead"></p>
         <p class="rz-aha">{{ chronoAha }}</p>
+        </template>
       </div>
       <div class="rz-filters">
         <input class="q plain" type="search" v-model="q" :placeholder="T(['Search the verses','ابحث في نص الآيات'])" :aria-label="T(['Search the verses','ابحث في نص الآيات'])">
@@ -5367,22 +5550,26 @@ const RizqLab = {
       <div class="rz-chips" role="group" :aria-label="T(['Themes','الموضوعات'])">
         <button v-for="(t,i) in R.themes" :key="i" type="button" class="wt-chip small rz-theme" :class="{on: themes.includes(i)}" :aria-pressed="String(themes.includes(i))" @click="togTheme(i)"><span>{{ ar ? t.ar : t.en }}</span><b>{{ D(t.n) }}</b><i class="rz-split" :style="{'--m': (100*t.mecca/t.n).toFixed(1)+'%'}"></i></button>
       </div>
-      <p class="rz-count" aria-live="polite">{{ countText }}<button v-if="root || cond>=0 || surah" type="button" class="wt-where" @click="root='';cond=-1;surah=0">{{ T(['show all the verses again ✕','أعد كل الآيات ✕']) }}</button></p>
+      <p class="rz-count" aria-live="polite">{{ countText }}<button v-if="sel || surah" type="button" class="wt-where" @click="sel=null;surah=0">{{ T(['show all the verses again ✕','أعد كل الآيات ✕']) }}</button></p>
       <div class="rz-cards">
         <article v-for="v in shown" :key="v.k" class="rz-v">
           <header><button type="button" class="linkish" data-dopen @click="$root.dOpen(v.k, shownKeys, $event)">{{ refOf(v.k) }}</button><span class="rz-badge" :class="v.p">{{ v.p==='m' ? T(['Meccan','مكية']) : T(['Medinan','مدنية']) }}</span><span class="rz-tbadge">{{ ar ? R.themes[v.t].ar : R.themes[v.t].en }}</span></header>
           <p class="rz-q" lang="ar" dir="rtl" v-html="verseHtml(v.k, [])"></p>
+          <p v-if="R.trans && !ar && EN[v.k]" class="rz-en" lang="en">{{ EN[v.k] }}</p>
         </article>
       </div>
     </div>
-    <p class="n19-note">{{ T(['The text is the Uthmani script of the Quranic Arabic Corpus; the roots and verb forms are its morphology. Every number on this page is counted from it, and the du’a is a composition in the Quran’s words, not a text of the Quran.','النص بالرسم العثماني من المدوّنة القرآنية العربية (Quranic Arabic Corpus)، والجذور والتصريف من تحليلها الصرفي. وكل رقمٍ في هذه الصفحة معدودٌ منها، والدعاء تركيبٌ من ألفاظ القرآن لا نصٌّ منه.']) }}</p>
+    <p class="n19-note">{{ T(['The text is the Uthmani script of the Quranic Arabic Corpus; the roots and verb forms are its morphology. Every number on this page is counted from it, and the du’a is a composition in the Quran’s words, not a text of the Quran.','النص بالرسم العثماني من المدوّنة القرآنية العربية (Quranic Arabic Corpus)، والجذور والتصريف من تحليلها الصرفي. وكل رقمٍ في هذه الصفحة معدودٌ منها، والدعاء تركيبٌ من ألفاظ القرآن لا نصٌّ منه.']) }}<template v-if="R.trans && !ar"> The English under the verses is M. M. Pickthall’s translation (1930, public domain); the meanings under the du’a are plain renderings to help a reader follow it.</template></p>
   </div>`,
   mounted(){ this.fitW(); if(window.ResizeObserver && this.$el && this.$el.nodeType===1){ this._ro=new ResizeObserver(()=>this.fitW()); this._ro.observe(this.$el); } },
   beforeUnmount(){ clearTimeout(this._cp); if(this._ro) this._ro.disconnect(); },
   computed:{
     ar(){ return this.$root.lang==='ar'; },
-    R(){ return (window.QURAN_DATA||{}).rizq || null; },
+    R(){ return (window.QURAN_DATA||{})[this.slug] || null; },
+    series(){ const D=window.QURAN_DATA||{}; return NAME_VIEWS.map(s=>D[s]).filter(Boolean); },
+    rootL(){ return this.R.root.split('').join(' '); },
     GCOL(){ return RZ_GCOL; },
+    EN(){ return this.$root.EN || {}; },
     cw(){ return Math.max(280, this.w-40); },
     SM(){ const m={}; (((window.QURAN_DATA||{}).datasets||{}).surahMeta||[]).forEach(x=>{ m[x.n]=x; }); return m; },
     V(){ return this.$root.V || {}; },
@@ -5391,27 +5578,43 @@ const RizqLab = {
       if(this.ver==='short') return [{ar:'الصيغة المختصرة', en:'The short form', segs:mk(R.dua.short)}];
       return R.dua.full.map(p=>({ar:p.ar, en:p.en, segs:mk(p.segs)})); },
     flat(){ return this.parts.flatMap(p=>p.segs); },
+    meanings(){ return !this.ar && this.flat.some(s=>s.en); },
     seg(){ return this.pick>=0 ? (this.flat[this.pick] || null) : null; },
     sum(){ return this.R.dua.sum[this.ver]; },
     ctxRefs(){ return this.sum.ctx.map(k=>this.refOf(k)).join(this.ar ? ' و' : ' and '); },
     maxAgent(){ return Math.max(...this.R.agents.map(a=>a.n)); },
     maxPct(){ return Math.max(...this.R.assoc.map(r=>r.pct))*1.05; },
+    maxObj(){ return Math.max(1, ...(this.R.objects||[]).map(o=>o.n)); },
+    maxTheme(){ return Math.max(1, ...this.R.themes.map(t=>t.n)); },
     conds(){ return this.R.conditions.map((c,i)=>Object.assign({i}, c)).sort((a,b)=>b.n-a.n); },
     periods(){ return [{id:'all', lab:['All','الكل']}, {id:'m', lab:['Meccan','مكية']}, {id:'d', lab:['Medinan','مدنية']}]; },
-    rootSet(){ const r=this.root && this.R.assoc.find(x=>x.root===this.root); return r ? new Set(r.verses) : null; },
-    condSet(){ return this.cond>=0 ? new Set(this.R.conditions[this.cond].verses) : null; },
-    shown(){ const q=rzNorm(this.q), rs=this.rootSet, cs=this.condSet, th=this.themes, su=this.surah ? String(this.surah) : '';
-      return this.R.verses.filter(v => (this.period==='all' || v.p===this.period) && (!th.length || th.includes(v.t)) && (!rs || rs.has(v.k)) && (!cs || cs.has(v.k))
+    // the verses the current selection stands for (a root, a condition, a finding, a form, a phrase, a cell, a part of the du'a ...)
+    selKeys(){ const s=this.sel, R=this.R; if(!s) return null;
+      if(s.k==='root'){ const r=R.assoc.find(x=>x.root===s.i); return r ? r.verses : null; }
+      if(s.k==='cell'){ const [r,c]=s.i.split(',').map(Number); return this.matrix.rows[r].cells[c].keys; }
+      if(s.k==='part') return [...this.sankey.parts[s.i].keys];
+      const list={cond:R.conditions, find:R.findings, obj:R.objects, adab:R.adab, form:R.forms, formula:R.formulas}[s.k];
+      return list && list[s.i] ? list[s.i].verses : null; },
+    selSet(){ return this.selKeys ? new Set(this.selKeys) : null; },
+    selLabel(){ const s=this.sel, R=this.R; if(!s) return ['',''];
+      if(s.k==='form'){ const f=R.forms[s.i]; return ['the form '+f.u, 'الصيغة '+f.u]; }
+      if(s.k==='formula'){ const f=R.formulas[s.i]; return ['«'+f.u+'»', '«'+f.u+'»']; }
+      if(s.k==='cell'){ const [r,c]=s.i.split(',').map(Number), row=this.matrix.rows[r], col=this.matrix.cols[c]; return [row.en+' × '+col.en, row.ar+' × '+col.ar]; }
+      if(s.k==='part'){ const p=R.dua.full[s.i]; return ['the du’a’s sources for «'+p.en+'»', 'مصادر «'+p.ar+'»']; }
+      const o={cond:R.conditions, find:R.findings, obj:R.objects, adab:R.adab}[s.k][s.i]; return [o.en, o.ar]; },
+    shown(){ const q=rzNorm(this.q), ss=this.selSet, th=this.themes, su=this.surah ? String(this.surah) : '';
+      return this.R.verses.filter(v => (this.period==='all' || v.p===this.period) && (!th.length || th.includes(v.t)) && (!ss || ss.has(v.k))
         && (!su || v.k.split(':')[0]===su) && (!q || rzNorm(this.V[v.k]).includes(q))); },
     shownSet(){ return new Set(this.shown.map(v=>v.k)); },
     shownKeys(){ return this.shown.map(v=>v.k); },
-    countText(){ const n=this.shown.length, all=this.R.totals.verses;
-      let s = this.T([n+' of '+all+' verses', n+' من '+all+' آية']);
-      if(this.root){ const r=this.R.assoc.find(x=>x.root===this.root); s += this.T([' with the root '+r.root+' ('+r.en+')', '، فيها الجذر '+r.root+' ('+r.ar+')']); }
-      if(this.cond>=0){ const c=this.R.conditions[this.cond]; s += this.T([': '+c.en, '، '+c.ar]); }
-      if(this.surah) s += this.T([' in '+this.$root.surahName(this.surah), '، في سورة '+this.$root.surahName(this.surah)]);
-      return s; },
-    // ---- the charts: counts per surah, and the geometry of the grid, the revelation-order dots and the root ring
+    countText(){ const n=this.shown.length, all=this.R.totals.verses, s=this.sel;
+      let t = this.T([n+' of '+all+' verses', n+' من '+all+' آية']);
+      if(s && s.k==='root'){ const r=this.R.assoc.find(x=>x.root===s.i); t += this.T([' with the root '+r.root+' ('+r.en+')', '، فيها الجذر '+r.root+' ('+r.ar+')']); }
+      else if(s){ const L=this.selLabel; t += this.T([': '+L[0], '، '+L[1]]); }
+      if(this.surah) t += this.T([' in '+this.$root.surahName(this.surah), '، في سورة '+this.$root.surahName(this.surah)]);
+      return t; },
+    // ---- the charts: counts per surah, and the geometry of the grid, the revelation-order dots, the root ring, the mushaf strip,
+    // the sankey of the du'a's sources, the forms treemap and the conditions-by-themes table
     perSurah(){ const m={}; this.R.verses.forEach(v=>{ const s=+v.k.split(':')[0]; m[s]=(m[s]||0)+1; }); return m; },
     perShown(){ const m={}; this.shown.forEach(v=>{ const s=+v.k.split(':')[0]; m[s]=(m[s]||0)+1; }); return m; },
     maxPer(){ return Math.max(1, ...Object.values(this.perSurah)); },
@@ -5457,31 +5660,87 @@ const RizqLab = {
       if(!n) return this.esc(this.T(['Point at a root to see which roots share its verses; tap it to list them below.','أشر إلى جذرٍ لترى الجذور التي تشاركه آياته، وانقره لتظهر آياته في الأسفل.']));
       const comp=this.net.links.filter(l=>l.a===n.root || l.b===n.root).sort((a,b)=>b.w-a.w).slice(0,5)
         .map(l=>{ const o=this.net.by[l.a===n.root ? l.b : l.a]; return this.esc(this.ar ? o.ar : o.en)+' '+this.D(l.w); });
-      return '<b>'+this.esc(this.ar ? n.ar : n.en)+'</b> <bdi lang="ar">('+n.root.split('').join(' ')+')</bdi>'+this.esc(this.T([' sits in '+n.n+' of the 109 verses.', ' في '+n.n+' آية من آيات الرزق الـ109.']))
+      return '<b>'+this.esc(this.ar ? n.ar : n.en)+'</b> <bdi lang="ar">('+n.root.split('').join(' ')+')</bdi>'+this.esc(this.C('netIn', {n:n.n}))
         +(comp.length ? this.esc(this.T([' Shares verses with: ', ' يجتمع مع: ']))+comp.join(this.ar ? '، ' : ', ')+'.' : this.esc(this.T([' It shares no two verses with another root here.', ' لا يشترك مع جذرٍ آخر هنا في آيتَين.']))); },
-    gridRead(){ const n=this.hs;
-      if(!n){ const top=this.topSurahs.map(t=>this.$root.surahName(t.n)+' '+this.D(t.c)), none=114-Object.keys(this.perSurah).length;
-        return this.esc(this.T([top.join(', ')+' hold most of the 109 verses; '+none+' of the 114 surahs have none.', top.join('، ')+' فيها أكثر الآيات الـ109؛ و'+none+' سورةً من 114 ليس فيها آية رزق.'])); }
-      const m=this.SM[n]||{}, cnt=this.perSurah[n]||0, pos=this.chrono.pos[n], per=this.T(m.place==='Medina' ? ['Medinan','مدنية'] : ['Meccan','مكية']);
-      return '<b>'+this.esc(this.$root.surahName(n))+'</b> '+this.esc(this.T(['(surah '+n+', revealed as number '+pos+' of 114, '+per+'): ', '(السورة '+n+'، ترتيب نزولها '+pos+' من 114، '+per+'): ']))
-        +this.esc(cnt ? this.T([cnt+' of its '+m.verses+' verses name provision. Tap to keep only them.', cnt+' من آياتها الـ'+m.verses+' تذكر الرزق. انقر لإبقائها وحدها.']) : this.T(['none of its '+m.verses+' verses names provision.', 'لا تذكر الرزق آيةٌ من آياتها الـ'+m.verses+'.'])); },
+    gridRead(){ return this.gridLine(this.hs); },
     chronoRead(){ const k=this.hd;
       if(!k) return this.esc(this.T(['Point at a dot to read its verse; tap it to keep only its surah’s verses.','أشر إلى نقطةٍ لتقرأ آيتها، وانقرها لإبقاء آيات سورتها وحدها.']));
-      const v=this.R.verses.find(x=>x.k===k), s=+k.split(':')[0], pos=this.chrono.pos[s], per=this.T(v.p==='d' ? ['Medinan','مدنية'] : ['Meccan','مكية']), th=this.ar ? this.R.themes[v.t].ar : this.R.themes[v.t].en;
-      const open=(this.V[k]||'').split(' ').slice(0,9).join(' ');
-      return '<b>'+this.esc(this.refOf(k))+'</b> · '+this.esc(this.T(['revealed as number '+pos+' of 114 · '+per+' · '+th, 'ترتيب النزول '+pos+' من 114 · '+per+' · '+th]))+(open ? '<br><bdi lang="ar" dir="rtl">'+this.esc(open)+'…</bdi>' : ''); },
+      return this.verseLine(k); },
     chronoAha(){ const d=this.chrono.dots, f=d[0], l=d[d.length-1]; if(!f) return '';
-      return this.T(['The first verse of provision to come down, in this order, is '+this.refOf(f.k)+': «He measured his provision, so he says: my Lord has humiliated me», a correction of how a narrowed provision is read, before any promise of widening. The last is '+this.refOf(l.k)+', Isa’s prayer: «provide for us, You are the best of providers».',
-        'أول ما نزل في الرزق، على هذا الترتيب، '+this.refOf(f.k)+': «فقدر عليه رزقه فيقول ربي أهانن»، تصحيحٌ لفهم التضييق قبل أي وعدٍ بالتوسعة. وآخرها '+this.refOf(l.k)+'، دعاء عيسى: «وارزقنا وأنت خير الرازقين».']); },
+      return this.C('chronoAha', {first: this.refOf(f.k), last: this.refOf(l.k)}); },
+    strip(){ const R=this.R, ar=this.ar, W=this.cw, pad=6, SM=this.SM, starts={}; let g=0;
+      for(let n=1;n<=114;n++){ starts[n]=g; g+=(SM[n]||{}).verses||0; }
+      const tot=g||6236, X=v=>{ const x=pad+v/tot*(W-2*pad); return ar ? W-x : x; }, len=n=>(SM[n]||{}).verses||0;
+      const bands=[]; for(let n=1;n<=114;n++){ const a=X(starts[n]), b=X(starts[n]+len(n)); bands.push({n, x:Math.min(a,b), w:Math.max(.6, Math.abs(b-a)), cnt:this.perSurah[n]||0, odd:n%2}); }
+      const ticks=R.verses.map(v=>{ const [s,a]=v.k.split(':').map(Number); return {k:v.k, s, x:X(starts[s]+a-.5), g:R.themes[v.t].g}; });
+      const labels=Object.keys(this.perSurah).filter(n=>this.perSurah[n]>=4).map(n=>({n:+n, x:X(starts[n]+len(+n)/2), name:this.$root.surahName(+n), c:this.perSurah[n]}));
+      return {W, H:96, bands, ticks, labels, xStart:X(0), xEnd:X(tot), aStart: ar ? 'end' : 'start', aEnd: ar ? 'start' : 'end'}; },
+    stripRead(){ if(this.hm) return this.verseLine(this.hm); if(this.hs) return this.gridLine(this.hs);
+      return this.esc(this.T(['Point at a tick to read its verse, or at a band for its surah; tap to keep only that surah’s verses.','أشر إلى خطٍّ لتقرأ آيته، أو إلى شريطٍ لترى سورته؛ وانقر لإبقاء آيات تلك السورة وحدها.'])); },
+    sankey(){ const R=this.R, ar=this.ar, W=Math.max(this.cw, 620), k=9, gap=10, top=8, nodeW=14, labP=Math.min(210, W*.3), labS=140;
+      const parts=R.dua.full.map((p,i)=>({i, ar:p.ar, en:p.en, v:0, keys:new Set()})), L={}, sur={};
+      R.dua.full.forEach((p,pi)=>p.segs.forEach(seg=>seg.src.forEach(s=>{ const n=+s.k.split(':')[0], id=pi+'-'+n;
+        const l=L[id]||(L[id]={p:pi, s:n, v:0, segs:[], id}); l.v++; if(!l.segs.includes(seg.t)) l.segs.push(seg.t);
+        parts[pi].v++; if(!s.ctx) parts[pi].keys.add(s.k);
+        const S=sur[n]||(sur[n]={n, v:0, w:0}); S.v++; S.w+=pi; })));
+      const links=Object.values(L), surahs=Object.values(sur).sort((a,b)=>a.w/a.v-b.w/b.v || a.n-b.n);
+      const V=links.reduce((a,l)=>a+l.v,0), hS=V*k+gap*(surahs.length-1), hP=V*k+gap*(parts.length-1), H=Math.max(hS,hP)+2*top;
+      let y=top+(H-2*top-hP)/2; parts.forEach(p=>{ p.y0=y; p.y1=y+p.v*k; y=p.y1+gap; p.lines=rzWrap(ar ? p.ar : p.en, ar ? 20 : 24); });
+      y=top+(H-2*top-hS)/2; surahs.forEach(s=>{ s.y0=y; s.y1=y+s.v*k; y=s.y1+gap; });
+      const by={}; surahs.forEach(s=>{ by[s.n]=s; });
+      parts.forEach(p=>{ let yy=p.y0; links.filter(l=>l.p===p.i).sort((a,b)=>by[a.s].y0-by[b.s].y0).forEach(l=>{ l.ya0=yy; yy+=l.v*k; l.ya1=yy; }); });
+      surahs.forEach(s=>{ let yy=s.y0; links.filter(l=>l.s===s.n).sort((a,b)=>a.p-b.p).forEach(l=>{ l.yb0=yy; yy+=l.v*k; l.yb1=yy; }); });
+      // the du'a's movements at the start of the reading line (left in English, right in Arabic), the surahs at its end
+      const X=x=>ar ? W-x : x, xP0=labP, xP1=labP+nodeW, xS0=W-labS-nodeW, xS1=W-labS, a=X(xP1), b=X(xS0), m=(a+b)/2, f=v=>v.toFixed(1);
+      links.forEach(l=>{ l.d='M'+f(a)+' '+f(l.ya0)+' C'+f(m)+' '+f(l.ya0)+' '+f(m)+' '+f(l.yb0)+' '+f(b)+' '+f(l.yb0)+' L'+f(b)+' '+f(l.yb1)+' C'+f(m)+' '+f(l.yb1)+' '+f(m)+' '+f(l.ya1)+' '+f(a)+' '+f(l.ya1)+' Z'; });
+      return {W, H, parts, surahs, links, nodeW, xP: Math.min(X(xP0), X(xP1)), xS: Math.min(X(xS0), X(xS1)),
+        lxP: ar ? X(xP0)+8 : xP0-8, aP: ar ? 'start' : 'end', lxS: ar ? X(xS1)-8 : xS1+8, aS: ar ? 'end' : 'start'}; },
+    sankeyRead(){ const h=this.hk, S=this.sankey, ar=this.ar, sep=ar ? '، ' : ', ';
+      if(h && h[0]==='l'){ const l=S.links.find(x=>'l'+x.id===h); if(l){ const p=S.parts[l.p];
+        return '<b>'+this.esc(ar ? p.ar : p.en)+' · '+this.esc(this.$root.surahName(l.s))+'</b> '+this.esc(this.T([l.v+(l.v>1 ? ' references: ' : ' reference: '), l.v+' إحالة: ']))+'<bdi lang="ar" dir="rtl">'+this.esc(l.segs.join('، '))+'</bdi>'; } }
+      if(h && h[0]==='p'){ const p=S.parts[+h.slice(1)]; if(p) return '<b>'+this.esc(ar ? p.ar : p.en)+'</b> '+this.esc(this.T([p.v+' references to verses. Tap to keep the verses it draws on.', p.v+' إحالة إلى الآيات. انقر لإبقاء الآيات التي يأخذ منها.'])); }
+      if(h && h[0]==='s'){ const s=S.surahs.find(x=>'s'+x.n===h); if(s) return '<b>'+this.esc(this.$root.surahName(s.n))+'</b> '+this.esc(this.T([s.v+' references in the du’a. Tap to keep its verses.', s.v+' إحالة في الدعاء. انقر لإبقاء آياتها.'])); }
+      return this.esc(this.T(['Point at a band to see the phrases it carries.','أشر إلى شريطٍ لترى المقاطع التي يحملها.'])); },
+    tree(){ const R=this.R, ar=this.ar, W=this.cw, H=Math.round(Math.max(220, Math.min(340, W*.42))), head=22, pad=4;
+      const groups=R.formGroups.map(g=>({g:g.g, ar:g.ar, en:g.en, v:R.forms.filter(f=>f.g===g.g).reduce((a,f)=>a+f.n,0)})).filter(g=>g.v).sort((a,b)=>b.v-a.v);
+      const tot=groups.reduce((a,g)=>a+g.v,0), boxes=[], leaves=[]; let x=0;
+      groups.forEach(g=>{ const gw=W*g.v/tot, wide=gw>130; boxes.push(Object.assign({}, g, {x, w:gw}));
+        const items=R.forms.map((f,i)=>({v:f.n, i, g:f.g})).filter(o=>o.g===g.g);
+        rzSquarify(items, x+pad, wide ? head : pad, gw-2*pad, H-(wide ? head : pad)-pad).forEach(r=>leaves.push(r)); x+=gw; });
+      if(ar){ boxes.forEach(b=>{ b.x=W-b.x-b.w; }); leaves.forEach(l=>{ l.x=W-l.x-l.w; }); }
+      return {W, H, boxes, leaves}; },
+    treeRead(){ const h=this.hk; if(h && h[0]==='f'){ const f=this.R.forms[+h.slice(1)]; if(f)
+        return '<b><bdi lang="ar" dir="rtl">'+this.esc(f.u)+'</bdi></b> '+this.esc(this.T([f.n+(f.n>1 ? ' times, in ' : ' time, in ')+f.verses.map(k=>this.refOf(k)).join(', '), f.n+' مرة، في '+f.verses.map(k=>this.refOf(k)).join('، ')])); }
+      return this.esc(this.T(['Point at a form to see where it comes; tap it to keep its verses.','أشر إلى شكلٍ لترى مواضعه، وانقره لإبقاء آياته.'])); },
+    matrix(){ const R=this.R, tOf={}; R.verses.forEach(v=>{ tOf[v.k]=v.t; });
+      const rows=this.conds.map(c=>({i:c.i, ar:c.ar, en:c.en, n:c.n, cells:R.themes.map((t,ti)=>{ const keys=c.verses.filter(k=>tOf[k]===ti); return {keys, n:keys.length}; })}));
+      return {rows, cols:R.themes.map(t=>({ar:t.sar||t.ar, en:t.sen||t.en})), max:Math.max(1, ...rows.flatMap(r=>r.cells.map(c=>c.n)))}; },
   },
   methods:{
     T(p){ if(!p) return ''; const s=Array.isArray(p) ? (this.ar ? p[1] : p[0]) : p; return this.ar ? this.$root.D(s) : s; },
+    // a sentence of the study's own (copy[key]), with its {placeholders} filled
+    C(key, P){ const p=this.R.copy[key]; if(!p) return ''; let s=this.ar ? p[1] : p[0];
+      if(P) s=s.replace(/\{(\w+)\}/g, (m,k)=>(k in P ? P[k] : m));
+      return this.ar ? this.$root.D(s) : s; },
     D(x){ return this.$root.D(x); },
+    has(s){ return this.R.sections.includes(s); },
     refOf(k){ return this.$root.surahName(+k.split(':')[0])+' '+this.D(k); },
     pct(v, max){ return max ? Math.round(1000*v/max)/10 : 0; },
-    nounN(id){ const n=this.R.nouns.find(x=>x.id===id); return n ? n.n : 0; },
     esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); },
-    // the verse's words; the ones the du'a kept lit in green, the word of provision in gold
+    isSel(k, i){ return !!this.sel && this.sel.k===k && this.sel.i===i; },
+    pickSel(k, i){ this.sel = this.isSel(k, i) ? null : {k, i}; if(this.sel) this.toVerses(); },
+    hkOn(l){ const h=this.hk; return !!h && (h==='l'+l.id || h==='p'+l.p || h==='s'+l.s); },
+    gridLine(n){
+      if(!n){ const top=this.topSurahs.map(t=>this.$root.surahName(t.n)+' '+this.D(t.c)), none=114-Object.keys(this.perSurah).length;
+        return this.esc(this.C('gridTop', {top: top.join(this.ar ? '، ' : ', '), none})); }
+      const m=this.SM[n]||{}, cnt=this.perSurah[n]||0, pos=this.chrono.pos[n], per=this.T(m.place==='Medina' ? ['Medinan','مدنية'] : ['Meccan','مكية']);
+      return '<b>'+this.esc(this.$root.surahName(n))+'</b> '+this.esc(this.T(['(surah '+n+', revealed as number '+pos+' of 114, '+per+'): ', '(السورة '+n+'، ترتيب نزولها '+pos+' من 114، '+per+'): ']))
+        +this.esc(cnt ? this.C('gridHas', {cnt, m: m.verses}) : this.C('gridNone', {m: m.verses})); },
+    verseLine(k){ const v=this.R.verses.find(x=>x.k===k); if(!v) return '';
+      const s=+k.split(':')[0], pos=this.chrono.pos[s], per=this.T(v.p==='d' ? ['Medinan','مدنية'] : ['Meccan','مكية']), th=this.ar ? this.R.themes[v.t].ar : this.R.themes[v.t].en;
+      const open=(this.V[k]||'').split(' ').slice(0,9).join(' ');
+      return '<b>'+this.esc(this.refOf(k))+'</b> · '+this.esc(this.T(['revealed as number '+pos+' of 114 · '+per+' · '+th, 'ترتيب النزول '+pos+' من 114 · '+per+' · '+th]))+(open ? '<br><bdi lang="ar" dir="rtl">'+this.esc(open)+'…</bdi>' : ''); },
+    // the verse's words; the ones the du'a kept lit in green, the word of the root in gold
     verseHtml(k, hi){ const t=this.V[k];
       if(!t) return '<span class="rz-wait">'+this.esc(this.T(['Loading the verse text…','يُحمَّل نص الآية…']))+'</span>';
       const H=new Set(hi||[]), Z=new Set(this.rzPos[k]||[]);
@@ -5490,10 +5749,10 @@ const RizqLab = {
     spanText(k, a, b){ const t=this.V[k]; return t ? t.split(' ').slice(a-1, b).join(' ') : '…'; },
     setVer(v){ this.ver=v; this.pick=-1; },
     pickSeg(i){ this.pick = this.pick===i ? -1 : i; },
-    setRoot(r){ this.cond=-1; this.root = this.root===r ? '' : r; if(this.root) this.toVerses(); },
-    setCond(i){ this.root=''; this.cond = this.cond===i ? -1 : i; if(this.cond>=0) this.toVerses(); },
+    setRoot(r){ this.pickSel('root', r); },
+    setCond(i){ this.pickSel('cond', i); },
     togTheme(i){ const j=this.themes.indexOf(i); if(j>=0) this.themes.splice(j,1); else this.themes.push(i); },
-    setSurah(n){ if(!(this.perSurah[n]>0)) return; this.surah = this.surah===n ? 0 : n; },
+    setSurah(n, go){ if(!(this.perSurah[n]>0)) return; this.surah = this.surah===n ? 0 : n; if(go && this.surah) this.toVerses(); },
     fitW(){ const el=this.$el; if(!el || el.nodeType!==1) return; const w=Math.round(el.getBoundingClientRect().width); if(w>40 && Math.abs(w-this.w)>1) this.w=w; },
     toVerses(){ this.$nextTick(()=>{ const el=this.$el && this.$el.querySelector('.rz-verses'); if(el) el.scrollIntoView({block:'start', behavior: MOTION ? 'smooth' : 'auto'}); }); },
     copy(){ const txt=this.parts.map(p=>p.segs.map(s=>s.t).join('، ')+'.').join('\n');
@@ -6791,6 +7050,7 @@ createApp({
             {id:'lessons',en:'Lessons',ar:'الدروس'},
             {id:'duas',en:"Du'as",ar:'الأدعية'},
             {id:'rizq',en:'Rizq Verses and Du’a',ar:'آيات الرزق ودعاؤها'},
+            {id:'wahhab',en:'Hiba Verses and Du’a',ar:'آيات الهبة ودعاؤها'},
             {id:'tafsir',en:'Scholars’ Insights',ar:'بصائر'},
             {id:'untranslatable',en:'Untranslatable Words',ar:'كلمات تعجز الترجمة'}]}
       ],
@@ -6952,7 +7212,8 @@ createApp({
     jevTone(){ const T=this.JD && this.JD.tone; if(!T || !Array.isArray(T.items) || !T.items.length) return null;
       const c={mercy:0, guidance:0, hope:0, warning:0}; T.items.forEach(it=>{ if(it.tone in c) c[it.tone]++; });
       return {c, n:T.items.length, model:T.model||'', date:T.date||''}; },
-    realViews(){ return [...DISC_IDS, 'home','overview','word','mecca','letters','search','reader','auditor','wordcount','lettercount','history','stories','lessons','duas','rizq','tafsir','untranslatable',
+    nameView(){ return NAME_VIEWS.includes(this.view) ? ((window.QURAN_DATA||{})[this.view] || null) : null; },   // a Name study's data, for its section's title
+    realViews(){ return [...DISC_IDS, 'home','overview','word','mecca','letters','search','reader','auditor','wordcount','lettercount','history','stories','lessons','duas','rizq','wahhab','tafsir','untranslatable',
       'emotion','science','abjad','n19','structural','symmetry','kg','tawafuq','hifz','cluster']; },
     curHub(){ return this.nav.find(h=>h.items.some(i=>i.id===this.view)) || null; },
     // where the reader is: a change of page, claim or surah is a step the browser's back arrow can undo
@@ -8047,7 +8308,7 @@ createApp({
     this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); this.enterView(true); });
   }
 }).component('depth-switch', DepthSwitch).component('term-chips', TermChips).component('explain-box', ExplainBox)
-  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell).component('claim-viz', ClaimViz).component('count-lab', CountLab).component('rule-matrix', RuleMatrix).component('qadr-lab', QadrLab).component('nineteen-lab', NineteenLab).component('word-total-lab', WordTotalLab).component('letter-total-lab', LetterTotalLab).component('rizq-lab', RizqLab).component('struct-lab', StructLab).component('balance-lab', BalanceLab).component('abjad-lab', AbjadLab).component('float-kbd', FloatKbd).component('nlp-lab', NlpLab).component('dash-lab', DashLab).component('hifz-lab', HifzLab).component('stats-lab', StatsLab).component('clf-lab', ClfLab).component('kmeans-lab', KMeansLab).component('lib-atlas', LibAtlas).component('reader-head', ReaderHead).component('word-card', WordCard)
+  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell).component('claim-viz', ClaimViz).component('count-lab', CountLab).component('rule-matrix', RuleMatrix).component('qadr-lab', QadrLab).component('nineteen-lab', NineteenLab).component('word-total-lab', WordTotalLab).component('letter-total-lab', LetterTotalLab).component('name-lab', NameLab).component('struct-lab', StructLab).component('balance-lab', BalanceLab).component('abjad-lab', AbjadLab).component('float-kbd', FloatKbd).component('nlp-lab', NlpLab).component('dash-lab', DashLab).component('hifz-lab', HifzLab).component('stats-lab', StatsLab).component('clf-lab', ClfLab).component('kmeans-lab', KMeansLab).component('lib-atlas', LibAtlas).component('reader-head', ReaderHead).component('word-card', WordCard)
   .component('letter-strip', LetterStrip).component('growth-curve', GrowthCurve).component('rhyme-ribbon', RhymeRibbon).mount('#app');
 });
 </script>
