@@ -17,6 +17,12 @@ phrase exactly as shown stands in a source verse; and kw flags each shown word a
 verse as written (1) or adapted (0), which is what the page underlines solid or dotted. The lit words
 of each source verse are computed here too, so the page only marks them.
 
+The page's charts read three more things kept here: the standard Egyptian order of revelation (CHRONO,
+position to surah), the macro group of each theme (God provides, what is asked of the servant, the
+hereafter) that colours the verses, and the group of each associated root (God's act, the servant's act,
+the provision itself) that colours the root network. The network's links are the verses two roots share,
+which the page counts from each root's verse list.
+
 The page reads the verse texts from corpus.js; this key holds positions, labels and the du'a.
 """
 import collections, math, re
@@ -70,6 +76,25 @@ THEMES = [
     ('أحكام الرزق بين الناس', 'Provision between people: the rulings',
      ['2:233', '4:5', '4:8', '30:28']),
 ]
+
+# the three macro groups the charts colour by, and the group of each of the nine themes (by its Arabic name)
+GROUPS = [('الله هو الرازق', 'God provides'), ('ما يُطلب من العبد', 'What is asked of the servant'), ('رزق الآخرة', 'Provision in the hereafter')]
+GROUP_OF_THEME = {'الله وحده الرازق': 0, 'بسط الرزق وتقديره': 0, 'الرزق من السماء والأرض': 0,
+                  'الإنفاق مما رزق الله': 1, 'كلوا من الطيبات واشكروا': 1, 'أحكام الرزق بين الناس': 1,
+                  'تحريم الحلال والافتراء': 1, 'نماذج جلب الرزق في الدنيا': 1, 'رزق الآخرة': 2}
+
+# the root network: each associated root is God's act, the servant's act, or the provision itself
+NET_GROUPS = [('فعل الله', 'God’s act'), ('فعل العبد', 'The servant’s act'), ('الرزق نفسه: صفته ومصدره', 'The provision itself: its quality and source')]
+NET_GROUP_OF = {}
+for _r in ('بسط', 'قدر', 'نزل', 'حسب', 'نعم', 'منن', 'خلف', 'فضل', 'أتي', 'خلق', 'ملك', 'حيي', 'موت', 'خرج', 'جزي', 'جعل'): NET_GROUP_OF[_r] = 0
+for _r in ('نفق', 'أكل', 'شكر', 'صلو', 'عبد', 'صبر', 'وقي', 'وكل', 'علن', 'سرر', 'هجر', 'ذكر', 'كفر', 'قتل', 'فري', 'شرك', 'عمل', 'صلح', 'أمن', 'تجر'): NET_GROUP_OF[_r] = 1
+for _r in ('طيب', 'كرم', 'حسن', 'حلل', 'حرم', 'ثمر', 'سمو', 'أرض', 'بلد', 'دبب', 'طعم', 'ضرب', 'موه', 'ولد', 'بحر', 'غفر', 'جنن', 'نهر', 'كسو', 'ذرر'): NET_GROUP_OF[_r] = 2
+
+# the standard Egyptian order of revelation (the 1924 Cairo edition): position -> surah number; 86 Meccan, then 28 Medinan
+CHRONO = [96, 68, 73, 74, 1, 111, 81, 87, 92, 89, 93, 94, 103, 100, 108, 102, 107, 109, 105, 113, 114, 112, 53, 80, 97, 91, 85, 95, 106, 101,
+          75, 104, 77, 50, 90, 86, 54, 38, 7, 72, 36, 25, 35, 19, 20, 56, 26, 27, 28, 17, 10, 11, 12, 15, 6, 37, 31, 34, 39, 40,
+          41, 42, 43, 44, 45, 46, 51, 88, 18, 16, 71, 14, 21, 23, 32, 52, 67, 69, 70, 78, 79, 82, 84, 30, 29, 83,
+          2, 8, 3, 33, 60, 4, 99, 57, 47, 13, 55, 76, 65, 98, 59, 24, 22, 63, 58, 49, 66, 64, 61, 62, 48, 5, 9, 110]
 
 # what the verses pair with provision: name, the verses, and the words of the verse that say it
 CONDITIONS = [
@@ -327,8 +352,11 @@ def build():
     meta = _surah_meta()
     period = lambda k: 'm' if meta[int(k.split(':')[0])]['p'] == 'Mecca' else 'd'
 
+    if sorted(CHRONO) != list(range(1, 115)):
+        raise ValueError('the order of revelation is not a permutation of the 114 surahs')
     theme_of = {}
-    for i, (_, _, ks) in enumerate(THEMES):
+    for i, (ar, _, ks) in enumerate(THEMES):
+        if ar not in GROUP_OF_THEME: raise ValueError(f'theme {ar} has no group')
         for k in ks:
             if k not in rizq: raise ValueError(f'theme verse {k} has no ر ز ق word')
             if k in theme_of: raise ValueError(f'theme verse {k} labelled twice')
@@ -381,7 +409,8 @@ def build():
         if r['root'] in GENERIC:
             continue
         g = GLOSS.get(r['root'], (r['root'], r['root']))
-        r.update({'ar': g[0], 'en': g[1], 'verses': [k for k in rizq_keys if r['root'] in roots[k]]})
+        if r['root'] not in NET_GROUP_OF: raise ValueError(f"root {r['root']} has no network group")
+        r.update({'ar': g[0], 'en': g[1], 'g': NET_GROUP_OF[r['root']], 'verses': [k for k in rizq_keys if r['root'] in roots[k]]})
         if len(r['verses']) != r['n']:
             raise ValueError(f"root {r['root']}: {len(r['verses'])} verses listed, {r['n']} counted")
         assoc.append(r)
@@ -407,7 +436,10 @@ def build():
         'totals': {'tokens': sum(len(v) for v in tokens.values()), 'verses': len(rizq_keys), 'surahs': len(surahs),
                    'mecca': sum(1 for v in vs if v['p'] == 'm'), 'medina': sum(1 for v in vs if v['p'] == 'd'),
                    'verbs': sum(a['n'] for a in agents), 'nouns': sum(x['n'] for x in nouns), 'quran': len(all_keys)},
-        'themes': [{'ar': ar, 'en': en, 'n': len(ks), 'mecca': sum(1 for k in ks if period(k) == 'm')} for ar, en, ks in THEMES],
+        'themes': [{'ar': ar, 'en': en, 'n': len(ks), 'mecca': sum(1 for k in ks if period(k) == 'm'), 'g': GROUP_OF_THEME[ar]} for ar, en, ks in THEMES],
+        'groups': [{'ar': ar, 'en': en} for ar, en in GROUPS],
+        'netGroups': [{'ar': ar, 'en': en} for ar, en in NET_GROUPS],
+        'chrono': list(CHRONO),
         'verses': vs,
         'agents': agents, 'nouns': nouns,
         'assoc': assoc,

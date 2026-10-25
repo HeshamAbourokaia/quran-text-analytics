@@ -107,6 +107,39 @@ def test_page_content_rules():
         assert ch not in blob
     assert len(blob.encode()) < 32000                          # the key stays small: texts come from corpus.js
 
+def test_revelation_order():
+    ch = _R['chrono']                                           # the standard Egyptian order: position -> surah
+    assert len(ch) == 114 and sorted(ch) == list(range(1, 115))
+    assert ch[0] == 96 and ch[85] == 83 and ch[86] == 2 and ch[-1] == 110   # 86 Meccan surahs (the last is 83), then the 28 Medinan
+    from pipeline.datasets import _surah_meta
+    meta = _surah_meta()
+    assert all((i < 86) == (meta[s]['p'] == 'Mecca') for i, s in enumerate(ch))   # the order's split agrees with the corpus
+    pos = {s: i + 1 for i, s in enumerate(ch)}
+    by = sorted(_R['verses'], key=lambda v: (pos[int(v['k'].split(':')[0])], int(v['k'].split(':')[1])))
+    assert by[0]['k'] == '89:16' and by[-1]['k'] == '5:114'   # the first rizq verse to come down, and the last
+
+def test_surah_counts_behind_the_grid():
+    import collections
+    per = collections.Counter(int(v['k'].split(':')[0]) for v in _R['verses'])
+    assert per.most_common(4) == [(2, 10), (16, 8), (22, 5), (34, 5)]
+    assert len(per) == 44 and 114 - len(per) == 70
+
+def test_groups_behind_the_chart_colours():
+    assert [g['ar'] for g in _R['groups']] == ['الله هو الرازق', 'ما يُطلب من العبد', 'رزق الآخرة']
+    assert [t['g'] for t in _R['themes']] == [1, 0, 0, 1, 0, 1, 2, 1, 1]
+    assert [sum(t['n'] for t in _R['themes'] if t['g'] == g) for g in range(3)] == [39, 55, 15]
+    assert [g['ar'] for g in _R['netGroups']] == ['فعل الله', 'فعل العبد', 'الرزق نفسه: صفته ومصدره']
+    assert [r['g'] for r in _R['assoc']] == [2, 1, 0, 2, 0, 1, 2, 1, 2, 2, 1, 2, 1, 1, 2, 0]
+    for g in _R['groups'] + _R['netGroups']:
+        assert g['ar'] and g['en']
+
+def test_roots_that_keep_company():
+    V = {r['root']: set(r['verses']) for r in _R['assoc']}
+    assert len(V['بسط'] & V['قدر']) == 10                       # He widens and He measures, in the same breath
+    assert len(V['طيب'] & V['أكل']) == 7 and len(V['نفق'] & V['صلو']) == 7
+    pairs = sum(1 for a in V for b in V if a < b and len(V[a] & V[b]) >= 2)
+    assert pairs == 18
+
 if __name__ == '__main__':
     for name, fn in list(globals().items()):
         if name.startswith('test_'):
