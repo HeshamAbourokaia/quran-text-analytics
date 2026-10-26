@@ -24,7 +24,11 @@ NAME = ('الوهّاب', 'Al-Wahhab')
 TITLE = ('آيات الهبة ودعاؤها', 'Hiba Verses and Du’a')
 SECTIONS = ['models', 'sankey', 'findings', 'agents', 'assoc', 'objects', 'net', 'forms', 'formulas', 'themes', 'matrix',
             'conditions', 'adab', 'mushaf', 'grid', 'chrono']
-TRANS = True        # in English the verse cards show Pickthall's translation under the Arabic
+TRANS = True
+NOUN = ('hiba', 'الهبة', 'f')
+# the hero: the «grant me» du'as and what follows each within two verses. A verse with one of these roots answers it
+# (glad tidings, reward, made subject, answered); a verse opening with «rabb» or asking again goes on with the du'a.
+HERO = {'type': 'duas', 'window': 2, 'answer_roots': ['بشر', 'جزي', 'سخر', 'جوب']}        # in English the verse cards show Pickthall's translation under the Arabic
 CTX_WINDOW = 4
 MIN_IN = 2
 N_ASSOC = 13        # the roots with a z score of 2 or more
@@ -247,6 +251,10 @@ FINDINGS = [
 
 # ---------------------------------------------------------------- the page's own sentences, [English, Arabic]
 COPY = {
+    'heroLine': ('The Quran has {n_duas} du’as that ask «grant me». {n_answered} are answered within the next two verses; {n_open} go on as du’a and are left open.',
+                 'في القرآن {n_duas} أدعيةٍ تقول «هب لي». {n_answered} منها تُجاب في الآيتين التاليتين، و{n_open} تمضي دعاءً وتبقى مفتوحة.'),
+    'heroBig': ('of the {n_duas} «grant me» du’as are answered within two verses', 'من أدعية «هب لي» الـ{n_duas} تُجاب في الآيتين التاليتين'),
+    'heroAria': ('The {n_duas} «grant me» du’as, each joined to its answer or left open', 'أدعية «هب لي» الـ{n_duas}، كلٌّ موصولٌ بإجابته أو مفتوح'),
     'heroForms': ('Every form: وهب, يهب, هب لي, الوهّاب.', 'بكل صيغها: وهب، يهب، هب لي، الوهّاب.'),
     'lead': ('Two forms: a full du’a in five movements that follow the seven «grant me» du’as of the Quran, and a short one to learn by heart. Every phrase is taken from one of the 22 verses, or from a verse near one (up to four verses away, because the «grant me» du’as and their answers run over several verses). Under each word, a solid line means it stands in the verse as written, a dotted line that it was adapted. In English a plain meaning sits under each phrase.',
              'صيغتان: كاملةٌ في خمس حركاتٍ تتبع أدعية «هب لي» السبعة في القرآن، ومختصرةٌ للحفظ. كل مقطعٍ مأخوذٌ من إحدى الآيات الـ22 أو من آيةٍ قريبةٍ منها (حتى أربع آيات، لأن أدعية «هب لي» وإجاباتها تمتدّ على آياتٍ متتابعة). وتحت كل كلمةٍ خطٌّ: متصلٌ إن كانت في الآية كما هي، ومنقّطٌ إن كانت محوّلة.'),

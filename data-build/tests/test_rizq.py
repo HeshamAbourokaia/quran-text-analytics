@@ -105,7 +105,7 @@ def test_page_content_rules():
     blob = json.dumps(_R, ensure_ascii=False)
     for ch in (chr(0x2014), chr(0x2013), chr(0x2212)):         # em dash, en dash, minus sign
         assert ch not in blob
-    assert len(blob.encode()) < 42000                          # the key stays small: verse texts come from corpus.js
+    assert len(blob.encode()) < 50000                          # the key stays small: verse texts come from corpus.js (each giver class lists its verses for the hero)
     assert set(_R['copy']) >= {'lead', 'ctxNote', 'agentsAha', 'chronoAha'} and all(len(v) == 2 or isinstance(v[0], list) for v in _R['copy'].values())
 
 def test_revelation_order():

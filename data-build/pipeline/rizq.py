@@ -18,6 +18,9 @@ ROOT = 'رزق'
 NAME = ('الرزّاق', 'Ar-Razzaq')
 TITLE = ('آيات الرزق ودعاؤها', 'Rizq Verses and Du’a')
 SECTIONS = ['models', 'agents', 'assoc', 'net', 'conditions', 'grid', 'chrono']
+NOUN = ('rizq', 'الرزق', 'm')     # the study's subject in a sentence, for the comparison of Names
+# the hero: the verbs of rizq by who gives; these classes name God as the giver outright
+HERO = {'type': 'agents', 'named': ['he', 'we', 'you']}
 CTX_WINDOW = 1      # a du'a source may be the verse right beside a rizq verse
 MIN_IN = 3          # a root must sit in three of the verses to be compared
 NET_DEFAULT = None  # every shown root has its network group below
@@ -186,6 +189,10 @@ N_ASSOC = 16
 
 # ---------------------------------------------------------------- the page's own sentences, [English, Arabic]
 COPY = {
+    'heroLine': ('Of the {verbs} verbs of rizq, {allah} name God as the giver, as He or as We, and {a_you} more addresses Him as You: {named} in all. {a_passive} are passive, with Him understood; {a_ask} are du’as to Him; and only {a_people} tell people to provide.',
+                 'من أفعال الرزق الـ{verbs}، في {allah} الله هو الرازق بضمير الغائب أو المتكلم، وفي {a_you} آخر يُخاطَب هو: «ترزق»، فالمجموع {named}. و{a_passive} مبنيةٌ للمجهول والمراد هو، و{a_ask} أدعيةٌ إليه، ولا يُؤمر الناس أن يرزقوا إلا في {a_people}.'),
+    'heroBig': ('of the {verbs} verbs of rizq name God as the giver', 'من أفعال الرزق الـ{verbs} تجعل الله هو الرازق صراحةً'),
+    'heroAria': ('The {verbs} verbs of rizq, by who gives', 'أفعال الرزق الـ{verbs}، بحسب من يرزق'),
     'heroForms': ('Every form: رزق, يرزق, الرازقين, الرزّاق.',
         'بكل صيغها: رزق، يرزق، الرازقين، الرزّاق.'),
     'lead': ('Two forms: a full du’a in six movements that follow the order of the prophets’ du’as in the rizq verses, and a short one to learn by heart. Every phrase is taken from one of the 109 verses, or from the verse right beside one. Under each word, a solid line means it stands in the verse as written, a dotted line that it was adapted.',
