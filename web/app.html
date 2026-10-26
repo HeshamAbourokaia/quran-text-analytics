@@ -1235,7 +1235,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .rz-sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin:14px 0 8px}
   .rz-sum div{background:rgba(0,0,0,.18);border:1px solid var(--hair);border-radius:12px;padding:8px 12px;font-size:.76rem;line-height:1.5;color:var(--on-dark-3)}
   .rz-sum b{display:block;font-family:var(--serif);font-weight:400;font-size:1.7rem;line-height:1.1;color:#fff;font-variant-numeric:tabular-nums}
-  .rz-model{padding:12px 0 6px;border-top:1px solid var(--hair)}
+  .rz-model{padding:12px 0 6px;border-top:1px solid var(--hair);outline:none;border-radius:4px} .rz-model:focus-visible{box-shadow:0 0 0 2px rgba(233,185,95,.6)}
   .rz-mhead{font-size:.88rem;font-weight:600;color:var(--on-dark);margin:0 0 8px} .rz-mhead .linkish{font-weight:400;margin-inline-start:8px;font-size:.8rem}
   .rz-mline{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:flex-end}
   .rz-mseg{display:inline-flex;flex-direction:column;gap:2px;border-inline-start:3px solid rgba(52,211,153,.6);padding-inline-start:8px;min-width:0}
@@ -1291,10 +1291,72 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .rz-sankey text{font-family:var(--sans);font-size:12px;fill:var(--on-dark)} .rz-sankey text.arab{font-family:var(--ar-display);font-size:14px} .rz-sankey .part text{font-weight:600}
   .rz-fgrid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
   .rz-fbody{font-size:.8rem;line-height:1.6;color:var(--on-dark-2)} .rz-refs{font-size:.72rem;color:var(--on-dark-3);font-variant-numeric:tabular-nums}
-  .rz-tree svg,.rz-strip svg{display:block;width:100%;height:auto;direction:ltr} .rz-tree .box{fill:rgba(255,255,255,.03);stroke:var(--hair)}
-  .rz-tree .gl{font-family:var(--sans);font-size:12px;font-weight:600;fill:var(--on-dark-2)} .rz-tree .gl.arab{font-family:var(--ar-display);font-size:14px}
-  .rz-tree .lf{cursor:pointer;outline:none;transition:opacity .2s} .rz-tree .lf.dim{opacity:.55} .rz-tree .lf rect{fill-opacity:.85;stroke:transparent;stroke-width:2} .rz-tree .lf.sel rect{stroke:#fff;fill-opacity:1}
-  .rz-tree .fm{font-family:var(--ar-display);fill:#fff;pointer-events:none} .rz-tree .fn{font-family:var(--sans);font-size:11px;font-weight:700;fill:rgba(255,255,255,.85);pointer-events:none}
+  .rz-strip svg{display:block;width:100%;height:auto;direction:ltr}
+  /* the hero figure under the h1: one big number, the figure, one plain sentence */
+  .rz-herofig{margin:0 0 18px;padding:18px 20px 16px;border-radius:18px;background:linear-gradient(180deg,rgba(233,185,95,.07),rgba(0,0,0,.14));border:1px solid rgba(233,185,95,.28)}
+  .rz-hbig{display:flex;align-items:baseline;gap:4px 14px;margin:0 0 12px} .rz-hbig b{font-family:var(--serif);font-weight:400;font-size:3.2rem;line-height:1;color:var(--gold);font-variant-numeric:tabular-nums} .rz-hbig span{flex:0 1 44ch;min-width:0;font-size:1rem;line-height:1.45;color:var(--on-dark)}
+  .rz-hline{margin:12px 0 0;font-size:.95rem;line-height:1.7;color:var(--on-dark);max-width:78ch}
+  .rz-band{display:flex;gap:3px;height:56px;border-radius:12px;overflow:hidden}
+  .rz-slice{flex:1 1 0;min-width:6px;font:inherit;border:0;padding:0;cursor:pointer;background:var(--c);color:#fff;display:flex;align-items:center;justify-content:center;transition:opacity .2s,box-shadow .2s,filter .2s}
+  .rz-slice b{font-size:1.15rem;font-weight:700;color:#0b1f19;font-variant-numeric:tabular-nums} .rz-slice:hover,.rz-slice:focus-visible{filter:brightness(1.12)} .rz-slice.on{box-shadow:inset 0 0 0 3px #fff}
+  .rz-hleg{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0}
+  .rz-hlegi{display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:.82rem;color:var(--on-dark-2);background:rgba(0,0,0,.18);border:1px solid var(--hair);border-radius:999px;padding:5px 12px;cursor:pointer;transition:border-color .2s,background .2s,opacity .2s}
+  .rz-hlegi i{width:12px;height:12px;border-radius:4px;background:var(--c);flex:none} .rz-hlegi b{color:#fff;font-variant-numeric:tabular-nums} .rz-hlegi.named{color:var(--on-dark)} .rz-hlegi.on{border-color:var(--gold);background:rgba(233,185,95,.12)}
+  .rz-dh{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+  .rz-dhi{display:flex;flex-direction:column;align-items:stretch;gap:2px;font:inherit;color:var(--on-dark);background:rgba(0,0,0,.2);border:1px solid var(--hair);border-radius:14px;padding:8px 10px 10px;cursor:pointer;text-align:start;transition:border-color .2s,background .2s,opacity .2s}
+  .rz-dhi:hover,.rz-dhi:focus-visible{background:rgba(255,255,255,.05)} .rz-dhi.on{border-color:var(--gold);background:rgba(233,185,95,.1)} .rz-dhi.open{border-style:dashed}
+  .rz-dhr{font-size:.86rem;font-weight:600} .rz-dhs{font-size:.76rem;line-height:1.4;color:var(--on-dark-3)} .rz-dhi.answered .rz-dhs{color:var(--gold)}
+  .rz-dharc{display:block;width:100%;height:auto;max-height:52px;overflow:visible} .rz-dharc .base{stroke:rgba(255,255,255,.18);stroke-width:1}
+  .rz-dharc path{fill:none;stroke-width:2.5;stroke-linecap:round} .rz-dharc path.an{stroke:var(--gold)} .rz-dharc path.co{stroke:var(--emerald);stroke-dasharray:4 4;stroke-width:2} .rz-dharc path.open{stroke:var(--on-dark-3)}
+  .rz-dharc circle.du{fill:var(--emerald)} .rz-dharc circle.co{fill:var(--on-dark-3)} .rz-dharc circle.an{fill:var(--gold);stroke:var(--night);stroke-width:1.5}
+  .rz-dhd{display:grid;gap:8px;margin:12px 0 0;padding:10px 14px;border-radius:14px;background:rgba(0,0,0,.2);border:1px solid var(--hair)}
+  .rz-dhv{padding:4px 0} .rz-dhv.ans{border-inline-start:3px solid var(--gold);padding-inline-start:10px} .rz-dhl{display:block;margin:0;font-size:.78rem;color:var(--on-dark-3)} .rz-dhv .rz-q{font-size:1.3rem;line-height:1.95}
+  /* the Names compared: the same measures for each Name, one plain verdict a row, the verses behind each side on a tap */
+  .rz-cmp h4{margin:0 0 4px}
+  .rz-cmpgrid{display:grid;gap:6px;margin:8px 0 0;--cols:minmax(130px,1fr) repeat(var(--n),minmax(0,1.25fr))}
+  .rz-cmphead{display:grid;grid-template-columns:var(--cols);gap:10px;padding:0 12px;font-size:.78rem;color:var(--on-dark-3)} .rz-cmphead .cur{color:var(--gold);font-weight:600}
+  .rz-cmprow{display:grid;grid-template-columns:var(--cols);gap:4px 10px;align-items:center;font:inherit;color:var(--on-dark);background:rgba(0,0,0,.16);border:1px solid var(--hair);border-radius:12px;padding:8px 12px;text-align:start;cursor:pointer;transition:border-color .2s,background .2s}
+  .rz-cmprow:hover,.rz-cmprow:focus-visible{background:rgba(255,255,255,.05)} .rz-cmprow.on{border-color:var(--gold);background:rgba(233,185,95,.08)}
+  .rz-cmprow .rz-cmpk{font-size:.84rem;font-weight:600}
+  .rz-cmpv{display:flex;flex-direction:column;gap:4px;min-width:0} .rz-cmpv b{font-size:.84rem;font-weight:600;line-height:1.35;color:var(--on-dark-2);font-variant-numeric:tabular-nums} .rz-cmpv.cur b{color:#fff}
+  .rz-cmpv i{display:block;height:5px;border-radius:999px;background:rgba(255,255,255,.28)} .rz-cmpv.cur i{background:var(--gold)}
+  .rz-cmpline{grid-column:1 / -1;font-size:.82rem;line-height:1.6;color:var(--on-dark-2)}
+  .rz-cmpvs{display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:8px;padding:2px 2px 8px}
+  .rz-cmpside{display:flex;flex-direction:column;gap:6px;padding:8px 10px;border-radius:12px;border:1px solid var(--hair);font-size:.8rem;color:var(--on-dark-2)} .rz-cmpside.cur{border-color:rgba(233,185,95,.45)}
+  .rz-cmprefs{display:flex;flex-wrap:wrap;gap:4px}
+  .rz-ref1{font:inherit;font-size:.76rem;color:var(--teal);background:rgba(255,255,255,.04);border:1px solid var(--hair);border-radius:8px;padding:2px 7px;cursor:pointer;font-variant-numeric:tabular-nums} .rz-ref1:hover{border-color:var(--teal)}
+  /* linked highlighting: what is pointed at (or pinned) lights in every view; what does not share its verses fades */
+  .rz .dimmed{opacity:.3} .rz .rz-v.dimmed{opacity:.45}
+  .rz .rz-click.lit,.rz .rz-cond.lit,.rz .rz-frow.lit,.rz .rz-hlegi.lit,.rz .rz-dhi.lit,.rz .rz-v.lit,.rz .rz-rgl.lit,.rz .rz-skpart.lit,.rz .rz-skchip.lit,.rz .rz-chrow.lit{box-shadow:inset 0 0 0 1px rgba(233,185,95,.75)}
+  .rz .rz-seg.lit{background:rgba(233,185,95,.16);border-radius:6px} .rz .rz-mxc.lit,.rz .rz-rgx.lit{outline:1px solid rgba(233,185,95,.8)} .rz .rz-model.lit{border-top-color:rgba(233,185,95,.6)}
+  .rz-strip .tk.dimmed{opacity:1;stroke-opacity:.12} .rz-strip .tk.lit{stroke-width:3.2} .rz-sankey .lk.lit{fill:rgba(52,211,153,.5)} .rz-net .nd.lit circle{stroke:var(--gold)} .rz-chrono .dt.lit circle+circle{stroke:var(--gold);stroke-width:2} .rz-grid g.lit rect{stroke:rgba(233,185,95,.85)}
+  .rz-click,.rz-cond,.rz-frow,.rz-seg,.rz-model,.rz-v,.rz-mxc,.rz-rgx,.rz-rgl,.rz-chrow,.rz-skchip,.rz-skpart{transition:opacity .2s,box-shadow .2s,background .2s,border-color .2s}
+  .rz-pinbar{position:sticky;bottom:14px;z-index:30;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin:14px auto 0;max-width:720px;padding-block:8px;padding-inline:16px 8px;border-radius:999px;background:rgba(10,24,20,.94);border:1px solid rgba(233,185,95,.6);box-shadow:0 10px 30px rgba(0,0,0,.45);font-size:.84rem;color:var(--on-dark);backdrop-filter:blur(8px)}
+  .rz-pinlab{flex:1 1 200px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .rz-pinbar b{color:var(--gold);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .rz-pinshow,.rz-pinx{font:inherit;font-size:.82rem;border-radius:999px;cursor:pointer;min-height:36px} .rz-pinshow{padding:0 14px;color:var(--night);background:var(--gold);border:0;font-weight:600} .rz-pinx{width:36px;color:#fff;background:rgba(255,255,255,.08);border:1px solid var(--hair)}
+  /* the roots against each other: a grid where few pairs link, the pairs as a sorted strip on a phone */
+  .rz-rg{display:grid;grid-template-columns:minmax(190px,2.2fr) repeat(var(--n),minmax(34px,1fr));gap:3px;margin:8px 0 0;align-items:stretch}
+  .rz-rgh{align-self:end;text-align:center;font-family:var(--ar-display);font-size:1.05rem;line-height:1.2;padding:0 0 4px}
+  .rz-rgl{display:flex;align-items:center;gap:6px;font:inherit;font-size:.8rem;color:var(--on-dark);background:none;border:0;border-inline-start:3px solid var(--c);border-radius:6px;padding:4px 8px;text-align:start;cursor:pointer;min-width:0}
+  .rz-rgl bdi{font-family:var(--ar-display);font-size:1.1rem;white-space:nowrap} .rz-rgl small{color:var(--on-dark-3);font-size:.74rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .rz-rgl b{margin-inline-start:auto;font-size:.76rem;color:var(--gold);font-variant-numeric:tabular-nums} .rz-rgl.on{background:rgba(233,185,95,.12)}
+  .rz-rgx{font:inherit;font-size:.82rem;font-weight:700;color:#fff;background:rgba(20,147,111,var(--a,0));border:1px solid var(--hair);border-radius:6px;min-height:32px;cursor:pointer;font-variant-numeric:tabular-nums}
+  .rz-rgx:disabled{background:rgba(255,255,255,.025);cursor:default} .rz-rgx.diag{background:repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0 4px,transparent 4px 8px)} .rz-rgx.on{outline:2px solid var(--gold);outline-offset:1px}
+  .rz-pairs{display:grid;gap:4px;margin:8px 0 0} .rz-pairs .rz-lab bdi{font-size:1.05rem}
+  /* the written forms as a sorted strip, grouped, every form labelled with its count */
+  .rz-forms{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:6px 24px;margin:6px 0 0}
+  .rz-fgh{display:flex;align-items:center;gap:8px;margin:6px 0 2px;font-size:.84rem;font-weight:600;color:var(--on-dark)} .rz-fgh i{width:12px;height:12px;border-radius:4px;background:var(--c)} .rz-fgh b{font-size:.76rem;color:var(--gold);font-variant-numeric:tabular-nums}
+  .rz-formrow{grid-template-columns:minmax(90px,1fr) minmax(60px,1.6fr) auto} .rz-formrow .rz-bar i{background:var(--c)} .rz-formu{font-family:var(--ar-display);font-size:1.25rem;line-height:1.5;color:#fff}
+  /* the reflows a phone gets in place of a wide figure */
+  .rz-skrows,.rz-mxcards{display:grid;gap:10px;margin:8px 0 0} .rz-mxcard .rz-mxl{align-self:stretch;text-align:start;font-size:.84rem;font-weight:600}
+  .rz-more{justify-self:start;margin:6px 0 0}
+  .rz-skrow,.rz-mxcard{display:flex;flex-direction:column;gap:6px;padding:8px 10px;border-radius:12px;background:rgba(0,0,0,.16);border:1px solid var(--hair)}
+  .rz-skpart{font:inherit;font-size:.86rem;font-weight:600;color:var(--on-dark);background:none;border:0;border-inline-start:4px solid var(--gold);border-radius:6px;padding:6px 10px;text-align:start;cursor:pointer} .rz-skpart b{color:var(--gold);margin-inline-start:6px} .rz-skpart.on{background:rgba(233,185,95,.12)}
+  .rz-skchips{display:flex;flex-wrap:wrap;gap:6px}
+  .rz-skchip{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:.8rem;color:var(--on-dark);background:rgba(20,147,111,.16);border:1px solid rgba(52,211,153,.35);border-radius:999px;padding:4px 12px;cursor:pointer} .rz-skchip b{font-variant-numeric:tabular-nums;color:#fff} .rz-skchip.on{border-color:var(--gold);background:rgba(233,185,95,.14)}
+  .rz-chrows{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 0}
+  .rz-chrow{display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:.8rem;color:var(--on-dark);background:rgba(255,255,255,.035);border:1px solid var(--hair);border-inline-start:3px solid var(--gold);border-radius:10px;padding:4px 10px;cursor:pointer;max-width:100%}
+  .rz-chrow.med{border-inline-start-color:var(--emerald)} .rz-chrow b{font-size:.76rem;color:var(--on-dark-3);font-variant-numeric:tabular-nums} .rz-chrow.on{background:rgba(233,185,95,.14);border-color:var(--gold)}
+  .rz-chdots{display:inline-flex;flex-wrap:wrap;gap:3px;max-width:120px} .rz-chdots i{width:8px;height:8px;border-radius:50%} .rz-chdots i.off{opacity:.2}
   .rz-flist{display:grid;gap:6px}
   .rz-frow{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(90px,.8fr);align-items:center;gap:6px 14px;font:inherit;color:var(--on-dark);background:rgba(0,0,0,.16);border:1px solid var(--hair);border-radius:12px;padding:6px 12px;text-align:start;cursor:pointer;transition:border-color .2s,background .2s}
   .rz-frow:hover{background:rgba(255,255,255,.05)} .rz-frow.on{border-color:var(--gold);background:rgba(233,185,95,.1)} .rz-frow .rz-n{min-width:0;white-space:nowrap}
@@ -1310,8 +1372,24 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .rz-strip .tk{stroke-width:2.4;pointer-events:none;transition:stroke-opacity .25s} .rz-strip .tk.off{stroke-opacity:.18} .rz-strip .hit{fill:transparent;cursor:pointer}
   @media (max-width:760px){ .rz-mrow{font-size:1.3rem;line-height:1.95} .rz-frow{grid-template-columns:minmax(0,1fr) auto} .rz-frow .rz-refs{grid-column:1 / -1} }
   @media (max-width:760px){ .rz-line{font-size:1.35rem;line-height:2} .rz-q{font-size:1.25rem} .rz-row{grid-template-columns:minmax(100px,1fr) minmax(60px,1.4fr) auto} .rz-copy{width:100%} }
+  @media (max-width:760px){
+    .rz-herofig{padding:14px 14px 12px} .rz-hbig b{font-size:2.6rem} .rz-hline{font-size:.9rem} .rz-band{height:48px}
+    .rz-dh{grid-template-columns:repeat(2,minmax(0,1fr))} .rz-dhi{min-height:44px}
+    .rz-cmphead{display:none} .rz-cmprow{grid-template-columns:repeat(var(--n),minmax(0,1fr));padding:10px 12px} .rz-cmprow .rz-cmpk{grid-column:1 / -1}
+    .rz-cmpv b::before{content:attr(data-side);display:block;font-size:12px;font-weight:400;color:var(--on-dark-3)} .rz-cmpvs{grid-template-columns:1fr}
+    .rz-click,.rz-cond,.rz-frow,.rz-hlegi,.rz-rgl,.rz-skpart,.rz-skchip,.rz-chrow,.rz-ref1,.rz-cmprow,.rz-pinshow,.rz-pinx,.rz .wt-chip,.rz-copy,.rz-rgx{min-height:44px}
+    .rz .wt-chip{display:inline-flex;align-items:center;justify-content:center;min-width:44px} .rz .plain button{min-height:44px} .rz .wt-where{min-height:44px;font-size:12px} .rz-ref1{min-width:44px;padding:4px 8px} .rz-pinx{width:44px} .rz-pinbar{border-radius:18px;bottom:10px}
+    .rz-strip text{font-size:12px} .rz-strip text.arab{font-size:13px} .rz-grid .num{font-size:12px} .rz-grid .nm{font-size:12px}
+    .rz-tag,.rz-badge,.rz-tbadge,.rz-refs,.rz-plabel,.rz-lab small,.rz-mlab,.rz-mean i,.rz-cname b,.rz-series,.rz-dhl,.rz-dhs,.rz-rgl small,.rz-chrow b,.rz-fgh b,.rz-cmpside,.rz-lg{font-size:12px}
+    .rz-forms{grid-template-columns:1fr} .rz-pinlab{flex-basis:100%;white-space:normal} .rz-map{padding:12px 10px}
+  }
+  @media (prefers-reduced-motion: reduce){ .rz *,.rz-pinbar{transition:none!important} }
   /* a page that took in another: each part keeps a heading and its own short explanation */
-  .msec{margin:44px 0 4px;scroll-margin-top:84px}
+  /* an anchored heading lands below what stays on screen: on a phone or tablet the fixed top bar (58px) and the sticky tabs under it (to 112px) */
+  :root{--land:16px}
+  @media (max-width:920px){ :root{--land:124px} }
+  .dsec[id],.rz-verses{scroll-margin-top:var(--land)}
+  .msec{margin:44px 0 4px;scroll-margin-top:max(84px,var(--land))}
   .msub{margin:0 0 14px;max-width:72ch;font-size:.92rem;line-height:1.65;color:var(--on-dark-2)}
   .kpilink{display:block;margin:6px auto 0;font:inherit;font-size:.7rem;color:var(--teal);background:none;border:0;padding:0;cursor:pointer} .kpilink:hover{text-decoration:underline}
   @media (prefers-reduced-motion: reduce){ .wt-p.cut{animation:none} .wt-bar span{transition:none} }
@@ -3207,7 +3285,6 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
     <!-- NAME STUDIES (/rizq, /wahhab): every verse whose root carries a Name of God, and a du'a built from their phrases -->
     <section v-if="nameView" class="rz-page">
       <h1>{{ lang==='ar' ? nameView.title.ar : nameView.title.en }}</h1>
-      <explain-box></explain-box>
       <name-lab :slug="view" :key="view"></name-lab>
     </section>
 
@@ -5376,27 +5453,76 @@ function rzNorm(s){ return String(s||'').replace(/ٱ/g,'ا').replace(/وٰ/g,'ا
   .replace(/ـ[ً-ْ]*ٔ[ً-ْ]*/g,'ئ').replace(RZ_MARKS,'').replace(/[أإآ]/g,'ا').replace(/ءا/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي').replace(/\s+/g,' ').trim(); }
 const RZ_GCOL = ['#14936f', '#b98527', '#9085e9'];   // the three groups, on the dark surface
 const NAME_VIEWS = ['rizq', 'wahhab'];               // the Names series, in order; a study's view id is its slug
-// a squarified treemap (Bruls, Huizing and van Wijk): items {v} laid out in the box x, y, w, h, largest first, rows kept near square
-function rzSquarify(items, x, y, w, h){
-  const out=[], tot=items.reduce((a,o)=>a+o.v,0); if(!tot || w<=0 || h<=0) return out;
-  const k=w*h/tot, rest=items.slice().sort((a,b)=>b.v-a.v).map(o=>Object.assign({}, o, {a:o.v*k}));
-  const worst=(row, side)=>{ const s=row.reduce((a,o)=>a+o.a,0), mx=Math.max(...row.map(o=>o.a)), mn=Math.min(...row.map(o=>o.a)); return Math.max(side*side*mx/(s*s), s*s/(side*side*mn)); };
-  while(rest.length){ const side=Math.min(w, h), row=[rest.shift()];
-    while(rest.length && worst(row.concat(rest[0]), side)<=worst(row, side)) row.push(rest.shift());
-    const s=row.reduce((a,o)=>a+o.a,0);
-    if(w>=h){ const cw=s/h; let yy=y; row.forEach(o=>{ const hh=o.a/cw; out.push(Object.assign(o, {x, y:yy, w:cw, h:hh})); yy+=hh; }); x+=cw; w-=cw; }
-    else { const ch=s/w; let xx=x; row.forEach(o=>{ const ww=o.a/ch; out.push(Object.assign(o, {x:xx, y, w:ww, h:ch})); xx+=ww; }); y+=ch; h-=ch; } }
-  return out; }
 // a label in up to two lines of about n characters, split at a space
 function rzWrap(s, n){ if(s.length<=n) return [s]; const ws=s.split(' '); let a='';
   for(const w of ws){ if((a+' '+w).trim().length>n && a) break; a=(a+' '+w).trim(); }
   return [a, s.slice(a.length).trim()].filter(Boolean); }
+// the giver classes' colours in the rizq hero: God named (three greens), then passive, du'a, people
+const RZ_ACOL = {he:'#14936f', we:'#34d399', you:'#7ae7bd', passive:'#5f8f80', ask:'#e9b95f', people:'#9085e9'};
 const NameLab = {
   props:['slug'],
-  data(){ return {ver:'full', pick:-1, copied:'', period:'all', themes:[], sel:null, q:'', surah:0, hr:'', hs:0, hd:'', hm:'', hk:'', w:640}; },
+  // sel: the pinned selection (a root, a condition, a form, a du'a phrase, a hero item ...), filtering the cards with surah,
+  // themes, period and the search. hov: the transient one (pointer or focus), lighting the same verses in every view.
+  data(){ return {ver:'full', pick:-1, copied:'', period:'all', themes:[], sel:null, q:'', surah:0, hov:null,
+    hr:'', hs:0, hd:'', hm:'', hk:'', open:'', allPairs:false, w:640}; },
   template:`<div class="rz" v-if="R">
     <nav class="rz-series" v-if="series.length>1" :aria-label="T(['The Names series','سلسلة الأسماء'])"><span>{{ T(['The Names series','سلسلة الأسماء']) }}</span>
       <button v-for="s in series" :key="s.slug" type="button" class="wt-chip small" :class="{on: s.slug===slug}" :aria-current="s.slug===slug ? 'page' : null" @click="s.slug!==slug && $root.go(s.slug)"><span>{{ ar ? s.name.ar : s.name.en }}</span><b>{{ T([s.totals.verses+' verses', s.totals.verses+' آية']) }}</b></button></nav>
+    <div class="rz-herofig" v-if="R.hero" :class="'h-'+R.hero.type">
+      <div class="rz-hbig"><b>{{ D(heroBig) }}</b><span>{{ C('heroBig') }}</span></div>
+      <template v-if="R.hero.type==='agents'">
+        <div class="rz-band" role="group" :aria-label="C('heroAria')">
+          <button v-for="a in heroAgents" :key="a.id" type="button" class="rz-slice" :class="[lc(a.verses), {on: isSel('agent', a.id)}]" :style="{flexGrow: a.n, '--c': a.c}" v-bind="hl('agent', a.id, a.verses)" @click="pickSel('agent', a.id)" :aria-pressed="String(isSel('agent', a.id))" :aria-label="(ar ? a.ar : a.en)+' '+D(a.n)"><b v-if="a.n*bandW/R.totals.verbs>=26">{{ D(a.n) }}</b></button>
+        </div>
+        <div class="rz-hleg">
+          <button v-for="a in heroAgents" :key="'l'+a.id" type="button" class="rz-hlegi" :class="[lc(a.verses), {on: isSel('agent', a.id), named: a.named}]" :style="{'--c': a.c}" v-bind="hl('agent', a.id, a.verses)" @click="pickSel('agent', a.id)" :aria-pressed="String(isSel('agent', a.id))"><i></i><span>{{ ar ? a.ar : a.en }}</span><b>{{ D(a.n) }}</b></button>
+        </div>
+      </template>
+      <template v-else-if="R.hero.type==='duas'">
+        <div class="rz-dh" role="group" :aria-label="C('heroAria')">
+          <button v-for="(d,i) in R.hero.items" :key="d.k" type="button" class="rz-dhi" :class="[d.status, lc([d.k]), {on: isSel('dua', i)}]" v-bind="hl('dua', i, [d.k])" @click="pickSel('dua', i)" :aria-pressed="String(isSel('dua', i))" :aria-label="refOf(d.k)+', '+duaStatus(d)">
+            <span class="rz-dhr">{{ refOf(d.k) }}</span>
+            <svg class="rz-dharc" viewBox="0 0 120 46" aria-hidden="true">
+              <line class="base" x1="4" x2="116" y1="38" y2="38"/>
+              <path v-for="(p,j) in duaPaths(d)" :key="j" :d="p.d" :class="p.c"/>
+              <circle v-for="(c,j) in duaDots(d)" :key="'c'+j" :cx="c.x" cy="38" :r="c.r" :class="c.c"/>
+            </svg>
+            <span class="rz-dhs">{{ duaStatus(d) }}</span>
+          </button>
+        </div>
+        <div class="rz-dhd" v-if="heroItem" aria-live="polite">
+          <div class="rz-dhv"><span class="rz-dhl">{{ T(['The du’a','الدعاء']) }} · <button type="button" class="linkish" data-dopen @click="$root.dOpen(heroItem.k,[heroItem.k],$event)">{{ refOf(heroItem.k) }}</button></span>
+            <p class="rz-q" lang="ar" dir="rtl" v-html="verseHtml(heroItem.k, [])"></p><p v-if="!ar && EN[heroItem.k]" class="rz-en" lang="en">{{ EN[heroItem.k] }}</p></div>
+          <div class="rz-dhv" v-for="c in heroItem.cont" :key="c"><span class="rz-dhl">{{ T(['It goes on as du’a','ويمضي دعاءً']) }} · <button type="button" class="linkish" data-dopen @click="$root.dOpen(c,[c],$event)">{{ refOf(c) }}</button></span>
+            <p class="rz-q" lang="ar" dir="rtl" v-html="verseHtml(c, [])"></p><p v-if="!ar && EN[c]" class="rz-en" lang="en">{{ EN[c] }}</p></div>
+          <div class="rz-dhv ans" v-if="heroItem.ans"><span class="rz-dhl">{{ T(['The answer','الإجابة']) }} · <button type="button" class="linkish" data-dopen @click="$root.dOpen(heroItem.ans,[heroItem.ans],$event)">{{ refOf(heroItem.ans) }}</button></span>
+            <p class="rz-q" lang="ar" dir="rtl" v-html="verseHtml(heroItem.ans, heroItem.ansW)"></p><p v-if="!ar && EN[heroItem.ans]" class="rz-en" lang="en">{{ EN[heroItem.ans] }}</p></div>
+          <p class="rz-dhl" v-else>{{ T(['No answer follows within two verses: the du’a is left open.','لا تأتي إجابةٌ في الآيتين التاليتين: يبقى الدعاء مفتوحًا.']) }}</p>
+        </div>
+      </template>
+      <p class="rz-hline">{{ C('heroLine') }}</p>
+    </div>
+    <explain-box></explain-box>
+
+    <div class="wt-card rz-cmp" v-if="cmp">
+      <h4>{{ T(['Names compared','الأسماء مقارنةً']) }}</h4>
+      <p class="wt-sub">{{ T(['The same measures for each Name. Tap a measure to see the verses behind each side; on this page its verses light up below.','المقاييس نفسها لكل اسم. انقر مقياسًا لترى الآيات التي وراء كل جانب؛ وتضيء آياته في هذه الصفحة.']) }}</p>
+      <div class="rz-cmpgrid" :style="{'--n': cmp.order.length}">
+        <div class="rz-cmphead" aria-hidden="true"><span></span><span v-for="s in cmp.order" :key="'h'+s" :class="{cur: s===slug}">{{ ar ? cmp.names[s].ar : cmp.names[s].en }}</span></div>
+        <template v-for="m in cmp.measures" :key="m.id">
+          <button type="button" class="rz-cmprow" :class="{on: open===m.id}" :aria-expanded="String(open===m.id)" @click="openCmp(m)">
+            <span class="rz-cmpk">{{ ar ? m.ar : m.en }}</span>
+            <span v-for="s in cmp.order" :key="s" class="rz-cmpv" :class="{cur: s===slug}"><b :data-side="ar ? cmp.names[s].ar : cmp.names[s].en">{{ cmpVal(m.id, s) }}</b><i v-if="cmpBar(m.id, s)!==null" :style="{width: cmpBar(m.id, s)+'%'}"></i></span>
+            <span class="rz-cmpline">{{ T(m.line) }}</span>
+          </button>
+          <div v-if="open===m.id" class="rz-cmpvs">
+            <div v-for="s in cmp.order" :key="'v'+s" class="rz-cmpside" :class="{cur: s===slug}"><b>{{ ar ? cmp.names[s].ar+'، '+D(m.verses[s].length)+' '+arN(m.verses[s].length,'آية','آيات') : cmp.names[s].en+' · '+m.verses[s].length+(m.verses[s].length===1 ? ' verse' : ' verses') }}</b>
+              <span class="rz-cmprefs"><button v-for="k in m.verses[s].slice(0, 40)" :key="k" type="button" class="rz-ref1" data-dopen @click="$root.dOpen(k, m.verses[s], $event)">{{ D(k) }}</button><span v-if="m.verses[s].length>40" class="rz-refs">{{ T(['and '+(m.verses[s].length-40)+' more','و'+(m.verses[s].length-40)+' أخرى']) }}</span></span></div>
+          </div>
+        </template>
+      </div>
+    </div>
+
     <div class="wt-hero rz-hero">
       <div class="wt-fig em"><b>{{ D(R.totals.tokens) }}</b><span>{{ T(['words with the root '+rootL,'كلمة جذرها '+rootL]) }}</span><small>{{ C('heroForms') }}</small></div>
       <div class="wt-fig"><b>{{ D(R.totals.verses) }}</b><span>{{ T(['verses','آية']) }}</span><small>{{ T(['of the Quran’s 6,236','من آيات القرآن الـ٦٬٢٣٦']) }}</small></div>
@@ -5418,10 +5544,10 @@ const NameLab = {
         <div v-for="(p,pi) in parts" :key="ver+pi" class="rz-part">
           <span class="rz-plabel" :lang="ar?'ar':'en'" :dir="ar?'rtl':'ltr'">{{ ar ? p.ar : p.en }}</span>
           <div v-if="meanings" class="rz-mlist">
-            <div v-for="s in p.segs" :key="s.i" class="rz-mrow"><button type="button" class="rz-seg" :class="[s.mode, {on: pick===s.i}]" :aria-pressed="String(pick===s.i)" @click="pickSeg(s.i)"><span v-for="(w,wi) in s.t.split(' ')" :key="wi" :class="s.kw[wi] ? 'k' : 'a'">{{ w }}{{ wi < s.kw.length-1 ? ' ' : '' }}</span></button>
+            <div v-for="s in p.segs" :key="s.i" class="rz-mrow"><button type="button" class="rz-seg" :class="[s.mode, lc(s.keys), {on: pick===s.i}]" :aria-pressed="String(pick===s.i)" v-bind="hl('phrase', s.i, s.keys)" @click="pickSeg(s.i)"><span v-for="(w,wi) in s.t.split(' ')" :key="wi" :class="s.kw[wi] ? 'k' : 'a'">{{ w }}{{ wi < s.kw.length-1 ? ' ' : '' }}</span></button>
               <span v-if="s.en" class="rz-mean" lang="en" dir="ltr"><i>meaning</i>{{ s.en }}</span></div>
           </div>
-          <p v-else class="rz-line"><template v-for="(s,si) in p.segs" :key="s.i"><button type="button" class="rz-seg" :class="[s.mode, {on: pick===s.i}]" :aria-pressed="String(pick===s.i)" @click="pickSeg(s.i)"><span v-for="(w,wi) in s.t.split(' ')" :key="wi" :class="s.kw[wi] ? 'k' : 'a'">{{ w }}{{ wi < s.kw.length-1 ? ' ' : '' }}</span></button><span class="rz-sep" v-if="si<p.segs.length-1">، </span></template></p>
+          <p v-else class="rz-line"><template v-for="(s,si) in p.segs" :key="s.i"><button type="button" class="rz-seg" :class="[s.mode, lc(s.keys), {on: pick===s.i}]" :aria-pressed="String(pick===s.i)" v-bind="hl('phrase', s.i, s.keys)" @click="pickSeg(s.i)"><span v-for="(w,wi) in s.t.split(' ')" :key="wi" :class="s.kw[wi] ? 'k' : 'a'">{{ w }}{{ wi < s.kw.length-1 ? ' ' : '' }}</span></button><span class="rz-sep" v-if="si<p.segs.length-1">، </span></template></p>
         </div>
       </div>
       <div class="rz-src" v-if="seg" aria-live="polite">
@@ -5444,7 +5570,7 @@ const NameLab = {
     <div class="wt-card" v-if="has('models')">
       <h4>{{ T(['Why this order','لماذا بهذا الترتيب؟']) }}</h4>
       <p class="wt-sub">{{ C('modelsLead') }}</p>
-      <div v-for="m in R.models" :key="m.k" class="rz-model">
+      <div v-for="m in R.models" :key="m.k" class="rz-model" tabindex="0" :class="lc([m.k])" v-bind="hl('verse', m.k, [m.k])">
         <div class="rz-mhead">{{ ar ? m.ar : m.en }}<button type="button" class="linkish" data-dopen @click="$root.dOpen(m.k,[m.k],$event)">{{ refOf(m.k) }}</button></div>
         <div class="rz-mline" lang="ar" dir="rtl"><span v-for="(sp,i) in m.spans" :key="i" class="rz-mseg"><span class="rz-mlab" :lang="ar?'ar':'en'" :dir="ar?'rtl':'ltr'">{{ ar ? sp[2] : sp[3] }}</span><span class="rz-q">{{ spanText(m.k, sp[0], sp[1]) }}</span></span></div>
       </div>
@@ -5454,14 +5580,20 @@ const NameLab = {
     <div class="wt-card" v-if="has('sankey')">
       <h4>{{ C('sankeyH') }}</h4>
       <p class="wt-sub">{{ C('sankeySub') }}</p>
-      <div class="rz-fig rz-scroll rz-sankey" @pointerleave="hk=''">
+      <div v-if="narrow" class="rz-skrows">
+        <div v-for="p in sankey.parts" :key="'r'+p.i" class="rz-skrow">
+          <button type="button" class="rz-skpart" :class="[lc([...p.keys]), {on: isSel('part', p.i)}]" v-bind="hl('part', p.i, [...p.keys])" @click="pickSel('part', p.i)" :aria-pressed="String(isSel('part', p.i))">{{ ar ? p.ar : p.en }} <b>{{ D(p.v) }}</b></button>
+          <span class="rz-skchips"><button v-for="l in sankey.links.filter(x=>x.p===p.i)" :key="l.id" type="button" class="rz-skchip" :class="[lc(sKeys(l.s)), {on: surah===l.s}]" v-bind="hl('surah', l.s, sKeys(l.s))" @click="setSurah(l.s)" :aria-pressed="String(surah===l.s)">{{ $root.surahName(l.s) }} <b>{{ D(l.v) }}</b></button></span>
+        </div>
+      </div>
+      <div v-else class="rz-fig rz-sankey" @pointerleave="hk=''">
         <svg :width="sankey.W" :height="sankey.H" :viewBox="'0 0 '+sankey.W+' '+sankey.H" role="img" :aria-label="C('sankeyAria')">
-          <path v-for="l in sankey.links" :key="l.id" :d="l.d" class="lk" :class="{on: hkOn(l), off: hk && !hkOn(l)}" @pointerenter="hk='l'+l.id"/>
-          <g v-for="p in sankey.parts" :key="'p'+p.i" class="nd part" :class="{sel: isSel('part', p.i)}" tabindex="0" role="button" :aria-pressed="String(isSel('part', p.i))" :aria-label="(ar ? p.ar : p.en)+' '+D(p.v)" @pointerenter="hk='p'+p.i" @focus="hk='p'+p.i" @click="pickSel('part', p.i)" @keydown.enter.prevent="pickSel('part', p.i)" @keydown.space.prevent="pickSel('part', p.i)">
+          <path v-for="l in sankey.links" :key="l.id" :d="l.d" class="lk" :class="[lc(l.keys), {on: hkOn(l), off: hk && !hkOn(l)}]" @pointerenter="hk='l'+l.id; hv('link', l.id, l.keys)" @pointerleave="hv0()"/>
+          <g v-for="p in sankey.parts" :key="'p'+p.i" class="nd part" :class="[lc([...p.keys]), {sel: isSel('part', p.i)}]" tabindex="0" role="button" :aria-pressed="String(isSel('part', p.i))" :aria-label="(ar ? p.ar : p.en)+' '+D(p.v)" v-bind="hl('part', p.i, [...p.keys], ()=>{ hk='p'+p.i; })" @click="pickSel('part', p.i)" @keydown.enter.prevent="pickSel('part', p.i)" @keydown.space.prevent="pickSel('part', p.i)">
             <rect :x="sankey.xP" :y="p.y0" :width="sankey.nodeW" :height="Math.max(2, p.y1-p.y0)" rx="3"/>
             <text :class="{arab: ar}" :text-anchor="sankey.aP"><tspan v-for="(ln,li) in p.lines" :key="li" :x="sankey.lxP" :y="(p.y0+p.y1)/2+(li-(p.lines.length-1)/2)*15+4">{{ ln }}</tspan></text>
           </g>
-          <g v-for="s in sankey.surahs" :key="'s'+s.n" class="nd sur" :class="{sel: surah===s.n}" tabindex="0" role="button" :aria-pressed="String(surah===s.n)" :aria-label="$root.surahName(s.n)+' '+D(s.v)" @pointerenter="hk='s'+s.n" @focus="hk='s'+s.n" @click="setSurah(s.n, true)" @keydown.enter.prevent="setSurah(s.n, true)" @keydown.space.prevent="setSurah(s.n, true)">
+          <g v-for="s in sankey.surahs" :key="'s'+s.n" class="nd sur" :class="[lc(sKeys(s.n)), {sel: surah===s.n}]" tabindex="0" role="button" :aria-pressed="String(surah===s.n)" :aria-label="$root.surahName(s.n)+' '+D(s.v)" v-bind="hl('surah', s.n, sKeys(s.n), ()=>{ hk='s'+s.n; })" @click="setSurah(s.n)" @keydown.enter.prevent="setSurah(s.n)" @keydown.space.prevent="setSurah(s.n)">
             <rect :x="sankey.xS" :y="s.y0" :width="sankey.nodeW" :height="Math.max(2, s.y1-s.y0)" rx="3"/>
             <text :class="{arab: ar}" :x="sankey.lxS" :y="(s.y0+s.y1)/2+4" :text-anchor="sankey.aS">{{ $root.surahName(s.n) }} {{ D(s.v) }}</text>
           </g>
@@ -5475,7 +5607,7 @@ const NameLab = {
       <h4>{{ C('findingsH') }}</h4>
       <p class="wt-sub">{{ C('findingsSub') }}</p>
       <div class="rz-condgrid rz-fgrid">
-        <button v-for="(f,i) in R.findings" :key="i" type="button" class="rz-cond rz-find" :class="{on: isSel('find', i)}" :aria-pressed="String(isSel('find', i))" @click="pickSel('find', i)">
+        <button v-for="(f,i) in R.findings" :key="i" type="button" class="rz-cond rz-find" :class="[lc(f.verses), {on: isSel('find', i)}]" :aria-pressed="String(isSel('find', i))" v-bind="hl('find', i, f.verses)" @click="pickSel('find', i)">
           <span class="rz-cname">{{ ar ? f.ar : f.en }}</span>
           <span class="rz-fbody">{{ T([f.ben, f.bar]) }}</span>
           <span class="rz-refs">{{ f.verses.map(k=>refOf(k)).join(ar ? '، ' : ', ') }}</span>
@@ -5488,7 +5620,7 @@ const NameLab = {
         <h4>{{ C('agentsH') }}</h4>
         <p class="wt-sub">{{ C('agentsSub') }}</p>
         <div class="rz-bars">
-          <div v-for="a in R.agents" :key="a.id" class="rz-row"><span class="rz-lab">{{ ar ? a.ar : a.en }}</span><span class="rz-bar"><i :style="{width: pct(a.n, maxAgent)+'%'}"></i></span><b class="rz-n">{{ D(a.n) }}</b></div>
+          <button v-for="a in R.agents" :key="a.id" type="button" class="rz-row rz-click" :class="[lc(a.verses), {on: isSel('agent', a.id)}]" :aria-pressed="String(isSel('agent', a.id))" v-bind="hl('agent', a.id, a.verses)" @click="pickSel('agent', a.id)"><span class="rz-lab">{{ ar ? a.ar : a.en }}</span><span class="rz-bar"><i :style="{width: pct(a.n, maxAgent)+'%'}"></i></span><b class="rz-n">{{ D(a.n) }}</b></button>
         </div>
         <p class="wt-sub">{{ C('nounsLine') }}</p>
         <p class="rz-aha">{{ C('agentsAha') }}</p>
@@ -5497,7 +5629,7 @@ const NameLab = {
         <h4>{{ C('assocH') }}</h4>
         <p class="wt-sub">{{ C('assocSub') }}</p>
         <div class="rz-bars">
-          <button v-for="r in R.assoc" :key="r.root" type="button" class="rz-row rz-click" :class="{on: isSel('root', r.root)}" :aria-pressed="String(isSel('root', r.root))" @click="setRoot(r.root)">
+          <button v-for="r in R.assoc" :key="r.root" type="button" class="rz-row rz-click" :class="[lc(r.verses), {on: isSel('root', r.root)}]" :aria-pressed="String(isSel('root', r.root))" v-bind="hl('root', r.root, r.verses)" @click="setRoot(r.root)">
             <span class="rz-lab"><bdi lang="ar" dir="rtl">{{ r.ar }}</bdi><small v-if="!ar"> {{ r.en }}</small> <small class="rz-root">(<bdi lang="ar">{{ r.root.split('').join(' ') }}</bdi>)</small></span>
             <span class="rz-bar"><i :style="{width: pct(r.pct, maxPct)+'%'}"></i><u :style="{insetInlineStart: pct(r.pctAll, maxPct)+'%'}"></u></span>
             <b class="rz-n">{{ D(r.pct) }}%</b></button>
@@ -5511,7 +5643,7 @@ const NameLab = {
         <h4>{{ C('objectsH') }}</h4>
         <p class="wt-sub">{{ C('objectsSub') }}</p>
         <div class="rz-bars">
-          <button v-for="(o,i) in R.objects" :key="i" type="button" class="rz-row rz-click" :class="{on: isSel('obj', i)}" :aria-pressed="String(isSel('obj', i))" @click="pickSel('obj', i)"><span class="rz-lab">{{ ar ? o.ar : o.en }}</span><span class="rz-bar"><i :style="{width: pct(o.n, maxObj)+'%'}"></i></span><b class="rz-n">{{ D(o.n) }}</b></button>
+          <button v-for="(o,i) in R.objects" :key="i" type="button" class="rz-row rz-click" :class="[lc(o.verses), {on: isSel('obj', i)}]" :aria-pressed="String(isSel('obj', i))" v-bind="hl('obj', i, o.verses)" @click="pickSel('obj', i)"><span class="rz-lab">{{ ar ? o.ar : o.en }}</span><span class="rz-bar"><i :style="{width: pct(o.n, maxObj)+'%'}"></i></span><b class="rz-n">{{ D(o.n) }}</b></button>
         </div>
         <p class="rz-aha">{{ C('objectsAha') }}</p>
       </div>
@@ -5520,7 +5652,7 @@ const NameLab = {
         <p class="wt-sub">{{ C('themesSub') }}</p>
         <p class="rz-lg"><span><i style="background:var(--gold)"></i>{{ T(['Meccan','مكية']) }}</span><span><i style="background:var(--emerald)"></i>{{ T(['Medinan','مدنية']) }}</span></p>
         <div class="rz-bars">
-          <button v-for="(t,i) in R.themes" :key="i" type="button" class="rz-row rz-click" :class="{on: themes.includes(i)}" :aria-pressed="String(themes.includes(i))" @click="togTheme(i)"><span class="rz-lab">{{ ar ? t.ar : t.en }}</span>
+          <button v-for="(t,i) in R.themes" :key="i" type="button" class="rz-row rz-click" :class="[lc(tKeys(i)), {on: themes.includes(i)}]" :aria-pressed="String(themes.includes(i))" v-bind="hl('theme', i, tKeys(i))" @click="togTheme(i)"><span class="rz-lab">{{ ar ? t.ar : t.en }}</span>
             <span class="rz-bar rz-stack"><i class="m" :style="{width: pct(t.mecca, maxTheme)+'%'}"></i><i class="d" :style="{insetInlineStart: pct(t.mecca, maxTheme)+'%', width: pct(t.n-t.mecca, maxTheme)+'%'}"></i></span><b class="rz-n">{{ D(t.n) }}</b></button>
         </div>
         <p class="rz-aha">{{ C('themesAha') }}</p>
@@ -5529,14 +5661,14 @@ const NameLab = {
 
     <div class="wt-card rz-netcard" v-if="has('net')">
       <h4>{{ T(['Which roots keep company','أي الجذور تتجاور؟']) }}</h4>
-      <p class="wt-sub">{{ C('netSub') }}</p>
+      <p class="wt-sub">{{ netView==='ring' ? C('netSub') : T(['The roots that sit with the root in its verses, each against the others: a number is how many verses two roots share. Tap one to see those verses below.','الجذور التي تجاور الجذر في آياته، كلٌّ مقابل الآخر: والرقم عدد الآيات التي يشترك فيها الجذران. انقر رقمًا لترى تلك الآيات في الأسفل.']) }}</p>
       <p class="rz-lg"><span v-for="(g,i) in R.netGroups" :key="i"><i :style="{background: GCOL[i]}"></i>{{ ar ? g.ar : g.en }}</span></p>
-      <div class="rz-fig rz-scroll rz-net" @pointerleave="hr=''">
+      <div v-if="netView==='ring'" class="rz-fig rz-net" @pointerleave="hr=''">
         <svg :width="net.W" :height="net.H" :viewBox="'0 0 '+net.W+' '+net.H" role="img" :aria-label="C('netAria')">
           <line v-for="n in net.nodes" :key="'s'+n.root" class="sp" :x1="net.cx" :y1="net.cy" :x2="n.x" :y2="n.y" :style="{strokeWidth: 1+n.n/8, opacity: hr && hr!==n.root ? .3 : 1}"/>
           <path v-for="l in net.links" :key="l.a+l.b" :d="l.d" fill="none" :class="{on: hr && (hr===l.a || hr===l.b), off: hr && hr!==l.a && hr!==l.b}" :style="{strokeWidth: 1+l.w*.75, stroke: hr && (hr===l.a || hr===l.b) ? GCOL[net.by[hr].g] : null}"/>
           <g class="ctr" :transform="'translate('+net.cx+','+net.cy+')'"><circle r="30"/><text class="nm" y="-1" text-anchor="middle">{{ R.root }}</text><text class="cn" y="16" text-anchor="middle">{{ D(R.totals.verses) }}</text></g>
-          <g v-for="n in net.nodes" :key="n.root" class="nd" :class="{dim: hr && hr!==n.root && !net.nb[hr].has(n.root), sel: isSel('root', n.root)}" :transform="'translate('+n.x+','+n.y+')'" tabindex="0" role="button" :aria-pressed="String(isSel('root', n.root))" :aria-label="(ar ? n.ar : n.en)+' '+D(n.n)" @pointerenter="hr=n.root" @focus="hr=n.root" @click="setRoot(n.root)" @keydown.enter.prevent="setRoot(n.root)" @keydown.space.prevent="setRoot(n.root)">
+          <g v-for="n in net.nodes" :key="n.root" class="nd" :class="[lc([...n.V]), {dim: hr && hr!==n.root && !net.nb[hr].has(n.root), sel: isSel('root', n.root)}]" :transform="'translate('+n.x+','+n.y+')'" tabindex="0" role="button" :aria-pressed="String(isSel('root', n.root))" :aria-label="(ar ? n.ar : n.en)+' '+D(n.n)" v-bind="hl('root', n.root, [...n.V], ()=>{ hr=n.root; })" @click="setRoot(n.root)" @keydown.enter.prevent="setRoot(n.root)" @keydown.space.prevent="setRoot(n.root)">
             <circle :r="n.r" :fill="GCOL[n.g]"/>
             <text class="cn" y="4" text-anchor="middle">{{ D(n.n) }}</text>
             <text class="lb" :class="{arab: ar}" :x="n.lx" :y="n.ly" :text-anchor="n.anc">{{ ar ? n.ar : n.en }}</text>
@@ -5544,23 +5676,30 @@ const NameLab = {
           </g>
         </svg>
       </div>
+      <div v-else-if="netView==='grid'" class="rz-rg" :style="{'--n': rootGrid.roots.length}">
+        <span class="rz-rgc"></span><span v-for="(r,j) in rootGrid.roots" :key="'h'+j" class="rz-rgh" :style="{color: GCOL[r.g]}" :title="ar ? r.ar : r.en"><bdi lang="ar">{{ r.root }}</bdi></span>
+        <template v-for="(r,i) in rootGrid.roots" :key="r.root">
+          <button type="button" class="rz-rgl" :class="[lc(r.verses), {on: isSel('root', r.root)}]" :style="{'--c': GCOL[r.g]}" v-bind="hl('root', r.root, r.verses)" @click="setRoot(r.root)" :aria-pressed="String(isSel('root', r.root))"><bdi lang="ar" dir="rtl">{{ r.ar }}</bdi><small v-if="!ar"> {{ r.en }}</small><b>{{ D(r.n) }}</b></button>
+          <button v-for="(c,j) in rootGrid.cells[i]" :key="j" type="button" class="rz-rgx" :class="[lc(c.keys), {on: isSel('pair', c.id), diag: i===j}]" :disabled="!c.keys.length || i===j" :style="c.keys.length && i!==j ? {'--a': (.2+.8*c.keys.length/rootGrid.max).toFixed(3)} : null" v-bind="c.keys.length && i!==j ? hl('pair', c.id, c.keys) : {}" @click="pickSel('pair', c.id)" :aria-label="c.keys.length && i!==j ? pairLabel(c.id)+' '+D(c.keys.length) : null">{{ i===j ? '' : (c.keys.length ? D(c.keys.length) : '') }}</button>
+        </template>
+      </div>
+      <div v-else class="rz-pairs">
+        <button v-for="c in pairsShown" :key="c.id" type="button" class="rz-row rz-click" :class="[lc(c.keys), {on: isSel('pair', c.id)}]" v-bind="hl('pair', c.id, c.keys)" @click="pickSel('pair', c.id)" :aria-pressed="String(isSel('pair', c.id))"><span class="rz-lab"><bdi lang="ar" dir="rtl">{{ c.a.ar }}</bdi> + <bdi lang="ar" dir="rtl">{{ c.b.ar }}</bdi><small v-if="!ar"> {{ c.a.en }} + {{ c.b.en }}</small></span><span class="rz-bar"><i :style="{width: pct(c.keys.length, rootGrid.max)+'%'}"></i></span><b class="rz-n">{{ D(c.keys.length) }}</b></button>
+        <button v-if="rootPairs.rest.length" type="button" class="wt-where rz-more" :aria-expanded="String(allPairs)" @click="allPairs=!allPairs">{{ allPairs ? T(['Show only the pairs that share most','اعرض الأزواج الأكثر اشتراكًا وحدها']) : T([rootPairs.rest.length+' more pairs share one verse each: show them','و'+rootPairs.rest.length+' زوجًا آخر يشترك كلٌّ منها في آيةٍ واحدة: اعرضها']) }}</button>
+      </div>
       <p class="rz-read" aria-live="polite" v-html="netRead"></p>
     </div>
 
     <div class="wt-card" v-if="has('forms')">
       <h4>{{ C('formsH') }}</h4>
       <p class="wt-sub">{{ C('formsSub') }}</p>
-      <p class="rz-lg"><span v-for="g in R.formGroups" :key="g.g"><i :style="{background: GCOL[g.g]}"></i>{{ ar ? g.ar : g.en }}</span></p>
-      <div class="rz-fig rz-tree" @pointerleave="hk=''">
-        <svg :viewBox="'0 0 '+tree.W+' '+tree.H" role="img" :aria-label="C('formsAria')">
-          <g v-for="b in tree.boxes" :key="'b'+b.g"><rect class="box" :x="b.x+1" y="1" :width="Math.max(0, b.w-2)" :height="tree.H-2" rx="8"/>
-            <text v-if="b.w>130" class="gl" :class="{arab: ar}" :x="ar ? b.x+b.w-8 : b.x+8" y="15" :text-anchor="ar ? 'end' : 'start'">{{ ar ? b.ar : b.en }} {{ D(b.v) }}</text></g>
-          <g v-for="l in tree.leaves" :key="l.i" class="lf" :class="{sel: isSel('form', l.i), dim: hk && hk!=='f'+l.i}" :transform="'translate('+l.x+','+l.y+')'" tabindex="0" role="button" :aria-pressed="String(isSel('form', l.i))" :aria-label="R.forms[l.i].u+' '+D(R.forms[l.i].n)" @pointerenter="hk='f'+l.i" @focus="hk='f'+l.i" @click="pickSel('form', l.i)" @keydown.enter.prevent="pickSel('form', l.i)" @keydown.space.prevent="pickSel('form', l.i)">
-            <rect x="1.5" y="1.5" :width="Math.max(0, l.w-3)" :height="Math.max(0, l.h-3)" rx="5" :fill="GCOL[R.forms[l.i].g]"/>
-            <text v-if="l.w>40 && l.h>28" class="fm" :x="l.w/2" :y="l.h/2+(l.h>50 ? 0 : 6)" text-anchor="middle" :style="{fontSize: Math.min(26, 10+l.w/9)+'px'}">{{ R.forms[l.i].u }}</text>
-            <text v-if="l.w>40 && l.h>50" class="fn" :x="l.w/2" :y="l.h/2+20" text-anchor="middle">{{ D(R.forms[l.i].n) }}</text>
-          </g>
-        </svg>
+      <div class="rz-forms">
+        <div v-for="g in formStrip" :key="g.g" class="rz-fgroup">
+          <p class="rz-fgh" :style="{'--c': GCOL[g.g]}"><i></i>{{ ar ? g.ar : g.en }} <b>{{ D(g.n) }}</b></p>
+          <div class="rz-bars">
+            <button v-for="f in g.forms" :key="f.i" type="button" class="rz-row rz-click rz-formrow" :class="[lc(f.verses), {on: isSel('form', f.i)}]" :style="{'--c': GCOL[g.g]}" v-bind="hl('form', f.i, f.verses)" @click="pickSel('form', f.i)" :aria-pressed="String(isSel('form', f.i))"><span class="rz-lab rz-formu" lang="ar" dir="rtl">{{ f.u }}</span><span class="rz-bar"><i :style="{width: pct(f.n, formMax)+'%'}"></i></span><b class="rz-n">{{ D(f.n) }}</b></button>
+          </div>
+        </div>
       </div>
       <p class="rz-read" aria-live="polite" v-html="treeRead"></p>
     </div>
@@ -5569,7 +5708,7 @@ const NameLab = {
       <h4>{{ C('formulasH') }}</h4>
       <p class="wt-sub">{{ C('formulasSub') }}</p>
       <div class="rz-flist">
-        <button v-for="(f,i) in R.formulas" :key="i" type="button" class="rz-frow" :class="{on: isSel('formula', i)}" :aria-pressed="String(isSel('formula', i))" @click="pickSel('formula', i)">
+        <button v-for="(f,i) in R.formulas" :key="i" type="button" class="rz-frow" :class="[lc(f.verses), {on: isSel('formula', i)}]" :aria-pressed="String(isSel('formula', i))" v-bind="hl('formula', i, f.verses)" @click="pickSel('formula', i)">
           <span class="rz-fq" lang="ar" dir="rtl">{{ f.u }}</span><b class="rz-n">{{ T([f.n+' verses', f.n+' آيات']) }}</b><span class="rz-refs">{{ f.verses.map(k=>D(k)).join(ar ? '، ' : ', ') }}</span></button>
       </div>
     </div>
@@ -5577,11 +5716,15 @@ const NameLab = {
     <div class="wt-card" v-if="has('matrix')">
       <h4>{{ C('matrixH') }}</h4>
       <p class="wt-sub">{{ C('matrixSub') }}</p>
-      <div class="rz-scroll"><div class="rz-mx" :style="{'--cols': matrix.cols.length}">
+      <div v-if="narrow" class="rz-mxcards">
+        <div v-for="(r,ri) in matrix.rows" :key="r.i" class="rz-mxcard"><span class="rz-mxl">{{ ar ? r.ar : r.en }}</span>
+          <span class="rz-skchips"><button v-for="(c,ci) in r.cells.map((c,ci)=>({c,ci})).filter(o=>o.c.n)" :key="c.ci" type="button" class="rz-skchip" :class="[lc(c.c.keys), {on: isSel('cell', ri+','+c.ci)}]" v-bind="hl('cell', ri+','+c.ci, c.c.keys)" @click="pickSel('cell', ri+','+c.ci)">{{ ar ? matrix.cols[c.ci].ar : matrix.cols[c.ci].en }} <b>{{ D(c.c.n) }}</b></button></span></div>
+      </div>
+      <div v-else class="rz-mx" :style="{'--cols': matrix.cols.length}">
         <span class="rz-mxh"></span><span v-for="(c,ci) in matrix.cols" :key="'h'+ci" class="rz-mxh">{{ ar ? c.ar : c.en }}</span>
         <template v-for="(r,ri) in matrix.rows" :key="r.i"><span class="rz-mxl">{{ ar ? r.ar : r.en }}</span>
-          <button v-for="(c,ci) in r.cells" :key="ci" type="button" class="rz-mxc" :class="{on: isSel('cell', ri+','+ci)}" :disabled="!c.n" :style="c.n ? {'--a': (.18+.82*c.n/matrix.max).toFixed(3)} : null" :aria-label="c.n ? (ar ? r.ar : r.en)+' · '+(ar ? matrix.cols[ci].ar : matrix.cols[ci].en)+' '+D(c.n) : null" @click="pickSel('cell', ri+','+ci)">{{ c.n ? D(c.n) : '' }}</button></template>
-      </div></div>
+          <button v-for="(c,ci) in r.cells" :key="ci" type="button" class="rz-mxc" :class="[lc(c.keys), {on: isSel('cell', ri+','+ci)}]" :disabled="!c.n" :style="c.n ? {'--a': (.18+.82*c.n/matrix.max).toFixed(3)} : null" :aria-label="c.n ? (ar ? r.ar : r.en)+' · '+(ar ? matrix.cols[ci].ar : matrix.cols[ci].en)+' '+D(c.n) : null" v-bind="c.n ? hl('cell', ri+','+ci, c.keys) : {}" @click="pickSel('cell', ri+','+ci)">{{ c.n ? D(c.n) : '' }}</button></template>
+      </div>
       <p class="rz-aha">{{ C('matrixAha') }}</p>
     </div>
 
@@ -5589,7 +5732,7 @@ const NameLab = {
       <h4>{{ C('condH') }}</h4>
       <p class="wt-sub">{{ C('condSub') }}</p>
       <div class="rz-condgrid">
-        <button v-for="c in conds" :key="c.i" type="button" class="rz-cond" :class="{on: isSel('cond', c.i)}" :aria-pressed="String(isSel('cond', c.i))" @click="setCond(c.i)">
+        <button v-for="c in conds" :key="c.i" type="button" class="rz-cond" :class="[lc(c.verses), {on: isSel('cond', c.i)}]" :aria-pressed="String(isSel('cond', c.i))" v-bind="hl('cond', c.i, c.verses)" @click="setCond(c.i)">
           <span class="rz-cname">{{ ar ? c.ar : c.en }}<b>{{ D(c.n) }}</b></span>
           <span class="rz-cev" lang="ar" dir="rtl">{{ c.ev }}</span>
         </button>
@@ -5600,7 +5743,7 @@ const NameLab = {
       <h4>{{ C('adabH') }}</h4>
       <p class="wt-sub">{{ C('adabSub') }}</p>
       <div class="rz-condgrid">
-        <button v-for="(a,i) in R.adab" :key="i" type="button" class="rz-cond" :class="{on: isSel('adab', i)}" :aria-pressed="String(isSel('adab', i))" @click="pickSel('adab', i)">
+        <button v-for="(a,i) in R.adab" :key="i" type="button" class="rz-cond" :class="[lc(a.verses), {on: isSel('adab', i)}]" :aria-pressed="String(isSel('adab', i))" v-bind="hl('adab', i, a.verses)" @click="pickSel('adab', i)">
           <span class="rz-cname">{{ ar ? a.ar : a.en }}<b>{{ D(a.verses.length) }}</b></span>
           <span v-if="ar" class="rz-cev" lang="ar" dir="rtl">{{ D(a.nar) }}</span><span v-else class="rz-fbody">{{ a.nen }}</span>
         </button>
@@ -5615,12 +5758,12 @@ const NameLab = {
           <div class="rz-maphead"><h5>{{ C('mushafH') }}</h5><span class="wt-sub">{{ C('mushafSub') }}</span></div>
           <div class="rz-fig rz-strip" @pointerleave="hs=0;hm=''">
             <svg :viewBox="'0 0 '+strip.W+' '+strip.H" role="img" :aria-label="C('mushafAria')">
-              <text class="end" :x="strip.xStart" y="10" :text-anchor="strip.aStart">{{ T(['al-Fatiha','الفاتحة']) }}</text>
-              <text class="end" :x="strip.xEnd" y="10" :text-anchor="strip.aEnd">{{ T(['an-Nas','الناس']) }}</text>
+              <text class="end" :x="strip.xStart" y="11" :text-anchor="strip.aStart">{{ T(['al-Fatiha','الفاتحة']) }}</text>
+              <text class="end" :x="strip.xEnd" y="11" :text-anchor="strip.aEnd">{{ T(['an-Nas','الناس']) }}</text>
               <rect v-for="b in strip.bands" :key="'b'+b.n" class="band" :class="{odd: b.odd, has: b.cnt, sel: surah===b.n, hov: hs===b.n}" :x="b.x" y="18" :width="b.w" height="52" @pointerenter="hs=b.n;hm=''" @click="setSurah(b.n)"/>
-              <line v-for="t in strip.ticks" :key="'t'+t.k" class="tk" :class="{off: !shownSet.has(t.k)}" :x1="t.x" :x2="t.x" y1="15" y2="73" :stroke="GCOL[t.g]"/>
-              <rect v-for="t in strip.ticks" :key="'h'+t.k" class="hit" :x="t.x-4" y="13" width="8" height="62" @pointerenter="hm=t.k;hs=t.s" @click="setSurah(t.s)"/>
-              <text v-for="l in strip.labels" :key="'l'+l.n" class="nm" :class="{arab: ar}" :x="l.x" y="88" text-anchor="middle">{{ l.name }} {{ D(l.c) }}</text>
+              <line v-for="t in strip.ticks" :key="'t'+t.k" :data-k="t.k" class="tk" :class="[lc([t.k]), {off: !shownSet.has(t.k)}]" :x1="t.x" :x2="t.x" y1="15" y2="73" :stroke="GCOL[t.g]"/>
+              <rect v-for="t in strip.ticks" :key="'h'+t.k" class="hit" :x="t.x-strip.hit/2" y="13" :width="strip.hit" height="62" v-bind="hl('verse', t.k, [t.k], ()=>{ hm=t.k; hs=t.s; })" @click="setSurah(t.s)"/>
+              <text v-for="l in strip.labels" :key="'l'+l.n" class="nm" :class="{arab: ar}" :x="l.x" y="90" text-anchor="middle">{{ l.name }} {{ D(l.c) }}</text>
             </svg>
           </div>
           <p class="rz-read" aria-live="polite" v-html="stripRead"></p>
@@ -5629,11 +5772,11 @@ const NameLab = {
         <div class="rz-maphead"><h5>{{ T(['Where in the mushaf','أين في المصحف؟']) }}</h5><span class="wt-sub">{{ C('gridSub') }}</span></div>
         <div class="rz-fig rz-grid" @pointerleave="hs=0">
           <svg :viewBox="'0 0 '+cw+' '+grid.H" role="img" :aria-label="C('gridAria')">
-            <g v-for="c in grid.cells" :key="c.n" :class="{has: c.cnt>0, sel: surah===c.n, faded: c.cnt>0 && !c.live && surah!==c.n}" :transform="'translate('+c.x+','+c.y+')'" :tabindex="c.cnt ? 0 : null" :role="c.cnt ? 'button' : null" :aria-pressed="c.cnt ? String(surah===c.n) : null" :aria-label="c.cnt ? c.name+' '+D(c.cnt) : null" @pointerenter="hs=c.n" @focus="hs=c.n" @click="setSurah(c.n)" @keydown.enter.prevent="setSurah(c.n)" @keydown.space.prevent="setSurah(c.n)">
+            <g v-for="c in grid.cells" :key="c.n" :data-s="c.n" :class="[c.cnt ? lc(sKeys(c.n)) : '', {has: c.cnt>0, sel: surah===c.n, faded: c.cnt>0 && !c.live && surah!==c.n}]" :transform="'translate('+c.x+','+c.y+')'" :tabindex="c.cnt ? 0 : null" :role="c.cnt ? 'button' : null" :aria-pressed="c.cnt ? String(surah===c.n) : null" :aria-label="c.cnt ? c.name+' '+D(c.cnt) : null" v-bind="c.cnt ? hl('surah', c.n, sKeys(c.n), ()=>{ hs=c.n; }) : {onPointerenter: ()=>{ hs=c.n; }}" @click="setSurah(c.n)" @keydown.enter.prevent="setSurah(c.n)" @keydown.space.prevent="setSurah(c.n)">
               <rect :width="grid.size" :height="grid.size" rx="5" :fill="c.cnt ? 'var(--emerald)' : 'rgba(255,255,255,.05)'" :fill-opacity="c.cnt ? .16+.84*c.cnt/grid.max : 1" :class="{hov: hs===c.n}"/>
-              <text v-if="grid.size>=30" class="num" :x="ar ? grid.size-5 : 5" y="11" :text-anchor="ar ? 'end' : 'start'" :style="{fill: c.cnt/grid.max>.55 ? 'var(--night)' : null}">{{ D(c.n) }}</text>
-              <text v-if="c.cnt && grid.size>=24" class="cnt" :x="grid.size/2" :y="grid.size/2+6" text-anchor="middle" :style="{fill: c.cnt/grid.max>.55 ? 'var(--night)' : '#fff'}">{{ D(c.cnt) }}</text>
-              <text v-if="c.cnt && grid.size>=(ar ? 40 : 50)" class="nm" :class="{arab: ar}" :x="grid.size/2" :y="grid.size-5" text-anchor="middle" :style="{fill: c.cnt/grid.max>.55 ? 'var(--night)' : null}">{{ c.short }}</text>
+              <text v-if="grid.size>=30" class="num" :x="ar ? grid.size-5 : 5" y="13" :text-anchor="ar ? 'end' : 'start'" :style="{fill: c.cnt/grid.max>.55 ? 'var(--night)' : null}">{{ D(c.n) }}</text>
+              <text v-if="c.cnt && grid.size>=24" class="cnt" :x="grid.size/2" :y="grid.size/2+7" text-anchor="middle" :style="{fill: c.cnt/grid.max>.55 ? 'var(--night)' : '#fff'}">{{ D(c.cnt) }}</text>
+              <text v-if="c.cnt && !narrow && grid.size>=(ar ? 40 : 50)" class="nm" :class="{arab: ar}" :x="grid.size/2" :y="grid.size-5" text-anchor="middle" :style="{fill: c.cnt/grid.max>.55 ? 'var(--night)' : null}">{{ c.short }}</text>
             </g>
           </svg>
         </div>
@@ -5642,7 +5785,11 @@ const NameLab = {
         <template v-if="has('chrono')">
         <div class="rz-maphead"><h5>{{ T(['When it came down','متى نزلت؟']) }}</h5><span class="wt-sub">{{ C('chronoSub') }}</span></div>
         <p class="rz-lg"><span v-for="(g,i) in R.groups" :key="i"><i :style="{background: GCOL[i]}"></i>{{ ar ? g.ar : g.en }}</span></p>
-        <div class="rz-fig rz-scroll rz-chrono" @pointerleave="hd=''">
+        <div v-if="narrow" class="rz-chrows">
+          <button v-for="r in chronoRows" :key="r.s" :data-s="r.s" type="button" class="rz-chrow" :class="[lc(r.keys), {on: surah===r.s, med: r.p>86}]" v-bind="hl('surah', r.s, r.keys)" @click="setSurah(r.s)" :aria-pressed="String(surah===r.s)">
+            <b>{{ D(r.p) }}</b><span>{{ $root.surahName(r.s) }}</span><span class="rz-chdots"><i v-for="d in r.dots" :key="d.k" :class="{off: !shownSet.has(d.k)}" :style="{background: GCOL[d.g]}"></i></span></button>
+        </div>
+        <div v-else class="rz-fig rz-chrono" @pointerleave="hd=''">
           <svg :width="chrono.W" :height="chrono.H" :viewBox="'0 0 '+chrono.W+' '+chrono.H" role="img" :aria-label="T(['The '+R.totals.verses+' verses in the order of revelation','الآيات الـ'+R.totals.verses+' على ترتيب النزول'])">
             <line class="ax" :x1="chrono.x0" :x2="chrono.x1" :y1="chrono.base+8" :y2="chrono.base+8"/>
             <line class="split" :x1="chrono.split" :x2="chrono.split" y1="14" :y2="chrono.base+8"/>
@@ -5652,7 +5799,7 @@ const NameLab = {
             <text v-for="s in chrono.names" :key="'n'+s.n" class="nm" :class="{arab: ar}" :x="s.x" :y="s.y" :text-anchor="s.anc">{{ s.name }}</text>
             <text :x="chrono.xMec" :y="chrono.H-4" :text-anchor="chrono.aMec">{{ T(['first revealed','أول ما نزل']) }}</text>
             <text :x="chrono.xMed" :y="chrono.H-4" :text-anchor="chrono.aMed">{{ T(['last revealed','آخر ما نزل']) }}</text>
-            <g v-for="d in chrono.dots" :key="d.k" class="dt" :class="{off: !shownSet.has(d.k), hov: hd===d.k}" :transform="'translate('+d.x+','+d.y+')'" @pointerenter="hd=d.k" @click="setSurah(d.s)">
+            <g v-for="d in chrono.dots" :key="d.k" :data-k="d.k" class="dt" :class="[lc([d.k]), {off: !shownSet.has(d.k), hov: hd===d.k}]" :transform="'translate('+d.x+','+d.y+')'" v-bind="hl('verse', d.k, [d.k], ()=>{ hd=d.k; })" @click="setSurah(d.s)">
               <circle class="hit" r="8"/><circle r="5" :fill="GCOL[d.g]"/>
             </g>
           </svg>
@@ -5668,9 +5815,9 @@ const NameLab = {
       <div class="rz-chips" role="group" :aria-label="T(['Themes','الموضوعات'])">
         <button v-for="(t,i) in R.themes" :key="i" type="button" class="wt-chip small rz-theme" :class="{on: themes.includes(i)}" :aria-pressed="String(themes.includes(i))" @click="togTheme(i)"><span>{{ ar ? t.ar : t.en }}</span><b>{{ D(t.n) }}</b><i class="rz-split" :style="{'--m': (100*t.mecca/t.n).toFixed(1)+'%'}"></i></button>
       </div>
-      <p class="rz-count" aria-live="polite">{{ countText }}<button v-if="sel || surah" type="button" class="wt-where" @click="sel=null;surah=0">{{ T(['show all the verses again ✕','أعد كل الآيات ✕']) }}</button></p>
+      <p class="rz-count" aria-live="polite">{{ countText }}<button v-if="sel || surah" type="button" class="wt-where" @click="clearPin">{{ T(['show all the verses again ✕','أعد كل الآيات ✕']) }}</button></p>
       <div class="rz-cards">
-        <article v-for="v in shown" :key="v.k" class="rz-v">
+        <article v-for="v in shown" :key="v.k" class="rz-v" :data-k="v.k" :class="hov ? lc([v.k]) : ''">
           <header><button type="button" class="linkish" data-dopen @click="$root.dOpen(v.k, shownKeys, $event)">{{ refOf(v.k) }}</button><span class="rz-badge" :class="v.p">{{ v.p==='m' ? T(['Meccan','مكية']) : T(['Medinan','مدنية']) }}</span><span class="rz-tbadge">{{ ar ? R.themes[v.t].ar : R.themes[v.t].en }}</span></header>
           <p class="rz-q" lang="ar" dir="rtl" v-html="verseHtml(v.k, [])"></p>
           <p v-if="R.trans && !ar && EN[v.k]" class="rz-en" lang="en">{{ EN[v.k] }}</p>
@@ -5678,6 +5825,11 @@ const NameLab = {
       </div>
     </div>
     <p class="n19-note">{{ T(['The text is the Uthmani script of the Quranic Arabic Corpus; the roots and verb forms are its morphology. Every number on this page is counted from it, and the du’a is a composition in the Quran’s words, not a text of the Quran.','النص بالرسم العثماني من المدوّنة القرآنية العربية (Quranic Arabic Corpus)، والجذور والتصريف من تحليلها الصرفي. وكل رقمٍ في هذه الصفحة معدودٌ منها، والدعاء تركيبٌ من ألفاظ القرآن لا نصٌّ منه.']) }}<template v-if="R.trans && !ar"> The English under the verses is M. M. Pickthall’s translation (1930, public domain); the meanings under the du’a are plain renderings to help a reader follow it.</template></p>
+    <div class="rz-pinbar" v-if="sel || surah" role="status">
+      <span class="rz-pinlab">{{ pinLabel }}</span><b>{{ ar ? D(shown.length)+' '+arN(shown.length,'آية','آيات') : shown.length+(shown.length===1 ? ' verse' : ' verses') }}</b>
+      <button type="button" class="rz-pinshow" @click="toVerses">{{ T(['See them','اعرضها']) }}</button>
+      <button type="button" class="rz-pinx" @click="clearPin" :aria-label="T(['Clear the selection','امسح الاختيار'])">✕</button>
+    </div>
   </div>`,
   mounted(){ this.fitW(); if(window.ResizeObserver && this.$el && this.$el.nodeType===1){ this._ro=new ResizeObserver(()=>this.fitW()); this._ro.observe(this.$el); } },
   beforeUnmount(){ clearTimeout(this._cp); if(this._ro) this._ro.disconnect(); },
@@ -5685,14 +5837,17 @@ const NameLab = {
     ar(){ return this.$root.lang==='ar'; },
     R(){ return (window.QURAN_DATA||{})[this.slug] || null; },
     series(){ const D=window.QURAN_DATA||{}; return NAME_VIEWS.map(s=>D[s]).filter(Boolean); },
+    cmp(){ const C=(window.QURAN_DATA||{}).names; return C && C.order.includes(this.slug) ? C : null; },
     rootL(){ return this.R.root.split('').join(' '); },
     GCOL(){ return RZ_GCOL; },
     EN(){ return this.$root.EN || {}; },
     cw(){ return Math.max(280, this.w-40); },
+    narrow(){ return this.cw < 560; },
     SM(){ const m={}; (((window.QURAN_DATA||{}).datasets||{}).surahMeta||[]).forEach(x=>{ m[x.n]=x; }); return m; },
     V(){ return this.$root.V || {}; },
     rzPos(){ const m={}; (this.R.verses||[]).forEach(v=>{ m[v.k]=v.w; }); return m; },
-    parts(){ const R=this.R; let i=0; const mk=segs=>segs.map(s=>Object.assign({}, s, {i:i++}));
+    keySet(){ return new Set(this.R.verses.map(v=>v.k)); },
+    parts(){ const R=this.R, K=this.keySet; let i=0; const mk=segs=>segs.map(s=>Object.assign({}, s, {i:i++, keys:s.src.map(x=>x.k).filter(k=>K.has(k))}));
       if(this.ver==='short') return [{ar:'الصيغة المختصرة', en:'The short form', segs:mk(R.dua.short)}];
       return R.dua.full.map(p=>({ar:p.ar, en:p.en, segs:mk(p.segs)})); },
     flat(){ return this.parts.flatMap(p=>p.segs); },
@@ -5706,20 +5861,34 @@ const NameLab = {
     maxTheme(){ return Math.max(1, ...this.R.themes.map(t=>t.n)); },
     conds(){ return this.R.conditions.map((c,i)=>Object.assign({i}, c)).sort((a,b)=>b.n-a.n); },
     periods(){ return [{id:'all', lab:['All','الكل']}, {id:'m', lab:['Meccan','مكية']}, {id:'d', lab:['Medinan','مدنية']}]; },
-    // the verses the current selection stands for (a root, a condition, a finding, a form, a phrase, a cell, a part of the du'a ...)
-    selKeys(){ const s=this.sel, R=this.R; if(!s) return null;
-      if(s.k==='root'){ const r=R.assoc.find(x=>x.root===s.i); return r ? r.verses : null; }
-      if(s.k==='cell'){ const [r,c]=s.i.split(',').map(Number); return this.matrix.rows[r].cells[c].keys; }
-      if(s.k==='part') return [...this.sankey.parts[s.i].keys];
-      const list={cond:R.conditions, find:R.findings, obj:R.objects, adab:R.adab, form:R.forms, formula:R.formulas}[s.k];
-      return list && list[s.i] ? list[s.i].verses : null; },
+    // ---- the hero
+    heroAgents(){ const named=(this.R.hero||{}).named||[]; return this.R.agents.filter(a=>a.n).map(a=>Object.assign({}, a, {c: RZ_ACOL[a.id] || '#8aa39a', named: named.includes(a.id)})); },
+    bandW(){ return Math.min(this.cw, 860); },
+    heroBig(){ const H=this.R.hero; if(!H) return 0;
+      if(H.type==='agents') return this.R.agents.filter(a=>H.named.includes(a.id)).reduce((s,a)=>s+a.n,0);
+      return H.items.filter(d=>d.status==='answered').length; },
+    heroItem(){ const s=this.sel && this.sel.k==='dua' ? this.sel : (this.hov && this.hov.k==='dua' ? this.hov : null); return s ? this.R.hero.items[s.i] : null; },
+    // ---- one selection for the whole page: what is pinned filters the cards; what is pointed at lights every view
+    selKeys(){ const s=this.sel, R=this.R; if(!s) return null; return this.keysOf(s.k, s.i); },
     selSet(){ return this.selKeys ? new Set(this.selKeys) : null; },
+    pinSet(){ if(!this.sel && !this.surah) return null; const ss=this.selSet, su=this.surah ? String(this.surah) : '';
+      return new Set(this.R.verses.map(v=>v.k).filter(k=>(!ss || ss.has(k)) && (!su || k.split(':')[0]===su))); },
+    lightSet(){ return this.hov ? new Set(this.hov.keys) : this.pinSet; },
     selLabel(){ const s=this.sel, R=this.R; if(!s) return ['',''];
+      if(s.k==='root'){ const r=R.assoc.find(x=>x.root===s.i); return ['the root '+r.root+' ('+r.en+')', 'الجذر '+r.root+' ('+r.ar+')']; }
       if(s.k==='form'){ const f=R.forms[s.i]; return ['the form '+f.u, 'الصيغة '+f.u]; }
       if(s.k==='formula'){ const f=R.formulas[s.i]; return ['«'+f.u+'»', '«'+f.u+'»']; }
       if(s.k==='cell'){ const [r,c]=s.i.split(',').map(Number), row=this.matrix.rows[r], col=this.matrix.cols[c]; return [row.en+' × '+col.en, row.ar+' × '+col.ar]; }
       if(s.k==='part'){ const p=R.dua.full[s.i]; return ['the du’a’s sources for «'+p.en+'»', 'مصادر «'+p.ar+'»']; }
+      if(s.k==='agent'){ const a=R.agents.find(x=>x.id===s.i); return [a.en, a.ar]; }
+      if(s.k==='dua'){ const d=R.hero.items[s.i]; return ['the du’a of '+d.k, 'دعاء '+d.k]; }
+      if(s.k==='phrase'){ const p=this.flat[s.i]; return ['the phrase «'+(p ? p.t : '')+'»', 'المقطع «'+(p ? p.t : '')+'»']; }
+      if(s.k==='pair'){ const [a,b]=s.i.split('|'); return ['the roots '+a+' and '+b, 'الجذران '+a+' و'+b]; }
+      if(s.k==='cmp'){ const m=this.cmp.measures.find(x=>x.id===s.i); return [m.en, m.ar]; }
+      if(s.k==='theme'){ const t=R.themes[s.i]; return [t.en, t.ar]; }
       const o={cond:R.conditions, find:R.findings, obj:R.objects, adab:R.adab}[s.k][s.i]; return [o.en, o.ar]; },
+    pinLabel(){ const L=this.sel ? this.T(this.selLabel) : ''; const S=this.surah ? this.T(['surah '+this.$root.surahName(this.surah), 'سورة '+this.$root.surahName(this.surah)]) : '';
+      return [L, S].filter(Boolean).join(this.ar ? '، ' : ' · '); },
     shown(){ const q=rzNorm(this.q), ss=this.selSet, th=this.themes, su=this.surah ? String(this.surah) : '';
       return this.R.verses.filter(v => (this.period==='all' || v.p===this.period) && (!th.length || th.includes(v.t)) && (!ss || ss.has(v.k))
         && (!su || v.k.split(':')[0]===su) && (!q || rzNorm(this.V[v.k]).includes(q))); },
@@ -5731,13 +5900,13 @@ const NameLab = {
       else if(s){ const L=this.selLabel; t += this.T([': '+L[0], '، '+L[1]]); }
       if(this.surah) t += this.T([' in '+this.$root.surahName(this.surah), '، في سورة '+this.$root.surahName(this.surah)]);
       return t; },
-    // ---- the charts: counts per surah, and the geometry of the grid, the revelation-order dots, the root ring, the mushaf strip,
-    // the sankey of the du'a's sources, the forms treemap and the conditions-by-themes table
+    // ---- the charts
     perSurah(){ const m={}; this.R.verses.forEach(v=>{ const s=+v.k.split(':')[0]; m[s]=(m[s]||0)+1; }); return m; },
     perShown(){ const m={}; this.shown.forEach(v=>{ const s=+v.k.split(':')[0]; m[s]=(m[s]||0)+1; }); return m; },
+    surahKeys(){ const m={}; this.R.verses.forEach(v=>{ const s=+v.k.split(':')[0]; (m[s]||(m[s]=[])).push(v.k); }); return m; },
     maxPer(){ return Math.max(1, ...Object.values(this.perSurah)); },
     topSurahs(){ return Object.keys(this.perSurah).map(n=>({n:+n, c:this.perSurah[n]})).sort((a,b)=>b.c-a.c || a.n-b.n).slice(0,4); },
-    grid(){ const cw=this.cw, ar=this.ar, cols= cw>=700 ? 19 : (cw>=430 ? 12 : 10), gap=3, size=(cw-gap*(cols-1))/cols, rows=Math.ceil(114/cols);
+    grid(){ const cw=this.cw, ar=this.ar, cols= cw>=700 ? 19 : (cw>=560 ? 12 : 7), gap=3, size=(cw-gap*(cols-1))/cols, rows=Math.ceil(114/cols);
       const per=this.perSurah, live=this.perShown, cells=[];
       for(let n=1;n<=114;n++){ const i=n-1, c=i%cols, r=Math.floor(i/cols), name=this.$root.surahName(n);
         cells.push({n, x: ar ? cw-(c+1)*size-c*gap : c*(size+gap), y: r*(size+gap), cnt: per[n]||0, live: !!live[n], name, short: (!ar && name.length>10) ? name.slice(0,9)+'…' : name}); }
@@ -5750,17 +5919,20 @@ const NameLab = {
         .forEach(v=>{ const i=stack[v.p]=(stack[v.p]||0)+1; max=Math.max(max, i); dots.push(Object.assign(v, {i})); });
       const base=48+max*step, H=base+44;
       dots.forEach(d=>{ d.x=X(d.p); d.y=base-(d.i-1)*step; });
-      // the surah names over the tall stacks: each tries centred, then to either side, then a step higher, until it clears every dot column and every name already placed
       const cols=Object.keys(stack).map(p=>({x0:X(+p)-6, x1:X(+p)+6, y0:base-(stack[p]-1)*step-6, y1:base+6})), placed=[], names=[];
       const clash=r=>cols.concat(placed).some(c=>r.x0<c.x1 && r.x1>c.x0 && r.y0<c.y1 && r.y1>c.y0);
-      Object.keys(stack).filter(p=>stack[p]>=4).sort((a,b)=>stack[b]-stack[a]).forEach(p=>{ const s=R.chrono[p-1], name=this.$root.surahName(s), x=X(+p), tw=name.length*(ar ? 5.4 : 6.4), y0=base-stack[p]*step-3;
+      Object.keys(stack).filter(p=>stack[p]>=4).sort((a,b)=>stack[b]-stack[a]).forEach(p=>{ const s=R.chrono[p-1], name=this.$root.surahName(s), x=X(+p), tw=name.length*(ar ? 5.6 : 6.8), y0=base-stack[p]*step-3;
         let best=null;
         for(let lift=0; lift<4 && !best; lift++) for(const anc of ['middle','start','end']){ const y=y0-lift*step, lx= anc==='start' ? x+7 : anc==='end' ? x-7 : x;
-          const r={x0: anc==='start' ? lx : anc==='end' ? lx-tw : lx-tw/2, y0:y-11, y1:y+1, anc, x:lx, y}; r.x1=r.x0+tw; if(!clash(r)){ best=r; break; } }
-        if(!best) best={x:x, y:y0, anc:'middle', x0:x-tw/2, x1:x+tw/2, y0:y0-11, y1:y0+1};
+          const r={x0: anc==='start' ? lx : anc==='end' ? lx-tw : lx-tw/2, y0:y-12, y1:y+1, anc, x:lx, y}; r.x1=r.x0+tw; if(!clash(r)){ best=r; break; } }
+        if(!best) best={x:x, y:y0, anc:'middle', x0:x-tw/2, x1:x+tw/2, y0:y0-12, y1:y0+1};
         placed.push(best); names.push({n:s, x:best.x, y:best.y, anc:best.anc, name}); });
       return {W, H, base, x0, x1, pos, dots, names, split:X(86.5), ticks:[1,20,40,60,80,100,114].map(p=>({p, x:X(p)})),
         xMec: ar ? x1 : x0, aMec: ar ? 'end' : 'start', xMed: ar ? x0 : x1, aMed: ar ? 'start' : 'end'}; },
+    // the order of revelation on a phone: one row a surah, in that order, with a dot a verse
+    chronoRows(){ const R=this.R, pos=this.chrono.pos, by={};
+      R.verses.forEach(v=>{ const s=+v.k.split(':')[0]; (by[s]||(by[s]=[])).push({k:v.k, g:R.themes[v.t].g}); });
+      return Object.keys(by).map(s=>({s:+s, p:pos[s], dots:by[s], keys:by[s].map(d=>d.k)})).sort((a,b)=>a.p-b.p); },
     net(){ const R=this.R, ar=this.ar, W=Math.max(this.cw, 560), H=Math.round(Math.min(560, Math.max(400, W*.62))), cx=W/2, cy=H/2, Rr=Math.min(W, H)/2-86;
       const rows=R.assoc.slice().sort((a,b)=>a.g-b.g || b.n-a.n), N=rows.length, by={}, nb={};
       const nodes=rows.map((r,i)=>{ const th=-Math.PI/2+i*2*Math.PI/N, dx=Math.cos(th), dy=Math.sin(th), rad=9+2.2*Math.sqrt(r.n), x0=cx+Rr*dx;
@@ -5774,15 +5946,33 @@ const NameLab = {
         if(w>=2){ const qx=cx+((a.x+b.x)/2-cx)*.3, qy=cy+((a.y+b.y)/2-cy)*.3;
           links.push({a:a.root, b:b.root, w, d:'M'+a.x.toFixed(1)+' '+a.y.toFixed(1)+' Q'+qx.toFixed(1)+' '+qy.toFixed(1)+' '+b.x.toFixed(1)+' '+b.y.toFixed(1)}); nb[a.root].add(b.root); nb[b.root].add(a.root); } }
       return {W, H, cx, cy, nodes, links, by, nb}; },
-    netRead(){ const n=this.hr && this.net.by[this.hr];
-      if(!n) return this.esc(this.T(['Point at a root to see which roots share its verses; tap it to list them below.','أشر إلى جذرٍ لترى الجذور التي تشاركه آياته، وانقره لتظهر آياته في الأسفل.']));
+    // the roots against each other: a ring where they link (the engine's rule), a grid where they mostly do not, and on a
+    // phone the pairs as a sorted strip
+    netView(){ return this.narrow ? 'strip' : (this.R.net ? this.R.net.mode : 'ring'); },
+    rootGrid(){ const rows=this.R.assoc.slice().sort((a,b)=>a.g-b.g || b.n-a.n), V=rows.map(r=>new Set(r.verses)); let max=1;
+      const cells=rows.map((a,i)=>rows.map((b,j)=>{ const keys=i===j ? [] : a.verses.filter(k=>V[j].has(k)); if(i!==j) max=Math.max(max, keys.length);
+        return {keys, id: i<j ? a.root+'|'+b.root : b.root+'|'+a.root}; }));
+      return {roots: rows, cells, max}; },
+    rootPairs(){ const G=this.rootGrid, out=[];
+      G.roots.forEach((a,i)=>G.roots.forEach((b,j)=>{ if(j>i && G.cells[i][j].keys.length) out.push({id:G.cells[i][j].id, a, b, keys:G.cells[i][j].keys}); }));
+      out.sort((x,y)=>y.keys.length-x.keys.length || x.id.localeCompare(y.id));
+      const k=Math.max(6, out.filter(p=>p.keys.length>=2).length); return {main: out.slice(0, k), rest: out.slice(k)}; },
+    pairsShown(){ return this.allPairs ? this.rootPairs.main.concat(this.rootPairs.rest) : this.rootPairs.main; },
+    pairLabel(){ return id=>{ const [a,b]=id.split('|'), A=this.R.assoc.find(x=>x.root===a), B=this.R.assoc.find(x=>x.root===b); return (this.ar ? A.ar+' + '+B.ar : A.en+' + '+B.en); }; },
+    netRead(){ const h=this.hov;
+      if(h && h.k==='pair') return '<b>'+this.esc(this.pairLabel(h.i))+'</b> '+this.esc(this.T([' share '+h.keys.length+(h.keys.length>1 ? ' verses: ' : ' verse: ')+h.keys.join(', '), ' يشتركان في '+h.keys.length+' آية: '+h.keys.join('، ')]));
+      const n=this.hr && this.net.by[this.hr];
+      if(!n || this.netView!=='ring'){ if(this.netView==='strip') return this.esc(this.T(['Tap a pair to keep the verses the two roots share.','انقر زوجًا لإبقاء الآيات التي يشترك فيها الجذران.']));
+        if(this.netView!=='ring') return this.esc(this.T(['Point at a number, or tap it, to read which verses the two roots share.','أشر إلى رقمٍ أو انقره لتقرأ الآيات التي يشترك فيها الجذران.']));
+        return this.esc(this.T(['Point at a root to see which roots share its verses; tap it to list them below.','أشر إلى جذرٍ لترى الجذور التي تشاركه آياته، وانقره لتظهر آياته في الأسفل.'])); }
       const comp=this.net.links.filter(l=>l.a===n.root || l.b===n.root).sort((a,b)=>b.w-a.w).slice(0,5)
         .map(l=>{ const o=this.net.by[l.a===n.root ? l.b : l.a]; return this.esc(this.ar ? o.ar : o.en)+' '+this.D(l.w); });
       return '<b>'+this.esc(this.ar ? n.ar : n.en)+'</b> <bdi lang="ar">('+n.root.split('').join(' ')+')</bdi>'+this.esc(this.C('netIn', {n:n.n}))
         +(comp.length ? this.esc(this.T([' Shares verses with: ', ' يجتمع مع: ']))+comp.join(this.ar ? '، ' : ', ')+'.' : this.esc(this.T([' It shares no two verses with another root here.', ' لا يشترك مع جذرٍ آخر هنا في آيتَين.']))); },
     gridRead(){ return this.gridLine(this.hs); },
     chronoRead(){ const k=this.hd;
-      if(!k) return this.esc(this.T(['Point at a dot to read its verse; tap it to keep only its surah’s verses.','أشر إلى نقطةٍ لتقرأ آيتها، وانقرها لإبقاء آيات سورتها وحدها.']));
+      if(!k) return this.esc(this.narrow ? this.T(['The surahs in the order they came down, a dot a verse. Tap one to keep its verses.','السور على ترتيب نزولها، ولكل آيةٍ نقطة. انقر سورةً لإبقاء آياتها.'])
+        : this.T(['Point at a dot to read its verse; tap it to keep only its surah’s verses.','أشر إلى نقطةٍ لتقرأ آيتها، وانقرها لإبقاء آيات سورتها وحدها.']));
       return this.verseLine(k); },
     chronoAha(){ const d=this.chrono.dots, f=d[0], l=d[d.length-1]; if(!f) return '';
       return this.C('chronoAha', {first: this.refOf(f.k), last: this.refOf(l.k)}); },
@@ -5791,14 +5981,16 @@ const NameLab = {
       const tot=g||6236, X=v=>{ const x=pad+v/tot*(W-2*pad); return ar ? W-x : x; }, len=n=>(SM[n]||{}).verses||0;
       const bands=[]; for(let n=1;n<=114;n++){ const a=X(starts[n]), b=X(starts[n]+len(n)); bands.push({n, x:Math.min(a,b), w:Math.max(.6, Math.abs(b-a)), cnt:this.perSurah[n]||0, odd:n%2}); }
       const ticks=R.verses.map(v=>{ const [s,a]=v.k.split(':').map(Number); return {k:v.k, s, x:X(starts[s]+a-.5), g:R.themes[v.t].g}; });
-      const labels=Object.keys(this.perSurah).filter(n=>this.perSurah[n]>=4).map(n=>({n:+n, x:X(starts[n]+len(+n)/2), name:this.$root.surahName(+n), c:this.perSurah[n]}));
-      return {W, H:96, bands, ticks, labels, xStart:X(0), xEnd:X(tot), aStart: ar ? 'end' : 'start', aEnd: ar ? 'start' : 'end'}; },
+      const labels=[], cw=this.narrow ? 7 : 6.4;
+      Object.keys(this.perSurah).filter(n=>this.perSurah[n]>=4).sort((a,b)=>this.perSurah[b]-this.perSurah[a] || a-b).forEach(n=>{ const name=this.$root.surahName(+n), c=this.perSurah[n], hw=(name.length+String(c).length+1)*cw/2, x=Math.min(W-hw, Math.max(hw, X(starts[n]+len(+n)/2)));
+        if(!labels.some(l=>Math.abs(l.x-x)<l.hw+hw+6)) labels.push({n:+n, x, name, c, hw}); });
+      return {W, H:98, bands, ticks, labels, hit: this.narrow ? 24 : 8, xStart:X(0), xEnd:X(tot), aStart: ar ? 'end' : 'start', aEnd: ar ? 'start' : 'end'}; },
     stripRead(){ if(this.hm) return this.verseLine(this.hm); if(this.hs) return this.gridLine(this.hs);
       return this.esc(this.T(['Point at a tick to read its verse, or at a band for its surah; tap to keep only that surah’s verses.','أشر إلى خطٍّ لتقرأ آيته، أو إلى شريطٍ لترى سورته؛ وانقر لإبقاء آيات تلك السورة وحدها.'])); },
-    sankey(){ const R=this.R, ar=this.ar, W=Math.max(this.cw, 620), k=9, gap=10, top=8, nodeW=14, labP=Math.min(210, W*.3), labS=140;
+    sankey(){ const R=this.R, ar=this.ar, W=Math.max(this.cw, 620), k=9, gap=10, top=8, nodeW=14, labP=Math.min(210, W*.3), labS=140, K=this.keySet;
       const parts=R.dua.full.map((p,i)=>({i, ar:p.ar, en:p.en, v:0, keys:new Set()})), L={}, sur={};
       R.dua.full.forEach((p,pi)=>p.segs.forEach(seg=>seg.src.forEach(s=>{ const n=+s.k.split(':')[0], id=pi+'-'+n;
-        const l=L[id]||(L[id]={p:pi, s:n, v:0, segs:[], id}); l.v++; if(!l.segs.includes(seg.t)) l.segs.push(seg.t);
+        const l=L[id]||(L[id]={p:pi, s:n, v:0, segs:[], id, keys:[]}); l.v++; if(!l.segs.includes(seg.t)) l.segs.push(seg.t); if(K.has(s.k) && !l.keys.includes(s.k)) l.keys.push(s.k);
         parts[pi].v++; if(!s.ctx) parts[pi].keys.add(s.k);
         const S=sur[n]||(sur[n]={n, v:0, w:0}); S.v++; S.w+=pi; })));
       const links=Object.values(L), surahs=Object.values(sur).sort((a,b)=>a.w/a.v-b.w/b.v || a.n-b.n);
@@ -5808,26 +6000,21 @@ const NameLab = {
       const by={}; surahs.forEach(s=>{ by[s.n]=s; });
       parts.forEach(p=>{ let yy=p.y0; links.filter(l=>l.p===p.i).sort((a,b)=>by[a.s].y0-by[b.s].y0).forEach(l=>{ l.ya0=yy; yy+=l.v*k; l.ya1=yy; }); });
       surahs.forEach(s=>{ let yy=s.y0; links.filter(l=>l.s===s.n).sort((a,b)=>a.p-b.p).forEach(l=>{ l.yb0=yy; yy+=l.v*k; l.yb1=yy; }); });
-      // the du'a's movements at the start of the reading line (left in English, right in Arabic), the surahs at its end
       const X=x=>ar ? W-x : x, xP0=labP, xP1=labP+nodeW, xS0=W-labS-nodeW, xS1=W-labS, a=X(xP1), b=X(xS0), m=(a+b)/2, f=v=>v.toFixed(1);
       links.forEach(l=>{ l.d='M'+f(a)+' '+f(l.ya0)+' C'+f(m)+' '+f(l.ya0)+' '+f(m)+' '+f(l.yb0)+' '+f(b)+' '+f(l.yb0)+' L'+f(b)+' '+f(l.yb1)+' C'+f(m)+' '+f(l.yb1)+' '+f(m)+' '+f(l.ya1)+' '+f(a)+' '+f(l.ya1)+' Z'; });
       return {W, H, parts, surahs, links, nodeW, xP: Math.min(X(xP0), X(xP1)), xS: Math.min(X(xS0), X(xS1)),
         lxP: ar ? X(xP0)+8 : xP0-8, aP: ar ? 'start' : 'end', lxS: ar ? X(xS1)-8 : xS1+8, aS: ar ? 'end' : 'start'}; },
-    sankeyRead(){ const h=this.hk, S=this.sankey, ar=this.ar, sep=ar ? '، ' : ', ';
+    sankeyRead(){ const h=this.hk, S=this.sankey, ar=this.ar;
       if(h && h[0]==='l'){ const l=S.links.find(x=>'l'+x.id===h); if(l){ const p=S.parts[l.p];
         return '<b>'+this.esc(ar ? p.ar : p.en)+' · '+this.esc(this.$root.surahName(l.s))+'</b> '+this.esc(this.T([l.v+(l.v>1 ? ' references: ' : ' reference: '), l.v+' إحالة: ']))+'<bdi lang="ar" dir="rtl">'+this.esc(l.segs.join('، '))+'</bdi>'; } }
       if(h && h[0]==='p'){ const p=S.parts[+h.slice(1)]; if(p) return '<b>'+this.esc(ar ? p.ar : p.en)+'</b> '+this.esc(this.T([p.v+' references to verses. Tap to keep the verses it draws on.', p.v+' إحالة إلى الآيات. انقر لإبقاء الآيات التي يأخذ منها.'])); }
       if(h && h[0]==='s'){ const s=S.surahs.find(x=>'s'+x.n===h); if(s) return '<b>'+this.esc(this.$root.surahName(s.n))+'</b> '+this.esc(this.T([s.v+' references in the du’a. Tap to keep its verses.', s.v+' إحالة في الدعاء. انقر لإبقاء آياتها.'])); }
-      return this.esc(this.T(['Point at a band to see the phrases it carries.','أشر إلى شريطٍ لترى المقاطع التي يحملها.'])); },
-    tree(){ const R=this.R, ar=this.ar, W=this.cw, H=Math.round(Math.max(220, Math.min(340, W*.42))), head=22, pad=4;
-      const groups=R.formGroups.map(g=>({g:g.g, ar:g.ar, en:g.en, v:R.forms.filter(f=>f.g===g.g).reduce((a,f)=>a+f.n,0)})).filter(g=>g.v).sort((a,b)=>b.v-a.v);
-      const tot=groups.reduce((a,g)=>a+g.v,0), boxes=[], leaves=[]; let x=0;
-      groups.forEach(g=>{ const gw=W*g.v/tot, wide=gw>130; boxes.push(Object.assign({}, g, {x, w:gw}));
-        const items=R.forms.map((f,i)=>({v:f.n, i, g:f.g})).filter(o=>o.g===g.g);
-        rzSquarify(items, x+pad, wide ? head : pad, gw-2*pad, H-(wide ? head : pad)-pad).forEach(r=>leaves.push(r)); x+=gw; });
-      if(ar){ boxes.forEach(b=>{ b.x=W-b.x-b.w; }); leaves.forEach(l=>{ l.x=W-l.x-l.w; }); }
-      return {W, H, boxes, leaves}; },
-    treeRead(){ const h=this.hk; if(h && h[0]==='f'){ const f=this.R.forms[+h.slice(1)]; if(f)
+      return this.esc(this.T([this.narrow ? 'Tap a movement or a surah to keep its verses.' : 'Point at a band to see the phrases it carries.', this.narrow ? 'انقر حركةً أو سورةً لإبقاء آياتها.' : 'أشر إلى شريطٍ لترى المقاطع التي يحملها.'])); },
+    // the written forms as a sorted strip, grouped by lemma (the verb, then the Name), every form labelled with its count
+    formStrip(){ const R=this.R; return (R.formGroups||[]).map(g=>({g:g.g, ar:g.ar, en:g.en, forms:R.forms.map((f,i)=>Object.assign({i}, f)).filter(f=>f.g===g.g)}))
+      .map(g=>Object.assign(g, {n:g.forms.reduce((a,f)=>a+f.n,0)})).filter(g=>g.forms.length); },
+    formMax(){ return Math.max(1, ...(this.R.forms||[]).map(f=>f.n)); },
+    treeRead(){ const h=this.hov; if(h && h.k==='form'){ const f=this.R.forms[h.i]; if(f)
         return '<b><bdi lang="ar" dir="rtl">'+this.esc(f.u)+'</bdi></b> '+this.esc(this.T([f.n+(f.n>1 ? ' times, in ' : ' time, in ')+f.verses.map(k=>this.refOf(k)).join(', '), f.n+' مرة، في '+f.verses.map(k=>this.refOf(k)).join('، ')])); }
       return this.esc(this.T(['Point at a form to see where it comes; tap it to keep its verses.','أشر إلى شكلٍ لترى مواضعه، وانقره لإبقاء آياته.'])); },
     matrix(){ const R=this.R, tOf={}; R.verses.forEach(v=>{ tOf[v.k]=v.t; });
@@ -5836,7 +6023,6 @@ const NameLab = {
   },
   methods:{
     T(p){ if(!p) return ''; const s=Array.isArray(p) ? (this.ar ? p[1] : p[0]) : p; return this.ar ? this.$root.D(s) : s; },
-    // a sentence of the study's own (copy[key]), with its {placeholders} filled
     C(key, P){ const p=this.R.copy[key]; if(!p) return ''; let s=this.ar ? p[1] : p[0];
       if(P) s=s.replace(/\{(\w+)\}/g, (m,k)=>(k in P ? P[k] : m));
       return this.ar ? this.$root.D(s) : s; },
@@ -5845,9 +6031,59 @@ const NameLab = {
     refOf(k){ return this.$root.surahName(+k.split(':')[0])+' '+this.D(k); },
     pct(v, max){ return max ? Math.round(1000*v/max)/10 : 0; },
     esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); },
+    // the verses a selection stands for, by its kind
+    keysOf(k, i){ const R=this.R;
+      if(k==='root'){ const r=R.assoc.find(x=>x.root===i); return r ? r.verses : []; }
+      if(k==='cell'){ const [r,c]=i.split(',').map(Number); return this.matrix.rows[r].cells[c].keys; }
+      if(k==='part') return [...this.sankey.parts[i].keys];
+      if(k==='agent'){ const a=R.agents.find(x=>x.id===i); return a ? a.verses : []; }
+      if(k==='dua') return [R.hero.items[i].k];
+      if(k==='phrase'){ const p=this.flat[i]; return p ? p.keys : []; }
+      if(k==='pair'){ const [a,b]=i.split('|'), A=R.assoc.find(x=>x.root===a), B=R.assoc.find(x=>x.root===b); return A && B ? A.verses.filter(v=>B.verses.includes(v)) : []; }
+      if(k==='cmp'){ const m=this.cmp.measures.find(x=>x.id===i); return m ? m.verses[this.slug] : []; }
+      if(k==='theme') return this.tKeys(i);
+      const list={cond:R.conditions, find:R.findings, obj:R.objects, adab:R.adab, form:R.forms, formula:R.formulas}[k];
+      return list && list[i] ? list[i].verses : []; },
+    sKeys(n){ return this.surahKeys[n] || []; },
+    tKeys(i){ return this.R.verses.filter(v=>v.t===i).map(v=>v.k); },
+    // linked highlighting: an item lights when its verses meet the selection pointed at (or pinned), and fades when they do not
+    lc(keys){ const L=this.lightSet; if(!L) return ''; return keys && keys.some(k=>L.has(k)) ? 'lit' : 'dimmed'; },
+    hv(k, i, keys){ this.hov={k, i, keys: keys || []}; },
+    hv0(){ this.hov=null; },
+    hl(k, i, keys, also){ return {onPointerenter: ()=>{ this.hv(k, i, keys); if(also) also(); }, onPointerleave: ()=>this.hv0(),
+      onFocus: ()=>{ this.hv(k, i, keys); if(also) also(); }, onBlur: ()=>this.hv0()}; },
     isSel(k, i){ return !!this.sel && this.sel.k===k && this.sel.i===i; },
-    pickSel(k, i){ this.sel = this.isSel(k, i) ? null : {k, i}; if(this.sel) this.toVerses(); },
+    pickSel(k, i){ this.sel = this.isSel(k, i) ? null : {k, i}; if(k!=='phrase') this.pick=-1; },
+    clearPin(){ this.sel=null; this.surah=0; this.pick=-1; this.open=''; },
     hkOn(l){ const h=this.hk; return !!h && (h==='l'+l.id || h==='p'+l.p || h==='s'+l.s); },
+    // the hero's du'as: three verse places (the du'a, then the next two); an arc lands on the answer, or goes on dashed and stays open
+    duaDots(d){ const X=o=>this.ar ? 120-(12+o*38) : 12+o*38, out=[{x:X(0), r:5.5, c:'du'}];
+      d.cont.forEach(c=>{ const o=+c.split(':')[1]-+d.k.split(':')[1]; out.push({x:X(o), r:3.5, c:'co'}); });
+      if(d.ans){ const o=+d.ans.split(':')[1]-+d.k.split(':')[1]; out.push({x:X(o), r:6, c:'an'}); }
+      return out; },
+    duaPaths(d){ const X=o=>this.ar ? 120-(12+o*38) : 12+o*38, arc=(a,b,h)=>'M'+X(a)+' 38 C '+X(a)+' '+(38-h)+', '+X(b)+' '+(38-h)+', '+X(b)+' 38', out=[];
+      const off=k=>+k.split(':')[1]-+d.k.split(':')[1];
+      if(d.ans) out.push({d:arc(0, off(d.ans), 14+10*off(d.ans)), c:'an'});
+      else { let last=0; d.cont.forEach(c=>{ out.push({d:arc(last, off(c), 16), c:'co'}); last=off(c); });
+        const x0=X(last), x1=this.ar ? x0-14 : x0+14; out.push({d:'M'+x0+' 38 C '+x0+' 22, '+x1+' 16, '+x1+' 10', c:'co open'}); }
+      return out; },
+    duaStatus(d){ return d.status==='answered' ? this.T(['answered in '+d.ans, 'أُجيب في '+d.ans]) : this.T(['goes on as du’a: '+d.cont.join(', '), 'يمضي دعاءً: '+d.cont.join('، ')]); },
+    // the comparison: a short value for each side, and a bar where the measure is a number to compare
+    cmpVal(id, s){ const v=this.cmp.sides[s], ar=this.ar, n=x=>this.D(x), p=x=>this.D(Math.round(100*x))+(ar ? '٪' : '%'), A=this.arN;
+      if(id==='size') return ar ? n(v.verses)+' '+A(v.verses,'آية','آيات')+'، '+n(v.tokens)+' '+A(v.tokens,'كلمة','كلمات') : v.verses+' verses · '+v.tokens+' words';
+      if(id==='mecca') return p(v.mecca/v.verses)+(ar ? '، '+n(v.mecca)+' من '+n(v.verses) : ' · '+v.mecca+' of '+v.verses);
+      if(id==='verbs') return ar ? n(v.verbs)+' '+A(v.verbs,'فعلًا','أفعال')+'، '+n(v.nouns)+' '+A(v.nouns,'اسمًا','أسماء') : v.verbs+' verbs · '+v.nouns+' nouns';
+      if(id==='named') return p(v.named/v.verbs)+(ar ? '، '+n(v.named)+' من '+n(v.verbs) : ' · '+v.named+' of '+v.verbs);
+      if(id==='duas') return ar ? n(v.ask)+' '+A(v.ask,'دعاءً','أدعية') : v.ask+(v.ask===1 ? ' du’a' : ' du’as');
+      if(id==='roots') return v.roots.map(r=>ar ? r.ar : r.en).join(ar ? '، ' : ', ');
+      if(id==='forms') return ar ? n(v.forms)+' '+A(v.forms,'صيغة','صيغ')+'، «'+v.formTop+'»' : v.forms+' forms · «'+v.formTop+'»';
+      return ''; },
+    // an Arabic count noun: the plural after three to ten, the singular otherwise
+    arN(n, one, few){ return n>=3 && n<=10 ? few : one; },
+    cmpBar(id, s){ const S=this.cmp.sides, f={size:v=>v.verses, mecca:v=>v.mecca/v.verses, verbs:v=>v.verbs/v.tokens, named:v=>v.named/v.verbs, duas:v=>v.ask, forms:v=>v.forms}[id];
+      if(!f) return null; const max=Math.max(...this.cmp.order.map(x=>f(S[x]))); return max ? Math.round(100*f(S[s])/max) : 0; },
+    openCmp(m){ if(this.open===m.id){ this.open=''; if(this.isSel('cmp', m.id)) this.sel=null; return; }
+      this.open=m.id; this.sel={k:'cmp', i:m.id}; },
     gridLine(n){
       if(!n){ const top=this.topSurahs.map(t=>this.$root.surahName(t.n)+' '+this.D(t.c)), none=114-Object.keys(this.perSurah).length;
         return this.esc(this.C('gridTop', {top: top.join(this.ar ? '، ' : ', '), none})); }
@@ -5858,19 +6094,18 @@ const NameLab = {
       const s=+k.split(':')[0], pos=this.chrono.pos[s], per=this.T(v.p==='d' ? ['Medinan','مدنية'] : ['Meccan','مكية']), th=this.ar ? this.R.themes[v.t].ar : this.R.themes[v.t].en;
       const open=(this.V[k]||'').split(' ').slice(0,9).join(' ');
       return '<b>'+this.esc(this.refOf(k))+'</b> · '+this.esc(this.T(['revealed as number '+pos+' of 114 · '+per+' · '+th, 'ترتيب النزول '+pos+' من 114 · '+per+' · '+th]))+(open ? '<br><bdi lang="ar" dir="rtl">'+this.esc(open)+'…</bdi>' : ''); },
-    // the verse's words; the ones the du'a kept lit in green, the word of the root in gold
     verseHtml(k, hi){ const t=this.V[k];
       if(!t) return '<span class="rz-wait">'+this.esc(this.T(['Loading the verse text…','يُحمَّل نص الآية…']))+'</span>';
       const H=new Set(hi||[]), Z=new Set(this.rzPos[k]||[]);
       return t.split(' ').map((w,i)=>{ const n=i+1, c=(H.has(n)?' rz-hi':'')+(Z.has(n)?' rz-rz':''), e=this.esc(w);
         return c ? '<mark class="'+c.trim()+'">'+e+'</mark>' : e; }).join(' '); },
     spanText(k, a, b){ const t=this.V[k]; return t ? t.split(' ').slice(a-1, b).join(' ') : '…'; },
-    setVer(v){ this.ver=v; this.pick=-1; },
-    pickSeg(i){ this.pick = this.pick===i ? -1 : i; },
+    setVer(v){ this.ver=v; this.pick=-1; if(this.sel && this.sel.k==='phrase') this.sel=null; },
+    pickSeg(i){ this.pick = this.pick===i ? -1 : i; this.sel = this.pick>=0 ? {k:'phrase', i} : (this.isSel('phrase', i) ? null : this.sel); },
     setRoot(r){ this.pickSel('root', r); },
     setCond(i){ this.pickSel('cond', i); },
     togTheme(i){ const j=this.themes.indexOf(i); if(j>=0) this.themes.splice(j,1); else this.themes.push(i); },
-    setSurah(n, go){ if(!(this.perSurah[n]>0)) return; this.surah = this.surah===n ? 0 : n; if(go && this.surah) this.toVerses(); },
+    setSurah(n){ if(!(this.perSurah[n]>0)) return; this.surah = this.surah===n ? 0 : n; },
     fitW(){ const el=this.$el; if(!el || el.nodeType!==1) return; const w=Math.round(el.getBoundingClientRect().width); if(w>40 && Math.abs(w-this.w)>1) this.w=w; },
     toVerses(){ this.$nextTick(()=>{ const el=this.$el && this.$el.querySelector('.rz-verses'); if(el) el.scrollIntoView({block:'start', behavior: MOTION ? 'smooth' : 'auto'}); }); },
     copy(){ const txt=this.parts.map(p=>p.segs.map(s=>s.t).join('، ')+'.').join('\n');
@@ -7553,7 +7788,7 @@ createApp({
       const done=()=>{ this.dCopied=true; clearTimeout(this._dCp); this._dCp=setTimeout(()=>{ this.dCopied=false; }, 2400); };
       try{ if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(done, ()=>window.prompt('', url)); return; } }catch(e){}
       window.prompt('', url); },
-    dJump(id){ const el=document.getElementById(id); if(!el) return; const y=el.getBoundingClientRect().top+scrollY-(innerWidth<=920 ? 76 : 18);
+    dJump(id){ const el=document.getElementById(id); if(!el) return; const y=el.getBoundingClientRect().top+scrollY-(parseFloat(getComputedStyle(el).scrollMarginTop)||(innerWidth<=920 ? 124 : 18));
       window.scrollTo({top:y, behavior:matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'}); },
     dOpen(k, list, ev){ const [s,v]=k.split(':').map(Number), el=ev && ev.currentTarget;
       this.dAnchor = el ? {i:[...document.querySelectorAll('main [data-dopen]')].indexOf(el), top:el.getBoundingClientRect().top} : null;
@@ -7796,10 +8031,16 @@ createApp({
     toAnchor(){ const a=this._toAnchor; this._toAnchor=''; if(!a) return;
       const to=how=>{ const el=document.getElementById(a); if(el) el.scrollIntoView({behavior:how, block:'start'}); };
       // a section of a page whose data loads on demand (/kursi) is not there at first: wait for it (up to 10 s), then land;
-      // charts above it can still be growing, so land on it again once they have
+      // charts and fonts above it can still change height, so until the page settles (about 6 s) put the heading back at its
+      // landing line (its scroll-margin-top, below the bars that stay on screen) whenever the scroll has come to rest away
+      // from it, unless the reader has scrolled or tapped since
       let n=0; const go=()=>{ if(!document.getElementById(a)){ if(++n<40) setTimeout(go, 250); return; }
         to(REDUCED ? 'auto' : 'smooth');
-        setTimeout(()=>{ const el=document.getElementById(a); if(el && Math.abs(el.getBoundingClientRect().top-84)>40) to('auto'); }, 1250); };
+        const t0=Date.now(); let last=-1, k=0;
+        const keep=()=>{ if(USER_AT>t0 || ++k>16) return; const el=document.getElementById(a), y=scrollY;
+          if(el && y===last && Math.abs(el.getBoundingClientRect().top-(parseFloat(getComputedStyle(el).scrollMarginTop)||0))>6) to('auto');
+          last=y; setTimeout(keep, 350); };
+        setTimeout(keep, 700); };
       setTimeout(go, 450); },
     // ---- the landing's motion, carried into the app ----
     enterView(animate){
