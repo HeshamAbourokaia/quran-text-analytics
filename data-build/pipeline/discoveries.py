@@ -288,6 +288,35 @@ def middle_verse(words, V):
             'midWordVerse': s2[lw - 1]['aya'], 'letters': tl, 'wasatLetter': wasat_l, 'wasatLetterAt': round(wasat_l / tl, 4),
             'midLetterVerse': mid_l_verse, 'root': occ}
 
+# The features of form the mirror reading points to, each read from the corpus segments of 2:255 (never typed by hand):
+# the pronoun «huwa» standing alone (PRON, not a suffix), the negation «lā» (NEG), the exception «illā» (its lemma; the
+# preposition «bi» right after it is marked too, «illā bi»), and the frame «mā ... wa-mā» (two relative «mā», the second
+# after «wa»). A statement's features are its words' features.
+KURSI_FORM = ['huwa', 'neg', 'illa', 'mama']
+
+def _kursi_form():
+    segs = defaultdict(list)
+    for r in _read_rows():
+        if r['sura'] == 2 and r['aya'] == 255:
+            segs[r['word']].append(r)
+    tags = lambda s: set(s['feats'].split('|'))
+    ft = {w: set() for w in segs}
+    for w, ss in segs.items():
+        for s in ss:
+            t = tags(s)
+            if 'PRON' in t and 'SUFF' not in t and normalize(s['form']) == 'هو': ft[w].add('huwa')
+            if 'NEG' in t and 'LEM:لا' in t: ft[w].add('neg')
+            if 'LEM:إِلّا' in t:
+                ft[w].add('illa')
+                nxt = segs.get(w + 1, [])
+                if nxt and 'LEM:ب' in tags(nxt[0]): ft[w + 1].add('illa')
+    for a, b in KURSI:   # the frame: a relative «mā», then «wa» and a second relative «mā», inside one statement
+        rel = [w for w in range(a, b + 1) if any('REL' in tags(s) and 'LEM:ما' in tags(s) for s in segs[w])]
+        wa = [w for w in rel[1:] if any('CONJ' in tags(s) for s in segs[w])]
+        if rel and wa:
+            for w in rel: ft[w].add('mama')
+    return ft
+
 def kursi(words):
     """Ayat al-Kursi's nine statements: the roots each mirror pair shares, and how the mirror ranks among every way
     to pair statements 1–4 with 6–9 by shared roots (exploratory: the verse is the one the claim was read from)."""
@@ -297,10 +326,28 @@ def kursi(words):
     roots = [sorted({normalize(w['root']) for w in x if w['root']}) for x in st]
     shared = lambda a, b: sorted(set(roots[a]) & set(roots[b]))
     res = _cross_matchings(lambda a, b: len(shared(a, b)), [0, 1, 2, 3], [5, 6, 7, 8]); res.pop('verdict')   # exploratory: no verdict
+    # form: each word's features, each statement's, and the form test (exploratory: the features were listed after reading
+    # the verse). Over the 24 ways to pair statements 1 to 4 with 6 to 9, count the pairs that share a feature of form or a root.
+    ftw = _kursi_form()
+    ft = [[sorted(ftw[w]) for w in range(a, b + 1)] for a, b in KURSI]
+    feats = [sorted({f for w in x for f in w}) for x in ft]
+    fshared = lambda a, b: sorted(set(feats[a]) & set(feats[b]))
+    links = lambda a, b: bool(fshared(a, b) or shared(a, b))
+    import itertools
+    dist = Counter(sum(links(a, b) for a, b in zip([0, 1, 2, 3], m)) for m in itertools.permutations([5, 6, 7, 8]))
+    test = _cross_matchings(lambda a, b: float(links(a, b)), [0, 1, 2, 3], [5, 6, 7, 8]); test.pop('verdict')
+    test['dist'] = [dist.get(i, 0) for i in range(5)]
+    # size: words and written letters per statement (letters as the letter-count study counts them: no marks, no small signs)
+    from .lettercount import tiles, count
+    sizes = {'words': [len(x) for x in st], 'letters': [sum(count(tiles(w['surface'])) for w in x) for x in st]}
     return {'statements': [{'words': [[w['surface'], normalize(w['root'] or '')] for w in x], 'roots': r} for x, r in zip(st, roots)],
             'pairs': [{'a': a + 1, 'b': b + 1, 'shared': shared(a, b)} for a, b in [(0, 8), (1, 7), (2, 6), (3, 5)]],
             'centreShares': [{'with': j + 1, 'shared': shared(4, j)} for j in range(9) if j != 4 and shared(4, j)],
-            'links': [[len(shared(a, b)) for b in range(9)] for a in range(9)], **res}
+            'links': [[len(shared(a, b)) for b in range(9)] for a in range(9)], **res,
+            'form': {'features': KURSI_FORM, 'words': ft, 'statements': feats,
+                     'pairs': [{'a': a + 1, 'b': b + 1, 'shared': fshared(a, b)} for a, b in [(0, 8), (1, 7), (2, 6), (3, 5)]],
+                     'centre': [{'with': j + 1, 'shared': fshared(4, j)} for j in range(9) if j != 4 and fshared(4, j)], 'test': test},
+            'sizes': sizes}
 
 def farrin_sections(keys, X):
     """Farrin's sections as vocabulary: are the paired sections more alike than any other way of pairing the four

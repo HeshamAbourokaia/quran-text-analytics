@@ -88,11 +88,11 @@ window.DALEEL_DISCOVER = (function () {
     },
     kursi: {
       h: ['Inside Ayat al-Kursi (2:255)', 'داخل آية الكرسي (٢:٢٥٥)'],
-      sub: ['The verse in nine statements, as the mirror reading divides it: A to D, the centre E, then D′ back to A′. Tap a statement to light its partner and read what the two share. Words in colour share a root with their partner.',
-        'الآية في تسع جمل كما تقسمها القراءة المتناظرة: من أ إلى د، ثم المركز هـ، ثم من د′ عودًا إلى أ′. المس جملةً لتضيء نظيرتها وتقرأ ما تشتركان فيه. والكلمات الملوّنة تشترك في جذرها مع نظيرتها.'],
-      result: (D, F) => { const k = D.ringClaims.kursi; return [
-        `By their roots, one of the four pairs shares words: 3 and 7, «the heavens» and «the earth». Of the 24 ways to pair statements 1–4 with 6–9, ${F.n(k.ge)} link at least as many roots, so the words alone do not single out the mirror. The other pairs answer each other in meaning and form (tap them to read how): a reader can weigh that, and a root count cannot. This look is exploratory and has no verdict, because the structure was read from this very verse. And in Farrin's ring of the whole surah, Ayat al-Kursi is not the centre: his article puts it at the start of the middle part of section B′ (2:255–260), on God's power and knowledge.`,
-        `بالجذور يشترك زوجٌ واحد من الأزواج الأربعة في ألفاظه: الجملتان ٣ و٧، في «السماوات» و«الأرض». ومن الطرق الـ٢٤ لمقابلة الجمل ١–٤ بالجمل ٦–٩ تربط ${F.n(k.ge)} بين جذورٍ بالقدر نفسه أو أكثر، فالألفاظ وحدها لا تميّز التناظر. والأزواج الأخرى تتقابل في المعنى والصيغة (المسها لتقرأ كيف)، وهذا يزنه القارئ ولا يقيسه عدّ الجذور. وهذه نظرةٌ استكشافية بلا حكم، لأن البناء قُرئ من الآية نفسها. وفي حلقة فارين للسورة كلها ليست آية الكرسي المركز: فمقالته تجعلها في أول الجزء الأوسط من القسم ب′ (٢:٢٥٥–٢٦٠)، في قدرة الله وعلمه.`]; },
+      sub: ['The verse in nine statements, as the mirror reading divides it: A to D, the centre E, then D′ back to A′. They step in to the centre and back out like an arch, and an arc joins each pair. Read the arch three ways: in meaning, in form and in roots. Tap a statement to light its partner and what the two share, or walk the ring from the first statement to the last. The form test, set down here before its result: over the 24 ways to pair statements 1 to 4 with 6 to 9, count the pairs that share a feature of form (the pronoun «huwa», the negation «lā», the exception «illā», the frame «mā … wa-mā») or a root.',
+        'الآية في تسع جمل كما تقسمها القراءة المتناظرة: من أ إلى د، ثم المركز هـ، ثم من د′ عودًا إلى أ′. تتدرّج الجمل نحو المركز ثم تعود كالقوس، ويصل قوسٌ بين كل جملتين متقابلتين. اقرأ القوس بثلاث طرق: بالمعنى، وبالصيغة، وبالجذور. المس جملةً لتضيء نظيرتها وما تشتركان فيه، أو امشِ في الحلقة من أول جملةٍ إلى آخرها. واختبار الصيغة، مكتوبًا هنا قبل نتيجته: من الطرق الـ٢٤ لمقابلة الجمل من ١ إلى ٤ بالجمل من ٦ إلى ٩، نعدّ الأزواج التي تشترك في سمةٍ من سمات الصيغة (الضمير «هو»، والنفي «لا»، والاستثناء «إلا»، والإطار «ما … وما») أو في جذر.'],
+      result: (D, F) => { const k = D.ringClaims.kursi, t = k.form.test, z = k.sizes, s = a => a.reduce((x, y) => x + y, 0); return [
+        `The form test: the mirror links all ${t.obs} pairs, and ${t.ge === 1 ? 'no other pairing does' : (t.ge - 1) + ' other pairings do too'}: ${t.ge} in ${t.arrangements} (p = ${F.p(t.p)}). By roots alone one pair shares words, 3 and 7 («the heavens» and «the earth»), and ${k.ge} of the ${k.arrangements} pairings link at least as many roots (p = ${F.p(k.p)}), so the words alone do not single out the mirror. Both looks are exploratory and carry no verdict: the structure and the features were read from this very verse, so they describe it rather than test a prediction. The bars are plain about size: the first four statements hold ${s(z.words.slice(0, 4))} words and the last four ${s(z.words.slice(5))}, so the ring is in meaning and form, not in length. And in Farrin's ring of the whole surah, Ayat al-Kursi is not the centre: his article puts it at the start of the middle part of section B′ (2:255 to 260), on God's power and knowledge.`,
+        `اختبار الصيغة: التناظر يربط الأزواج الـ${F.n(t.obs)} كلها، ${t.ge === 1 ? 'ولا تفعل ذلك مقابلةٌ أخرى' : 'وتفعل ذلك ' + F.n(t.ge - 1) + ' مقابلاتٍ أخرى'}: ${F.n(t.ge)} من ${F.n(t.arrangements)} (القيمة الاحتمالية ${F.p(t.p)}). وبالجذور وحدها يشترك زوجٌ واحد في ألفاظه: الجملتان ٣ و٧ («السماوات» و«الأرض»)، و${F.n(k.ge)} من المقابلات الـ${F.n(k.arrangements)} تربط بين جذورٍ بالقدر نفسه أو أكثر (القيمة الاحتمالية ${F.p(k.p)})، فالألفاظ وحدها لا تميّز التناظر. والنظرتان استكشافيتان بلا حكم: البناء والسمات قُرئا من الآية نفسها، فهما وصفٌ لها لا اختبارٌ لتنبّؤ. والأشرطة صريحةٌ في الحجم: في الجمل الأربع الأولى ${F.n(s(z.words.slice(0, 4)))} كلمة، وفي الأربع الأخيرة ${F.n(s(z.words.slice(5)))}، فالحلقة في المعنى والصيغة لا في الطول. وفي حلقة فارين للسورة كلها ليست آية الكرسي المركز: فمقالته تجعلها في أول الجزء الأوسط من القسم ب′ (٢:٢٥٥ إلى ٢٦٠)، في قدرة الله وعلمه.`]; },
     },
   };
   const FARRIN = [
@@ -123,6 +123,39 @@ window.DALEEL_DISCOVER = (function () {
     ],
     centre: ['The centre, E: «He knows what is before them and what is behind them». The mirror reading puts God\'s knowledge at the heart of the verse.',
       'المركز هـ: «يعلم ما بين أيديهم وما خلفهم». والقراءة المتناظرة تجعل علم الله في قلب الآية.'],
+    // the three layers of the arch: meaning (the reading, pair by pair), form (features read from the morphology) and roots
+    layers: [['meaning', 'Meaning', 'المعنى'], ['form', 'Form', 'الصيغة'], ['roots', 'Roots', 'الجذور']],
+    meaning: [
+      ['Two Names open the verse and two close it: the Living, the Sustainer; the High, the Great.',
+        'اسمان في المطلع واسمان في الختام: الله الحي القيوم، وهو العلي العظيم.'],
+      ['No slumber takes Him, because guarding the heavens and the earth does not weary Him: the One who never sleeps is the One whom guarding never tires.',
+        'لا تأخذه سنة ولا نوم، لأن حفظ السماوات والأرض لا يثقله: من لا ينام هو من لا يتعب من الحفظ.'],
+      ['His ownership of what is in the heavens and the earth answers His Kursi that embraces them.',
+        'ملكه لما في السماوات والأرض يقابله كرسيه الذي وسعهما.'],
+      ['No intercession except by His permission, no grasp of His knowledge except what He wills: the same exception in both.',
+        'لا شفاعة إلا بإذنه، ولا إحاطة بعلمه إلا بما شاء: الاستثناء نفسه في الموضعين.'],
+    ],
+    meaningCentre: ['God\'s knowledge of what is before them and behind them sits at the heart of the verse.', 'علم الله بما بين أيديهم وما خلفهم في قلب الآية.'],
+    feature: { huwa: ['the pronoun «huwa», He', 'الضمير «هو»'], neg: ['the negation «lā»', 'النفي «لا»'],
+      illa: ['the exception «illā bi», except by', 'الاستثناء «إلا بـ»'], mama: ['the frame «mā … wa-mā»', 'الإطار «ما … وما»'] },
+    intro: {
+      meaning: ['Tap a statement to light its partner and read how the two answer each other in meaning.', 'المس جملةً لتضيء نظيرتها وتقرأ كيف تتجاوبان في المعنى.'],
+      form: ['Tap a statement to light its partner and the words of form the two share: the pronoun, the negation, the exception, the frame «mā … wa-mā», or a root.',
+        'المس جملةً لتضيء نظيرتها وكلمات الصيغة المشتركة بينهما: الضمير، والنفي، والاستثناء، والإطار «ما … وما»، أو الجذر.'] },
+    verdict: (D, F) => { const k = D.ringClaims.kursi, t = k.form.test; return {
+      meaning: ['In meaning the four pairs answer each other, with God\'s knowledge at the centre. This is a reading for the reader to weigh; no count can measure it.',
+        'في المعنى تتجاوب الأزواج الأربعة، وعلم الله في المركز. وهذه قراءةٌ يزنها القارئ، ولا يقيسها عدّ.'],
+      form: [`In form every pair matches: «huwa» in 1 and 9, «lā» in 2 and 8, the heavens and the earth in 3 and 7, «illā bi» in 4 and 6. Of the ${t.arrangements} ways to pair the statements, ${t.ge === 1 ? 'only the mirror links all four' : t.ge + ' link all four'} (p = ${F.p(t.p)}, exploratory).`,
+        `في الصيغة يتطابق كل زوج: «هو» في ١ و٩، و«لا» في ٢ و٨، والسماوات والأرض في ٣ و٧، و«إلا بـ» في ٤ و٦. ومن الطرق الـ${F.n(t.arrangements)} لمقابلة الجمل ${t.ge === 1 ? 'لا يربط الأربعة كلها إلا التناظر' : 'يربط الأربعة كلها ' + F.n(t.ge)} (القيمة الاحتمالية ${F.p(t.p)}، استكشافي).`],
+      roots: [`By roots only 3 and 7 share words; ${k.ge} of the ${k.arrangements} pairings link as many roots or more (p = ${F.p(k.p)}), so the words alone do not single out the mirror.`,
+        `بالجذور لا تشترك في الألفاظ إلا ٣ و٧؛ و${F.n(k.ge)} من المقابلات الـ${F.n(k.arrangements)} تربط جذورًا بالقدر نفسه أو أكثر (القيمة الاحتمالية ${F.p(k.p)})، فالألفاظ وحدها لا تميّز التناظر.`] }; },
+    walk: { go: ['Walk the ring', 'امشِ في الحلقة'], stop: ['Stop', 'أوقف'], step: ['Next statement', 'الجملة التالية'] },
+    bars: {
+      h: ['Size: the first half against the second', 'الحجم: النصف الأول مقابل الثاني'],
+      units: [['words', 'Words', 'الكلمات'], ['letters', 'Letters', 'الحروف']],
+      verdict: (D, F) => { const z = D.ringClaims.kursi.sizes, s = a => a.reduce((x, y) => x + y, 0), w1 = s(z.words.slice(0, 4)), w2 = s(z.words.slice(5)), l1 = s(z.letters.slice(0, 4)), l2 = s(z.letters.slice(5)); return [
+        `Statements 1 to 4 hold ${w1} words and ${l1} letters; statements 6 to 9 hold ${w2} words and ${l2} letters. The halves are not the same size: the ring is in meaning and form, not in length. Letters are counted as the letter-count study counts them: written letters, without vowel marks or small signs.`,
+        `في الجمل من ١ إلى ٤ ${F.n(w1)} كلمة و${F.n(l1)} حرفًا، وفي الجمل من ٦ إلى ٩ ${F.n(w2)} كلمة و${F.n(l2)} حرفًا. فالنصفان ليسا بحجمٍ واحد: الحلقة في المعنى والصيغة لا في الطول. والحروف معدودةٌ كما تعدّها دراسة عدد الحروف: الحروف المكتوبة بلا حركاتٍ ولا علاماتٍ صغيرة.`]; } },
   };
 
   const STUDIES = {

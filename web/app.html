@@ -1892,8 +1892,16 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .mclaim b{color:var(--on-dark);font-weight:600}
   @media (max-width:719px){ .mclaims{grid-template-columns:minmax(0,1fr)} }
   .linkish{background:none;border:0;padding:0;font:inherit;color:var(--gold);cursor:pointer;text-decoration:underline;text-underline-offset:3px;font-variant-numeric:tabular-nums}
-  .kursi .klist{list-style:none;margin:6px 0 0;padding:0}
-  .kursi .klist li{margin:4px 0;padding-inline-start:calc(var(--lv,0) * 26px)}
+  /* Ayat al-Kursi as an arch on its side: the rows step in to the centre and back out; an arc in each row's lane joins a pair */
+  .kursi .ktools{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 14px;margin:4px 0 10px}
+  .kursi .kwalk{font:inherit;font-size:.8rem;font-weight:700;color:var(--night);background:var(--gold);border:0;border-radius:999px;padding:6px 15px;cursor:pointer;transition:background .2s}
+  .kursi .kwalk.on{background:#fff}
+  .kursi .karch{position:relative}
+  .kursi .karcs{position:absolute;inset:0;pointer-events:none;overflow:visible}
+  .kursi .karcs .arc{fill:none;stroke:rgba(233,185,95,.55);stroke-linecap:round;transition:stroke .2s,stroke-width .3s}
+  .kursi .karcs .arc.on{stroke:var(--gold)} .kursi .karcs .arc.none{stroke:rgba(233,185,95,.3);stroke-dasharray:3 5}
+  .kursi .klist{list-style:none;margin:6px 0 0;padding:0;padding-inline-start:30px}
+  .kursi .klist li{margin:5px 0;padding-inline-start:calc(var(--lv,0) * 30px)}
   .kursi .klist li.lv0{--lv:0} .kursi .klist li.lv1{--lv:1} .kursi .klist li.lv2{--lv:2} .kursi .klist li.lv3{--lv:3} .kursi .klist li.lv4{--lv:4}
   .kursi .klist button{display:flex;align-items:baseline;gap:10px;width:100%;text-align:start;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.08);
     border-inline-start:3px solid var(--c);border-radius:10px;padding:8px 12px;color:var(--on-dark);cursor:pointer;font:inherit;transition:background .25s,opacity .25s}
@@ -1901,12 +1909,25 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .kursi .klist li.on button{background:rgba(255,255,255,.07);border-color:var(--c)}
   .kursi .klist li.dim button{opacity:.45}
   .kursi .ktag{flex:none;min-width:1.8em;font-family:var(--sans);font-size:.78rem;font-weight:700;color:var(--c);font-variant-numeric:tabular-nums}
-  .kursi .ktext{font-family:var(--ar-display);font-size:1.22rem;line-height:1.8}
+  .kursi .ktext{flex:1 1 auto;min-width:0;display:flex;flex-wrap:wrap;align-items:baseline;font-family:var(--ar-display);font-size:1.22rem;line-height:1.8}
   .kursi .ktext span{margin-inline-end:.28em}
   .kursi .ktext .hit{color:var(--gold);text-shadow:0 0 12px rgba(233,185,95,.45)}
   .kursi .knote{margin:12px 0 0;font-size:.86rem;line-height:1.7;color:var(--on-dark-2);min-height:3.4em}
   html[lang=ar] .kursi .knote{font-size:.96rem;line-height:1.9}
-  @media (max-width:719px){ .kursi .klist li{padding-inline-start:calc(var(--lv,0) * 12px)} .kursi .ktext{font-size:1.12rem} }
+  .kursi .klist li.c button{border-color:rgba(255,255,255,.28)}
+  .kursi .kverdict{margin:12px 0 0;padding:10px 14px;border-inline-start:3px solid var(--gold);background:rgba(233,185,95,.07);border-radius:10px;font-size:.86rem;line-height:1.65;color:var(--on-dark)}
+  html[lang=ar] .kursi .kverdict{font-size:.96rem;line-height:1.85}
+  .kursi .kbars{margin:18px 0 0;padding:14px 16px;border-radius:16px;background:rgba(0,0,0,.16);border:1px solid var(--hair)}
+  .kursi .kbhead{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 12px;margin:0 0 12px} .kursi .kbhead b{font-size:.92rem;color:#fff}
+  .kursi .kbgrid{display:grid;grid-template-columns:1fr auto 1fr;gap:7px 10px;align-items:center}
+  .kursi .kbl,.kursi .kbr{display:flex;align-items:center;gap:8px;min-width:0} .kursi .kbl{justify-content:flex-end} .kursi .kbr{justify-content:flex-start}
+  .kursi .kbl i,.kursi .kbr i{display:block;height:12px;border-radius:999px;background:var(--c);opacity:.7;transition:width .5s cubic-bezier(.2,.8,.2,1),opacity .2s,box-shadow .2s}
+  .kursi .kbl.on i,.kursi .kbr.on i{opacity:1;box-shadow:0 0 10px var(--c)}
+  .kursi .kbl b,.kursi .kbr b{font-size:.78rem;font-weight:600;color:var(--on-dark-2);font-variant-numeric:tabular-nums;min-width:2ch}
+  .kursi .kbt{font-family:var(--sans);font-size:.74rem;font-weight:700;color:var(--c);text-align:center;white-space:nowrap;line-height:1.3} .kursi .kbt small{display:block;font-size:.72rem;font-weight:600;color:var(--on-dark-2)}
+  .kursi .kbgrid .tot{border-top:1px solid var(--hair);padding-top:7px} .kursi .kbt.tot{color:var(--on-dark-3)} .kursi .tot b{color:#fff;font-size:.86rem}
+  @media (max-width:719px){ .kursi .klist{padding-inline-start:20px} .kursi .klist li{padding-inline-start:calc(var(--lv,0) * 18px)} .kursi .ktext{font-size:1.12rem} }
+  @media (prefers-reduced-motion:reduce){ .kursi .kbl i,.kursi .kbr i,.kursi .karcs .arc,.kursi .kwalk{transition:none} }
   .dfig svg .mbar{fill:rgba(255,255,255,.07);stroke:rgba(255,255,255,.12)}
   .dfig svg .midl{stroke:rgba(255,255,255,.55);stroke-width:1.2;stroke-dasharray:3 3}
   .farrin svg .arc{fill:none;stroke:rgba(233,185,95,.55);stroke-linecap:round;transition:stroke .2s}
@@ -2010,7 +2031,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
     history:'history', science:'science', discover:'discoveries', 'd-endings':'verse-endings', 'd-rings':'mirrors', 'd-rhyme':'rhyme',
     'd-stories':'retellings', 'd-themes':'themes', 'd-companions':'companions', 'd-letters':'opening-letters', 'd-repeats':'near-repeats', 'd-chrono':'revelation-order',
     overview:'overview', word:'words', letters:'letters', mecca:'mecca-medina', emotion:'tone', cluster:'similar-surahs',
-    kg:'knowledge-graph', stories:'stories', lessons:'lessons', duas:'duas', rizq:'rizq', wahhab:'wahhab', tafsir:'insights', untranslatable:'untranslatable'};
+    kg:'knowledge-graph', stories:'stories', lessons:'lessons', duas:'duas', rizq:'rizq', wahhab:'wahhab', kursi:'kursi', tafsir:'insights', untranslatable:'untranslatable'};
   // Vercel Web Analytics: page views only, no cookies, nothing that identifies a visitor.
   // Each view is sent as a clean path (/app/<view>[/<claim or surah>], /ar/ for Arabic) and every other query value is dropped.
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -3589,7 +3610,7 @@ const MERGED = {
   emotion:[{k:'pronouns', t:['We, I and He','نحن وأنا وهو']}],
   tawafuq:[{k:'alifi', t:['The Alifi mushaf','مصحف ألفي']}] };
 // Old page addresses keep working: each goes to the page that took it in, and to its section there.
-const VIEW_ALIAS = { advanced:['overview','sec-dashboard'], dashboard:['overview','sec-dashboard'], stats:['mecca','sec-stats'],
+const VIEW_ALIAS = { kursi:['d-rings','mc2'], advanced:['overview','sec-dashboard'], dashboard:['overview','sec-dashboard'], stats:['mecca','sec-stats'],
   classifier:['mecca','sec-classifier'], nlp:['word','sec-nlp'], pronouns:['emotion','sec-pronouns'], alifi:['tawafuq','sec-alifi'],
   coincidence:['n19'], antonyms:['symmetry'], waw:['symmetry'], insights:['overview'],
   claims:['auditor'], read:['reader'], explore:['overview'], library:['stories'] };
@@ -4099,39 +4120,136 @@ const ProfilePlot = { mixins:[FitW], props:['prof','zone','peak','n'],
       this.$root.dOpen('2:'+c, list, e && e.currentTarget && e.currentTarget.dataset && 'dopen' in e.currentTarget.dataset ? e : null); } } };
 // Study 2, the mirror inside Ayat al-Kursi: its nine statements indented as the mirror reading pairs them (1 with 9,
 // 2 with 8, 3 with 7, 4 with 6, around 5). Tap a statement to light its partner and the roots the two share.
+// Study 2, Ayat al-Kursi: the nine statements as an arch on its side, stepping in to the centre and back out, with an arc
+// joining each mirror pair (FarrinRing's arcs, turned to run down the page). Three layers: meaning (the reading, pair by
+// pair), form (features read from the morphology: «huwa», «lā», «illā bi», «mā … wa-mā», and shared roots) and roots (the
+// shared-root count). Tap a statement, or reach it with the keyboard, to light its partner, the arc and the shared words;
+// the note under the figure explains the pair. A walk steps from statement 1 to 9 (one step a press when motion is reduced).
+// Mirrored bars set statements 1 to 4 against 6 to 9, by words or by letters, with the centre in the middle.
 const KursiMirror = { props:['k'],
-  data(){ return {sel:-1}; },
-  template:`<div class="kursi">
-    <ol class="klist" dir="rtl" lang="ar">
-      <li v-for="(s,i) in k.statements" :key="i" :class="['lv'+lvl(i), {on: isOn(i), dim: sel>=0 && !isOn(i)}]" :style="{'--c': col(i)}">
-        <button type="button" @click="pick(i)" :aria-pressed="String(isOn(i))">
-          <span class="ktag" dir="ltr">{{ tag(i) }}</span>
-          <span class="ktext"><span v-for="(w,j) in s.words" :key="j" :class="{hit: hit(i, w[1])}">{{ w[0] }}</span></span>
-        </button>
-      </li>
-    </ol>
+  data(){ return {sel:-1, foc:-1, layer:'meaning', unit:'words', walking:false, arcs:[], W:0, H:0}; },
+  template:`<div class="kursi" :class="'ly-'+layer">
+    <div class="ktools">
+      <div class="wt-pre" role="tablist" :aria-label="ar ? 'طريقة القراءة' : 'How to read it'">
+        <button v-for="l in T.layers" :key="l[0]" type="button" role="tab" class="wt-chip small" :class="{on: layer===l[0]}" :aria-selected="String(layer===l[0])" @click="layer=l[0]">{{ ar ? l[2] : l[1] }}</button>
+      </div>
+      <button type="button" class="kwalk" :class="{on: walking}" :aria-pressed="String(walking)" @click="walk">{{ walkLabel }}</button>
+    </div>
+    <div class="karch" ref="arch">
+      <svg class="karcs" :width="W" :height="H" :viewBox="'0 0 '+W+' '+H" aria-hidden="true">
+        <path v-for="a in arcs" :key="a.l" class="arc" :class="{on: cur>=0 && Math.min(cur, 8-cur)===a.l, none: !a.w}" :d="a.d" :style="{strokeWidth: 1.2+a.w*1.6}"/>
+      </svg>
+      <ol class="klist" dir="rtl" lang="ar">
+        <li v-for="(s,i) in k.statements" :key="i" :class="['lv'+lvl(i), {on: isOn(i), dim: cur>=0 && !isOn(i), c: i===4}]" :style="{'--c': col(i)}">
+          <button type="button" :ref="el=>{ if(el) btn[i]=el; }" @click="pick(i)" @focus="onFocus(i, $event)" @blur="foc=-1" :aria-pressed="String(sel===i)" :aria-label="tag(i)+' '+wordsOf(i)">
+            <span class="ktag" dir="ltr">{{ tag(i) }}</span>
+            <span class="ktext"><span v-for="(w,j) in s.words" :key="j" :class="{hit: hit(i, j)}">{{ w[0] }}</span></span>
+          </button>
+        </li>
+      </ol>
+    </div>
+    <p class="kverdict" :dir="ar ? 'rtl' : 'ltr'">{{ verdict[layer][L] }}</p>
     <p class="knote" :dir="ar ? 'rtl' : 'ltr'" role="status" aria-live="polite" v-html="$root.rich(note)"></p>
+    <div class="kbars">
+      <div class="kbhead"><b>{{ T.bars.h[L] }}</b>
+        <div class="wt-pre" role="group" :aria-label="T.bars.h[L]"><button v-for="u in T.bars.units" :key="u[0]" type="button" class="wt-chip small" :class="{on: unit===u[0]}" :aria-pressed="String(unit===u[0])" @click="unit=u[0]">{{ ar ? u[2] : u[1] }}</button></div></div>
+      <div class="kbgrid" role="img" :aria-label="barsAria">
+        <template v-for="r in bars" :key="r.l">
+          <span class="kbl" :class="{c: r.c, on: cur>=0 && Math.min(cur, 8-cur)===r.l}"><b>{{ r.c ? '' : D(r.a) }}</b><i :style="{width: r.wa+'%', '--c': col(r.l)}"></i></span>
+          <span class="kbt" :class="{c: r.c}" :style="{'--c': col(r.l)}">{{ r.tag }}<small v-if="r.c">{{ D(r.a) }}</small></span>
+          <span class="kbr" :class="{c: r.c, on: cur>=0 && Math.min(cur, 8-cur)===r.l}"><i :style="{width: r.wb+'%', '--c': col(r.l)}"></i><b>{{ r.c ? '' : D(r.b) }}</b></span>
+        </template>
+        <span class="kbl tot"><b>{{ D(sum1) }}</b></span><span class="kbt tot">{{ ar ? 'المجموع' : 'In all' }}</span><span class="kbr tot"><b>{{ D(sum2) }}</b></span>
+      </div>
+      <p class="kverdict" :dir="ar ? 'rtl' : 'ltr'">{{ barsVerdict }}</p>
+    </div>
   </div>`,
-  computed:{ ar(){ return this.$root.lang==='ar'; }, T(){ return this.$root.DT.KURSI; },
-    note(){ const i=this.sel, T=this.T, L=this.ar ? 1 : 0, F=this.$root.dF;
+  created(){ this.btn=[]; },
+  mounted(){ this.measure(); if(window.ResizeObserver && this.$refs.arch){ this._ro=new ResizeObserver(()=>this.measure()); this._ro.observe(this.$refs.arch); }
+    if(document.fonts && document.fonts.ready) document.fonts.ready.then(()=>this.measure()); },
+  updated(){ this.$nextTick(()=>this.measure()); },
+  beforeUnmount(){ if(this._ro) this._ro.disconnect(); clearInterval(this._walk); },
+  computed:{ ar(){ return this.$root.lang==='ar'; }, L(){ return this.ar ? 1 : 0; }, T(){ return this.$root.DT.KURSI; }, F(){ return this.$root.dF; },
+    cur(){ return this.sel>=0 ? this.sel : this.foc; },
+    verdict(){ return this.T.verdict(this.$root.DZ, this.F); },
+    walkLabel(){ const W=this.T.walk; return (MOTION ? (this.walking ? W.stop : W.go) : W.step)[this.L]; },
+    // the form features a statement shares with its partner (or, for the centre, with any statement)
+    formShared(){ const f=this.k.form, out={};
+      f.pairs.forEach(p=>{ out[p.a-1]=out[p.b-1]=p.shared; });
+      out[4]=f.centre.flatMap(x=>x.shared); return out; },
+    rootShared(){ const out={}; this.k.pairs.forEach(p=>{ out[p.a-1]=out[p.b-1]=p.shared; }); out[4]=this.k.centreShares.flatMap(x=>x.shared); return out; },
+    centreWith(){ const L=this.layer, f=this.k.form;
+      if(L==='roots') return this.k.centreShares.map(x=>x.with-1);
+      if(L==='form') return [...new Set(f.centre.map(x=>x.with-1).concat(this.k.centreShares.map(x=>x.with-1)))];
+      return []; },
+    note(){ const i=this.cur, T=this.T, L=this.L, F=this.F, ar=this.ar, layer=this.layer;
+      if(layer==='roots') return this.rootsNote(i);
+      if(i<0) return T.intro[layer][L];
+      if(layer==='meaning'){
+        if(i===4) return T.centre[L].split(':')[0]+': '+T.meaningCentre[L];
+        const a=Math.min(i, 8-i), p=this.k.pairs[a]; return F.n(p.a)+' ↔ '+F.n(p.b)+': '+T.meaning[a][L]; }
+      const sep=ar ? '، ' : ', ', and=ar ? ' و' : ' and ';
+      const names=fs=>fs.map(x=>T.feature[x][L]).join(and), roots=rs=>rs.map(r=>this.spaced(r)).join(and);
+      if(i===4){ const f=this.k.form.centre.map(x=>names(x.shared)+(ar ? ' مع ' : ' with ')+F.n(x.with)),
+          r=this.k.centreShares.map(x=>(ar ? 'الجذر ' : 'the root ')+roots(x.shared)+(ar ? ' مع ' : ' with ')+F.n(x.with));
+        return (ar ? 'المركز ٥ يشترك في ' : 'The centre, 5, shares ')+f.concat(r).join(sep)+'.'; }
+      const a=Math.min(i, 8-i), p=this.k.form.pairs[a], rs=this.k.pairs[a].shared, bits=[];
+      if(p.shared.length) bits.push(names(p.shared));
+      if(rs.length) bits.push((ar ? 'الجذرين ' : 'the roots ')+roots(rs));
+      return F.n(p.a)+' ↔ '+F.n(p.b)+': '+(bits.length ? (ar ? 'تشتركان في ' : 'both have ')+bits.join(ar ? '، وفي ' : ', and ')+'.' : (ar ? 'لا تشتركان في سمةٍ من سمات الصيغة.' : 'no feature of form in common.')); },
+    // the mirrored bars: each pair on a row, statements 1 to 4 on one side and 6 to 9 on the other, the centre in the middle
+    bars(){ const v=this.k.sizes[this.unit], max=Math.max(...v), tg=i=>this.tag(i)+' · '+this.tag(8-i);
+      const rows=[0,1,2,3].map(l=>({l, a:v[l], b:v[8-l], wa:100*v[l]/max, wb:100*v[8-l]/max, tag:tg(l)}));
+      rows.push({l:4, c:true, a:v[4], b:v[4], wa:50*v[4]/max, wb:50*v[4]/max, tag:this.tag(4)}); return rows; },
+    sum1(){ const v=this.k.sizes[this.unit]; return v.slice(0,4).reduce((a,b)=>a+b,0); },
+    sum2(){ const v=this.k.sizes[this.unit]; return v.slice(5).reduce((a,b)=>a+b,0); },
+    barsVerdict(){ return this.T.bars.verdict(this.$root.DZ, this.F)[this.L]; },
+    barsAria(){ const v=this.k.sizes[this.unit], u=this.unit==='words' ? (this.ar ? 'كلمة' : 'words') : (this.ar ? 'حرفًا' : 'letters');
+      return (this.ar ? 'الجمل ١ إلى ٩: ' : 'Statements 1 to 9: ')+v.map(x=>this.F.n(x)).join(this.ar ? '، ' : ', ')+' '+u; } },
+  methods:{
+    D(x){ return this.F.n(x); },
+    lvl(i){ return Math.min(i, 8-i); },
+    tag(i){ const A=this.ar ? ['أ','ب','ج','د','هـ'] : ['A','B','C','D','E'], l=this.lvl(i); return A[l]+(i>4 ? '′' : ''); },
+    col(i){ return ['#e9b95f','#34d399','#38c6da','#a78bfa','#ffffff'][this.lvl(i)]; },
+    wordsOf(i){ return this.k.statements[i].words.map(w=>w[0]).join(' '); },
+    isOn(i){ const c=this.cur; return c>=0 && (i===c || i===8-c || (c===4 && this.centreWith.includes(i))); },
+    // the words to light: in form, the particles and roots a statement shares with its partner; in roots, the shared roots
+    hit(i, j){ if(this.layer==='meaning') return false;
+      const c=this.cur; if(c>=0 && !this.isOn(i)) return false;
+      const w=this.k.statements[i].words[j], fw=this.k.form.words[i][j], root=w[1];
+      const pairOf = c>=0 ? c : i, centre = c===4;
+      if(this.layer==='roots'){
+        if(c<0) return !!root && i!==4 && this.rootShared[i].includes(root);
+        return !!root && (centre ? this.k.centreShares.some(x=>x.shared.includes(root)) && (i===4 || this.k.centreShares.some(x=>x.with-1===i)) : this.rootShared[pairOf].includes(root)); }
+      if(c<0 && i===4) return false;
+      if(centre){ const fs=this.k.form.centre.filter(x=>i===4 || x.with-1===i).flatMap(x=>x.shared), rs=this.k.centreShares.filter(x=>i===4 || x.with-1===i).flatMap(x=>x.shared);
+        return fw.some(f=>fs.includes(f)) || (!!root && rs.includes(root)); }
+      return fw.some(f=>this.formShared[pairOf].includes(f)) || (!!root && this.rootShared[pairOf].includes(root)); },
+    rootsNote(i){ const T=this.T, L=this.L, F=this.F;
       if(i<0) return T.summary(this.$root.DZ, F)[L];
       if(i===4){ const c=this.k.centreShares.map(x=>x.shared.map(r=>this.spaced(r)).join(this.ar ? '، ' : ', ')+(this.ar ? ' مع '+F.n(x.with) : ' with '+x.with)).join(this.ar ? '؛ ' : '; ');
         return T.centre[L]+(c ? ' '+(this.ar ? 'وتشترك في الجذر ' : 'It shares the root ')+c+'.' : ''); }
       const a=Math.min(i, 8-i), p=this.k.pairs[a], sh=p.shared.map(r=>this.spaced(r)).join(this.ar ? ' و' : ' and ');
-      return F.n(p.a)+' ↔ '+F.n(p.b)+': '+(p.shared.length ? (this.ar ? 'تشتركان في الجذرين '+sh+'. ' : 'they share the roots '+sh+'. ') : (this.ar ? 'لا تشتركان في جذر. ' : 'no shared root. '))+T.pairs[a][L]; } },
-  methods:{
-    lvl(i){ return Math.min(i, 8-i); },
-    tag(i){ const A=this.ar ? ['أ','ب','ج','د','هـ'] : ['A','B','C','D','E'], l=this.lvl(i); return A[l]+(i>4 ? '′' : ''); },
-    col(i){ return ['#e9b95f','#34d399','#38c6da','#a78bfa','#ffffff'][this.lvl(i)]; },
-    isOn(i){ return this.sel>=0 && (i===this.sel || i===8-this.sel || (this.sel===4 && this.k.centreShares.some(x=>x.with-1===i))); },
-    shared(i){ if(i===4) return this.k.centreShares.flatMap(x=>x.shared);
-      const p=this.k.pairs[Math.min(i, 8-i)]; return p.shared; },
-    hit(i, r){ if(!r) return false; if(this.sel<0) return i!==4 && this.shared(i).includes(r);
-      if(!this.isOn(i)) return false;
-      if(this.sel===4) return this.k.centreShares.some(x=>x.shared.includes(r)) && (i===4 || this.k.centreShares.some(x=>x.with-1===i));
-      return this.shared(this.sel).includes(r); },
+      return F.n(p.a)+' ↔ '+F.n(p.b)+': '+(p.shared.length ? (this.ar ? 'تشتركان في الجذرين '+sh+'. ' : 'they share the roots '+sh+'. ') : (this.ar ? 'لا تشتركان في جذر. ' : 'no shared root. '))+T.pairs[a][L]; },
     spaced(r){ return '«'+r.split('').join(' ')+'»'; },
-    pick(i){ this.sel = this.sel===i || (this.sel>=0 && this.sel!==4 && i===8-this.sel) ? -1 : i; } } };
+    pick(i){ this.stopWalk(); this.sel = this.sel===i || (this.sel>=0 && this.sel!==4 && i===8-this.sel) ? -1 : i; },
+    // a statement reached with the keyboard lights its pair at once (a tap pins it); a click's own focus does not
+    onFocus(i, ev){ const el=ev && ev.target; if(el && el.matches && el.matches(':focus-visible')) this.foc=i; },
+    walk(){ if(!MOTION){ this.sel = this.sel>=8 ? -1 : this.sel+1; return; }
+      if(this.walking){ this.stopWalk(); return; }
+      this.walking=true; this.sel=0;
+      this._walk=setInterval(()=>{ if(this.sel>=8){ this.stopWalk(); this.sel=-1; return; } this.sel++; }, 1300); },
+    stopWalk(){ clearInterval(this._walk); this.walking=false; },
+    // the arcs: each pair's rows share a start edge (same depth in the arch); the arc leaves it, bows out and comes back,
+    // like FarrinRing's arcs on their side. Its weight follows what the pair shares in the layer shown.
+    measure(){ const box=this.$refs.arch; if(!box || !this.btn[0]) return;
+      const b=box.getBoundingClientRect(), W=Math.round(b.width), H=Math.round(b.height), h=Math.min(22, Math.max(14, W*.03));
+      const rows=this.btn.map(el=>{ const r=el.getBoundingClientRect(); return {x:r.right-b.left, y:r.top-b.top+r.height/2}; });
+      const share=l=>this.layer==='meaning' ? 1.2 : this.layer==='form' ? this.k.form.pairs[l].shared.length+this.k.pairs[l].shared.length : this.k.pairs[l].shared.length;
+      const arcs=[0,1,2,3].map(l=>{ const a=rows[l], z=rows[8-l], x=Math.max(a.x, z.x)+2, f=v=>v.toFixed(1);
+        return {l, w:share(l), d:'M'+f(x)+' '+f(a.y)+' C '+f(x+h)+' '+f(a.y)+', '+f(x+h)+' '+f(z.y)+', '+f(x)+' '+f(z.y)}; });
+      if(W!==this.W || H!==this.H || JSON.stringify(arcs)!==JSON.stringify(this.arcs)){ this.W=W; this.H=H; this.arcs=arcs; } } },
+  watch:{ layer(){ this.$nextTick(()=>this.measure()); } } };
 // Study 2, the middle verse: where al-Baqarah's middle falls by verses, by words and by letters, and where «وسطا» sits
 const MiddleBars = { mixins:[FitW], props:['md'],
   template:`<svg :viewBox="'0 0 '+w+' '+H" role="img" :aria-label="aria">
@@ -7677,9 +7795,12 @@ createApp({
     // after an old address opens the page that took it in, bring its section into view
     toAnchor(){ const a=this._toAnchor; this._toAnchor=''; if(!a) return;
       const to=how=>{ const el=document.getElementById(a); if(el) el.scrollIntoView({behavior:how, block:'start'}); };
-      setTimeout(()=>to(REDUCED ? 'auto' : 'smooth'), 450);
-      // charts above it can still be growing; land on it again once they have
-      setTimeout(()=>{ const el=document.getElementById(a); if(el && Math.abs(el.getBoundingClientRect().top-84)>40) to('auto'); }, 1700); },
+      // a section of a page whose data loads on demand (/kursi) is not there at first: wait for it (up to 10 s), then land;
+      // charts above it can still be growing, so land on it again once they have
+      let n=0; const go=()=>{ if(!document.getElementById(a)){ if(++n<40) setTimeout(go, 250); return; }
+        to(REDUCED ? 'auto' : 'smooth');
+        setTimeout(()=>{ const el=document.getElementById(a); if(el && Math.abs(el.getBoundingClientRect().top-84)>40) to('auto'); }, 1250); };
+      setTimeout(go, 450); },
     // ---- the landing's motion, carried into the app ----
     enterView(animate){
       const sky=SKY(); if(sky){ sky.setView(this.view); this.syncSky(); this.syncStage(); }

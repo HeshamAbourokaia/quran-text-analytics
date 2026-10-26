@@ -104,6 +104,27 @@ def test_ring_claims_as_quoted():
     assert [p['shared'] for p in k['pairs']] == [[], [], ['ارض', 'سمو'], []] and k['centreShares'] == [{'with': 6, 'shared': ['علم']}]
     assert [len(s['words']) for s in k['statements']] == [7, 5, 7, 7, 6, 8, 4, 3, 3]
 
+def test_kursi_form_and_size():
+    # Ayat al-Kursi's form layer and sizes (exploratory, like the root count: the features were listed after reading the verse)
+    k = R['ringClaims']['kursi']
+    f = k['form']
+    assert f['features'] == ['huwa', 'neg', 'illa', 'mama']
+    assert f['statements'] == [['huwa', 'illa', 'neg'], ['neg'], ['mama'], ['illa'], ['mama'], ['illa', 'neg'], [], ['neg'], ['huwa']]
+    assert [p['shared'] for p in f['pairs']] == [['huwa'], ['neg'], [], ['illa']] and f['centre'] == [{'with': 3, 'shared': ['mama']}]
+    t = f['test']                   # 24 pairings; a pair links when it shares a feature of form or a root
+    assert 'verdict' not in t and (t['obs'], t['arrangements'], t['ge'], t['p'], t['dist']) == (4.0, 24, 1, 0.0417, [1, 10, 8, 4, 1])
+    assert k['sizes']['words'] == [7, 5, 7, 7, 6, 8, 4, 3, 3] and sum(k['sizes']['words'][:4]) == 26 and sum(k['sizes']['words'][5:]) == 18
+    assert k['sizes']['letters'] == [24, 16, 22, 24, 23, 28, 20, 13, 14] and sum(k['sizes']['letters']) == 184
+    from pipeline.lettercount import tiles, count   # the letter-count study's own rule: the verse's written letters
+    assert sum(count(tiles(w['surface'])) for w in _WORDS if (w['sura'], w['aya']) == (2, 255)) == 184
+    for st, fw in zip(k['statements'], f['words']):   # every feature sits on a word whose text shows it
+        for (surf, _), fs in zip(st['words'], fw):
+            n = normalize(surf)
+            if 'huwa' in fs: assert n in ('هو', 'وهو'), n
+            if 'neg' in fs: assert n in ('لا', 'ولا'), n
+            if 'mama' in fs: assert n in ('ما', 'وما'), n
+            if 'illa' in fs: assert n == 'الا' or n.startswith('ب'), n
+
 def test_rhyme_as_quoted():
     got = D.rhyme(_V, _KEYS, _X, _META, perms=2)
     r = R['rhyme']
