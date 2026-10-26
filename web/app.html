@@ -1341,7 +1341,11 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .rz-rgl bdi{font-family:var(--ar-display);font-size:1.1rem;white-space:nowrap} .rz-rgl small{color:var(--on-dark-3);font-size:.74rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap} .rz-rgl b{margin-inline-start:auto;font-size:.76rem;color:var(--gold);font-variant-numeric:tabular-nums} .rz-rgl.on{background:rgba(233,185,95,.12)}
   .rz-rgx{font:inherit;font-size:.82rem;font-weight:700;color:#fff;background:rgba(20,147,111,var(--a,0));border:1px solid var(--hair);border-radius:6px;min-height:32px;cursor:pointer;font-variant-numeric:tabular-nums}
   .rz-rgx:disabled{background:rgba(255,255,255,.025);cursor:default} .rz-rgx.diag{background:repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0 4px,transparent 4px 8px)} .rz-rgx.on{outline:2px solid var(--gold);outline-offset:1px}
-  .rz-pairs{display:grid;gap:4px;margin:8px 0 0} .rz-pairs .rz-lab bdi{font-size:1.05rem}
+  .rz-pairs{display:grid;gap:4px;margin:8px 0 0}
+  .rz-pairs .rz-row{grid-template-columns:minmax(0,1.7fr) minmax(48px,1fr) auto}
+  .rz-pairlab{display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-width:0}
+  .rz-pairar{display:block;max-width:100%;font-family:var(--ar-display);font-size:1.05rem;line-height:1.5;color:var(--on-dark)}
+  .rz-pairen{display:block;max-width:100%;font-size:.76rem;line-height:1.35;color:var(--on-dark-3)}
   /* the written forms as a sorted strip, grouped, every form labelled with its count */
   .rz-forms{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:6px 24px;margin:6px 0 0}
   .rz-fgh{display:flex;align-items:center;gap:8px;margin:6px 0 2px;font-size:.84rem;font-weight:600;color:var(--on-dark)} .rz-fgh i{width:12px;height:12px;border-radius:4px;background:var(--c)} .rz-fgh b{font-size:.76rem;color:var(--gold);font-variant-numeric:tabular-nums}
@@ -1380,7 +1384,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
     .rz-click,.rz-cond,.rz-frow,.rz-hlegi,.rz-rgl,.rz-skpart,.rz-skchip,.rz-chrow,.rz-ref1,.rz-cmprow,.rz-pinshow,.rz-pinx,.rz .wt-chip,.rz-copy,.rz-rgx{min-height:44px}
     .rz .wt-chip{display:inline-flex;align-items:center;justify-content:center;min-width:44px} .rz .plain button{min-height:44px} .rz .wt-where{min-height:44px;font-size:12px} .rz-ref1{min-width:44px;padding:4px 8px} .rz-pinx{width:44px} .rz-pinbar{border-radius:18px;bottom:10px}
     .rz-strip text{font-size:12px} .rz-strip text.arab{font-size:13px} .rz-grid .num{font-size:12px} .rz-grid .nm{font-size:12px}
-    .rz-tag,.rz-badge,.rz-tbadge,.rz-refs,.rz-plabel,.rz-lab small,.rz-mlab,.rz-mean i,.rz-cname b,.rz-series,.rz-dhl,.rz-dhs,.rz-rgl small,.rz-chrow b,.rz-fgh b,.rz-cmpside,.rz-lg{font-size:12px}
+    .rz-tag,.rz-badge,.rz-tbadge,.rz-refs,.rz-plabel,.rz-pairen,.rz-lab small,.rz-mlab,.rz-mean i,.rz-cname b,.rz-series,.rz-dhl,.rz-dhs,.rz-rgl small,.rz-chrow b,.rz-fgh b,.rz-cmpside,.rz-lg{font-size:12px}
     .rz-forms{grid-template-columns:1fr} .rz-pinlab{flex-basis:100%;white-space:normal} .rz-map{padding:12px 10px}
   }
   @media (prefers-reduced-motion: reduce){ .rz *,.rz-pinbar{transition:none!important} }
@@ -5684,7 +5688,7 @@ const NameLab = {
         </template>
       </div>
       <div v-else class="rz-pairs">
-        <button v-for="c in pairsShown" :key="c.id" type="button" class="rz-row rz-click" :class="[lc(c.keys), {on: isSel('pair', c.id)}]" v-bind="hl('pair', c.id, c.keys)" @click="pickSel('pair', c.id)" :aria-pressed="String(isSel('pair', c.id))"><span class="rz-lab"><bdi lang="ar" dir="rtl">{{ c.a.ar }}</bdi> + <bdi lang="ar" dir="rtl">{{ c.b.ar }}</bdi><small v-if="!ar"> {{ c.a.en }} + {{ c.b.en }}</small></span><span class="rz-bar"><i :style="{width: pct(c.keys.length, rootGrid.max)+'%'}"></i></span><b class="rz-n">{{ D(c.keys.length) }}</b></button>
+        <button v-for="c in pairsShown" :key="c.id" type="button" class="rz-row rz-click" :class="[lc(c.keys), {on: isSel('pair', c.id)}]" v-bind="hl('pair', c.id, c.keys)" @click="pickSel('pair', c.id)" :aria-pressed="String(isSel('pair', c.id))"><span class="rz-lab rz-pairlab"><span class="rz-pairar" dir="rtl" lang="ar">{{ c.a.ar }} + {{ c.b.ar }}</span><span v-if="!ar" class="rz-pairen" dir="ltr">{{ c.a.en }} + {{ c.b.en }}</span></span><span class="rz-bar"><i :style="{width: pct(c.keys.length, rootGrid.max)+'%'}"></i></span><b class="rz-n">{{ D(c.keys.length) }}</b></button>
         <button v-if="rootPairs.rest.length" type="button" class="wt-where rz-more" :aria-expanded="String(allPairs)" @click="allPairs=!allPairs">{{ allPairs ? T(['Show only the pairs that share most','اعرض الأزواج الأكثر اشتراكًا وحدها']) : T([rootPairs.rest.length+' more pairs share one verse each: show them','و'+rootPairs.rest.length+' زوجًا آخر يشترك كلٌّ منها في آيةٍ واحدة: اعرضها']) }}</button>
       </div>
       <p class="rz-read" aria-live="polite" v-html="netRead"></p>
@@ -5906,7 +5910,7 @@ const NameLab = {
     surahKeys(){ const m={}; this.R.verses.forEach(v=>{ const s=+v.k.split(':')[0]; (m[s]||(m[s]=[])).push(v.k); }); return m; },
     maxPer(){ return Math.max(1, ...Object.values(this.perSurah)); },
     topSurahs(){ return Object.keys(this.perSurah).map(n=>({n:+n, c:this.perSurah[n]})).sort((a,b)=>b.c-a.c || a.n-b.n).slice(0,4); },
-    grid(){ const cw=this.cw, ar=this.ar, cols= cw>=700 ? 19 : (cw>=560 ? 12 : 7), gap=3, size=(cw-gap*(cols-1))/cols, rows=Math.ceil(114/cols);
+    grid(){ const cw=this.cw, ar=this.ar, cols= cw>=700 ? 19 : (cw>=560 ? 12 : (cw>=310 ? 7 : 6)), gap=3, size=(cw-gap*(cols-1))/cols, rows=Math.ceil(114/cols);
       const per=this.perSurah, live=this.perShown, cells=[];
       for(let n=1;n<=114;n++){ const i=n-1, c=i%cols, r=Math.floor(i/cols), name=this.$root.surahName(n);
         cells.push({n, x: ar ? cw-(c+1)*size-c*gap : c*(size+gap), y: r*(size+gap), cnt: per[n]||0, live: !!live[n], name, short: (!ar && name.length>10) ? name.slice(0,9)+'…' : name}); }
