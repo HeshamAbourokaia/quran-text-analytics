@@ -12,7 +12,7 @@ The menu has five sections. Every page has a short address you can send to someo
 
 | Section | Pages | Short links |
 |---|---|---|
-| **Read** | Reader, Word Search, Mushaf Layouts, Hifz Planner | `/reader`, `/search`, `/mushaf-layouts`, `/hifz` |
+| **Read** | Reader, Search, Mushaf Layouts, Hifz Planner | `/reader`, `/search`, `/mushaf-layouts`, `/hifz` |
 | **Claims** | Word Counts, Word Pairs, Number 19, Iron, Bee and Noah, Abjad, How many words?, How many letters?, History Claims, Science Verses | `/word-counts`, `/word-pairs`, `/19`, `/iron-bee-noah`, `/abjad`, `/how-many-words`, `/how-many-letters`, `/history`, `/science` |
 | **Discoveries** | Nine studies, each tested against chance with the test written down first | `/discoveries`, `/verse-endings`, `/mirrors` (its Ayat al-Kursi section: `/kursi`), `/rhyme`, `/retellings`, `/themes`, `/companions`, `/opening-letters`, `/near-repeats`, `/revelation-order` |
 | **Explore** | Overview, Words, Letters, Mecca and Medina, Tone and Voice, Similar Surahs, Knowledge Graph | `/overview`, `/words`, `/letters`, `/mecca-medina`, `/tone`, `/similar-surahs`, `/knowledge-graph` |
@@ -49,6 +49,7 @@ Then open <http://localhost:8765/app.html>. Locally the short links are off, so 
 cd data-build
 /usr/bin/python3 build.py
 for t in tests/test_*.py; do /usr/bin/python3 "$t"; done
+node tests/test_lookup.js
 ```
 
 Use a Python with a working scikit-learn (the macOS system Python here). The build stops if the corpus totals change: 114 surahs, 6,236 verses, 77,429 words.

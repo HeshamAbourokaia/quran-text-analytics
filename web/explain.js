@@ -161,12 +161,14 @@ window.DALEEL_EXPLAIN = (function () {
       limits: ['A correlation across surahs, which differ in many ways at once; it describes, it does not explain.', 'ارتباطٌ عبر سورٍ تختلف في أمورٍ كثيرة معًا؛ فهو يصف ولا يفسّر.'] },
 
     search: {
-      purpose: ['Find every verse where a word occurs.', 'إيجاد كل آيةٍ وردت فيها كلمة.'],
-      data: ['The 77,429 words, each with its written form, [[lemma]] and [[root]].', 'الكلمات الـ٧٧٬٤٢٩، ولكلٍّ منها رسمها و[[lemma|مدخلها المعجمي]] و[[root|جذرها]].'],
+      purpose: ['Find every verse where a word or a phrase occurs, and go to a verse or a surah by its number or its name.', 'إيجاد كل آيةٍ وردت فيها كلمةٌ أو عبارة، والذهاب إلى آيةٍ أو سورةٍ برقمها أو باسمها.'],
+      data: ['The 77,429 words, each with its written form, [[lemma]] and [[root]]; the verse text with Pickthall\'s English translation; the 114 surah names with the spellings people type.', 'الكلمات الـ٧٧٬٤٢٩، ولكلٍّ منها رسمها و[[lemma|مدخلها المعجمي]] و[[root|جذرها]]؛ ونص الآيات مع ترجمة بكتهول الإنجليزية؛ وأسماء السور الـ١١٤ بما تُكتب به من صور.'],
       method: ['As written: the [[normalization|normalized]] query is found anywhere inside a word\'s normalized form. All forms: words whose lemma, without vowel marks, equals the query. Root: words whose root equals it.',
         'بالرسم: يُبحث عن النص [[normalization|الموحَّد الرسم]] في أي موضعٍ داخل رسم الكلمة الموحَّد. وبكل الصيغ: الكلمات التي يساوي مدخلها المعجمي، بلا حركات، نصَّ البحث. وبالجذر: الكلمات التي يساوي جذرها نصَّ البحث.'],
-      limits: ['«As written» matches inside longer words, so short queries over-match. Without vowel marks, lemmas that share a spelling are found together (مَلَك angel, مُلْك dominion, مَلِك king); the hints under the box tell them apart.',
-        '«بالرسم» يطابق داخل الكلمات الأطول، فالبحث القصير يطابق أكثر مما يُراد. وبلا حركات تُوجد المداخل المتفقة رسمًا معًا (مَلَك ومُلْك ومَلِك)، والتنبيهات تحت المربع تفصل بينها.'] },
+      also: ['A phrase is found as consecutive words inside one verse, each compared in its normalized form and in today\'s spelling (the small alif written as a letter). English words are matched whole, in any letter case, in the translation. A reference is read from its numbers (2:255) or from a surah name, matched by exact spelling, then by sound (q as k, doubled letters once), then within one or two letters of one name only.',
+        'تُوجَد العبارة كلماتٍ متتاليةً داخل آيةٍ واحدة، وتُقارَن كل كلمةٍ برسمها الموحَّد وبالإملاء الحديث (الألف الصغيرة حرفًا). وتُطابَق الكلمات الإنجليزية كاملةً في الترجمة أيًّا كانت حالة حروفها. ويُقرأ المرجع من أرقامه (٢:٢٥٥) أو من اسم السورة: بالرسم نفسه، ثم بالنطق، ثم بفارق حرفٍ أو حرفين عن اسمٍ واحدٍ لا غير.'],
+      limits: ['«As written» matches inside longer words, so short queries over-match. Without vowel marks, lemmas that share a spelling are found together (مَلَك angel, مُلْك dominion, مَلِك king); the hints under the box tell them apart. An English search counts the translator\'s wording, not the Quran\'s: one Arabic word has several English renderings.',
+        '«بالرسم» يطابق داخل الكلمات الأطول، فالبحث القصير يطابق أكثر مما يُراد. وبلا حركات تُوجد المداخل المتفقة رسمًا معًا (مَلَك ومُلْك ومَلِك)، والتنبيهات تحت المربع تفصل بينها. والبحث بالإنجليزية يعدّ ألفاظ المترجم لا ألفاظ القرآن، فللكلمة العربية الواحدة أكثر من مقابل.'] },
 
     auditor: {
       purpose: ['Check popular numerical claims against the text.', 'التحقق من المزاعم العددية المتداولة بالرجوع إلى النص.'],
