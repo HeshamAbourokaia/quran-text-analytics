@@ -17,9 +17,10 @@ vercel.json     serves web/ and api/, and sends the short links to the app
 | `app.html` | The app. One Vue 3 file with no build step: every page is a `<section v-if="view==='…'">`, and the interactive pieces are components registered at the end of the file |
 | `sky.js` | The WebGL star field behind every page. On "staged" pages (`STAGED` in `app.html`) it also draws the page's main chart |
 | `lookup.js` | Finds a verse or a surah from what a reader types: numbers (2:255), a surah's name in Arabic or English in the spellings people use, a name with a verse (Baqarah 255), a verse known by a name (Ayat al-Kursi), or a juz, a hizb or a printed page (juz 30, page 255; it reads where they begin from `marks` in `data.js`). Used by Search, the Reader's Go to box and the home ask box. To add a spelling or a named verse, add it to `NAMES` or `NAMED` there |
+| `translit.js` | Finds an Arabic word typed in English letters (rahma, ra7ma, al-kitab) by its sound, and a few phrases known by their sound (alhamdulillah). It reads how each dictionary word sounds from `roman.js`. Used by Search and by the search box on every page. A typed word is only replaced by the Arabic word when it sounds exactly like one and is not an English word of the translation or a surah's name; a looser fit is offered, never chosen |
 | `explain.js` | Each page's explanation for scientists, and the glossary of terms (each term links to the page where it is at work) |
 | `discover.js`, `discoveries.js` | The nine studies: their texts, and the results the pipeline computed |
-| `data.js`, `words.js`, `corpus.js`, `translation_en.js`, `lemma-variants.js` | Data written by `data-build/`. Do not edit them by hand |
+| `data.js`, `words.js`, `corpus.js`, `translation_en.js`, `lemma-variants.js`, `roman.js` | Data written by `data-build/`. Do not edit them by hand |
 | `content/` | Library content (stories, lessons, du'as, insights, untranslatable words, history claims), the knowledge-graph pages, the mushaf layout, the Alifi pages, Jev's batch answers |
 | `config.js` | Where the Jev endpoint is set |
 | `vendor/` | Vue's global build. Plotly loads from a CDN when a page first needs a chart |
@@ -40,7 +41,7 @@ Each page explains itself in two layers that the reader switches between. The pl
 
 ## The data (`data-build/`)
 
-`build.py` reads the Quranic Arabic Corpus morphology (`sources/quran-morphology.txt`), stops if the totals are not 114 surahs, 6,236 verses and 77,429 words, and writes `web/data.js`, `words.js`, `corpus.js` and `lemma-variants.js`.
+`build.py` reads the Quranic Arabic Corpus morphology (`sources/quran-morphology.txt`), stops if the totals are not 114 surahs, 6,236 verses and 77,429 words, and writes `web/data.js`, `words.js`, `corpus.js`, `lemma-variants.js` and `roman.js`.
 
 | Module (`pipeline/`) | What it computes |
 |---|---|
@@ -53,8 +54,10 @@ Each page explains itself in two layers that the reader switches between. The pl
 | `names.py` with `rizq.py`, `wahhab.py` | The Name studies (*Rizq Verses and Du'a*, *Hiba Verses and Du'a*): one engine, and one config per Name holding its hand labels, its du'a and the page's sentences |
 | `mushaf.py`, `lemma_variants.py` | The mushaf page layout, and the homograph tables the claim checker uses |
 | `marks.py` | Where each juz, hizb quarter and printed page begins (`marks` in `data.js`): pages and quarter signs read from the mushaf layout, and checked so that eight quarters make each juz |
+| `roman.py` | How each dictionary word sounds (`web/roman.js`), read from the vowel marks of its lemma, so a word can be found when typed in English letters |
 
 - `tests/test_lookup.js` checks `web/lookup.js` against the site's own surah list: `node data-build/tests/test_lookup.js`.
+- `tests/test_translit.js` checks `web/translit.js` against the site's own word index (about 150 spellings people type): `node data-build/tests/test_translit.js`.
 - `tests/` pin every number the site publishes. Run them with a Python that has a working scikit-learn; on this Mac that is `/usr/bin/python3`.
 - `discover/PREREGISTRATION.md` is the plan written before the studies ran.
 - `jev/` holds the Jev batch jobs and a stand-in for developing without a key.

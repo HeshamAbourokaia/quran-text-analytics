@@ -260,6 +260,11 @@ const tests = {
     assert.deepEqual(sug('2:25'), []);
     assert.deepEqual(sug(''), []);
   },
+  'a surah found only by the sound of an unlisted spelling says so'() {
+    assert.equal(P('allah').sound, true);                         // sounds like al-Ala: the page lets the word win
+    for (const q of ['Baqarah', 'bakarah', 'kahf', 'Al-Ala', 'Yasin', 'الكهف']) assert.equal(P(q).sound, undefined, q);
+    assert.equal(P('rahma').how, 'near');
+  },
 };
 
 let failed = 0;
