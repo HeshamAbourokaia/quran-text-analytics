@@ -40,6 +40,27 @@ def test_one_spelling_several_words():
     assert _R['ملك'] == 'malak mulk malik malk'               # angel, dominion, king: most frequent first
     assert _R['علم'].split()[:2] == ['Ealima', 'Eilm']
 
+def test_sounds_line_up_with_the_words_behind_a_spelling():
+    """Search tells which word a sound means by its place in the list (malik is the third sound of ملك, so the
+    third word, the king). That holds when a spelling has as many sounds as words: the nth sound is the nth word's."""
+    from pipeline import lemma_variants
+    variants = lemma_variants.build(_WORDS)
+    pos = {}
+    for w in _WORDS:
+        if w['lemma']:
+            pos.setdefault(w['lemma'], w.get('pos') or '')
+    lined_up = 0
+    for bare, senses in variants.items():
+        sounds = _R.get(bare, '').split()
+        if len(sounds) != len(senses):
+            continue                                   # two words said alike: the site then offers no sound for them
+        lined_up += 1
+        for i, (lemma, _n, _root) in enumerate(senses):
+            assert sound(lemma, pos[lemma]) == sounds[i], (bare, i, lemma)
+    assert lined_up > 300, lined_up
+    king = [s[0] for s in variants['ملك']]
+    assert _R['ملك'].split()[:3] == ['malak', 'mulk', 'malik'] and len(king) == len(_R['ملك'].split())
+
 def test_the_site_carries_the_same_table():
     s = open(_WEB, encoding='utf-8').read()
     assert json.loads(s[s.index('{'):s.rindex('}') + 1]) == _R
