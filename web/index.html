@@ -1027,7 +1027,7 @@ const nf = (n, d) => Number(n).toLocaleString(loc(), { minimumFractionDigits: d 
 const digits = s => (lang === 'ar' ? String(s).replace(/\d/g, c => '٠١٢٣٤٥٦٧٨٩'[c]) : String(s));
 const pct = () => (lang === 'ar' ? '٪' : '%');
 const fill = str => str.replace(/\{(\w+)\}/g, (m, k) => (k in NUM ? (typeof NUM[k] === 'number' ? nf(NUM[k], DEC[k]) : digits(NUM[k])) : m));
-// Arabic counted nouns: 1 and 2 have their own forms, 3–10 take the plural, the rest the singular
+// Arabic counted nouns: 1 and 2 have their own forms, 3 to 10 take the plural, the rest the singular
 const arCount = (n, one, two, few, many) => (n === 1 ? one : n === 2 ? two : (n % 100 >= 3 && n % 100 <= 10) ? nf(n) + ' ' + few : nf(n) + ' ' + many);
 
 const I18N = {

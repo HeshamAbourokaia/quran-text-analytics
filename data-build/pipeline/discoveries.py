@@ -319,7 +319,7 @@ def _kursi_form():
 
 def kursi(words):
     """Ayat al-Kursi's nine statements: the roots each mirror pair shares, and how the mirror ranks among every way
-    to pair statements 1–4 with 6–9 by shared roots (exploratory: the verse is the one the claim was read from)."""
+    to pair statements 1 to 4 with 6 to 9 by shared roots (exploratory: the verse is the one the claim was read from)."""
     ws = [w for w in words if w['sura'] == 2 and w['aya'] == 255]
     assert len(ws) == 50 and KURSI[-1][1] == 50
     st = [ws[a - 1:b] for a, b in KURSI]
