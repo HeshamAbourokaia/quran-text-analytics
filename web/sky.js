@@ -453,7 +453,7 @@
         if (d.equal) { const pw = (1 - ml - mr) * bx.w, ph = (1 - mt - mbt) * bx.h, ux = (x1 - x0) / pw, uy = (y1 - y0) / ph; if (ux < uy) x1 = x0 + uy * pw; else y1 = y0 + ux * ph; }
         const fxOf = v => ml + (1 - ml - mr) * (Tx(v) - Tx(x0)) / (Tx(x1) - Tx(x0)), fyOf = v => 1 - mbt - (1 - mbt - mt) * (Ty(v) - Ty(y0)) / (Ty(y1) - Ty(y0));
         const every = (a, b, s) => { const o = []; for (let v = Math.ceil(a / s) * s; v <= b + 1e-9; v += s) o.push(Math.round(v * 1e6) / 1e6); return o; };
-        const tkl = v => digits(v < 0 ? '−' + Math.abs(v) : v), px = (x, y) => [fxOf(x) * bx.w, fyOf(y) * bx.h];
+        const tkl = v => digits(v < 0 ? '-' + Math.abs(v) : v), px = (x, y) => [fxOf(x) * bx.w, fyOf(y) * bx.h];
         const info = {};
         P2.forEach(pt => {
           const k = pt.n - 1, nv = VW[k].length, cx = fxOf(pt.x) * bx.w, cy = fyOf(pt.y) * bx.h, rad = (d.r0 || 2) + (d.r1 || 10) * Math.sqrt(nv / maxV);

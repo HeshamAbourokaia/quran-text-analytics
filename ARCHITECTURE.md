@@ -60,6 +60,7 @@ Each page explains itself in two layers that the reader switches between. The pl
 - `tests/test_lookup.js` checks `web/lookup.js` against the site's own surah list: `node data-build/tests/test_lookup.js`.
 - `tests/test_translit.js` checks `web/translit.js` against the site's own word index (about 150 spellings people type): `node data-build/tests/test_translit.js`.
 - `tests/test_study.js` checks `web/study.js` the same way (repeats, nearest verses, same-spelling words): `node data-build/tests/test_study.js`.
+- `tests/test_no_dashes.js` fails if any file of the site holds an em dash, an en dash or a minus sign: `node data-build/tests/test_no_dashes.js`. Ranges and negative numbers use a plain hyphen; a dash the code must recognise when a visitor types it is written as an escape.
 - `tests/` pin every number the site publishes. Run them with a Python that has a working scikit-learn; on this Mac that is `/usr/bin/python3`.
 - `discover/PREREGISTRATION.md` is the plan written before the studies ran.
 - `jev/` holds the Jev batch jobs and a stand-in for developing without a key.
