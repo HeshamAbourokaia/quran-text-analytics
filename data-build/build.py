@@ -15,6 +15,7 @@ from pipeline import analytics as analytics_mod
 from pipeline import optimisation as optim_mod
 from pipeline import montecarlo as mc_mod
 from pipeline import lemma_variants as lemma_variants_mod
+from pipeline import roman as roman_mod
 from pipeline import wordcount as wordcount_mod
 from pipeline import lettercount as lettercount_mod
 from pipeline import rizq as rizq_mod
@@ -123,6 +124,7 @@ def main():
         json.dump(widx, fh, ensure_ascii=False, separators=(',', ':'))
         fh.write(';\n')
     write_lemma_variants(words, web_dir)
+    write_roman(words, web_dir)
 
     _scorecard(stats, claim_rows)
 
@@ -138,6 +140,13 @@ def write_lemma_variants(words, web_dir):
         json.dump(lemma_variants_mod.build(words), fh, ensure_ascii=False, separators=(',', ':'))
         fh.write(';\nwindow.QURAN_FORM_SENSES = ')
         json.dump(lemma_variants_mod.form_senses(words), fh, ensure_ascii=False, separators=(',', ':'))
+        fh.write(';\n')
+
+def write_roman(words, web_dir):
+    """How each dictionary word sounds, for a search typed in English letters (web/translit.js reads it)."""
+    with open(os.path.join(web_dir, 'roman.js'), 'w', encoding='utf-8') as fh:
+        fh.write('window.QURAN_ROMAN = ')
+        json.dump(roman_mod.build(words), fh, ensure_ascii=False, separators=(',', ':'))
         fh.write(';\n')
 
 def _write(name, obj):

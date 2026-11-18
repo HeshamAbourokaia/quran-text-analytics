@@ -207,7 +207,8 @@
   }
 
   // which surah a typed name means: {s, how}; how = 'ar' | 'en' | 'meaning', or 'near' for a spelling a letter
-  // or two away from one name only. said: the reader wrote «surah» / «سورة» before it.
+  // or two away from one name only. sound: found by the sound of a spelling that is not listed (Bakarah), which
+  // an everyday word can share (allah sounds like al-Ala). said: the reader wrote «surah» / «سورة» before it.
   function surahByName(text, X, said) {
     const a = arKey(text);
     if (a) {
@@ -224,7 +225,7 @@
     // by sound, for a name of five letters or more: Baqarah, Bakara and Baqara are one name. Short English
     // words would otherwise turn into surahs (fat is not al-Fath)
     const keys = forms.filter(f => f.length >= 5).map(enKey);
-    for (const k of keys) if (X.sound.has(k)) return { s: X.sound.get(k), how: 'en' };
+    for (const k of keys) if (X.sound.has(k)) return { s: X.sound.get(k), how: 'en', sound: true };
     let best = null, tie = false;
     for (const k of keys) {
       const allow = k.length >= 8 ? 2 : 1;
@@ -363,7 +364,7 @@
     if (words && !named) return null;                                    // other words: not a reference
     if (named) {
       if (s && s !== named.s) return null;                               // «Yusuf 2:255» says two things
-      if (!a) return { kind: 'surah', s: named.s, how: named.how };
+      if (!a) return Object.assign({ kind: 'surah', s: named.s, how: named.how }, named.sound ? { sound: true } : null);
       return verse(X, named.s, a, b, 'name', null, named.how);
     }
     if (s) return verse(X, s, a, b, 'ref');
