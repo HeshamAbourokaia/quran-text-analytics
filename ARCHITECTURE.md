@@ -18,6 +18,7 @@ vercel.json     serves web/ and api/, and sends the short links to the app
 | `sky.js` | The WebGL star field behind every page. On "staged" pages (`STAGED` in `app.html`) it also draws the page's main chart |
 | `lookup.js` | Finds a verse or a surah from what a reader types: numbers (2:255), a surah's name in Arabic or English in the spellings people use, a name with a verse (Baqarah 255), a verse known by a name (Ayat al-Kursi), or a juz, a hizb or a printed page (juz 30, page 255; it reads where they begin from `marks` in `data.js`). Used by Search, the Reader's Go to box and the home ask box. To add a spelling or a named verse, add it to `NAMES` or `NAMED` there |
 | `translit.js` | Finds an Arabic word typed in English letters (rahma, ra7ma, al-kitab) by its sound, and a few phrases known by their sound (alhamdulillah). It reads how each dictionary word sounds from `roman.js`. Used by Search and by the search box on every page. A typed word is only replaced by the Arabic word when it sounds exactly like one and is not an English word of the translation or a surah's name; a looser fit is offered, never chosen |
+| `study.js` | What one verse shares with the rest of the Quran, for the study panel that opens from any verse number in the Reader or in Search: the verses that say it again word for word, the verses nearest to it by the dictionary words they share (each word weighted by how few verses hold it, scored by cosine, and offered only on two shared words or one rare one), and its own words from the rarest. It tells words that share a spelling apart (the garden and the jinn are both written جنة) with the two tables in `lemma-variants.js`. The panel itself (`VerseStudy` in `app.html`) adds the verse's place, and the Library cards and pages that cite it. Each verse opened is a step in the browser's history, and `?study=2-255` opens the panel from a link |
 | `explain.js` | Each page's explanation for scientists, and the glossary of terms (each term links to the page where it is at work) |
 | `discover.js`, `discoveries.js` | The nine studies: their texts, and the results the pipeline computed |
 | `data.js`, `words.js`, `corpus.js`, `translation_en.js`, `lemma-variants.js`, `roman.js` | Data written by `data-build/`. Do not edit them by hand |
@@ -52,12 +53,13 @@ Each page explains itself in two layers that the reader switches between. The pl
 | `wordcount.py`, `lettercount.py` | The rules behind *How many words?* and *How many letters?* |
 | `discoveries.py` | The nine studies (`python3 -m pipeline.discoveries --write`; slow) |
 | `names.py` with `rizq.py`, `wahhab.py` | The Name studies (*Rizq Verses and Du'a*, *Hiba Verses and Du'a*): one engine, and one config per Name holding its hand labels, its du'a and the page's sentences |
-| `mushaf.py`, `lemma_variants.py` | The mushaf page layout, and the homograph tables the claim checker uses |
+| `mushaf.py`, `lemma_variants.py` | The mushaf page layout, and the homograph tables the claim checker uses: the dictionary words behind each shared spelling, and for every word of the text which of them it is |
 | `marks.py` | Where each juz, hizb quarter and printed page begins (`marks` in `data.js`): pages and quarter signs read from the mushaf layout, and checked so that eight quarters make each juz |
 | `roman.py` | How each dictionary word sounds (`web/roman.js`), read from the vowel marks of its lemma, so a word can be found when typed in English letters |
 
 - `tests/test_lookup.js` checks `web/lookup.js` against the site's own surah list: `node data-build/tests/test_lookup.js`.
 - `tests/test_translit.js` checks `web/translit.js` against the site's own word index (about 150 spellings people type): `node data-build/tests/test_translit.js`.
+- `tests/test_study.js` checks `web/study.js` the same way (repeats, nearest verses, same-spelling words): `node data-build/tests/test_study.js`.
 - `tests/` pin every number the site publishes. Run them with a Python that has a working scikit-learn; on this Mac that is `/usr/bin/python3`.
 - `discover/PREREGISTRATION.md` is the plan written before the studies ran.
 - `jev/` holds the Jev batch jobs and a stand-in for developing without a key.

@@ -164,6 +164,81 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .find-r.on .find-go{opacity:1}
   .find-note{margin:10px 12px;font-size:.9rem;line-height:1.6;color:var(--on-dark-2)}
   .find-f{margin:0;padding:9px 16px;border-top:1px solid var(--hair);font-size:.74rem;color:var(--on-dark-3)}
+  /* the verse study panel: a drawer beside the page (a sheet from the bottom on a phone) about one verse */
+  .vs{position:fixed;inset:0;z-index:1100;display:flex;justify-content:flex-end}
+  .vs-bg{position:absolute;inset:0;background:rgba(2,6,4,.62);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+  .vs-p{position:relative;width:min(500px,100%);height:100%;display:flex;flex-direction:column;background:#0a1711;color:var(--on-dark);
+    border-inline-start:1px solid rgba(233,185,95,.4);box-shadow:0 0 90px rgba(0,0,0,.8);outline:0;animation:vsIn .3s var(--ease) both}
+  @keyframes vsIn{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:none}}
+  @keyframes vsInR{from{opacity:0;transform:translateX(-28px)}to{opacity:1;transform:none}}
+  @keyframes vsUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+  html[lang=ar] .vs-p{animation-name:vsInR}
+  .vs-top{flex:none;display:flex;align-items:center;gap:10px;padding:12px 14px;padding-inline-start:18px;border-bottom:1px solid var(--hair)}
+  .vs-id{flex:1;min-width:0} .vs-id small{display:block;font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+  .vs-id h2{margin:2px 0 0;font-family:var(--serif);font-weight:400;font-size:1.5rem;line-height:1.25;color:#fff} .vs-id h2 span{font-variant-numeric:tabular-nums;color:var(--on-dark-2);margin-inline-start:4px}
+  .vs-x,.vs-back{flex:none;width:38px;height:38px;border-radius:50%;border:0;background:rgba(255,255,255,.08);color:var(--on-dark);font-size:1.3rem;line-height:1;cursor:pointer}
+  .vs-x:hover,.vs-back:hover{background:rgba(233,185,95,.25)}
+  .vs button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .vs-body{flex:1;overflow-y:auto;overscroll-behavior:contain;padding:14px 18px 30px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.16) transparent}
+  .vs-named{display:inline-block;margin:0 0 8px;font-size:.78rem;font-weight:700;color:#1f1605;background:var(--gold);border-radius:99px;padding:3px 12px}
+  .vs-ar{margin:0;font-family:var(--ar-display);font-size:1.6rem;line-height:2.2;color:#f5efe0;text-align:start}
+  .vs-en{margin:10px 0 0;font-size:.96rem;line-height:1.7;color:var(--on-dark-2);text-align:left;padding:8px 14px;border-inline-start:2px solid rgba(52,211,153,.45);background:rgba(52,211,153,.045);border-radius:10px}
+  .vs-acts{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0}
+  .vs-acts button{font:inherit;font-size:.82rem;font-weight:600;color:var(--on-dark);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:99px;padding:7px 14px;cursor:pointer}
+  .vs-acts button:hover:not(:disabled){border-color:rgba(233,185,95,.55);color:#fff} .vs-acts button:disabled{opacity:.35;cursor:default}
+  .vs-acts .main{background:var(--gold);border-color:var(--gold);color:#1f1605} .vs-acts .main:hover:not(:disabled){color:#1f1605;filter:brightness(1.07)}
+  .vs-sec{margin-top:22px;padding-top:18px;border-top:1px solid var(--hair)}
+  .vs-sec h3{margin:0 0 6px;font-family:var(--sans);font-size:1.04rem;font-weight:700;color:#fff}
+  .vs-say{margin:0 0 8px;font-size:.98rem;line-height:1.7;color:var(--on-dark)} .vs-say bdi{font-family:var(--ar-display);font-size:1.25em;color:#fff}
+  .vs-sub,.vs-none{margin:0 0 10px;font-size:.84rem;line-height:1.6;color:var(--on-dark-2)} .vs-none{margin-bottom:0}
+  .vs-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:8px 0 0;padding:0;list-style:none}
+  .vs-facts li{padding:8px 10px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid var(--hair);min-width:0}
+  .vs-facts small{display:block;font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--on-dark-3)}
+  .vs-facts b{display:block;margin-top:2px;font-size:1rem;font-weight:600;color:#fff;font-variant-numeric:tabular-nums;overflow-wrap:anywhere} .vs-facts b i{font-style:normal;font-weight:400;font-size:.8rem;color:var(--on-dark-2)}
+  .vs-facts .wide{grid-column:1/-1}
+  .vs-pos{position:relative;height:6px;margin:14px 2px 6px;border-radius:99px;background:rgba(255,255,255,.08)} .vs-pos i{position:absolute;top:-4px;width:4px;height:14px;margin-inline-start:-2px;border-radius:2px;background:var(--gold)}
+  .vs-cap{margin:0;font-size:.78rem;color:var(--on-dark-3)}
+  .vs-refs{display:flex;flex-wrap:wrap;gap:6px}
+  .vs-refs button{font:inherit;font-size:.8rem;font-variant-numeric:tabular-nums;color:var(--gold);background:rgba(233,185,95,.1);border:1px solid rgba(233,185,95,.28);border-radius:99px;padding:4px 11px;cursor:pointer}
+  .vs-refs button:hover{background:rgba(233,185,95,.2)} .vs-refs .more{color:var(--on-dark);background:none;border-style:dashed;border-color:rgba(255,255,255,.25)}
+  .vs-row{display:flex;align-items:center;gap:12px;width:100%;margin:0 0 6px;padding:10px 12px;border:1px solid var(--hair);border-radius:12px;background:rgba(255,255,255,.03);color:var(--on-dark);font:inherit;text-align:start;cursor:pointer}
+  .vs-row:hover{border-color:rgba(233,185,95,.45);background:rgba(233,185,95,.07)}
+  .vs-k{flex:none;width:92px;font-size:.64rem;font-weight:700;line-height:1.35;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+  .vs-m{flex:1;min-width:0} .vs-m b{display:block;font-size:.95rem;font-weight:600;line-height:1.45} .vs-m small{display:block;font-size:.78rem;color:var(--on-dark-2)}
+  .vs-row>i{flex:none;font-style:normal;color:var(--gold)}
+  html[lang=ar] .vs-id small,html[lang=ar] .vs-facts small,html[lang=ar] .vs-k{letter-spacing:0;font-size:.8rem}
+  .vs-words{display:flex;flex-wrap:wrap;gap:8px}
+  .vs-w{display:flex;flex-direction:column;align-items:center;gap:1px;min-width:76px;padding:7px 12px 8px;border:1px solid var(--hair);border-radius:12px;background:rgba(255,255,255,.03);color:var(--on-dark);font:inherit;cursor:pointer}
+  .vs-w:hover{border-color:rgba(233,185,95,.45);background:rgba(233,185,95,.07)}
+  .vs-w b{font-family:var(--ar-display);font-weight:400;font-size:1.35rem;line-height:1.55;color:#fff}
+  .vs-w small{font-size:.74rem;color:var(--on-dark-2);max-width:132px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .vs-w span{font-size:.76rem;font-weight:600;color:var(--gold);font-variant-numeric:tabular-nums}
+  .vs-w.only{border-color:rgba(233,185,95,.5);background:rgba(233,185,95,.09)}
+  .vs-more{margin-top:10px;font:inherit;font-size:.84rem;color:var(--gold);background:none;border:0;padding:4px 0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+  .vs-like{display:block;width:100%;margin:0 0 8px;padding:10px 12px 12px;border:1px solid var(--hair);border-radius:14px;background:rgba(255,255,255,.03);color:var(--on-dark);font:inherit;text-align:start;cursor:pointer}
+  .vs-like:hover{border-color:rgba(233,185,95,.45);background:rgba(233,185,95,.06)}
+  .vs-like-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;font-size:.84rem;font-weight:600;color:var(--gold)} .vs-like-h small{font-weight:400;color:var(--on-dark-2)}
+  .vs-like-h i{margin-inline-start:auto;font-style:normal}
+  .vs-like-ar{display:block;margin-top:4px;font-family:var(--ar-display);font-size:1.25rem;line-height:2;color:#f5efe0;text-align:start}
+  .vs-like-en{display:block;margin-top:4px;font-size:.84rem;line-height:1.6;color:var(--on-dark-2);text-align:left}
+  .vs-load{padding:30px 0;text-align:center;color:var(--on-dark-2);font-size:.9rem}
+  /* the ways in: every verse number in the Reader is a button, and the verse that was opened says so in words */
+  button.vk{font-weight:600;line-height:1.5;cursor:pointer;transition:background .2s ease,border-color .2s ease}
+  button.vk:hover,button.vk:focus-visible{background:rgba(233,185,95,.28);border-color:var(--gold);color:#fff;outline:0}
+  .rhint{margin:0 0 6px;padding:0 10px;font-size:.84rem;line-height:1.8;color:var(--on-dark-2)} .rhint .vk{margin-inline:2px 0}
+  .vstudy{display:inline-flex;align-items:center;gap:6px;margin:6px 10px 12px;font:inherit;font-size:.86rem;font-weight:700;color:#1f1605;background:var(--gold);border:0;border-radius:99px;padding:8px 16px;cursor:pointer}
+  .vstudy:hover{filter:brightness(1.07)} .vstudy:focus-visible{outline:2px solid #fff;outline-offset:2px}
+  .sstudy{margin:10px 6px 0;font:inherit;font-size:.76rem;font-weight:600;color:var(--on-dark);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:99px;padding:2px 11px;cursor:pointer}
+  .sstudy:hover,.sstudy:focus-visible{border-color:rgba(233,185,95,.6);color:#fff;outline:0}
+  .slook-go.alt{background:none;color:var(--gold);border:1px solid rgba(233,185,95,.5)} .slook-go.alt + .slook-go{margin-inline-start:0}
+  @media (max-width:720px){
+    .vs{align-items:flex-end}
+    .vs-p,html[lang=ar] .vs-p{width:100%;height:auto;max-height:90vh;max-height:90dvh;border-inline-start:0;border-top:1px solid rgba(233,185,95,.45);border-radius:20px 20px 0 0;animation-name:vsUp}
+    .vs-facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .vs-k{width:74px}
+  }
+  @media (pointer:coarse){ button.vk{font-size:.8rem;padding:5px 13px} }
+  @media (prefers-reduced-motion:reduce){ .vs-p,html[lang=ar] .vs-p{animation:none} }
   html[lang=ar] .find-k{letter-spacing:0;font-size:.8rem;font-weight:600}
   @media (hover:none){ .find-f,.find-go,.sfind kbd{display:none} }
   @media (max-width:640px){ .find{padding:8px} .find-p{border-radius:16px} .find-k{width:86px;font-size:.6rem} .find-r{gap:10px;padding:9px 8px} html[lang=ar] .find-k{font-size:.74rem} }
@@ -2342,6 +2417,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
 <div id="app" class="layout" v-cloak :class="{'dir-rtl': lang==='ar'}" :dir="lang==='ar'?'rtl':'ltr'">
   <float-kbd></float-kbd>
   <word-card></word-card>
+  <verse-study></verse-study>
   <!-- Search from any page: a word, a verse, a surah, a juz or a page. Each row says what it is before it is opened -->
   <div v-if="find.open" class="find" @keydown.esc.prevent="findClose()">
     <div class="find-bg" @click="findClose()"></div>
@@ -2933,6 +3009,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
             <span class="pl" :class="sLookMeta.place==='Medina' ? 'med' : 'mec'">{{ sLookMeta.place==='Medina' ? (lang==='ar' ? 'مدنية' : 'Medinan') : (lang==='ar' ? 'مكية' : 'Meccan') }}</span>
             <template v-if="sLookAt"><button type="button" class="slook-fact go" @click="markGo('juz', sLookAt.juz)">{{ markName('juz', sLookAt.juz) }}</button>
               <button type="button" class="slook-fact go" @click="markGo('page', sLookAt.page)">{{ markName('page', sLookAt.page) }}</button></template>
+            <button v-if="sLook.b===sLook.a" type="button" class="slook-go alt" @click="studyOpen(sLook.s+':'+sLook.a, $event)">{{ lang==='ar' ? 'ادرس الآية' : 'Study this verse' }}</button>
             <button type="button" class="slook-go" @click="lookOpen()">{{ lang==='ar' ? 'افتحها في المصحف ‹' : 'Open in the Reader ›' }}</button>
           </div>
           <p class="slook-note" v-if="sLook.how==='only'">{{ lang==='ar' ? 'لا توجد آيةٌ بهذا الرقم إلا في سورة '+surahName(sLook.s)+'.' : 'Only '+surahName(sLook.s)+' is long enough to have a verse of this number.' }}</p>
@@ -3092,6 +3169,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
         <template v-else>
           <div v-for="vk in sList.slice(0, sShown)" :key="vk" class="vblock">
             <button type="button" class="sref" @click="sOpen(vk)" :title="lang==='ar' ? 'افتح الآية في المصحف' : 'Open this verse in the Reader'">{{ surahName(+vk.split(':')[0]) }} <span>{{ D(vk) }}</span> <i aria-hidden="true">{{ lang==='ar' ? '‹' : '›' }}</i></button>
+            <button type="button" class="sstudy" @click="studyOpen(vk, $event)" :title="lang==='ar' ? 'موضعها، وما يشبهها، وكلماتها' : 'Where it is, the verses like it, and its words'">{{ lang==='ar' ? 'ادرسها' : 'Study' }}</button>
             <div class="verse" v-html="highlight(vk)"></div>
             <div v-if="(showTrans || sres.kind==='en') && EN[vk]" class="verse-en" v-html="enMark(vk)"></div>
           </div>
@@ -3131,10 +3209,12 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
       </div>
       <div class="card">
         <div v-if="!ready.verses" class="stub">{{ lang==='ar'?'جارٍ تحميل نص المصحف…':'Loading the text of the Quran…' }}</div>
-        <div v-for="v in readerVerses" :key="v.k" class="vblock" :id="'v-'+v.k.replace(':','-')" :class="{vfocus: v.k===rFocusKey}">
+        <p class="rhint" v-if="ready.verses">{{ lang==='ar' ? 'انقر أي كلمةٍ لترى بناءها. وانقر رقم آيةٍ، مثل ' : 'Tap any word to see how it is built. Tap a verse number, like ' }}<span class="vk">{{ rSurah }}:1</span>{{ lang==='ar' ? '، لتدرس الآية.' : ', to study that verse.' }}</p>
+        <div v-for="v in readerVerses" :key="v.k" class="vblock" :id="'v-'+v.k.replace(':','-')" :class="{vfocus: v.k===rFocusKey}" @click="vkClick($event)">
           <div class="verse" v-if="rMarks.has(v.k)" v-html="readerLine(v)"></div>
-          <div class="verse" v-else><span v-for="(w,j) in rTok(v.k, v.t)" :key="j" class="rw" :class="{hi: rHi && w.i>=0 && W.lemma[w.i]===rHi, tap: w.i>=0}" @click="w.i>=0 && openWord(w.i, $event)">{{ w.t+' ' }}</span><span class="vk">{{ v.k }}</span></div>
+          <div class="verse" v-else><span v-for="(w,j) in rTok(v.k, v.t)" :key="j" class="rw" :class="{hi: rHi && w.i>=0 && W.lemma[w.i]===rHi, tap: w.i>=0}" @click="w.i>=0 && openWord(w.i, $event)">{{ w.t+' ' }}</span><button type="button" class="vk" :data-study="v.k" :title="lang==='ar' ? 'ادرس هذه الآية' : 'Study this verse'" :aria-label="lang==='ar' ? 'ادرس الآية '+v.k : 'Study verse '+v.k">{{ v.k }}</button></div>
           <div v-if="showTrans && EN[v.k]" class="verse-en">{{ v.k }} &middot; {{ EN[v.k] }}</div>
+          <button v-if="v.k===rFocusKey" type="button" class="vstudy" :data-study="v.k">{{ lang==='ar' ? 'ادرس هذه الآية ‹' : 'Study this verse ›' }}</button>
         </div>
         <div v-if="showTrans" class="transnote">{{ lang==='ar'
           ? 'الترجمة الإنجليزية: محمد مرمدوك بكتهول، «معاني القرآن المجيد» (١٩٣٠)، ملكية عامة. النص الرقمي المدقق من مشروع تنزيل.'
@@ -3788,6 +3868,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
 <script defer src="jev-client.js"></script>
 <script defer src="lookup.js"></script>
 <script defer src="translit.js"></script>
+<script defer src="study.js"></script>
 <script defer src="content/jev-data.js"></script>
 <script defer src="content/quran_stories_data.js"></script>
 <script defer src="content/quran_lessons.js"></script>
@@ -3853,6 +3934,7 @@ let WMOD = null;    // every word in today's spelling, built the first time a ph
 const JEV = window.QTA_JEV || null;
 const LOOK = window.QI_LOOKUP || null;   // a verse or a surah from what was typed (lookup.js)
 const ROM = window.QI_ROMAN || null;     // an Arabic word from English letters: rahma, sabr (translit.js)
+const STUDY = window.QI_STUDY || null;   // what one verse shares with the rest of the Quran (study.js)
 const MARKS = (window.QURAN_DATA||{}).marks || null;   // where each juz, hizb quarter and printed page begins (pipeline/marks.py)
 const MARK_NAME = {juz:['Juz','الجزء'], hizb:['Hizb','الحزب'], page:['Page','صفحة']};
 let JUZ_OF = null;   // the juz of every verse, built the first time a search needs it
@@ -4097,15 +4179,20 @@ const PRETTY = location.protocol!=='file:' && !/^(localhost|127\.0\.0\.1|\[::1\]
 const noGL = () => document.documentElement.classList.contains('no-gl') && !document.documentElement.classList.contains('gl');
 let JIX = null;   // word index for the claim checker and search hints; built on first use, outside Vue's reactivity
 const jix = () => JIX || (JIX = JEV && window.QURAN_WORDS ? JEV.makeIndex(window.QURAN_WORDS, window.QURAN_LEMMA_VARIANTS, window.QURAN_FORM_SENSES) : null);
+// every verse beside the others, for the study panel (study.js): built once, when the first panel opens
+let SIX = null, SLIB = null, SMAX = 0;
+const six = () => SIX || (SIX = STUDY && window.QURAN_WORDS ? STUDY.index(window.QURAN_WORDS, window.QURAN_LEMMA_VARIANTS, window.QURAN_WORD_SENSE) : null);
 // how every dictionary word sounds, for a word typed in English letters (roman.js, read by translit.js)
 let RIX = null;
 const rix = () => RIX || (RIX = ROM && window.QURAN_ROMAN && jix() ? ROM.index(window.QURAN_ROMAN, jix().lemmaCount) : null);
 // the words of the English translation, and every way one of them begins: «mer» is English being typed, «rahma» is not
 let ENV = null;
-const enVoc = () => { if(ENV || !window.QURAN_EN) return ENV; const word=new Set(), pre=new Set();
-  for(const k in window.QURAN_EN) for(const w of (String(window.QURAN_EN[k]).toLowerCase().match(/[a-z]+/g) || [])) word.add(w);
+const enVoc = () => { if(ENV || !window.QURAN_EN) return ENV; const word=new Set(), pre=new Set(), low=new Set();
+  for(const k in window.QURAN_EN){ const t=String(window.QURAN_EN[k]);
+    for(const w of (t.toLowerCase().match(/[a-z]+/g) || [])) word.add(w);
+    for(const w of (t.match(/\b[a-z]+\b/g) || [])) low.add(w); }   // written without a capital somewhere: a common word, not a name
   for(const w of word) for(let i=1; i<=w.length; i++) pre.add(w.slice(0, i));
-  return (ENV = {word, pre}); };
+  return (ENV = {word, pre, low}); };
 // an English meaning for an Arabic word, from the list the claim checker reads English with (day, mercy, angel):
 // keyed by the word and, where one spelling covers several words, by how that one is said
 let GMEAN = null;
@@ -7435,6 +7522,146 @@ const ReaderHead = {
   methods:{ D(x){ return this.$root.D(x); }, f(x){ return this.$root.f(x); },
     goS(n){ const R=this.$root; R.rSurah=n; R.rVerse=0; R.rHi=''; R.wcard=null; scrollTo({top:0}); },
     jump(v){ const el=document.getElementById('v-'+this.meta.n+'-'+v); if(el) el.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'center'}); } } };
+// The study panel for one verse (study.js does the comparing): where the verse sits, the verses that say it again
+// word for word, what the site has written on it, its own words from the rarest, and the verses nearest to it.
+const VerseStudy = {
+  data(){ return {all:false, allSame:false, copied:''}; },
+  template:`<div class="vs" v-if="k">
+    <div class="vs-bg" @click="R.studyClose()"></div>
+    <aside class="vs-p" role="dialog" aria-modal="true" tabindex="-1" :aria-label="ar ? 'دراسة الآية '+ref(k) : 'Study of '+ref(k)">
+      <header class="vs-top">
+        <button v-if="R.studyN>1" type="button" class="vs-back" @click="R.studyBack()" :title="ar ? 'الآية التي كنت تدرسها قبلها' : 'The verse you were studying before'" :aria-label="ar ? 'عُد إلى الآية السابقة' : 'Back to the verse before'">{{ ar ? '›' : '‹' }}</button>
+        <div class="vs-id"><small>{{ ar ? 'دراسة آية' : 'Study a verse' }}</small><h2>{{ R.surahName(s) }} <span>{{ R.D(k) }}</span></h2></div>
+        <button type="button" class="vs-x" @click="R.studyClose()" :aria-label="ar ? 'أغلق' : 'Close'">×</button>
+      </header>
+      <div class="vs-body" ref="body">
+        <div v-if="!IX" class="vs-load">{{ ar ? 'جارٍ تحميل نص القرآن…' : 'Loading the text of the Quran…' }}</div>
+        <template v-else>
+        <p class="vs-named" v-if="named">{{ ar ? named.ar : named.en }}</p>
+        <p class="vs-ar" lang="ar" dir="rtl">{{ text }}</p>
+        <p class="vs-en" v-if="en && (!ar || R.showTrans)" dir="ltr" lang="en">{{ en }}</p>
+        <div class="vs-acts">
+          <button type="button" class="main" @click="R.studyRead()">{{ ar ? 'اقرأها في سورتها ‹' : 'Read it in its surah ›' }}</button>
+          <button type="button" :disabled="!prev" @click="R.studyStep(prev)">{{ ar ? '› الآية السابقة' : '‹ Previous verse' }}</button>
+          <button type="button" :disabled="!next" @click="R.studyStep(next)">{{ ar ? 'الآية التالية ‹' : 'Next verse ›' }}</button>
+          <button type="button" @click="copy('verse')">{{ copied==='verse' ? (ar ? 'نُسخت ✓' : 'Copied ✓') : (ar ? 'انسخ الآية' : 'Copy the verse') }}</button>
+          <button type="button" @click="copy('link')">{{ copied==='link' ? (ar ? 'نُسخ الرابط ✓' : 'Link copied ✓') : (ar ? 'انسخ رابطها' : 'Copy a link to it') }}</button>
+        </div>
+
+        <section class="vs-sec" data-sec="where">
+          <h3>{{ ar ? 'أين تقع' : 'Where it is' }}</h3>
+          <ul class="vs-facts">
+            <li class="wide"><small>{{ ar ? 'السورة' : 'Surah' }}</small><b>{{ R.D(s) }}. {{ R.surahName(s) }} <i>{{ meta.place==='Medina' ? (ar ? 'مدنية' : 'Medinan') : (ar ? 'مكية' : 'Meccan') }}</i></b></li>
+            <li><small>{{ ar ? 'الآية' : 'Verse' }}</small><b>{{ R.D(v) }} <i>{{ ar ? 'من '+R.D(meta.verses) : 'of '+meta.verses }}</i></b></li>
+            <li v-if="at"><small>{{ ar ? 'الجزء' : 'Juz' }}</small><b>{{ R.D(at.juz) }} <i>{{ ar ? 'من ٣٠' : 'of 30' }}</i></b></li>
+            <li v-if="at"><small>{{ ar ? 'الحزب' : 'Hizb' }}</small><b>{{ R.D(at.hizb) }} <i>{{ ar ? 'من ٦٠' : 'of 60' }}</i></b></li>
+            <li v-if="at"><small>{{ ar ? 'صفحة المصحف' : 'Printed page' }}</small><b>{{ R.D(at.page) }} <i>{{ ar ? 'من ٦٠٤' : 'of 604' }}</i></b></li>
+            <li><small>{{ ar ? 'كلماتها' : 'Words' }}</small><b>{{ R.f(nWords) }}</b></li>
+          </ul>
+          <div class="vs-pos" aria-hidden="true"><i :style="{insetInlineStart: pos+'%'}"></i></div>
+          <p class="vs-cap">{{ where }}</p>
+        </section>
+
+        <section class="vs-sec" data-sec="same" v-if="same.length">
+          <h3>{{ ar ? 'تتكرر بلفظها' : 'Said again, word for word' }}</h3>
+          <p class="vs-say">{{ ar ? 'هذه الكلمات نفسها ترد '+R.arN(same.length+1,'مرة','مرتين','مرات')+' في القرآن. انقر موضعًا لتدرسه:' : 'These exact words come '+times(same.length+1)+' in the Quran. Tap a place to study it:' }}</p>
+          <div class="vs-refs">
+            <button v-for="o in (allSame ? same : same.slice(0,12))" :key="o" type="button" @click="R.studyOpen(o)">{{ ref(o) }}</button>
+            <button v-if="same.length>12 && !allSame" type="button" class="more" @click="allSame=true">{{ ar ? 'اعرض الكل ('+R.D(same.length)+')' : 'Show all '+same.length }}</button>
+          </div>
+        </section>
+
+        <section class="vs-sec" data-sec="lib" v-if="lib.length">
+          <h3>{{ ar ? 'في الموقع عنها' : 'On this site' }}</h3>
+          <p class="vs-sub">{{ ar ? 'ما كتبه الموقع عن هذه الآية. انقر عنصرًا لتفتحه.' : 'What this site has written about this verse. Tap one to open it.' }}</p>
+          <button v-for="r in lib" :key="r.view+'|'+r.id" type="button" class="vs-row" @click="R.libShow(r.view, r.id)">
+            <span class="vs-k">{{ T(r.tag) }}</span>
+            <span class="vs-m"><b>{{ T(r.t) }}</b><small v-if="r.n>1">{{ ar ? 'الآيات '+R.D(r.lab) : 'Verses '+r.lab }}</small></span><i aria-hidden="true">{{ ar ? '‹' : '›' }}</i></button>
+        </section>
+
+        <section class="vs-sec" data-sec="words">
+          <h3>{{ ar ? 'كلماتها' : 'Its words' }}</h3>
+          <p class="vs-say" v-html="say"></p>
+          <template v-if="words.length">
+          <p class="vs-sub">{{ ar ? 'كلماتها المعجمية من الأندر إلى الأشيع، وتحت كل كلمةٍ عدد مرات ورودها في القرآن بكل صيغها. انقر كلمةً لترى كل آياتها.' : 'Its dictionary words, the rarest first. Under each is how many times it comes in the Quran in all its forms. Tap a word to see every verse it comes in.' }}</p>
+          <div class="vs-words">
+            <button v-for="w in (all ? words : words.slice(0,8))" :key="w.id" type="button" class="vs-w" :class="{only: w.n===w.here}" @click="word(w)">
+              <b lang="ar">{{ w.surf }}</b><small v-if="w.lat || w.mean">{{ [w.lat, w.mean].filter(Boolean).join(' · ') }}</small><span>{{ w.n===w.here ? (ar ? 'هنا فقط' : 'only here') : times(w.n) }}</span></button>
+          </div>
+          <button v-if="words.length>8 && !all" type="button" class="vs-more" @click="all=true">{{ ar ? 'اعرض كل الكلمات ('+R.D(words.length)+')' : 'Show all '+words.length+' words' }}</button>
+          </template>
+        </section>
+
+        <section class="vs-sec" data-sec="like">
+          <h3>{{ ar ? 'آياتٌ تشبهها' : 'Verses like it' }}</h3>
+          <template v-if="like.length">
+          <p class="vs-sub">{{ ar ? 'اختيرت بالعدّ لا بالتفسير: تشاركها كلماتها الأقل شيوعًا، وهي المضيئة بالذهبي. انقر آيةً لتدرسها.' : 'Picked by counting, not by commentary: these verses share its less common words, marked in gold. Tap one to study it.' }}</p>
+          <button v-for="r in like" :key="r.k" type="button" class="vs-like" @click="R.studyOpen(r.k)">
+            <span class="vs-like-h">{{ ref(r.k) }}<small v-if="r.twins">{{ ar ? 'وتتكرر بلفظها في '+places(r.twins) : 'and '+r.twins+' more '+(r.twins===1 ? 'verse' : 'verses')+' with the same words' }}</small><i aria-hidden="true">{{ ar ? '‹' : '›' }}</i></span>
+            <span class="vs-like-ar" lang="ar" dir="rtl"><template v-for="(t,i) in r.toks" :key="i"><mark v-if="t.hi">{{ t.t }}</mark><template v-else>{{ t.t }}</template>{{ ' ' }}</template></span>
+            <span class="vs-like-en" v-if="!ar && r.en" dir="ltr" lang="en">{{ r.en }}</span>
+          </button>
+          </template>
+          <p class="vs-none" v-else>{{ ar ? 'لا آية أخرى تشاركها من الكلمات ما يكفي لنقول إنها تشبهها.' : 'No other verse shares enough of its words to be called alike.' }}</p>
+        </section>
+
+        <section class="vs-sec" data-sec="lib" v-if="!lib.length">
+          <h3>{{ ar ? 'في الموقع عنها' : 'On this site' }}</h3>
+          <p class="vs-none">{{ ar ? 'لم يستشهد بها بعدُ قصةٌ أو دعاءٌ أو درسٌ في المكتبة.' : 'No story, du’a or lesson in the Library cites this verse yet.' }}</p>
+        </section>
+        </template>
+      </div>
+    </aside>
+  </div>`,
+  computed:{ R(){ return this.$root; }, ar(){ return this.R.lang==='ar'; }, k(){ return this.R.study; },
+    s(){ return +this.k.split(':')[0]; }, v(){ return +this.k.split(':')[1]; },
+    meta(){ return (this.R.DS.surahMeta||[]).find(x=>x.n===this.s) || {verses:1, place:''}; },
+    IX(){ return this.k && this.R.ready.words && this.R.ready.verses ? six() : null; },
+    text(){ return this.R.V[this.k] || ''; }, en(){ return this.R.EN[this.k] || ''; },
+    named(){ return LOOK && LOOK.NAMED ? LOOK.NAMED.find(n=>n.s===this.s && this.v>=n.a && this.v<=n.b) || null : null; },
+    at(){ return LOOK && MARKS ? LOOK.place(this.s, this.v, MARKS) : null; },
+    nWords(){ return STUDY.count(this.IX, this.k); },
+    pos(){ return Math.min(100, Math.max(0, (this.v-.5)/this.meta.verses*100)); },
+    // one line that reads the place: how far through the surah, and whether no verse of the surah, or of the Quran, is longer
+    where(){ const IX=this.IX, m=this.meta, n=this.nWords, ar=this.ar, D=x=>this.R.D(x); let top=0;
+      for(let v=1; v<=m.verses; v++) if(v!==this.v) top=Math.max(top, STUDY.count(IX, this.s+':'+v));
+      if(!SMAX) for(const sp of IX.span) SMAX=Math.max(SMAX, sp[1]-sp[0]);
+      const long = m.verses>2 && n>top ? (n>=SMAX ? (ar ? ' وهي أطول آيةٍ في القرآن.' : ' It is the longest verse in the Quran.') : (ar ? ' وهي أطول آيات السورة.' : ' It is the longest verse of the surah.')) : '';
+      const pct=Math.round(this.v/m.verses*100);
+      const at = this.v===1 ? (ar ? 'أول آيةٍ في السورة.' : 'The first verse of the surah.') : this.v===m.verses ? (ar ? 'آخر آيةٍ في السورة.' : 'The last verse of the surah.')
+        : (ar ? 'العلامة موضعها من السورة: عند '+D(pct)+'٪ منها.' : 'The mark shows its place in the surah: '+pct+'% of the way through.');
+      return at + long; },
+    same(){ return STUDY.same(this.IX, this.k); },
+    like(){ const R=this.R, IX=this.IX; return STUDY.like(IX, this.k, 5).map(r=>{ const set=new Set(r.shared);
+      return {k:r.k, twins:r.twins, en:R.EN[r.k] || '', toks:R.rTok(r.k, R.V[r.k] || '').map(t=>({t:t.t, hi:t.i>=0 && set.has(IX.ids[t.i])}))}; }); },
+    // each dictionary word with how it is said and what it means, where the site knows them (English only). A word
+    // whose spelling covers several (جنة: the garden, the jinn) takes the sound of the one meant here
+    words(){ const X=!this.ar && this.R.ready.roman ? rix() : null, RO=window.QURAN_ROMAN || {}, VAR=window.QURAN_LEMMA_VARIANTS || {};
+      return STUDY.words(this.IX, this.k).map(w=>{ let lat='';
+        if(X && !w.amb) lat = X.one(w.l) ? X.first.get(w.l) || '' : '';
+        else if(X){ const sounds=(RO[w.l] || '').split(' ').filter(Boolean); if(sounds.length===(VAR[w.l] || []).length && sounds[w.sense]) lat=ROM.spell(sounds[w.sense]); }
+        return Object.assign({lat, mean:this.R.meanOf(w.l, lat)}, w); }); },
+    // the sentence that reads the list: the words found nowhere else, or else the rarest
+    say(){ const ws=this.words, ar=this.ar, q=w=>'«<bdi lang="ar">'+escH(w.surf)+'</bdi>»'+(w.lat ? ' ('+escH(w.lat)+')' : '');
+      if(!ws.length) return ar ? 'هذه الآية حروفٌ مقطّعة تُقرأ حروفًا، فليس فيها كلمةٌ معجمية تُعدّ.' : 'This verse is made of opening letters, read as letters, so it has no dictionary word to count.';
+      const only=ws.filter(w=>w.n===w.here), join=a=>a.map(q).join(ar ? '، ' : ', ');
+      if(only.length===1) return ar ? 'كلمتها '+q(only[0])+' لا ترد في أي موضعٍ آخر من القرآن.' : 'Its word '+q(only[0])+' comes nowhere else in the Quran.';
+      if(only.length>1) return ar ? this.R.D(only.length)+' من كلماتها لا ترد في أي موضعٍ آخر من القرآن: '+join(only)+'.' : only.length+' of its words come nowhere else in the Quran: '+join(only)+'.';
+      const w=ws[0]; return ar ? 'أندر كلماتها '+q(w)+'، وترد '+this.R.arN(w.n,'مرة','مرتين','مرات')+' في القرآن.' : 'Its rarest word is '+q(w)+', which comes '+this.times(w.n)+' in the Quran.'; },
+    lib(){ const rows=this.R.studyLib().get(this.k) || [], seen=new Set(); return rows.filter(r=>{ const id=r.view+'|'+r.id; if(seen.has(id)) return false; seen.add(id); return true; }); },
+    prev(){ const j=this.IX.at.get(this.k); return j>0 ? this.IX.keys[j-1] : ''; },
+    next(){ const j=this.IX.at.get(this.k); return j<this.IX.N-1 ? this.IX.keys[j+1] : ''; } },
+  watch:{ k(){ this.all=false; this.allSame=false; this.copied=''; this.$nextTick(()=>{ const el=this.$refs.body; if(el) el.scrollTop=0; }); } },
+  methods:{ T(a){ return this.ar ? a[1] : a[0]; },
+    ref(k){ return this.R.surahName(+k.split(':')[0])+' '+this.R.D(k); },
+    times(n){ return this.ar ? this.R.arN(n,'مرة','مرتين','مرات') : (n===1 ? 'once' : n===2 ? 'twice' : this.R.f(n)+' times'); },
+    places(n){ const m=n%100; return n===1 ? 'موضعٍ آخر' : n===2 ? 'موضعين آخرين' : this.R.D(n)+(m>=3 && m<=10 ? ' مواضع أخرى' : ' موضعًا آخر'); },
+    // every verse the word comes in: Search, counting all its forms, so the number there is the number here
+    word(w){ const R=this.R; R.studyAway(); R.q=w.l; R.mode='lemma'; R.go('search'); R.$nextTick(()=>R.runSearch()); },
+    copy(what){ const done=()=>{ this.copied=what; clearTimeout(this._t); this._t=setTimeout(()=>{ this.copied=''; }, 2200); };
+      const text = what==='link' ? this.R.studyLink(this.k) : [this.text, !this.ar && this.en ? this.en : '', this.ref(this.k)].filter(Boolean).join('\n');
+      try{ if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(done, ()=>window.prompt('', text)); return; } }catch(e){}
+      window.prompt('', text); } } };
 // the card for a tapped word
 const WordCard = {
   template:`<div class="wcard" v-if="c" :style="pos" role="dialog" :aria-label="ar ? 'بطاقة الكلمة' : 'Word card'">
@@ -7717,7 +7944,7 @@ createApp({
       T: D.stats.totals, DS: D.datasets, MM: D.datasets.meccaMedina||{mecca:{},medina:{}}, claims: D.claims,
       V: window.QURAN_VERSES||{}, W: window.QURAN_WORDS||{key:[],norm:[],lemma:[],root:[],surface:[]},
       ready:{ verses:!!window.QURAN_VERSES, words:!!window.QURAN_WORDS, roman:!!window.QURAN_ROMAN, plotly:typeof Plotly!=='undefined', disc:false, hviz:false },
-      q:'', mode:'surface', sWhole:true, clabPick:null, sfOff:{}, sfCount:null, sfRows:SF_ROWS, sres:{total:0,surahs:0,verses:0,sample:[],kind:'',juz:[],juzV:[]}, sShown:40, goQ:'', goFoc:false, sAuto:true, sPickMode:false, sJuz:0, sJuzHov:0, sAdv:false, sVia:null, sNoVia:'', find:{open:false, text:'', i:0},
+      q:'', mode:'surface', sWhole:true, clabPick:null, sfOff:{}, sfCount:null, sfRows:SF_ROWS, sres:{total:0,surahs:0,verses:0,sample:[],kind:'',juz:[],juzV:[]}, sShown:40, goQ:'', goFoc:false, sAuto:true, sPickMode:false, sJuz:0, sJuzHov:0, sAdv:false, sVia:null, sNoVia:'', find:{open:false, text:'', i:0}, study:'', studyN:0,
       rSurah:1, rVerse:0, rClaim:'', rBack:'', scrollPct:0, railDragging:false, EN:{}, showTrans:(new URLSearchParams(location.search).get('lang')!=='ar'), libQ:'', libCat:'all', libSurah:0, rHi:'', wcard:null, nlpCenter:'', nlpState:null, stories:[], lessons:[], duas:[], tafsir:[], untranslatable:[], untranslatableIntro:{}, history:[], historyIntro:{}, skyHov:null, sresBy:{}, sresRoots:[], skyGL:false, hSel:'', hYear:610, hPlaying:false, hFilter:'all', hCopied:false,
       V1:{}, abjadInput:'الله',
       jevOn: !!(JEV && JEV.endpoint()), JD: window.QTA_JEV_DATA||{},
@@ -8557,7 +8784,8 @@ createApp({
     askLabel(t){ const ar=this.lang==='ar';
       if(t.view==='reader' && t.s && t.v) return (t.mk ? this.markName(t.mk.what, t.mk.n)+' · ' : '') + this.surahName(t.s) + ' ' + this.D(t.s+':'+t.v) + (t.b>t.v ? '-'+this.D(t.b) : '');
       if(t.view==='reader' && t.s) return (ar?'سورة ':'Surah ') + this.surahName(t.s) + ' (' + this.D(t.s) + ')';
-      if(t.view==='search' && t.q) return (ar?'البحث عن ':'Search for ') + '«' + t.q + '»';
+      if(t.view==='search' && t.q && t.enq) return ar ? 'البحث عن «' + t.q + '» في الترجمة الإنجليزية' : 'Search the English translation for “' + t.q + '”';
+      if(t.view==='search' && t.q) return (ar?'البحث عن ':'Search for ') + '«' + t.q + '»' + (t.en && !ar ? ' (' + t.en + ')' : '');
       if(t.view==='auditor' && t.claim) return ar ? 'أعداد الكلمات، مع زعمك' : 'Word Counts, with your claim';
       for(const g of this.nav){ const it=g.items.find(x=>x.id===t.view); if(it) return ar?it.ar:it.en; }
       return t.view; },
@@ -8569,8 +8797,19 @@ createApp({
       // a verse by number or by name (2:255, Baqarah 255, آية الكرسي) and a surah's name in any spelling go straight there
       if(lk && lk.kind==='verse') loc.shortcut={view:'reader', s:lk.s, v:lk.a, b:lk.b, mk:lk.mark ? {what:lk.mark.what, n:lk.mark.n} : null};
       else if(lk && lk.kind==='surah' && !loc.shortcut && (lk.how==='en' || lk.how==='ar' || lk.how==='near')) loc.shortcut={view:'reader', s:lk.s};
-      // one Arabic word in English letters (salat, taqwa) that no page claims: search for that word
-      if(!loc.shortcut && !loc.ranked[0] && ROM && !/\s/.test(text.replace(ARTICLE, ''))){ const m=ROM.match(text, rix(), 1)[0]; if(m && m.how==='exact') loc.shortcut={view:'search', q:m.l, forms:true}; }
+      // one English word that names an Arabic word (mercy, day, patience): count that word. The page the keywords found
+      // stays as another place to go
+      if(!loc.shortcut && /^[a-z]+$/i.test(text)){ const g=this.glossOf(text), m=g.length && ROM ? ROM.match(text, rix(), 1)[0] : null;
+        if(g.length) loc.shortcut={view:'search', q:g[0].norm, forms:true, en: m && m.how==='exact' && m.l===g[0].norm ? '' : text.toLowerCase()}; }   // «allah» is the word itself, not its meaning
+      // any other single word that no page claims. A common English word of the translation is searched there (son, hill):
+      // it only sounds like an Arabic word. An Arabic word in English letters is searched as that word (salat, taqwa),
+      // and so is a name the translation keeps in Arabic (Ramadan, Allah), which it never writes without a capital
+      if(!loc.shortcut && !loc.ranked[0] && ROM && !/\s/.test(text.replace(ARTICLE, ''))){
+        if(!this.ready.verses){ this.ask.busy=true; try{ await this.load('verses'); }catch(e){} this.ask.busy=false; }
+        const voc=enVoc(), ws=ROM.chat(text).match(/[a-z]+/g) || [], m=ROM.match(text, rix(), 1)[0], all=set=>voc && ws.length>0 && ws.every(w=>set.has(w));
+        if(all(voc && voc.low)) loc.shortcut={view:'search', q:text.toLowerCase(), enq:true};
+        else if(m && m.how==='exact') loc.shortcut={view:'search', q:m.l, forms:true};
+        else if(all(voc && voc.word)) loc.shortcut={view:'search', q:text, enq:true}; }
       const top = loc.shortcut || (loc.ranked[0] ? {view:loc.ranked[0].view} : null);
       this.ask.res={top, alts: loc.ranked.filter(x=>!top || x.view!==top.view).slice(0,3).map(x=>({view:x.view})), via:'local', offTopic:false, jevAgrees:false, conf:null};
       const R=this.ask.res;
@@ -8947,7 +9186,7 @@ createApp({
       if(e.key==='ArrowDown') step(1); else if(e.key==='ArrowUp') step(-1);
       else if(e.key==='Enter'){ e.preventDefault(); this.findGo(); } },
     // open a row: a place in the Reader, a word or a phrase on the Search page, a page of the site
-    findGo(r){ r=r || this.findRows[this.find.i]; if(!r) return; const a=r.act; this.findClose(false);
+    findGo(r){ r=r || this.findRows[this.find.i]; if(!r) return; const a=r.act; this.findClose(false); if(this.study) this.studyAway();
       if(a.t==='look'){ if(this.view==='reader') this.rGo(a.L); else this.lookOpen(a.L, this.view); }
       else if(a.t==='page') this.go(a.view);
       else { this.go('search'); this.sAuto=true; if(a.t==='en') this.sNoVia=a.q.trim(); this.sPick(a.q); } },
@@ -9069,7 +9308,7 @@ createApp({
         if(toks.length===span[1]-span[0]) hit=new Set(at);
         else { const forms=new Set(at.map(j=>W.surface[span[0]+j])); toks.forEach((t,j)=>{ if(forms.has(t)) hit.add(j); }); }
       }
-      return toks.map((t,j)=>hit.has(j) ? '<mark>'+esc(t)+'</mark>' : esc(t)).join(' ') + ' <span class="vk">'+esc(v.k)+'</span>';
+      return toks.map((t,j)=>hit.has(j) ? '<mark>'+esc(t)+'</mark>' : esc(t)).join(' ') + ' <button type="button" class="vk" data-study="'+esc(v.k)+'">'+esc(v.k)+'</button>';
     },
     // ---- History Claims. Years are numbers (negative = BCE, all approximate); every gap is worked out here, none is typed. ----
     yrPlain(y){ if(y==null) return ''; const ar=this.lang==='ar'; return this.D(y<0 ? (-y)+(ar?' ق.م':' BCE') : y+(ar?' م':' CE')); },
@@ -9164,6 +9403,58 @@ createApp({
       const done=()=>{ this.hCopied=true; clearTimeout(this._hCp); this._hCp=setTimeout(()=>{ this.hCopied=false; }, 2400); };
       try{ if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(done, ()=>window.prompt('', url)); return; } }catch(e){}
       window.prompt('', url); },
+    // ---- the verse study panel (study.js): opened from a verse number anywhere, a layer over the page it was opened on.
+    // Each verse opened is one step in the browser's history, so Back returns to the verse before and then closes it. ----
+    studyKey(t){ const m=String(t||'').match(/^(\d{1,3})[:.-](\d{1,3})$/), meta=m && (this.DS.surahMeta||[]).find(x=>x.n===+m[1]);
+      return meta && +m[2]>=1 && +m[2]<=meta.verses ? (+m[1])+':'+(+m[2]) : ''; },
+    studyLoad(){ ['verses','words','roman'].forEach(x=>this.load(x)); },
+    studySamePage(st){ return st.qv===this.view && (st.qv!=='reader' || (st.s||1)===this.rSurah) && (st.qv!=='history' || (st.c||'')===this.hSel)
+      && (st.qv!=='search' || typeof st.sq!=='string' || st.sq===this.q); },
+    studyOpen(k, ev){ k=this.studyKey(k); if(!k || !STUDY || k===this.study) return;
+      if(!this.study) this._studyFrom=(ev && ev.currentTarget) || document.activeElement;
+      this.studyLoad(); this.wcard=null; this.findClose(false); this.saveY();
+      this.study=k; this.studyN++;
+      try{ const st=history.state, qi=st && st.qv ? st.qi : 0; history.pushState(this.navState(qi+1), '', this.navUrl()); }catch(e){}
+      this.studyFocus(); },
+    studyFocus(){ this.$nextTick(()=>{ const el=document.querySelector('.vs-p'); if(el && !el.contains(document.activeElement)) try{ el.focus({preventScroll:true}); }catch(e){} }); },
+    // the verse before or after: the same step in history, so Back does not walk through every verse passed
+    studyStep(k){ k=this.studyKey(k); if(!k) return; this.study=k; this.syncUrl(false); },
+    studyBack(){ if(this.studyN>1) history.back(); },
+    studyClose(){ if(!this.study) return;
+      if(this.studyN>0){ this._studyClosing=true; try{ history.go(-this.studyN); return; }catch(e){ this._studyClosing=false; } }
+      this.studyShut(); this.syncUrl(false); },
+    studyShut(){ this.study=''; this.studyN=0; const el=this._studyFrom, then=this._studyThen; this._studyFrom=null; this._studyThen=null;
+      if(el && el.isConnected && el.focus) try{ el.focus({preventScroll:true}); }catch(e){}
+      if(then) then(); },
+    // leaving the panel for another page: its step stays in history, so Back returns to it
+    studyAway(){ this.study=''; this.studyN=0; this._studyFrom=null; this._studyThen=null; },
+    studyRead(){ const k=this.study; if(!k) return; const [s,v]=k.split(':').map(Number);
+      if(this.view==='reader' && this.rSurah===s){ this._studyThen=()=>{ this.rVerse=v; this.syncUrl(false); this.focusVerse(true); }; this.studyClose(); return; }
+      this.studyAway(); this.openVerse(s, v, '', this.view==='reader' ? this.rBack : this.view); },
+    studyLink(k){ const [sn,v]=k.split(':'), q=new URLSearchParams(); if(!PRETTY) q.set('view', 'reader');
+      q.set('s', sn); q.set('v', v); q.set('study', sn+'-'+v); if(this.lang==='ar') q.set('lang', 'ar');
+      return location.origin + (PRETTY ? '/'+(SLUG.reader||'reader') : location.pathname) + '?' + q.toString(); },
+    // what the site has written on each verse: Library cards that cite it, the Name studies that count it, the pages built on it
+    studyLib(){ if(SLIB) return SLIB; const M=new Map(), D=window.QURAN_DATA||{};
+      const add=(k, row)=>{ let a=M.get(k); if(!a) M.set(k, (a=[])); a.push(row); };
+      const lib=(view, list, tag, title)=>(list||[]).forEach(it=>this.libRefs(it).forEach(r=>r.keys.forEach(k=>add(k, {view, id:it.id, tag, t:title(it), lab:r.lab, n:r.keys.length}))));
+      lib('duas', this.duas, ['Du’a','دعاء'], it=>[it.en, it.ar]);
+      lib('stories', this.stories, ['Story','قصة'], it=>[it.en, it.ar]);
+      lib('lessons', this.lessons, ['Lesson','درس'], it=>[it.en, it.ar]);
+      lib('tafsir', this.tafsir, ['Insight','بصيرة'], it=>[it.topic_en, it.topic_ar]);
+      lib('untranslatable', this.untranslatable, ['A word','كلمة'], it=>[it.translit+': a word translation cannot carry', it.word_ar+': كلمةٌ تعجز الترجمة عنها']);
+      lib('history', (this.history||[]).filter(h=>h.verdict==='holds'), ['History','تاريخ'], h=>[h.title_en, h.title_ar]);
+      ((D.names||{}).order||[]).forEach(slug=>{ const N=D[slug]; if(N && N.title) (N.verses||[]).forEach(v=>add(v.k, {view:slug, id:null, tag:['Name study','دراسة اسم'], t:[N.title.en, N.title.ar], lab:'', n:1})); });
+      add('2:255', {view:'kursi', id:null, tag:['Discovery','اكتشاف'], t:['Inside Ayat al-Kursi','داخل آية الكرسي'], lab:'', n:1});
+      return (SLIB=M); },
+    // open a Library page at the card that cites the verse, or the page built on it
+    libShow(view, id){ this.studyAway(); const t0=Date.now(); let lit=false;
+      if(view==='history'){ this.go('history'); this.hSel=id; this.hCopied=false; return; }
+      this.go(view); if(id==null) return;
+      const land=()=>{ if(USER_AT>t0 || this.view!==view) return; const el=document.getElementById('lib-'+id); if(!el) return;
+        el.scrollIntoView({block:'center'}); if(lit) return; lit=true; el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash'); };
+      this.$nextTick(land); [300, 900].forEach(ms=>setTimeout(land, ms)); },
+    vkClick(e){ const b=e.target && e.target.closest && e.target.closest('[data-study]'); if(b){ e.stopPropagation(); this.studyOpen(b.dataset.study, {currentTarget:b}); } },
     openVerse(s, v, claim, back, ext){
       if(!(s>=1 && s<=114)) return;
       const fromStudy = String(back||'').startsWith('d-');
@@ -9200,17 +9491,26 @@ createApp({
       if(this.view==='history' && this.hSel) q.set('c', this.hSel);
       if(this.view==='search' && this.q.trim()){ q.set('q', this.q.trim()); if(this.sKind==='word') q.set('mode', this.mode); }
       if(this.view==='reader'){ q.set('s', this.rSurah); if(this.rVerse) q.set('v', this.rVerse); if(this.rClaim) q.set('m', this.rClaim); if(this.rBack==='landing') q.set('back', 'landing'); }
+      if(this.study) q.set('study', this.study.replace(':', '-'));
       if(this.lang==='ar') q.set('lang', 'ar');
       const qs=q.toString(), path = PRETTY ? '/'+(SLUG[this.view]||'app') : location.pathname;
       return path + (qs ? '?'+qs : ''); },
     navState(qi){ return {qv:this.view, c:this.hSel, s:this.rSurah, v:this.rVerse, m:this.rClaim, b:this.rBack, sq:this.q, sm:this.mode,
-      x:this.rExt && this.rExt.keys ? {keys:[...this.rExt.keys].map(String)} : null, qi, y:0}; },
+      x:this.rExt && this.rExt.keys ? {keys:[...this.rExt.keys].map(String)} : null, st:this.study, sn:this.studyN, qi, y:0}; },
     // the page being left keeps its scroll, so coming back lands where the reader was
     saveY(){ try{ const st=history.state; if(st && st.qv) history.replaceState(Object.assign({}, st, {y:window.scrollY}), ''); }catch(e){} },
     syncUrl(push){ try{ const st=history.state, qi=st && st.qv ? st.qi : 0;
         if(push) history.pushState(this.navState(qi+1), '', this.navUrl());
         else history.replaceState(Object.assign(this.navState(qi), {y: st && st.y || 0}), '', this.navUrl()); }catch(e){} },
     onPop(e){ const st=e.state; if(!st || !st.qv || !this.realViews.includes(st.qv)) return;
+      // the study panel is a layer over a page: stepping back through it closes it or returns to the verse studied
+      // before, and the page under it stays where it is
+      if((this.study || st.st) && this.studySamePage(st)){
+        const closing=this._studyClosing; this._studyClosing=false;
+        if(st.st && !closing){ this.study=st.st; this.studyN=st.sn||0; this.studyLoad(); this.studyFocus(); }
+        else { this.studyShut(); if(st.st) this.syncUrl(false); }
+        return; }
+      this._studyClosing=false;
       const from=this.view, t0=Date.now(); this._popping=true;
       this.dBack = true;   // a page returned to keeps its open panels and selections
       this.go(st.qv);
@@ -9218,6 +9518,7 @@ createApp({
       if(st.qv==='search' && typeof st.sq==='string' && (st.sq!==this.q || (st.sm||'surface')!==this.mode)){ this.q=st.sq; this.mode=st.sm||'surface'; this.$nextTick(()=>this.runSearch()); }
       if(st.qv==='reader'){ this.rSurah=st.s||1; this.rVerse=st.v||0; this.rClaim=st.m||''; this.rBack=st.b||''; this.rExt=st.x||null;
         if(this.rClaim) this.load('words'); }
+      if(st.st && STUDY){ this.study=st.st; this.studyN=st.sn||0; this.studyLoad(); this.studyFocus(); } else if(this.study) this.studyAway();
       this.$nextTick(()=>{ this._popping=false;
         if(st.qv==='reader' && st.v){ this.focusVerse(); return; }
         if(from==='reader' && String(st.qv).startsWith('d-') && this.dAnchor){ this.dRestore(st.y||0); return; }
@@ -9399,6 +9700,8 @@ createApp({
       if(wantView==='history' && wantHist && typeof QURAN_HISTORY!=='undefined' && QURAN_HISTORY.some(h=>h.id===wantHist)) this.hSel=wantHist;
       if(wantView==='auditor' && wantClaim){ this.cc.text = wantClaim.slice(0,400); this.$nextTick(()=>this.checkClaim()); }
     }
+    const wantStudy = STUDY ? this.studyKey(qs.get('study')) : '';
+    if(wantStudy){ this.study=wantStudy; this.studyLoad(); }
     this.applyDir();
     try{ history.replaceState(this.navState(0), '', this.navUrl() + location.hash); }catch(e){}
     window.addEventListener('popstate', e=>this.onPop(e));
@@ -9426,9 +9729,10 @@ createApp({
       if(this.term && !(e.target.closest && e.target.closest('.termcard'))) this.closeTerm();
     });
     document.addEventListener('keydown', e=>{ if(e.key==='Escape' && this.term) this.closeTerm(true); });
+    document.addEventListener('keydown', e=>{ if(e.key==='Escape' && this.study && !this.find.open && !this.term){ e.preventDefault(); this.studyClose(); } });
     document.addEventListener('keydown', e=>{ const t=e.target;
       if(e.key!=='/' || e.metaKey || e.ctrlKey || e.altKey || (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)))) return;
-      e.preventDefault(); if(this.view!=='reader'){ this.findOpen(); return; }
+      e.preventDefault(); if(this.view!=='reader' || this.study){ this.findOpen(); return; }
       this.$nextTick(()=>{ const el=document.querySelector('.rgo input'); if(el){ el.focus(); el.select(); } }); });
     document.addEventListener('keydown', e=>{ if((e.metaKey || e.ctrlKey) && !e.altKey && !e.shiftKey && String(e.key).toLowerCase()==='k'){ e.preventDefault(); if(this.find.open) this.findClose(); else this.findOpen(); } });
     window.addEventListener('resize', ()=>{ if(this.term){ this.termSheet = window.innerWidth < 720; this.$nextTick(()=>this.placeTerm()); } });
@@ -9447,7 +9751,7 @@ createApp({
     this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); this.enterView(true); });
   }
 }).component('depth-switch', DepthSwitch).component('term-chips', TermChips).component('explain-box', ExplainBox)
-  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell).component('claim-viz', ClaimViz).component('count-lab', CountLab).component('rule-matrix', RuleMatrix).component('qadr-lab', QadrLab).component('nineteen-lab', NineteenLab).component('word-total-lab', WordTotalLab).component('letter-total-lab', LetterTotalLab).component('name-lab', NameLab).component('struct-lab', StructLab).component('balance-lab', BalanceLab).component('abjad-lab', AbjadLab).component('float-kbd', FloatKbd).component('nlp-lab', NlpLab).component('dash-lab', DashLab).component('hifz-lab', HifzLab).component('stats-lab', StatsLab).component('clf-lab', ClfLab).component('kmeans-lab', KMeansLab).component('lib-atlas', LibAtlas).component('reader-head', ReaderHead).component('word-card', WordCard)
+  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell).component('claim-viz', ClaimViz).component('count-lab', CountLab).component('rule-matrix', RuleMatrix).component('qadr-lab', QadrLab).component('nineteen-lab', NineteenLab).component('word-total-lab', WordTotalLab).component('letter-total-lab', LetterTotalLab).component('name-lab', NameLab).component('struct-lab', StructLab).component('balance-lab', BalanceLab).component('abjad-lab', AbjadLab).component('float-kbd', FloatKbd).component('nlp-lab', NlpLab).component('dash-lab', DashLab).component('hifz-lab', HifzLab).component('stats-lab', StatsLab).component('clf-lab', ClfLab).component('kmeans-lab', KMeansLab).component('lib-atlas', LibAtlas).component('reader-head', ReaderHead).component('word-card', WordCard).component('verse-study', VerseStudy)
   .component('letter-strip', LetterStrip).component('growth-curve', GrowthCurve).component('rhyme-ribbon', RhymeRibbon).mount('#app');
 });
 </script>

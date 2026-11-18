@@ -140,6 +140,8 @@ def write_lemma_variants(words, web_dir):
         json.dump(lemma_variants_mod.build(words), fh, ensure_ascii=False, separators=(',', ':'))
         fh.write(';\nwindow.QURAN_FORM_SENSES = ')
         json.dump(lemma_variants_mod.form_senses(words), fh, ensure_ascii=False, separators=(',', ':'))
+        fh.write(';\nwindow.QURAN_WORD_SENSE = ')   # one sign a word: which of the lemmas sharing its spelling it is
+        json.dump(lemma_variants_mod.word_senses(words), fh)
         fh.write(';\n')
 
 def write_roman(words, web_dir):

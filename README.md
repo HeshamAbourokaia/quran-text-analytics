@@ -51,6 +51,7 @@ cd data-build
 for t in tests/test_*.py; do /usr/bin/python3 "$t"; done
 node tests/test_lookup.js
 node tests/test_translit.js
+node tests/test_study.js
 ```
 
 Use a Python with a working scikit-learn (the macOS system Python here). The build stops if the corpus totals change: 114 surahs, 6,236 verses, 77,429 words.
