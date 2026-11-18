@@ -1102,6 +1102,9 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .slook-fact{font-size:.74rem;padding:3px 10px;border-radius:999px;background:rgba(255,255,255,.05);color:var(--on-dark-2);white-space:nowrap}
   .slook .pl{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:99px;white-space:nowrap}
   .slook .pl.mec{color:var(--gold);background:rgba(233,185,95,.12)} .slook .pl.med{color:var(--emerald);background:rgba(52,211,153,.12)}
+  .slook-facts{display:flex;flex-wrap:wrap;gap:6px 8px;margin-top:10px}
+  button.slook-fact{font:inherit;font-size:.74rem;border:1px solid rgba(233,185,95,.3);color:var(--gold);cursor:pointer;transition:background .2s,color .2s}
+  button.slook-fact:hover{background:rgba(233,185,95,.16);color:#fff}
   .slook-go{margin-inline-start:auto;border:0;border-radius:99px;padding:9px 18px;font:inherit;font-size:.84rem;font-weight:700;color:#1f1605;background:var(--gold);cursor:pointer;white-space:nowrap;transition:transform .25s var(--ease)}
   .slook-go:hover{transform:translateY(-1px)}
   .slook-say{font-size:.9rem;color:var(--on-dark-2);line-height:1.6}
@@ -1542,6 +1545,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .rdh-name{text-align:center} .rdh-name b{display:block;font-family:var(--ar-display);font-weight:400;font-size:2.4rem;line-height:1.3;color:#fff} .rdh-name span{font-size:.82rem;color:var(--on-dark-2)}
   .rdh-facts{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:10px 0 12px} .rdh-facts span{font-size:.74rem;padding:3px 10px;border-radius:999px;background:rgba(255,255,255,.05);color:var(--on-dark-2)}
   .rdh-facts .mc{background:rgba(233,185,95,.2);color:var(--gold)} .rdh-facts .md{background:rgba(88,200,190,.2);color:var(--teal)}
+  .rdh-facts .at{background:none;border:1px solid rgba(233,185,95,.35);color:var(--gold);font-variant-numeric:tabular-nums}
   .rdh-rib{display:block;width:100%;height:56px} .rdh-rib rect{fill:rgba(255,255,255,.18);cursor:pointer;transition:fill .2s} .rdh-rib rect.hi{fill:rgba(88,200,190,.75)} .rdh-rib rect.cur{fill:var(--gold)} .rdh-rib rect.hv{fill:#fff}
   .rdh-cap{min-height:1.4em;margin:4px 0 10px;font-size:.76rem;color:var(--on-dark-3);text-align:center}
   .rdh-kw{display:flex;flex-wrap:wrap;align-items:center;gap:6px;justify-content:center} .rdh-kw .k{font-size:.64rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--emerald);margin-inline-end:4px}
@@ -2738,12 +2742,39 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
       </div>
       <!-- what the box points at by number or by name: a verse, a run of verses, a surah -->
       <div v-if="sLook" class="slook" :class="'k-'+sLook.kind" aria-live="polite">
-        <template v-if="sLook.kind==='verse'">
+        <template v-if="sMark">
+          <div class="slook-h">
+            <span class="slook-tag">{{ markName(sMark.what, sMark.n) }}</span>
+            <b class="slook-t">{{ sMarkInfo.span }}</b>
+            <button type="button" class="slook-go" @click="lookOpen()">{{ lang==='ar' ? 'افتحه في المصحف ‹' : 'Open in the Reader ›' }}</button>
+          </div>
+          <div class="slook-facts">
+            <span class="slook-fact">{{ lang==='ar' ? f(sMarkInfo.verses)+' آية' : f(sMarkInfo.verses)+' verses' }}</span>
+            <span class="slook-fact" v-if="sMarkInfo.surahs>1">{{ lang==='ar' ? D(sMarkInfo.surahs)+' سورة' : sMarkInfo.surahs+' surahs' }}</span>
+            <span class="slook-fact" v-if="sMark.what!=='page'">{{ lang==='ar' ? 'الصفحات '+D(sMarkInfo.p0)+'-'+D(sMarkInfo.p1) : 'Pages '+sMarkInfo.p0+'-'+sMarkInfo.p1 }}</span>
+            <button type="button" class="slook-fact go" v-if="sMark.what!=='juz'" @click="markGo('juz', sMarkInfo.juz)">{{ markName('juz', sMarkInfo.juz) }}</button>
+            <button type="button" class="slook-fact go" v-if="sMark.what==='page'" @click="markGo('hizb', sMarkInfo.hizb)">{{ markName('hizb', sMarkInfo.hizb) }}</button>
+            <button type="button" class="slook-fact go" v-if="sMark.what==='page'" @click="markPage(sMark.n)">{{ lang==='ar' ? 'شاهد الصفحة المطبوعة ‹' : 'See the printed page ›' }}</button>
+          </div>
+          <p class="slook-note">{{ lang==='ar' ? 'يبدأ بهذه الآية:' : 'It begins with this verse:' }}</p>
+          <div v-if="!ready.verses" class="stub">{{ lang==='ar'?'جارٍ تحميل نص الآيات…':'Loading the verse text…' }}</div>
+          <div v-else class="vblock">
+            <div class="verse" lang="ar">{{ V[sLookKeys[0]] }} <span class="vk">{{ D(sLookKeys[0]) }}</span></div>
+            <div v-if="showTrans && EN[sLookKeys[0]]" class="verse-en">{{ EN[sLookKeys[0]] }}</div>
+          </div>
+          <div class="slook-nav">
+            <button type="button" :style="{visibility: sMark.n<=1 ? 'hidden' : 'visible'}" @click="markGo(sMark.what, sMark.n-1)">{{ lang==='ar' ? '› '+markName(sMark.what, sMark.n-1) : '‹ '+markName(sMark.what, sMark.n-1) }}</button>
+            <button type="button" :style="{visibility: sMark.n>=sMark.max ? 'hidden' : 'visible'}" @click="markGo(sMark.what, sMark.n+1)">{{ lang==='ar' ? markName(sMark.what, sMark.n+1)+' ‹' : markName(sMark.what, sMark.n+1)+' ›' }}</button>
+          </div>
+        </template>
+        <template v-else-if="sLook.kind==='verse'">
           <div class="slook-h">
             <span class="slook-tag">{{ sLook.b>sLook.a ? (lang==='ar' ? 'آيات' : 'Verses') : (lang==='ar' ? 'آية' : 'Verse') }}</span>
             <b class="slook-t">{{ sLookTitle }}</b>
             <span class="slook-name" v-if="sLook.name">{{ lang==='ar' ? sLook.name.ar : sLook.name.en }}</span>
             <span class="pl" :class="sLookMeta.place==='Medina' ? 'med' : 'mec'">{{ sLookMeta.place==='Medina' ? (lang==='ar' ? 'مدنية' : 'Medinan') : (lang==='ar' ? 'مكية' : 'Meccan') }}</span>
+            <template v-if="sLookAt"><button type="button" class="slook-fact go" @click="markGo('juz', sLookAt.juz)">{{ markName('juz', sLookAt.juz) }}</button>
+              <button type="button" class="slook-fact go" @click="markGo('page', sLookAt.page)">{{ markName('page', sLookAt.page) }}</button></template>
             <button type="button" class="slook-go" @click="lookOpen()">{{ lang==='ar' ? 'افتحها في المصحف ‹' : 'Open in the Reader ›' }}</button>
           </div>
           <p class="slook-note" v-if="sLook.how==='only'">{{ lang==='ar' ? 'لا توجد آيةٌ بهذا الرقم إلا في سورة '+surahName(sLook.s)+'.' : 'Only '+surahName(sLook.s)+' is long enough to have a verse of this number.' }}</p>
@@ -2770,6 +2801,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
             <span class="pl" :class="sLookMeta.place==='Medina' ? 'med' : 'mec'">{{ sLookMeta.place==='Medina' ? (lang==='ar' ? 'مدنية' : 'Medinan') : (lang==='ar' ? 'مكية' : 'Meccan') }}</span>
             <span class="slook-fact">{{ lang==='ar' ? D(sLookMeta.verses)+' آية' : sLookMeta.verses+' verses' }}</span>
             <span class="slook-fact">{{ lang==='ar' ? f(sLookMeta.words)+' كلمة' : f(sLookMeta.words)+' words' }}</span>
+            <span class="slook-fact" v-for="t in (sSurahAt||[])" :key="t">{{ t }}</span>
             <button type="button" class="slook-go" @click="lookOpen()">{{ lang==='ar' ? 'افتحها في المصحف ‹' : 'Open in the Reader ›' }}</button>
           </div>
           <p class="slook-note" v-if="sLook.how==='near'">{{ lang==='ar' ? 'أقرب اسم سورةٍ لما كتبتَ.' : 'The nearest surah name to what you typed.' }}</p>
@@ -2782,9 +2814,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
           <div v-if="sLook.list.length<=24"><button v-for="s in sLook.list" :key="s" type="button" class="chip ui" @click="q=s+':'+sLook.v;runSearch()">{{ surahName(s) }} {{ D(s+':'+sLook.v) }}</button></div>
         </template>
         <div v-else class="slook-h"><span class="slook-tag">{{ lang==='ar' ? 'خارج النص' : 'Not in the text' }}</span>
-          <span class="slook-say">{{ sLook.why==='surah' ? (lang==='ar' ? 'في القرآن ١١٤ سورة.' : 'The Quran has 114 surahs.')
-            : sLook.s ? (lang==='ar' ? 'في سورة '+surahName(sLook.s)+' '+D(sLook.max)+' آية.' : surahName(sLook.s)+' has '+sLook.max+' verses.')
-            : (lang==='ar' ? 'أطول السور، البقرة، '+D(sLook.max)+' آية.' : 'The longest surah, al-Baqarah, has '+sLook.max+' verses.') }}</span></div>
+          <span class="slook-say">{{ lookBad(sLook) }}</span></div>
       </div>
       <div v-if="sres.total>0" class="kpis">
         <div class="kpi"><div class="n">{{ f(sres.total) }}</div><div class="l">{{ lang==='ar'?'إجمالي':'Occurrences' }}</div></div>
@@ -2819,6 +2849,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
         <span class="hint">{{ lang==='ar' ? 'انقر لتفتح الآية' : 'Click to open this verse' }}</span>
         <span class="sv" lang="ar" dir="rtl" v-if="V[skyHov.s+':'+skyHov.v]" v-html="highlight(skyHov.s+':'+skyHov.v)"></span>
         <span class="se" v-if="lang!=='ar' && EN[skyHov.s+':'+skyHov.v]">{{ EN[skyHov.s+':'+skyHov.v] }}</span></template>
+        <template v-else-if="sLookLit && sMark">{{ lang==='ar' ? 'النقاط المضيئة آيات '+markName(sMark.what, sMark.n)+' في موضعها من القرآن كله، وكل نقطةٍ آية بترتيب القراءة.' : 'The bright dots are the verses of '+markName(sMark.what, sMark.n)+', where they sit in the whole Quran. Every dot is a verse, in reading order.' }}</template>
         <template v-else-if="sLookLit">{{ sLook.kind==='surah'
           ? (lang==='ar' ? 'النقاط المضيئة آيات سورة '+surahName(sLook.s)+' في موضعها من القرآن كله، وكل نقطةٍ آية بترتيب القراءة.' : 'The bright dots are the verses of '+surahName(sLook.s)+', where they sit in the whole Quran. Every dot is a verse, in reading order.')
           : (lang==='ar' ? (sLook.b>sLook.a ? 'النقاط المضيئة موضع هذه الآيات' : 'النقطة المضيئة موضع هذه الآية')+' من القرآن كله، وكل نقطةٍ آية بترتيب القراءة.' : 'The bright '+(sLook.b>sLook.a ? 'dots are where these verses sit' : 'dot is where this verse sits')+' in the whole Quran. Every dot is a verse, in reading order.') }}</template>
@@ -2851,17 +2882,15 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
         </select>
         <div class="rgo">
           <input class="q plain" v-model="goQ" @keydown.enter="rGo()" @keydown.esc="goQ=''" data-nokbd dir="auto" autocomplete="off" spellcheck="false" enterkeyhint="go"
-            :placeholder="lang==='ar' ? 'اذهب إلى: ٢٥٥، أو ١٨:١٠، أو يوسف ٤' : 'Go to: 255, 18:10, Yusuf 4'" :aria-label="lang==='ar' ? 'اذهب إلى آيةٍ أو سورة' : 'Go to a verse or a surah'">
+            :placeholder="lang==='ar' ? 'اذهب إلى: ٢٥٥، ١٨:١٠، يوسف ٤، الجزء ٣٠' : 'Go to: 255, 18:10, Yusuf 4, juz 30'" :aria-label="lang==='ar' ? 'اذهب إلى آيةٍ أو سورة' : 'Go to a verse or a surah'">
           <p class="rgo-hint" v-if="goQ.trim()" aria-live="polite">
             <template v-if="rGoTo && rGoTo.s && rGoTo.kind!=='bad'"><span class="ok" aria-hidden="true">↵</span><b>{{ rGoLabel }}</b><span v-if="rGoTo.how==='here'">{{ lang==='ar' ? 'في هذه السورة' : 'in this surah' }}</span><span v-else-if="rGoTo.how==='near' || rGoTo.near">{{ lang==='ar' ? 'أقرب اسمٍ لما كتبتَ' : 'the nearest name to what you typed' }}</span>
               <button type="button" @click="rGo()">{{ lang==='ar' ? 'اذهب ‹' : 'Go ›' }}</button></template>
             <template v-else-if="rGoTo && rGoTo.kind==='verses'">{{ lang==='ar' ? 'آيةٌ بهذا الرقم في:' : 'A verse of this number is in:' }}
               <button v-for="n in rGoTo.list.slice(0,8)" :key="n" type="button" @click="rGo({kind:'verse', s:n, a:rGoTo.v, b:rGoTo.v})">{{ surahName(n) }} {{ D(n+':'+rGoTo.v) }}</button></template>
-            <template v-else-if="rGoTo && rGoTo.kind==='bad'">{{ rGoTo.why==='surah' ? (lang==='ar' ? 'في القرآن ١١٤ سورة.' : 'The Quran has 114 surahs.')
-              : rGoTo.s ? (lang==='ar' ? 'في سورة '+surahName(rGoTo.s)+' '+D(rGoTo.max)+' آية.' : surahName(rGoTo.s)+' has '+rGoTo.max+' verses.')
-              : (lang==='ar' ? 'أطول السور، البقرة، '+D(rGoTo.max)+' آية.' : 'The longest surah, al-Baqarah, has '+rGoTo.max+' verses.') }}</template>
+            <template v-else-if="rGoTo && rGoTo.kind==='bad'">{{ lookBad(rGoTo) }}</template>
             <template v-else-if="rGoSug.length"><button v-for="n in rGoSug" :key="n" type="button" @click="rGo({kind:'surah', s:n})">{{ D(n) }}. {{ surahName(n) }}</button></template>
-            <template v-else>{{ lang==='ar' ? 'اكتب رقم آية، أو مرجعًا مثل ١٨:١٠، أو اسم سورة.' : 'Type a verse number, a reference like 18:10, or a surah name.' }}</template>
+            <template v-else>{{ lang==='ar' ? 'اكتب رقم آية، أو مرجعًا مثل ١٨:١٠، أو اسم سورة، أو جزءًا أو صفحة.' : 'Type a verse number, a reference like 18:10, a surah name, a juz or a page.' }}</template>
           </p>
         </div>
         <div class="seg">
@@ -3590,6 +3619,8 @@ let SEN = null;     // what an English search marks in the translation
 let WMOD = null;    // every word in today's spelling, built the first time a phrase is searched
 const JEV = window.QTA_JEV || null;
 const LOOK = window.QI_LOOKUP || null;   // a verse or a surah from what was typed (lookup.js)
+const MARKS = (window.QURAN_DATA||{}).marks || null;   // where each juz, hizb quarter and printed page begins (pipeline/marks.py)
+const MARK_NAME = {juz:['Juz','الجزء'], hizb:['Hizb','الحزب'], page:['Page','صفحة']};
 const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const FINE = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 const MOTION = !REDUCED && 'IntersectionObserver' in window;   // cards rise into view as you scroll
@@ -3666,8 +3697,8 @@ const PLAIN = {
     msg:['Surahs with more verses have more words, as you would expect; but for the same number of verses, Medinan surahs sit higher, because their verses are longer.',
       'السور الأكثر آياتٍ أكثرُ كلماتٍ كما هو متوقَّع، لكن عند العدد نفسه من الآيات تقع السور المدنية أعلى، لأن آياتها أطول.']},
   search:{
-    what:['Search the whole Quran from one box. Type an Arabic word to see every verse where it comes: as written, in all its forms, or by its [[root]], the three letters a family of words grows from, like ك ت ب for writing. Type several words to find a phrase, or English words to search the translation. To go straight to a verse or a surah, type its number or its name: 2:255, Yusuf 4, الكهف, Ayat al-Kursi.',
-      'ابحث في القرآن كله من مربعٍ واحد. اكتب كلمةً عربية لترى كل آيةٍ وردت فيها: كما كُتبت، أو بكل صيغها، أو [[root|بجذرها]]، وهو الحروف الثلاثة التي تتفرّع منها أسرةٌ من الكلمات، مثل ك ت ب للكتابة. واكتب عدة كلماتٍ لتجد عبارة، أو كلماتٍ إنجليزية لتبحث في الترجمة. ولتذهب مباشرةً إلى آيةٍ أو سورة اكتب رقمها أو اسمها: ٢:٢٥٥، يوسف ٤، الكهف، آية الكرسي.'],
+    what:['Search the whole Quran from one box. Type an Arabic word to see every verse where it comes: as written, in all its forms, or by its [[root]], the three letters a family of words grows from, like ك ت ب for writing. Type several words to find a phrase, or English words to search the translation. To go straight to a verse or a surah, type its number or its name: 2:255, Yusuf 4, الكهف, Ayat al-Kursi. A juz, a hizb or a page of the printed mushaf works too: juz 30, page 255.',
+      'ابحث في القرآن كله من مربعٍ واحد. اكتب كلمةً عربية لترى كل آيةٍ وردت فيها: كما كُتبت، أو بكل صيغها، أو [[root|بجذرها]]، وهو الحروف الثلاثة التي تتفرّع منها أسرةٌ من الكلمات، مثل ك ت ب للكتابة. واكتب عدة كلماتٍ لتجد عبارة، أو كلماتٍ إنجليزية لتبحث في الترجمة. ولتذهب مباشرةً إلى آيةٍ أو سورة اكتب رقمها أو اسمها: ٢:٢٥٥، يوسف ٤، الكهف، آية الكرسي. وكذلك الجزء والحزب وصفحة المصحف المطبوع: الجزء ٣٠، صفحة ٢٥٥.'],
     how:['Every verse of the Quran is a dot, in reading order. The bright dots are the verses your search found, so you can see where in the Quran they fall.',
       'كل آيةٍ في القرآن نقطة، بترتيب القراءة. والنقاط المضيئة هي الآيات التي وجدها بحثك، فترى أين تقع في القرآن.'],
     tip:['{P} a dot to see the verse', '{p} نقطةٍ لترى الآية']},
@@ -7097,7 +7128,7 @@ function rdIdf(W){ if(RD_IDF && RD_IDF.W===W) return RD_IDF; const df=new Map(),
   for(let i=0;i<W.lemma.length;i++){ const l=W.lemma[i]; if(!l || !W.root[i]) continue; const s=W.key[i].split(':')[0], k=s+'|'+l; tot.set(l,(tot.get(l)||0)+1); if(!seen.has(k)){ seen.add(k); df.set(l,(df.get(l)||0)+1); } }
   return (RD_IDF={W, df, tot}); }
 const ReaderHead = {
-  data(){ return {cur:1, hovV:null}; },
+  data(){ return {cur:1, fv:0, hovV:null}; },
   template:`<div class="rdh" v-if="meta">
     <div class="rdh-top">
       <button type="button" class="rdh-nav" :disabled="meta.n<=1" @click="goS(meta.n-1)" :aria-label="ar ? 'السورة السابقة' : 'Previous surah'">{{ ar ? '›' : '‹' }}</button>
@@ -7108,17 +7139,24 @@ const ReaderHead = {
       <span :class="meta.place==='Medina' ? 'md' : 'mc'">{{ meta.place==='Medina' ? (ar ? 'مدنية' : 'Medinan') : (ar ? 'مكية' : 'Meccan') }}</span>
       <span>{{ ar ? D(meta.verses)+' آية' : meta.verses+' verses' }}</span><span>{{ ar ? f(meta.words)+' كلمة' : f(meta.words)+' words' }}</span>
       <span>{{ ar ? D((meta.words/meta.verses).toFixed(1))+' كلمة للآية' : (meta.words/meta.verses).toFixed(1)+' words a verse' }}</span>
-      <span>{{ ar ? 'الترتيب طولًا '+D(rank)+' من ١١٤' : 'length rank '+rank+' of 114' }}</span></div>
+      <span>{{ ar ? 'الترتيب طولًا '+D(rank)+' من ١١٤' : 'length rank '+rank+' of 114' }}</span>
+      <span class="at" v-if="at" aria-live="off" :title="ar ? 'موضع الآية التي تقرؤها في المصحف المطبوع' : 'Where the verse you are reading sits in the printed mushaf'">{{ ar ? 'الجزء '+D(at.juz)+' · الحزب '+D(at.hizb)+' · صفحة '+D(at.page) : 'Juz '+at.juz+' · Hizb '+at.hizb+' · Page '+at.page }}</span></div>
     <svg :viewBox="'0 0 600 56'" class="rdh-rib" preserveAspectRatio="none" @pointerleave="hovV=null" role="img" :aria-label="ar ? 'أطوال الآيات' : 'Verse lengths'">
       <rect v-for="(n,i) in lens" :key="i" :x="i*bw" :y="52-n/lmax*48" :width="Math.max(.6, bw-.4)" :height="n/lmax*48" :class="{cur: i+1===cur, hv: i+1===hovV, hi: hiVerses.has(i+1)}" @pointerenter="hovV=i+1" @click="jump(i+1)"/></svg>
     <p class="rdh-cap">{{ hovV ? (ar ? 'الآية '+D(hovV)+' · '+D(lens[hovV-1])+' كلمة · انقر لتنتقل إليها' : 'Verse '+hovV+' · '+lens[hovV-1]+' words · tap to go there') : (ar ? 'كل عمودٍ آية بطول كلماتها، والمضيء موضع قراءتك.' : 'Each bar is a verse, as long as its words; the lit one is where you are reading.') }}</p>
     <div class="rdh-kw"><span class="k" :title="ar ? 'الكلمات التي ترد هنا أكثر مما تتوقعه حصّة السورة من النص' : 'Words that come here far more often than the surah\u2019s share of the text would predict'">{{ ar ? 'ما تتحدث عنه السورة' : 'What this surah talks about' }}</span>
       <button v-for="w in keywords" :key="w.l" type="button" :class="{on: $root.rHi===w.l}" @click="$root.rHi = $root.rHi===w.l ? '' : w.l" :title="ar ? D(w.n)+' مرة في السورة من '+D(w.t)+' في القرآن' : w.n+' times here, '+w.t+' in the whole Quran'"><b lang="ar">{{ w.s }}</b><span>{{ D(w.n) }}</span></button></div>
   </div>`,
-  mounted(){ this.$root.load('words'); this._sc=()=>{ const vs=document.querySelectorAll('.reader-view .vblock'); let c=1; for(const el of vs){ if(el.getBoundingClientRect().top>innerHeight*.3) break; const m=el.id.match(/-(\d+)$/); if(m) c=+m[1]; } this.cur=c; };
+  mounted(){ this.$root.load('words'); this._sc=()=>{ const vs=document.querySelectorAll('.reader-view .vblock'); let c=1; for(const el of vs){ if(el.getBoundingClientRect().top>innerHeight*.3) break; const m=el.id.match(/-(\d+)$/); if(m) c=+m[1]; } this.cur=c;
+      const R=this.$root, fe=R.rVerse ? document.getElementById('v-'+R.rSurah+'-'+R.rVerse) : null, r=fe && fe.getBoundingClientRect();
+      this.fv = r && r.top<innerHeight*.85 && r.bottom>innerHeight*.15 ? R.rVerse : 0; };
     addEventListener('scroll', this._sc, {passive:true}); },
   beforeUnmount(){ removeEventListener('scroll', this._sc); },
+  watch:{ '$root.rSurah'(){ this.cur=1; this.fv=0; this.$nextTick(()=>this._sc && this._sc()); },   // a new surah: read the place again
+    '$root.rVerse'(){ this.$nextTick(()=>this._sc && this._sc()); } },
   computed:{ ar(){ return this.$root.lang==='ar'; }, meta(){ return (this.$root.DS.surahMeta||[]).find(s=>s.n===this.$root.rSurah)||null; },
+    // the juz, hizb and printed page of the verse at the reading line; it follows the scroll
+    at(){ return LOOK && MARKS && this.meta ? LOOK.place(this.meta.n, Math.min(Math.max(1, this.fv || this.cur), this.meta.verses), MARKS) : null; },
     rank(){ return [...(this.$root.DS.surahMeta||[])].sort((a,b)=>b.words-a.words).findIndex(s=>s.n===this.meta.n)+1; },
     lens(){ const W=this.$root.W, m=this.meta; const out=Array(m.verses).fill(0); if(!W || !W.key.length) return out.map((_,i)=>((this.$root.V[m.n+':'+(i+1)]||'').split(' ').length));
       const sp=verseSpan(m.n+':1'); if(!sp) return out; for(let v=1; v<=m.verses; v++){ const s=verseSpan(m.n+':'+v); if(s) out[v-1]=s[1]-s[0]; } return out; },
@@ -7431,7 +7469,7 @@ createApp({
       tawExamples:[{l:'الله',t:'الله'},{l:'رب',t:'رب'},{l:'رحمن',t:'الرحمن'}],
       alifi:null, alifiPage:0, alifiOverlay:true,
       examples:['يوم','الله','رحمة','ملك','أله'],
-      examplesMore:['رب العالمين','2:255','Yusuf 4','Al-Kahf','Ayat al-Kursi','mercy'], examplesMoreAr:['رب العالمين','٢:٢٥٥','يوسف ٤','الكهف','آية الكرسي'],
+      examplesMore:['رب العالمين','2:255','Yusuf 4','Juz 30','Page 255','Ayat al-Kursi','mercy'], examplesMoreAr:['رب العالمين','٢:٢٥٥','يوسف ٤','الجزء ٣٠','صفحة ٢٥٥','آية الكرسي'],
       claimNotesEn:{
         'day-365':'Holds by its own rule. All forms of the word come to 475. The 365 counts the plain singular «يوم», «اليوم», «يوما», including with letters such as «و» or «ب» joined at the front, and leaves out «يومئذ» (on that day), the dual and plural, and forms with a pronoun joined on, such as «يومهم» (their day). Counted that way the Quran gives exactly 365.',
         'month-12':'Holds by its own rule. All forms come to 21. The 12 counts the singular «شهر», «الشهر», «شهرا», and leaves out the dual and the plurals «أشهر» and «الشهور». Counted that way the Quran gives exactly 12.',
@@ -7682,14 +7720,26 @@ createApp({
       if(/[ء-يٱ]/.test(arPlain(r))) return normalize(r.replace(/[«»"'().,،؛:!?؟]/g,' ')).split(/\s+/).filter(Boolean).length>1 ? 'phrase' : 'word';
       return /[a-z]/i.test(r) ? 'en' : 'ref'; },
     // the verse or surah the box points at by number or by name (lookup.js), beside whatever the words find
-    sLook(){ return LOOK ? LOOK.parse(this.q, this.DS.surahMeta||[]) : null; },
+    sLook(){ return LOOK ? LOOK.parse(this.q, this.DS.surahMeta||[], {marks:MARKS}) : null; },
     sLookMeta(){ const L=this.sLook; return L && L.s ? (this.DS.surahMeta||[]).find(x=>x.n===L.s) || null : null; },
     sLookKeys(){ const L=this.sLook, m=this.sLookMeta, out=[]; if(!m) return out;
+      if(L.kind==='verse' && L.mark) return this.spanKeys(L.s, L.a, L.mark.end.s, L.mark.end.v);   // a juz, a hizb or a page: every verse in it
       if(L.kind==='verse') for(let v=L.a; v<=L.b; v++) out.push(L.s+':'+v);
       else if(L.kind==='surah') for(let v=1; v<=m.verses; v++) out.push(L.s+':'+v);
       return out; },
     sLookTitle(){ const L=this.sLook; if(!L || L.kind!=='verse') return '';
       return this.surahName(L.s)+' '+this.D(L.s+':'+L.a)+(L.b>L.a ? '-'+this.D(L.b) : ''); },
+    // a juz, a hizb or a page in the box: what it holds, and the two beside it
+    sMark(){ const L=this.sLook; return L && L.kind==='verse' && L.mark ? L.mark : null; },
+    sMarkInfo(){ const K=this.sMark, L=this.sLook; if(!K || !LOOK) return null;
+      const a=LOOK.place(L.s, L.a, MARKS), b=LOOK.place(K.end.s, K.end.v, MARKS);
+      return {verses:this.sLookKeys.length, surahs:K.end.s-L.s+1, p0:a.page, p1:b.page, juz:a.juz, hizb:a.hizb,
+        span:this.surahName(L.s)+' '+this.D(L.s+':'+L.a)+(this.lang==='ar' ? ' إلى ' : ' to ')+(K.end.s!==L.s ? this.surahName(K.end.s)+' ' : '')+this.D(K.end.s+':'+K.end.v)}; },
+    // the juz, hizb and page of the verse in the box, and of a surah's first and last verse
+    sLookAt(){ const L=this.sLook; return L && L.kind==='verse' && !L.mark && LOOK ? LOOK.place(L.s, L.a, MARKS) : null; },
+    sSurahAt(){ const L=this.sLook, m=this.sLookMeta; if(!L || L.kind!=='surah' || !m || !LOOK || !MARKS) return null;
+      const a=LOOK.place(L.s, 1, MARKS), b=LOOK.place(L.s, m.verses, MARKS), ar=this.lang==='ar', r=(x,y)=>this.D(x)+(y>x ? '-'+this.D(y) : '');
+      return [(ar ? (b.juz>a.juz ? 'الأجزاء ' : 'الجزء ') : 'Juz ')+r(a.juz, b.juz), (ar ? (b.page>a.page ? 'الصفحات ' : 'صفحة ') : (b.page>a.page ? 'Pages ' : 'Page '))+r(a.page, b.page)]; },
     sLookMean(){ const L=this.sLook; return L && L.s && LOOK && this.lang!=='ar' ? LOOK.meaning(L.s) : ''; },
     // the carpet shows the place of the verse or surah asked for, when the words found nothing of their own
     sLookLit(){ return !this.sres.total && this.sLookKeys.length>0; },
@@ -7892,9 +7942,10 @@ createApp({
     rList(){ const c=this.rClaimObj; if(!c) return this.rExt ? this.rExt.keys : []; return [...new Set((c.audit||[]).map(a=>a[0]+':'+a[1]))]; },
     rFocusKey(){ return this.rVerse ? this.rSurah+':'+this.rVerse : ''; },
     // the reader's Go to box: here a number on its own is a verse of the surah being read
-    rGoTo(){ return LOOK && this.goQ.trim() ? LOOK.parse(this.goQ, this.DS.surahMeta||[], {bare:'verse', surah:this.rSurah, loose:true}) : null; },
+    rGoTo(){ return LOOK && this.goQ.trim() ? LOOK.parse(this.goQ, this.DS.surahMeta||[], {bare:'verse', surah:this.rSurah, loose:true, marks:MARKS}) : null; },
     rGoSug(){ return LOOK && this.goQ.trim() && !this.rGoTo ? LOOK.suggest(this.goQ, this.DS.surahMeta||[], 6) : []; },
     rGoLabel(){ const L=this.rGoTo, ar=this.lang==='ar'; if(!L || !L.s || L.kind==='bad') return '';
+      if(L.mark) return this.markName(L.mark.what, L.mark.n)+' · '+this.surahName(L.s)+' '+this.D(L.s+':'+L.a);
       if(L.kind!=='verse') return (ar ? 'سورة ' : 'Surah ')+this.surahName(L.s)+' ('+this.D(L.s)+')';
       return this.surahName(L.s)+' '+this.D(L.s+':'+L.a)+(L.b>L.a ? '-'+this.D(L.b) : '')+(L.name ? ' · '+(ar ? L.name.ar : L.name.en) : ''); },
     rPos(){ return this.rList.indexOf(this.rFocusKey); },
@@ -8102,7 +8153,7 @@ createApp({
     },
     ccOpenSearch(w){ const o=this.ccOpt(w); this.q=o.norm; this.mode='lemma'; this.go('search'); this.$nextTick(()=>this.runSearch()); },
     askLabel(t){ const ar=this.lang==='ar';
-      if(t.view==='reader' && t.s && t.v) return this.surahName(t.s) + ' ' + this.D(t.s+':'+t.v) + (t.b>t.v ? '-'+this.D(t.b) : '');
+      if(t.view==='reader' && t.s && t.v) return (t.mk ? this.markName(t.mk.what, t.mk.n)+' · ' : '') + this.surahName(t.s) + ' ' + this.D(t.s+':'+t.v) + (t.b>t.v ? '-'+this.D(t.b) : '');
       if(t.view==='reader' && t.s) return (ar?'سورة ':'Surah ') + this.surahName(t.s) + ' (' + this.D(t.s) + ')';
       if(t.view==='search' && t.q) return (ar?'البحث عن ':'Search for ') + '«' + t.q + '»';
       if(t.view==='auditor' && t.claim) return ar ? 'أعداد الكلمات، مع زعمك' : 'Word Counts, with your claim';
@@ -8112,9 +8163,9 @@ createApp({
       const text=this.ask.text.trim(); if(!text) return;
       if(!this.ready.words){ this.ask.busy=true; await this.load('words'); this.ask.busy=false; }
       if(JEV.crisis(text)){ this.ask.res={crisis:true, top:null, alts:[{view:'duas', cat:'prophet'}], via:'local'}; return; }   // never sent anywhere
-      const loc=JEV.routeLocal(text, jix(), this.DS.surahMeta||[]), lk=LOOK ? LOOK.parse(text, this.DS.surahMeta||[]) : null;
+      const loc=JEV.routeLocal(text, jix(), this.DS.surahMeta||[]), lk=LOOK ? LOOK.parse(text, this.DS.surahMeta||[], {marks:MARKS}) : null;
       // a verse by number or by name (2:255, Baqarah 255, آية الكرسي) and a surah's name in any spelling go straight there
-      if(lk && lk.kind==='verse') loc.shortcut={view:'reader', s:lk.s, v:lk.a, b:lk.b};
+      if(lk && lk.kind==='verse') loc.shortcut={view:'reader', s:lk.s, v:lk.a, b:lk.b, mk:lk.mark ? {what:lk.mark.what, n:lk.mark.n} : null};
       else if(lk && lk.kind==='surah' && !loc.shortcut && (lk.how==='en' || lk.how==='ar' || lk.how==='near')) loc.shortcut={view:'reader', s:lk.s};
       const top = loc.shortcut || (loc.ranked[0] ? {view:loc.ranked[0].view} : null);
       this.ask.res={top, alts: loc.ranked.filter(x=>!top || x.view!==top.view).slice(0,3).map(x=>({view:x.view})), via:'local', offTopic:false, jevAgrees:false, conf:null};
@@ -8478,7 +8529,7 @@ createApp({
       return out+escH(t.slice(last)); },
     // open what the search box points at: a verse (stepping through its range), or a surah from its first verse
     lookOpen(L, back){ L=L || this.sLook; if(!L || !L.s || L.kind==='bad') return; const keys=[];
-      if(L.kind==='verse') for(let v=L.a; v<=L.b; v++) keys.push(L.s+':'+v);
+      if(L.kind==='verse' && !L.mark) for(let v=L.a; v<=L.b; v++) keys.push(L.s+':'+v);
       this.openVerse(L.s, L.kind==='verse' ? L.a : 0, '', back || this.view, keys.length>1 ? {keys} : null); },
     // a result of the search, opened in the reader with the other results to step through
     sOpen(vk){ const [s,v]=vk.split(':').map(Number); this.openVerse(s, v, '', 'search', {keys:this.sres.sample.slice()}); },
@@ -8486,6 +8537,23 @@ createApp({
     rGo(L){ L=L || this.rGoTo; if(!L || !L.s || L.kind==='bad') return;
       this.rSurah=L.s; this.rVerse=L.kind==='verse' ? L.a : 0; this.rClaim=''; this.rExt=null; this.rHi=''; this.wcard=null; this.goQ='';
       if(this.rVerse) this.focusVerse(); else window.scrollTo({top:0}); },
+    // every verse from one place to another, across surahs (a juz, a hizb, a page)
+    spanKeys(s0, v0, s1, v1){ const out=[], M=this.DS.surahMeta||[];
+      for(let s=s0; s<=s1; s++){ const m=M.find(x=>x.n===s); if(!m) continue; for(let v=(s===s0 ? v0 : 1), b=(s===s1 ? v1 : m.verses); v<=b; v++) out.push(s+':'+v); }
+      return out; },
+    markName(what, n){ const N=MARK_NAME[what]||['','']; return this.lang==='ar' ? N[1]+' '+this.D(n) : N[0]+' '+n; },
+    // put a juz, a hizb or a page in the search box, in the reader's language
+    markGo(what, n){ this.q=this.markName(what, n); this.runSearch(); },
+    // the printed page itself, on the Mushaf Layouts page
+    markPage(n){ this.tawPage=n; this.go('tawafuq'); },
+    // why a reference is not in the text: one line, for the search card and the reader's box
+    lookBad(L){ const ar=this.lang==='ar';
+      if(L.why==='juz') return ar ? 'في القرآن '+this.D(L.max)+' جزءًا.' : 'The Quran has '+L.max+' juz.';
+      if(L.why==='hizb') return ar ? 'في القرآن '+this.D(L.max)+' حزبًا.' : 'The Quran has '+L.max+' hizb.';
+      if(L.why==='page') return ar ? 'في المصحف المطبوع '+this.D(L.max)+' صفحات.' : 'The printed mushaf has '+L.max+' pages.';
+      if(L.why==='surah') return ar ? 'في القرآن ١١٤ سورة.' : 'The Quran has 114 surahs.';
+      return L.s ? (ar ? 'في سورة '+this.surahName(L.s)+' '+this.D(L.max)+' آية.' : this.surahName(L.s)+' has '+L.max+' verses.')
+        : (ar ? 'أطول السور، البقرة، '+this.D(L.max)+' آية.' : 'The longest surah, al-Baqarah, has '+L.max+' verses.'); },
     lookStep(d){ const L=this.sLook, m=L && (this.DS.surahMeta||[]).find(x=>x.n===L.s); if(!m) return;
       const v=(d<0 ? L.a : L.b)+d; if(v>=1 && v<=m.verses){ this.q=L.s+':'+v; this.runSearch(); } },
     highlight(vk){

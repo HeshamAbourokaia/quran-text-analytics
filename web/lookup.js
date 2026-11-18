@@ -1,8 +1,9 @@
 // Finding a verse or a surah from what a reader types (also loaded by the Node tests in data-build/tests).
 //
 // A reference in numbers (2:255, ٢:٢٥٥, 2 255, 2:285-286, surah 2 verse 255), a surah's name in Arabic or
-// English (الكهف, Al-Kahf, Kahf, The Cave), a name with a verse (البقرة ٢٥٥, Baqarah 255), or a verse known by a
-// name (آية الكرسي, Ayat al-Kursi). Plain matching against the names below; nothing is sent anywhere.
+// English (الكهف, Al-Kahf, Kahf, The Cave), a name with a verse (البقرة ٢٥٥, Baqarah 255), a verse known by a
+// name (آية الكرسي, Ayat al-Kursi), or a juz, a hizb or a page of the printed mushaf (juz 30, الجزء الثلاثون,
+// page 255). Plain matching against the names below; nothing is sent anywhere.
 (function (root) {
   'use strict';
 
@@ -237,6 +238,72 @@
     return best && !tie ? { s: best.s, how: 'near' } : null;
   }
 
+  // ---- the mushaf's own divisions: the juz, the hizb and the printed page ----
+
+  const MARK_EN = { juz: 'juz', juzz: 'juz', juzu: 'juz', para: 'juz', sipara: 'juz', siparah: 'juz', part: 'juz',
+    hizb: 'hizb', hezb: 'hizb', page: 'page', pg: 'page', p: 'page' };
+  const MARK_AR = { 'جز': 'juz', 'الجز': 'juz', 'جزا': 'juz', 'جزو': 'juz', 'حزب': 'hizb', 'الحزب': 'hizb', 'صفحه': 'page', 'الصفحه': 'page' };
+  // the juz people call by their first word
+  const JUZ_NAMES = { amma: 30, ama: 30, 'عم': 30, tabarak: 29, tabaraka: 29, 'تبارك': 29, 'قدسمع': 28 };
+  // «the thirtieth» in Arabic, for the first sixty: الأول, الحادي عشر, الخامس والعشرون, الثلاثون (or الثلاثين)
+  const AR_ORD = (() => {
+    const unit = ['', 'الأول', 'الثاني', 'الثالث', 'الرابع', 'الخامس', 'السادس', 'السابع', 'الثامن', 'التاسع'];
+    const tens = { 20: 'العشر', 30: 'الثلاث', 40: 'الأربع', 50: 'الخمس', 60: 'الست' }, out = {};
+    for (let n = 1; n <= 9; n++) { out[arKey(unit[n])] = n; out[arKey((n === 1 ? 'الحادي' : unit[n]) + ' عشر')] = 10 + n; }
+    out[arKey('العاشر')] = 10;
+    for (const [t, stem] of Object.entries(tens)) for (const end of ['ون', 'ين']) {
+      out[arKey(stem + end)] = +t;
+      for (let n = 1; n <= 9 && +t + n <= 60; n++) out[arKey((n === 1 ? 'الحادي' : unit[n]) + ' و' + stem + end)] = +t + n;
+    }
+    return out;
+  })();
+  // «juz 30», «30th juz», «juz amma», «الجزء ٣٠», «الجزء الثلاثون», «page 255», «صفحة ٢٥٥», «hizb 60»: {what, n}
+  function markOf(t) {
+    if (!/[\u0600-\u06FF]/.test(t)) {
+      const x = t.replace(/['’`ʿʾ]/g, '').replace(/[.#]/g, ' ').replace(/\b(?:no|number|the)\b/g, ' ').replace(/\s+/g, ' ').trim();
+      let m = x.match(/^([a-z]+) ?(\d{1,3})$/);
+      if (m && MARK_EN[m[1]]) return { what: MARK_EN[m[1]], n: +m[2] };
+      m = x.match(/^(\d{1,3})(?:st|nd|rd|th)? ([a-z]+)$/);
+      if (m && MARK_EN[m[2]]) return { what: MARK_EN[m[2]], n: +m[1] };
+      m = x.match(/^([a-z]+) ([a-z ]+)$/);
+      if (m && MARK_EN[m[1]] === 'juz' && JUZ_NAMES[lettersOf(m[2])]) return { what: 'juz', n: JUZ_NAMES[lettersOf(m[2])] };
+      return null;
+    }
+    const toks = t.replace(/[،,؛:]/g, ' ').split(/\s+/).filter(Boolean), what = toks.length > 1 && MARK_AR[arKey(toks[0])];
+    if (!what) return null;
+    const rest = toks.slice(1).filter(x => arKey(x) !== 'رقم').join(' '), k = arKey(rest);
+    if (/^\d{1,3}$/.test(rest)) return { what, n: +rest };
+    if (what !== 'page' && AR_ORD[k]) return { what, n: AR_ORD[k] };
+    return what === 'juz' && JUZ_NAMES[k] ? { what, n: JUZ_NAMES[k] } : null;
+  }
+  // the lists as numbers, kept beside the object they were read from
+  let MX = null;
+  function marksOf(marks) {
+    if (MX && MX.src === marks) return MX;
+    const nums = list => (list || []).map(k => k.split(':').map(Number));
+    const quarter = nums(marks.quarter);
+    return (MX = { src: marks, juz: nums(marks.juz), hizb: quarter.filter((q, i) => i % 4 === 0), page: nums(marks.page) });
+  }
+  // where a juz, a hizb or a page begins, and the last verse before the next one begins
+  function mark(X, marks, what, n) {
+    const list = marksOf(marks)[what];
+    if (!list || !list.length) return null;
+    if (!(n >= 1 && n <= list.length)) return { kind: 'bad', why: what, max: list.length };
+    const [s, a] = list[n - 1], nx = list[n];
+    const end = !nx ? { s: 114, v: X.verses[114] } : nx[1] > 1 ? { s: nx[0], v: nx[1] - 1 } : { s: nx[0] - 1, v: X.verses[nx[0] - 1] };
+    return { kind: 'verse', s, a, b: a, how: 'mark', mark: { what, n, max: list.length, end } };
+  }
+  // the juz, hizb and page a verse is in: {juz, hizb, page}
+  function place(s, v, marks) {
+    if (!marks) return null;
+    const M = marksOf(marks), at = list => {
+      let lo = 0, hi = list.length - 1, r = 0;
+      while (lo <= hi) { const mid = (lo + hi) >> 1, m = list[mid]; if (m[0] < s || (m[0] === s && m[1] <= v)) { r = mid; lo = mid + 1; } else hi = mid - 1; }
+      return r + 1;
+    };
+    return { juz: at(M.juz), hizb: at(M.hizb), page: at(M.page) };
+  }
+
   // ---- reading what was typed ----
 
   const EN_SURAH = /\b(?:surah?|soorah?|sorah?|surat(?:u|ul|al)?|sourate|chapter|ch)\b\.?/g;
@@ -255,7 +322,9 @@
   //   {kind:'verse', s, a, b, how, name?, near?}   one verse or a run of verses
   //   {kind:'surah', s, how}                       a whole surah
   //   {kind:'verses', v, list}                     a verse number with no surah: the surahs that have such a verse
-  //   {kind:'bad', why, s?, max?}                  a reference outside the text (2:300)
+  //   {kind:'bad', why, s?, max?}                  a reference outside the text (2:300, juz 31)
+  // A juz, a hizb or a page comes back as the verse it begins with, and mark: {what, n, max, end: {s, v}}.
+  // opts.marks: where the juz, hizb quarters and pages begin (the site's data file); without it they are not read.
   // opts.surah with opts.bare === 'verse': a number on its own is a verse of that surah (the reader's own box).
   function parse(raw, meta, opts) {
     opts = opts || {};
@@ -263,6 +332,9 @@
     const X = index(meta);
     let t = latinDigits(arPlain(raw || '')).replace(TASHKEEL, '').toLowerCase().replace(/[\u200e\u200f]/g, '').trim();
     if (!t || t.length > 80) return null;
+
+    const mk = markOf(t);
+    if (mk) return opts.marks ? mark(X, opts.marks, mk.what, mk.n) : null;
 
     // a verse known by its own name
     const isAr = /[\u0600-\u06FF]/.test(t), nk = isAr ? arKey(t) : verseKey(t);
@@ -342,7 +414,7 @@
 
   const meaning = n => (NAMES[n] ? NAMES[n].m : '');
 
-  const api = { parse, suggest, meaning, NAMES, NAMED, arKey, enKey, nameForms, meanKey };
+  const api = { parse, suggest, meaning, place, NAMES, NAMED, arKey, enKey, nameForms, meanKey };
   root.QI_LOOKUP = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof window !== 'undefined' ? window : globalThis);

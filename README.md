@@ -68,6 +68,7 @@ vercel.json     what Vercel serves, and the short links
 
 - **Word-level morphology:** the [Quranic Arabic Corpus](https://corpus.quran.com) (Kais Dukes, University of Leeds), via [mustafa0x/quran-morphology](https://github.com/mustafa0x/quran-morphology), used with attribution.
 - **Page layout of the Madinah mushaf:** [zonetecde/mushaf-layout](https://github.com/zonetecde/mushaf-layout), from the King Fahd Complex's 604-page print.
+- **Juz, hizb and page:** the pages and the quarter signs (۞) are read from that layout; the quarters that open a surah, where the print carries no sign, are from the [Tanzil Project](https://tanzil.net/docs/quran_metadata)'s Quran metadata (CC BY 3.0).
 - **English translation:** M. M. Pickthall, *The Meaning of the Glorious Koran* (1930), public domain, verse-aligned text from the [Tanzil Project](https://tanzil.net/trans/).
 - **Early word and letter counts:** al-Qurtubi, introduction to *al-Jami li-Ahkam al-Quran*.
 - **Scholars' insights:** an original synthesis from al-Samarrai's *Lamasat Bayania* lectures, Ibn Kathir, al-Tabari, al-Qurtubi, al-Sa'di, Ibn Ashur, al-Sha'rawi and Sayyid Qutb.
