@@ -2550,13 +2550,13 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
           </div>
           <div class="dfig">
             <h3>{{ lang==='ar' ? 'أين يكون المركز لو كانت مرآة؟' : 'Where would the centre be?' }}</h3>
-            <p class="fsub">{{ lang==='ar' ? 'لكل مركزٍ ممكن: متوسط تشابه الآيات المتقابلة حوله. والشريط موضع المركز في القراءة الدائرية (٢:١٣٠–١٦٠).' : 'For each possible centre, how alike the verses facing each other around it are. The band is where the ring reading puts the centre (2:130–160).' }}</p>
+            <p class="fsub">{{ lang==='ar' ? 'لكل مركزٍ ممكن: متوسط تشابه الآيات المتقابلة حوله. والشريط موضع المركز في القراءة الدائرية (٢:١٣٠-١٦٠).' : 'For each possible centre, how alike the verses facing each other around it are. The band is where the ring reading puts the centre (2:130-160).' }}</p>
             <profile-plot :prof="DZ.rings.baqara.profile" :zone="[130,160]" :peak="DZ.rings.baqara.peak" :n="286"></profile-plot>
           </div>
           <div class="dnulls"><null-plot :d="DZ.rings.baqara.null" :p="DZ.rings.baqara.p" :fmt="v=>dF.d(v,4)" :title="lang==='ar' ? 'السورة مُدارةً كالعجلة' : 'The surah turned like a wheel'" :lab="lang==='ar' ? 'البقرة كما هي' : 'al-Baqarah as it is'" :what="['turns','إدارة','الإدارات']"></null-plot></div>
           <div class="card">
             <h3>{{ lang==='ar' ? 'الاختبار نفسه على كل سورةٍ طويلة' : 'The same test on every long surah' }} <span class="xpl">{{ lang==='ar' ? 'استكشافي' : 'exploratory' }}</span></h3>
-            <p class="dnote">{{ lang==='ar' ? 'كل سورةٍ لها ٦٠ آيةً فأكثر. لا تجتاز أيٌّ منها بعد تصحيح بنجاميني–هوخبرغ لتعدّد الاختبارات.' : 'Every surah of 60 verses or more. None passes once corrected for testing them all (Benjamini–Hochberg).' }}</p>
+            <p class="dnote">{{ lang==='ar' ? 'كل سورةٍ لها ٦٠ آيةً فأكثر. لا تجتاز أيٌّ منها بعد تصحيح بنجاميني-هوخبرغ لتعدّد الاختبارات.' : 'Every surah of 60 verses or more. None passes once corrected for testing them all (Benjamini-Hochberg).' }}</p>
             <div class="dscroll"><table class="dtable">
               <tr><th>{{ lang==='ar' ? 'السورة' : 'Surah' }}</th><th>{{ lang==='ar' ? 'آيات' : 'Verses' }}</th><th>{{ lang==='ar' ? 'القيمة الاحتمالية' : 'p-value' }}</th><th>{{ lang==='ar' ? 'بعد التصحيح' : 'After correction' }}</th></tr>
               <tr v-for="r in (dScan ? dRingScan : dRingScan.slice(0,8))" :key="r.n"><td>{{ D(r.n) }}. {{ surahName(r.n) }}</td><td class="num">{{ D(r.verses) }}</td><td class="num">{{ dF.p(r.p) }}</td><td :class="r.bh ? 'ok' : 'muted'">{{ r.bh ? (lang==='ar' ? 'تجتاز' : 'passes') : (lang==='ar' ? 'لا تجتاز' : 'does not pass') }}</td></tr>
@@ -2607,8 +2607,8 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
               <p class="npt">{{ lang==='ar' ? 'هل يثبت في كل مكان؟' : 'Does it hold everywhere?' }} <span class="xpl">{{ lang==='ar' ? 'استكشافي' : 'exploratory' }}</span></p>
               <table class="dtable">
                 <tr><th></th><th>{{ lang==='ar' ? 'الفرق' : 'Gap' }}</th><th>p</th></tr>
-                <tr><td>{{ lang==='ar' ? 'السور المكية' : 'Meccan surahs' }}</td><td class="num">{{ dF.d(DZ.rhyme.split.Mecca.diff,4) }}</td><td class="num">–</td></tr>
-                <tr><td>{{ lang==='ar' ? 'السور المدنية' : 'Medinan surahs' }}</td><td class="num">{{ dF.d(DZ.rhyme.split.Medina.diff,4) }}</td><td class="num">–</td></tr>
+                <tr><td>{{ lang==='ar' ? 'السور المكية' : 'Meccan surahs' }}</td><td class="num">{{ dF.d(DZ.rhyme.split.Mecca.diff,4) }}</td><td class="num">-</td></tr>
+                <tr><td>{{ lang==='ar' ? 'السور المدنية' : 'Medinan surahs' }}</td><td class="num">{{ dF.d(DZ.rhyme.split.Medina.diff,4) }}</td><td class="num">-</td></tr>
                 <tr v-for="w in DZ.rhyme.robust" :key="w.window"><td>{{ lang==='ar' ? (w.window===2 ? 'آيتان على كل جانب' : D(w.window)+' آياتٍ على كل جانب') : w.window+' verses a side' }}</td><td class="num">{{ dF.d(w.stat,4) }}</td><td class="num">{{ dF.p(w.p) }}</td></tr>
               </table>
             </div>
@@ -2621,7 +2621,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
           <div class="card">
             <h3>{{ lang==='ar' ? 'أطول السلاسل على فاصلةٍ واحدة' : 'The longest runs of one rhyme' }} <span class="xpl">{{ lang==='ar' ? 'استكشافي' : 'exploratory' }}</span></h3>
             <div class="vlist"><button v-for="r in DZ.rhyme.runs.slice(0,8)" :key="r.s+':'+r.start" type="button" class="vitem" @click="dOpen(r.s+':'+r.start, [r.s+':'+r.start, r.s+':'+r.end], $event)" data-dopen>
-              <span class="vhead"><span class="k">{{ D(r.s+':'+r.start+'–'+r.end) }}</span><span>{{ surahName(r.s) }}</span><span class="tag"><b lang="ar">{{ dRhymeName(r.r) }}</b>{{ lang==='ar' ? '، '+D(r.len)+' آية' : ' · '+r.len+' verses' }}</span></span></button></div>
+              <span class="vhead"><span class="k">{{ D(r.s+':'+r.start+'-'+r.end) }}</span><span>{{ surahName(r.s) }}</span><span class="tag"><b lang="ar">{{ dRhymeName(r.r) }}</b>{{ lang==='ar' ? '، '+D(r.len)+' آية' : ' · '+r.len+' verses' }}</span></span></button></div>
           </div>
         </template>
 
@@ -3194,7 +3194,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
               </div>
               <div class="ccnums">
                 <div v-for="m in ccMethods(w)" :key="m.key" class="ccnum" :class="{match:m.match, implied:m.implied}">
-                  <div class="v">{{ m.value==null ? '—' : f(m.value) }}</div>
+                  <div class="v">{{ m.value==null ? '-' : f(m.value) }}</div>
                   <div class="k">{{ m.label }}</div>
                   <div class="d">{{ m.detail }}</div>
                   <div class="o" v-if="m.note">{{ m.note }}</div>
@@ -4334,7 +4334,7 @@ function mapFind(raw, W, EN, nv){
   const nk=normalize(q).toLowerCase().replace(/[^a-z\u0621-\u064A]/g,''), named=VERSE_NAMES.find(x=>x.keys.includes(nk));
   if(named){ const verses=[]; for(let v=named.a; v<=named.b; v++) verses.push(v); return {kind:'verse', verses, a:named.a, b:named.b, name:named}; }
   const d=q.replace(/[٠-٩]/g,c=>c.charCodeAt(0)-0x660).replace(/[۰-۹]/g,c=>c.charCodeAt(0)-0x6F0);
-  const m=d.match(/^(?:(\d{1,3})\s*[:.]\s*)?(\d{1,3})(?:\s*[-–—]\s*(\d{1,3}))?$/);
+  const m=d.match(/^(?:(\d{1,3})\s*[:.]\s*)?(\d{1,3})(?:\s*[-\u2013\u2014]\s*(\d{1,3}))?$/);
   if(m){ const sura=m[1] ? +m[1] : 2, a=+m[2], b=m[3] ? +m[3] : a;
     if(sura!==2) return {kind:'other'};
     if(a<1 || b>nv || b<a) return {kind:'bad'};
@@ -4464,14 +4464,14 @@ const RingMap = { props:['m','n','block'],
         return {label:'', text: ar ? (nm ? nm.ar+' هي الآية '+K('2:'+vs[0])+'، في' : 'الآية '+K('2:'+vs[0])+' في')+' المقطع '+mine+'، المربع '+F.n(b+1)+' من '+F.n(this.N)+' على كل ضلع، ويقابلها عبر خط التناظر المقطع '+far+'.'
           : (nm ? nm.en+' is 2:'+vs[0]+', in' : '2:'+vs[0]+' is in')+' the stretch '+mine+', square '+(b+1)+' of '+this.N+' along each side. Across the mirror line it faces '+far+'.'}; }
       const where = nb===1 ? (ar ? 'في المقطع ' : 'in the stretch ')+K(this.range(this.marks[0])) : ar ? 'في '+this.arN(nb,'مقطع واحد','مقطعين','مقاطع','مقطعًا') : 'in '+nb+' stretches';
-      return {label:(r.kind==='verse' ? (r.name ? (ar ? r.name.ar : r.name.en)+' ' : '')+K('2:'+r.a+'–'+r.b) : this.readLabel(r))+':', text:this.count(vs.length)+(ar ? '، ' : ', ')+where+'.'}; },
+      return {label:(r.kind==='verse' ? (r.name ? (ar ? r.name.ar : r.name.en)+' ' : '')+K('2:'+r.a+'-'+r.b) : this.readLabel(r))+':', text:this.count(vs.length)+(ar ? '، ' : ', ')+where+'.'}; },
     ticks(){ return [1,50,100,150,200,250,this.n].map(v=>({v, f:((v-.5)/this.n*100).toFixed(2)})); },
     aria(){ return this.ar ? 'خريطة تشابه آيات البقرة كل مقطعٍ مقابل كل مقطع. استعمل الأسهم للتنقل وEnter لقراءة الآيات.' : 'Map of how alike every two stretches of al-Baqarah are. Use the arrow keys to move and Enter to read the verses.'; },
     ra(){ return this.range(this.cell.i); }, rb(){ return this.range(this.cell.j); },
     v(){ return this.m[this.cell.i][this.cell.j]; },
     swatch(){ const v=Math.max(-1, Math.min(1, this.v/40)), a=Math.pow(Math.abs(v), .8), t=v<0 ? [31,111,139] : [233,185,95], mid=[11,21,17];
       return 'rgb('+t.map((c,q)=>Math.round(mid[q]+(c-mid[q])*a)).join(',')+')'; },
-    valueText(){ const v=this.v, F=this.$root.dF, num=(v>0 ? '+' : v<0 ? '−' : '')+F.d(Math.abs(v)/1000, 3);
+    valueText(){ const v=this.v, F=this.$root.dF, num=(v>0 ? '+' : v<0 ? '-' : '')+F.d(Math.abs(v)/1000, 3);
       if(this.cell.i===this.cell.j) return this.ar ? 'المقطع نفسه: تشابه آياته فيما بينها فوق ما تتوقعه المسافة ('+num+').' : 'The same stretch: how alike its own verses are, beyond their distance ('+num+').';
       if(v>=4) return this.ar ? 'أشدّ تشابهًا مما يُتوقع لمقطعين بينهما هذه المسافة ('+num+').' : 'More alike than stretches this far apart usually are ('+num+').';
       if(v<=-4) return this.ar ? 'أقل تشابهًا مما يُتوقع لمقطعين بينهما هذه المسافة ('+num+').' : 'Less alike than stretches this far apart usually are ('+num+').';
@@ -4505,10 +4505,10 @@ const RingMap = { props:['m','n','block'],
     fq(){ this.fhow=null; },
     fr(){ this.afterFind(); } },
   methods:{
-    K(k){ return this.$root.dF.k(Array.isArray(k) ? '2:'+k[0]+(k[1]>k[0] ? '–'+k[1] : '') : k); },
+    K(k){ return this.$root.dF.k(Array.isArray(k) ? '2:'+k[0]+(k[1]>k[0] ? '-'+k[1] : '') : k); },
     isAr(t){ return /[\u0600-\u06FF]/.test(t); },
     // escaped, with the other script's words isolated so their direction does not pull the sentence apart
-    iso(t){ const h=escH(t); return this.ar ? h.replace(/[A-Za-z][A-Za-z0-9 :.,'’–-]*[A-Za-z0-9]|[A-Za-z]/g, '<bdi dir="ltr">$&</bdi>') : h.replace(AR_RUN, '<bdi lang="ar">$&</bdi>'); },
+    iso(t){ const h=escH(t); return this.ar ? h.replace(/[A-Za-z][A-Za-z0-9 :.,'’\u2013-]*[A-Za-z0-9]|[A-Za-z]/g, '<bdi dir="ltr">$&</bdi>') : h.replace(AR_RUN, '<bdi lang="ar">$&</bdi>'); },
     arN(n, one, two, few, many){ const F=this.$root.dF; return n===1 ? one : n===2 ? two : n%100>=3 && n%100<=10 ? F.n(n)+' '+few : F.n(n)+' '+many; },
     count(n){ return this.ar ? this.arN(n,'آية واحدة','آيتان','آيات','آية') : n===1 ? '1 verse' : n+' verses'; },
     readLabel(r){ const ar=this.ar, q=this.fq.trim(), f='«'+r.forms.slice(0,3).join(ar ? '»، «' : '», «')+'»', sp=w=>'«'+[...w].join(' ')+'»';
@@ -4600,7 +4600,7 @@ const ProfilePlot = { mixins:[FitW], props:['prof','zone','peak','n'],
     curLab(){ const c=this.cur[0], K=s=>this.$root.dF.k(s), lo=Math.floor(c);
       return Number.isInteger(c) ? (this.$root.lang==='ar' ? 'المركز '+K('2:'+c)+':' : 'Centre '+K('2:'+c)+':')
         : (this.$root.lang==='ar' ? 'المركز بين '+K('2:'+lo)+' و'+K('2:'+(lo+1))+':' : 'Centre between '+K('2:'+lo)+' and '+K('2:'+(lo+1))+':'); },
-    curText(){ const F=this.$root.dF, v=this.cur[1], num=(v>0 ? '+' : v<0 ? '−' : '')+F.d(Math.abs(v), 4), inZone=this.cur[0]>=this.zone[0] && this.cur[0]<=this.zone[1];
+    curText(){ const F=this.$root.dF, v=this.cur[1], num=(v>0 ? '+' : v<0 ? '-' : '')+F.d(Math.abs(v), 4), inZone=this.cur[0]>=this.zone[0] && this.cur[0]<=this.zone[1];
       const rank=1+this.prof.filter(p=>p[1]>v).length;
       return this.$root.lang==='ar'
         ? 'قوة التناظر '+num+'، والمرتبة '+F.n(rank)+' من '+F.n(this.prof.length)+' مركزًا'+(inZone ? '، داخل الشريط المقترح.' : '.')
@@ -4798,7 +4798,7 @@ const FarrinRing = { mixins:[FitW], props:['f'],
           : 'Their words\' similarity is '+F.d(C[i][j], 2)+'. Of the four sections '+(i<4 ? 'after' : 'before')+' the centre, '+this.tag(j)+' ranks '+rank+' of 4 in closeness to '+this.tag(i)+'.'); } },
   methods:{
     tag(i){ const ar=this.$root.lang==='ar', A=ar ? ['أ','ب','ج','د','هـ'] : ['A','B','C','D','E']; return A[Math.min(i, 8-i)]+(i>4 ? '′' : ''); },
-    secRange(i){ const s=this.f.sections[i]; return this.$root.dF.k('2:'+s[0]+(s[1]>s[0] ? '–'+s[1] : '')); },
+    secRange(i){ const s=this.f.sections[i]; return this.$root.dF.k('2:'+s[0]+(s[1]>s[0] ? '-'+s[1] : '')); },
     secLab(i){ return this.tag(i)+' '+this.secRange(i); },
     arc(a, b){ const x1=(this.X(this.f.sections[a][0]-1)+this.X(this.f.sections[a][1]))/2, x2=(this.X(this.f.sections[b][0]-1)+this.X(this.f.sections[b][1]))/2,
       h=Math.min(108, 18+(x2-x1)*.38); return 'M'+x1.toFixed(1)+' 118 C '+x1.toFixed(1)+' '+(118-h).toFixed(1)+', '+x2.toFixed(1)+' '+(118-h).toFixed(1)+', '+x2.toFixed(1)+' 118'; } } };
@@ -7848,7 +7848,7 @@ createApp({
     // number formatting for the texts: Arabic digits and separators in Arabic, and Latin ones inside formulas
     dF(){ const ar=this.lang==='ar';
       const dig=s=>ar ? String(s).replace(/[0-9]/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]).replace(/\./g,'٫').replace(/,/g,'٬') : String(s);
-      const lat=(x,k)=>(+x).toFixed(k).replace(/^-/,'−');
+      const lat=(x,k)=>(+x).toFixed(k);
       const pl=x=>x>=0.1 ? x.toFixed(2) : x>=0.01 ? x.toFixed(3) : String(+(+x).toPrecision(1));
       return {ar, n:x=>dig(Math.round(x).toLocaleString('en-US')), d:(x,k)=>dig(lat(x,k)), dl:lat, pc:(x,k=0)=>dig((x*100).toFixed(k))+(ar?'٪':'%'), p:x=>dig(pl(x)), pl, k:s=>dig(s)}; },
     dVerdicts(){ const T=this.DT, D=this.DZ, i=this.lang==='ar'?1:0; if(!T || !D) return {};
@@ -8458,7 +8458,7 @@ createApp({
       PCA_TW=requestAnimationFrame(tick); },
     pcaStop(){ if(PCA_TW){ cancelAnimationFrame(PCA_TW); PCA_TW=0; } },
     ldStyle(v){ const w=Math.min(1, Math.abs(v))*50; return {insetInlineStart:(v>=0 ? 50 : 50-w)+'%', width:w+'%'}; },
-    fmtLoad(v){ const s=(v>=0 ? '+' : '−')+Math.abs(v).toFixed(2); return this.lang==='ar' ? this.D(s).replace('.', '٫') : s; },
+    fmtLoad(v){ const s=(v>=0 ? '+' : '-')+Math.abs(v).toFixed(2); return this.lang==='ar' ? this.D(s).replace('.', '٫') : s; },
     pct1(v){ const s=(v*100).toFixed(1); return this.lang==='ar' ? this.D(s).replace('.', '٫')+'٪' : s+'%'; },
     dirName(i){ return this.lang==='ar' ? 'الاتجاه '+this.D(i+1) : 'Direction '+(i+1); },
     // "3 verses", "٣ آيات": the Arabic noun agrees with its number (one, two, three to ten, eleven and up)
