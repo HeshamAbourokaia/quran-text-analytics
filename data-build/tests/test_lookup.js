@@ -7,7 +7,7 @@ const WEB = path.join(__dirname, '..', '..', 'web');
 global.window = globalThis;
 require(path.join(WEB, 'data.js'));
 const L = require(path.join(WEB, 'lookup.js'));
-const META = window.QURAN_DATA.datasets.surahMeta;
+const META = window.QURAN_DATA.datasets.surahMeta, MARKS = window.QURAN_DATA.marks;
 
 const P = (q, o) => L.parse(q, META, o);
 const V = (q, o) => { const r = P(q, o); return r && r.kind === 'verse' ? r.s + ':' + r.a + (r.b !== r.a ? '-' + r.b : '') : r && r.kind; };
@@ -197,6 +197,52 @@ const tests = {
     assert.equal(S('تبارك', { loose: true }), 67);
     assert.deepEqual(P('300', here), { kind: 'bad', why: 'verse', s: 18, max: 110 });
     assert.deepEqual(P('200', here), { kind: 'verses', v: 200, list: [2, 3, 7, 26] });
+  },
+  'a juz, a hizb and a page of the printed mushaf'() {
+    const M = (q) => { const r = L.parse(q, META, { marks: MARKS }); return r && r.kind === 'verse' && r.mark ? r.mark.what + ' ' + r.mark.n + ' = ' + r.s + ':' + r.a + ' to ' + r.mark.end.s + ':' + r.mark.end.v : r && r.kind; };
+    for (const q of ['juz 30', 'Juz 30', "juz' 30", 'juz30', 'Juz no. 30', 'para 30', 'part 30', '30th juz', 'the 30th juz', 'juz amma', "Juz 'Amma",
+      'الجزء 30', 'جزء ٣٠', 'الجزء رقم ٣٠', 'الجزء الثلاثون', 'الجزء الثلاثين', 'جزء عم', 'جزء عمّ']) assert.equal(M(q), 'juz 30 = 78:1 to 114:6', q);
+    assert.equal(M('juz 1'), 'juz 1 = 1:1 to 2:141');
+    assert.equal(M('الجزء الأول'), 'juz 1 = 1:1 to 2:141');
+    assert.equal(M('الجزء الثالث'), 'juz 3 = 2:253 to 3:92');
+    assert.equal(M('الجزء العاشر'), 'juz 10 = 8:41 to 9:92');
+    assert.equal(M('الجزء الحادي عشر'), 'juz 11 = 9:93 to 11:5');
+    assert.equal(M('الجزء الخامس عشر'), 'juz 15 = 17:1 to 18:74');
+    assert.equal(M('الجزء العشرون'), 'juz 20 = 27:56 to 29:45');
+    assert.equal(M('الجزء الخامس والعشرون'), 'juz 25 = 41:47 to 45:37');
+    assert.equal(M('جزء تبارك'), 'juz 29 = 67:1 to 77:50');
+    assert.equal(M('juz tabarak'), 'juz 29 = 67:1 to 77:50');
+    assert.equal(M('hizb 60'), 'hizb 60 = 87:1 to 114:6');
+    assert.equal(M('الحزب ٦٠'), 'hizb 60 = 87:1 to 114:6');
+    assert.equal(M('الحزب الستون'), 'hizb 60 = 87:1 to 114:6');
+    assert.equal(M('hizb 2'), 'hizb 2 = 2:75 to 2:141');
+    assert.equal(M('الحزب الحادي والثلاثون'), 'hizb 31 = 18:75 to 19:98');
+    assert.equal(M('page 1'), 'page 1 = 1:1 to 1:7');
+    assert.equal(M('page 42'), 'page 42 = 2:253 to 2:256');
+    assert.equal(M('Page 604'), 'page 604 = 112:1 to 114:6');
+    assert.equal(M('p. 604'), 'page 604 = 112:1 to 114:6');
+    assert.equal(M('pg 582'), M('page 582'));
+    assert.equal(M('صفحة ٦٠٤'), 'page 604 = 112:1 to 114:6');
+    assert.equal(M('الصفحة 42'), 'page 42 = 2:253 to 2:256');
+    assert.deepEqual(L.parse('juz 31', META, { marks: MARKS }), { kind: 'bad', why: 'juz', max: 30 });
+    assert.deepEqual(L.parse('page 605', META, { marks: MARKS }), { kind: 'bad', why: 'page', max: 604 });
+    assert.deepEqual(L.parse('الحزب ٦١', META, { marks: MARKS }), { kind: 'bad', why: 'hizb', max: 60 });
+    assert.equal(L.parse('hizb 0', META, { marks: MARKS }).kind, 'bad');
+    assert.equal(P('juz 30'), null);                                  // without the lists, a juz is not read
+    for (const q of ['juz', 'page', 'جزء', 'part of the story', 'page of the book', 'الجزء الأخير']) assert.equal(L.parse(q, META, { marks: MARKS }), null, q);
+  },
+  'the juz, hizb and page a verse is in'() {
+    const at = (s, v) => { const p = L.place(s, v, MARKS); return [p.juz, p.hizb, p.page].join(' '); };
+    assert.equal(at(1, 1), '1 1 1');
+    assert.equal(at(2, 141), '1 2 21');
+    assert.equal(at(2, 142), '2 3 22');
+    assert.equal(at(2, 255), '3 5 42');           // Ayat al-Kursi, page 42
+    assert.equal(at(18, 1), '15 30 293');
+    assert.equal(at(36, 1), '22 44 440');
+    assert.equal(at(67, 1), '29 57 562');
+    assert.equal(at(78, 1), '30 59 582');
+    assert.equal(at(114, 6), '30 60 604');
+    assert.equal(L.place(2, 255), null);
   },
   'ordinary searches are not references'() {
     for (const q of ['', '   ', 'يوم', 'رحمة', 'الله', 'رب العالمين', 'mercy', 'paradise', 'angels', 'the story of Yusuf', 'day 365', 'يوم 365', 'kafir', 'fat', 'fill', 'nor', 'tour',

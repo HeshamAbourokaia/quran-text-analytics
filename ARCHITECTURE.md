@@ -16,7 +16,7 @@ vercel.json     serves web/ and api/, and sends the short links to the app
 | `index.html` | The landing page: a scrolling story with WebGL scenes, and the claim cards |
 | `app.html` | The app. One Vue 3 file with no build step: every page is a `<section v-if="view==='…'">`, and the interactive pieces are components registered at the end of the file |
 | `sky.js` | The WebGL star field behind every page. On "staged" pages (`STAGED` in `app.html`) it also draws the page's main chart |
-| `lookup.js` | Finds a verse or a surah from what a reader types: numbers (2:255), a surah's name in Arabic or English in the spellings people use, a name with a verse (Baqarah 255), or a verse known by a name (Ayat al-Kursi). Used by Search, the Reader's Go to box and the home ask box. To add a spelling or a named verse, add it to `NAMES` or `NAMED` there |
+| `lookup.js` | Finds a verse or a surah from what a reader types: numbers (2:255), a surah's name in Arabic or English in the spellings people use, a name with a verse (Baqarah 255), a verse known by a name (Ayat al-Kursi), or a juz, a hizb or a printed page (juz 30, page 255; it reads where they begin from `marks` in `data.js`). Used by Search, the Reader's Go to box and the home ask box. To add a spelling or a named verse, add it to `NAMES` or `NAMED` there |
 | `explain.js` | Each page's explanation for scientists, and the glossary of terms (each term links to the page where it is at work) |
 | `discover.js`, `discoveries.js` | The nine studies: their texts, and the results the pipeline computed |
 | `data.js`, `words.js`, `corpus.js`, `translation_en.js`, `lemma-variants.js` | Data written by `data-build/`. Do not edit them by hand |
@@ -52,6 +52,7 @@ Each page explains itself in two layers that the reader switches between. The pl
 | `discoveries.py` | The nine studies (`python3 -m pipeline.discoveries --write`; slow) |
 | `names.py` with `rizq.py`, `wahhab.py` | The Name studies (*Rizq Verses and Du'a*, *Hiba Verses and Du'a*): one engine, and one config per Name holding its hand labels, its du'a and the page's sentences |
 | `mushaf.py`, `lemma_variants.py` | The mushaf page layout, and the homograph tables the claim checker uses |
+| `marks.py` | Where each juz, hizb quarter and printed page begins (`marks` in `data.js`): pages and quarter signs read from the mushaf layout, and checked so that eight quarters make each juz |
 
 - `tests/test_lookup.js` checks `web/lookup.js` against the site's own surah list: `node data-build/tests/test_lookup.js`.
 - `tests/` pin every number the site publishes. Run them with a Python that has a working scikit-learn; on this Mac that is `/usr/bin/python3`.
