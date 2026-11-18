@@ -52,3 +52,24 @@ def form_senses(words):
         if senses:
             out[surf] = [v[0] for v in senses].index(lem)
     return out
+
+
+SENSE_SIGNS = '0123456789abcdefghijklmnopqrstuvwxyz'
+
+
+def word_senses(words):
+    """Which dictionary word each word of the text is, where its spelling covers several.
+
+    One sign for every word, in the order of the text: the index of the word's lemma in its entry of
+    build() ('0' is the most frequent, and also stands for a word whose spelling covers one lemma only,
+    or that has no lemma). With it the browser can count «جِنَّة» (the jinn) apart from «جَنَّة»
+    (the garden), which the de-voweled word index writes the same way.
+    """
+    variants = build(words)
+    index = {norm: {v[0]: i for i, v in enumerate(vs)} for norm, vs in variants.items()}
+    assert max(len(v) for v in variants.values()) <= len(SENSE_SIGNS)
+    out = []
+    for w in words:
+        i = index.get(normalize(w['lemma']), {}).get(w['lemma'], 0) if w['lemma'] else 0
+        out.append(SENSE_SIGNS[i])
+    return ''.join(out)
