@@ -16,6 +16,7 @@ vercel.json     serves web/ and api/, and sends the short links to the app
 | `index.html` | The landing page: a scrolling story with WebGL scenes, and the claim cards |
 | `app.html` | The app. One Vue 3 file with no build step: every page is a `<section v-if="view==='…'">`, and the interactive pieces are components registered at the end of the file |
 | `sky.js` | The WebGL star field behind every page. On "staged" pages (`STAGED` in `app.html`) it also draws the page's main chart |
+| `lookup.js` | Finds a verse or a surah from what a reader types: numbers (2:255), a surah's name in Arabic or English in the spellings people use, a name with a verse (Baqarah 255), or a verse known by a name (Ayat al-Kursi). Used by Search, the Reader's Go to box and the home ask box. To add a spelling or a named verse, add it to `NAMES` or `NAMED` there |
 | `explain.js` | Each page's explanation for scientists, and the glossary of terms (each term links to the page where it is at work) |
 | `discover.js`, `discoveries.js` | The nine studies: their texts, and the results the pipeline computed |
 | `data.js`, `words.js`, `corpus.js`, `translation_en.js`, `lemma-variants.js` | Data written by `data-build/`. Do not edit them by hand |
@@ -52,6 +53,7 @@ Each page explains itself in two layers that the reader switches between. The pl
 | `names.py` with `rizq.py`, `wahhab.py` | The Name studies (*Rizq Verses and Du'a*, *Hiba Verses and Du'a*): one engine, and one config per Name holding its hand labels, its du'a and the page's sentences |
 | `mushaf.py`, `lemma_variants.py` | The mushaf page layout, and the homograph tables the claim checker uses |
 
+- `tests/test_lookup.js` checks `web/lookup.js` against the site's own surah list: `node data-build/tests/test_lookup.js`.
 - `tests/` pin every number the site publishes. Run them with a Python that has a working scikit-learn; on this Mac that is `/usr/bin/python3`.
 - `discover/PREREGISTRATION.md` is the plan written before the studies ran.
 - `jev/` holds the Jev batch jobs and a stand-in for developing without a key.
@@ -72,7 +74,7 @@ The site is a static page, and everything below works with plain matching in the
 | Feature | Where | Without Jev | With Jev |
 |---|---|---|---|
 | **Check any claim** | Word Counts | Finds the word in an English or Arabic claim (modern or mushaf spelling) and counts it three ways: exactly as written, all forms of the word, the whole root. Says which count, if any, gives the claimed number, and how many "as written" hits are other words with the same spelling | Also decides which word the claim means when a spelling covers several (ملك: angel, king, dominion) and which way of counting it implies |
-| **Search hints** | Word Search | Each mode button shows its count; suggests the mushaf spelling when a modern one finds nothing (الملائكة → الملئكة); splits a spelling into the dictionary words it covers | No Jev call |
+| **Search hints** | Search | Each mode button shows its count; suggests the mushaf spelling when a modern one finds nothing (الملائكة → الملئكة); splits a spelling into the dictionary words it covers | No Jev call |
 | **Ask the site** | Home | Surah names, claims and single words go straight to their page; other questions are matched by keywords | Picks the page for open questions, and says when a question isn't about the Quran |
 | **A du'a or lesson for how you feel** | Du'as, Lessons | Keyword matching to a category | Picks the category from a description in your own words |
 | **Second opinions** | Mecca and Medina, Tone and Voice | Hidden | Jev's Meccan/Medinan and tone judgements for the opening of every surah, from a batch run |
