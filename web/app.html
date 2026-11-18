@@ -4187,10 +4187,12 @@ let RIX = null;
 const rix = () => RIX || (RIX = ROM && window.QURAN_ROMAN && jix() ? ROM.index(window.QURAN_ROMAN, jix().lemmaCount) : null);
 // the words of the English translation, and every way one of them begins: «mer» is English being typed, «rahma» is not
 let ENV = null;
-const enVoc = () => { if(ENV || !window.QURAN_EN) return ENV; const word=new Set(), pre=new Set();
-  for(const k in window.QURAN_EN) for(const w of (String(window.QURAN_EN[k]).toLowerCase().match(/[a-z]+/g) || [])) word.add(w);
+const enVoc = () => { if(ENV || !window.QURAN_EN) return ENV; const word=new Set(), pre=new Set(), low=new Set();
+  for(const k in window.QURAN_EN){ const t=String(window.QURAN_EN[k]);
+    for(const w of (t.toLowerCase().match(/[a-z]+/g) || [])) word.add(w);
+    for(const w of (t.match(/\b[a-z]+\b/g) || [])) low.add(w); }   // written without a capital somewhere: a common word, not a name
   for(const w of word) for(let i=1; i<=w.length; i++) pre.add(w.slice(0, i));
-  return (ENV = {word, pre}); };
+  return (ENV = {word, pre, low}); };
 // an English meaning for an Arabic word, from the list the claim checker reads English with (day, mercy, angel):
 // keyed by the word and, where one spelling covers several words, by how that one is said
 let GMEAN = null;
@@ -8782,7 +8784,8 @@ createApp({
     askLabel(t){ const ar=this.lang==='ar';
       if(t.view==='reader' && t.s && t.v) return (t.mk ? this.markName(t.mk.what, t.mk.n)+' · ' : '') + this.surahName(t.s) + ' ' + this.D(t.s+':'+t.v) + (t.b>t.v ? '-'+this.D(t.b) : '');
       if(t.view==='reader' && t.s) return (ar?'سورة ':'Surah ') + this.surahName(t.s) + ' (' + this.D(t.s) + ')';
-      if(t.view==='search' && t.q) return (ar?'البحث عن ':'Search for ') + '«' + t.q + '»';
+      if(t.view==='search' && t.q && t.enq) return ar ? 'البحث عن «' + t.q + '» في الترجمة الإنجليزية' : 'Search the English translation for “' + t.q + '”';
+      if(t.view==='search' && t.q) return (ar?'البحث عن ':'Search for ') + '«' + t.q + '»' + (t.en && !ar ? ' (' + t.en + ')' : '');
       if(t.view==='auditor' && t.claim) return ar ? 'أعداد الكلمات، مع زعمك' : 'Word Counts, with your claim';
       for(const g of this.nav){ const it=g.items.find(x=>x.id===t.view); if(it) return ar?it.ar:it.en; }
       return t.view; },
@@ -8794,8 +8797,19 @@ createApp({
       // a verse by number or by name (2:255, Baqarah 255, آية الكرسي) and a surah's name in any spelling go straight there
       if(lk && lk.kind==='verse') loc.shortcut={view:'reader', s:lk.s, v:lk.a, b:lk.b, mk:lk.mark ? {what:lk.mark.what, n:lk.mark.n} : null};
       else if(lk && lk.kind==='surah' && !loc.shortcut && (lk.how==='en' || lk.how==='ar' || lk.how==='near')) loc.shortcut={view:'reader', s:lk.s};
-      // one Arabic word in English letters (salat, taqwa) that no page claims: search for that word
-      if(!loc.shortcut && !loc.ranked[0] && ROM && !/\s/.test(text.replace(ARTICLE, ''))){ const m=ROM.match(text, rix(), 1)[0]; if(m && m.how==='exact') loc.shortcut={view:'search', q:m.l, forms:true}; }
+      // one English word that names an Arabic word (mercy, day, patience): count that word. The page the keywords found
+      // stays as another place to go
+      if(!loc.shortcut && /^[a-z]+$/i.test(text)){ const g=this.glossOf(text), m=g.length && ROM ? ROM.match(text, rix(), 1)[0] : null;
+        if(g.length) loc.shortcut={view:'search', q:g[0].norm, forms:true, en: m && m.how==='exact' && m.l===g[0].norm ? '' : text.toLowerCase()}; }   // «allah» is the word itself, not its meaning
+      // any other single word that no page claims. A common English word of the translation is searched there (son, hill):
+      // it only sounds like an Arabic word. An Arabic word in English letters is searched as that word (salat, taqwa),
+      // and so is a name the translation keeps in Arabic (Ramadan, Allah), which it never writes without a capital
+      if(!loc.shortcut && !loc.ranked[0] && ROM && !/\s/.test(text.replace(ARTICLE, ''))){
+        if(!this.ready.verses){ this.ask.busy=true; try{ await this.load('verses'); }catch(e){} this.ask.busy=false; }
+        const voc=enVoc(), ws=ROM.chat(text).match(/[a-z]+/g) || [], m=ROM.match(text, rix(), 1)[0], all=set=>voc && ws.length>0 && ws.every(w=>set.has(w));
+        if(all(voc && voc.low)) loc.shortcut={view:'search', q:text.toLowerCase(), enq:true};
+        else if(m && m.how==='exact') loc.shortcut={view:'search', q:m.l, forms:true};
+        else if(all(voc && voc.word)) loc.shortcut={view:'search', q:text, enq:true}; }
       const top = loc.shortcut || (loc.ranked[0] ? {view:loc.ranked[0].view} : null);
       this.ask.res={top, alts: loc.ranked.filter(x=>!top || x.view!==top.view).slice(0,3).map(x=>({view:x.view})), via:'local', offTopic:false, jevAgrees:false, conf:null};
       const R=this.ask.res;
