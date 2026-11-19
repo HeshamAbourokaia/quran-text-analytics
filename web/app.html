@@ -7615,7 +7615,6 @@ const KMeansLab = {
 // it draws on. Point at a line to light it; tap it to jump to its card.
 const LibAtlas = { mixins:[FitW],
   data(){ return {hovS:null, hovI:null}; },
-  mounted(){ this.$root.libSurah=0; },
   template:`<figure class="dfig atl" v-if="rows.length">
     <div class="atl-h"><h3>{{ ar ? 'أين تُروى في القرآن' : 'Where they are told in the Quran' }}</h3>
       <span v-if="$root.libSurah" class="atl-f">{{ ar ? 'في سورة '+$root.surahName($root.libSurah) : 'In surah '+$root.libSurah+', '+$root.surahName($root.libSurah) }} <button type="button" @click="$root.libSurah=0" :aria-label="ar ? 'إلغاء' : 'Clear'">✕</button></span></div>
@@ -9202,7 +9201,7 @@ createApp({
       this.dBack=false;
       if(id!=='cluster'){ this.pcaStop(); this.pcaStep=PCA_LAST; }
       this.closeTerm();
-      this.view=id; this.sideOpen=false; this.libQ=''; this.libCat='all'; this.sit.res=null;
+      this.view=id; this.sideOpen=false; this.libQ=''; this.libCat='all'; this.libSurah=0; this.sit.res=null;
       if(id==='tawafuq'){ this.ensureMushaf(); this.ensureAlifi(); }
       if(changed){ window.scrollTo(0,0); if(!FINE && navigator.vibrate) try{ navigator.vibrate(6); }catch(e){} }
       this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); this.enterView(changed); this.toAnchor(); }); },
@@ -9882,8 +9881,9 @@ createApp({
       x:this.rExt && this.rExt.keys ? {keys:[...this.rExt.keys].map(String)} : null, st:this.study, sn:this.studyN, ss:this.sSenseState(), qi, y:0}; },
     // which word of a shared spelling is being counted, to keep with the address: null when the spelling is one word's
     sSenseState(){ return this.sSenses.length ? this.sSenseNow : this.sSenseOf==='?' ? this.sSense : null; },
-    // the page being left keeps its scroll, so coming back lands where the reader was
-    saveY(){ try{ const st=history.state; if(st && st.qv) history.replaceState(Object.assign({}, st, {y:window.scrollY}), ''); }catch(e){} },
+    // the page being left keeps its scroll, so coming back lands where the reader was; a Library page also keeps its
+    // search and filters, without which the same scroll would land on another card
+    saveY(){ try{ const st=history.state; if(st && st.qv) history.replaceState(Object.assign({}, st, {y:window.scrollY, lib:this.curLib ? [this.libQ, this.libCat, this.libSurah] : null}), ''); }catch(e){} },
     syncUrl(push){ try{ const st=history.state, qi=st && st.qv ? st.qi : 0;
         if(push) history.pushState(this.navState(qi+1), '', this.navUrl());
         else history.replaceState(Object.assign(this.navState(qi), {y: st && st.y || 0}), '', this.navUrl()); }catch(e){} },
@@ -9900,6 +9900,8 @@ createApp({
       this.dBack = true;   // a page returned to keeps its open panels and selections
       this.go(st.qv);
       if(st.qv==='history') this.hSel = st.c || '';
+      if(Array.isArray(st.lib) && this.curLib){ const [q, c, s]=st.lib, cats=this.libCats;   // a category named in the other language is dropped
+        this.libQ=String(q||''); this.libCat=c && (!cats.length || cats.includes(c)) ? c : 'all'; this.libSurah=+s||0; }
       if(st.qv==='search' && typeof st.sq==='string'){ const ss=typeof st.ss==='number' ? st.ss : null;
         if(st.sq!==this.q || (st.sm||'surface')!==this.mode || ss!==this.sSenseState()){ this.q=st.sq; this.mode=st.sm||'surface';
           if(ss!==null){ this.sSense=ss; this.sSenseOf='?'; } else { this.sSense=-1; this.sSenseOf=''; }
@@ -9920,8 +9922,10 @@ createApp({
     libOpen(it, i, ev){ const R=this.libRefs(it), all=R.flatMap(r=>r.keys); this.dOpen(R[i].k, all, ev); },
     backFromReader(){
       if(this.rBack==='saved'){ this.rExt=null; this.rBack=''; return; }   // the saved list closes; the reader stays at the verse
-      const st=history.state;
-      if(st && st.qv==='reader' && this._readerFrom && st.qi===this._readerFrom.qi+1 && this._readerFrom.qv===this.rBack){ history.back(); return; }
+      // back in history to the page the verse was opened from, past every surah stepped into on the way (each one is
+      // a step in history), so the page comes back as it was left
+      const st=history.state, from=this._readerFrom;
+      if(st && st.qv==='reader' && from && from.qv===this.rBack && st.qi>from.qi){ history.go(from.qi-st.qi); return; }
       const b=this.rBack, y=this.dScrollY; this.rClaim=''; this.rVerse=0; this.rBack='';
       this.dBack = String(b).startsWith('d-');
       this.go(b || 'home');
