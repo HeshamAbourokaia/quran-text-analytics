@@ -3941,6 +3941,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
 <script defer src="lookup.js"></script>
 <script defer src="translit.js"></script>
 <script defer src="study.js"></script>
+<script defer src="spelling.js"></script>
 <script defer src="content/jev-data.js"></script>
 <script defer src="content/quran_stories_data.js"></script>
 <script defer src="content/quran_lessons.js"></script>
@@ -3952,7 +3953,8 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
 <script defer src="explain.js"></script>
 <script>
 window.addEventListener('DOMContentLoaded', function(){
-const TASHKEEL = /[ؐ-ًؚ-ٰٟۖ-ۭٓ-ٕ]/g;
+const SP = window.QI_SPELL;   // how a word typed in today's spelling is found in the mushaf's own (spelling.js)
+const TASHKEEL = SP.TASHKEEL;
 // the last time the reader scrolled or pressed something themselves (an opened verse stops re-centring then)
 let USER_AT = 0;
 ['wheel','touchstart','keydown','pointerdown'].forEach(ev=>window.addEventListener(ev, ()=>{ USER_AT=Date.now(); }, {passive:true, capture:true}));
@@ -3963,34 +3965,9 @@ function verseSpan(k){
     for(let i=0;i<K.length;i++){ const e=VSPAN.get(K[i]); if(e) e[1]=i+1; else VSPAN.set(K[i],[i,i+1]); } }
   return VSPAN.get(k) || null;
 }
-// Keyboards and copied text can bring Arabic «presentation forms»: one code point drawn as a ready-made shape, like
-// «ﷲ» (U+FDF2) that macOS types for الله. Compatibility normalization turns each back into its plain letters.
-const arPlain = s => String(s).replace(/[\uFB50-\uFDFF\uFE70-\uFEFC]/g, c => c.normalize('NFKC'));
-function normalize(s){
-  if(!s) return '';
-  s = arPlain(s).replace(/﻿/g,'').replace(TASHKEEL,'');
-  s = s.replace(/[ٱآأإ]/g,'ا').replace(/ى/g,'ي');
-  return s.trim();
-}
-// "As written" search. A word is cut into letters, each carrying its vowel marks. A hamza seat the reader typed
-// (أ إ آ ؤ ئ ء) must be that same seat, and every mark typed on a letter (fatha, damma, kasra, shadda, sukun,
-// tanween, the small alif) must be on that letter in the mushaf; letters typed bare accept any marks, and a bare
-// alif accepts any alif. "Exact word" compares the whole word; "Inside words" finds the letters anywhere in one.
-const AR_MARK1 = /[ؐ-ًؚ-ٰٟۖ-ۭ]/, AR_HAMZA = /[أإآؤئء]/;
-function arUnits(s){ const out=[]; for(const ch of arPlain(s||'').replace(/[ـ﻿]/g,'').normalize('NFC')){
-  if(AR_MARK1.test(ch)){ if(out.length) out[out.length-1].m+=ch; } else if(!/\s/.test(ch)) out.push({b:ch, m:''}); } return out; }
-function arUnitEq(q, w){ let qb=q.b==='ٱ' ? 'ا' : q.b, wb=w.b==='ٱ' ? 'ا' : w.b; if(qb==='ى') qb='ي'; if(wb==='ى') wb='ي';
-  if(AR_HAMZA.test(qb)){ if(qb!==wb) return false; } else if(qb==='ا'){ if(!/[اأإآ]/.test(wb)) return false; } else if(qb!==wb) return false;
-  for(const m of q.m) if(!w.m.includes(m)) return false; return true; }
-function surfTest(raw, whole){
-  const q=normalize(raw); if(!q) return null;
-  const precise = !/\s/.test(raw.trim()) && (AR_HAMZA.test(raw) || AR_MARK1.test(raw));
-  if(!precise) return whole ? (surf, norm)=>norm===q : (surf, norm)=>norm.includes(q);
-  const qu=arUnits(raw);
-  return (surf)=>{ const wu=arUnits(surf);
-    if(whole) return wu.length===qu.length && qu.every((u,i)=>arUnitEq(u, wu[i]));
-    for(let i=0;i+qu.length<=wu.length;i++){ let ok=true; for(let j=0;j<qu.length;j++) if(!arUnitEq(qu[j], wu[i+j])){ ok=false; break; } if(ok) return true; }
-    return false; }; }
+const arPlain = SP.arPlain, normalize = SP.normalize;
+// "As written" search, letter by letter with its marks (spelling.js)
+const AR_MARK1 = SP.AR_MARK1, AR_HAMZA = SP.AR_HAMZA, surfTest = SP.surfTest;
 // How a word is built, from the corpus segmentation in words.js (form = 'prefixes/number/suffix').
 // Three questions a counting rule answers: which form (singular, dual, plural, written as one with another word,
 // verb), what is joined at the front (nothing, «ال», a particle such as و ف ب ل ك س), and whether a pronoun is joined at the end.
@@ -4002,37 +3979,8 @@ function sfCats(code){ if(!code) return null; const [pre, n, suf]=code.split('/'
   return { num: n.includes('+') ? 'C' : (n[0]||'S'), front: !pre ? 'none' : (pre.replace(/ال$/,'')==='' ? 'al' : 'part'), end: suf ? 'pron' : 'none' }; }
 let SHITS = null;   // indexes of the words the current search marks, after the form filters
 let SEN = null;     // what an English search marks in the translation
-// Every word of the mushaf in today's spelling, built the first time a search needs it, so a word typed the way it is
-// written today finds the mushaf's own: العالمين finds ٱلْعَٰلَمِينَ, الصلاة finds ٱلصَّلَوٰةَ, آمنوا finds ءَامَنُوا۟.
-//   WMOD  without hamzas on the alif (آ and ءا are both «ا»), for a word typed without hamzas
-//   HMOD  with every hamza on its seat (أ إ ؤ ئ ء), for a word typed with them: «إن» is not «أن»
-//   FMOD  with the hamzas folded away, the last resort when a hamza was typed on a seat the mushaf
-//         does not use for that word (إسرائيل for إسرءيل)
-//   lem   the dictionary words behind each of today's spellings; as, the mushaf's commonest spelling of it; surf, with its marks
-let WMOD = null, HMOD = null, FMOD = null, SPELL = null;
-const hamzaTyped = t => arPlain(t).replace(TASHKEEL,'').replace(/ـ/g,'').replace(/آ/g,'ءا').replace(/ٱ/g,'ا').replace(/ى/g,'ي');
-const hamzaModern = w => hamzaTyped(modernLetters(w));
-const hamzaFold = x => x.replace(/[ؤئء]/g,'').replace(/[أإآ]/g,'ا');
-function spellTables(W){ if(SPELL && SPELL.W===W) return SPELL; if(!W || !W.surface) return null;
-  WMOD=W.surface.map(w=>modernSpelling(w).replace(/ـ/g,'').replace(/ءا/g,'ا')); HMOD=W.surface.map(hamzaModern); FMOD=HMOD.map(hamzaFold);
-  const lem=new Map(), forms=new Map();
-  for(let i=0;i<WMOD.length;i++){ const m=WMOD[i], l=W.lemma[i];
-    if(l){ let a=lem.get(m); if(!a) lem.set(m, (a=new Map())); a.set(l, (a.get(l)||0)+1); }
-    let f=forms.get(m); if(!f) forms.set(m, (f=new Map())); const k=W.norm[i]; let e=f.get(k); if(!e) f.set(k, (e={n:0, surf:W.surface[i]})); e.n++; }
-  const as=new Map(), surf=new Map();
-  for(const [m, f] of forms){ let best=null, bk=''; for(const [k, e] of f) if(!best || e.n>best.n){ best=e; bk=k; } as.set(m, bk); surf.set(m, best.surf); }
-  return (SPELL={W, lem, as, surf}); }
-// «This exact word», by a word's place in the list. With vowel marks typed: exactly as the mushaf writes it. Without
-// them the word is also compared in today's spelling: with its hamzas on the seats that were typed, or, when no word
-// of the mushaf is written that way, without them.
-function asWritten(raw, whole){ const W=window.QURAN_WORDS, st=surfTest(String(raw).replace(/آ/g,'ءا'), whole); if(!st || !W) return null;
-  const base=i=>st(W.surface[i], W.norm[i]);
-  if(AR_MARK1.test(raw) || /\s/.test(String(raw).trim())) return base;
-  spellTables(W);
-  if(!AR_HAMZA.test(raw)){ const qm=normalize(raw).replace(/ـ/g,'').replace(/ءا/g,'ا'); return whole ? i=>base(i) || WMOD[i]===qm : i=>base(i) || WMOD[i].includes(qm); }
-  const hq=hamzaTyped(raw), exact = whole ? i=>base(i) || HMOD[i]===hq : i=>base(i) || HMOD[i].includes(hq);
-  for(let i=0;i<W.surface.length;i++) if(exact(i)) return exact;
-  const fq=hamzaFold(hq); return whole ? i=>FMOD[i]===fq : i=>FMOD[i].includes(fq); }
+// «This exact word», as a test of a word's place in the list, in the mushaf's spelling and in today's (spelling.js)
+const asWritten = (raw, whole) => SP.asWritten(window.QURAN_WORDS, raw, whole);
 const JEV = window.QTA_JEV || null;
 const LOOK = window.QI_LOOKUP || null;   // a verse or a surah from what was typed (lookup.js)
 const ROM = window.QI_ROMAN || null;     // an Arabic word from English letters: rahma, sabr (translit.js)
@@ -4521,10 +4469,7 @@ function lev(a, b){ let p=[...Array(b.length+1).keys()];
 // a mushaf word in modern spelling, from the marks the mushaf writes in place of letters: the small alif after a
 // waw or a letter (ٱلصَّلَوٰةَ -> الصلاة, ٱلسَّمَٰوَٰتِ -> السماوات) and a small ya or waw inside a word (إِبْرَٰهِۦمَ -> ابراهيم).
 // Nothing is dropped, so unrelated words cannot meet (skeletons without alifs made السلام find أسلم)
-// the long vowels the mushaf writes small (the dagger alif of ٱلْعَٰلَمِينَ) as the letters today's spelling writes
-const modernLetters = w => w.replace(/وٰ/g,'ا').replace(/ىٰ/g,'ى').replace(/ٰ/g,'ا')
-  .replace(/ۦ(?=[\u0621-\u064A])/g,'ي').replace(/ۥ(?=[\u0621-\u064A])/g,'و');
-const modernSpelling = w => normalize(modernLetters(w));
+const modernSpelling = SP.modernSpelling;   // the mushaf's small long vowels as the letters today's spelling writes (spelling.js)
 // al-Baqarah's words by consonant key (as written, and without a leading clitic), by key without w and y, and by root
 let FIND_IX = null;
 function findIndex(W){
@@ -8553,7 +8498,7 @@ createApp({
       return (ar ? 'القسم '+this.D(n)+' من '+this.D(E.parts.length)+'، '+(p.mec ? 'مكي' : 'مدني') : 'Part '+n+' of '+E.parts.length+', '+(p.mec ? 'Meccan' : 'Medinan'))+' ('+what+'): '+say
         +(this.sEra===n ? (ar ? '. آياته معروضةٌ وحدها أدناه.' : '. Its verses are shown on their own below.') : '.'); },
     // typed in today's spelling, found in the mushaf's: how the mushaf writes it, with its marks, to say so
-    sMushaf(){ const SW=this.sWord; if(!SW || !SW.as || !this.sres.total) return ''; const T=spellTables(this.W); return (T && T.surf.get(SW.q.replace(/ـ/g,'').replace(/ءا/g,'ا'))) || ''; },
+    sMushaf(){ const SW=this.sWord; if(!SW || !SW.as || !this.sres.total) return ''; const t=SP.today(this.W, SW.q); return (t && t.surf) || ''; },
     searchPrecise(){ const r=this.q||''; return !/\s/.test(r.trim()) && (AR_HAMZA.test(r) || AR_MARK1.test(r)); },
     searchHint(){ if(!this.ready.words || this.sKind!=='word' || this.sres.total>0) return null; const ix=jix(), q=normalize(this.q); if(!ix || !q) return null;
       const c=JEV.modeCounts(ix, q);
@@ -9317,30 +9262,10 @@ createApp({
       } else if(kind==='phrase'){
         // several Arabic words: side by side, in this order, inside one verse. A word typed in today's spelling
         // finds the mushaf's (العالمين finds ٱلْعَٰلَمِينَ); «Inside words» lets the phrase begin and end inside a word
-        spellTables(W);
-        // The mushaf writes the calling «يا» joined to the word it calls (يَٰٓأَيُّهَا، يَٰمُوسَىٰ), so a typed «يا» goes with the
-        // word after it and the two are compared, in today's spelling, with one word of the text
-        const typed=this.q.replace(/[«»"'().,،؛:!?؟]/g,' ').trim().split(/\s+/).filter(t=>normalize(t)), toks=[];
-        for(let i=0;i<typed.length;i++){ if(normalize(typed[i])==='يا' && i+1<typed.length){ toks.push({t:typed[i]+typed[i+1], voc:true}); i++; } else toks.push({t:typed[i]}); }
-        const n=toks.length;
-        // each word's test. Exact words: the word, whole. Also joined: the first word may have letters before it and the
-        // last may have letters after it (واليوم الآخر for اليوم الآخر)
-        const testsFor=whole=>toks.map((o,j)=>{ const tk=o.t, nq=normalize(tk).replace(/ـ/g,'').replace(/ءا/g,'ا');
-          if(o.voc) return i=>WMOD[i]===nq;
-          if(AR_MARK1.test(tk)) return asWritten(tk, true);            // vowel marks typed: this word exactly
-          if(AR_HAMZA.test(tk)){ const hq=hamzaTyped(tk);               // hamzas typed: on those seats
-            if(!whole && j===0 && n>1) return i=>HMOD[i].endsWith(hq);
-            if(!whole && j===n-1 && n>1) return i=>HMOD[i].startsWith(hq);
-            return asWritten(tk, true); }
-          if(!whole && j===0) return i=>W.norm[i].endsWith(nq) || WMOD[i].endsWith(nq);
-          if(!whole && j===n-1) return i=>W.norm[i].startsWith(nq) || WMOD[i].startsWith(nq);
-          return i=>W.norm[i]===nq || WMOD[i]===nq; });
-        const each=(tests, found)=>{ for(let i=0; i+n<=W.norm.length; i++){ if(!tests[0](i) || W.key[i+n-1]!==W.key[i]) continue;
-          let ok=true; for(let j=1;j<n;j++) if(!tests[j](i+j)){ ok=false; break; }
-          if(ok) found(i); } };
-        each(testsFor(this.sWhole), i=>{ for(let j=0;j<n;j++) hits.add(i+j); hit(W.key[i]); });
+        const P=SP.phrase(W, this.q, this.sWhole);
+        for(const i of P.starts){ for(let j=0;j<P.n;j++) hits.add(i+j); hit(W.key[i]); }
         // how many more there are with letters joined to it, to offer them in plain sight
-        if(this.sWhole){ let more=0; each(testsFor(false), ()=>{ more++; }); loose=more; }
+        if(this.sWhole) loose=SP.phrase(W, this.q, false).starts.length;
       } else if(kind==='word'){
         const at=this.mode==='surface' ? asWritten(this.q, this.sWhole) : null, SW=this.sWord, lq=(SW && SW.lemma) || q, rq=(SW && SW.root) || q;
         if(this.sSenseOf==='?' && SW && SW.lemma) this.sSenseOf=SW.lemma;   // a choice that came with a link now belongs to its word
@@ -9449,7 +9374,7 @@ createApp({
         lemma = ix.lemmaCount.has(r) ? r : top(ix.surfLemmas.get(r)); if(lemma) break; }
       // a form the mushaf spells otherwise (العالمين for العلمين، آمنوا for ءامنوا): the word behind today's spelling of it
       let as='';
-      if(!ix.surfCount.has(q)){ const T=spellTables(this.W), m=q.replace(/ـ/g,'').replace(/ءا/g,'ا'); if(T && T.as.has(m)){ as=T.as.get(m); if(!lemma) lemma=top(T.lem.get(m)); } }
+      if(!ix.surfCount.has(q)){ const t=SP.today(this.W, q); if(t){ as=t.as; if(!lemma) lemma=t.lemma; } }
       return {q, as, lemma, root: ix.rootCount.has(q) ? q : (lemma && ix.lemmaRoot.get(lemma)) || ''}; },
     // the Arabic word behind an English one, where the site knows it (day, angel, mercy)
     glossOf(text){ if(!JEV || !JEV.GLOSS) return [];
