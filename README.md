@@ -52,6 +52,7 @@ for t in tests/test_*.py; do /usr/bin/python3 "$t"; done
 node tests/test_lookup.js
 node tests/test_translit.js
 node tests/test_study.js
+node tests/test_spelling.js
 node tests/test_no_dashes.js
 ```
 
