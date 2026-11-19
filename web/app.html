@@ -228,6 +228,47 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .rhint{margin:0 0 6px;padding:0 10px;font-size:.84rem;line-height:1.8;color:var(--on-dark-2)} .rhint .vk{margin-inline:2px 0}
   .vstudy{display:inline-flex;align-items:center;gap:6px;margin:6px 10px 12px;font:inherit;font-size:.86rem;font-weight:700;color:#1f1605;background:var(--gold);border:0;border-radius:99px;padding:8px 16px;cursor:pointer}
   .vstudy:hover{filter:brightness(1.07)} .vstudy:focus-visible{outline:2px solid #fff;outline-offset:2px}
+  /* what this browser keeps for the reader: a saved verse's number, the offer to continue, the list, and Home's way back in */
+  button.vk.kept{color:#1f1605;background:var(--gold);border-color:var(--gold)} button.vk.kept::before{content:'★';margin-inline-end:4px;font-size:.9em}
+  button.vk.kept:hover,button.vk.kept:focus-visible{color:#1f1605;filter:brightness(1.08)}
+  .vs-acts .keep.on{color:var(--gold);background:rgba(233,185,95,.12);border-color:rgba(233,185,95,.6)}
+  .rkeep{margin:0 0 14px}
+  .rk-res{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin:0 0 10px;padding:12px 16px;border:1px solid rgba(233,185,95,.35);border-radius:14px;background:rgba(233,185,95,.08);font-size:.92rem;line-height:1.6;color:var(--on-dark)}
+  .rk-res span{flex:1 1 240px}
+  .rk-go{flex:none;font:inherit;font-size:.86rem;font-weight:700;color:#1f1605;background:var(--gold);border:0;border-radius:99px;padding:8px 16px;cursor:pointer}
+  .rk-go:hover{filter:brightness(1.07)} .rk-go:focus-visible{outline:2px solid #fff;outline-offset:2px}
+  .rk-box{border:1px solid var(--hair);border-radius:14px;background:rgba(255,255,255,.02)}
+  .rk-box summary{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding:11px 16px;cursor:pointer;list-style:none;font-size:.9rem;font-weight:600;color:var(--on-dark)}
+  .rk-box summary::-webkit-details-marker{display:none}
+  .rk-box summary::before{content:'+';width:1em;color:var(--gold);font-weight:700} .rk-box[open] summary::before{content:'-'}
+  .rk-box summary small{font-size:.8rem;font-weight:500;color:var(--gold)}
+  .rk-in{padding:0 16px 14px}
+  .rk-in h4{margin:10px 0 8px;font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--on-dark-2)}
+  .rk-recent{display:flex;flex-wrap:wrap;gap:8px}
+  .rk-recent button{display:inline-flex;align-items:baseline;gap:8px;font:inherit;font-size:.84rem;color:var(--on-dark);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:99px;padding:6px 13px;cursor:pointer}
+  .rk-recent b{font-weight:600;font-variant-numeric:tabular-nums} .rk-recent small{font-size:.74rem;color:var(--on-dark-2)}
+  .rk-recent button:hover,.rk-recent button:focus-visible{border-color:rgba(233,185,95,.6);outline:0}
+  .rk-none{margin:0;font-size:.86rem;line-height:1.7;color:var(--on-dark-2)}
+  .rk-saved{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);gap:6px}   /* the verse's words shorten, the row never widens */
+  .rk-saved li{display:flex;align-items:stretch;gap:6px;min-width:0}
+  .rk-v{flex:1;min-width:0;display:flex;align-items:baseline;gap:12px;text-align:start;font:inherit;color:var(--on-dark);background:rgba(255,255,255,.04);border:1px solid var(--hair);border-radius:10px;padding:8px 12px;cursor:pointer}
+  .rk-v:hover,.rk-v:focus-visible{border-color:rgba(233,185,95,.55);outline:0}
+  .rk-v b{flex:none;font-size:.84rem;font-weight:600;color:var(--gold);font-variant-numeric:tabular-nums}
+  .rk-v span{flex:1;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-family:var(--ar);font-size:1rem;color:var(--ink-2)}
+  .rk-x{flex:none;width:40px;font:inherit;font-size:1.1rem;line-height:1;color:var(--on-dark-2);background:none;border:1px solid var(--hair);border-radius:10px;cursor:pointer}
+  .rk-x:hover,.rk-x:focus-visible{color:#fff;border-color:rgba(245,140,140,.6);outline:0}
+  .rk-note{margin:12px 0 0;font-size:.78rem;line-height:1.7;color:var(--on-dark-3)}
+  .rk-forget{margin-inline-start:6px;font:inherit;font-size:.78rem;color:var(--on-dark-2);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+  .rk-forget.sure{color:#f58c8c;font-weight:700}
+  .homekeep{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin-top:18px}
+  .hk-go{display:inline-flex;align-items:baseline;gap:10px;font:inherit;color:var(--on-dark);background:rgba(233,185,95,.08);border:1px solid rgba(233,185,95,.42);border-radius:99px;padding:10px 18px;cursor:pointer;transition:border-color .2s ease,background .2s ease}
+  .hk-go:hover,.hk-go:focus-visible{border-color:var(--gold);background:rgba(233,185,95,.14);outline:0}
+  .hk-k{font-size:.64rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+  .hk-go b{font-size:.96rem;font-weight:600;font-variant-numeric:tabular-nums} .hk-go small{font-size:.78rem;color:var(--on-dark-2)}
+  .hk-go .arr{width:14px;height:14px;align-self:center;color:var(--gold)} html[dir=rtl] .hk-go .arr{transform:scaleX(-1)}
+  .hk-saved{font:inherit;font-size:.86rem;color:var(--on-dark-2);background:none;border:0;padding:4px 0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+  .hk-saved:hover,.hk-saved:focus-visible{color:#fff;outline:0}
+  html[lang=ar] .hk-k,html[lang=ar] .rk-in h4{letter-spacing:0;font-size:.8rem}   /* spaced letters would break the Arabic joins */
   .sstudy{margin:10px 6px 0;font:inherit;font-size:.76rem;font-weight:600;color:var(--on-dark);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:99px;padding:2px 11px;cursor:pointer}
   .sstudy:hover,.sstudy:focus-visible{border-color:rgba(233,185,95,.6);color:#fff;outline:0}
   .slook-go.alt{background:none;color:var(--gold);border:1px solid rgba(233,185,95,.5)} .slook-go.alt + .slook-go{margin-inline-start:0}
@@ -654,7 +695,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
 
   /* ── the reader, and its scroll control that moves the page without touching the mushaf ── */
   .reader-view .card{padding-inline-end:70px}
-  @media (max-width:640px){ .reader-view .card{padding-inline-end:58px} }
+  @media (max-width:640px){ .reader-view .card{padding-inline-end:58px} .reader-view .rkeep{margin-inline-end:50px} }   /* clear of the scroll rail */
   .readnav{position:fixed;inset-inline-end:10px;top:50%;transform:translateY(-50%);z-index:60;display:flex;flex-direction:column;align-items:center;gap:8px;
     background:rgba(6,14,10,.8);border:1px solid var(--hair);border-radius:999px;padding:8px 6px;box-shadow:0 12px 34px rgba(0,0,0,.55);
     backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
@@ -2513,6 +2554,13 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
           <button class="btn primary magnetic" type="button" @click="go('auditor')"><span>{{ lang==='ar' ? 'تحقّق من الأعداد المتداولة' : 'Check the famous claims' }}</span><svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h10M9 4.5 12.5 8 9 11.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <button class="btn ghost magnetic" type="button" @click="go('overview')"><span>{{ lang==='ar' ? 'استكشف الأرقام' : 'Explore the numbers' }}</span></button>
         </div>
+        <div class="homekeep" v-if="keepLast || keep.saved.length">
+          <button v-if="keepLast" type="button" class="hk-go" @click="keepGo(keepLast)">
+            <span class="hk-k">{{ lang==='ar' ? 'تابع القراءة' : 'Continue reading' }}</span>
+            <b>{{ surahName(keepLast.s) }} {{ D(keepLast.s+':'+keepLast.v) }}</b><small>{{ keepAgo(keepLast.t) }}</small>
+            <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h10M9 4.5 12.5 8 9 11.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button v-if="keep.saved.length" type="button" class="hk-saved" @click="keepShow()">{{ keepSavedLabel }} {{ lang==='ar' ? '‹' : '›' }}</button>
+        </div>
         <form class="askbox" @submit.prevent="askSite">
           <input class="q" v-model="ask.text" maxlength="200" :placeholder="lang==='ar' ? 'اسأل الموقع: قصة يوسف، دعاءٌ للقلق، سورة الكهف…' : 'Ask the site: the story of Yusuf, a du’a for anxiety, surah Al-Kahf…'" :aria-label="lang==='ar' ? 'اسأل الموقع' : 'Ask the site'">
           <button type="submit" class="ccbtn" :disabled="ask.busy || !ask.text.trim()">{{ ask.busy ? (lang==='ar' ? 'لحظة…' : 'Thinking…') : (lang==='ar' ? 'اسأل' : 'Ask') }}</button>
@@ -3279,12 +3327,34 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
           <button :class="{on:showTrans}" :aria-pressed="showTrans" @click="showTrans=!showTrans">{{ lang==='ar'?'الترجمة الإنجليزية':'English translation' }}</button>
         </div>
       </div>
+      <!-- what this browser keeps for the reader: where they were, the surahs read lately, the verses they saved -->
+      <div class="rkeep" v-if="keep.on && (rResume || keep.recent.length || keep.saved.length)">
+        <p class="rk-res" v-if="rResume" aria-live="polite"><span>{{ rResumeText }}</span>
+          <button type="button" class="rk-go" @click="keepGo(rResume)">{{ lang==='ar' ? 'تابع من هناك ‹' : 'Continue there ›' }}</button></p>
+        <details class="rk-box" :open="keepOpen" @toggle="keepOpen=$event.target.open">
+          <summary><span>{{ lang==='ar' ? 'قراءتك على هذا الجهاز' : 'Your reading on this device' }}</span><small v-if="keep.saved.length">{{ keepSavedLabel }}</small></summary>
+          <div class="rk-in">
+            <template v-if="keep.recent.length">
+            <h4>{{ lang==='ar' ? 'قرأتَ مؤخرًا' : 'Read lately' }}</h4>
+            <div class="rk-recent"><button v-for="p in keep.recent" :key="p.s" type="button" @click="keepGo(p)"><b>{{ surahName(p.s) }} {{ D(p.s+':'+p.v) }}</b><small>{{ keepAgo(p.t) }}</small></button></div>
+            </template>
+            <h4>{{ lang==='ar' ? 'آياتك المعلَّمة' : 'Your saved verses' }}</h4>
+            <p v-if="!keep.saved.length" class="rk-none">{{ lang==='ar' ? 'لم تضع علامةً على آيةٍ بعد. انقر رقم آية، ثم «ضع علامةً على الآية».' : 'Nothing saved yet. Tap a verse number, then “Save this verse”.' }}</p>
+            <ul v-else class="rk-saved">
+              <li v-for="b in keep.saved" :key="b.k"><button type="button" class="rk-v" @click="keepSavedGo(b.k)"><b>{{ surahName(+b.k.split(':')[0]) }} {{ D(b.k) }}</b><span lang="ar" dir="rtl">{{ keepFirst(b.k) }}</span></button>
+                <button type="button" class="rk-x" @click="keepToggle(b.k)" :title="lang==='ar' ? 'أزل العلامة' : 'Remove from saved'" :aria-label="lang==='ar' ? 'أزل العلامة عن الآية '+D(b.k) : 'Remove '+b.k+' from saved'">×</button></li>
+            </ul>
+            <p class="rk-note">{{ lang==='ar' ? 'يبقى هذا في هذا المتصفح وحده، ولا يُرسَل منه شيء.' : 'This stays in this browser only. Nothing is sent anywhere.' }}
+              <button type="button" class="rk-forget" :class="{sure: keepSure}" @click="keepForgetAll">{{ keepSure ? (lang==='ar' ? 'انقر مرةً أخرى لتمحو الكل' : 'Tap again to forget it all') : (lang==='ar' ? 'امحُ الكل' : 'Forget it all') }}</button></p>
+          </div>
+        </details>
+      </div>
       <div class="card">
         <div v-if="!ready.verses" class="stub">{{ lang==='ar'?'جارٍ تحميل نص المصحف…':'Loading the text of the Quran…' }}</div>
-        <p class="rhint" v-if="ready.verses">{{ lang==='ar' ? 'انقر أي كلمةٍ لترى بناءها. وانقر رقم آيةٍ، مثل ' : 'Tap any word to see how it is built. Tap a verse number, like ' }}<span class="vk">{{ rSurah }}:1</span>{{ lang==='ar' ? '، لتدرس الآية.' : ', to study that verse.' }}</p>
+        <p class="rhint" v-if="ready.verses">{{ lang==='ar' ? 'انقر أي كلمةٍ لترى بناءها. وانقر رقم آيةٍ، مثل ' : 'Tap any word to see how it is built. Tap a verse number, like ' }}<span class="vk">{{ rSurah }}:1</span>{{ keep.on ? (lang==='ar' ? '، لتدرس الآية أو تضع عليها علامة.' : ', to study that verse or save it.') : (lang==='ar' ? '، لتدرس الآية.' : ', to study that verse.') }}</p>
         <div v-for="v in readerVerses" :key="v.k" class="vblock" :id="'v-'+v.k.replace(':','-')" :class="{vfocus: v.k===rFocusKey}" @click="vkClick($event)">
           <div class="verse" v-if="rMarks.has(v.k)" v-html="readerLine(v)"></div>
-          <div class="verse" v-else><span v-for="(w,j) in rTok(v.k, v.t)" :key="j" class="rw" :class="{hi: rHi && w.i>=0 && W.lemma[w.i]===rHi, tap: w.i>=0}" @click="w.i>=0 && openWord(w.i, $event)">{{ w.t+' ' }}</span><button type="button" class="vk" :data-study="v.k" :title="lang==='ar' ? 'ادرس هذه الآية' : 'Study this verse'" :aria-label="lang==='ar' ? 'ادرس الآية '+v.k : 'Study verse '+v.k">{{ v.k }}</button></div>
+          <div class="verse" v-else><span v-for="(w,j) in rTok(v.k, v.t)" :key="j" class="rw" :class="{hi: rHi && w.i>=0 && W.lemma[w.i]===rHi, tap: w.i>=0}" @click="w.i>=0 && openWord(w.i, $event)">{{ w.t+' ' }}</span><button type="button" class="vk" :class="{kept: keepSet.has(v.k)}" :data-study="v.k" :title="keepSet.has(v.k) ? (lang==='ar' ? 'عليها علامتك. انقر لتدرسها' : 'Saved. Tap to study it') : (lang==='ar' ? 'ادرس هذه الآية' : 'Study this verse')" :aria-label="(lang==='ar' ? 'ادرس الآية '+v.k : 'Study verse '+v.k)+(keepSet.has(v.k) ? (lang==='ar' ? '، عليها علامتك' : ', saved') : '')">{{ v.k }}</button></div>
           <div v-if="showTrans && EN[v.k]" class="verse-en">{{ v.k }} &middot; {{ EN[v.k] }}</div>
           <button v-if="v.k===rFocusKey" type="button" class="vstudy" :data-study="v.k">{{ lang==='ar' ? 'ادرس هذه الآية ‹' : 'Study this verse ›' }}</button>
         </div>
@@ -3942,6 +4012,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
 <script defer src="translit.js"></script>
 <script defer src="study.js"></script>
 <script defer src="spelling.js"></script>
+<script defer src="place.js"></script>
 <script defer src="content/jev-data.js"></script>
 <script defer src="content/quran_stories_data.js"></script>
 <script defer src="content/quran_lessons.js"></script>
@@ -3985,6 +4056,8 @@ const JEV = window.QTA_JEV || null;
 const LOOK = window.QI_LOOKUP || null;   // a verse or a surah from what was typed (lookup.js)
 const ROM = window.QI_ROMAN || null;     // an Arabic word from English letters: rahma, sabr (translit.js)
 const STUDY = window.QI_STUDY || null;   // what one verse shares with the rest of the Quran (study.js)
+const PLACE = window.QI_PLACE || null;   // the places read and the verses saved, kept in this browser only (place.js)
+const STORE = (()=>{ try{ return window.localStorage; }catch(e){ return null; } })();   // null where the browser refuses it
 const SENSE_SIGNS = '0123456789abcdefghijklmnopqrstuvwxyz';   // QURAN_WORD_SENSE: one sign a word, saying which of the words written like it it is
 const MARKS = (window.QURAN_DATA||{}).marks || null;   // where each juz, hizb quarter and printed page begins (pipeline/marks.py)
 const MARK_NAME = {juz:['Juz','الجزء'], hizb:['Hizb','الحزب'], page:['Page','صفحة']};
@@ -7570,7 +7643,13 @@ const ReaderHead = {
   </div>`,
   mounted(){ this.$root.load('words'); this._sc=()=>{ const vs=document.querySelectorAll('.reader-view .vblock'); let c=1; for(const el of vs){ if(el.getBoundingClientRect().top>innerHeight*.3) break; const m=el.id.match(/-(\d+)$/); if(m) c=+m[1]; } this.cur=c;
       const R=this.$root, fe=R.rVerse ? document.getElementById('v-'+R.rSurah+'-'+R.rVerse) : null, r=fe && fe.getBoundingClientRect();
-      this.fv = r && r.top<innerHeight*.85 && r.bottom>innerHeight*.15 ? R.rVerse : 0; };
+      this.fv = r && r.top<innerHeight*.85 && r.bottom>innerHeight*.15 ? R.rVerse : 0;
+      // the place to keep: the verse at the reading line, or the last verse once the page is scrolled to its end.
+      // While no verse has reached the line the reader is at the controls above the text, not reading: nothing is kept,
+      // so scrolling up to them does not lose the place
+      const last=vs.length ? vs[vs.length-1].id.match(/-(\d+)$/) : null, end=last && innerHeight+scrollY>=document.documentElement.scrollHeight-8;
+      const reached=vs.length && vs[0].getBoundingClientRect().top<=innerHeight*.3;
+      R.readAt(end ? +last[1] : reached ? c : 0); };
     addEventListener('scroll', this._sc, {passive:true}); },
   beforeUnmount(){ removeEventListener('scroll', this._sc); },
   watch:{ '$root.rSurah'(){ this.cur=1; this.fv=0; this.$nextTick(()=>this._sc && this._sc()); },   // a new surah: read the place again
@@ -7614,6 +7693,7 @@ const VerseStudy = {
         <p class="vs-en" v-if="en && (!ar || R.showTrans)" dir="ltr" lang="en">{{ en }}</p>
         <div class="vs-acts">
           <button type="button" class="main" @click="R.studyRead()">{{ ar ? 'اقرأها في سورتها ‹' : 'Read it in its surah ›' }}</button>
+          <button v-if="R.keep.on" type="button" class="keep" :class="{on: kept}" :aria-pressed="kept" @click="R.keepToggle(k)" :title="kept ? (ar ? 'انقر لتزيل العلامة' : 'Tap to take it off your saved list') : (ar ? 'تجدها بعد ذلك في المصحف، تحت «قراءتك على هذا الجهاز»' : 'Find it later in the Reader, under “Your reading on this device”')">{{ kept ? (ar ? 'عليها علامتك ✓' : 'Saved ✓') : (ar ? 'ضع علامةً على الآية' : 'Save this verse') }}</button>
           <button type="button" :disabled="!prev" @click="R.studyStep(prev)">{{ ar ? '› الآية السابقة' : '‹ Previous verse' }}</button>
           <button type="button" :disabled="!next" @click="R.studyStep(next)">{{ ar ? 'الآية التالية ‹' : 'Next verse ›' }}</button>
           <button type="button" @click="copy('verse')">{{ copied==='verse' ? (ar ? 'نُسخت ✓' : 'Copied ✓') : (ar ? 'انسخ الآية' : 'Copy the verse') }}</button>
@@ -7685,7 +7765,7 @@ const VerseStudy = {
       </div>
     </aside>
   </div>`,
-  computed:{ R(){ return this.$root; }, ar(){ return this.R.lang==='ar'; }, k(){ return this.R.study; },
+  computed:{ R(){ return this.$root; }, ar(){ return this.R.lang==='ar'; }, k(){ return this.R.study; }, kept(){ return this.R.keepSet.has(this.k); },
     s(){ return +this.k.split(':')[0]; }, v(){ return +this.k.split(':')[1]; },
     meta(){ return (this.R.DS.surahMeta||[]).find(x=>x.n===this.s) || {verses:1, place:''}; },
     IX(){ return this.k && this.R.ready.words && this.R.ready.verses ? six() : null; },
@@ -8017,7 +8097,7 @@ createApp({
       V: window.QURAN_VERSES||{}, W: window.QURAN_WORDS||{key:[],norm:[],lemma:[],root:[],surface:[]},
       ready:{ verses:!!window.QURAN_VERSES, words:!!window.QURAN_WORDS, roman:!!window.QURAN_ROMAN, plotly:typeof Plotly!=='undefined', disc:false, hviz:false },
       q:'', mode:'surface', sWhole:true, clabPick:null, sfOff:{}, sfCount:null, sfRows:SF_ROWS, sres:{total:0,surahs:0,verses:0,sample:[],kind:'',juz:[],juzV:[],era:[],eraV:[],loose:0}, sShown:40, goQ:'', goFoc:false, sAuto:true, sPickMode:false, sJuz:0, sJuzHov:0, sEra:0, sEraHov:0, sAdv:false, sVia:null, sNoVia:'', find:{open:false, text:'', i:0}, study:'', studyN:0, sSense:-1, sSenseOf:'',
-      rSurah:1, rVerse:0, rClaim:'', rBack:'', scrollPct:0, railDragging:false, EN:{}, showTrans:(new URLSearchParams(location.search).get('lang')!=='ar'), libQ:'', libCat:'all', libSurah:0, rHi:'', wcard:null, nlpCenter:'', nlpState:null, stories:[], lessons:[], duas:[], tafsir:[], untranslatable:[], untranslatableIntro:{}, history:[], historyIntro:{}, skyHov:null, sresBy:{}, sresRoots:[], skyGL:false, hSel:'', hYear:610, hPlaying:false, hFilter:'all', hCopied:false,
+      rSurah:1, rVerse:0, rClaim:'', rBack:'', keep:{on:false, recent:[], saved:[]}, keepArrive:null, keepOpen:false, keepSure:false, scrollPct:0, railDragging:false, EN:{}, showTrans:(new URLSearchParams(location.search).get('lang')!=='ar'), libQ:'', libCat:'all', libSurah:0, rHi:'', wcard:null, nlpCenter:'', nlpState:null, stories:[], lessons:[], duas:[], tafsir:[], untranslatable:[], untranslatableIntro:{}, history:[], historyIntro:{}, skyHov:null, sresBy:{}, sresRoots:[], skyGL:false, hSel:'', hYear:610, hPlaying:false, hFilter:'all', hCopied:false,
       V1:{}, abjadInput:'الله',
       jevOn: !!(JEV && JEV.endpoint()), JD: window.QTA_JEV_DATA||{},
       cc:{text:'', busy:false, res:null}, ask:{text:'', busy:false, res:null}, sit:{text:'', busy:false, res:null},
@@ -8687,6 +8767,17 @@ createApp({
     rLemma(){ return this.rClaimObj ? normalize(this.rClaimObj.lemma) : ''; },
     rList(){ const c=this.rClaimObj; if(!c) return this.rExt ? this.rExt.keys : []; return [...new Set((c.audit||[]).map(a=>a[0]+':'+a[1]))]; },
     rFocusKey(){ return this.rVerse ? this.rSurah+':'+this.rVerse : ''; },
+    // ---- what this browser keeps for the reader (place.js): the latest place in each surah, and the saved verses ----
+    keepLens(){ return PLACE ? PLACE.lensOf(this.DS.surahMeta) : null; },
+    keepSet(){ return new Set(this.keep.saved.map(b=>b.k)); },
+    keepLast(){ return this.keep.on && this.keep.recent.length ? this.keep.recent[0] : null; },
+    // the offer at the top of the Reader: where the reader was when it opened, until they start reading again
+    rResume(){ const p=this.keepArrive; if(!this.keep.on || !p || this.rVerse || this.rClaim || this.rExt) return null;
+      return p.s===this.rSurah && p.v===1 ? null : p; },
+    rResumeText(){ const p=this.rResume, ar=this.lang==='ar'; if(!p) return ''; const ago=this.keepAgo(p.t);
+      if(p.s===this.rSurah) return ar ? 'كنتَ عند الآية '+this.D(p.v)+' من هذه السورة '+ago+'.' : 'You were at verse '+p.v+' of this surah '+ago+'.';
+      return ar ? 'كنتَ تقرأ سورة '+this.surahName(p.s)+' عند الآية '+this.D(p.v)+' '+ago+'.' : 'You were reading '+this.surahName(p.s)+' '+p.s+':'+p.v+' '+ago+'.'; },
+    keepSavedLabel(){ const n=this.keep.saved.length; return this.lang==='ar' ? 'آياتك المعلَّمة ('+this.D(n)+')' : 'Your saved verses ('+n+')'; },
     // the reader's Go to box: here a number on its own is a verse of the surah being read
     rGoTo(){ return LOOK && this.goQ.trim() ? LOOK.parse(this.goQ, this.DS.surahMeta||[], {bare:'verse', surah:this.rSurah, loose:true, marks:MARKS}) : null; },
     rGoEx(){ const ar=this.lang==='ar', m=(this.DS.surahMeta||[]).find(x=>x.n===this.rSurah), v=Math.min(10, m ? m.verses : 7);
@@ -8702,7 +8793,7 @@ createApp({
     rWhere(){ const ar=this.lang==='ar', n=this.rList.length, i=this.rPos; if(!this.rClaimObj && n<=1) return '';
       return i<0 ? (ar ? this.D(n)+' آية' : n+' verses') : (ar ? 'الآية '+this.D(i+1)+' من '+this.D(n) : 'verse '+(i+1)+' of '+n); },
     rBackHref(){ return this.landingHref + '#claim-' + this.rClaim; },
-    rBackLabel(){ const ar=this.lang==='ar', b=String(this.rBack||''), t=({auditor: ar?'أعداد الكلمات':'Word Counts', history: ar?'شواهد التاريخ':'History Claims', symmetry: ar?'توازن الأزواج':'Word Pairs'})[b] || (b && b!=='reader' && b!=='landing' && b!=='home' ? this.viewName(b) : '');
+    rBackLabel(){ const ar=this.lang==='ar', b=String(this.rBack||''); if(b==='saved') return ar ? 'أغلق القائمة ×' : 'Close the list ×'; const t=({auditor: ar?'أعداد الكلمات':'Word Counts', history: ar?'شواهد التاريخ':'History Claims', symmetry: ar?'توازن الأزواج':'Word Pairs'})[b] || (b && b!=='reader' && b!=='landing' && b!=='home' ? this.viewName(b) : '');
       return t ? (ar ? '→ العودة إلى '+t : '← Back to '+t) : (ar ? '→ العودة' : '← Back'); },
     readerVerses(){
       const out=[]; const n=this.rSurah;
@@ -8995,6 +9086,7 @@ createApp({
       const changed=id!==this.view; if(changed) this.saveY();
       (NEEDS[id]||[]).forEach(k=>this.load(k));
       if(id!=='reader'){ this.rClaim=''; this.rVerse=0; this.rBack=''; this.rExt=null; }
+      else { this._readT0=Date.now(); if(changed) this.keepArrive=this.keepLast; }
       if(id==='history' ? this.view==='history' : id!=='reader') this.hSel='';   // the tab itself opens the index; back from the reader keeps the claim
       this.hStop();
       if(id!==this.view && id!=='reader' && !this.dBack){ this.dRhyme=-1; this.dTheme=-1; this.dScan=false; this.dRingSel=null; this.dRingFind=''; this.dRepN=20; this.dCopied=false; }
@@ -9120,12 +9212,15 @@ createApp({
     },
     heroIntro(){
       const G=window.gsap; if(!MOTION || !G || !document.querySelector('.homet')) return;
-      const parts=['.home .eyebrow','.homet .w','.homesub','.home .ctas','.home .askbox','.homehero .kpis .kpi'];
+      const hk=!!document.querySelector('.home .homekeep');   // there only once the reader has a place kept
+      const parts=['.home .eyebrow','.homet .w','.homesub','.home .ctas','.home .askbox','.homehero .kpis .kpi'].concat(hk ? ['.home .homekeep'] : []);
       const tl=G.timeline({defaults:{ease:'expo.out'},onComplete:()=>G.set(parts,{clearProps:'all'})});
       tl.from('.home .eyebrow',{y:16,autoAlpha:0,duration:1},.1)
         .from('.homet .w',{yPercent:118,duration:1.3,stagger:this.lang==='ar'?.14:.07},.18)
         .from('.homesub',{y:24,autoAlpha:0,duration:1.1},.55)
-        .from('.home .ctas',{y:24,autoAlpha:0,duration:1.1},.66)
+        .from('.home .ctas',{y:24,autoAlpha:0,duration:1.1},.66);
+      if(hk) tl.from('.home .homekeep',{y:24,autoAlpha:0,duration:1.1},.71);
+      tl
         .from('.home .askbox',{y:24,autoAlpha:0,duration:1.1},.76)
         .from('.homehero .kpis .kpi',{y:30,autoAlpha:0,duration:1.1,stagger:.08},.84);
     },
@@ -9463,7 +9558,7 @@ createApp({
         if(toks.length===span[1]-span[0]) hit=new Set(at);
         else { const forms=new Set(at.map(j=>W.surface[span[0]+j])); toks.forEach((t,j)=>{ if(forms.has(t)) hit.add(j); }); }
       }
-      return toks.map((t,j)=>hit.has(j) ? '<mark>'+esc(t)+'</mark>' : esc(t)).join(' ') + ' <button type="button" class="vk" data-study="'+esc(v.k)+'">'+esc(v.k)+'</button>';
+      return toks.map((t,j)=>hit.has(j) ? '<mark>'+esc(t)+'</mark>' : esc(t)).join(' ') + ' <button type="button" class="vk'+(this.keepSet.has(v.k) ? ' kept' : '')+'" data-study="'+esc(v.k)+'">'+esc(v.k)+'</button>';
     },
     // ---- History Claims. Years are numbers (negative = BCE, all approximate); every gap is worked out here, none is typed. ----
     yrPlain(y){ if(y==null) return ''; const ar=this.lang==='ar'; return this.D(y<0 ? (-y)+(ar?' ق.م':' BCE') : y+(ar?' م':' CE')); },
@@ -9621,6 +9716,29 @@ createApp({
       if(claim) this.load('words');
       this.focusVerse();
     },
+    // ---- continue reading and saved verses, kept in this browser only (place.js) ----
+    keepLoad(){ if(!PLACE) return; this.keep.on=PLACE.canKeep(STORE); if(!this.keep.on) return;
+      const L=this.keepLens; this.keep.recent=PLACE.recent(STORE, L); this.keep.saved=PLACE.saved(STORE, L); },
+    // the Reader is showing verse v of its surah at the reading line: kept once the reader moves through the text
+    // themselves, so a verse opened from a search or a link is not taken for reading until they scroll from it
+    // (0: the reader is at the controls above the text, so a place still waiting to be kept is dropped)
+    readAt(v){ clearTimeout(this._readT); if(!v || !this.keep.on || this.view!=='reader' || !(USER_AT>this._readT0)) return; const s=this.rSurah;
+      this._readT=setTimeout(()=>{ if(this.view!=='reader' || this.rSurah!==s) return;
+        const L=PLACE.seen(STORE, s, v, Date.now(), this.keepLens); if(L){ this.keep.recent=L; this.keepArrive=null; } }, 500); },
+    keepToggle(k){ if(!this.keep.on) return; const L=PLACE.toggle(STORE, k, Date.now(), this.keepLens); if(L) this.keep.saved=L; },
+    keepGo(p){ this.keepArrive=null; this.studyAway(); this.openVerse(p.s, p.v, '', ''); },
+    // a saved verse, with the bar under the text stepping through all the saved ones in the order of the mushaf
+    keepSavedGo(k){ const [s,v]=k.split(':').map(Number); this.keepArrive=null; this.openVerse(s, v, '', 'saved', {keys:PLACE.inOrder(this.keep.saved)}); },
+    keepShow(){ this.keepOpen=true; this.go('reader'); this.$nextTick(()=>{ const el=document.querySelector('.rkeep'); if(el) el.scrollIntoView({block:'center'}); }); },
+    // forgetting everything takes a second tap, so one slip cannot wipe it
+    keepForgetAll(){ if(!this.keepSure){ this.keepSure=true; clearTimeout(this._ksT); this._ksT=setTimeout(()=>{ this.keepSure=false; }, 4000); return; }
+      clearTimeout(this._ksT); clearTimeout(this._readT); PLACE.forget(STORE); this.keepSure=false; this.keep.recent=[]; this.keep.saved=[]; this.keepArrive=null; },
+    keepAgo(t){ const d=PLACE ? PLACE.daysAgo(t, Date.now()) : 0, ar=this.lang==='ar';
+      if(d===0) return ar ? 'اليوم' : 'today'; if(d===1) return ar ? 'أمس' : 'yesterday';
+      if(d>30) return ar ? 'قبل أكثر من شهر' : 'over a month ago';
+      if(!ar) return d+' days ago';
+      return d===2 ? 'قبل يومين' : 'قبل '+this.D(d)+(d<=10 ? ' أيام' : ' يومًا'); },
+    keepFirst(k){ const t=this.V[k]; if(!t) return ''; const w=t.split(' '); return w.slice(0,6).join(' ')+(w.length>6 ? ' …' : ''); },
     // bring the opened verse to the middle of the screen; on arrival the text still moves while the Arabic font
     // and the word list come in, so it is kept centred for a moment, until the reader scrolls themselves
     focusVerse(step){
@@ -9692,6 +9810,7 @@ createApp({
         for(let v=a; v<=Math.min(b, a+299); v++) keys.push(s+':'+v); return {lab:t.trim(), k:keys[0], keys}; }).filter(Boolean); },
     libOpen(it, i, ev){ const R=this.libRefs(it), all=R.flatMap(r=>r.keys); this.dOpen(R[i].k, all, ev); },
     backFromReader(){
+      if(this.rBack==='saved'){ this.rExt=null; this.rBack=''; return; }   // the saved list closes; the reader stays at the verse
       const st=history.state;
       if(st && st.qv==='reader' && this._readerFrom && st.qi===this._readerFrom.qi+1 && this._readerFrom.qv===this.rBack){ history.back(); return; }
       const b=this.rBack, y=this.dScrollY; this.rClaim=''; this.rVerse=0; this.rBack='';
@@ -9833,13 +9952,14 @@ createApp({
       this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); this.revealScan(); this.syncStage(); if(this.term) this.placeTerm(); }); },
     pcaStep(){ if(this.view==='cluster') this.syncStage(); },
     pcaAngle(){ if(this.view==='cluster' && !PCA_RAF) PCA_RAF=requestAnimationFrame(()=>{ PCA_RAF=0; this.syncStage(); }); },   // one redraw a frame while the line turns
-    rSurah(){ if(this.view==='reader') this.syncSky(); },
+    rSurah(){ this._readT0=Date.now(); if(this.view==='reader') this.syncSky(); },   // a surah newly opened is read once the reader scrolls
     dRhyme(){ if(this.view==='d-rhyme') this.syncStage(); },
     dTheme(){ if(this.view==='d-themes') this.syncStage(); } },
   mounted(){
     window.addEventListener('scroll', this.onPageScroll, { passive:true });
     window.addEventListener('resize', this.onPageScroll);
     this.onPageScroll();
+    this._readT0=Date.now(); this.keepLoad();
     const qs = new URLSearchParams(location.search), seg = location.pathname.replace(/^\/+|\/+$/g,'').replace(/\.html$/,'');
     let wantView = qs.get('view') || SLUG_VIEW[seg] || (VIEW_ALIAS[seg] ? seg : '');
     if(VIEW_ALIAS[wantView]){ this._toAnchor = VIEW_ALIAS[wantView][1] || ''; wantView = VIEW_ALIAS[wantView][0]; }
@@ -9863,6 +9983,7 @@ createApp({
       if(wantView==='history' && wantHist && typeof QURAN_HISTORY!=='undefined' && QURAN_HISTORY.some(h=>h.id===wantHist)) this.hSel=wantHist;
       if(wantView==='auditor' && wantClaim){ this.cc.text = wantClaim.slice(0,400); this.$nextTick(()=>this.checkClaim()); }
     }
+    if(this.view==='reader') this.keepArrive=this.keepLast;
     const wantStudy = STUDY ? this.studyKey(qs.get('study')) : '';
     if(wantStudy){ this.study=wantStudy; this.studyLoad(); }
     this.applyDir();
