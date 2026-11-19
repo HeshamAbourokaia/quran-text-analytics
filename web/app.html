@@ -228,6 +228,41 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .rhint{margin:0 0 6px;padding:0 10px;font-size:.84rem;line-height:1.8;color:var(--on-dark-2)} .rhint .vk{margin-inline:2px 0}
   .vstudy{display:inline-flex;align-items:center;gap:6px;margin:6px 10px 12px;font:inherit;font-size:.86rem;font-weight:700;color:#1f1605;background:var(--gold);border:0;border-radius:99px;padding:8px 16px;cursor:pointer}
   .vstudy:hover{filter:brightness(1.07)} .vstudy:focus-visible{outline:2px solid #fff;outline-offset:2px}
+  /* the verse as an image card: a sheet over the study panel, the image on one side and its choices on the other */
+  .shr{position:fixed;inset:0;z-index:1200;display:flex;align-items:center;justify-content:center;padding:24px}
+  .shr-bg{position:absolute;inset:0;background:rgba(2,6,4,.72);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+  .shr-p{position:relative;width:min(940px,100%);max-height:100%;display:flex;flex-direction:column;background:#0a1711;color:var(--on-dark);border:1px solid rgba(233,185,95,.35);border-radius:20px;box-shadow:0 30px 80px rgba(0,0,0,.6);overflow:hidden}
+  .shr-p:focus{outline:0}
+  .shr-top{display:flex;align-items:center;gap:12px;padding:16px 18px 12px 22px;border-bottom:1px solid var(--hair)}
+  .shr-top h3{flex:1;margin:0;font-size:1.02rem;font-weight:600} .shr-top h3 small{display:block;margin-top:2px;font-size:.8rem;font-weight:500;color:var(--gold)}
+  .shr-body{display:flex;gap:22px;padding:20px 22px 22px;min-height:0;overflow:auto}
+  .shr-view{flex:1;min-width:0;display:flex;align-items:flex-start;justify-content:center}
+  .shr-view img{display:block;max-width:100%;max-height:68vh;width:auto;height:auto;border-radius:10px;border:1px solid var(--hair);box-shadow:0 14px 40px rgba(0,0,0,.45)}
+  .shr-wait{margin:0;padding:120px 0;font-size:.9rem;color:var(--on-dark-2)}
+  .shr-side{flex:none;width:260px;display:flex;flex-direction:column;gap:10px}
+  .shr-lab{margin:0;font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--on-dark-2)}
+  html[lang=ar] .shr-lab{letter-spacing:0;font-size:.8rem}
+  .shr-seg{display:flex;gap:8px}
+  .shr-seg button{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;font:inherit;font-size:.86rem;font-weight:600;color:var(--on-dark-2);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:9px 10px;cursor:pointer}
+  .shr-seg button.on{color:#fff;border-color:var(--gold);background:rgba(233,185,95,.12)}
+  .shr-seg .sw{width:16px;height:16px;border-radius:50%;border:1px solid rgba(255,255,255,.3)} .sw.night{background:#040a07} .sw.paper{background:#f6f0e1}
+  .shr-chk{display:flex;align-items:center;gap:10px;margin-top:4px;font-size:.88rem;color:var(--on-dark);cursor:pointer}
+  .shr-chk input{width:18px;height:18px;accent-color:var(--gold);margin:0}
+  .shr-acts{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+  .shr-acts button{font:inherit;font-size:.9rem;font-weight:600;color:var(--on-dark);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:99px;padding:10px 16px;cursor:pointer}
+  .shr-acts button:hover:not(:disabled){border-color:rgba(233,185,95,.6);color:#fff} .shr-acts button:disabled{opacity:.4;cursor:default}
+  .shr-acts .main{background:var(--gold);border-color:var(--gold);color:#1f1605} .shr-acts .main:hover:not(:disabled){color:#1f1605;filter:brightness(1.07)}
+  .shr button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .shr-msg{min-height:1.2em;margin:2px 0 0;font-size:.84rem;color:var(--gold)}
+  .shr-note{margin:0;font-size:.76rem;line-height:1.6;color:var(--on-dark-3)}
+  @media (max-width:720px){
+    .shr{padding:0;align-items:flex-end}
+    .shr-p{width:100%;max-height:94vh;max-height:94dvh;border-radius:20px 20px 0 0;border-bottom:0}
+    .shr-body{flex-direction:column;gap:16px;padding:14px 16px 20px}
+    .shr-view img{max-height:46vh}
+    .shr-side{width:auto}
+    .shr-acts{flex-direction:row;flex-wrap:wrap} .shr-acts button{flex:1 1 140px}
+  }
   /* what this browser keeps for the reader: a saved verse's number, the offer to continue, the list, and Home's way back in */
   button.vk.kept{color:#1f1605;background:var(--gold);border-color:var(--gold)} button.vk.kept::before{content:'★';margin-inline-end:4px;font-size:.9em}
   button.vk.kept:hover,button.vk.kept:focus-visible{color:#1f1605;filter:brightness(1.08)}
@@ -4013,6 +4048,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
 <script defer src="study.js"></script>
 <script defer src="spelling.js"></script>
 <script defer src="place.js"></script>
+<script defer src="card.js"></script>
 <script defer src="content/jev-data.js"></script>
 <script defer src="content/quran_stories_data.js"></script>
 <script defer src="content/quran_lessons.js"></script>
@@ -4058,6 +4094,7 @@ const ROM = window.QI_ROMAN || null;     // an Arabic word from English letters:
 const STUDY = window.QI_STUDY || null;   // what one verse shares with the rest of the Quran (study.js)
 const PLACE = window.QI_PLACE || null;   // the places read and the verses saved, kept in this browser only (place.js)
 const STORE = (()=>{ try{ return window.localStorage; }catch(e){ return null; } })();   // null where the browser refuses it
+const CARD = window.QI_CARD || null;     // a verse as an image card, laid out and drawn in the browser (card.js)
 const SENSE_SIGNS = '0123456789abcdefghijklmnopqrstuvwxyz';   // QURAN_WORD_SENSE: one sign a word, saying which of the words written like it it is
 const MARKS = (window.QURAN_DATA||{}).marks || null;   // where each juz, hizb quarter and printed page begins (pipeline/marks.py)
 const MARK_NAME = {juz:['Juz','الجزء'], hizb:['Hizb','الحزب'], page:['Page','صفحة']};
@@ -7676,7 +7713,7 @@ const ReaderHead = {
 // The study panel for one verse (study.js does the comparing): where the verse sits, the verses that say it again
 // word for word, what the site has written on it, its own words from the rarest, and the verses nearest to it.
 const VerseStudy = {
-  data(){ return {all:false, allSame:false, copied:''}; },
+  data(){ return {all:false, allSame:false, copied:'', shr:{on:false, trans:true, theme:'night', url:'', blob:null, h:0, msg:'', canShare:false, canCopy:false}}; },
   template:`<div class="vs" v-if="k">
     <div class="vs-bg" @click="R.studyClose()"></div>
     <aside class="vs-p" role="dialog" aria-modal="true" tabindex="-1" :aria-label="ar ? 'دراسة الآية '+ref(k) : 'Study of '+ref(k)">
@@ -7698,6 +7735,7 @@ const VerseStudy = {
           <button type="button" :disabled="!next" @click="R.studyStep(next)">{{ ar ? 'الآية التالية ‹' : 'Next verse ›' }}</button>
           <button type="button" @click="copy('verse')">{{ copied==='verse' ? (ar ? 'نُسخت ✓' : 'Copied ✓') : (ar ? 'انسخ الآية' : 'Copy the verse') }}</button>
           <button type="button" @click="copy('link')">{{ copied==='link' ? (ar ? 'نُسخ الرابط ✓' : 'Link copied ✓') : (ar ? 'انسخ رابطها' : 'Copy a link to it') }}</button>
+          <button v-if="canCard" type="button" @click="shareOpen()">{{ ar ? 'شاركها صورةً' : 'Share as an image' }}</button>
         </div>
 
         <section class="vs-sec" data-sec="where">
@@ -7764,8 +7802,41 @@ const VerseStudy = {
         </template>
       </div>
     </aside>
+    <!-- the verse as an image card: drawn in the browser, then shared, saved or copied -->
+    <div class="shr" v-if="shr.on" @keydown.esc.stop.prevent="shareClose()">
+      <div class="shr-bg" @click="shareClose()"></div>
+      <div class="shr-p" role="dialog" aria-modal="true" tabindex="-1" ref="shr" :aria-label="ar ? 'شارك الآية صورةً' : 'Share the verse as an image'">
+        <header class="shr-top"><h3>{{ ar ? 'شارك الآية صورةً' : 'Share the verse as an image' }}<small>{{ ref(k) }}</small></h3>
+          <button type="button" class="vs-x" @click="shareClose()" :aria-label="ar ? 'أغلق' : 'Close'">×</button></header>
+        <div class="shr-body">
+          <div class="shr-view"><img v-if="shr.url" :src="shr.url" :alt="(ar ? 'صورة الآية ' : 'Image of verse ')+ref(k)">
+            <p v-else class="shr-wait">{{ ar ? 'جارٍ رسم الصورة…' : 'Drawing the image…' }}</p></div>
+          <div class="shr-side">
+            <p class="shr-lab">{{ ar ? 'لونها' : 'Its look' }}</p>
+            <div class="shr-seg" role="group" :aria-label="ar ? 'لون الصورة' : 'The look of the image'">
+              <button type="button" :class="{on: shr.theme==='night'}" :aria-pressed="shr.theme==='night'" @click="shareSet('theme','night')"><i class="sw night" aria-hidden="true"></i>{{ ar ? 'ليلي' : 'Night' }}</button>
+              <button type="button" :class="{on: shr.theme==='paper'}" :aria-pressed="shr.theme==='paper'" @click="shareSet('theme','paper')"><i class="sw paper" aria-hidden="true"></i>{{ ar ? 'ورقي' : 'Paper' }}</button></div>
+            <label class="shr-chk" v-if="en"><input type="checkbox" :checked="shr.trans" @change="shareSet('trans', $event.target.checked)">{{ ar ? 'مع الترجمة الإنجليزية' : 'With the English translation' }}</label>
+            <div class="shr-acts">
+              <button v-if="shr.canShare" type="button" class="main" :disabled="!shr.blob" @click="shareSend()">{{ ar ? 'شارك…' : 'Share…' }}</button>
+              <button type="button" :class="{main: !shr.canShare}" :disabled="!shr.blob" @click="shareSave()">{{ ar ? 'نزّل الصورة' : 'Download the image' }}</button>
+              <button v-if="shr.canCopy" type="button" :disabled="!shr.blob" @click="shareCopy()">{{ shr.msg==='copied' ? (ar ? 'نُسخت ✓' : 'Copied ✓') : (ar ? 'انسخ الصورة' : 'Copy the image') }}</button></div>
+            <p class="shr-msg" aria-live="polite">{{ shareMsg }}</p>
+            <p class="shr-note">{{ shareNote }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>`,
   computed:{ R(){ return this.$root; }, ar(){ return this.R.lang==='ar'; }, k(){ return this.R.study; }, kept(){ return this.R.keepSet.has(this.k); },
+    canCard(){ return !!CARD && !!document.createElement('canvas').getContext; },
+    shareMsg(){ const m=this.shr.msg, ar=this.ar;
+      return m==='saved' ? (ar ? 'حُفظت الصورة في التنزيلات.' : 'Saved to your downloads.')
+        : m==='copied' ? (ar ? 'نُسخت الصورة. الصقها في رسالةٍ أو منشور.' : 'Copied. Paste it into a message or a post.')
+        : m==='nocopy' ? (ar ? 'لم يسمح المتصفح بنسخ الصورة، فنزّلها بدلًا من ذلك.' : 'This browser would not copy the image. Download it instead.') : ''; },
+    shareNote(){ const h=this.shr.h, ar=this.ar; if(!h) return '';
+      return ar ? 'صورة PNG بعرض ١٠٨٠ وارتفاع '+this.R.D(h)+' بكسل'+(h>1080 ? '، أطول من المربع لأن الآية طويلة' : '، مربعة')+'. تُصنع في متصفحك، ولا يُرسَل منها شيء.'
+        : 'A PNG, 1080 by '+h+' pixels'+(h>1080 ? ', taller than square because the verse is long' : ', square')+'. Made in your browser; nothing is sent anywhere.'; },
     s(){ return +this.k.split(':')[0]; }, v(){ return +this.k.split(':')[1]; },
     meta(){ return (this.R.DS.surahMeta||[]).find(x=>x.n===this.s) || {verses:1, place:''}; },
     IX(){ return this.k && this.R.ready.words && this.R.ready.verses ? six() : null; },
@@ -7803,7 +7874,7 @@ const VerseStudy = {
     lib(){ const rows=this.R.studyLib().get(this.k) || [], seen=new Set(); return rows.filter(r=>{ const id=r.view+'|'+r.id; if(seen.has(id)) return false; seen.add(id); return true; }); },
     prev(){ const j=this.IX.at.get(this.k); return j>0 ? this.IX.keys[j-1] : ''; },
     next(){ const j=this.IX.at.get(this.k); return j<this.IX.N-1 ? this.IX.keys[j+1] : ''; } },
-  watch:{ k(){ this.all=false; this.allSame=false; this.copied=''; this.$nextTick(()=>{ const el=this.$refs.body; if(el) el.scrollTop=0; }); } },
+  watch:{ k(){ this.all=false; this.allSame=false; this.copied=''; this.shareClose(); this.$nextTick(()=>{ const el=this.$refs.body; if(el) el.scrollTop=0; }); } },
   methods:{ T(a){ return this.ar ? a[1] : a[0]; },
     ref(k){ return this.R.surahName(+k.split(':')[0])+' '+this.R.D(k); },
     times(n){ return this.ar ? this.R.arN(n,'مرة','مرتين','مرات') : (n===1 ? 'once' : n===2 ? 'twice' : this.R.f(n)+' times'); },
@@ -7813,7 +7884,45 @@ const VerseStudy = {
     copy(what){ const done=()=>{ this.copied=what; clearTimeout(this._t); this._t=setTimeout(()=>{ this.copied=''; }, 2200); };
       const text = what==='link' ? this.R.studyLink(this.k) : [this.text, !this.ar && this.en ? this.en : '', this.ref(this.k)].filter(Boolean).join('\n');
       try{ if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(done, ()=>window.prompt('', text)); return; } }catch(e){}
-      window.prompt('', text); } } };
+      window.prompt('', text); },
+    // ---- the verse as an image card (card.js) ----
+    shareOpen(){ const S=this.shr; S.on=true; S.msg=''; S.trans=!!this.en && (!this.ar || this.R.showTrans);
+      // Share opens the phone's own share sheet, where the browser can hand it an image; Copy where it can copy one
+      S.canShare=(()=>{ try{ return !!(navigator.canShare && window.File) && navigator.canShare({files:[new File([''], 'v.png', {type:'image/png'})]}); }catch(e){ return false; } })();
+      S.canCopy=!!(window.ClipboardItem && navigator.clipboard && navigator.clipboard.write);
+      this.shareDraw(); this.$nextTick(()=>{ const p=this.$refs.shr; if(p) p.focus(); }); },
+    shareClose(){ const S=this.shr; if(!S.on && !S.url) return; S.on=false; this._shrN=(this._shrN||0)+1;
+      if(S.url) URL.revokeObjectURL(S.url); S.url=''; S.blob=null; S.h=0; S.msg='';
+      this.$nextTick(()=>{ const p=this.$el && this.$el.querySelector && this.$el.querySelector('.vs-p'); if(p) p.focus(); }); },
+    shareSet(key, val){ this.shr[key]=val; this.shareDraw(); },
+    shareName(){ return 'quran-'+this.k.replace(':', '-')+'.png'; },
+    async shareDraw(){
+      const n=this._shrN=(this._shrN||0)+1, k=this.k, ar=this.ar, R=this.R, S=this.shr, s=this.s, v=this.v;
+      const fonts={ ar:z=>'400 '+z+'px Amiri', en:z=>'400 '+z+'px "Instrument Serif"', eye: ar ? '600 30px "IBM Plex Sans Arabic"' : '600 23px Inter',
+        credit: ar ? '400 21px "IBM Plex Sans Arabic"' : '500 19px Inter', brand: ar ? '700 40px Amiri' : '400 40px "Instrument Serif"', site:'500 21px Inter' };
+      // the fonts must be here before the canvas draws with them (a few seconds at most; after that it draws with what it has)
+      try{ if(document.fonts) await Promise.race([Promise.all([document.fonts.load(fonts.ar(60), this.text), document.fonts.load(fonts.en(30), 'Aa'),
+        document.fonts.load(fonts.eye, ar ? 'سورة' : 'S'), document.fonts.load(fonts.credit, ar ? 'الترجمة' : 'T'), document.fonts.load(fonts.brand, ar ? 'بصائر' : 'Q'), document.fonts.load(fonts.site, 'q')]),
+        new Promise(r=>setTimeout(r, 4000))]); }catch(e){}
+      if(n!==this._shrN || !S.on || k!==this.k) return;
+      const cv=document.createElement('canvas'), ctx=cv.getContext('2d'); if(!ctx) return;
+      const measure=(t, kind, z)=>{ ctx.font = kind==='ar' ? fonts.ar(z) : fonts.en(z); ctx.direction = kind==='ar' ? 'rtl' : 'ltr'; return ctx.measureText(t).width; };
+      // the verse ends with its number between the ornate brackets of the mushaf, in Arabic digits whatever the page's language
+      const num=String(v).split('').map(d=>String.fromCharCode(0x0660 + +d)).join(''), end=String.fromCharCode(0xFD3F)+num+String.fromCharCode(0xFD3E);
+      const meta=(R.DS.surahMeta||[]).find(x=>x.n===s) || {en:'', ar:''};
+      const L=CARD.layout({ar:this.text+' '+end, en:S.trans ? this.en : '', measure});
+      cv.width=L.w; cv.height=L.h;
+      CARD.draw(ctx, L, {
+        eye: ar ? 'سورة '+meta.ar+' · الآية '+R.D(v) : 'SURAH '+String(meta.en).toUpperCase()+' · '+k,
+        credit: ar ? 'الترجمة الإنجليزية: محمد مرمدوك بكتهول (١٩٣٠)' : 'Translation: M. M. Pickthall (1930)',
+        brand: ar ? 'بصائر قرآنية' : 'Quran Insights', site:'quraninsights.vercel.app', rtl:ar, seed:k }, fonts, S.theme);
+      cv.toBlob(b=>{ if(!b || n!==this._shrN || !S.on) return; if(S.url) URL.revokeObjectURL(S.url); S.blob=b; S.url=URL.createObjectURL(b); S.h=L.h; }, 'image/png'); },
+    shareSaid(m){ this.shr.msg=m; clearTimeout(this._shrT); this._shrT=setTimeout(()=>{ this.shr.msg=''; }, 2600); },
+    shareSave(){ const S=this.shr; if(!S.url) return; const a=document.createElement('a'); a.href=S.url; a.download=this.shareName(); document.body.appendChild(a); a.click(); a.remove(); this.shareSaid('saved'); },
+    async shareSend(){ const S=this.shr; if(!S.blob) return;
+      try{ await navigator.share({files:[new File([S.blob], this.shareName(), {type:'image/png'})], title:this.ref(this.k), text:this.ref(this.k)+'\n'+this.R.studyLink(this.k)}); }catch(e){} },   // cancelling the share sheet is not an error
+    async shareCopy(){ const S=this.shr; if(!S.blob) return;
+      try{ await navigator.clipboard.write([new ClipboardItem({'image/png': S.blob})]); this.shareSaid('copied'); }catch(e){ this.shareSaid('nocopy'); } } } };
 // the card for a tapped word
 const WordCard = {
   template:`<div class="wcard" v-if="c" :style="pos" role="dialog" :aria-label="ar ? 'بطاقة الكلمة' : 'Word card'">
