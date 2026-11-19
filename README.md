@@ -54,6 +54,7 @@ node tests/test_translit.js
 node tests/test_study.js
 node tests/test_spelling.js
 node tests/test_place.js
+node tests/test_card.js
 node tests/test_no_dashes.js
 ```
 
