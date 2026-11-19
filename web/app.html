@@ -1253,6 +1253,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .sg-ex button:lang(ar){font-family:var(--ar-display);font-size:1.12rem;padding:3px 14px}
   .sg-ex button:hover{border-color:rgba(233,185,95,.6);color:var(--gold);transform:translateY(-1px)}
   .sdym{margin:0 0 14px;font-size:.9rem;color:var(--on-dark-2)}
+  .sdym.sloose{margin:8px 0 14px;font-size:.95rem;line-height:1.7;color:var(--on-dark)}
   /* a word typed in English letters: the Arabic word shown for it, and the words it sounds like */
   .svia{margin:-6px 0 16px;max-width:940px;font-size:.95rem;line-height:1.7;color:var(--on-dark-2)}
   .svia p{margin:0}
@@ -3079,6 +3080,13 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
           <p class="sans-t" v-html="sAnswer"></p>
           <p class="sans-s" v-if="sShare">{{ sShare }}</p>
         </div>
+        <!-- a phrase counted as exact words, when it comes more often with a letter joined to it (واليوم الآخر): say so, one tap away -->
+        <p class="sdym sloose" v-if="sKind==='phrase' && sWhole && (sres.loose||0)>sres.total">{{ lang==='ar'
+            ? (sres.total ? 'هذا عدّ الكلمات بعينها. ' : 'لا ترد بهذه الكلمات بعينها. ')+'وإذا عُدّت كذلك وحروفٌ متصلةٌ بأولها أو آخرها (كالواو والفاء) بلغت '+arN(sres.loose,'مرة','مرتين','مرات')+'.'
+            : (sres.total ? 'That counts the exact words. ' : 'It does not come as these exact words. ')+'With letters joined to its first or last word (such as «و» before it), it comes '+(sres.loose===1 ? 'once' : sres.loose===2 ? 'twice' : f(sres.loose)+' times')+'.' }}
+          <button type="button" class="cclink" @click="sWhole=false; runSearch()">{{ lang==='ar' ? 'عُدّها كذلك ‹' : 'Count those too ›' }}</button></p>
+        <p class="sdym sloose" v-else-if="sKind==='phrase' && !sWhole && sres.total>0">{{ lang==='ar' ? 'يشمل هذا العدّ العبارة وحروفٌ متصلةٌ بأولها أو آخرها.' : 'This also counts the phrase with letters joined to its first or last word.' }}
+          <button type="button" class="cclink" @click="sWhole=true; runSearch()">{{ lang==='ar' ? 'الكلمات بعينها فقط ‹' : 'Exact words only ›' }}</button></p>
         <!-- an English word the site knows the Arabic for (angel, mercy): that word, in plain sight, with its own count -->
         <div v-if="sKind==='en' && sGloss.length && ready.words" class="ssound sgl">
           <p>{{ lang==='ar' ? 'هذا عدّ الترجمة الإنجليزية. الكلمة العربية المقابلة، انقرها لتعدّها في نص القرآن نفسه:' : 'That counts the English translation. The Arabic word for it, tap to count it in the Quran’s own text:' }}</p>
@@ -3101,6 +3109,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
           <button v-for="m in sModeOpts" :key="m.id" type="button" role="radio" :aria-checked="String(mode===m.id)" :class="{on: mode===m.id}" @click="sMode(m.id)">
             <b>{{ m.title }}</b><i>{{ f(m.n) }}</i><span>{{ m.text }} <bdi v-if="m.tail" lang="ar" class="nw">{{ m.tail }}</bdi></span></button>
         </div>
+        <p v-if="sMushaf && sKind==='word'" class="shint">{{ lang==='ar' ? 'كتبتَها بإملاء اليوم، والمصحف يرسمها' : 'You typed it in today’s spelling. The mushaf writes it' }} «<bdi class="ar" lang="ar">{{ sMushaf }}</bdi>»{{ lang==='ar' ? '، وعلى رسمه عُدّت.' : ', and that is what is counted.' }}</p>
         <div v-if="searchHint" class="shint">
         <template v-if="searchHint.type==='spelling'">{{ lang==='ar' ? 'في المصحف تُكتب هذه الكلمة هكذا:' : 'The mushaf spells this word differently. Try:' }} <span class="chip" v-for="s in searchHint.forms" :key="s" @click="q=s;runSearch()">{{ s }}</span></template>
       </div>
@@ -3216,7 +3225,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
         <template v-else>{{ lang==='ar' ? 'مرّر المؤشر على نقطةٍ لترى سورتها، مكيةً أو مدنية، وكم فيها من المطابقات. والنقاط المضيئة هي الآيات المطابقة.' : 'Point at a dot to see its surah, whether it is Meccan or Medinan, and how many matches it holds. The bright dots are the matching verses.' }}</template></p></template>
       <div v-if="q && !ready.words" class="stub">{{ lang==='ar'?'جارٍ تحميل فهرس الكلمات…':'Loading the word index…' }}</div>
       <div v-else-if="q && sKind==='en' && !ready.verses" class="stub">{{ lang==='ar'?'جارٍ تحميل الترجمة…':'Loading the translation…' }}</div>
-      <div v-else-if="q && sres.total===0 && !sLook && !sSound.length && !(sKind==='word' && searchModes && (searchModes.surface || searchModes.lemma || searchModes.root))" class="stub">{{ lang==='ar' ? 'لم نجد شيئًا لهذا البحث.' : 'Nothing found for that.' }}
+      <div v-else-if="q && sres.total===0 && !sLook && !sSound.length && !(sKind==='phrase' && sres.loose) && !(sKind==='word' && searchModes && (searchModes.surface || searchModes.lemma || searchModes.root))" class="stub">{{ lang==='ar' ? 'لم نجد شيئًا لهذا البحث.' : 'Nothing found for that.' }}
         <div class="stubsub" v-if="sWordSug.length">{{ lang==='ar' ? 'كلماتٌ تبدأ بهذه الحروف:' : 'Words that start with these letters:' }}
           <button v-for="w in sWordSug" :key="w.l" type="button" class="chip" @click="sPick(w.l)"><bdi lang="ar">{{ w.l }}</bdi><span class="n">{{ f(w.n) }}</span></button></div>
         <div class="stubsub">{{ lang==='ar' ? 'جرّب كلمةً عربية (بالعربية أو بحروفٍ لاتينية مثل rahma)، أو مرجع آية مثل ٢:٢٥٥، أو اسم سورة مثل الكهف، أو كلمةً إنجليزية من الترجمة.' : 'Try an Arabic word (in Arabic or in English letters, like rahma), a verse like 2:255, a surah name like Al-Kahf, or an English word from the translation.' }}
@@ -3993,7 +4002,37 @@ function sfCats(code){ if(!code) return null; const [pre, n, suf]=code.split('/'
   return { num: n.includes('+') ? 'C' : (n[0]||'S'), front: !pre ? 'none' : (pre.replace(/ال$/,'')==='' ? 'al' : 'part'), end: suf ? 'pron' : 'none' }; }
 let SHITS = null;   // indexes of the words the current search marks, after the form filters
 let SEN = null;     // what an English search marks in the translation
-let WMOD = null;    // every word in today's spelling, built the first time a phrase is searched
+// Every word of the mushaf in today's spelling, built the first time a search needs it, so a word typed the way it is
+// written today finds the mushaf's own: العالمين finds ٱلْعَٰلَمِينَ, الصلاة finds ٱلصَّلَوٰةَ, آمنوا finds ءَامَنُوا۟.
+//   WMOD  without hamzas on the alif (آ and ءا are both «ا»), for a word typed without hamzas
+//   HMOD  with every hamza on its seat (أ إ ؤ ئ ء), for a word typed with them: «إن» is not «أن»
+//   FMOD  with the hamzas folded away, the last resort when a hamza was typed on a seat the mushaf
+//         does not use for that word (إسرائيل for إسرءيل)
+//   lem   the dictionary words behind each of today's spellings; as, the mushaf's commonest spelling of it; surf, with its marks
+let WMOD = null, HMOD = null, FMOD = null, SPELL = null;
+const hamzaTyped = t => arPlain(t).replace(TASHKEEL,'').replace(/ـ/g,'').replace(/آ/g,'ءا').replace(/ٱ/g,'ا').replace(/ى/g,'ي');
+const hamzaModern = w => hamzaTyped(modernLetters(w));
+const hamzaFold = x => x.replace(/[ؤئء]/g,'').replace(/[أإآ]/g,'ا');
+function spellTables(W){ if(SPELL && SPELL.W===W) return SPELL; if(!W || !W.surface) return null;
+  WMOD=W.surface.map(w=>modernSpelling(w).replace(/ـ/g,'').replace(/ءا/g,'ا')); HMOD=W.surface.map(hamzaModern); FMOD=HMOD.map(hamzaFold);
+  const lem=new Map(), forms=new Map();
+  for(let i=0;i<WMOD.length;i++){ const m=WMOD[i], l=W.lemma[i];
+    if(l){ let a=lem.get(m); if(!a) lem.set(m, (a=new Map())); a.set(l, (a.get(l)||0)+1); }
+    let f=forms.get(m); if(!f) forms.set(m, (f=new Map())); const k=W.norm[i]; let e=f.get(k); if(!e) f.set(k, (e={n:0, surf:W.surface[i]})); e.n++; }
+  const as=new Map(), surf=new Map();
+  for(const [m, f] of forms){ let best=null, bk=''; for(const [k, e] of f) if(!best || e.n>best.n){ best=e; bk=k; } as.set(m, bk); surf.set(m, best.surf); }
+  return (SPELL={W, lem, as, surf}); }
+// «This exact word», by a word's place in the list. With vowel marks typed: exactly as the mushaf writes it. Without
+// them the word is also compared in today's spelling: with its hamzas on the seats that were typed, or, when no word
+// of the mushaf is written that way, without them.
+function asWritten(raw, whole){ const W=window.QURAN_WORDS, st=surfTest(String(raw).replace(/آ/g,'ءا'), whole); if(!st || !W) return null;
+  const base=i=>st(W.surface[i], W.norm[i]);
+  if(AR_MARK1.test(raw) || /\s/.test(String(raw).trim())) return base;
+  spellTables(W);
+  if(!AR_HAMZA.test(raw)){ const qm=normalize(raw).replace(/ـ/g,'').replace(/ءا/g,'ا'); return whole ? i=>base(i) || WMOD[i]===qm : i=>base(i) || WMOD[i].includes(qm); }
+  const hq=hamzaTyped(raw), exact = whole ? i=>base(i) || HMOD[i]===hq : i=>base(i) || HMOD[i].includes(hq);
+  for(let i=0;i<W.surface.length;i++) if(exact(i)) return exact;
+  const fq=hamzaFold(hq); return whole ? i=>FMOD[i]===fq : i=>FMOD[i].includes(fq); }
 const JEV = window.QTA_JEV || null;
 const LOOK = window.QI_LOOKUP || null;   // a verse or a surah from what was typed (lookup.js)
 const ROM = window.QI_ROMAN || null;     // an Arabic word from English letters: rahma, sabr (translit.js)
@@ -4482,8 +4521,10 @@ function lev(a, b){ let p=[...Array(b.length+1).keys()];
 // a mushaf word in modern spelling, from the marks the mushaf writes in place of letters: the small alif after a
 // waw or a letter (ٱلصَّلَوٰةَ -> الصلاة, ٱلسَّمَٰوَٰتِ -> السماوات) and a small ya or waw inside a word (إِبْرَٰهِۦمَ -> ابراهيم).
 // Nothing is dropped, so unrelated words cannot meet (skeletons without alifs made السلام find أسلم)
-const modernSpelling = w => normalize(w.replace(/وٰ/g,'ا').replace(/ىٰ/g,'ى').replace(/ٰ/g,'ا')
-  .replace(/ۦ(?=[\u0621-\u064A])/g,'ي').replace(/ۥ(?=[\u0621-\u064A])/g,'و'));
+// the long vowels the mushaf writes small (the dagger alif of ٱلْعَٰلَمِينَ) as the letters today's spelling writes
+const modernLetters = w => w.replace(/وٰ/g,'ا').replace(/ىٰ/g,'ى').replace(/ٰ/g,'ا')
+  .replace(/ۦ(?=[\u0621-\u064A])/g,'ي').replace(/ۥ(?=[\u0621-\u064A])/g,'و');
+const modernSpelling = w => normalize(modernLetters(w));
 // al-Baqarah's words by consonant key (as written, and without a leading clitic), by key without w and y, and by root
 let FIND_IX = null;
 function findIndex(W){
@@ -8030,7 +8071,7 @@ createApp({
       T: D.stats.totals, DS: D.datasets, MM: D.datasets.meccaMedina||{mecca:{},medina:{}}, claims: D.claims,
       V: window.QURAN_VERSES||{}, W: window.QURAN_WORDS||{key:[],norm:[],lemma:[],root:[],surface:[]},
       ready:{ verses:!!window.QURAN_VERSES, words:!!window.QURAN_WORDS, roman:!!window.QURAN_ROMAN, plotly:typeof Plotly!=='undefined', disc:false, hviz:false },
-      q:'', mode:'surface', sWhole:true, clabPick:null, sfOff:{}, sfCount:null, sfRows:SF_ROWS, sres:{total:0,surahs:0,verses:0,sample:[],kind:'',juz:[],juzV:[],era:[],eraV:[]}, sShown:40, goQ:'', goFoc:false, sAuto:true, sPickMode:false, sJuz:0, sJuzHov:0, sEra:0, sEraHov:0, sAdv:false, sVia:null, sNoVia:'', find:{open:false, text:'', i:0}, study:'', studyN:0, sSense:-1, sSenseOf:'',
+      q:'', mode:'surface', sWhole:true, clabPick:null, sfOff:{}, sfCount:null, sfRows:SF_ROWS, sres:{total:0,surahs:0,verses:0,sample:[],kind:'',juz:[],juzV:[],era:[],eraV:[],loose:0}, sShown:40, goQ:'', goFoc:false, sAuto:true, sPickMode:false, sJuz:0, sJuzHov:0, sEra:0, sEraHov:0, sAdv:false, sVia:null, sNoVia:'', find:{open:false, text:'', i:0}, study:'', studyN:0, sSense:-1, sSenseOf:'',
       rSurah:1, rVerse:0, rClaim:'', rBack:'', scrollPct:0, railDragging:false, EN:{}, showTrans:(new URLSearchParams(location.search).get('lang')!=='ar'), libQ:'', libCat:'all', libSurah:0, rHi:'', wcard:null, nlpCenter:'', nlpState:null, stories:[], lessons:[], duas:[], tafsir:[], untranslatable:[], untranslatableIntro:{}, history:[], historyIntro:{}, skyHov:null, sresBy:{}, sresRoots:[], skyGL:false, hSel:'', hYear:610, hPlaying:false, hFilter:'all', hCopied:false,
       V1:{}, abjadInput:'الله',
       jevOn: !!(JEV && JEV.endpoint()), JD: window.QTA_JEV_DATA||{},
@@ -8354,7 +8395,8 @@ createApp({
         // Arabic: one word in all its forms, or several words as a phrase
         const toks=normalize(t.replace(/[«»"'().,،؛:!?؟]/g,' ')).split(/\s+/).filter(Boolean), w=toks.length===1 && ix ? this.wordOf(toks[0]) : null;
         if(toks.length>1) add({id:'ph', tag: ar ? 'عبارة' : 'Phrase', arx:t, sub:count, act:{t:'search', q:t}});
-        else if(w && w.lemma) add({id:'w'+w.lemma, tag: ar ? 'كلمة' : 'Word', arx:w.lemma, sub: ar ? times(ix.lemmaCount.get(w.lemma)||0)+' بكل صيغها' : times(ix.lemmaCount.get(w.lemma)||0)+' in all its forms', act:{t:'search', q:toks[0]}});
+        else if(w && w.lemma){ const vs=ix.VAR[w.lemma], sn=vs && window.QURAN_WORD_SENSE ? this.senseByForm(w.as || w.q) : -1, one=sn>=0 && vs[sn], cnt=one ? one[1] : ix.lemmaCount.get(w.lemma)||0;   // the count Search will give
+          add({id:'w'+w.lemma, tag: ar ? 'كلمة' : 'Word', arx: one ? one[0] : w.lemma, sub: ar ? times(cnt)+' بكل صيغها' : times(cnt)+' in all its forms', act:{t:'search', q:toks[0]}}); }
         names();
         if(toks.length===1 && ix && !(w && w.lemma)) [...ix.lemmaCount].filter(([l])=>l.startsWith(toks[0]) && l!==toks[0]).sort((x,y)=>y[1]-x[1]).slice(0, 4)
           .forEach(([l,n])=>add({id:'w'+l, tag: ar ? 'كلمة' : 'Word', arx:l, sub:times(n), act:{t:'search', q:l}}));
@@ -8402,8 +8444,8 @@ createApp({
     sSenseAuto(){ return this.sSenseNow>=0 && this.sSenseOf!==this.sWord.lemma && this.sSenseOf!=='?'; },
     sSenseWords(){ const n=this.sSenses.length; return n===2 ? 'لكلمتين مختلفتين' : 'لـ'+this.D(n)+' كلماتٍ مختلفة'; },
     searchModes(){ const SW=this.sWord; if(!SW) return null; const ix=jix();
-      const st=surfTest(this.q, this.sWhole), W=this.W; let n=0;
-      if(st && W && W.surface) for(let i=0;i<W.surface.length;i++) if(st(W.surface[i], W.norm[i])) n++;
+      const at=asWritten(this.q, this.sWhole), W=this.W; let n=0;
+      if(at && W && W.surface) for(let i=0;i<W.surface.length;i++) if(at(i)) n++;
       const sn=this.sSenseNow;
       return {surface:n, lemma: SW.lemma ? (sn>=0 ? this.sSenses[sn].n : ix.lemmaCount.get(SW.lemma)||0) : 0, root: SW.root ? ix.rootCount.get(SW.root)||0 : 0}; },
     // the three ways to count a word, each saying in plain words what it counts
@@ -8432,7 +8474,7 @@ createApp({
         else if(L.length) what = ar ? A(SW.lemma)+' رسمٌ واحد '+this.sSenseWords+'، وترد معًا بكل صيغها '+times+' في القرآن' : A(SW.lemma)+' is how '+L.length+' different words are written. Together, in all their forms, they come '+times+' in the Quran';
         else what = ar ? 'وردت كلمة '+A((SW && SW.lemma) || raw)+' بكل صيغها '+times+' في القرآن' : 'The word '+A((SW && SW.lemma) || raw)+rd((SW && SW.lemma) || '')+', in all its forms, comes '+times+' in the Quran'; }
       else if(this.mode==='root') what = ar ? 'وردت كلمات الجذر '+A(sp((SW && SW.root) || raw))+' '+times+' في القرآن' : 'Words from the root '+A(sp((SW && SW.root) || raw))+' come '+times+' in the Quran';
-      else what = ar ? 'وردت '+A(raw)+(this.sWhole ? ' بهذا الرسم ' : ' ولو داخل كلمةٍ أطول ')+times+' في القرآن' : A(raw)+(this.sWhole ? ', written exactly like this,' : ', even inside longer words,')+' comes '+times+' in the Quran';
+      else { const shown=this.sMushaf || raw; what = ar ? 'وردت '+A(shown)+(this.sWhole ? ' بهذا الرسم ' : ' ولو داخل كلمةٍ أطول ')+times+' في القرآن' : A(shown)+(this.sWhole ? ', written exactly like this,' : ', even inside longer words,')+' comes '+times+' in the Quran'; }
       return what + where + (this.sfActive ? (ar ? ' (بعد استبعاد بعض الصيغ).' : ' (with some forms left out).') : '.'); },
     // how common that is, for a single word
     sShare(){ const R=this.sres, T=this.T.words||0; if(R.kind!=='word' || R.total<5 || !T) return ''; const n=Math.round(T/R.total);
@@ -8510,8 +8552,10 @@ createApp({
       const say = !c ? (ar ? 'لا شيء' : 'none') : ar ? this.arN(c,'مرة','مرتين','مرات')+' في '+this.arN(v,'آية','آيتين','آيات') : (c===1 ? 'once' : c===2 ? 'twice' : this.f(c)+' times')+' in '+this.f(v)+(v===1 ? ' verse' : ' verses');
       return (ar ? 'القسم '+this.D(n)+' من '+this.D(E.parts.length)+'، '+(p.mec ? 'مكي' : 'مدني') : 'Part '+n+' of '+E.parts.length+', '+(p.mec ? 'Meccan' : 'Medinan'))+' ('+what+'): '+say
         +(this.sEra===n ? (ar ? '. آياته معروضةٌ وحدها أدناه.' : '. Its verses are shown on their own below.') : '.'); },
+    // typed in today's spelling, found in the mushaf's: how the mushaf writes it, with its marks, to say so
+    sMushaf(){ const SW=this.sWord; if(!SW || !SW.as || !this.sres.total) return ''; const T=spellTables(this.W); return (T && T.surf.get(SW.q.replace(/ـ/g,'').replace(/ءا/g,'ا'))) || ''; },
     searchPrecise(){ const r=this.q||''; return !/\s/.test(r.trim()) && (AR_HAMZA.test(r) || AR_MARK1.test(r)); },
-    searchHint(){ if(!this.ready.words || this.sKind!=='word') return null; const ix=jix(), q=normalize(this.q); if(!ix || !q) return null;
+    searchHint(){ if(!this.ready.words || this.sKind!=='word' || this.sres.total>0) return null; const ix=jix(), q=normalize(this.q); if(!ix || !q) return null;
       const c=JEV.modeCounts(ix, q);
       if(!c.surface && !c.lemma && !c.root){ const forms=JEV.mushafSpelling(ix, q); return forms ? {type:'spelling', forms} : null; }
       return null; },
@@ -9259,7 +9303,7 @@ createApp({
       if(this.sPickMode){ this.sPickMode=false; if(kind==='word'){ const SW=this.sWord; this.mode = SW && SW.lemma ? 'lemma' : 'surface'; } }
       if(this._sq!==this.q){ this._sq=this.q; this.sJuz=0; this.sEra=0; }
       this.sShown=40; this.qSync();
-      let total=0; const suras=new Set(), verses=new Set(), sample=[], roots=new Map(), hits=new Set(), juz=Array(30).fill(0), juzV=Array(30).fill(0), era=Array(ERA_MEC+ERA_MED).fill(0), eraV=Array(ERA_MEC+ERA_MED).fill(0);
+      let total=0, loose=0; const suras=new Set(), verses=new Set(), sample=[], roots=new Map(), hits=new Set(), juz=Array(30).fill(0), juzV=Array(30).fill(0), era=Array(ERA_MEC+ERA_MED).fill(0), eraV=Array(ERA_MEC+ERA_MED).fill(0);
       const F=W.form, cnt={num:{},front:{},end:{}}, off=this.sfOff;
       const hit=k=>{ total++; suras.add(k.split(':')[0]); const j=juzOf(k), e=eraOf(k); if(j) juz[j-1]++; if(e) era[e-1]++; if(!verses.has(k)){ verses.add(k); sample.push(k); if(j) juzV[j-1]++; if(e) eraV[e-1]++; } };
       SEN=null;
@@ -9273,29 +9317,43 @@ createApp({
       } else if(kind==='phrase'){
         // several Arabic words: side by side, in this order, inside one verse. A word typed in today's spelling
         // finds the mushaf's (العالمين finds ٱلْعَٰلَمِينَ); «Inside words» lets the phrase begin and end inside a word
-        if(!WMOD) WMOD=W.surface.map(w=>modernSpelling(w).replace(/ءا/g,'ا'));
-        const toks=this.q.replace(/[«»"'().,،؛:!?؟]/g,' ').trim().split(/\s+/).filter(t=>normalize(t)), n=toks.length, whole=this.sWhole;
-        const tests=toks.map((tk,j)=>{ const nq=normalize(tk).replace(/ءا/g,'ا'), st=AR_HAMZA.test(tk) || AR_MARK1.test(tk) ? surfTest(tk, true) : null;
-          if(st) return i=>st(W.surface[i], W.norm[i]);
+        spellTables(W);
+        // The mushaf writes the calling «يا» joined to the word it calls (يَٰٓأَيُّهَا، يَٰمُوسَىٰ), so a typed «يا» goes with the
+        // word after it and the two are compared, in today's spelling, with one word of the text
+        const typed=this.q.replace(/[«»"'().,،؛:!?؟]/g,' ').trim().split(/\s+/).filter(t=>normalize(t)), toks=[];
+        for(let i=0;i<typed.length;i++){ if(normalize(typed[i])==='يا' && i+1<typed.length){ toks.push({t:typed[i]+typed[i+1], voc:true}); i++; } else toks.push({t:typed[i]}); }
+        const n=toks.length;
+        // each word's test. Exact words: the word, whole. Also joined: the first word may have letters before it and the
+        // last may have letters after it (واليوم الآخر for اليوم الآخر)
+        const testsFor=whole=>toks.map((o,j)=>{ const tk=o.t, nq=normalize(tk).replace(/ـ/g,'').replace(/ءا/g,'ا');
+          if(o.voc) return i=>WMOD[i]===nq;
+          if(AR_MARK1.test(tk)) return asWritten(tk, true);            // vowel marks typed: this word exactly
+          if(AR_HAMZA.test(tk)){ const hq=hamzaTyped(tk);               // hamzas typed: on those seats
+            if(!whole && j===0 && n>1) return i=>HMOD[i].endsWith(hq);
+            if(!whole && j===n-1 && n>1) return i=>HMOD[i].startsWith(hq);
+            return asWritten(tk, true); }
           if(!whole && j===0) return i=>W.norm[i].endsWith(nq) || WMOD[i].endsWith(nq);
           if(!whole && j===n-1) return i=>W.norm[i].startsWith(nq) || WMOD[i].startsWith(nq);
           return i=>W.norm[i]===nq || WMOD[i]===nq; });
-        for(let i=0; i+n<=W.norm.length; i++){ if(!tests[0](i) || W.key[i+n-1]!==W.key[i]) continue;
+        const each=(tests, found)=>{ for(let i=0; i+n<=W.norm.length; i++){ if(!tests[0](i) || W.key[i+n-1]!==W.key[i]) continue;
           let ok=true; for(let j=1;j<n;j++) if(!tests[j](i+j)){ ok=false; break; }
-          if(ok){ for(let j=0;j<n;j++) hits.add(i+j); hit(W.key[i]); } }
+          if(ok) found(i); } };
+        each(testsFor(this.sWhole), i=>{ for(let j=0;j<n;j++) hits.add(i+j); hit(W.key[i]); });
+        // how many more there are with letters joined to it, to offer them in plain sight
+        if(this.sWhole){ let more=0; each(testsFor(false), ()=>{ more++; }); loose=more; }
       } else if(kind==='word'){
-        const st=surfTest(this.q, this.sWhole), SW=this.sWord, lq=(SW && SW.lemma) || q, rq=(SW && SW.root) || q;
+        const at=this.mode==='surface' ? asWritten(this.q, this.sWhole) : null, SW=this.sWord, lq=(SW && SW.lemma) || q, rq=(SW && SW.root) || q;
         if(this.sSenseOf==='?' && SW && SW.lemma) this.sSenseOf=SW.lemma;   // a choice that came with a link now belongs to its word
         // one of the words behind a shared spelling: only the words of the text marked as that one
         const sn=this.mode==='lemma' ? this.sSenseNow : -1, SG=sn>=0 ? window.QURAN_WORD_SENSE : null, sg=SENSE_SIGNS[sn];
         for(let i=0;i<W.norm.length;i++){
-          let m = this.mode==='surface' ? st(W.surface[i], W.norm[i]) : this.mode==='lemma' ? W.lemma[i]===lq && (!SG || SG[i]===sg) : W.root[i]===rq;
+          let m = this.mode==='surface' ? !!at && at(i) : this.mode==='lemma' ? W.lemma[i]===lq && (!SG || SG[i]===sg) : W.root[i]===rq;
           if(m && F){ const c=sfCats(F[i]); if(c){ for(const r in c) cnt[r][c[r]]=(cnt[r][c[r]]||0)+1; if(off[c.num] || off['f:'+c.front] || off['e:'+c.end]) m=false; } }
           if(m){ hits.add(i); const k=W.key[i]; hit(k);
             if(this.mode==='surface'){ const r=W.root[i]||'', g=roots.get(r) || roots.set(r, {root:r, n:0, forms:new Map(), k}).get(r); g.n++; g.forms.set(W.surface[i], (g.forms.get(W.surface[i])||0)+1); } }
         }
       }
-      this.sres={total:total,surahs:suras.size,verses:verses.size,sample:sample,kind:kind,juz:juz,juzV:juzV,era:era,eraV:eraV};
+      this.sres={total:total,surahs:suras.size,verses:verses.size,sample:sample,kind:kind,juz:juz,juzV:juzV,era:era,eraV:eraV,loose:loose};
       this.sfCount=kind==='word' && F ? cnt : null; SHITS=kind==='phrase' || (kind==='word' && F) ? hits : null;
       this.sresRoots=[...roots.values()].sort((a,b)=>b.n-a.n).map(g=>({root:g.root, n:g.n, k:g.k, form:[...g.forms.entries()].sort((a,b)=>b[1]-a[1])[0][0]}));
       // the carpet lights what the search found; with nothing found, the verse or surah that was asked for by name or number
@@ -9364,7 +9422,9 @@ createApp({
     // Arabic form that only one of the words takes (الملئكة is only ever the angels)
     senseTyped(l){ const ix=jix(); if(!ix) return -1;
       if(this.sVia && this.sVia.l===l && this.sVia.lat){ const i=this.senseBySound(l, this.sVia.lat); if(i>=0) return i; }
-      const q=normalize(this.q); let f=ix.FS[q];
+      const SW=this.sWord; return this.senseByForm((SW && SW.as) || normalize(this.q)); },
+    // an Arabic form that only one of the words behind its spelling takes: which one (-1 when the form does not say)
+    senseByForm(q){ const ix=jix(); if(!ix || !q) return -1; let f=ix.FS[q];
       if(f===undefined) for(const p of (JEV.PREFIXES||[])){ if(!p || !q.startsWith(p) || q.length-p.length<2) continue; const r=ix.FS[q.slice(p.length)]; if(r!==undefined){ f=r; break; } }
       return typeof f==='number' ? f : -1; },
     // another page, a link or a tapped suggestion says which word: hint is {sense: its number}, {dict: the word with
@@ -9387,7 +9447,10 @@ createApp({
       let lemma = ix.lemmaCount.has(q) ? q : top(ix.surfLemmas.get(q));
       if(!lemma) for(const p of (JEV.PREFIXES||[])){ if(!p || !q.startsWith(p) || q.length-p.length<2) continue; const r=q.slice(p.length);
         lemma = ix.lemmaCount.has(r) ? r : top(ix.surfLemmas.get(r)); if(lemma) break; }
-      return {q, lemma, root: ix.rootCount.has(q) ? q : (lemma && ix.lemmaRoot.get(lemma)) || ''}; },
+      // a form the mushaf spells otherwise (العالمين for العلمين، آمنوا for ءامنوا): the word behind today's spelling of it
+      let as='';
+      if(!ix.surfCount.has(q)){ const T=spellTables(this.W), m=q.replace(/ـ/g,'').replace(/ءا/g,'ا'); if(T && T.as.has(m)){ as=T.as.get(m); if(!lemma) lemma=top(T.lem.get(m)); } }
+      return {q, as, lemma, root: ix.rootCount.has(q) ? q : (lemma && ix.lemmaRoot.get(lemma)) || ''}; },
     // the Arabic word behind an English one, where the site knows it (day, angel, mercy)
     glossOf(text){ if(!JEV || !JEV.GLOSS) return [];
       const lat=String(text).toLowerCase().replace(/[^a-z ]+/g,' ').replace(/\s+/g,' ').trim(), k=JEV.GLOSS[lat] ? lat : JEV.GLOSS[JEV.PLURAL[lat]] ? JEV.PLURAL[lat] : null;
