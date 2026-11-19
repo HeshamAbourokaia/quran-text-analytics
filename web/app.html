@@ -1303,6 +1303,23 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .sjuz-col:focus-visible{outline:2px solid #fff;outline-offset:2px;border-radius:4px}
   .sjuz-axis{margin:7px 0 0;text-align:center;font-size:.72rem;color:var(--on-dark-3)}
   .sjuz-read{margin:10px 0 0;min-height:1.5em;font-size:.86rem;line-height:1.5;color:var(--on-dark-2)}
+  /* a word through time: Mecca beside Medina, then the order of revelation in parts. Two colours checked for colour-blind
+     readers; the two groups are also told apart by a gap and by a label under each */
+  .sera{--mec:#b98a24;--med:#1da693}
+  .sera-split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px}
+  .sera-side{padding:10px 14px 11px;border-radius:12px;border:1px solid var(--hair);background:rgba(255,255,255,.03);min-width:0}
+  .sera-side .k{display:flex;align-items:center;gap:8px;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--on-dark-2)}
+  .sera-side .k i{flex:none;width:11px;height:11px;border-radius:3px;background:var(--mec)} .sera-side.med .k i{background:var(--med)}
+  .sera-side b{display:block;margin-top:3px;font-family:var(--serif);font-weight:400;font-size:1.7rem;line-height:1.2;color:#fff;font-variant-numeric:tabular-nums}
+  .sera-side small{display:block;margin-top:1px;font-size:.84rem;line-height:1.5;color:var(--on-dark-2)}
+  html[lang=ar] .sera-side .k{letter-spacing:0;font-size:.84rem}
+  .sera .sjuz-col .bar{opacity:1;max-width:30px;background:var(--mec)} .sera .sjuz-col.med .bar{background:var(--med)}
+  .sera .sjuz-col.top .bar,.sera .sjuz-col.hov .bar{filter:brightness(1.22)} .sera .sjuz-col.on .bar{background:#fff;filter:none}
+  .sera .sjuz-col.gap{margin-inline-start:16px}
+  .sera-ax{display:flex;gap:16px;margin-top:6px;font-size:.74rem;color:var(--on-dark-2);text-align:center}
+  .sera-ax span{min-width:0;padding-top:5px;border-top:2px solid var(--mec);white-space:nowrap;overflow:hidden;text-overflow:ellipsis} .sera-ax .med{border-top-color:var(--med)}
+  .sera-note{margin:8px 0 0;font-size:.78rem;line-height:1.65;color:var(--on-dark-3)} .sera-note .cclink{font-size:inherit}
+  @media (max-width:720px){ .sera-side b{font-size:1.4rem} .sera .sjuz-col.gap{margin-inline-start:8px} .sera-ax{gap:8px} .sera .sjuz-col .x{font-size:.58rem} }
   .sadv{margin:14px 0 6px;border:1px solid var(--hair);border-radius:14px;background:rgba(255,255,255,.02)}
   .sadv summary{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;padding:12px 16px;cursor:pointer;list-style:none;font-size:.9rem;color:var(--on-dark-2)}
   .sadv summary::-webkit-details-marker{display:none}
@@ -3106,6 +3123,33 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
           <p class="sjuz-axis">{{ lang==='ar' ? 'الجزء، من الأول إلى الثلاثين' : 'Juz, from the 1st to the 30th' }}</p>
           <p class="sjuz-read" aria-live="polite">{{ sJuzRead }}</p>
         </figure>
+        <!-- a word through time: Mecca beside Medina, then the order of revelation in twenty parts -->
+        <figure v-if="sres.total>0 && sEraBars.length" class="sjuz sera">
+          <figcaption><h3>{{ lang==='ar' ? 'من أول النزول إلى آخره' : 'From the first revelation to the last' }}</h3>
+            <p>{{ sEraSay }}</p></figcaption>
+          <div class="sera-split">
+            <div v-for="x in sEraSplit" :key="x.id" class="sera-side" :class="x.id">
+              <span class="k"><i aria-hidden="true"></i>{{ x.id==='mec' ? (lang==='ar' ? 'نزل بمكة' : 'Revealed in Mecca') : (lang==='ar' ? 'نزل بالمدينة' : 'Revealed in Medina') }}</span>
+              <b>{{ x.times }}</b>
+              <small>{{ x.c ? (lang==='ar' ? x.per+' في كل ١٬٠٠٠ كلمة · ' : x.per+' in every 1,000 words · ') : '' }}{{ lang==='ar' ? D(x.surahs)+' سورة' : x.surahs+' surahs' }}</small>
+            </div>
+          </div>
+          <div class="sjuz-plot" role="group" :aria-label="lang==='ar' ? 'عدد المرات في كل قسمٍ بترتيب النزول' : 'How many times in each part, in the order of revelation'" @pointerleave="sEraHov=0">
+            <button v-for="b in sEraBars" :key="b.n" type="button" class="sjuz-col" :class="{med:!b.mec, gap:b.gap, top:b.top, zero:!b.c, on:sEra===b.n, hov:sEraHov===b.n}" :style="{'--h': b.h/100}" :aria-label="b.label" :aria-pressed="String(sEra===b.n)"
+              @pointerenter="sEraHov=b.n" @focus="sEraHov=b.n" @blur="sEraHov=0" @click="sEraPick(b.n)">
+              <span class="well"><span class="v" v-if="b.c && (b.top || sEraHov===b.n || sEra===b.n)">{{ f(b.c) }}</span><span class="bar"></span></span>
+              <span class="x">{{ D(b.n) }}</span>
+            </button>
+          </div>
+          <div class="sera-ax" aria-hidden="true">
+            <span v-for="x in sEraSplit" :key="x.id" :class="x.id" :style="{flex: x.flex}">{{ x.id==='mec' ? (lang==='ar' ? 'مكة: أول '+D(x.surahs)+' سورة' : 'Mecca: the first '+x.surahs+' surahs') : (lang==='ar' ? 'المدينة: آخر '+D(x.surahs)+' سورة' : 'Medina: the last '+x.surahs) }}</span>
+          </div>
+          <p class="sjuz-read" aria-live="polite">{{ sEraRead }}</p>
+          <p class="sera-note">{{ lang==='ar'
+            ? 'الترتيب هو ترتيب النزول المأثور المطبوع في مصحف القاهرة المعياري. وهو يضع السورة كلها حيث نزل مطلعها، فقد تكون فيها آياتٌ من وقتٍ آخر.'
+            : 'The order is the traditional one, as printed in the standard Egyptian edition of the mushaf. It places each whole surah where its opening verses were revealed, so a few verses inside it may be from another time.' }}
+            <button type="button" class="cclink" @click="go('d-chrono')">{{ lang==='ar' ? 'كيف يتغيّر الأسلوب مع هذا الترتيب ‹' : 'How the style changes over this order ›' }}</button></p>
+        </figure>
         <!-- for careful counting: how much of a word must match, and which shapes of it to count -->
         <details v-if="sres.total>0 || sfActive" class="sadv" :open="sAdv" @toggle="sAdv=$event.target.open">
           <summary><b>{{ lang==='ar' ? 'اضبط العدّ بدقة' : 'Fine-tune the count' }}</b><span v-if="sfActive" class="sadv-n">{{ lang==='ar' ? 'بعض الصيغ مستبعدة الآن' : 'some forms are left out now' }}</span><i>{{ lang==='ar' ? 'لمن يريد العدّ بقاعدةٍ محددة' : 'for counting by an exact rule' }}</i></summary>
@@ -3181,6 +3225,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
         <div class="sconc-h">
           <h3>{{ lang==='ar' ? 'الآيات' : 'The verses' }} <span>{{ lang==='ar' ? '('+f(Math.min(sShown, sList.length))+' من '+f(sList.length)+')' : '(showing '+f(Math.min(sShown, sList.length))+' of '+f(sList.length)+')' }}</span></h3>
           <span v-if="sJuz" class="sconc-f">{{ lang==='ar' ? markName('juz', sJuz)+' فقط' : 'Only '+markName('juz', sJuz) }}<button type="button" @click="sJuzPick(0)">{{ lang==='ar' ? 'اعرض الكل ×' : 'Show all ×' }}</button></span>
+          <span v-else-if="sEra" class="sconc-f">{{ lang==='ar' ? 'القسم '+D(sEra)+' بترتيب النزول فقط' : 'Only part '+sEra+' of the order of revelation' }}<button type="button" @click="sEraPick(0)">{{ lang==='ar' ? 'اعرض الكل ×' : 'Show all ×' }}</button></span>
           <button type="button" class="sconc-t" :class="{on:showTrans}" :aria-pressed="String(showTrans)" @click="showTrans=!showTrans">{{ lang==='ar' ? 'الترجمة الإنجليزية' : 'English translation' }}</button>
         </div>
         <div v-if="!ready.verses" class="stub">{{ lang==='ar'?'جارٍ تحميل نص الآيات…':'Loading the verse text…' }}</div>
@@ -3957,6 +4002,28 @@ const SENSE_SIGNS = '0123456789abcdefghijklmnopqrstuvwxyz';   // QURAN_WORD_SENS
 const MARKS = (window.QURAN_DATA||{}).marks || null;   // where each juz, hizb quarter and printed page begins (pipeline/marks.py)
 const MARK_NAME = {juz:['Juz','الجزء'], hizb:['Hizb','الحزب'], page:['Page','صفحة']};
 let JUZ_OF = null;   // the juz of every verse, built the first time a search needs it
+// The order in which the surahs were revealed, as tradition has kept it: the list printed in the standard Egyptian
+// edition of the mushaf (the Name studies carry it in data.js). The text read in that order is cut into parts of
+// about equal length: twelve for the surahs revealed in Mecca, then eight for those revealed in Medina, so the move
+// to Medina falls between two parts. A verse belongs to the part its surah's place in the order puts it in.
+const REV = (()=>{ const D=window.QURAN_DATA||{}; for(const k of ['rizq','wahhab']){ const c=D[k] && D[k].chrono; if(Array.isArray(c) && c.length===114) return c; } return null; })();
+const ERA_MEC = 12, ERA_MED = 8;
+let ERA = null;
+function eraParts(){ if(ERA || !REV || !window.QURAN_WORDS) return ERA;
+  const meta=new Map((((window.QURAN_DATA||{}).datasets||{}).surahMeta||[]).map(m=>[m.n, m])), K=window.QURAN_WORDS.key, len=new Map();
+  for(let i=0;i<K.length;i++) len.set(K[i], (len.get(K[i])||0)+1);
+  const of=new Map(), parts=[];
+  const lay=(list, n, base, mec)=>{ let tot=0, cum=0;
+    for(const sn of list){ const m=meta.get(sn); for(let v=1; v<=m.verses; v++) tot+=len.get(sn+':'+v)||0; }
+    for(const sn of list){ const m=meta.get(sn);
+      for(let v=1; v<=m.verses; v++){ const k=sn+':'+v, w=len.get(k)||0, p=base+Math.min(n-1, Math.floor(cum/tot*n));
+        const part=parts[p] || (parts[p]={n:p+1, mec, from:k, to:k, surahs:[], words:0});
+        part.to=k; part.words+=w; if(part.surahs[part.surahs.length-1]!==sn) part.surahs.push(sn); of.set(k, p+1); cum+=w; } }
+    return {words:tot, surahs:list.length}; };
+  const known=REV.filter(sn=>meta.has(sn));
+  const mec=lay(known.filter(sn=>meta.get(sn).place!=='Medina'), ERA_MEC, 0, true), med=lay(known.filter(sn=>meta.get(sn).place==='Medina'), ERA_MED, ERA_MEC, false);
+  return (ERA={of, parts, mec, med}); }
+function eraOf(k){ const E=eraParts(); return E ? E.of.get(k)||0 : 0; }
 function juzOf(k){ if(!MARKS || !MARKS.juz) return 0;
   if(!JUZ_OF){ JUZ_OF=new Map(); const at=new Map(MARKS.juz.map((x,i)=>[x, i+1])); let j=0;
     for(const m of ((window.QURAN_DATA||{}).datasets||{}).surahMeta||[]) for(let v=1; v<=m.verses; v++){ const key=m.n+':'+v; if(at.has(key)) j=at.get(key); JUZ_OF.set(key, j); } }
@@ -7963,7 +8030,7 @@ createApp({
       T: D.stats.totals, DS: D.datasets, MM: D.datasets.meccaMedina||{mecca:{},medina:{}}, claims: D.claims,
       V: window.QURAN_VERSES||{}, W: window.QURAN_WORDS||{key:[],norm:[],lemma:[],root:[],surface:[]},
       ready:{ verses:!!window.QURAN_VERSES, words:!!window.QURAN_WORDS, roman:!!window.QURAN_ROMAN, plotly:typeof Plotly!=='undefined', disc:false, hviz:false },
-      q:'', mode:'surface', sWhole:true, clabPick:null, sfOff:{}, sfCount:null, sfRows:SF_ROWS, sres:{total:0,surahs:0,verses:0,sample:[],kind:'',juz:[],juzV:[]}, sShown:40, goQ:'', goFoc:false, sAuto:true, sPickMode:false, sJuz:0, sJuzHov:0, sAdv:false, sVia:null, sNoVia:'', find:{open:false, text:'', i:0}, study:'', studyN:0, sSense:-1, sSenseOf:'',
+      q:'', mode:'surface', sWhole:true, clabPick:null, sfOff:{}, sfCount:null, sfRows:SF_ROWS, sres:{total:0,surahs:0,verses:0,sample:[],kind:'',juz:[],juzV:[],era:[],eraV:[]}, sShown:40, goQ:'', goFoc:false, sAuto:true, sPickMode:false, sJuz:0, sJuzHov:0, sEra:0, sEraHov:0, sAdv:false, sVia:null, sNoVia:'', find:{open:false, text:'', i:0}, study:'', studyN:0, sSense:-1, sSenseOf:'',
       rSurah:1, rVerse:0, rClaim:'', rBack:'', scrollPct:0, railDragging:false, EN:{}, showTrans:(new URLSearchParams(location.search).get('lang')!=='ar'), libQ:'', libCat:'all', libSurah:0, rHi:'', wcard:null, nlpCenter:'', nlpState:null, stories:[], lessons:[], duas:[], tafsir:[], untranslatable:[], untranslatableIntro:{}, history:[], historyIntro:{}, skyHov:null, sresBy:{}, sresRoots:[], skyGL:false, hSel:'', hYear:610, hPlaying:false, hFilter:'all', hCopied:false,
       V1:{}, abjadInput:'الله',
       jevOn: !!(JEV && JEV.endpoint()), JD: window.QTA_JEV_DATA||{},
@@ -8372,7 +8439,7 @@ createApp({
       return this.lang==='ar' ? 'أي نحو كلمةٍ من كل '+this.f(n)+' كلمة في القرآن.' : 'That is about 1 in every '+this.f(n)+' words of the Quran.'; },
     sfActive(){ return Object.keys(this.sfOff).length>0; },
     // the verses shown: all that were found, or one juz of them when a bar of the chart is picked
-    sList(){ const L=this.sres.sample||[]; return this.sJuz ? L.filter(k=>juzOf(k)===this.sJuz) : L; },
+    sList(){ const L=this.sres.sample||[]; return this.sJuz ? L.filter(k=>juzOf(k)===this.sJuz) : this.sEra ? L.filter(k=>eraOf(k)===this.sEra) : L; },
     // what the empty page offers: the kinds of search, each with examples to tap
     sGuide(){ return this.lang==='ar' ? [
         {k:'word', badge:'ع', title:'كلمة', text:'عُدّ أي كلمةٍ وشاهد كل آيةٍ وردت فيها. ويمكنك كتابتها بحروفٍ لاتينية، مثل sabr.', ex:['يوم','رحمة','sabr']},
@@ -8413,6 +8480,36 @@ createApp({
       const span=L && L.mark ? this.surahName(L.s)+' '+this.D(L.s+':'+L.a)+(ar ? ' إلى ' : ' to ')+this.surahName(L.mark.end.s)+' '+this.D(L.mark.end.s+':'+L.mark.end.v) : '';
       const say = !c ? (ar ? 'لا شيء' : 'none') : ar ? this.arN(c,'مرة','مرتين','مرات')+' في '+this.arN(v,'آية','آيتين','آيات') : (c===1 ? 'once' : c===2 ? 'twice' : this.f(c)+' times')+' in '+this.f(v)+(v===1 ? ' verse' : ' verses');
       return this.markName('juz', n)+(span ? ' ('+span+')' : '')+': '+say+(this.sJuz===n ? (ar ? '. آياته معروضةٌ وحدها أدناه.' : '. Its verses are shown on their own below.') : '.'); },
+    // ---- a word through time: the surahs in the order they were revealed, Mecca and then Medina ----
+    sEraBars(){ const E=eraParts(), A=this.sres.era||[], ar=this.lang==='ar'; if(!E || A.length!==E.parts.length || !Math.max(0,...A)) return []; const max=Math.max(1,...A);
+      return E.parts.map((p,i)=>{ const c=A[i]; return {n:p.n, mec:p.mec, gap: i>0 && !p.mec && E.parts[i-1].mec, c, h: c ? Math.max(3, Math.round(c/max*100)) : 0, top: c>0 && c===max,
+        label: (ar ? 'القسم '+this.D(p.n)+' ('+(p.mec ? 'مكي' : 'مدني')+'): ' : 'Part '+p.n+' ('+(p.mec ? 'Meccan' : 'Medinan')+'): ') + (c ? (ar ? this.arN(c,'مرة','مرتين','مرات') : c+(c===1 ? ' time' : ' times')) : (ar ? 'لا شيء' : 'none'))}; }); },
+    // Mecca beside Medina: how many times in each, and how often for their length (in every 1,000 words)
+    sEraSplit(){ const E=eraParts(), A=this.sres.era||[]; if(!E || A.length!==E.parts.length) return null; const ar=this.lang==='ar';
+      const side=(a, b, S, id)=>{ const c=A.slice(a, b).reduce((x,y)=>x+y, 0), rate=c/S.words*1000;
+        return {id, c, rate, surahs:S.surahs, flex:b-a, times: !c ? (ar ? 'لا شيء' : 'None') : ar ? this.arN(c,'مرة','مرتين','مرات') : (c===1 ? 'Once' : c===2 ? 'Twice' : this.f(c)+' times'),
+          per: !c ? '' : this.dF.d(rate, rate>=10 ? 0 : rate>=1 ? 1 : 2)}; };
+      return [side(0, ERA_MEC, E.mec, 'mec'), side(ERA_MEC, ERA_MEC+ERA_MED, E.med, 'med')]; },
+    // the sentence that reads it: where it is more common for the length of the text, and what a bar is
+    sEraSay(){ const S=this.sEraSplit, ar=this.lang==='ar'; if(!S) return ''; const [m, d]=S; if(!m.c && !d.c) return '';
+      let first;
+      if(!d.c) first = ar ? 'ترد في السور التي نزلت بمكة وحدها.' : 'It comes only in the surahs revealed in Mecca.';
+      else if(!m.c) first = ar ? 'ترد في السور التي نزلت بالمدينة وحدها.' : 'It comes only in the surahs revealed in Medina.';
+      else { const mec=m.rate>=d.rate, r=Math.max(m.rate, d.rate)/Math.min(m.rate, d.rate);
+        if(r<1.15) first = ar ? 'ورودها في السور المكية والمدنية متقارب إذا قيس بطولهما.' : 'For their length, it is about as common in the Meccan surahs as in the Medinan ones.';
+        else { const two=r>=1.9 && r<2.1, x=this.dF.d(r, r>=10 || Math.abs(r-Math.round(r))<0.05 ? 0 : 1);   // 3 times, not 3.0
+          first = ar ? 'إذا قيس الورود بطول النص فهي في السور '+(mec ? 'المكية' : 'المدنية')+' أكثر بنحو '+(two ? 'الضعف' : x+' مرة')+'.'
+                     : 'For their length, it is about '+(two ? 'twice' : x+' times')+' as common in the '+(mec ? 'Meccan' : 'Medinan')+' surahs.'; } }
+      return first+' '+(ar ? 'كل عمودٍ قسمٌ من القرآن بترتيب نزوله، والأقسام متقاربة الطول، فالعمود الأطول يعني أنها ترد أكثر في ذلك الوقت.'
+        : 'Each bar is one part of the Quran in the order it was revealed. The parts are about the same length, so a taller bar means it comes more often at that time.'); },
+    // the part under the pointer, or the one picked: which surahs it holds and how many times the word comes in it
+    sEraRead(){ const n=this.sEraHov || this.sEra, ar=this.lang==='ar', E=eraParts(); if(!n || !E) return ar ? 'انقر عمودًا لترى آيات ذلك القسم وحده.' : 'Tap a bar to see only the verses of that part.';
+      const p=E.parts[n-1], c=(this.sres.era||[])[n-1]||0, v=(this.sres.eraV||[])[n-1]||0, N=p.surahs.map(x=>this.surahName(x));
+      const what = N.length===1 ? N[0]+' '+this.D(p.from)+(ar ? ' إلى ' : ' to ')+this.D(p.to)
+        : N.slice(0, 3).join(ar ? '، ' : ', ')+(N.length>3 ? (ar ? ' و'+this.D(N.length-3)+' '+(N.length-3>10 ? 'سورةً أخرى' : N.length-3>2 ? 'سورٍ أخرى' : N.length-3===2 ? 'سورتان أخريان' : 'سورةٌ أخرى') : ' and '+(N.length-3)+' more') : '');
+      const say = !c ? (ar ? 'لا شيء' : 'none') : ar ? this.arN(c,'مرة','مرتين','مرات')+' في '+this.arN(v,'آية','آيتين','آيات') : (c===1 ? 'once' : c===2 ? 'twice' : this.f(c)+' times')+' in '+this.f(v)+(v===1 ? ' verse' : ' verses');
+      return (ar ? 'القسم '+this.D(n)+' من '+this.D(E.parts.length)+'، '+(p.mec ? 'مكي' : 'مدني') : 'Part '+n+' of '+E.parts.length+', '+(p.mec ? 'Meccan' : 'Medinan'))+' ('+what+'): '+say
+        +(this.sEra===n ? (ar ? '. آياته معروضةٌ وحدها أدناه.' : '. Its verses are shown on their own below.') : '.'); },
     searchPrecise(){ const r=this.q||''; return !/\s/.test(r.trim()) && (AR_HAMZA.test(r) || AR_MARK1.test(r)); },
     searchHint(){ if(!this.ready.words || this.sKind!=='word') return null; const ix=jix(), q=normalize(this.q); if(!ix || !q) return null;
       const c=JEV.modeCounts(ix, q);
@@ -9160,11 +9257,11 @@ createApp({
       const W=this.W, q=normalize(this.q), kind=this.sKind;
       // a word just typed is counted in all its forms when the index knows it, and as written when it does not
       if(this.sPickMode){ this.sPickMode=false; if(kind==='word'){ const SW=this.sWord; this.mode = SW && SW.lemma ? 'lemma' : 'surface'; } }
-      if(this._sq!==this.q){ this._sq=this.q; this.sJuz=0; }
+      if(this._sq!==this.q){ this._sq=this.q; this.sJuz=0; this.sEra=0; }
       this.sShown=40; this.qSync();
-      let total=0; const suras=new Set(), verses=new Set(), sample=[], roots=new Map(), hits=new Set(), juz=Array(30).fill(0), juzV=Array(30).fill(0);
+      let total=0; const suras=new Set(), verses=new Set(), sample=[], roots=new Map(), hits=new Set(), juz=Array(30).fill(0), juzV=Array(30).fill(0), era=Array(ERA_MEC+ERA_MED).fill(0), eraV=Array(ERA_MEC+ERA_MED).fill(0);
       const F=W.form, cnt={num:{},front:{},end:{}}, off=this.sfOff;
-      const hit=k=>{ total++; suras.add(k.split(':')[0]); const j=juzOf(k); if(j) juz[j-1]++; if(!verses.has(k)){ verses.add(k); sample.push(k); if(j) juzV[j-1]++; } };
+      const hit=k=>{ total++; suras.add(k.split(':')[0]); const j=juzOf(k), e=eraOf(k); if(j) juz[j-1]++; if(e) era[e-1]++; if(!verses.has(k)){ verses.add(k); sample.push(k); if(j) juzV[j-1]++; if(e) eraV[e-1]++; } };
       SEN=null;
       if(kind==='en'){
         // English: the words as typed, in this order, in the translation of each verse
@@ -9198,7 +9295,7 @@ createApp({
             if(this.mode==='surface'){ const r=W.root[i]||'', g=roots.get(r) || roots.set(r, {root:r, n:0, forms:new Map(), k}).get(r); g.n++; g.forms.set(W.surface[i], (g.forms.get(W.surface[i])||0)+1); } }
         }
       }
-      this.sres={total:total,surahs:suras.size,verses:verses.size,sample:sample,kind:kind,juz:juz,juzV:juzV};
+      this.sres={total:total,surahs:suras.size,verses:verses.size,sample:sample,kind:kind,juz:juz,juzV:juzV,era:era,eraV:eraV};
       this.sfCount=kind==='word' && F ? cnt : null; SHITS=kind==='phrase' || (kind==='word' && F) ? hits : null;
       this.sresRoots=[...roots.values()].sort((a,b)=>b.n-a.n).map(g=>({root:g.root, n:g.n, k:g.k, form:[...g.forms.entries()].sort((a,b)=>b[1]-a[1])[0][0]}));
       // the carpet lights what the search found; with nothing found, the verse or surah that was asked for by name or number
@@ -9207,7 +9304,7 @@ createApp({
       if(this.view==='search') this.syncSky();
     },
     // typing in the box: start clean (no forms left out, no juz picked) and let the page choose how to count
-    sType(){ this.sfOff={}; this.sJuz=0; if(!this.q.trim()) this.sAuto=true; this.sPickMode=this.sAuto; this.runSearch(); },
+    sType(){ this.sfOff={}; this.sJuz=0; this.sEra=0; if(!this.q.trim()) this.sAuto=true; this.sPickMode=this.sAuto; this.runSearch(); },
     // ---- the search box on every page ----
     // On the Search page its own box is the one to use; anywhere else this opens over the page.
     findOpen(){ this.sideOpen=false;
@@ -9283,7 +9380,7 @@ createApp({
     glossTimes(g){ const ix=jix(), n=ix ? this.senseCount(g.norm, {dict:g.lab}, ix.lemmaCount.get(g.norm)||0) : 0;
       return !n ? '' : this.lang==='ar' ? this.arN(n,'مرة','مرتين','مرات') : (n===1 ? 'once' : n===2 ? 'twice' : this.f(n)+' times'); },
     // the reader picks one of the words, or all of them together (-1)
-    sSensePick(i){ const SW=this.sWord; if(!SW || !SW.lemma) return; this.sSense=i; this.sSenseOf=SW.lemma; this.sJuz=0; this.sShown=40; this.runSearch(); },
+    sSensePick(i){ const SW=this.sWord; if(!SW || !SW.lemma) return; this.sSense=i; this.sSenseOf=SW.lemma; this.sJuz=0; this.sEra=0; this.sShown=40; this.runSearch(); },
     // the dictionary form and the root behind a word, so «الرحمة» or «ورحمة» still finds every form of «رحمة»
     wordOf(q){ const ix=jix(); if(!ix || !q) return null;
       const top=m=>m ? [...m.entries()].sort((a,b)=>b[1]-a[1])[0][0] : '';
@@ -9298,12 +9395,15 @@ createApp({
     // an English meaning for an Arabic word said a given way, where the site knows one
     meanOf(l, lat){ if(this.lang==='ar' || !this.ready.roman || !this.ready.words) return ''; const M=glossMeans(); return M.get(l+'|'+lat) || M.get(l+'|') || ''; },
     // an example or a suggestion was tapped: put it in the box and show it from the top
-    sPick(ex, hint){ const via=ex ? this.sViaFor(ex) : null; this.sVia=via; this.q = via ? via.l : ex; this.senseSet(this.q, via ? null : hint); this.sfOff={}; this.sJuz=0; if(!ex) this.sAuto=true; this.sPickMode=this.sAuto; this.runSearch();
+    sPick(ex, hint){ const via=ex ? this.sViaFor(ex) : null; this.sVia=via; this.q = via ? via.l : ex; this.senseSet(this.q, via ? null : hint); this.sfOff={}; this.sJuz=0; this.sEra=0; if(!ex) this.sAuto=true; this.sPickMode=this.sAuto; this.runSearch();
       this.$nextTick(()=>{ window.scrollTo({top:0, behavior: MOTION ? 'smooth' : 'auto'}); if(!ex && this.$refs.sq) this.$refs.sq.focus(); }); },
+    // a bar of the order of revelation: show only that part's verses (the same bar again, or 0, shows all)
+    sEraPick(n){ if(n && !((this.sres.era||[])[n-1])) return; this.sEra = !n || this.sEra===n ? 0 : n; this.sJuz=0; this.sShown=40;
+      if(this.sEra) this.$nextTick(()=>{ const el=document.querySelector('main .sconc'); if(el) el.scrollIntoView({block:'start', behavior: MOTION ? 'smooth' : 'auto'}); }); },
     // the reader chose how to count: keep that choice until the box is cleared
     sMode(id){ this.sAuto=false; this.mode=id; this.runSearch(); },
     // a bar of the juz chart: show only that juz's verses (the same bar again, or 0, shows all)
-    sJuzPick(n){ if(n && !((this.sres.juz||[])[n-1])) return; this.sJuz = !n || this.sJuz===n ? 0 : n; this.sShown=40;
+    sJuzPick(n){ if(n && !((this.sres.juz||[])[n-1])) return; this.sJuz = !n || this.sJuz===n ? 0 : n; this.sEra=0; this.sShown=40;
       if(this.sJuz) this.$nextTick(()=>{ const el=document.querySelector('main .sconc'); if(el) el.scrollIntoView({block:'start', behavior: MOTION ? 'smooth' : 'auto'}); }); },
     isArx(t){ return /[\u0600-\u06FF]/.test(String(t)); },
     // a count with its Arabic noun: مرة واحدة, مرتين, ٥ مرات, ٤٧٥ مرة
