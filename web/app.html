@@ -17,6 +17,21 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
 <meta name="application-name" content="Quran Insights" />
 <meta name="apple-mobile-web-app-title" content="Quran Insights" />
 <meta name="theme-color" content="#040a07" />
+<link rel="manifest" id="qimf" href="/manifest.webmanifest" />
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<script>
+  // Installing the site as an app (manifest.webmanifest, sw.js): an Arabic page offers the Arabic app, which opens in Arabic;
+  // the browser's own offer to install is held for the app's Install button; the service worker keeps it readable offline.
+  (function () {
+    if (/[?&]lang=ar\b/.test(location.search)) document.getElementById('qimf').href = '/manifest-ar.webmanifest';
+    window.__qiPrompt = null;
+    addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); window.__qiPrompt = e; dispatchEvent(new Event('qi-installable')); });
+    if ('serviceWorker' in navigator) addEventListener('load', function () { navigator.serviceWorker.register('/sw.js').catch(function () {}); });
+  })();
+</script>
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://quraninsights.vercel.app/app.html" />
 <meta property="og:site_name" content="Quran Insights" />
@@ -873,6 +888,33 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
     .aubar{gap:4px;padding:5px} .au-pp{width:38px;height:38px} .au-what{font-size:.8rem;padding:0 3px}
     .au-rep{padding:0 6px;gap:3px} .aubar .au-rec{font-size:.74rem;padding:6px 6px;max-width:28vw} .au-x{width:30px;height:30px} }
   /* the repeat sheet: a card in the middle on a wide screen, a sheet from the bottom on a phone */
+  /* Installing the site as an app: the menu's button, the card on a phone's home page, the steps on an iPhone */
+  .sinst{display:flex;align-items:center;gap:10px;margin:16px 8px 0;padding:10px 12px;font:inherit;font-size:.86rem;text-align:start;color:var(--on-dark);
+    background:rgba(15,181,109,.1);border:1px solid rgba(52,211,153,.32);border-radius:12px;cursor:pointer;transition:background .2s ease,border-color .2s ease}
+  .sinst:hover,.sinst:focus-visible{background:rgba(15,181,109,.18);border-color:rgba(52,211,153,.6);outline:0}
+  .sinst svg{width:18px;height:18px;flex:none;color:var(--emerald)}
+  .sinst:disabled{cursor:default;opacity:.8}
+  .hinst{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-top:18px;max-width:660px;padding:12px 14px;border-radius:16px;
+    background:rgba(7,16,12,.72);border:1px solid rgba(52,211,153,.3);box-shadow:var(--shadow-1)}
+  .hinst p{flex:1 1 210px;margin:0;font-size:.86rem;line-height:1.55;color:var(--on-dark-2)}
+  .hinst p b{display:block;margin-bottom:2px;font-size:.95rem;font-weight:600;color:var(--on-dark)}
+  .hinst-b{display:flex;align-items:center;gap:12px;margin-inline-start:auto}
+  .hinst-go{font:inherit;font-size:.88rem;font-weight:600;color:#04140c;background:var(--emerald);border:0;border-radius:99px;padding:9px 20px;cursor:pointer}
+  .hinst-go:hover,.hinst-go:focus-visible{background:var(--emerald-deep);outline:0}
+  .hinst-x{font:inherit;font-size:.84rem;color:var(--on-dark-2);background:none;border:0;padding:6px 2px;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+  html[lang=ar] .hinst p{font-size:.94rem;line-height:1.8} html[lang=ar] .hinst p b{font-size:1rem}
+  .insheet{position:fixed;inset:0;z-index:1200;display:flex;align-items:flex-end;justify-content:center;background:rgba(2,6,4,.62);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+  .insheet-p{width:min(480px,100%);padding:22px 20px calc(18px + env(safe-area-inset-bottom));background:#0b1510;border:1px solid rgba(52,211,153,.4);border-bottom:0;
+    border-radius:20px 20px 0 0;box-shadow:0 30px 80px -20px rgba(0,0,0,.9);color:var(--on-dark);outline:0}
+  .insheet-p h3{margin:0 0 14px;font-family:var(--serif);font-weight:400;font-size:1.45rem;line-height:1.25;color:#fff}
+  html[lang=ar] .insheet-p h3{font-family:var(--ar-display);font-size:1.5rem;line-height:1.5}
+  .insteps{list-style:none;margin:0 0 18px;padding:0;display:grid;gap:12px}
+  .insteps li{display:flex;align-items:flex-start;gap:12px;font-size:.95rem;line-height:1.6;color:var(--ink-2)}
+  .insteps i{flex:none;width:26px;height:26px;display:grid;place-items:center;font-style:normal;font-size:.82rem;font-weight:700;color:#04140c;background:var(--emerald);border-radius:50%}
+  .insteps b{color:#fff;font-weight:600}
+  .inshare{width:19px;height:19px;vertical-align:-4px;color:#7ab8ff}
+  html[lang=ar] .insteps li{font-size:1rem;line-height:1.85}
+  .insheet-p .ccbtn{width:100%}
   .rps{position:fixed;inset:0;z-index:1200;display:flex;align-items:center;justify-content:center;padding:16px}
   .rps-bg{position:absolute;inset:0;background:rgba(2,6,4,.62);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
   .rps-p{position:relative;width:min(540px,100%);max-height:90vh;max-height:90dvh;overflow:auto;background:#0b1510;border:1px solid rgba(52,211,153,.4);border-radius:20px;
@@ -2710,6 +2752,17 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
       <p class="find-f" v-if="findRows.length" aria-hidden="true">{{ lang==='ar' ? '↑ ↓ للتنقل · Enter للفتح · Esc للإغلاق' : '↑ ↓ to move · Enter to open · Esc to close' }}</p>
     </div>
   </div>
+  <div v-if="inst.steps" class="insheet" @click.self="inst.steps=false" @keydown.esc="inst.steps=false">
+    <div class="insheet-p" role="dialog" aria-modal="true" tabindex="-1" :aria-label="lang==='ar' ? 'أضف التطبيق إلى الشاشة الرئيسية' : 'Add the app to your Home Screen'">
+      <h3>{{ lang==='ar' ? 'أضف «بصائر قرآنية» إلى شاشتك الرئيسية' : 'Add Quran Insights to your Home Screen' }}</h3>
+      <ol class="insteps">
+        <li><i>{{ D('1') }}</i><span>{{ lang==='ar' ? 'اضغط زر المشاركة' : 'Tap the Share button' }} <svg class="inshare" viewBox="0 0 20 20" :aria-label="lang==='ar' ? 'مشاركة' : 'Share'" role="img"><path d="M10 2.5v10M6.6 5.9 10 2.5l3.4 3.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 8.5H5.5a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-7a1 1 0 0 0-1-1H13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg> {{ lang==='ar' ? 'في شريط المتصفح. وإن لم تجده فاضغط ⋯ أولًا.' : 'in the browser bar. If you can’t see it, tap ⋯ first.' }}</span></li>
+        <li><i>{{ D('2') }}</i><span>{{ lang==='ar' ? 'مرّر للأسفل واختر' : 'Scroll down and choose' }} <b>{{ lang==='ar' ? '«إضافة إلى الشاشة الرئيسية»' : 'Add to Home Screen' }}</b>.</span></li>
+        <li><i>{{ D('3') }}</i><span>{{ lang==='ar' ? 'اضغط' : 'Tap' }} <b>{{ lang==='ar' ? '«إضافة»' : 'Add' }}</b>. {{ lang==='ar' ? 'يظهر التطبيق على شاشتك الرئيسية ويفتح بملء الشاشة.' : 'The app appears on your Home Screen and opens full screen.' }}</span></li>
+      </ol>
+      <button type="button" class="ccbtn" @click="inst.steps=false">{{ lang==='ar' ? 'تم' : 'Done' }}</button>
+    </div>
+  </div>
   <header class="topbar">
     <button class="menubtn" type="button" @click="sideOpen=!sideOpen" :aria-expanded="sideOpen?'true':'false'" :aria-label="lang==='ar'?'القائمة':'Menu'">{{ sideOpen?'✕':'☰' }}</button>
     <a class="tbrand" :href="landingHref"><span class="glyph" aria-hidden="true"></span><span class="bname">{{ lang==='ar' ? 'بصائر قرآنية' : 'Quran Insights' }}</span></a>
@@ -2729,6 +2782,9 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
         <span class="ic" v-html="h.icon"></span><span>{{ lang==='ar' ? h.ar : h.en }}</span>
       </div>
     </nav>
+    <button v-if="!inst.app && (inst.can || inst.ios || inst.done)" type="button" class="sinst" :disabled="inst.done" @click="instGo()">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="5" y="1.8" width="10" height="16.4" rx="2.2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10 5.8v6.4M7.4 9.7l2.6 2.6 2.6-2.6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>{{ inst.done ? (lang==='ar' ? 'تمّ تثبيت التطبيق' : 'App installed') : (lang==='ar' ? 'ثبّت التطبيق' : 'Install the app') }}</span></button>
     <div class="sidefoot">{{ lang==='ar' ? 'كل الأرقام تُعَدّ لحظيًا من نص القرآن داخل متصفحك.' : 'Every number is counted live from the Quran\'s text in your browser.' }}<br><a :href="landingHref">{{ lang==='ar' ? 'عُد إلى الجولة ‹' : '‹ Back to the tour' }}</a></div>
   </aside>
 
@@ -2757,6 +2813,14 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
             <b>{{ surahName(keepLast.s) }} {{ D(keepLast.s+':'+keepLast.v) }}</b><small>{{ keepAgo(keepLast.t) }}</small>
             <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 8h10M9 4.5 12.5 8 9 11.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <button v-if="keep.saved.length" type="button" class="hk-saved" @click="keepShow()">{{ keepSavedLabel }} {{ lang==='ar' ? '‹' : '›' }}</button>
+        </div>
+        <div v-if="!inst.app && inst.phone && (inst.done || ((inst.can || inst.ios) && !inst.later))" class="hinst">
+          <span class="glyph" aria-hidden="true"></span>
+          <p v-if="inst.done" role="status"><b>{{ lang==='ar' ? 'تمّ التثبيت' : 'Installed' }}</b>{{ lang==='ar' ? 'افتح «بصائر قرآنية» من شاشتك الرئيسية.' : 'Open Quran Insights from your home screen.' }}</p>
+          <template v-else>
+            <p><b>{{ lang==='ar' ? 'ضع «بصائر قرآنية» على شاشتك الرئيسية' : 'Put Quran Insights on your home screen' }}</b>{{ lang==='ar' ? 'يفتح كتطبيقٍ بملء الشاشة، ويُقرأ فيه المصحف دون إنترنت.' : 'It opens like an app, full screen, and the Reader works without internet.' }}</p>
+            <span class="hinst-b"><button type="button" class="hinst-go" @click="instGo()">{{ lang==='ar' ? 'ثبّت' : 'Install' }}</button><button type="button" class="hinst-x" @click="instLater()">{{ lang==='ar' ? 'ليس الآن' : 'Not now' }}</button></span>
+          </template>
         </div>
         <form class="askbox" @submit.prevent="askSite">
           <input class="q" v-model="ask.text" maxlength="200" :placeholder="lang==='ar' ? 'اسأل الموقع: قصة يوسف، دعاءٌ للقلق، سورة الكهف…' : 'Ask the site: the story of Yusuf, a du’a for anxiety, surah Al-Kahf…'" :aria-label="lang==='ar' ? 'اسأل الموقع' : 'Ask the site'">
@@ -4628,6 +4692,7 @@ const caretAt = (x, y) => { try{ if(document.caretPositionFromPoint){ const p=do
   if(document.caretRangeFromPoint){ const r=document.caretRangeFromPoint(x, y); return r ? {node:r.startContainer, off:r.startOffset} : null; } }catch(e){} return null; };
 const unmark = s => String(s||'').replace(/\[\[\w+\|([^\]]+)\]\]/g, '$1').replace(/\[\[(\w+)\]\]/g, (m,k)=>EXPL && EXPL.GLOSS[k] ? EXPL.GLOSS[k].name[0] : k).replace(/`/g, '');
 const DEPTH_KEY = 'daleel.depth';   // the reader's choice of layer, remembered from page to page
+const INSTALL_KEY = 'qi.install';   // "Not now" on the home page's Install card, so it is not offered again
 function readDepth(){ const q=new URLSearchParams(location.search).get('depth'); if(q==='sci' || q==='simple') return q;
   try{ return localStorage.getItem(DEPTH_KEY)==='sci' ? 'sci' : 'simple'; }catch(e){ return 'simple'; } }
 // The four surah measurements behind the Clusters map, prepared as data-build/pipeline/analytics.py does (each
@@ -8595,6 +8660,9 @@ createApp({
       aud:{k:'', st:'', basm:false, cont:false, err:'', rec: RECITE ? RECITE.chosen(STORE) : '', rep:null},
       // the English word tapped in a translation, for its meaning card: the word, where it is, what archaic.js knows of it
       ecard:null,
+      // installing the site as an app: the browser offers it (can), an iPhone or iPad shows the steps instead (ios),
+      // it is open as the installed app (app), it was just installed (done), the steps are open, the home card was put off
+      inst:{can:false, ios:false, app:false, done:false, steps:false, later:false, phone:false},
       // the repeat-to-memorise sheet while it is open: the passage and the choices being set
       repSheet:null, keepOpen:false, keepSure:false, scrollPct:0, railDragging:false, EN:{}, showTrans:(new URLSearchParams(location.search).get('lang')!=='ar'), libQ:'', libCat:'all', libSurah:0, rHi:'', wcard:null, nlpCenter:'', nlpState:null, stories:[], lessons:[], duas:[], tafsir:[], untranslatable:[], untranslatableIntro:{}, history:[], historyIntro:{}, skyHov:null, sresBy:{}, sresRoots:[], skyGL:false, hSel:'', hYear:610, hPlaying:false, hFilter:'all', hCopied:false,
       V1:{}, abjadInput:'الله',
@@ -10112,6 +10180,25 @@ createApp({
       this.ecard={word, key:word.toLowerCase(), info: A ? A.lookup(word) : null, x:r.left+r.width/2, y:r.bottom, top:r.top, n:(this.ecard ? this.ecard.n : 0)+1};
       try{ if(range && window.CSS && CSS.highlights && window.Highlight) CSS.highlights.set('enword', new Highlight(range)); }catch(e){} },
     enClose(){ if(!this.ecard) return; this.ecard=null; this._enRange=null; try{ if(window.CSS && CSS.highlights) CSS.highlights.delete('enword'); }catch(e){} },
+    // Installing the site as an app. Chrome, Edge and Samsung Internet make an offer, held in the head of the page for the
+    // Install buttons; an iPhone or iPad makes none, so there the button shows the three steps of Add to Home Screen.
+    instInit(){ const I=this.inst, mq=q=>!!(window.matchMedia && matchMedia(q).matches);
+      I.app = mq('(display-mode: standalone)') || navigator.standalone===true;
+      I.phone = mq('(pointer: coarse)');
+      I.can = !I.app && !!window.__qiPrompt;
+      I.ios = !I.app && (/iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform==='MacIntel' && navigator.maxTouchPoints>1));
+      try{ I.later = localStorage.getItem(INSTALL_KEY)==='later'; }catch(e){}
+      window.addEventListener('qi-installable', ()=>{ if(!I.app) I.can=true; });
+      window.addEventListener('appinstalled', ()=>{ I.can=false; I.done=true; window.__qiPrompt=null; this.instKeep(); });
+      if(I.app) this.instKeep(); },
+    // the installed app keeps the whole text, translation and word index, so it opens and reads without internet
+    instKeep(){ try{ if(navigator.serviceWorker) navigator.serviceWorker.ready.then(r=>{ if(r.active) r.active.postMessage('qi-offline'); }).catch(()=>{}); }catch(e){} },
+    instGo(){ const p=window.__qiPrompt;
+      if(p){ window.__qiPrompt=null; this.inst.can=false;   // an offer can be used once
+        try{ p.prompt(); Promise.resolve(p.userChoice).then(c=>{ if(c && c.outcome==='accepted') this.inst.done=true; }).catch(()=>{}); }catch(e){}
+        return; }
+      if(this.inst.ios){ this.inst.steps=true; this.$nextTick(()=>{ const el=document.querySelector('.insheet-p'); if(el) el.focus(); }); } },
+    instLater(){ this.inst.later=true; try{ localStorage.setItem(INSTALL_KEY, 'later'); }catch(e){} },
     // a word's meanings from Wiktionary, and its Arabic from MyMemory's machine translation; asked once a word
     enLookup(term){ const C=this._enL || (this._enL=new Map()); if(C.has(term)) return C.get(term);
       const text=html=>{ try{ return (new DOMParser().parseFromString(html, 'text/html').body.textContent || '').replace(/\s+/g, ' ').trim(); }catch(e){ return ''; } };
@@ -10622,6 +10709,7 @@ createApp({
     navKey(n, o){ if(this._popping || !this._navReady) return; const a=String(o).split('|'), b=String(n).split('|');
       this.syncUrl(a[0]!==b[0] || a[1]!==b[1] || a[2]!==b[2]); },
     lang(v){ this.applyDir(); this.showTrans = (v!=='ar'); this.applySitCat(); const sky=SKY(); if(sky) sky.setLang(v);
+      const mf=document.getElementById('qimf'); if(mf) mf.href = v==='ar' ? '/manifest-ar.webmanifest' : '/manifest.webmanifest';   // the app installed opens in this language
       this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); this.revealScan(); this.syncStage(); if(this.term) this.placeTerm(); }); },
     pcaStep(){ if(this.view==='cluster') this.syncStage(); },
     pcaAngle(){ if(this.view==='cluster' && !PCA_RAF) PCA_RAF=requestAnimationFrame(()=>{ PCA_RAF=0; this.syncStage(); }); },   // one redraw a frame while the line turns
@@ -10633,6 +10721,7 @@ createApp({
     window.addEventListener('resize', this.onPageScroll);
     this.onPageScroll();
     this._readT0=Date.now(); this.keepLoad();
+    try{ this.instInit(); }catch(e){}   // a browser that trips over the install checks still opens the site
     // a tap on any English verse text opens the meaning of the word tapped; a tap elsewhere or Escape closes it
     document.addEventListener('click', e=>this.enTap(e));
     document.addEventListener('keydown', e=>{ if(e.key==='Escape' && this.ecard) this.enClose(); });

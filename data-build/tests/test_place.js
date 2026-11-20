@@ -119,7 +119,7 @@ const tests = {
     assert.ok(at > 0 && end > at, 'the app\'s state was not found');
     const code = app.slice(at, end).split('\n').map(l => l.replace(/(^|\s)\/\/.*$/, '')).join('\n');
     for (const k of ['rSurah', 'keep', 'keepArrive', 'aud', 'repSheet', 'keepOpen', 'keepSure', 'scrollPct', 'railDragging', 'EN', 'showTrans',
-      'libQ', 'libCat', 'libSurah', 'rHi', 'wcard', 'stories', 'lessons', 'duas', 'tafsir', 'untranslatable', 'V1', 'depth'])
+      'libQ', 'libCat', 'libSurah', 'rHi', 'wcard', 'ecard', 'inst', 'stories', 'lessons', 'duas', 'tafsir', 'untranslatable', 'V1', 'depth'])
       assert.ok(new RegExp('[\\s,{]' + k + ':').test(code), k + ' is not declared');
   },
   'the site uses this file, and keeps nothing behind its back'() {
@@ -128,10 +128,11 @@ const tests = {
     assert.ok(app.includes('const PLACE = window.QI_PLACE || null;'));
     for (const own of ["'qi.read'", "'qi.saved'", 'localStorage.setItem(\'qi', 'sessionStorage', 'indexedDB'])
       assert.ok(!app.includes(own), 'app.html has ' + own);
-    // the only other thing app.html keeps itself is the reader's choice of simple or detailed explanations; the
-    // reciter picked is kept by recite.js, and test_recite.js holds it to that one key
+    // the only other things app.html keeps itself are the reader's choice of simple or detailed explanations and a
+    // "Not now" on the Install card; the reciter picked is kept by recite.js, and test_recite.js holds it to that one key
     const sets = app.match(/localStorage\.setItem\([^)]*\)/g) || [];
-    assert.deepEqual(sets, ['localStorage.setItem(DEPTH_KEY, d)']);
+    assert.deepEqual(sets, ['localStorage.setItem(DEPTH_KEY, d)', "localStorage.setItem(INSTALL_KEY, 'later')"]);
+    assert.ok(app.includes("const INSTALL_KEY = 'qi.install';"));
   },
 };
 
