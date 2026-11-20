@@ -3389,7 +3389,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
         <p class="rhint" v-if="ready.verses">{{ lang==='ar' ? 'انقر أي كلمةٍ لترى بناءها. وانقر رقم آيةٍ، مثل ' : 'Tap any word to see how it is built. Tap a verse number, like ' }}<span class="vk">{{ D(rSurah+':1') }}</span>{{ keep.on ? (lang==='ar' ? '، لتدرس الآية أو تضع عليها علامة.' : ', to study that verse or save it.') : (lang==='ar' ? '، لتدرس الآية.' : ', to study that verse.') }}</p>
         <div v-for="v in readerVerses" :key="v.k" class="vblock" :id="'v-'+v.k.replace(':','-')" :class="{vfocus: v.k===rFocusKey}" @click="vkClick($event)">
           <div class="verse" v-if="rMarks.has(v.k)" v-html="readerLine(v)"></div>
-          <div class="verse" v-else><span v-for="(w,j) in rTok(v.k, v.t)" :key="j" class="rw" :class="{hi: rHi && w.i>=0 && W.lemma[w.i]===rHi, tap: w.i>=0}" @click="w.i>=0 && openWord(w.i, $event)">{{ w.t+' ' }}</span><button type="button" class="vk" :class="{kept: keepSet.has(v.k)}" :data-study="v.k" :title="keepSet.has(v.k) ? (lang==='ar' ? 'عليها علامتك. انقر لتدرسها' : 'Saved. Tap to study it') : (lang==='ar' ? 'ادرس هذه الآية' : 'Study this verse')" :aria-label="(lang==='ar' ? 'ادرس الآية '+D(v.k) : 'Study verse '+v.k)+(keepSet.has(v.k) ? (lang==='ar' ? '، عليها علامتك' : ', saved') : '')">{{ D(v.k) }}</button></div>
+          <div class="verse" v-else><span v-for="(w,j) in rTok(v.k, v.t)" :key="j" class="rw" :class="{hi: rHi && w.i>=0 && W.lemma[w.i]===rHi, tap: w.i>=0}" @click="w.i>=0 && openWord(w.i, $event)">{{ w.t+' ' }}</span><button type="button" class="vk" :class="{kept: keepSet.has(v.k)}" :data-study="v.k" :title="vkTitle(v.k)" :aria-label="vkSay(v.k)">{{ D(v.k) }}</button></div>
           <div v-if="showTrans && EN[v.k]" class="verse-en">{{ v.k }} &middot; {{ EN[v.k] }}</div>
           <button v-if="v.k===rFocusKey" type="button" class="vstudy" :data-study="v.k">{{ lang==='ar' ? 'ادرس هذه الآية ‹' : 'Study this verse ›' }}</button>
         </div>
@@ -9661,7 +9661,7 @@ createApp({
     renderReader(){ /* reactive via computed */ },
     // a claim's verse, with the counted word marked (the verse text and the word list agree word for word)
     readerLine(v){
-      const esc=t=>t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      const esc=t=>t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
       const toks=v.t.split(' '), W=window.QURAN_WORDS, span=this.ready.words && W ? verseSpan(v.k) : null, lem=this.rLemma;
       let hit=new Set();
       if(span && lem){
@@ -9669,8 +9669,12 @@ createApp({
         if(toks.length===span[1]-span[0]) hit=new Set(at);
         else { const forms=new Set(at.map(j=>W.surface[span[0]+j])); toks.forEach((t,j)=>{ if(forms.has(t)) hit.add(j); }); }
       }
-      return toks.map((t,j)=>hit.has(j) ? '<mark>'+esc(t)+'</mark>' : esc(t)).join(' ') + ' <button type="button" class="vk'+(this.keepSet.has(v.k) ? ' kept' : '')+'" data-study="'+esc(v.k)+'">'+esc(this.D(v.k))+'</button>';
+      return toks.map((t,j)=>hit.has(j) ? '<mark>'+esc(t)+'</mark>' : esc(t)).join(' ') + ' <button type="button" class="vk'+(this.keepSet.has(v.k) ? ' kept' : '')+'" data-study="'+esc(v.k)
+        +'" title="'+esc(this.vkTitle(v.k))+'" aria-label="'+esc(this.vkSay(v.k))+'">'+esc(this.D(v.k))+'</button>';
     },
+    // what a verse-number button in the Reader shows on hover and says to a screen reader, for both ways it is drawn
+    vkTitle(k){ const ar=this.lang==='ar'; return this.keepSet.has(k) ? (ar ? 'عليها علامتك. انقر لتدرسها' : 'Saved. Tap to study it') : (ar ? 'ادرس هذه الآية' : 'Study this verse'); },
+    vkSay(k){ const ar=this.lang==='ar'; return (ar ? 'ادرس الآية '+this.D(k) : 'Study verse '+k)+(this.keepSet.has(k) ? (ar ? '، عليها علامتك' : ', saved') : ''); },
     // ---- History Claims. Years are numbers (negative = BCE, all approximate); every gap is worked out here, none is typed. ----
     yrPlain(y){ if(y==null) return ''; const ar=this.lang==='ar'; return this.D(y<0 ? (-y)+(ar?' ق.م':' BCE') : y+(ar?' م':' CE')); },
     yr(y){ if(y==null) return ''; return (y<0 ? (this.lang==='ar'?'نحو ':'c. ') : '')+this.yrPlain(y); },
