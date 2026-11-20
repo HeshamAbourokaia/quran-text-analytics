@@ -1445,6 +1445,46 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .sjuz-col:focus-visible{outline:2px solid #fff;outline-offset:2px;border-radius:4px}
   .sjuz-axis{margin:7px 0 0;text-align:center;font-size:.72rem;color:var(--on-dark-3)}
   .sjuz-read{margin:10px 0 0;min-height:1.5em;font-size:.86rem;line-height:1.5;color:var(--on-dark-2)}
+  /* repeated phrases: the bars split Meccan and Medinan (the colour pair checked for colour-blind readers in «a word through time»),
+     the strip of the 114 surahs, and the verses with the phrase marked */
+  .ph{--mec:#b98a24;--med:#1da693}
+  .ph-kpis b.ph-kar{font-family:var(--ar-display);font-size:1.3rem;line-height:2;padding-top:6px}
+  .ph-ctl{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin:0 0 14px}
+  .ph-q{font:inherit;font-size:.95rem;color:var(--on-dark);background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:12px;padding:10px 14px;width:min(380px,100%)}
+  .ph-q:focus{outline:0;border-color:rgba(233,185,95,.6)}
+  .ph-ch{display:flex;flex-wrap:wrap;gap:6px}
+  .ph-key{display:inline-flex;align-items:center;flex-wrap:wrap;gap:2px;margin-inline-start:6px;font-size:.8rem;color:var(--on-dark-2)}
+  .ph-key i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-inline:10px 5px} .ph-key .mec,.ph-bar .mec{background:var(--mec)} .ph-key .med,.ph-bar .med{background:var(--med)}
+  .ph-found{margin:0 0 8px;font-size:.86rem;color:var(--gold)}
+  .ph-list{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+  .ph-list button{display:grid;grid-template-columns:minmax(0,40%) minmax(0,1fr) 3em;align-items:center;gap:12px;width:100%;padding:6px 10px;border-radius:10px;
+    border:1px solid transparent;background:transparent;color:inherit;font:inherit;cursor:pointer;text-align:start}
+  .ph-list button:hover,.ph-list button:focus-visible{background:rgba(255,255,255,.04);outline:0} .ph-list button.on{background:rgba(233,185,95,.08);border-color:rgba(233,185,95,.45)}
+  .ph-ar{font-family:var(--ar-display);font-weight:400;font-size:1.2rem;line-height:1.7;color:#fff;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .ph-bar{display:flex;gap:2px;height:12px;border-radius:6px;overflow:hidden;width:calc(var(--w, 0) * 100%);min-width:3px;transition:width .9s var(--ease)}
+  .ph-bar i{display:block;height:100%;flex-basis:0}
+  .ph-list em{font-style:normal;font-variant-numeric:tabular-nums;color:var(--on-dark-2);font-size:.88rem;text-align:end}
+  .ph-none{margin:6px 0;color:var(--on-dark-2)}
+  .ph-more{margin-top:10px;font:inherit;font-size:.84rem;font-weight:600;color:var(--on-dark);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:99px;padding:8px 16px;cursor:pointer}
+  .ph-more:hover,.ph-more:focus-visible{border-color:rgba(233,185,95,.55);color:#fff;outline:0}
+  .ph-sel-ar{font-family:var(--ar-display);font-size:2rem;line-height:1.7;color:#fff;margin:0;text-align:center}
+  .ph-say{margin:2px 0 16px;color:var(--on-dark-2);font-size:.92rem;line-height:1.7;text-align:center}
+  .ph-strip{display:flex;align-items:flex-end;gap:1px;height:36px}
+  .ph-strip span{flex:1 1 0;min-width:0;height:28%;border-radius:1px;background:rgba(255,255,255,.09)}
+  .ph-strip span.on{height:100%;cursor:pointer} .ph-strip span.mec{background:var(--mec)} .ph-strip span.med{background:var(--med)}
+  .ph-ends{display:flex;justify-content:space-between;margin-top:5px;font-size:.74rem;color:var(--on-dark-3)}
+  .ph-vhead{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;margin:20px 0 0}
+  .ph-vhead h4{margin:0;font-size:1rem} .ph-vhead small{margin-inline-start:6px;font-weight:400;color:var(--on-dark-3)}
+  .ph-verses{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:10px}
+  .ph-verses li{padding:10px 14px 12px;border-radius:14px;background:rgba(255,255,255,.025);border:1px solid var(--hair)}
+  .ph-vk{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--on-dark-3)}
+  .ph-v{margin:6px 0 0;font-family:var(--ar-display);font-size:1.4rem;line-height:2.1;color:var(--on-dark)}
+  .ph-en{margin:4px 0 0;font-size:.86rem;line-height:1.65;color:var(--on-dark-2)}
+  .ph-also{margin:16px 0 0;font-size:.84rem;color:var(--on-dark-3)} .ph-also button,.nlp-more button{font:inherit;color:var(--gold);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+  .nlp-more{margin:12px 0 0;font-size:.84rem}
+  @media (max-width:560px){ .ph-list button{grid-template-columns:minmax(0,1fr) 2.6em;grid-template-areas:'t t' 'b n';gap:2px 10px}
+    .ph-ar{grid-area:t} .ph-bar{grid-area:b} .ph-list em{grid-area:n} .ph-sel-ar{font-size:1.6rem} }
+  @media (prefers-reduced-motion: reduce){ .ph-bar{transition:none} }
   /* a word through time: Mecca beside Medina, then the order of revelation in parts. Two colours checked for colour-blind
      readers; the two groups are also told apart by a gap and by a label under each */
   .sera{--mec:#b98a24;--med:#1da693}
@@ -1942,11 +1982,11 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .libcard.flash{animation:libflash 1.6s ease} @keyframes libflash{0%,40%{box-shadow:0 0 0 3px var(--gold),0 0 30px rgba(233,185,95,.5)}100%{box-shadow:none}}
   /* Analytics Lab: shared */
   .stl-btn{font:inherit;font-size:.8rem;font-weight:700;color:#1a1405;background:var(--gold);border:0;border-radius:999px;padding:7px 16px;cursor:pointer} .stl-btn:disabled{opacity:.5;cursor:default} .stl-btn.ghost{background:none;color:var(--gold);border:1px solid rgba(233,185,95,.45)}
-  .stl-kpis,.hz-kpis,.clf-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0 0 12px}
-  .stl-kpis>div,.hz-kpis>div,.clf-kpis>div{padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid var(--hair);display:grid;gap:2px;align-content:start}
-  .stl-kpis small,.hz-kpis small,.clf-kpis small{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--on-dark-3)}
-  .stl-kpis b,.hz-kpis b,.clf-kpis b{font-family:var(--serif);font-weight:400;font-size:1.9rem;color:#fff;line-height:1.1;font-variant-numeric:tabular-nums} .stl-kpis em,.hz-kpis b em,.clf-kpis em{font-style:normal;font-size:.72rem;color:var(--on-dark-3)}
-  .hz-kpis .hl{border-color:rgba(233,185,95,.5);background:rgba(233,185,95,.08)} .hz-kpis span{font-size:.74rem;color:var(--gold)}
+  .stl-kpis,.hz-kpis,.clf-kpis,.ph-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0 0 12px}
+  .stl-kpis>div,.hz-kpis>div,.clf-kpis>div,.ph-kpis>div{padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid var(--hair);display:grid;gap:2px;align-content:start}
+  .stl-kpis small,.hz-kpis small,.clf-kpis small,.ph-kpis small{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--on-dark-3)}
+  .stl-kpis b,.hz-kpis b,.clf-kpis b,.ph-kpis b{font-family:var(--serif);font-weight:400;font-size:1.9rem;color:#fff;line-height:1.1;font-variant-numeric:tabular-nums} .stl-kpis em,.hz-kpis b em,.clf-kpis em{font-style:normal;font-size:.72rem;color:var(--on-dark-3)}
+  .hz-kpis .hl,.ph-kpis .hl{border-color:rgba(233,185,95,.5);background:rgba(233,185,95,.08)} .hz-kpis span,.ph-kpis span{font-size:.74rem;color:var(--gold)}
   .stl-grid,.hz-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:0 0 12px}
   .hz-cap{margin:8px 0 0;font-size:.8rem;line-height:1.55;color:var(--on-dark-2)} .clf-hov{min-height:1.5em;margin:6px 0 0;font-size:.82rem;color:var(--on-dark-2)}
   /* Hifz */
@@ -1991,7 +2031,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .km-elbow{display:block;width:100%;max-width:340px;margin:0 auto;height:auto} .km-elbow .ln{fill:none;stroke:var(--gold);stroke-width:2} .km-elbow circle{fill:rgba(255,255,255,.5)} .km-elbow circle.on{fill:var(--gold)} .km .km-elbow .t{font-size:8px;fill:var(--on-dark-3)}
   .km-sim{display:grid;gap:4px;margin:6px 0 8px} .km-sim button{display:flex;justify-content:space-between;gap:8px;font:inherit;font-size:.82rem;color:var(--on-dark);background:rgba(255,255,255,.03);border:1px solid var(--hair);border-radius:10px;padding:6px 10px;cursor:pointer} .km-sim span{color:var(--gold)}
   .km-hint{display:grid;place-items:center;text-align:center;color:var(--on-dark-3)}
-  @media (max-width:820px){ .stl-kpis,.hz-kpis,.clf-kpis{grid-template-columns:repeat(2,minmax(0,1fr))} .stl-grid,.hz-grid,.clf-train,.km-grid,.hz-ctl{grid-template-columns:1fr} .wrow{grid-template-columns:80px minmax(0,1fr)} .wrow em{display:none} }
+  @media (max-width:820px){ .stl-kpis,.hz-kpis,.clf-kpis,.ph-kpis{grid-template-columns:repeat(2,minmax(0,1fr))} .stl-grid,.hz-grid,.clf-train,.km-grid,.hz-ctl{grid-template-columns:1fr} .wrow{grid-template-columns:80px minmax(0,1fr)} .wrow em{display:none} }
   /* BI Dashboard */
   .dsh-crumb{display:flex;align-items:center;gap:6px;margin:-4px 0 8px;font-size:.78rem;color:var(--on-dark-3)} .dsh-crumb button{font:inherit;font-size:.78rem;color:var(--on-dark-2);background:none;border:0;padding:2px 4px;cursor:pointer} .dsh-crumb button.on{color:var(--gold);font-weight:700}
   .dsh-tsvg .zoombox{cursor:zoom-in} .dsh-tsvg .zoombox rect{fill:rgba(255,255,255,.04);stroke:#fff;stroke-width:1.5;stroke-dasharray:5 3} .dsh .dsh-tsvg .zoombox text{font-size:10px;font-weight:700;fill:#fff}
@@ -2526,7 +2566,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
     symmetry:'word-pairs', n19:'19', structural:'iron-bee-noah', abjad:'abjad', wordcount:'how-many-words', lettercount:'how-many-letters',
     history:'history', science:'science', discover:'discoveries', 'd-endings':'verse-endings', 'd-rings':'mirrors', 'd-rhyme':'rhyme',
     'd-stories':'retellings', 'd-themes':'themes', 'd-companions':'companions', 'd-letters':'opening-letters', 'd-repeats':'near-repeats', 'd-chrono':'revelation-order',
-    overview:'overview', word:'words', letters:'letters', mecca:'mecca-medina', emotion:'tone', cluster:'similar-surahs',
+    overview:'overview', word:'words', letters:'letters', mecca:'mecca-medina', emotion:'tone', cluster:'similar-surahs', phrases:'phrases',
     kg:'knowledge-graph', stories:'stories', lessons:'lessons', duas:'duas', rizq:'rizq', wahhab:'wahhab', kursi:'kursi', tafsir:'insights', untranslatable:'untranslatable'};
   // Vercel Web Analytics: page views only, no cookies, nothing that identifies a visitor.
   // Each view is sent as a clean path (/app/<view>[/<claim or surah>], /ar/ for Arabic) and every other query value is dropped.
@@ -4007,6 +4047,12 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
 
 
     <!-- CLUSTERS & SIMILARITY (k-means + TF-IDF) -->
+    <!-- REPEATED PHRASES: runs of three words or more that the Quran comes back to (web/phrases.js) -->
+    <section v-if="view==='phrases'">
+      <h1>{{ lang==='ar' ? 'العبارات المتكررة' : 'Repeated Phrases' }}</h1>
+      <explain-box></explain-box>
+      <phrase-lab></phrase-lab>
+    </section>
     <section v-if="view==='cluster'">
       <h1>{{ lang==='ar' ? 'السور المتشابهة' : 'Similar Surahs' }}</h1>
       <explain-box></explain-box>
@@ -4454,6 +4500,17 @@ const PLAIN = {
     tip:['{P} a disc to see the surah', '{p} قرصٍ لترى السورة'],
     msg:['The surahs fall into a few natural groups; those that sit close together are alike in length and wording.',
       'تنقسم السور إلى مجموعاتٍ طبيعيةٍ قليلة، والمتقاربة منها متشابهةٌ في طولها وألفاظها.']},
+  phrases:{
+    title:['Which phrases does the Quran come back to?', 'ما العبارات التي يعود إليها القرآن؟'],
+    what:['Some phrases come again and again across the Quran, such as «O you who believe» or «gardens beneath which rivers flow». The computer found every run of three words or more that comes at least three times.',
+      'تعود عباراتٌ بعينها مرةً بعد مرة في القرآن، مثل «يا أيها الذين آمنوا» و«جنات تجري من تحتها الأنهار». وقد وجد الحاسوب كل تتابعٍ من ثلاث كلماتٍ فأكثر يرد ثلاث مراتٍ على الأقل.'],
+    method:['A run of words side by side is called an [[ngram|n-gram]]. Words are compared as written, with the vowel marks set aside ([[normalization]]). A phrase that only ever comes inside a longer one is left out, and so are runs of small joining words that do not stand as a phrase on their own.',
+      'تتابع الكلمات المتجاورة يُسمّى [[ngram|«n-gram»]]. وتُقارَن الكلمات كما كُتبت مع ترك الحركات ([[normalization|توحيد الرسم]]). وتُترك العبارة التي لا تأتي إلا داخل عبارةٍ أطول منها، وكذلك تتابعات أدوات الربط الصغيرة التي لا تقوم عبارةً بذاتها.'],
+    how:['Each bar is one phrase, and its length is how many times the phrase comes: the gold part in Meccan surahs, the green part in Medinan ones. Below the bars, the phrase you pick is shown on a strip of the 114 surahs, then in each of its verses.',
+      'كل شريطٍ عبارةٌ واحدة، وطوله عدد مرات ورودها: الجزء الذهبي في السور المكية، والأخضر في المدنية. وتحت الأشرطة تظهر العبارة التي تختارها على شريط السور المئة والأربع عشرة، ثم في كل آيةٍ من آياتها.'],
+    tip:['{P} a bar to see where the phrase comes and read its verses', '{p} شريطًا لترى مواضع العبارة وتقرأ آياتها'],
+    msg:['About one word in five in the Quran sits inside a phrase that comes back at least three times. The most repeated are calls and set formulas, such as «O you who believe», 89 times, and «besides Allah», 71 times.',
+      'نحو كلمةٍ من كل خمس كلماتٍ في القرآن تقع داخل عبارةٍ تعود ثلاث مراتٍ فأكثر. وأكثر العبارات تكرارًا نداءاتٌ وصيغٌ ثابتة، مثل «يا أيها الذين آمنوا» ٨٩ مرة، و«من دون الله» ٧١ مرة.']},
   coincidence:{
     title:['Why a matching number is often just chance', 'لماذا يكون توافق الأرقام مصادفةً في الغالب؟'],
     what:['The Quran has 4,771 different words, so almost any number you pick will match how often some word occurs. This page shows how often that happens, so we don\'t read too much into a match.',
@@ -4520,8 +4577,8 @@ const ARTICLE = /^(?:[ae]l|[ae](?:sh|th|dh|[lnrstdz]))[-\s]+/i;   // al-, el-, a
 // (about 2.5 MB compressed). They load after the app is on screen, what the current page needs first,
 // so a phone never waits on a blank page for all of it.
 const LAZY = { verses:['corpus.js','translation_en.js'], words:['words.js','lemma-variants.js'], roman:['roman.js'], plotly:['https://cdn.plot.ly/plotly-2.27.0.min.js'],
-  disc:['discover.js','discoveries.js'], hviz:['content/quran_history_viz.js'] };
-const NEEDS = { reader:['verses','words'], mecca:['words'], word:['words','verses'], symmetry:['words','verses'], abjad:['words'], structural:['words','verses','hviz'], n19:['words','verses'], search:['words','verses','roman'], auditor:['words'], history:['verses','words','hviz'], reader:['verses'], home:['words'], rizq:['verses'], wahhab:['verses'],
+  disc:['discover.js','discoveries.js'], hviz:['content/quran_history_viz.js'], phrases:['phrases.js'] };
+const NEEDS = { reader:['verses','words'], mecca:['words'], word:['words','verses'], symmetry:['words','verses'], abjad:['words'], structural:['words','verses','hviz'], n19:['words','verses'], search:['words','verses','roman'], auditor:['words'], history:['verses','words','hviz'], reader:['verses'], home:['words'], rizq:['verses'], wahhab:['verses'], phrases:['phrases','words','verses','roman'],
   discover:['disc'], 'd-endings':['disc','verses'], 'd-rings':['disc','verses','words'], 'd-rhyme':['disc'], 'd-stories':['disc'], 'd-themes':['disc'],
   'd-companions':['disc'], 'd-letters':['disc'], 'd-repeats':['disc','verses','words'], 'd-chrono':['disc'] };
 const lazyP = {};
@@ -4535,7 +4592,7 @@ const EXPL = window.DALEEL_EXPLAIN || null;
 const XLAB = {purpose:['Purpose','الغاية'], data:['Data','البيانات'], method:['Method','المنهج'], result:['Result','النتيجة'],
   also:['Also on this page','وفي الصفحة أيضًا'], limits:['Assumptions and limits','الافتراضات والحدود']};
 const TLAB = [['In plain words','بكلماتٍ بسيطة'], ['What it does here','ماذا يفعل هنا'], ['What it showed us','ماذا كشف لنا'], ['For scientists','للمتخصصين']];
-const TERMS = { overview:['lemma','root','hapax','normalization'], word:['lemma','zipf','ngram','normalization'], letters:['normalization'],
+const TERMS = { overview:['lemma','root','hapax','normalization'], word:['lemma','zipf','ngram','normalization'], phrases:['ngram','normalization'], letters:['normalization'],
   mecca:['ttest','pvalue','ci','effect','ols','logreg','tfidf','cv','baseline','auc','confusion'], cluster:['pca','kmeans','zscore','cosine','tfidf'],
   hifz:['lp','shadow'], emotion:['lexicon'], search:['lemma','root','normalization'],
   auditor:['lemma','lookelsewhere'], symmetry:['lemma','root'], n19:['lemma'], structural:['lemma'],
@@ -7306,6 +7363,7 @@ const NlpLab = { mixins:[FitW],
       <figure class="dfig nlp-pairs"><h3>{{ ar ? 'أقوى العبارات الثنائية' : 'The strongest two-word phrases' }}</h3>
         <p class="fsub">{{ ar ? 'أكثر كلمتين تتجاوران، دون الحروف والضمائر. انقر لتفتح الشجرة على الأولى.' : 'The word pairs that sit side by side most often, leaving out particles and pronouns. Tap to open the tree on the first word.' }}</p>
         <div class="nlp-chips" v-if="ix"><button v-for="p in ix.top" :key="p.a+p.b" type="button" @click="go(p.a)" :class="{on: p.a===center}"><b lang="ar">{{ (ix.best.get(p.a)||p.a)+' '+(ix.best.get(p.b)||p.b) }}</b><span>{{ D(p.c) }}</span></button></div>
+        <p class="nlp-more"><button type="button" @click="$root.go('phrases')">{{ ar ? 'والعبارات من ثلاث كلماتٍ فأكثر في «العبارات المتكررة» ‹' : 'Phrases of three words or more are on Repeated Phrases ›' }}</button></p>
       </figure>
     </div>
   </div>`,
@@ -7466,6 +7524,128 @@ const DashLab = { mixins:[FitW],
 // Hifz Optimiser: a what-if planner. The plan follows the linear programme (time a day = new lines x minutes per
 // line + review lines x minutes per review line, review = ratio x new); a Monte Carlo then runs 400 journeys with
 // the day-to-day ups and downs and missed days, and a mushaf of 30 juz fills as you drag through the days.
+// The phrases the Quran comes back to (web/phrases.js, built by data-build/pipeline/phrases.py): four figures, the
+// phrases as bars split between Meccan and Medinan surahs, and for the phrase picked, where it comes and its verses.
+// A word typed is matched as written with its alifs and hamzas set aside, since the mushaf writes many words without
+// the alif today's spelling has (السموت, الصلحت); English letters go through the dictionary forms they sound like.
+const phBare = s => normalize(String(s)).replace(/[اٱءأإآ]/g, '');
+const PhraseLab = {
+  data(){ return {q:'', len:0, sort:'n', shown:15, pick:0, vShown:12, grown:false}; },
+  template:`<div class="ph">
+    <div v-if="!ready" class="stub">{{ ar ? 'جارٍ تحميل العبارات…' : 'Loading the phrases…' }}</div>
+    <template v-else>
+    <div class="ph-kpis">
+      <div><small>{{ ar ? 'عباراتٌ تعود' : 'Phrases that come back' }}</small><b>{{ R.dF.n(meta.phrases) }}</b><span>{{ ar ? 'من ثلاث كلماتٍ فأكثر، تتكرر ثلاث مراتٍ على الأقل' : 'of three words or more, each at least three times' }}</span></div>
+      <div class="hl"><small>{{ ar ? 'الأكثر تكرارًا' : 'The most repeated' }}</small><b class="ph-kar" lang="ar" dir="rtl">{{ all[0].surf }}</b><span>{{ R.timesWord(all[0].c) }}</span></div>
+      <div><small>{{ ar ? 'كلماتٌ داخل عبارةٍ تعود' : 'Words inside a phrase that comes back' }}</small><b>{{ R.dF.pc(meta.coverage, 1) }}</b><span>{{ ar ? R.dF.n(meta.covered)+' من '+R.dF.n(meta.words)+' كلمة' : R.dF.n(meta.covered)+' of '+R.dF.n(meta.words)+' words' }}</span></div>
+      <div><small>{{ ar ? 'الأطول' : 'The longest' }}</small><b>{{ R.countOf(longest.n, 'word') }}</b><span>{{ R.timesWord(longest.c) }}</span></div>
+    </div>
+    <div class="ph-ctl">
+      <input class="ph-q" v-model="q" type="search" :dir="q ? 'auto' : (ar ? 'rtl' : 'ltr')" autocomplete="off" spellcheck="false"
+        :placeholder="ar ? 'ابحث بكلمة: رحمة أو rahma' : 'Find a word: rahma or رحمة'"
+        :aria-label="ar ? 'ابحث عن عبارةٍ فيها كلمة' : 'Find the phrases that hold a word'">
+      <div class="ph-ch" role="group" :aria-label="ar ? 'طول العبارة' : 'How many words'">
+        <button v-for="L in [0,3,4,5,6]" :key="L" type="button" class="chip ui" :class="{on: len===L}" :aria-pressed="len===L" @click="len=L">{{
+          L===0 ? (ar ? 'كل الأطوال' : 'Any length') : L===6 ? (ar ? '٦ كلماتٍ فأكثر' : '6 words or more') : (ar ? R.countOf(L, 'word') : L+' words') }}</button></div>
+      <div class="ph-ch" role="group" :aria-label="ar ? 'الترتيب' : 'Order'">
+        <button type="button" class="chip ui" :class="{on: sort==='n'}" :aria-pressed="sort==='n'" @click="sort='n'">{{ ar ? 'الأكثر تكرارًا' : 'Most repeated' }}</button>
+        <button type="button" class="chip ui" :class="{on: sort==='len'}" :aria-pressed="sort==='len'" @click="sort='len'">{{ ar ? 'الأطول' : 'Longest' }}</button></div>
+    </div>
+    <figure class="dfig ph-fig">
+      <h3>{{ sort==='len' ? (ar ? 'أطول العبارات التي تعود' : 'The longest phrases that come back') : (ar ? 'العبارات الأكثر عودة' : 'The phrases that come back most') }}</h3>
+      <p class="fsub">{{ ar ? 'كل شريطٍ عبارة، وطوله عدد مرات ورودها. انقر شريطًا لترى مواضع العبارة وتقرأ آياتها.' : 'Each bar is a phrase, as long as the number of times it comes. Tap a bar to see where the phrase comes and read its verses.' }}
+        <span class="ph-key"><i class="mec"></i>{{ ar ? 'في السور المكية' : 'in Meccan surahs' }}<i class="med"></i>{{ ar ? 'في السور المدنية' : 'in Medinan surahs' }}</span></p>
+      <p class="ph-found" aria-live="polite" v-if="found">{{ found }}</p>
+      <ol class="ph-list" v-if="list.length">
+        <li v-for="x in top" :key="x.i"><button type="button" :class="{on: x.i===pick}" :aria-pressed="x.i===pick" @click="choose(x.i)"
+          :aria-label="x.surf+'، '+R.timesWord(x.c)">
+          <b class="ph-ar" lang="ar" dir="rtl">{{ x.surf }}</b>
+          <span class="ph-bar" :style="{'--w': grown ? x.c/maxC : 0}"><i v-if="x.mec" class="mec" :style="{flexGrow: x.mec}"></i><i v-if="x.med" class="med" :style="{flexGrow: x.med}"></i></span>
+          <em>{{ D(x.c) }}</em></button></li>
+      </ol>
+      <p v-else class="ph-none">{{ ar ? 'لا عبارةَ متكررةً فيها هذه الكلمة. جرّب كلمةً أخرى، أو امسح المربع.' : 'No repeated phrase holds this word. Try another word, or clear the box.' }}</p>
+      <button v-if="list.length>shown" type="button" class="ph-more" @click="shown+=15">{{ ar ? 'اعرض ١٥ أخرى من '+R.dF.n(list.length-shown)+' باقية' : 'Show 15 more of the '+R.dF.n(list.length-shown)+' left' }}</button>
+    </figure>
+    <section class="dfig ph-sel" v-if="sel" ref="sel">
+      <p class="ph-sel-ar" lang="ar" dir="rtl">{{ sel.surf }}</p>
+      <p class="ph-say">{{ say }}</p>
+      <div class="ph-strip" role="img" :aria-label="ar ? 'مواضعها في السور المئة والأربع عشرة، من الفاتحة إلى الناس' : 'Where it comes in the 114 surahs, from Al-Fatiha to An-Nas'">
+        <span v-for="s in 114" :key="s" :class="cellClass(s)" :style="cellStyle(s)" :title="cellTitle(s)" @click="seeSurah(s)"></span></div>
+      <div class="ph-ends"><span>{{ D(1)+' '+R.surahName(1) }}</span><span>{{ D(114)+' '+R.surahName(114) }}</span></div>
+      <div class="ph-vhead"><h4>{{ ar ? 'آياتها' : 'Its verses' }} <small>{{ R.countOf(rows.length, 'verse') }}</small></h4>
+        <button type="button" class="chip ui" :class="{on: R.showTrans}" :aria-pressed="R.showTrans" @click="R.showTrans=!R.showTrans">{{ ar ? 'الترجمة الإنجليزية' : 'English translation' }}</button></div>
+      <ol class="ph-verses">
+        <li v-for="r in rowsShown" :key="r.k" :id="'phv-'+r.k.replace(':','-')">
+          <div class="ph-vk"><button type="button" class="vk" @click="R.studyOpen(r.k, $event)" :title="R.vkTitle(r.k)" :aria-label="R.vkSay(r.k)">{{ D(r.k) }}</button><span>{{ R.surahName(r.s) }}</span></div>
+          <p class="ph-v" lang="ar" dir="rtl"><template v-for="(g,j) in r.segs" :key="j"><mark v-if="g.m">{{ g.t }}</mark><template v-else>{{ g.t }}</template>{{ r.segs.length>j+1 ? ' ' : '' }}</template></p>
+          <p class="ph-en" v-if="R.showTrans && R.EN[r.k]" dir="ltr" lang="en">{{ R.EN[r.k] }}</p></li>
+      </ol>
+      <button v-if="rows.length>vShown" type="button" class="ph-more" @click="vShown=rows.length">{{ ar ? 'اعرض الآيات كلها ('+R.dF.n(rows.length)+')' : 'Show all '+R.dF.n(rows.length)+' verses' }}</button>
+      <p class="ph-also">{{ ar ? 'والآيات التي تتكرر بلفظها كاملةً في ' : 'Whole verses that come back word for word are on ' }}<button type="button" @click="R.go('d-repeats')">{{ ar ? '«المتشابه اللفظي» ‹' : 'Near-repeats ›' }}</button>{{ ar ? '، والعبارات من كلمتين في ' : ', and two-word phrases on ' }}<button type="button" @click="R.go('word')">{{ ar ? '«الكلمات» ‹' : 'Words ›' }}</button>.</p>
+    </section>
+    </template>
+  </div>`,
+  mounted(){ ['phrases','words','verses','roman'].forEach(k=>this.$root.load(k)); this.grow(); },
+  watch:{ ready(v){ if(v) this.grow(); },
+    // a new filter or order: the list starts short again, and the phrase shown is one that is in it
+    list(L){ this.shown=15; if(L.length && !L.some(x=>x.i===this.pick)) this.choose(L[0].i, true); } },
+  computed:{ R(){ return this.$root; }, ar(){ return this.R.lang==='ar'; },
+    ready(){ const r=this.R.ready, W=this.R.W; return !!(r.phrases && r.words && window.QURAN_PHRASES && W && W.surface && W.surface.length); },
+    meta(){ return this.ready ? window.QURAN_PHRASES.meta : {}; },
+    medSet(){ return new Set((this.R.DS.surahMeta || []).filter(m=>m.place==='Medina').map(m=>m.n)); },
+    // each phrase with what the page shows and filters by: its words as written at its first place, its count, the
+    // places in Meccan and in Medinan surahs, its surahs, its dictionary forms
+    all(){ if(!this.ready) return []; const W=this.R.W, md=this.medSet;
+      return window.QURAN_PHRASES.list.map(([norm, n, st], i)=>{ const s0=st[0], sur=new Map(); let med=0;
+        for(const s of st){ const su=+W.key[s].split(':')[0]; sur.set(su, (sur.get(su) || 0)+1); if(md.has(su)) med++; }
+        return {i, norm, n, st, c:st.length, med, mec:st.length-med, sur, surf:W.surface.slice(s0, s0+n).join(' '),
+          lem:new Set(W.lemma.slice(s0, s0+n).filter(Boolean)), bare:phBare(norm)}; }); },
+    longest(){ return this.all.reduce((b,x)=>x.n>b.n || (x.n===b.n && x.c>b.c) ? x : b, this.all[0] || {n:0, c:0}); },
+    // the word typed: in Arabic letters, matched as written; in English letters, the dictionary forms it sounds like
+    query(){ const t=this.q.trim(); if(!t) return null;
+      if(/[؀-ۿ]/.test(t)) return {ar: t.split(/\s+/).map(phBare).filter(w=>w.length>=2), show: t};
+      const ix=ROM && this.R.ready.roman && /[a-z]/i.test(t) ? rix() : null, m=ix ? ROM.match(t, ix, 5) : [], sure=m.filter(x=>x.how!=='near');
+      const lem=(sure.length ? sure : m.slice(0, 1)).map(x=>x.l); return {lem, show: lem.length ? lem.join(this.ar ? '، ' : ', ') : t}; },
+    list(){ const Q=this.query, L=this.len; let out=this.all.filter(x=>!L || (L===6 ? x.n>=6 : x.n===L));
+      if(Q && Q.ar) out=Q.ar.length ? out.filter(x=>Q.ar.every(w=>x.bare.includes(w))) : [];
+      else if(Q) out=out.filter(x=>Q.lem.some(l=>x.lem.has(l)));
+      return this.sort==='len' ? [...out].sort((a,b)=>b.n-a.n || b.c-a.c || a.st[0]-b.st[0]) : out; },
+    top(){ return this.list.slice(0, this.shown); },
+    maxC(){ return Math.max(1, ...this.top.map(x=>x.c)); },
+    // what the filter found, in a sentence; nothing while there is no filter
+    found(){ const Q=this.query, L=this.len, R=this.R, ar=this.ar; if(!Q && !L) return '';
+      const lp=!L ? '' : L===6 ? (ar ? ' من ٦ كلماتٍ فأكثر' : ' of 6 words or more') : (ar ? ' من '+R.countOf(L, 'word') : ' of '+L+' words');
+      return R.countOf(this.list.length, 'phrase')+lp+(Q ? (ar ? ' فيها «'+Q.show+'»' : ' with «'+Q.show+'»') : '')+'.'; },
+    sel(){ return this.all[this.pick] || null; },
+    // the verses of the phrase picked, each once, its words marked at every place in it
+    rows(){ const x=this.sel; if(!x) return []; const W=this.R.W, by=new Map();
+      for(const s of x.st){ const k=W.key[s]; if(!by.has(k)) by.set(k, new Set()); for(let j=s; j<s+x.n; j++) by.get(k).add(j); }
+      return [...by].map(([k, on])=>{ const sp=verseSpan(k), segs=[];
+        if(sp) for(let j=sp[0]; j<sp[1]; j++){ const m=on.has(j), g=segs[segs.length-1]; if(g && g.m===m) g.t+=' '+W.surface[j]; else segs.push({t:W.surface[j], m}); }
+        return {k, s:+k.split(':')[0], segs}; }); },
+    rowsShown(){ return this.rows.slice(0, this.vShown); },
+    stripMax(){ return this.sel ? Math.max(1, ...this.sel.sur.values()) : 1; },
+    say(){ const x=this.sel; if(!x) return ''; const R=this.R, ar=this.ar, T=R.timesWord(x.c), nS=x.sur.size; let ms=0, ds=0;
+      for(const s of x.sur.keys()) this.medSet.has(s) ? ds++ : ms++;
+      const one=nS===1 ? [...x.sur.keys()][0] : 0; let a;
+      if(ar) a=one ? 'تأتي '+T+'، كلها في سورة '+R.surahName(one)+' ('+(ds ? 'مدنية' : 'مكية')+').'
+        : 'تأتي '+T+' في '+R.countOf(nS, 'surah')+(ds===0 ? '، كلها مكية.' : ms===0 ? '، كلها مدنية.' : ': منها '+this.D(ms)+' مكية و'+this.D(ds)+' مدنية.');
+      else a=one ? 'It comes '+T+', all in '+R.surahName(one)+' ('+(ds ? 'Medinan' : 'Meccan')+').'
+        : 'It comes '+T+', in '+R.countOf(nS, 'surah')+(ds===0 ? ', all of them Meccan.' : ms===0 ? ', all of them Medinan.' : ': '+ms+' Meccan and '+ds+' Medinan.');
+      if(this.rows.length<x.c) a+=ar ? ' وبعض الآيات تحملها أكثر من مرة، فهي في '+R.countOf(this.rows.length, 'verse')+'.' : ' Some verses hold it more than once, so it sits in '+R.countOf(this.rows.length, 'verse')+'.';
+      return a; } },
+  methods:{ D(x){ return this.R.D(x); },
+    // the bars grow from nothing once the page is drawn
+    grow(){ this.grown=false; requestAnimationFrame(()=>requestAnimationFrame(()=>{ this.grown=true; })); },
+    choose(i, quiet){ this.pick=i; this.vShown=12; if(quiet) return;
+      this.$nextTick(()=>{ const el=this.$refs.sel; if(el && el.getBoundingClientRect().top>innerHeight*.75) el.scrollIntoView({block:'start', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'}); }); },
+    cellClass(s){ const n=this.sel ? (this.sel.sur.get(s) || 0) : 0; return n ? ['on', this.medSet.has(s) ? 'med' : 'mec'] : []; },
+    cellStyle(s){ const n=this.sel ? (this.sel.sur.get(s) || 0) : 0; return n ? {opacity: .45+.55*n/this.stripMax} : null; },
+    cellTitle(s){ const n=this.sel ? (this.sel.sur.get(s) || 0) : 0; return this.D(s)+'. '+this.R.surahName(s)+(n ? (this.ar ? '، ' : ': ')+this.R.timesWord(n) : ''); },
+    // a lit surah on the strip: its first verse in the list
+    seeSurah(s){ const i=this.rows.findIndex(r=>r.s===s); if(i<0) return; if(i>=this.vShown) this.vShown=i+12;
+      this.$nextTick(()=>{ const el=document.getElementById('phv-'+this.rows[i].k.replace(':','-')); if(!el) return;   // a long way down goes at once
+        const far=Math.abs(el.getBoundingClientRect().top)>innerHeight*2; el.scrollIntoView({block:'center', behavior: far || matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'}); }); } } };
 const HifzLab = {
   data(){ return {mins:60, tNew:4, rho:10, miss:15, day:365, sims:null, runId:0}; },
   template:`<div class="hz">
@@ -8340,7 +8520,7 @@ createApp({
       lang:(new URLSearchParams(location.search).get('lang')==='ar'?'ar':'en'), view:'home', sideOpen:false,
       T: D.stats.totals, DS: D.datasets, MM: D.datasets.meccaMedina||{mecca:{},medina:{}}, claims: D.claims,
       V: window.QURAN_VERSES||{}, W: window.QURAN_WORDS||{key:[],norm:[],lemma:[],root:[],surface:[]},
-      ready:{ verses:!!window.QURAN_VERSES, words:!!window.QURAN_WORDS, roman:!!window.QURAN_ROMAN, plotly:typeof Plotly!=='undefined', disc:false, hviz:false },
+      ready:{ verses:!!window.QURAN_VERSES, words:!!window.QURAN_WORDS, roman:!!window.QURAN_ROMAN, plotly:typeof Plotly!=='undefined', disc:false, hviz:false, phrases:false },
       q:'', mode:'surface', sWhole:true, clabPick:null, sfOff:{}, sfCount:null, sfRows:SF_ROWS, sres:{total:0,surahs:0,verses:0,sample:[],kind:'',juz:[],juzV:[],era:[],eraV:[],loose:0}, sShown:40, goQ:'', goFoc:false, sAuto:true, sPickMode:false, sJuz:0, sJuzHov:0, sEra:0, sEraHov:0, sAdv:false, sVia:null, sNoVia:'', find:{open:false, text:'', i:0}, study:'', studyN:0, sSense:-1, sSenseOf:'',
       rSurah:1, rVerse:0, rClaim:'', rBack:'', keep:{on:false, recent:[], saved:[]}, keepArrive:null,
       // the verse being recited (k), its state ('load', 'play', 'pause' or '' when nothing plays), whether the Basmala
@@ -8446,6 +8626,7 @@ createApp({
           items:[
             {id:'overview',en:'Overview',ar:'نظرة عامة'},
             {id:'word',en:'Words',ar:'الكلمات'},
+            {id:'phrases',en:'Repeated Phrases',ar:'العبارات المتكررة'},
             {id:'letters',en:'Letters',ar:'الحروف'},
             {id:'mecca',en:'Mecca and Medina',ar:'مكة والمدينة'},
             {id:'emotion',en:'Tone and Voice',ar:'النبرة والضمائر'},
@@ -8846,7 +9027,7 @@ createApp({
       return {c, n:T.items.length, model:T.model||'', date:T.date||''}; },
     nameView(){ return NAME_VIEWS.includes(this.view) ? ((window.QURAN_DATA||{})[this.view] || null) : null; },   // a Name study's data, for its section's title
     realViews(){ return [...DISC_IDS, 'home','overview','word','mecca','letters','search','reader','auditor','wordcount','lettercount','history','stories','lessons','duas','rizq','wahhab','tafsir','untranslatable',
-      'emotion','science','abjad','n19','structural','symmetry','kg','tawafuq','hifz','cluster']; },
+      'emotion','science','abjad','n19','structural','symmetry','kg','tawafuq','hifz','cluster','phrases']; },
     curHub(){ return this.nav.find(h=>h.items.some(i=>i.id===this.view)) || null; },
     // where the reader is: a change of page, claim or surah is a step the browser's back arrow can undo
     // the open claim's figure: its own spec, or a time spiral from its written / lost / recovered years
@@ -9175,7 +9356,8 @@ createApp({
     // "3 verses", "٣ آيات": the Arabic noun agrees with its number (one, two, three to ten, eleven to ninety-nine, a
     // round hundred); a masculine noun is spelt apart after eleven to ninety-nine (٦٩ عنصرًا) and after a hundred (١٠٠ عنصر)
     countOf(n, kind){ const w={verse:['verse','verses','آية واحدة','آيتان','آيات','آية'], word:['word','words','كلمة واحدة','كلمتان','كلمات','كلمة'],
-        item:['item','items','عنصر واحد','عنصران','عناصر','عنصرًا','عنصر'], recitation:['recitation','recitations','تلاوة واحدة','تلاوتان','تلاوات','تلاوة']}[kind];
+        item:['item','items','عنصر واحد','عنصران','عناصر','عنصرًا','عنصر'], recitation:['recitation','recitations','تلاوة واحدة','تلاوتان','تلاوات','تلاوة'],
+        surah:['surah','surahs','سورة واحدة','سورتان','سور','سورة'], phrase:['phrase','phrases','عبارة واحدة','عبارتان','عبارات','عبارة']}[kind];
       if(this.lang!=='ar') return this.f(n)+' '+(n===1 ? w[0] : w[1]);
       const m=n%100; return n===1 ? w[2] : n===2 ? w[3] : this.f(n)+' '+(m>=3 && m<=10 ? w[4] : m<=2 ? (w[6]||w[5]) : w[5]); },
     onPageScroll(){
@@ -10414,7 +10596,7 @@ createApp({
     this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); this.enterView(true); });
   }
 }).component('depth-switch', DepthSwitch).component('term-chips', TermChips).component('explain-box', ExplainBox)
-  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell).component('claim-viz', ClaimViz).component('count-lab', CountLab).component('rule-matrix', RuleMatrix).component('qadr-lab', QadrLab).component('nineteen-lab', NineteenLab).component('word-total-lab', WordTotalLab).component('letter-total-lab', LetterTotalLab).component('name-lab', NameLab).component('struct-lab', StructLab).component('balance-lab', BalanceLab).component('abjad-lab', AbjadLab).component('float-kbd', FloatKbd).component('nlp-lab', NlpLab).component('dash-lab', DashLab).component('hifz-lab', HifzLab).component('stats-lab', StatsLab).component('clf-lab', ClfLab).component('kmeans-lab', KMeansLab).component('lib-atlas', LibAtlas).component('reader-head', ReaderHead).component('word-card', WordCard).component('verse-study', VerseStudy)
+  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('phrase-lab', PhraseLab).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell).component('claim-viz', ClaimViz).component('count-lab', CountLab).component('rule-matrix', RuleMatrix).component('qadr-lab', QadrLab).component('nineteen-lab', NineteenLab).component('word-total-lab', WordTotalLab).component('letter-total-lab', LetterTotalLab).component('name-lab', NameLab).component('struct-lab', StructLab).component('balance-lab', BalanceLab).component('abjad-lab', AbjadLab).component('float-kbd', FloatKbd).component('nlp-lab', NlpLab).component('dash-lab', DashLab).component('hifz-lab', HifzLab).component('stats-lab', StatsLab).component('clf-lab', ClfLab).component('kmeans-lab', KMeansLab).component('lib-atlas', LibAtlas).component('reader-head', ReaderHead).component('word-card', WordCard).component('verse-study', VerseStudy)
   .component('letter-strip', LetterStrip).component('growth-curve', GrowthCurve).component('rhyme-ribbon', RhymeRibbon).mount('#app');
 });
 </script>
