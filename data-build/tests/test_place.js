@@ -117,7 +117,8 @@ const tests = {
     assert.ok(app.includes('const PLACE = window.QI_PLACE || null;'));
     for (const own of ["'qi.read'", "'qi.saved'", 'localStorage.setItem(\'qi', 'sessionStorage', 'indexedDB'])
       assert.ok(!app.includes(own), 'app.html has ' + own);
-    // the only other thing the site keeps is the reader's choice of simple or detailed explanations
+    // the only other thing app.html keeps itself is the reader's choice of simple or detailed explanations; the
+    // reciter picked is kept by recite.js, and test_recite.js holds it to that one key
     const sets = app.match(/localStorage\.setItem\([^)]*\)/g) || [];
     assert.deepEqual(sets, ['localStorage.setItem(DEPTH_KEY, d)']);
   },

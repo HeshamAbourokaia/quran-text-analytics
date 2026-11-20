@@ -737,6 +737,8 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .rn-btn{width:38px;height:38px;border-radius:50%;border:1px solid var(--hair);background:rgba(255,255,255,.05);color:var(--gold);
     font-size:13px;line-height:1;cursor:pointer;flex:none;display:flex;align-items:center;justify-content:center;transition:background .25s}
   .rn-btn:hover,.rn-btn:active{background:rgba(233,185,95,.14)}
+  .rn-lsn{border-color:rgba(52,211,153,.5);background:rgba(52,211,153,.1)} .rn-lsn svg{width:12px;height:12px;fill:var(--emerald)}
+  .rn-lsn:hover,.rn-lsn:active{background:rgba(52,211,153,.2)} .rn-lsn.on{background:var(--emerald);border-color:var(--emerald)} .rn-lsn.on svg{fill:#062018}
   .rn-rail{position:relative;width:14px;height:34vh;max-height:280px;min-height:120px;border-radius:999px;background:rgba(255,255,255,.06);
     cursor:pointer;touch-action:none;flex:none;border:1px solid var(--hair)}
   .rn-fill{position:absolute;left:0;right:0;top:0;border-radius:999px;background:linear-gradient(180deg,rgba(52,211,153,.35),rgba(233,185,95,.35))}
@@ -836,6 +838,34 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .rbar .rb-back{font-size:.84rem;background:var(--gold);color:#1a1405;padding:9px 16px}
   .rbar .rb-what{font-size:.8rem;color:var(--on-dark-2);padding:0 4px;white-space:nowrap}
   .rbar .rb-what b{font-family:var(--ar-display);font-weight:400;font-size:1.05rem;color:#fff;margin-inline-end:6px}
+  /* hearing a verse recited: the Listen buttons, the verse being recited, and the player bar on every page (emerald, as gold is for a verse in focus) */
+  button.lsn{display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:.84rem;font-weight:600;color:var(--on-dark);background:rgba(52,211,153,.1);
+    border:1px solid rgba(52,211,153,.45);border-radius:99px;padding:8px 16px;cursor:pointer;transition:background .25s var(--ease),border-color .25s var(--ease)}
+  button.lsn svg{width:11px;height:11px;fill:var(--emerald);flex:none}
+  button.lsn:hover,button.lsn:focus-visible{background:rgba(52,211,153,.18);border-color:var(--emerald);color:#fff;outline:0}
+  button.lsn.on,.vs-acts button.lsn.on{background:var(--emerald);border-color:var(--emerald);color:#062018} button.lsn.on svg{fill:#062018}
+  .vs-acts button.lsn{background:rgba(52,211,153,.1);border-color:rgba(52,211,153,.45);padding:7px 14px}
+  .vblock.vplay .verse{background:rgba(52,211,153,.07);box-shadow:inset 0 0 0 1px rgba(52,211,153,.42);border-radius:10px;transition:background .4s var(--ease),box-shadow .4s var(--ease)}
+  .aunote{font-size:.74rem;color:var(--on-dark-3);margin:12px 0 0}
+  .vs-rec{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin:10px 0 0;font-size:.8rem;color:var(--on-dark-2)}
+  .vs-rec small{color:var(--on-dark-3);font-size:.72rem}
+  .vs-rec select,.aubar .au-rec{font:inherit;font-size:.8rem;color:var(--on-dark);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:99px;padding:6px 10px;max-width:100%;cursor:pointer}
+  .vs-rec option,.aubar .au-rec option{background:#0d1712;color:#fff}
+  #app.au-on{padding-bottom:84px}
+  .aubar{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:72;display:flex;align-items:center;gap:6px;width:max-content;
+    padding:6px;border-radius:999px;background:rgba(8,17,13,.94);border:1px solid rgba(52,211,153,.42);box-shadow:0 18px 40px -14px rgba(0,0,0,.85);
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);max-width:calc(100vw - 20px)}
+  .aubar.lift{bottom:calc(72px + env(safe-area-inset-bottom))} .aubar.err{border-radius:22px;border-color:rgba(252,165,165,.4)}
+  .au-pp{flex:none;position:relative;width:40px;height:40px;border-radius:50%;border:0;background:var(--emerald);display:grid;place-items:center;cursor:pointer}
+  .au-pp svg{width:13px;height:13px;fill:#062018}
+  .au-pp.load::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:2px solid transparent;border-top-color:var(--emerald);animation:auspin .9s linear infinite}
+  @keyframes auspin{to{transform:rotate(360deg)}}
+  .au-what{min-width:0;flex:1 1 auto;font:inherit;font-size:.84rem;font-weight:600;color:#fff;background:transparent;border:0;padding:0 6px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .aubar .au-rec{flex:0 1 auto;min-width:0;max-width:44vw}
+  .au-x{flex:none;width:34px;height:34px;border-radius:50%;border:0;background:rgba(255,255,255,.07);color:var(--on-dark-2);font-size:1.15rem;line-height:1;cursor:pointer}
+  .au-x:hover,.au-x:focus-visible{background:rgba(255,255,255,.14);color:#fff}
+  .au-err{font-size:.8rem;color:#fca5a5;padding:0 8px}
+  @media (prefers-reduced-motion: reduce){ .au-pp.load::after{animation:none;border-color:rgba(52,211,153,.6)} .vblock.vplay .verse{transition:none} }
   .rbar .rb-step{width:38px;height:38px;flex:none;background:rgba(255,255,255,.08);color:#fff;font-size:1.15rem;line-height:1}
   .rbar .rb-step:disabled{opacity:.3;cursor:default}
   @media (max-width:640px){ .rbar .rb-what b{display:none} .rbar .rb-back{padding:9px 12px;font-size:.8rem} }
@@ -2514,10 +2544,22 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   setTimeout(show, 12000);
 })();
 </script>
-<div id="app" class="layout" v-cloak :class="{'dir-rtl': lang==='ar'}" :dir="lang==='ar'?'rtl':'ltr'">
+<div id="app" class="layout" v-cloak :class="{'dir-rtl': lang==='ar', 'au-on': !!(aud.k || aud.err)}" :dir="lang==='ar'?'rtl':'ltr'">
   <float-kbd></float-kbd>
   <word-card></word-card>
   <verse-study></verse-study>
+  <!-- the recitation playing, on every page: pause or play, the verse (tap it to go there), the reciter, and stop -->
+  <div v-if="aud.k || aud.err" class="aubar" :class="{lift: view==='reader' && (rClaimObj || rExt || rBack), err: !aud.k}" role="region" :aria-label="lang==='ar' ? 'التلاوة' : 'Recitation'">
+    <template v-if="aud.k">
+      <button type="button" class="au-pp" :class="{load: aud.st==='load'}" @click="audToggle()" :aria-label="aud.st==='pause' ? (lang==='ar' ? 'تابع التلاوة' : 'Play') : (lang==='ar' ? 'أوقف مؤقتًا' : 'Pause')">
+        <svg viewBox="0 0 12 12" aria-hidden="true"><path v-if="aud.st==='pause'" d="M3 1.4v9.2l7.6-4.6z"/><g v-else><rect x="2.2" y="1.8" width="2.6" height="8.4" rx=".8"/><rect x="7.2" y="1.8" width="2.6" height="8.4" rx=".8"/></g></svg></button>
+      <button type="button" class="au-what" @click="audGo()" :title="lang==='ar' ? 'اذهب إلى الآية التي تُتلى' : 'Go to the verse being recited'">{{ audLabel }}</button>
+      <select class="au-rec" :value="aud.rec" @change="audPick($event.target.value)" :aria-label="lang==='ar' ? 'القارئ' : 'Reciter'">
+        <option v-for="r in reciters" :key="r.id" :value="r.id">{{ lang==='ar' ? r.short[1] : r.short[0] }}</option></select>
+    </template>
+    <span v-else class="au-err" role="alert">{{ aud.err }}</span>
+    <button type="button" class="au-x" @click="audStop()" :aria-label="lang==='ar' ? 'أوقف التلاوة وأغلق' : 'Stop and close'">×</button>
+  </div>
   <!-- Search from any page: a word, a verse, a surah, a juz or a page. Each row says what it is before it is opened -->
   <div v-if="find.open" class="find" @keydown.esc.prevent="findClose()">
     <div class="find-bg" @click="findClose()"></div>
@@ -2843,7 +2885,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
           </div>
           <div class="card">
             <h3>{{ lang==='ar' ? 'مزيج الموضوعات في سورة' : 'A surah\'s mix of themes' }}
-              <select v-model.number="dSurah" style="padding:6px;border-radius:8px;border:1px solid var(--line);margin-inline-start:8px"><option v-for="s in DS.surahMeta" :key="s.n" :value="s.n">{{ s.n }}. {{ lang==='ar'?s.ar:s.en }}</option></select></h3>
+              <select v-model.number="dSurah" style="padding:6px;border-radius:8px;border:1px solid var(--line);margin-inline-start:8px"><option v-for="s in DS.surahMeta" :key="s.n" :value="s.n">{{ D(s.n) }}. {{ lang==='ar'?s.ar:s.en }}</option></select></h3>
             <div v-for="m in dThemes.mix" :key="m.i" class="compbar" style="cursor:default"><span>{{ m.name }}</span><span class="bar"><i :style="{width:(m.share*100).toFixed(1)+'%', background:m.css}"></i></span><span class="num">{{ dF.pc(m.share) }}</span></div>
           </div>
         </template>
@@ -3341,7 +3383,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
       <reader-head></reader-head>
       <div class="searchbar">
         <select v-model.number="rSurah" @change="rVerse=0" style="padding:10px;border-radius:10px;border:1px solid var(--line);font-size:1rem">
-          <option v-for="s in DS.surahMeta" :key="s.n" :value="s.n">{{ s.n }}. {{ lang==='ar'?s.ar:s.en }} ({{ s.verses }})</option>
+          <option v-for="s in DS.surahMeta" :key="s.n" :value="s.n">{{ D(s.n) }}. {{ lang==='ar'?s.ar:s.en }} ({{ D(s.verses) }})</option>
         </select>
         <div class="rgo">
           <input class="q plain" v-model="goQ" @keydown.enter="rGo()" @keydown.esc="goQ=''" @focus="goFoc=true" @blur="goFoc=false" data-nokbd dir="auto" autocomplete="off" spellcheck="false" enterkeyhint="go"
@@ -3361,6 +3403,9 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
         <div class="seg">
           <button :class="{on:showTrans}" :aria-pressed="showTrans" @click="showTrans=!showTrans">{{ lang==='ar'?'الترجمة الإنجليزية':'English translation' }}</button>
         </div>
+        <button v-if="audOn && ready.verses" type="button" class="lsn" :class="{on: audHere}" :aria-pressed="audHere" @click="readerListen()"
+          :title="audHere ? '' : (lang==='ar' ? 'تُتلى السورة آيةً بعد آية، بدءًا من أول آيةٍ على شاشتك' : 'Plays the surah verse by verse, from the first verse on your screen')">
+          <svg viewBox="0 0 12 12" aria-hidden="true"><rect v-if="audHere" x="2" y="2" width="8" height="8" rx="1.5"/><path v-else d="M3 1.4v9.2l7.6-4.6z"/></svg>{{ audHere ? (lang==='ar' ? 'أوقف التلاوة' : 'Stop listening') : (lang==='ar' ? 'استمع إلى السورة' : 'Listen to the surah') }}</button>
       </div>
       <!-- what this browser keeps for the reader: where they were, the surahs read lately, the verses they saved -->
       <div class="rkeep" v-if="keep.on && (rResume || keep.recent.length || keep.saved.length)">
@@ -3387,7 +3432,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
       <div class="card">
         <div v-if="!ready.verses" class="stub">{{ lang==='ar'?'جارٍ تحميل نص المصحف…':'Loading the text of the Quran…' }}</div>
         <p class="rhint" v-if="ready.verses">{{ lang==='ar' ? 'انقر أي كلمةٍ لترى بناءها. وانقر رقم آيةٍ، مثل ' : 'Tap any word to see how it is built. Tap a verse number, like ' }}<span class="vk">{{ D(rSurah+':1') }}</span>{{ keep.on ? (lang==='ar' ? '، لتدرس الآية أو تضع عليها علامة.' : ', to study that verse or save it.') : (lang==='ar' ? '، لتدرس الآية.' : ', to study that verse.') }}</p>
-        <div v-for="v in readerVerses" :key="v.k" class="vblock" :id="'v-'+v.k.replace(':','-')" :class="{vfocus: v.k===rFocusKey}" @click="vkClick($event)">
+        <div v-for="v in readerVerses" :key="v.k" class="vblock" :id="'v-'+v.k.replace(':','-')" :class="{vfocus: v.k===rFocusKey, vplay: v.k===aud.k && !aud.basm && !!aud.st}" @click="vkClick($event)">
           <div class="verse" v-if="rMarks.has(v.k)" v-html="readerLine(v)"></div>
           <div class="verse" v-else><span v-for="(w,j) in rTok(v.k, v.t)" :key="j" class="rw" :class="{hi: rHi && w.i>=0 && W.lemma[w.i]===rHi, tap: w.i>=0}" @click="w.i>=0 && openWord(w.i, $event)">{{ w.t+' ' }}</span><button type="button" class="vk" :class="{kept: keepSet.has(v.k)}" :data-study="v.k" :title="vkTitle(v.k)" :aria-label="vkSay(v.k)">{{ D(v.k) }}</button></div>
           <div v-if="showTrans && EN[v.k]" class="verse-en">{{ v.k }} &middot; {{ EN[v.k] }}</div>
@@ -3396,6 +3441,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
         <div v-if="showTrans" class="transnote">{{ lang==='ar'
           ? 'الترجمة الإنجليزية: محمد مرمدوك بكتهول، «معاني القرآن المجيد» (١٩٣٠)، ملكية عامة. النص الرقمي المدقق من مشروع تنزيل.'
           : 'English translation: M. M. Pickthall, The Meaning of the Glorious Koran (1930), public domain. Verse-aligned digital text from the Tanzil Project.' }}</div>
+        <p v-if="aud.k" class="aunote">{{ lang==='ar' ? 'التلاوة بصوت '+audRecName+'، من مكتبة AlQuran Cloud الصوتية المفتوحة.' : 'Recited by '+audRecName+'. The audio is from the open library of AlQuran Cloud.' }}</p>
       </div>
       <div v-if="rClaimObj || rExt || rBack" class="rbar" role="group" :aria-label="rClaimObj ? (lang==='ar' ? 'التنقل بين آيات هذه الكلمة' : 'Move between the verses of this word') : (lang==='ar' ? 'التنقل بين آيات القائمة' : 'Move between the verses of the list')">
         <a v-if="rBack==='landing'" class="rb-back" :href="rBackHref">{{ lang==='ar' ? '→ العودة إلى المزاعم' : '← Back to the claims' }}</a>
@@ -3420,6 +3466,11 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
       </div>
       <button class="rn-btn" @click="pageScroll(1)"
               :aria-label="lang==='ar'?'أسفل':'Down'" :title="lang==='ar'?'أسفل':'Down'">&#9660;</button>
+      <!-- the surah recited from the first verse on screen, within reach wherever the reader is in it -->
+      <button v-if="audOn && ready.verses" type="button" class="rn-btn rn-lsn" :class="{on: audHere}" :aria-pressed="audHere" @click="readerListen()"
+              :aria-label="audHere ? (lang==='ar' ? 'أوقف التلاوة' : 'Stop listening') : (lang==='ar' ? 'استمع من هنا' : 'Listen from here')"
+              :title="audHere ? (lang==='ar' ? 'أوقف التلاوة' : 'Stop listening') : (lang==='ar' ? 'استمع من هنا' : 'Listen from here')">
+        <svg viewBox="0 0 12 12" aria-hidden="true"><rect v-if="audHere" x="2" y="2" width="8" height="8" rx="1.5"/><path v-else d="M3 1.4v9.2l7.6-4.6z"/></svg></button>
     </div>
 
     <!-- CLAIM AUDITOR -->
@@ -4049,6 +4100,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
 <script defer src="spelling.js"></script>
 <script defer src="place.js"></script>
 <script defer src="card.js"></script>
+<script defer src="recite.js"></script>
 <script defer src="content/jev-data.js"></script>
 <script defer src="content/quran_stories_data.js"></script>
 <script defer src="content/quran_lessons.js"></script>
@@ -4094,6 +4146,7 @@ const ROM = window.QI_ROMAN || null;     // an Arabic word from English letters:
 const STUDY = window.QI_STUDY || null;   // what one verse shares with the rest of the Quran (study.js)
 const PLACE = window.QI_PLACE || null;   // the places read and the verses saved, kept in this browser only (place.js)
 const STORE = (()=>{ try{ return window.localStorage; }catch(e){ return null; } })();   // null where the browser refuses it
+const RECITE = window.QI_RECITE || null;   // the reciters and where each verse's recording is (recite.js)
 const CARD = window.QI_CARD || null;     // a verse as an image card, laid out and drawn in the browser (card.js)
 const SENSE_SIGNS = '0123456789abcdefghijklmnopqrstuvwxyz';   // QURAN_WORD_SENSE: one sign a word, saying which of the words written like it it is
 const MARKS = (window.QURAN_DATA||{}).marks || null;   // where each juz, hizb quarter and printed page begins (pipeline/marks.py)
@@ -7730,6 +7783,8 @@ const VerseStudy = {
         <p class="vs-en" v-if="en && (!ar || R.showTrans)" dir="ltr" lang="en">{{ en }}</p>
         <div class="vs-acts">
           <button type="button" class="main" @click="R.studyRead()">{{ ar ? 'اقرأها في سورتها ‹' : 'Read it in its surah ›' }}</button>
+          <button v-if="R.audOn" type="button" class="lsn" :class="{on: hearing}" :aria-pressed="hearing" @click="R.studyListen(k)" :title="hearing ? '' : (ar ? 'استمع إلى هذه الآية مرتّلة' : 'Hear this verse recited')">
+            <svg viewBox="0 0 12 12" aria-hidden="true"><rect v-if="hearing" x="2" y="2" width="8" height="8" rx="1.5"/><path v-else d="M3 1.4v9.2l7.6-4.6z"/></svg>{{ hearing ? (R.aud.st==='load' ? (ar ? 'جارٍ التحميل…' : 'Loading…') : (ar ? 'أوقف' : 'Stop')) : (ar ? 'استمع' : 'Listen') }}</button>
           <button v-if="R.keep.on" type="button" class="keep" :class="{on: kept}" :aria-pressed="kept" @click="R.keepToggle(k)" :title="kept ? (ar ? 'انقر لتزيل العلامة' : 'Tap to take it off your saved list') : (ar ? 'تجدها بعد ذلك في المصحف، تحت «قراءتك على هذا الجهاز»' : 'Find it later in the Reader, under “Your reading on this device”')">{{ kept ? (ar ? 'عليها علامتك ✓' : 'Saved ✓') : (ar ? 'ضع علامةً على الآية' : 'Save this verse') }}</button>
           <button type="button" :disabled="!prev" @click="R.studyStep(prev)">{{ ar ? '› الآية السابقة' : '‹ Previous verse' }}</button>
           <button type="button" :disabled="!next" @click="R.studyStep(next)">{{ ar ? 'الآية التالية ‹' : 'Next verse ›' }}</button>
@@ -7737,6 +7792,12 @@ const VerseStudy = {
           <button type="button" @click="copy('link')">{{ copied==='link' ? (ar ? 'نُسخ الرابط ✓' : 'Link copied ✓') : (ar ? 'انسخ رابطها' : 'Copy a link to it') }}</button>
           <button v-if="canCard" type="button" @click="shareOpen()">{{ ar ? 'شاركها صورةً' : 'Share as an image' }}</button>
         </div>
+        <p class="vs-rec" v-if="R.audOn && (hearing || R.aud.err)">
+          <span v-if="R.aud.err" role="alert">{{ R.aud.err }}</span>
+          <template v-else><label>{{ ar ? 'بصوت' : 'Recited by' }}
+            <select :value="R.aud.rec" @change="R.audPick($event.target.value)"><option v-for="r in R.reciters" :key="r.id" :value="r.id">{{ ar ? r.ar : r.en }}</option></select></label>
+            <small>{{ ar ? 'من مكتبة AlQuran Cloud الصوتية المفتوحة' : 'Audio from the open library of AlQuran Cloud' }}</small></template>
+        </p>
 
         <section class="vs-sec" data-sec="where">
           <h3>{{ ar ? 'أين تقع' : 'Where it is' }}</h3>
@@ -7829,6 +7890,7 @@ const VerseStudy = {
     </div>
   </div>`,
   computed:{ R(){ return this.$root; }, ar(){ return this.R.lang==='ar'; }, k(){ return this.R.study; }, kept(){ return this.R.keepSet.has(this.k); },
+    hearing(){ const A=this.R.aud; return A.k===this.k && !A.cont && !!A.st; },   // this verse, on its own, playing or paused
     canCard(){ return !!CARD && !!document.createElement('canvas').getContext; },
     shareMsg(){ const m=this.shr.msg, ar=this.ar;
       return m==='saved' ? (ar ? 'حُفظت الصورة في التنزيلات.' : 'Saved to your downloads.')
@@ -8206,7 +8268,10 @@ createApp({
       V: window.QURAN_VERSES||{}, W: window.QURAN_WORDS||{key:[],norm:[],lemma:[],root:[],surface:[]},
       ready:{ verses:!!window.QURAN_VERSES, words:!!window.QURAN_WORDS, roman:!!window.QURAN_ROMAN, plotly:typeof Plotly!=='undefined', disc:false, hviz:false },
       q:'', mode:'surface', sWhole:true, clabPick:null, sfOff:{}, sfCount:null, sfRows:SF_ROWS, sres:{total:0,surahs:0,verses:0,sample:[],kind:'',juz:[],juzV:[],era:[],eraV:[],loose:0}, sShown:40, goQ:'', goFoc:false, sAuto:true, sPickMode:false, sJuz:0, sJuzHov:0, sEra:0, sEraHov:0, sAdv:false, sVia:null, sNoVia:'', find:{open:false, text:'', i:0}, study:'', studyN:0, sSense:-1, sSenseOf:'',
-      rSurah:1, rVerse:0, rClaim:'', rBack:'', keep:{on:false, recent:[], saved:[]}, keepArrive:null, keepOpen:false, keepSure:false, scrollPct:0, railDragging:false, EN:{}, showTrans:(new URLSearchParams(location.search).get('lang')!=='ar'), libQ:'', libCat:'all', libSurah:0, rHi:'', wcard:null, nlpCenter:'', nlpState:null, stories:[], lessons:[], duas:[], tafsir:[], untranslatable:[], untranslatableIntro:{}, history:[], historyIntro:{}, skyHov:null, sresBy:{}, sresRoots:[], skyGL:false, hSel:'', hYear:610, hPlaying:false, hFilter:'all', hCopied:false,
+      rSurah:1, rVerse:0, rClaim:'', rBack:'', keep:{on:false, recent:[], saved:[]}, keepArrive:null,
+      // the verse being recited (k), its state ('load', 'play', 'pause' or '' when nothing plays), whether the Basmala
+      // plays first, whether the surah goes on verse after verse (cont), a load error, and the reciter
+      aud:{k:'', st:'', basm:false, cont:false, err:'', rec: RECITE ? RECITE.chosen(STORE) : ''}, keepOpen:false, keepSure:false, scrollPct:0, railDragging:false, EN:{}, showTrans:(new URLSearchParams(location.search).get('lang')!=='ar'), libQ:'', libCat:'all', libSurah:0, rHi:'', wcard:null, nlpCenter:'', nlpState:null, stories:[], lessons:[], duas:[], tafsir:[], untranslatable:[], untranslatableIntro:{}, history:[], historyIntro:{}, skyHov:null, sresBy:{}, sresRoots:[], skyGL:false, hSel:'', hYear:610, hPlaying:false, hFilter:'all', hCopied:false,
       V1:{}, abjadInput:'الله',
       jevOn: !!(JEV && JEV.endpoint()), JD: window.QTA_JEV_DATA||{},
       cc:{text:'', busy:false, res:null}, ask:{text:'', busy:false, res:null}, sit:{text:'', busy:false, res:null},
@@ -8878,6 +8943,14 @@ createApp({
     rFocusKey(){ return this.rVerse ? this.rSurah+':'+this.rVerse : ''; },
     // ---- what this browser keeps for the reader (place.js): the latest place in each surah, and the saved verses ----
     keepLens(){ return PLACE ? PLACE.lensOf(this.DS.surahMeta) : null; },
+    // ---- hearing a verse recited (recite.js) ----
+    reciters(){ return RECITE ? RECITE.RECITERS : []; },
+    audOn(){ return !!(RECITE && this.keepLens); },
+    audRecName(){ const r=RECITE && RECITE.reciter(this.aud.rec); return r ? (this.lang==='ar' ? r.ar : r.en) : ''; },
+    audLabel(){ const k=this.aud.k; if(!k) return ''; const s=+k.split(':')[0], ar=this.lang==='ar';
+      return this.aud.basm ? (ar ? 'البسملة، سورة '+this.surahName(s) : 'Bismillah, '+this.surahName(s)) : this.surahName(s)+' '+this.D(k); },
+    // the Reader's own surah is the one going on verse after verse
+    audHere(){ return !!(this.aud.k && this.aud.cont && +this.aud.k.split(':')[0]===this.rSurah); },
     keepSet(){ return new Set(this.keep.saved.map(b=>b.k)); },
     keepLast(){ return this.keep.on && this.keep.recent.length ? this.keep.recent[0] : null; },
     // the offer at the top of the Reader: where the reader was when it opened, until they start reading again
@@ -9675,6 +9748,66 @@ createApp({
     // what a verse-number button in the Reader shows on hover and says to a screen reader, for both ways it is drawn
     vkTitle(k){ const ar=this.lang==='ar'; return this.keepSet.has(k) ? (ar ? 'عليها علامتك. انقر لتدرسها' : 'Saved. Tap to study it') : (ar ? 'ادرس هذه الآية' : 'Study this verse'); },
     vkSay(k){ const ar=this.lang==='ar'; return (ar ? 'ادرس الآية '+this.D(k) : 'Study verse '+k)+(this.keepSet.has(k) ? (ar ? '، عليها علامتك' : ', saved') : ''); },
+    // ---- hearing a verse recited: one audio element for the whole site, so a phone that let the first verse play
+    // lets the next one play too. The recordings and the reciters are in recite.js. ----
+    audEl(){ if(this._au) return this._au; const a=new Audio(), A=this.aud; a.preload='auto';
+      a.addEventListener('playing', ()=>{ if(A.k){ A.st='play'; A.err=''; this.audState('playing'); } });
+      a.addEventListener('waiting', ()=>{ if(A.k && A.st==='play') A.st='load'; });
+      a.addEventListener('pause', ()=>{ if(A.k && !a.ended && A.st==='play'){ A.st='pause'; this.audState('paused'); } });   // a call or unplugged headphones; not the swap to the next verse
+      a.addEventListener('ended', ()=>this.audNext());
+      a.addEventListener('error', ()=>{ if(!A.k) return; A.k=''; A.st=''; A.basm=false; A.cont=false; this.audState('none');
+        A.err=this.lang==='ar' ? 'تعذّر تحميل التلاوة. تحقّق من اتصالك ثم أعد المحاولة.' : 'The recitation could not be loaded. Check your connection and try again.'; });
+      return (this._au=a); },
+    audSrc(k){ const [s,v]=k.split(':').map(Number); return RECITE ? RECITE.url(this.aud.rec, s, v, this.keepLens) : ''; },
+    // play verse k; cont goes on through the surah, basm plays the Basmala before it
+    audStart(k, cont, basm){ const src=this.audSrc(basm ? '1:1' : k); if(!src) return;
+      const a=this.audEl(), A=this.aud; Object.assign(A, {k, cont:!!cont, basm:!!basm, err:'', st:'load'});
+      a.src=src; const p=a.play();
+      if(p && p.catch) p.catch(e=>{ if(e && e.name==='NotAllowedError' && A.k===k) A.st='pause'; });   // the browser wants a tap first
+      this.audMeta(); this.audWarm(); if(cont && !basm) this.audFollow(); },
+    // fetch the next recording while this one plays, so the surah runs on without a gap
+    audWarm(){ const A=this.aud, [s,v]=A.k.split(':').map(Number), n=A.basm ? [s,v] : (A.cont && RECITE ? RECITE.step(s, v, 1, this.keepLens) : null);
+      if(!n) return; const w=this._auWarm || (this._auWarm=new Audio()); w.preload='auto'; w.src=this.audSrc(n[0]+':'+n[1]); },
+    audNext(){ const A=this.aud; if(!A.k) return; if(A.basm) return this.audStart(A.k, A.cont, false);
+      const [s,v]=A.k.split(':').map(Number), n=A.cont && RECITE ? RECITE.step(s, v, 1, this.keepLens) : null;
+      if(n) this.audStart(n[0]+':'+n[1], true, false); else this.audStop(); },
+    // the verse before or after, from the phone's lock screen
+    audStep(d){ const A=this.aud; if(!A.k || !RECITE) return; const [s,v]=A.k.split(':').map(Number), n=A.basm ? (d>0 ? [s,v] : null) : RECITE.step(s, v, d, this.keepLens);
+      if(n) this.audStart(n[0]+':'+n[1], A.cont, false); },
+    audToggle(){ const A=this.aud, a=this._au; if(!A.k || !a) return;
+      if(A.st==='play' || A.st==='load'){ a.pause(); A.st='pause'; return; }
+      A.st='load'; const p=a.play(); if(p && p.catch) p.catch(()=>{ if(A.k) A.st='pause'; }); },
+    audStop(){ const a=this._au; Object.assign(this.aud, {k:'', st:'', basm:false, cont:false, err:''}); this.audState('none');
+      if(a){ a.pause(); a.removeAttribute('src'); a.load(); } },
+    audPick(id){ if(!RECITE || id===this.aud.rec) return; this.aud.rec=RECITE.reciter(id).id; RECITE.choose(STORE, this.aud.rec);
+      const A=this.aud; if(A.k) this.audStart(A.k, A.cont, A.basm); },   // the verse playing starts again in the new voice
+    // keep the verse being recited on screen, unless the reader has moved the page in the last few seconds
+    audFollow(){ const k=this.aud.k, s=+k.split(':')[0]; if(this.view!=='reader' || this.rSurah!==s || Date.now()-USER_AT<4000) return;
+      this.$nextTick(()=>{ const el=document.getElementById('v-'+k.replace(':','-')); if(!el) return; const r=el.getBoundingClientRect();
+        if(r.top<130 || r.bottom>innerHeight-110) el.scrollIntoView({block:'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'}); }); },
+    // the Reader's buttons: the surah from where the reader is. That is the verse opened from elsewhere while it is on
+    // screen, else the verse at the reading line, 30% down the screen, the one Continue reading keeps (ReaderHead).
+    // At the controls above the text, before any verse reaches the line, it is the surah's first verse.
+    readerListen(){ if(this.audHere) return this.audStop();
+      const el=k=>document.getElementById('v-'+k.replace(':','-')), f=this.rFocusKey && el(this.rFocusKey), fr=f && f.getBoundingClientRect();
+      let k=fr && fr.top<innerHeight*.85 && fr.bottom>innerHeight*.15 ? this.rFocusKey : '';
+      if(!k){ k=(this.readerVerses[0] || {}).k; for(const v of this.readerVerses){ const e=el(v.k); if(!e || e.getBoundingClientRect().top>innerHeight*.3) break; k=v.k; } }
+      if(!k) return; const [s,v]=k.split(':').map(Number); this.audStart(k, true, RECITE.basmalaFirst(s, v)); },
+    // the study panel's button: this one verse
+    studyListen(k){ const A=this.aud; if(A.k===k && !A.cont && A.st) return this.audStop(); this.audStart(k, false, false); },
+    // the player's label: back to the verse being recited
+    audGo(){ const k=this.aud.k; if(!k) return; const [s,v]=k.split(':').map(Number);
+      if(this.view==='reader' && this.rSurah===s){ const el=document.getElementById('v-'+k.replace(':','-')); if(el) el.scrollIntoView({block:'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'}); return; }
+      if(this.view==='reader') return this.rGo({kind:'verse', s, a:v, b:v});
+      this.openVerse(s, v, '', this.view); },
+    // the phone's lock screen and headphones: what is playing, and its buttons
+    audMeta(){ const ms=navigator.mediaSession; if(!ms || typeof MediaMetadata==='undefined') return;
+      try{ ms.metadata=new MediaMetadata({title:this.audLabel, artist:this.audRecName, album:this.lang==='ar' ? 'بصائر قرآنية' : 'Quran Insights'});
+        if(this._auMS) return; this._auMS=true;
+        const on=(what, fn)=>{ try{ ms.setActionHandler(what, fn); }catch(e){} };
+        on('play', ()=>{ if(this.aud.st==='pause') this.audToggle(); }); on('pause', ()=>{ if(this.aud.st==='play' || this.aud.st==='load') this.audToggle(); });
+        on('stop', ()=>this.audStop()); on('nexttrack', ()=>this.audStep(1)); on('previoustrack', ()=>this.audStep(-1)); }catch(e){} },
+    audState(s){ try{ if(navigator.mediaSession) navigator.mediaSession.playbackState=s; }catch(e){} },
     // ---- History Claims. Years are numbers (negative = BCE, all approximate); every gap is worked out here, none is typed. ----
     yrPlain(y){ if(y==null) return ''; const ar=this.lang==='ar'; return this.D(y<0 ? (-y)+(ar?' ق.م':' BCE') : y+(ar?' م':' CE')); },
     yr(y){ if(y==null) return ''; return (y<0 ? (this.lang==='ar'?'نحو ':'c. ') : '')+this.yrPlain(y); },
