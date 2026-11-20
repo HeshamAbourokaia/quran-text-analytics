@@ -1960,6 +1960,24 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .rdh-kw b{font-family:var(--ar-display);font-weight:400;font-size:1.1rem} .rdh-kw span{font-size:.68rem;color:var(--gold)} .rdh-kw button.on{background:var(--teal);border-color:var(--teal)} .rdh-kw button.on span{color:#0b1a17}
   .reader-view .rw.tap{cursor:pointer;border-radius:5px;transition:background .15s} .reader-view .rw.tap:hover{background:rgba(233,185,95,.16)}
   .reader-view .rw.hi{background:rgba(88,200,190,.35);box-shadow:0 0 0 2px rgba(88,200,190,.35)}
+  /* an English word's meaning: old words lightly underlined, the tapped word lit, and its card (above the study panel) */
+  .eg{text-decoration:underline dotted rgba(233,185,95,.6);text-decoration-thickness:1px;text-underline-offset:3px;cursor:pointer}
+  .eg.q{text-decoration:none} .eg:hover{color:#fff;text-decoration-color:var(--gold)}
+  ::highlight(enword){background-color:rgba(233,185,95,.32);color:#fff}
+  .ecard{position:fixed;z-index:1150;overflow:auto;overscroll-behavior:contain;padding:14px 16px 12px;border-radius:16px;background:rgba(12,20,16,.98);border:1px solid rgba(233,185,95,.45);
+    box-shadow:0 24px 60px -20px rgba(0,0,0,.9);display:grid;gap:9px;align-content:start;color:var(--on-dark);font-size:.86rem;line-height:1.55}
+  .ecard p{margin:0} .ec-w{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px;padding-inline-end:24px}
+  .ec-w b{font-family:var(--serif);font-weight:400;font-size:1.65rem;line-height:1.1;color:#fff}
+  .ec-old{font-size:.64rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#1a1405;background:var(--gold);border-radius:99px;padding:2px 8px}
+  .ec-today small,.ec-ar small{display:block;font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--on-dark-3);margin-bottom:2px}
+  html[lang=ar] .ec-old,html[lang=ar] .ec-today small,html[lang=ar] .ec-ar small{letter-spacing:0;text-transform:none;font-size:.74rem}
+  .ec-today span{font-size:1rem;font-weight:600;color:#fff}
+  .ec-ar span{font-family:var(--ar);font-size:1.12rem;line-height:1.7;color:var(--gold)}
+  .ec-note{font-size:.8rem;color:var(--on-dark-2)}
+  .ec-def i{font-size:.7rem;font-style:normal;text-transform:lowercase;color:var(--gold)} .ec-def ol{margin:2px 0 0;padding-inline-start:18px} .ec-def li{margin:2px 0}
+  .ec-of,.ec-none,.ec-load{font-size:.82rem;color:var(--on-dark-2)}
+  .ec-src{font-size:.68rem;color:var(--on-dark-3)} .ec-src a{color:var(--on-dark-2)}
+  .vs-enhint{margin:4px 0 0;font-size:.72rem;color:var(--on-dark-3)}
   .wcard{position:fixed;z-index:85;padding:14px 16px;border-radius:16px;background:rgba(12,20,16,.97);border:1px solid rgba(233,185,95,.4);box-shadow:0 24px 60px -20px rgba(0,0,0,.9);display:grid;gap:8px}
   .wcard-x{position:absolute;top:6px;inset-inline-end:8px;border:0;background:none;color:var(--on-dark-2);cursor:pointer;font-size:.9rem}
   .wcard-w{font-family:var(--ar-display);font-size:2rem;color:#fff;text-align:center}
@@ -2622,6 +2640,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
 <div id="app" class="layout" v-cloak :class="{'dir-rtl': lang==='ar', 'au-on': !!(aud.k || aud.err)}" :dir="lang==='ar'?'rtl':'ltr'">
   <float-kbd></float-kbd>
   <word-card></word-card>
+  <en-card></en-card>
   <verse-study></verse-study>
   <!-- the recitation playing, on every page: pause or play, the verse (tap it to go there), the reciter, and stop -->
   <div v-if="aud.k || aud.err" class="aubar" :class="{lift: view==='reader' && (rClaimObj || rExt || rBack), err: !aud.k}" role="region" :aria-label="lang==='ar' ? 'التلاوة' : 'Recitation'">
@@ -3244,7 +3263,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
           <div v-if="!ready.verses" class="stub">{{ lang==='ar'?'جارٍ تحميل نص الآيات…':'Loading the verse text…' }}</div>
           <div v-else class="vblock">
             <div class="verse" lang="ar">{{ V[sLookKeys[0]] }} <span class="vk">{{ D(sLookKeys[0]) }}</span></div>
-            <div v-if="showTrans && EN[sLookKeys[0]]" class="verse-en">{{ EN[sLookKeys[0]] }}</div>
+            <div v-if="showTrans && EN[sLookKeys[0]]" class="verse-en" v-html="enWrap(sLookKeys[0])"></div>
           </div>
           <div class="slook-nav">
             <button type="button" :style="{visibility: sMark.n<=1 ? 'hidden' : 'visible'}" @click="markGo(sMark.what, sMark.n-1)">{{ lang==='ar' ? '› '+markName(sMark.what, sMark.n-1) : '‹ '+markName(sMark.what, sMark.n-1) }}</button>
@@ -3268,7 +3287,7 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
           <template v-else>
             <div v-for="k in sLookKeys.slice(0,5)" :key="k" class="vblock">
               <div class="verse" lang="ar">{{ V[k] }} <span class="vk">{{ D(k) }}</span></div>
-              <div v-if="showTrans && EN[k]" class="verse-en">{{ EN[k] }}</div>
+              <div v-if="showTrans && EN[k]" class="verse-en" v-html="enWrap(k)"></div>
             </div>
             <p class="slook-note" v-if="sLookKeys.length>5">{{ lang==='ar' ? 'و'+D(sLookKeys.length-5)+' آيةً أخرى بعدها. افتحها في المصحف لتقرأها كلها.' : 'and '+(sLookKeys.length-5)+' more after these. Open the Reader to read them all.' }}</p>
           </template>
@@ -3533,10 +3552,11 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
       <div class="card">
         <div v-if="!ready.verses" class="stub">{{ lang==='ar'?'جارٍ تحميل نص المصحف…':'Loading the text of the Quran…' }}</div>
         <p class="rhint" v-if="ready.verses">{{ lang==='ar' ? 'انقر أي كلمةٍ لترى بناءها. وانقر رقم آيةٍ، مثل ' : 'Tap any word to see how it is built. Tap a verse number, like ' }}<span class="vk">{{ D(rSurah+':1') }}</span>{{ keep.on ? (lang==='ar' ? '، لتدرس الآية أو تضع عليها علامة.' : ', to study that verse or save it.') : (lang==='ar' ? '، لتدرس الآية.' : ', to study that verse.') }}</p>
+        <p class="rhint" v-if="ready.verses && showTrans">{{ lang==='ar' ? 'وانقر أي كلمةٍ في الترجمة الإنجليزية لترى معناها؛ وتحت الكلمات القديمة، مثل Lo وthereto، خطٌّ خفيف.' : 'With the translation on, tap any English word to see what it means; old words such as Lo and thereto are lightly underlined.' }}</p>
         <div v-for="v in readerVerses" :key="v.k" class="vblock" :id="'v-'+v.k.replace(':','-')" :class="{vfocus: v.k===rFocusKey, vplay: v.k===aud.k && !aud.basm && !!aud.st}" @click="vkClick($event)">
           <div class="verse" v-if="rMarks.has(v.k)" v-html="readerLine(v)"></div>
           <div class="verse" v-else><span v-for="(w,j) in rTok(v.k, v.t)" :key="j" class="rw" :class="{hi: rHi && w.i>=0 && W.lemma[w.i]===rHi, tap: w.i>=0}" @click="w.i>=0 && openWord(w.i, $event)">{{ w.t+' ' }}</span><button type="button" class="vk" :class="{kept: keepSet.has(v.k)}" :data-study="v.k" :title="vkTitle(v.k)" :aria-label="vkSay(v.k)">{{ D(v.k) }}</button></div>
-          <div v-if="showTrans && EN[v.k]" class="verse-en">{{ v.k }} &middot; {{ EN[v.k] }}</div>
+          <div v-if="showTrans && EN[v.k]" class="verse-en">{{ v.k }} &middot; <span v-html="enWrap(v.k)"></span></div>
           <button v-if="v.k===rFocusKey" type="button" class="vstudy" :data-study="v.k">{{ lang==='ar' ? 'ادرس هذه الآية ‹' : 'Study this verse ›' }}</button>
         </div>
         <div v-if="showTrans" class="transnote">{{ lang==='ar'
@@ -4576,7 +4596,7 @@ const ARTICLE = /^(?:[ae]l|[ae](?:sh|th|dh|[lnrstdz]))[-\s]+/i;   // al-, el-, a
 // The verse text and translation, the word index and the chart library are most of the page's weight
 // (about 2.5 MB compressed). They load after the app is on screen, what the current page needs first,
 // so a phone never waits on a blank page for all of it.
-const LAZY = { verses:['corpus.js','translation_en.js'], words:['words.js','lemma-variants.js'], roman:['roman.js'], plotly:['https://cdn.plot.ly/plotly-2.27.0.min.js'],
+const LAZY = { verses:['corpus.js','translation_en.js','archaic.js'], words:['words.js','lemma-variants.js'], roman:['roman.js'], plotly:['https://cdn.plot.ly/plotly-2.27.0.min.js'],
   disc:['discover.js','discoveries.js'], hviz:['content/quran_history_viz.js'], phrases:['phrases.js'] };
 const NEEDS = { reader:['verses','words'], mecca:['words'], word:['words','verses'], symmetry:['words','verses'], abjad:['words'], structural:['words','verses','hviz'], n19:['words','verses'], search:['words','verses','roman'], auditor:['words'], history:['verses','words','hviz'], reader:['verses'], home:['words'], rizq:['verses'], wahhab:['verses'], phrases:['phrases','words','verses','roman'],
   discover:['disc'], 'd-endings':['disc','verses'], 'd-rings':['disc','verses','words'], 'd-rhyme':['disc'], 'd-stories':['disc'], 'd-themes':['disc'],
@@ -4601,6 +4621,11 @@ const TERMS = { overview:['lemma','root','hapax','normalization'], word:['lemma'
   'd-letters':['percentile','zscore','shuffle','cosine'], 'd-repeats':['lemma','normalization'], 'd-chrono':['spearman','shuffle','pvalue'] };
 const AR_RUN = /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]+(?:[ \u00A0]+[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]+)*/g;   // a run of Arabic words
 const escH = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
+// the old English of the translation made plain (archaic.js, loaded with the translation)
+const ARCH = () => window.QI_ARCHAIC || null;
+// the text and the place in it under a point on the screen, in every browser that can say
+const caretAt = (x, y) => { try{ if(document.caretPositionFromPoint){ const p=document.caretPositionFromPoint(x, y); return p ? {node:p.offsetNode, off:p.offset} : null; }
+  if(document.caretRangeFromPoint){ const r=document.caretRangeFromPoint(x, y); return r ? {node:r.startContainer, off:r.startOffset} : null; } }catch(e){} return null; };
 const unmark = s => String(s||'').replace(/\[\[\w+\|([^\]]+)\]\]/g, '$1').replace(/\[\[(\w+)\]\]/g, (m,k)=>EXPL && EXPL.GLOSS[k] ? EXPL.GLOSS[k].name[0] : k).replace(/`/g, '');
 const DEPTH_KEY = 'daleel.depth';   // the reader's choice of layer, remembered from page to page
 function readDepth(){ const q=new URLSearchParams(location.search).get('depth'); if(q==='sci' || q==='simple') return q;
@@ -8033,7 +8058,8 @@ const VerseStudy = {
         <template v-else>
         <p class="vs-named" v-if="named">{{ ar ? named.ar : named.en }}</p>
         <p class="vs-ar" lang="ar" dir="rtl">{{ text }}</p>
-        <p class="vs-en" v-if="en && (!ar || R.showTrans)" dir="ltr" lang="en">{{ en }}</p>
+        <p class="vs-en" v-if="en && (!ar || R.showTrans)" dir="ltr" lang="en" v-html="R.enWrap(k)"></p>
+        <p class="vs-enhint" v-if="en && (!ar || R.showTrans)">{{ ar ? 'انقر أي كلمةٍ إنجليزية لترى معناها.' : 'Tap any English word to see what it means.' }}</p>
         <div class="vs-acts">
           <button type="button" class="main" @click="R.studyRead()">{{ ar ? 'اقرأها في سورتها ‹' : 'Read it in its surah ›' }}</button>
           <button v-if="R.audOn" type="button" class="lsn" :class="{on: hearing}" :aria-pressed="hearing" @click="R.studyListen(k)" :title="hearing ? '' : (ar ? 'استمع إلى هذه الآية مرتّلة' : 'Hear this verse recited')">
@@ -8269,6 +8295,47 @@ const WordCard = {
   methods:{ T(p){ return this.ar ? p[1] : p[0]; }, D(x){ return this.$root.D(x); }, f(x){ return this.$root.f(x); },
     search(){ const R=this.$root, c=this.c, l=c.lemma||normalize(c.surf); R.wcard=null; R.q=l; R.mode=c.lemma ? 'lemma' : 'surface'; R.senseSet(l, c.sense>=0 ? {sense:c.sense} : null); R.go('search'); R.$nextTick(()=>R.runSearch()); },
     tree(){ const R=this.$root; R.nlpCenter=this.c.lemma; R.wcard=null; R.go('nlp'); } } };
+// The meaning of an English word tapped in a translation: Pickthall's old words from archaic.js (today's word, its
+// Arabic, a note), any other word from Wiktionary with a machine Arabic from MyMemory. Above the study panel too.
+const EnCard = {
+  data(){ return {res:null, st:''}; },
+  template:`<div class="ecard" v-if="c" :style="pos" role="dialog" :aria-label="ar ? 'معنى الكلمة' : 'Word meaning'">
+    <button type="button" class="wcard-x" @click="R.enClose()" :aria-label="ar ? 'أغلق' : 'Close'">✕</button>
+    <div class="ec-w"><b dir="ltr" lang="en">{{ c.word }}</b><span v-if="old" class="ec-old">{{ ar ? 'إنجليزية عام ١٩٣٠' : '1930 English' }}</span></div>
+    <template v-if="g">
+      <p class="ec-today"><small>{{ ar ? 'معناها اليوم' : 'Today' }}</small><span dir="ltr" lang="en">{{ g.en }}</span></p>
+      <p class="ec-ar"><small>{{ ar ? 'بالعربية' : 'In Arabic' }}</small><span lang="ar" dir="rtl">{{ g.ar }}</span></p>
+      <p v-if="g.noteEn" class="ec-note">{{ ar ? g.noteAr : g.noteEn }}</p>
+    </template>
+    <p v-else-if="f" class="ec-today"><small>{{ f.thou ? (ar ? 'صيغةٌ قديمة تأتي مع thou، تعني اليوم' : 'An old form used with thou. Today') : (ar ? 'صيغةٌ قديمة من الفعل '+f.base+'، تعني اليوم' : 'An old form of "'+f.base+'". Today') }}</small><span dir="ltr" lang="en">{{ f.modern }}</span></p>
+    <template v-if="!g">
+      <p v-if="st==='load'" class="ec-load">{{ ar ? 'جارٍ البحث في القاموس…' : 'Looking it up…' }}</p>
+      <template v-else-if="res">
+        <p v-if="res.of" class="ec-of">{{ ar ? '«'+term+'» صيغةٌ من «'+res.of+'»، وهذه معانيها:' : '"'+term+'" is a form of "'+res.of+'", which means:' }}</p>
+        <div v-for="(d,i) in (res.dict || [])" :key="i" class="ec-def" dir="ltr" lang="en"><i>{{ d.pos }}</i><ol><li v-for="(x,j) in d.defs" :key="j">{{ x }}</li></ol></div>
+        <p v-if="!res.dict || !res.dict.length" class="ec-none">{{ res.fail ? (ar ? 'تعذّر الوصول إلى القاموس. تحقّق من اتصالك ثم انقر الكلمة مرةً أخرى.' : 'The dictionary could not be reached. Check your connection and tap the word again.') : (ar ? 'لم نجد هذه الكلمة في القاموس.' : 'No dictionary entry for this word.') }}</p>
+        <p v-if="res.ar" class="ec-ar"><small>{{ ar ? 'ترجمةٌ آلية للكلمة وحدها' : 'In Arabic, a machine translation of the word alone' }}</small><span lang="ar" dir="rtl">{{ res.ar }}</span></p>
+        <p class="ec-src">{{ ar ? 'المعاني من ' : 'Meanings from ' }}<a :href="'https://en.wiktionary.org/wiki/'+encodeURIComponent((res.of || term).toLowerCase())" target="_blank" rel="noopener">Wiktionary</a>{{ ar ? ' (CC BY-SA)، والعربية من ' : ' (CC BY-SA); Arabic from ' }}<a href="https://mymemory.translated.net" target="_blank" rel="noopener">MyMemory</a>{{ ar ? '. لا يُرسَل إليهما إلا الكلمة.' : '. Only the word is sent to them.' }}</p>
+      </template>
+    </template>
+  </div>`,
+  computed:{ R(){ return this.$root; }, ar(){ return this.R.lang==='ar'; }, c(){ return this.R.ecard; },
+    g(){ return this.c && this.c.info ? this.c.info.gloss : null; }, f(){ return this.c && this.c.info ? this.c.info.form : null; }, old(){ return !!(this.g || this.f); },
+    term(){ return this.f ? this.f.base : (this.c ? this.c.word : ''); },
+    // under the word, or above it when the word is low on the screen
+    pos(){ const c=this.c, w=Math.min(340, innerWidth-24), x=Math.min(Math.max(12, c.x-w/2), innerWidth-w-12), h=Math.round(Math.min(440, innerHeight*.6));
+      return c.y+10+h<=innerHeight || c.top<innerHeight/2 ? {left:x+'px', top:(c.y+10)+'px', width:w+'px', maxHeight:h+'px'} : {left:x+'px', bottom:(innerHeight-c.top+10)+'px', width:w+'px', maxHeight:h+'px'}; } },
+  watch:{ c(v, o){ if(v && (!o || v.n!==o.n)) this.look(); } },
+  methods:{ async look(){ const c=this.c; this.res=null; this.st=''; if(!c || this.g) return; const n=c.n; this.st='load';
+      const r=await this.R.enLookup(this.term); if(!this.c || this.c.n!==n) return; this.res=r; this.st='done'; } },
+  // the page or the study panel moving the word leaves the card behind, so it closes. Scrolling inside the card does
+  // not, nor does the browser keeping the text still while something above it changes size (the Reader saving the
+  // place read): the word has not moved then.
+  mounted(){ this._close=e=>{ if(e && e.target && e.target.closest && e.target.closest('.ecard')) return; const c=this.c, rg=this.R._enRange;
+      if(c && rg && e && e.type==='scroll'){ const b=rg.getBoundingClientRect(); if(b.width && Math.abs(b.top-c.top)<4 && Math.abs(b.left+b.width/2-c.x)<4) return; }
+      this.R.enClose(); };
+    addEventListener('scroll', this._close, {passive:true, capture:true}); addEventListener('resize', this._close); },
+  beforeUnmount(){ removeEventListener('scroll', this._close, {capture:true}); removeEventListener('resize', this._close); } };
 const QadrLab = {
   data(){ return {basm:false, pre:false, suf:false, hov:-1}; },
   template:`<figure class="dfig qlab">
@@ -8526,6 +8593,8 @@ createApp({
       // the verse being recited (k), its state ('load', 'play', 'pause' or '' when nothing plays), whether the Basmala
       // plays first, whether the surah goes on verse after verse (cont), a load error, and the reciter
       aud:{k:'', st:'', basm:false, cont:false, err:'', rec: RECITE ? RECITE.chosen(STORE) : '', rep:null},
+      // the English word tapped in a translation, for its meaning card: the word, where it is, what archaic.js knows of it
+      ecard:null,
       // the repeat-to-memorise sheet while it is open: the passage and the choices being set
       repSheet:null, keepOpen:false, keepSure:false, scrollPct:0, railDragging:false, EN:{}, showTrans:(new URLSearchParams(location.search).get('lang')!=='ar'), libQ:'', libCat:'all', libSurah:0, rHi:'', wcard:null, nlpCenter:'', nlpState:null, stories:[], lessons:[], duas:[], tafsir:[], untranslatable:[], untranslatableIntro:{}, history:[], historyIntro:{}, skyHov:null, sresBy:{}, sresRoots:[], skyGL:false, hSel:'', hYear:610, hPlaying:false, hFilter:'all', hCopied:false,
       V1:{}, abjadInput:'الله',
@@ -9957,10 +10026,11 @@ createApp({
     // moment after the typing stops: a browser allows only so many address changes a minute)
     qSync(){ clearTimeout(this._qT); this._qT=setTimeout(()=>{ if(this.view==='search' && this._navReady && !this._popping) this.syncUrl(false); }, 500); },
     // the English of a verse, with what an English search found marked
-    enMark(vk){ const t=this.EN[vk]||''; if(!SEN || this.sres.kind!=='en') return escH(t);
+    enMark(vk){ const t=this.EN[vk]||''; if(!SEN || this.sres.kind!=='en') return this.enWrap(vk);
       let out='', last=0, m; SEN.lastIndex=0;
-      while((m=SEN.exec(t))){ out+=escH(t.slice(last, m.index))+'<mark>'+escH(m[0])+'</mark>'; last=m.index+m[0].length; }
-      return out+escH(t.slice(last)); },
+      const A=ARCH(), w=s=>A ? A.wrap(s) : escH(s);
+      while((m=SEN.exec(t))){ out+=w(t.slice(last, m.index))+'<mark>'+escH(m[0])+'</mark>'; last=m.index+m[0].length; }
+      return out+w(t.slice(last)); },
     // open what the search box points at: a verse (stepping through its range), or a surah from its first verse
     lookOpen(L, back){ L=L || this.sLook; if(!L || !L.s || L.kind==='bad') return; const keys=[];
       if(L.kind==='verse' && !L.mark) for(let v=L.a; v<=L.b; v++) keys.push(L.s+':'+v);
@@ -10021,6 +10091,48 @@ createApp({
     // what a verse-number button in the Reader shows on hover and says to a screen reader, for both ways it is drawn
     vkTitle(k){ const ar=this.lang==='ar'; return this.keepSet.has(k) ? (ar ? 'عليها علامتك. انقر لتدرسها' : 'Saved. Tap to study it') : (ar ? 'ادرس هذه الآية' : 'Study this verse'); },
     vkSay(k){ const ar=this.lang==='ar'; return (ar ? 'ادرس الآية '+this.D(k) : 'Study verse '+k)+(this.keepSet.has(k) ? (ar ? '، عليها علامتك' : ', saved') : ''); },
+    // ---- an English word's meaning: tap any word of a translation (archaic.js knows the old ones) ----
+    // the translation as HTML with its old words marked, kept once made
+    enWrap(k){ const A=ARCH(), t=this.EN[k] || ''; if(!A) return escH(t); const C=this._ewC || (this._ewC=new Map());
+      if(!C.has(k)) C.set(k, A.wrap(t)); return C.get(k); },
+    // a tap inside a translation: the word under it (a marked old word, or any word found from the point tapped)
+    enTap(ev){ const box=ev.target && ev.target.closest && ev.target.closest('.verse-en, .vs-en, .rz-en');
+      if(!box){ if(this.ecard && !(ev.target.closest && ev.target.closest('.ecard'))) this.enClose(); return; }
+      const sel=getSelection && getSelection(); if(sel && !sel.isCollapsed && String(sel).trim()) return;   // selecting text to copy it
+      let word='', range=null; const sp=ev.target.closest('.eg');
+      if(sp){ word=sp.textContent; range=document.createRange(); range.selectNodeContents(sp); }
+      else { const c=caretAt(ev.clientX, ev.clientY); if(!c || !c.node || c.node.nodeType!==3 || !box.contains(c.node)) return this.enClose();
+        const s=c.node.data; let a=c.off, b=c.off; while(a>0 && /[A-Za-z']/.test(s[a-1])) a--; while(b<s.length && /[A-Za-z']/.test(s[b])) b++;
+        word=s.slice(a, b).replace(/'s$/i, '').replace(/^'+|'+$/g, '');
+        if(!/^[A-Za-z][A-Za-z']*$/.test(word)) return this.enClose();
+        range=document.createRange(); range.setStart(c.node, a); range.setEnd(c.node, a+word.length); }
+      const r=range.getBoundingClientRect(); if(!r.width || ev.clientX<r.left-6 || ev.clientX>r.right+6 || ev.clientY<r.top-6 || ev.clientY>r.bottom+6) return this.enClose();   // not on a word
+      ev.stopPropagation(); this.enOpen(word, r, range); },
+    enOpen(word, r, range){ const A=ARCH(); this.wcard=null; this._enRange=range || null;
+      this.ecard={word, key:word.toLowerCase(), info: A ? A.lookup(word) : null, x:r.left+r.width/2, y:r.bottom, top:r.top, n:(this.ecard ? this.ecard.n : 0)+1};
+      try{ if(range && window.CSS && CSS.highlights && window.Highlight) CSS.highlights.set('enword', new Highlight(range)); }catch(e){} },
+    enClose(){ if(!this.ecard) return; this.ecard=null; this._enRange=null; try{ if(window.CSS && CSS.highlights) CSS.highlights.delete('enword'); }catch(e){} },
+    // a word's meanings from Wiktionary, and its Arabic from MyMemory's machine translation; asked once a word
+    enLookup(term){ const C=this._enL || (this._enL=new Map()); if(C.has(term)) return C.get(term);
+      const text=html=>{ try{ return (new DOMParser().parseFromString(html, 'text/html').body.textContent || '').replace(/\s+/g, ' ').trim(); }catch(e){ return ''; } };
+      const wk=async t=>{ const r=await fetch('https://en.wiktionary.org/api/rest_v1/page/definition/'+encodeURIComponent(t)); if(r.status===404) return null; if(!r.ok) throw new Error('wiktionary '+r.status);
+        // a spelling of some other word (knowe, a hill) is left out when the word has meanings of its own
+        const odd=x=>/^(?:alternative|obsolete|archaic|dated|rare|nonstandard|eye dialect|misspelling)\b[^.]*\b(?:form|spelling) of\b/i.test(x);
+        const d=await r.json(), all=(d.en || []).map(e=>({pos:e.partOfSpeech, defs:(e.definitions || []).map(x=>text(x.definition || '')).filter(x=>x.length>1)})).filter(e=>e.defs.length);
+        const own=all.map(e=>({pos:e.pos, defs:e.defs.filter(x=>!odd(x))})).filter(e=>e.defs.length);
+        const cut=x=>x.length>120 ? x.slice(0, x.lastIndexOf(' ', 118))+'…' : x;   // a long sense, to the end of its first line or two
+        return (own.length ? own : all).map(e=>({pos:e.pos, defs:e.defs.slice(0, 3).map(cut)})); };
+      const p=(async()=>{ const out={dict:null, of:'', ar:'', fail:false};
+        try{ let en=await wk(term.toLowerCase()); if(!en && term!==term.toLowerCase()) en=await wk(term);
+          // a form of another word (compelled: past of compel) brings that word's meanings too
+          const f=en && en[0] && en[0].defs[0] && /\b(?:plural|past|participle|singular|present|form|spelling|comparative|superlative)\b[^.]*\bof\s+([A-Za-z]+)\W*$/i.exec(en[0].defs[0]);
+          if(f && f[1].toLowerCase()!==term.toLowerCase() && en[0].defs[0].length<90){ const more=await wk(f[1].toLowerCase()); if(more){ out.of=f[1]; en=en.slice(0, 1).concat(more); } }
+          out.dict=en ? en.slice(0, out.of ? 3 : 2).map((e, i)=>({pos:e.pos, defs:e.defs.slice(0, i ? 1 : 3)})) : []; }catch(e){ out.fail=true; }
+        try{ const r=await fetch('https://api.mymemory.translated.net/get?q='+encodeURIComponent(out.of || term)+'&langpair=en|ar'), d=r.ok ? await r.json() : null, s=d && d.responseData && d.responseData.translatedText || '';
+          if(/[؀-ۿ]/.test(s)) out.ar=[...new Set(s.split(/[،,;]/).map(x=>x.trim()).filter(x=>/[؀-ۿ]/.test(x) && x.length<30))].slice(0, 4).join('، '); }catch(e){}
+        return out; })();
+      C.set(term, p); p.then(o=>{ if(o.fail) C.delete(term); });   // a failed lookup is asked again next time
+      return p; },
     // ---- hearing a verse recited: one audio element for the whole site, so a phone that let the first verse play
     // lets the next one play too. The recordings and the reciters are in recite.js. ----
     audEl(){ if(this._au) return this._au; const a=new Audio(), A=this.aud; a.preload='auto';
@@ -10521,6 +10633,9 @@ createApp({
     window.addEventListener('resize', this.onPageScroll);
     this.onPageScroll();
     this._readT0=Date.now(); this.keepLoad();
+    // a tap on any English verse text opens the meaning of the word tapped; a tap elsewhere or Escape closes it
+    document.addEventListener('click', e=>this.enTap(e));
+    document.addEventListener('keydown', e=>{ if(e.key==='Escape' && this.ecard) this.enClose(); });
     const qs = new URLSearchParams(location.search), seg = location.pathname.replace(/^\/+|\/+$/g,'').replace(/\.html$/,'');
     let wantView = qs.get('view') || SLUG_VIEW[seg] || (VIEW_ALIAS[seg] ? seg : '');
     if(VIEW_ALIAS[wantView]){ this._toAnchor = VIEW_ALIAS[wantView][1] || ''; wantView = VIEW_ALIAS[wantView][0]; }
@@ -10596,7 +10711,7 @@ createApp({
     this.$nextTick(()=>{ this.renderCharts(); this.afterCharts(); this.enterView(true); });
   }
 }).component('depth-switch', DepthSwitch).component('term-chips', TermChips).component('explain-box', ExplainBox)
-  .component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('phrase-lab', PhraseLab).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell).component('claim-viz', ClaimViz).component('count-lab', CountLab).component('rule-matrix', RuleMatrix).component('qadr-lab', QadrLab).component('nineteen-lab', NineteenLab).component('word-total-lab', WordTotalLab).component('letter-total-lab', LetterTotalLab).component('name-lab', NameLab).component('struct-lab', StructLab).component('balance-lab', BalanceLab).component('abjad-lab', AbjadLab).component('float-kbd', FloatKbd).component('nlp-lab', NlpLab).component('dash-lab', DashLab).component('hifz-lab', HifzLab).component('stats-lab', StatsLab).component('clf-lab', ClfLab).component('kmeans-lab', KMeansLab).component('lib-atlas', LibAtlas).component('reader-head', ReaderHead).component('word-card', WordCard).component('verse-study', VerseStudy)
+  .component('en-card', EnCard).component('null-plot', NullPlot).component('ring-map', RingMap).component('profile-plot', ProfilePlot).component('kursi-mirror', KursiMirror).component('phrase-lab', PhraseLab).component('middle-bars', MiddleBars).component('farrin-ring', FarrinRing).component('dumbbell', Dumbbell).component('claim-viz', ClaimViz).component('count-lab', CountLab).component('rule-matrix', RuleMatrix).component('qadr-lab', QadrLab).component('nineteen-lab', NineteenLab).component('word-total-lab', WordTotalLab).component('letter-total-lab', LetterTotalLab).component('name-lab', NameLab).component('struct-lab', StructLab).component('balance-lab', BalanceLab).component('abjad-lab', AbjadLab).component('float-kbd', FloatKbd).component('nlp-lab', NlpLab).component('dash-lab', DashLab).component('hifz-lab', HifzLab).component('stats-lab', StatsLab).component('clf-lab', ClfLab).component('kmeans-lab', KMeansLab).component('lib-atlas', LibAtlas).component('reader-head', ReaderHead).component('word-card', WordCard).component('verse-study', VerseStudy)
   .component('letter-strip', LetterStrip).component('growth-curve', GrowthCurve).component('rhyme-ribbon', RhymeRibbon).mount('#app');
 });
 </script>
