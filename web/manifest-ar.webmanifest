@@ -1,0 +1,30 @@
+{
+  "id": "/app",
+  "name": "بصائر قرآنية",
+  "short_name": "بصائر قرآنية",
+  "description": "استكشف القرآن الكريم من خلال أرقامه، واقرأ المصحف كاملًا، واستمع إلى أي آية، ودقّق الأعداد المتداولة عن القرآن على نصه نفسه.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "/app?lang=ar",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#040a07",
+  "theme_color": "#040a07",
+  "categories": ["books", "education", "reference"],
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "المصحف", "short_name": "المصحف", "description": "اقرأ المصحف مع ترجمته", "url": "/reader?lang=ar",
+      "icons": [{ "src": "/icons/maskable-192.png", "sizes": "192x192", "type": "image/png" }] },
+    { "name": "البحث", "short_name": "البحث", "description": "ابحث عن أي كلمة بجميع صيغها", "url": "/search?lang=ar",
+      "icons": [{ "src": "/icons/maskable-192.png", "sizes": "192x192", "type": "image/png" }] },
+    { "name": "خطة الحفظ", "short_name": "الحفظ", "description": "خطّط لما تحفظه", "url": "/hifz?lang=ar",
+      "icons": [{ "src": "/icons/maskable-192.png", "sizes": "192x192", "type": "image/png" }] },
+    { "name": "الأدعية", "short_name": "الأدعية", "description": "أدعية القرآن الكريم", "url": "/duas?lang=ar",
+      "icons": [{ "src": "/icons/maskable-192.png", "sizes": "192x192", "type": "image/png" }] }
+  ]
+}

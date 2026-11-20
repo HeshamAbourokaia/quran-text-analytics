@@ -20,6 +20,8 @@ The menu has five sections. Every page has a short address you can send to someo
 
 Add `?lang=ar` to any address for Arabic. A verse opens with `/reader?s=2&v=255`, and a history claim with `/history?c=weep`. Older links such as `app.html?view=n19` still work and land on the same page.
 
+The site installs as an app on a phone or computer: Install in the menu (or on a phone's Home page), or Add to Home Screen on an iPhone. The installed app opens full screen, in English or Arabic, and the Reader and Search work without internet.
+
 Most pages explain themselves twice: in plain words, and for scientists (data, method, result, limits), with a switch at the top of the page.
 
 | | |

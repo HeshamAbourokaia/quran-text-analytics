@@ -17,6 +17,16 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
 <meta name="application-name" content="Quran Insights" />
 <meta name="apple-mobile-web-app-title" content="Quran Insights" />
 <meta name="theme-color" content="#040a07" />
+<link rel="manifest" id="qimf" href="/manifest.webmanifest" />
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<script>
+  // The site installs as an app from this page too (the browser's own offer); the Arabic tour offers the Arabic app.
+  // The service worker starts with the app (app.html), so a visit to the tour alone downloads nothing more.
+  if (/[?&]lang=ar\b/.test(location.search)) document.getElementById('qimf').href = '/manifest-ar.webmanifest';
+</script>
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://quraninsights.vercel.app/" />
 <meta property="og:site_name" content="Quran Insights" />
@@ -1364,6 +1374,7 @@ function applyLang(l, first) {
   $$('a[data-view]').forEach(a => { a.href = appHref(a.dataset.view); });
   $$('[data-setlang]').forEach(b => { const on = b.dataset.setlang === l; b.classList.toggle('on', on); b.setAttribute('aria-pressed', String(on)); });
   if (!first) { const u = new URL(location.href); if (l === 'ar') u.searchParams.set('lang', 'ar'); else u.searchParams.delete('lang'); history.replaceState(null, '', u); }
+  const mf = document.getElementById('qimf'); if (mf) mf.href = l === 'ar' ? '/manifest-ar.webmanifest' : '/manifest.webmanifest';   // the app it installs opens in this language
   if (vm) vm.lang = l;
   renderLabWords(); renderCoinc(false); renderTallies();
   if (scene) scene.setLang();
