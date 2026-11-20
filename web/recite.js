@@ -1,8 +1,8 @@
-// Hearing a verse recited: the reciters the site offers, where each verse's recording is, and the reciter a reader
-// picked. The recordings come from AlQuran Cloud's open audio library (Islamic Network, https://alquran.cloud/cdn):
+// Hearing a verse recited: the reciters the site offers, where each verse's recording is, the reciter a reader
+// picked, and the order of recitations when a passage is repeated to memorise it. The recordings come from AlQuran Cloud's open audio library (Islamic Network, https://alquran.cloud/cdn):
 // free, with no account or key, offered for personal and educational use. Each verse is a file of its own, numbered
-// through the whole Quran from 1 (al-Fatiha 1:1) to 6236 (an-Nas 114:6). The reciter picked is remembered in the
-// browser's own storage (localStorage) and nowhere else.
+// through the whole Quran from 1 (al-Fatiha 1:1) to 6236 (an-Nas 114:6). The reciter picked and the repeat choices
+// are remembered in the browser's own storage (localStorage) and nowhere else.
 // Used by the Reader and the study panel in app.html. Also loaded by the Node tests in data-build/tests.
 //
 // Every function that counts verses takes the surahs' lengths (place.js lensOf), so a verse that does not exist gives
@@ -62,7 +62,48 @@
     catch (e) { return false; }
   }
 
-  const api = { BASE, KEY, RECITERS, reciter, ayahNo, url, step, basmalaFirst, chosen, choose };
+  // ---- repeating a passage to memorise it ----
+  // A passage is verses a to b of one surah. Each verse is heard `each` times before the next, the passage `all`
+  // times over (0: until the reader stops it), with `gap` after each recitation: none, 3 seconds, or 'len', a silence
+  // as long as the verse, to say it back.
+  const REPEAT = 'qi.repeat';
+  const EACH = [1, 2, 3, 5, 10], ALL = [1, 2, 3, 5, 0], GAPS = [0, 3, 'len'];
+  const PREFS = { each: 3, all: 1, gap: 0 };
+
+  // the recitation after this one: verse v, heard i times so far in round `pass`. [v, i, pass] for the next, or
+  // null once the last round is done
+  function repeatNext(rep, v, i, pass) {
+    if (i < rep.each) return [v, i + 1, pass];
+    if (v < rep.b) return [v + 1, 1, pass];
+    if (rep.all && pass >= rep.all) return null;
+    return [rep.a, 1, pass + 1];
+  }
+  // how many recitations the passage makes in all; Infinity until the reader stops it
+  function repeatTotal(rep) { return rep.all ? (rep.b - rep.a + 1) * rep.each * rep.all : Infinity; }
+  // a passage made safe: one surah, a to b inside it in order, and only the choices the site offers
+  function repeatPlan(p, lens) {
+    const s = p && Number.isInteger(p.s) && p.s >= 1 && p.s <= 114 && lens && lens[p.s] ? p.s : 0;
+    if (!s) return null;
+    const n = lens[s], clamp = x => Math.min(n, Math.max(1, Number.isInteger(x) ? x : 1));
+    const a = clamp(p.a), b = Math.max(a, clamp(p.b));
+    return { s, a, b, each: EACH.includes(p.each) ? p.each : PREFS.each, all: ALL.includes(p.all) ? p.all : PREFS.all, gap: GAPS.includes(p.gap) ? p.gap : PREFS.gap };
+  }
+  // the choices this browser used last (each, all, gap), so a reader who comes back daily finds them set
+  function prefs(store) {
+    try {
+      const t = store && store.getItem(REPEAT), p = t ? JSON.parse(t) : null;
+      if (!p || typeof p !== 'object') return Object.assign({}, PREFS);
+      return { each: EACH.includes(p.each) ? p.each : PREFS.each, all: ALL.includes(p.all) ? p.all : PREFS.all, gap: GAPS.includes(p.gap) ? p.gap : PREFS.gap };
+    } catch (e) { return Object.assign({}, PREFS); }
+  }
+  function keepPrefs(store, p) {
+    if (!p || !EACH.includes(p.each) || !ALL.includes(p.all) || !GAPS.includes(p.gap)) return false;
+    try { if (!store) return false; store.setItem(REPEAT, JSON.stringify({ each: p.each, all: p.all, gap: p.gap })); return true; }
+    catch (e) { return false; }
+  }
+
+  const api = { BASE, KEY, RECITERS, reciter, ayahNo, url, step, basmalaFirst, chosen, choose,
+    REPEAT, EACH, ALL, GAPS, PREFS, repeatNext, repeatTotal, repeatPlan, prefs, keepPrefs };
   root.QI_RECITE = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof window !== 'undefined' ? window : globalThis);

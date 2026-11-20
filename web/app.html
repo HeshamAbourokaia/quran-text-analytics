@@ -865,6 +865,41 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
   .au-x{flex:none;width:34px;height:34px;border-radius:50%;border:0;background:rgba(255,255,255,.07);color:var(--on-dark-2);font-size:1.15rem;line-height:1;cursor:pointer}
   .au-x:hover,.au-x:focus-visible{background:rgba(255,255,255,.14);color:#fff}
   .au-err{font-size:.8rem;color:#fca5a5;padding:0 8px}
+  .au-rep{flex:none;display:inline-flex;align-items:center;gap:4px;height:34px;min-width:34px;justify-content:center;padding:0 8px;border-radius:99px;border:1px solid rgba(255,255,255,.14);
+    background:rgba(255,255,255,.06);color:var(--on-dark-2);cursor:pointer;font:inherit;font-size:.74rem;font-weight:600;font-variant-numeric:tabular-nums}
+  .au-rep svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+  .au-rep:hover,.au-rep:focus-visible{color:#fff;border-color:rgba(52,211,153,.6);outline:0} .au-rep.on{background:rgba(52,211,153,.18);border-color:var(--emerald);color:#fff}
+  @media (max-width:430px){   /* a phone: room for the verse's name before the controls */
+    .aubar{gap:4px;padding:5px} .au-pp{width:38px;height:38px} .au-what{font-size:.8rem;padding:0 3px}
+    .au-rep{padding:0 6px;gap:3px} .aubar .au-rec{font-size:.74rem;padding:6px 6px;max-width:28vw} .au-x{width:30px;height:30px} }
+  /* the repeat sheet: a card in the middle on a wide screen, a sheet from the bottom on a phone */
+  .rps{position:fixed;inset:0;z-index:1200;display:flex;align-items:center;justify-content:center;padding:16px}
+  .rps-bg{position:absolute;inset:0;background:rgba(2,6,4,.62);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+  .rps-p{position:relative;width:min(540px,100%);max-height:90vh;max-height:90dvh;overflow:auto;background:#0b1510;border:1px solid rgba(52,211,153,.4);border-radius:20px;
+    padding:20px 20px 18px;box-shadow:0 30px 80px -20px rgba(0,0,0,.9);color:var(--on-dark);outline:0}
+  .rps-p header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .rps-p h2{margin:0;font-family:var(--serif);font-weight:400;font-size:1.5rem;color:#fff}
+  .rps-x{flex:none;width:36px;height:36px;border-radius:50%;border:0;background:rgba(255,255,255,.07);color:var(--on-dark-2);font-size:1.2rem;cursor:pointer}
+  .rps-x:hover,.rps-x:focus-visible{background:rgba(255,255,255,.14);color:#fff;outline:0}
+  .rps-lead{margin:6px 0 14px;color:var(--on-dark-2);font-size:.9rem}
+  .rps-range{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:.88rem;color:var(--on-dark-2)} .rps-range b{color:#fff;font-weight:600;font-size:.95rem}
+  .rps-range select{font:inherit;font-size:.86rem;color:var(--on-dark);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:6px 8px;margin-inline-start:4px;cursor:pointer}
+  .rps-range option{background:#0d1712;color:#fff}
+  .rps-f{border:0;margin:16px 0 0;padding:0;min-width:0} .rps-f legend{font-size:.78rem;color:var(--on-dark-3);margin:0 0 7px;padding:0}
+  .rps-ch{display:flex;flex-wrap:wrap;gap:6px}
+  .rps-ch button{font:inherit;font-size:.82rem;color:var(--on-dark-2);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:99px;padding:7px 13px;cursor:pointer}
+  .rps-ch button:hover,.rps-ch button:focus-visible{color:#fff;border-color:rgba(52,211,153,.6);outline:0}
+  .rps-ch button.on{background:var(--emerald);border-color:var(--emerald);color:#062018;font-weight:600}
+  .rps-sum{margin:18px 0 0;padding:12px 14px;border-radius:12px;background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.25);font-size:.88rem;line-height:1.75;color:var(--on-dark)}
+  .rps-acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .rps-acts button{font:inherit;font-size:.86rem;font-weight:600;color:var(--on-dark);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:99px;padding:9px 18px;cursor:pointer}
+  .rps-acts .main{background:var(--emerald);border-color:var(--emerald);color:#062018}
+  .rps-acts button:hover,.rps-acts button:focus-visible{filter:brightness(1.08);outline:0}
+  @media (max-width:640px){ .rps{align-items:flex-end;padding:0} .rps-p{width:100%;border-radius:20px 20px 0 0;padding-bottom:calc(18px + env(safe-area-inset-bottom))} }
+  .vs-rec .rps-open{font:inherit;font-size:.78rem;font-weight:600;color:var(--emerald-deep);background:transparent;border:1px solid rgba(52,211,153,.45);border-radius:99px;padding:5px 11px;cursor:pointer}
+  .vs-rec .rps-open:hover,.vs-rec .rps-open:focus-visible{background:rgba(52,211,153,.12);color:#fff;outline:0}
+  .hz-rep{margin-top:16px} .hz-rep h3{margin:0 0 6px;font-family:var(--serif);font-weight:400;font-size:1.3rem;color:#fff}
+  .hz-rep p{margin:0 0 12px;color:var(--on-dark-2);font-size:.9rem;line-height:1.7} .hz-rep-go{display:flex;flex-wrap:wrap;gap:8px} .hz-rep .hz-rep-note{margin:12px 0 0;font-size:.78rem;color:var(--on-dark-3)}
   @media (prefers-reduced-motion: reduce){ .au-pp.load::after{animation:none;border-color:rgba(52,211,153,.6)} .vblock.vplay .verse{transition:none} }
   .rbar .rb-step{width:38px;height:38px;flex:none;background:rgba(255,255,255,.08);color:#fff;font-size:1.15rem;line-height:1}
   .rbar .rb-step:disabled{opacity:.3;cursor:default}
@@ -2554,11 +2589,37 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
       <button type="button" class="au-pp" :class="{load: aud.st==='load'}" @click="audToggle()" :aria-label="aud.st==='pause' ? (lang==='ar' ? 'تابع التلاوة' : 'Play') : (lang==='ar' ? 'أوقف مؤقتًا' : 'Pause')">
         <svg viewBox="0 0 12 12" aria-hidden="true"><path v-if="aud.st==='pause'" d="M3 1.4v9.2l7.6-4.6z"/><g v-else><rect x="2.2" y="1.8" width="2.6" height="8.4" rx=".8"/><rect x="7.2" y="1.8" width="2.6" height="8.4" rx=".8"/></g></svg></button>
       <button type="button" class="au-what" @click="audGo()" :title="lang==='ar' ? 'اذهب إلى الآية التي تُتلى' : 'Go to the verse being recited'">{{ audLabel }}</button>
+      <button type="button" class="au-rep" :class="{on: !!aud.rep}" :aria-pressed="!!aud.rep" @click="repOpen()"
+        :title="aud.rep ? (lang==='ar' ? 'غيّر التكرار أو أوقفه' : 'Change or stop the repeat') : (lang==='ar' ? 'كرِّر لتحفظ' : 'Repeat to memorise')"
+        :aria-label="aud.rep ? (lang==='ar' ? 'غيّر التكرار أو أوقفه' : 'Change or stop the repeat') : (lang==='ar' ? 'كرِّر لتحفظ' : 'Repeat to memorise')">
+        <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4V5.2A2.4 2.4 0 0 1 4.4 2.8H9.6M8.2 1.2l1.6 1.6-1.6 1.6M10 5.6v1.2a2.4 2.4 0 0 1-2.4 2.4H2.4M3.8 10.8 2.2 9.2l1.6-1.6"/></svg><small v-if="repBadge">{{ repBadge }}</small></button>
       <select class="au-rec" :value="aud.rec" @change="audPick($event.target.value)" :aria-label="lang==='ar' ? 'القارئ' : 'Reciter'">
         <option v-for="r in reciters" :key="r.id" :value="r.id">{{ lang==='ar' ? r.short[1] : r.short[0] }}</option></select>
     </template>
     <span v-else class="au-err" role="alert">{{ aud.err }}</span>
     <button type="button" class="au-x" @click="audStop()" :aria-label="lang==='ar' ? 'أوقف التلاوة وأغلق' : 'Stop and close'">×</button>
+  </div>
+  <!-- repeat to memorise: a passage of one surah, each verse so many times, the passage so many times, and a silence to say it back -->
+  <div v-if="repSheet" class="rps" @keydown.esc.stop="repSheet=null">
+    <div class="rps-bg" @click="repSheet=null"></div>
+    <section class="rps-p" role="dialog" aria-modal="true" tabindex="-1" :aria-label="lang==='ar' ? 'كرِّر لتحفظ' : 'Repeat to memorise'">
+      <header><h2>{{ lang==='ar' ? 'كرِّر لتحفظ' : 'Repeat to memorise' }}</h2>
+        <button type="button" class="rps-x" @click="repSheet=null" :aria-label="lang==='ar' ? 'أغلق' : 'Close'">×</button></header>
+      <p class="rps-lead">{{ lang==='ar' ? 'استمع إلى المقطع مرةً بعد مرة حتى يثبت في حفظك.' : 'Hear a passage again and again until it stays with you.' }}</p>
+      <div class="rps-range"><b>{{ surahName(repSheet.s) }}</b>
+        <label>{{ lang==='ar' ? 'من الآية' : 'From verse' }} <select v-model.number="repSheet.a" @change="repFix()"><option v-for="n in repVerses" :key="n" :value="n">{{ D(n) }}</option></select></label>
+        <label>{{ lang==='ar' ? 'إلى' : 'to' }} <select v-model.number="repSheet.b"><option v-for="n in repVerses" :key="n" :value="n" :disabled="n<repSheet.a">{{ D(n) }}</option></select></label></div>
+      <fieldset class="rps-f"><legend>{{ lang==='ar' ? 'كل آية' : 'Each verse' }}</legend>
+        <div class="rps-ch"><button v-for="n in [1,2,3,5,10]" :key="n" type="button" :class="{on: repSheet.each===n}" :aria-pressed="repSheet.each===n" @click="repSheet.each=n">{{ timesWord(n, true) }}</button></div></fieldset>
+      <fieldset class="rps-f"><legend>{{ lang==='ar' ? 'المقطع كله' : 'The whole passage' }}</legend>
+        <div class="rps-ch"><button v-for="n in [1,2,3,5,0]" :key="n" type="button" :class="{on: repSheet.all===n}" :aria-pressed="repSheet.all===n" @click="repSheet.all=n">{{ n ? timesWord(n, true) : (lang==='ar' ? 'حتى أوقفه' : 'Until I stop') }}</button></div></fieldset>
+      <fieldset class="rps-f"><legend>{{ lang==='ar' ? 'بعد كل آية' : 'After each verse' }}</legend>
+        <div class="rps-ch"><button v-for="g in [0,3,'len']" :key="g" type="button" :class="{on: repSheet.gap===g}" :aria-pressed="repSheet.gap===g" @click="repSheet.gap=g">{{
+          g==='len' ? (lang==='ar' ? 'وقتٌ لتردّدها' : 'Time to say it back') : g ? (lang==='ar' ? 'توقفٌ قصير' : 'A short pause') : (lang==='ar' ? 'دون توقف' : 'No pause') }}</button></div></fieldset>
+      <p class="rps-sum" aria-live="polite">{{ repSum }}</p>
+      <div class="rps-acts"><button type="button" class="main" @click="repStart()">{{ aud.rep ? (lang==='ar' ? 'ابدأ من جديد' : 'Start again') : (lang==='ar' ? 'ابدأ' : 'Start') }}</button>
+        <button v-if="aud.rep" type="button" @click="repEnd()">{{ lang==='ar' ? 'أوقف التكرار' : 'Stop repeating' }}</button></div>
+    </section>
   </div>
   <!-- Search from any page: a word, a verse, a surah, a juz or a page. Each row says what it is before it is opened -->
   <div v-if="find.open" class="find" @keydown.esc.prevent="findClose()">
@@ -3929,6 +3990,18 @@ else if (location.hostname === 'quran-daleel.vercel.app' || location.hostname ==
       <h1>{{ lang==='ar'?'خطة الحفظ':'Hifz Planner' }}</h1>
       <explain-box></explain-box>
       <hifz-lab></hifz-lab>
+      <!-- the plan, put to work: a passage heard again and again, with a silence to say it back -->
+      <div class="card hz-rep" v-if="audOn">
+        <h3>{{ lang==='ar' ? 'احفظ مع التلاوة' : 'Memorise with a recitation' }}</h3>
+        <p>{{ lang==='ar' ? 'اختر مقطعًا، واستمع إلى كل آيةٍ مرةً بعد مرة، ثم ردّدها في الصمت الذي يليها.' : 'Pick a passage, hear each verse again and again, then say it back in the silence after it.' }}</p>
+        <div class="hz-rep-go">
+          <button v-if="keep.recent.length" type="button" class="lsn" @click="repOpenAt({s:keep.recent[0].s, a:keep.recent[0].v, b:Math.min(keep.recent[0].v+4, (keepLens||[])[keep.recent[0].s]||keep.recent[0].v)})">{{ lang==='ar' ? 'من حيث توقفت: '+surahName(keep.recent[0].s)+' '+D(keep.recent[0].s+':'+keep.recent[0].v) : 'Where you stopped: '+surahName(keep.recent[0].s)+' '+keep.recent[0].s+':'+keep.recent[0].v }}</button>
+          <button type="button" class="lsn" @click="repOpenAt({s:1, a:1, b:7})">{{ lang==='ar' ? 'الفاتحة كاملة' : 'Al-Fatiha, all of it' }}</button>
+          <button type="button" class="lsn" @click="repOpenAt({s:78, a:1, b:5})">{{ lang==='ar' ? 'النبأ، الآيات ١ إلى ٥' : 'An-Naba, verses 1 to 5' }}</button>
+          <button type="button" class="lsn" @click="repOpenAt({s:67, a:1, b:5})">{{ lang==='ar' ? 'الملك، الآيات ١ إلى ٥' : 'Al-Mulk, verses 1 to 5' }}</button>
+        </div>
+        <p class="hz-rep-note">{{ lang==='ar' ? 'ولأي مقطعٍ آخر: شغّل التلاوة في المصحف، ثم انقر زر التكرار في شريطها.' : 'For any other passage, play it in the Reader, then tap the repeat button on the player.' }}</p>
+      </div>
     </section>
 
 
@@ -7796,6 +7869,7 @@ const VerseStudy = {
           <span v-if="R.aud.err" role="alert">{{ R.aud.err }}</span>
           <template v-else><label>{{ ar ? 'بصوت' : 'Recited by' }}
             <select :value="R.aud.rec" @change="R.audPick($event.target.value)"><option v-for="r in R.reciters" :key="r.id" :value="r.id">{{ ar ? r.ar : r.en }}</option></select></label>
+            <button type="button" class="rps-open" @click="R.repOpen(k)">{{ ar ? 'كرِّرها لتحفظها' : 'Repeat to memorise' }}</button>
             <small>{{ ar ? 'من مكتبة AlQuran Cloud الصوتية المفتوحة' : 'Audio from the open library of AlQuran Cloud' }}</small></template>
         </p>
 
@@ -8271,7 +8345,9 @@ createApp({
       rSurah:1, rVerse:0, rClaim:'', rBack:'', keep:{on:false, recent:[], saved:[]}, keepArrive:null,
       // the verse being recited (k), its state ('load', 'play', 'pause' or '' when nothing plays), whether the Basmala
       // plays first, whether the surah goes on verse after verse (cont), a load error, and the reciter
-      aud:{k:'', st:'', basm:false, cont:false, err:'', rec: RECITE ? RECITE.chosen(STORE) : ''}, keepOpen:false, keepSure:false, scrollPct:0, railDragging:false, EN:{}, showTrans:(new URLSearchParams(location.search).get('lang')!=='ar'), libQ:'', libCat:'all', libSurah:0, rHi:'', wcard:null, nlpCenter:'', nlpState:null, stories:[], lessons:[], duas:[], tafsir:[], untranslatable:[], untranslatableIntro:{}, history:[], historyIntro:{}, skyHov:null, sresBy:{}, sresRoots:[], skyGL:false, hSel:'', hYear:610, hPlaying:false, hFilter:'all', hCopied:false,
+      aud:{k:'', st:'', basm:false, cont:false, err:'', rec: RECITE ? RECITE.chosen(STORE) : '', rep:null},
+      // the repeat-to-memorise sheet while it is open: the passage and the choices being set
+      repSheet:null, keepOpen:false, keepSure:false, scrollPct:0, railDragging:false, EN:{}, showTrans:(new URLSearchParams(location.search).get('lang')!=='ar'), libQ:'', libCat:'all', libSurah:0, rHi:'', wcard:null, nlpCenter:'', nlpState:null, stories:[], lessons:[], duas:[], tafsir:[], untranslatable:[], untranslatableIntro:{}, history:[], historyIntro:{}, skyHov:null, sresBy:{}, sresRoots:[], skyGL:false, hSel:'', hYear:610, hPlaying:false, hFilter:'all', hCopied:false,
       V1:{}, abjadInput:'الله',
       jevOn: !!(JEV && JEV.endpoint()), JD: window.QTA_JEV_DATA||{},
       cc:{text:'', busy:false, res:null}, ask:{text:'', busy:false, res:null}, sit:{text:'', busy:false, res:null},
@@ -8947,8 +9023,23 @@ createApp({
     reciters(){ return RECITE ? RECITE.RECITERS : []; },
     audOn(){ return !!(RECITE && this.keepLens); },
     audRecName(){ const r=RECITE && RECITE.reciter(this.aud.rec); return r ? (this.lang==='ar' ? r.ar : r.en) : ''; },
-    audLabel(){ const k=this.aud.k; if(!k) return ''; const s=+k.split(':')[0], ar=this.lang==='ar';
+    audLabel(){ const k=this.aud.k; if(!k) return ''; const s=+k.split(':')[0], ar=this.lang==='ar', R=this.aud.rep;
+      if(R && R.gap==='len' && (this.aud.st==='gap' || (this.aud.st==='pause' && this._gapGo))) return ar ? 'دورك: ردّدها' : 'Your turn: say it back';
       return this.aud.basm ? (ar ? 'البسملة، سورة '+this.surahName(s) : 'Bismillah, '+this.surahName(s)) : this.surahName(s)+' '+this.D(k); },
+    // on the repeat button while repeating: this verse's time of its count, or the round when each verse plays once
+    // ("١ من ٣" in Arabic, where "١/٣" would read as a third)
+    repBadge(){ const R=this.aud.rep; if(!R) return ''; const of=this.lang==='ar' ? ' من ' : '/';
+      return R.each>1 ? this.D(R.i)+of+this.D(R.each) : R.all===1 ? '' : this.D(R.pass)+(R.all ? of+this.D(R.all) : ''); },
+    repVerses(){ const S=this.repSheet, L=this.keepLens; return S && L ? Array.from({length:L[S.s]||0}, (x,i)=>i+1) : []; },
+    // the sheet says in a sentence what will be heard
+    repSum(){ const S=this.repSheet; if(!S) return ''; const ar=this.lang==='ar', T=n=>this.timesWord(n), nm=this.surahName(S.s), ka=S.s+':'+S.a, kb=S.s+':'+S.b;
+      const one=S.a===S.b, forever=!S.all, total=(S.b-S.a+1)*S.each*(S.all||1);
+      const gap=S.gap==='len' ? (ar ? ' وبعد كل تلاوةٍ صمتٌ بطول الآية لتردّدها بنفسك.' : ' After each one, a silence as long as the verse, for you to say it back.')
+        : S.gap ? (ar ? ' وبعد كل تلاوةٍ توقفٌ ثلاث ثوانٍ.' : ' After each one, a pause of 3 seconds.') : '';
+      if(ar) return (one ? 'ستسمع الآية '+this.D(ka)+' من سورة '+nm+' '+(forever ? 'مرةً بعد مرة حتى توقفها.' : T(S.each*S.all)+'.')
+        : 'ستسمع الآيات من '+this.D(ka)+' إلى '+this.D(kb)+' من سورة '+nm+'، كل آيةٍ '+T(S.each)+(forever ? '، والمقطع كله مرةً بعد مرة حتى توقفه.' : (S.all>1 ? '، والمقطع كله '+T(S.all) : '')+': '+this.countOf(total, 'recitation')+' في المجموع.'))+gap;
+      return (one ? 'You will hear verse '+ka+' of '+nm+' '+(forever ? 'again and again until you stop it.' : T(S.each*S.all)+'.')
+        : 'You will hear verses '+ka+' to '+kb+' of '+nm+', each verse '+T(S.each)+(forever ? ', and the whole passage again and again until you stop it.' : (S.all>1 ? ', and the whole passage '+T(S.all) : '')+': '+this.countOf(total, 'recitation')+' in all.'))+gap; },
     // the Reader's own surah is the one going on verse after verse
     audHere(){ return !!(this.aud.k && this.aud.cont && +this.aud.k.split(':')[0]===this.rSurah); },
     keepSet(){ return new Set(this.keep.saved.map(b=>b.k)); },
@@ -9084,7 +9175,7 @@ createApp({
     // "3 verses", "٣ آيات": the Arabic noun agrees with its number (one, two, three to ten, eleven to ninety-nine, a
     // round hundred); a masculine noun is spelt apart after eleven to ninety-nine (٦٩ عنصرًا) and after a hundred (١٠٠ عنصر)
     countOf(n, kind){ const w={verse:['verse','verses','آية واحدة','آيتان','آيات','آية'], word:['word','words','كلمة واحدة','كلمتان','كلمات','كلمة'],
-        item:['item','items','عنصر واحد','عنصران','عناصر','عنصرًا','عنصر']}[kind];
+        item:['item','items','عنصر واحد','عنصران','عناصر','عنصرًا','عنصر'], recitation:['recitation','recitations','تلاوة واحدة','تلاوتان','تلاوات','تلاوة']}[kind];
       if(this.lang!=='ar') return this.f(n)+' '+(n===1 ? w[0] : w[1]);
       const m=n%100; return n===1 ? w[2] : n===2 ? w[3] : this.f(n)+' '+(m>=3 && m<=10 ? w[4] : m<=2 ? (w[6]||w[5]) : w[5]); },
     onPageScroll(){
@@ -9755,7 +9846,7 @@ createApp({
       a.addEventListener('waiting', ()=>{ if(A.k && A.st==='play') A.st='load'; });
       a.addEventListener('pause', ()=>{ if(A.k && !a.ended && A.st==='play'){ A.st='pause'; this.audState('paused'); } });   // a call or unplugged headphones; not the swap to the next verse
       a.addEventListener('ended', ()=>this.audNext());
-      a.addEventListener('error', ()=>{ if(!A.k) return; A.k=''; A.st=''; A.basm=false; A.cont=false; this.audState('none');
+      a.addEventListener('error', ()=>{ if(!A.k) return; this.repDrop(); A.k=''; A.st=''; A.basm=false; A.cont=false; this.audState('none');
         A.err=this.lang==='ar' ? 'تعذّر تحميل التلاوة. تحقّق من اتصالك ثم أعد المحاولة.' : 'The recitation could not be loaded. Check your connection and try again.'; });
       return (this._au=a); },
     audSrc(k){ const [s,v]=k.split(':').map(Number); return RECITE ? RECITE.url(this.aud.rec, s, v, this.keepLens) : ''; },
@@ -9766,21 +9857,53 @@ createApp({
       if(p && p.catch) p.catch(e=>{ if(e && e.name==='NotAllowedError' && A.k===k) A.st='pause'; });   // the browser wants a tap first
       this.audMeta(); this.audWarm(); if(cont && !basm) this.audFollow(); },
     // fetch the next recording while this one plays, so the surah runs on without a gap
-    audWarm(){ const A=this.aud, [s,v]=A.k.split(':').map(Number), n=A.basm ? [s,v] : (A.cont && RECITE ? RECITE.step(s, v, 1, this.keepLens) : null);
+    audWarm(){ const A=this.aud, [s,v]=A.k.split(':').map(Number), R=A.rep, r=R && RECITE ? RECITE.repeatNext(R, v, R.i, R.pass) : null;
+      const n=R ? (r && r[0]!==v ? [s, r[0]] : null) : A.basm ? [s,v] : (A.cont && RECITE ? RECITE.step(s, v, 1, this.keepLens) : null);
       if(!n) return; const w=this._auWarm || (this._auWarm=new Audio()); w.preload='auto'; w.src=this.audSrc(n[0]+':'+n[1]); },
-    audNext(){ const A=this.aud; if(!A.k) return; if(A.basm) return this.audStart(A.k, A.cont, false);
+    audNext(){ const A=this.aud; if(!A.k) return; if(A.rep) return this.repNext(); if(A.basm) return this.audStart(A.k, A.cont, false);
       const [s,v]=A.k.split(':').map(Number), n=A.cont && RECITE ? RECITE.step(s, v, 1, this.keepLens) : null;
       if(n) this.audStart(n[0]+':'+n[1], true, false); else this.audStop(); },
     // the verse before or after, from the phone's lock screen
-    audStep(d){ const A=this.aud; if(!A.k || !RECITE) return; const [s,v]=A.k.split(':').map(Number), n=A.basm ? (d>0 ? [s,v] : null) : RECITE.step(s, v, d, this.keepLens);
+    audStep(d){ const A=this.aud; if(!A.k || !RECITE) return; const [s,v]=A.k.split(':').map(Number);
+      if(A.rep){ const R=A.rep; clearTimeout(this._gapT); this._gapGo=null; R.i=1; return this.audStart(s+':'+Math.min(R.b, Math.max(R.a, v+d)), true, false); }   // inside the passage
+      const n=A.basm ? (d>0 ? [s,v] : null) : RECITE.step(s, v, d, this.keepLens);
       if(n) this.audStart(n[0]+':'+n[1], A.cont, false); },
     audToggle(){ const A=this.aud, a=this._au; if(!A.k || !a) return;
+      if(A.st==='gap'){ clearTimeout(this._gapT); A.st='pause'; this.audState('paused'); return; }   // the silence after a verse waits too
       if(A.st==='play' || A.st==='load'){ a.pause(); A.st='pause'; return; }
+      if(this._gapGo) return this._gapGo();   // paused in the silence: on to the next recitation
       A.st='load'; const p=a.play(); if(p && p.catch) p.catch(()=>{ if(A.k) A.st='pause'; }); },
-    audStop(){ const a=this._au; Object.assign(this.aud, {k:'', st:'', basm:false, cont:false, err:''}); this.audState('none');
+    audStop(){ const a=this._au; this.repDrop(); Object.assign(this.aud, {k:'', st:'', basm:false, cont:false, err:''}); this.audState('none');
       if(a){ a.pause(); a.removeAttribute('src'); a.load(); } },
     audPick(id){ if(!RECITE || id===this.aud.rec) return; this.aud.rec=RECITE.reciter(id).id; RECITE.choose(STORE, this.aud.rec);
-      const A=this.aud; if(A.k) this.audStart(A.k, A.cont, A.basm); },   // the verse playing starts again in the new voice
+      const A=this.aud; if(A.k && A.st!=='gap' && !this._gapGo) this.audStart(A.k, A.cont, A.basm); },   // the verse playing starts again in the new voice; in a silence, the next one comes in it
+    // ---- repeating a passage to memorise it: recite.js keeps the order (each verse its times, then the passage again) ----
+    repDrop(){ clearTimeout(this._gapT); this._gapGo=null; this.aud.rep=null; },
+    repNext(){ const A=this.aud, R=A.rep, v=+A.k.split(':')[1], n=RECITE.repeatNext(R, v, R.i, R.pass);
+      if(!n) return this.audStop();   // the last round is done
+      const go=()=>{ this._gapGo=null; clearTimeout(this._gapT); if(this.aud.rep!==R) return; R.i=n[1]; R.pass=n[2]; this.audStart(R.s+':'+n[0], true, false); };
+      const a=this._au, ms=R.gap==='len' ? Math.round(((a && a.duration) || 0)*1000) : R.gap*1000;
+      if(ms>0){ A.st='gap'; this._gapGo=go; this._gapT=setTimeout(go, ms); } else go(); },
+    // the repeat sheet, for the verse given, the verse playing or the verse in the study panel
+    repOpen(k){ if(!RECITE) return; k=k || this.aud.k || this.study; if(!k) return; const [s,v]=k.split(':').map(Number), R=this.aud.rep;
+      if(R && R.s===s) return this.repOpenAt({s, a:R.a, b:R.b, each:R.each, all:R.all, gap:R.gap});
+      this.repOpenAt({s, a:v, b:v}); },
+    repOpenAt(p){ const P=RECITE ? RECITE.prefs(STORE) : {}; this.repSheet=Object.assign({each:P.each, all:P.all, gap:P.gap}, p); },
+    repFix(){ const S=this.repSheet; if(S && S.b<S.a) S.b=S.a; },
+    // start: the first recitation inside the tap (a phone allows sound only from one), then show the passage in the Reader
+    repStart(){ const p=RECITE && RECITE.repeatPlan(this.repSheet, this.keepLens); if(!p) return; RECITE.keepPrefs(STORE, p); this.repSheet=null;
+      this.repDrop(); this.aud.rep=Object.assign(p, {i:1, pass:1}); this.audStart(p.s+':'+p.a, true, false);
+      const here=this.view==='reader' && this.rSurah===p.s, show=()=>{ const el=document.getElementById('v-'+p.s+'-'+p.a);
+        if(el) el.scrollIntoView({block:'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'}); };
+      if(this.study && here){ this._studyThen=()=>this.$nextTick(show); return this.studyClose(); }
+      if(this.study){ this.studyAway(); return this.openVerse(p.s, p.a, '', this.view==='reader' ? this.rBack : this.view); }
+      if(here) return this.$nextTick(show);
+      if(this.view==='reader') return this.rGo({kind:'verse', s:p.s, a:p.a, b:p.a});
+      this.openVerse(p.s, p.a, '', this.view); },
+    repEnd(){ this.repSheet=null; this.audStop(); },
+    // "once", "twice", "3 times"; "مرةً واحدة", "مرتين", "٣ مرات", "١١ مرة"
+    timesWord(n, cap){ if(this.lang==='ar') return n===1 ? 'مرةً واحدة' : n===2 ? 'مرتين' : this.D(n)+(n%100>=3 && n%100<=10 ? ' مرات' : ' مرة');
+      const t=n===1 ? 'once' : n===2 ? 'twice' : n+' times'; return cap ? t[0].toUpperCase()+t.slice(1) : t; },
     // keep the verse being recited on screen, unless the reader has moved the page in the last few seconds
     audFollow(){ const k=this.aud.k, s=+k.split(':')[0]; if(this.view!=='reader' || this.rSurah!==s || Date.now()-USER_AT<4000) return;
       this.$nextTick(()=>{ const el=document.getElementById('v-'+k.replace(':','-')); if(!el) return; const r=el.getBoundingClientRect();
@@ -9788,13 +9911,13 @@ createApp({
     // the Reader's buttons: the surah from where the reader is. That is the verse opened from elsewhere while it is on
     // screen, else the verse at the reading line, 30% down the screen, the one Continue reading keeps (ReaderHead).
     // At the controls above the text, before any verse reaches the line, it is the surah's first verse.
-    readerListen(){ if(this.audHere) return this.audStop();
+    readerListen(){ if(this.audHere) return this.audStop(); this.repDrop();
       const el=k=>document.getElementById('v-'+k.replace(':','-')), f=this.rFocusKey && el(this.rFocusKey), fr=f && f.getBoundingClientRect();
       let k=fr && fr.top<innerHeight*.85 && fr.bottom>innerHeight*.15 ? this.rFocusKey : '';
       if(!k){ k=(this.readerVerses[0] || {}).k; for(const v of this.readerVerses){ const e=el(v.k); if(!e || e.getBoundingClientRect().top>innerHeight*.3) break; k=v.k; } }
       if(!k) return; const [s,v]=k.split(':').map(Number); this.audStart(k, true, RECITE.basmalaFirst(s, v)); },
     // the study panel's button: this one verse
-    studyListen(k){ const A=this.aud; if(A.k===k && !A.cont && A.st) return this.audStop(); this.audStart(k, false, false); },
+    studyListen(k){ const A=this.aud; if(A.k===k && !A.cont && A.st) return this.audStop(); this.repDrop(); this.audStart(k, false, false); },
     // the player's label: back to the verse being recited
     audGo(){ const k=this.aud.k; if(!k) return; const [s,v]=k.split(':').map(Number);
       if(this.view==='reader' && this.rSurah===s){ const el=document.getElementById('v-'+k.replace(':','-')); if(el) el.scrollIntoView({block:'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'}); return; }
@@ -10199,6 +10322,9 @@ createApp({
   },
   watch:{ // the box was filled by something other than typing: it shows that, not an earlier typed word
     q(v){ if(this.sVia && v!==this.sVia.l) this.sVia=null; if(this.sNoVia && v.trim()!==this.sNoVia) this.sNoVia=''; },
+    // the repeat sheet takes the keyboard when it opens, and gives it back to what opened it when it closes
+    repSheet(v, o){ if(v && !o){ this._repFrom=document.activeElement; this.$nextTick(()=>{ const p=document.querySelector('.rps-p'); if(p) p.focus(); }); }
+      else if(!v && o){ const el=this._repFrom; this._repFrom=null; if(el && el.isConnected && el.focus) try{ el.focus({preventScroll:true}); }catch(e){} } },
     navKey(n, o){ if(this._popping || !this._navReady) return; const a=String(o).split('|'), b=String(n).split('|');
       this.syncUrl(a[0]!==b[0] || a[1]!==b[1] || a[2]!==b[2]); },
     lang(v){ this.applyDir(); this.showTrans = (v!=='ar'); this.applySitCat(); const sky=SKY(); if(sky) sky.setLang(v);
