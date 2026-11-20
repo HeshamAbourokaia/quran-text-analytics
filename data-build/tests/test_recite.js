@@ -91,12 +91,49 @@ const tests = {
     assert.equal(R.chosen(null), 'ar.alafasy');
     assert.equal(R.choose(null, 'ar.husary'), false);
   },
+  'repeating a passage: each verse its times, then the next, then the passage again'() {
+    const rep = { a: 1, b: 3, each: 2, all: 2 }, seen = [];
+    for (let at = [1, 1, 1]; at; at = R.repeatNext(rep, ...at)) seen.push(at.join('.'));
+    assert.deepEqual(seen, ['1.1.1', '1.2.1', '2.1.1', '2.2.1', '3.1.1', '3.2.1', '1.1.2', '1.2.2', '2.1.2', '2.2.2', '3.1.2', '3.2.2']);
+    assert.equal(seen.length, R.repeatTotal(rep));
+    // one verse, once: it plays and the passage is done
+    assert.equal(R.repeatNext({ a: 5, b: 5, each: 1, all: 1 }, 5, 1, 1), null);
+    assert.equal(R.repeatTotal({ a: 5, b: 5, each: 1, all: 1 }), 1);
+  },
+  'until the reader stops it, the passage starts over every time'() {
+    const rep = { a: 4, b: 6, each: 3, all: 0 };
+    assert.deepEqual(R.repeatNext(rep, 6, 3, 1), [4, 1, 2]);
+    assert.deepEqual(R.repeatNext(rep, 6, 3, 99), [4, 1, 100]);
+    assert.equal(R.repeatTotal(rep), Infinity);
+  },
+  'a passage is made safe before it plays'() {
+    assert.deepEqual(R.repeatPlan({ s: 67, a: 1, b: 5, each: 3, all: 2, gap: 'len' }, L), { s: 67, a: 1, b: 5, each: 3, all: 2, gap: 'len' });
+    assert.deepEqual(R.repeatPlan({ s: 67, a: 9, b: 2, each: 4, all: 7, gap: 9 }, L), { s: 67, a: 9, b: 9, each: 3, all: 1, gap: 0 });   // b before a, and choices the site does not offer
+    assert.deepEqual(R.repeatPlan({ s: 1, a: 0, b: 99 }, L), { s: 1, a: 1, b: 7, each: 3, all: 1, gap: 0 });                          // past either end of al-Fatiha
+    for (const bad of [null, {}, { s: 0, a: 1, b: 1 }, { s: 115, a: 1, b: 1 }, { s: '2', a: 1, b: 1 }]) assert.equal(R.repeatPlan(bad, L), null);
+    assert.equal(R.repeatPlan({ s: 2, a: 1, b: 1 }, null), null);
+  },
+  'the repeat choices are remembered, under one key of their own'() {
+    const st = new Store();
+    assert.deepEqual(R.prefs(st), { each: 3, all: 1, gap: 0 });
+    assert.equal(R.keepPrefs(st, { each: 5, all: 0, gap: 'len', s: 67, a: 1 }), true);
+    assert.deepEqual(R.prefs(st), { each: 5, all: 0, gap: 'len' });
+    assert.deepEqual(JSON.parse(st.getItem('qi.repeat')), { each: 5, all: 0, gap: 'len' });   // the choices only, not the passage
+    assert.equal(R.keepPrefs(st, { each: 4, all: 1, gap: 0 }), false);
+    assert.deepEqual(R.prefs(new Store({ 'qi.repeat': '{"each":7,"all":"x","gap":3}' })), { each: 3, all: 1, gap: 3 });   // an edited entry keeps what is valid
+    assert.deepEqual(R.prefs(new Store({ 'qi.repeat': 'not json' })), { each: 3, all: 1, gap: 0 });
+    assert.deepEqual(R.prefs(Refusing), { each: 3, all: 1, gap: 0 });
+    assert.equal(R.keepPrefs(Refusing, { each: 3, all: 1, gap: 0 }), false);
+    R.choose(st, 'ar.husary');
+    assert.deepEqual([...st.m.keys()].sort(), ['qi.reciter', 'qi.repeat']);
+  },
   'the site uses this file, and only this file knows where the recordings are'() {
     const app = fs.readFileSync(path.join(WEB, 'app.html'), 'utf8');
     assert.ok(app.includes('<script defer src="recite.js"></script>'));
     assert.ok(app.includes('const RECITE = window.QI_RECITE || null;'));
     assert.ok(!app.includes('cdn.islamic.network'), 'app.html builds a recording address itself');
     assert.ok(!app.includes("'qi.reciter'"), 'app.html writes the reciter itself');
+    assert.ok(!app.includes("'qi.repeat'"), 'app.html writes the repeat choices itself');
   },
 };
 

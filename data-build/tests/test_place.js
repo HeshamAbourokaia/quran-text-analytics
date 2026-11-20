@@ -111,6 +111,17 @@ const tests = {
     assert.equal(P.daysAgo(T - 3 * DAY, T), 3);
     assert.equal(P.daysAgo(T + DAY, T), 0);   // a clock set back does not give a negative day
   },
+  'the app declares its Reader, Library and player state, none of it lost inside a comment'() {
+    // a comment put at the end of a line in the app's state once hid the Library's search and filters and the
+    // translation switch behind it: the Library showed no cards and nothing raised an error
+    const app = fs.readFileSync(path.join(WEB, 'app.html'), 'utf8');
+    const at = app.indexOf('createApp({'), end = app.indexOf('\n  computed:', at);
+    assert.ok(at > 0 && end > at, 'the app\'s state was not found');
+    const code = app.slice(at, end).split('\n').map(l => l.replace(/(^|\s)\/\/.*$/, '')).join('\n');
+    for (const k of ['rSurah', 'keep', 'keepArrive', 'aud', 'repSheet', 'keepOpen', 'keepSure', 'scrollPct', 'railDragging', 'EN', 'showTrans',
+      'libQ', 'libCat', 'libSurah', 'rHi', 'wcard', 'stories', 'lessons', 'duas', 'tafsir', 'untranslatable', 'V1', 'depth'])
+      assert.ok(new RegExp('[\\s,{]' + k + ':').test(code), k + ' is not declared');
+  },
   'the site uses this file, and keeps nothing behind its back'() {
     const app = fs.readFileSync(path.join(WEB, 'app.html'), 'utf8');
     assert.ok(app.includes('<script defer src="place.js"></script>'));
