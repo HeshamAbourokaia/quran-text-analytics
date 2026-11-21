@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Quran Insights</string>
+    <string name="widget_name">Verse of the day</string>
+    <string name="widget_desc">A verse each day in Arabic with its English. Tap it to read on.</string>
+    <string name="kicker">Verse of the day</string>
+    <string name="read">Read</string>
+    <string name="next">Another verse</string>
+    <string name="sample_ref">Al-A\'raf 7:23</string>
+    <string name="sample_ar">رَبَّنَا ظَلَمْنَآ أَنفُسَنَا وَإِن لَّمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ ٱلْخَٰسِرِينَ</string>
+    <string name="sample_en">They said: Our Lord! We have wronged ourselves. If Thou forgive us not and have not mercy on us, surely we are of the lost!</string>
+    <string name="asset_statements" translatable="false">[{\"relation\": [\"delegate_permission/common.handle_all_urls\"], \"target\": {\"namespace\": \"web\", \"site\": \"https://quraninsights.vercel.app\"}}]</string>
+</resources>

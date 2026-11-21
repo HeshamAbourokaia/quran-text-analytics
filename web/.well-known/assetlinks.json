@@ -1,0 +1,10 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.hesham.quraninsights",
+      "sha256_cert_fingerprints": ["26:4C:95:54:83:B3:55:82:C9:39:A8:D6:F8:E0:37:50:E0:6E:00:CC:B9:74:CD:77:9B:36:CE:80:31:A7:67:3F"]
+    }
+  }
+]
