@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- the book in the middle 66 of the 108 an adaptive icon may show -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="108dp" android:height="108dp" android:viewportWidth="108" android:viewportHeight="108">
+    <group android:translateX="22" android:translateY="22.15" android:pivotX="32" android:pivotY="31.85" android:scaleX="1.05" android:scaleY="1.05">
+        <path android:fillColor="#FFFFFF" android:pathData="M30.5,20.1c-3.8,-2.7 -9,-4.1 -14.5,-4.1 -0.9,0 -1.5,0.7 -1.5,1.5v25.4c0,0.8 0.6,1.5 1.5,1.5 5.2,0 10.1,1.4 13.6,3.8 0.3,0.2 0.6,0.3 0.9,0.3V20.1zM33.5,20.1c3.8,-2.7 9,-4.1 14.5,-4.1 0.9,0 1.5,0.7 1.5,1.5v25.4c0,0.8 -0.6,1.5 -1.5,1.5 -5.2,0 -10.1,1.4 -13.6,3.8 -0.3,0.2 -0.6,0.3 -0.9,0.3V20.1z" />
+    </group>
+</vector>

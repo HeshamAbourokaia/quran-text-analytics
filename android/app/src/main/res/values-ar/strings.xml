@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">بصائر قرآنية</string>
+    <string name="widget_name">آية اليوم</string>
+    <string name="widget_desc">آيةٌ كل يوم بالعربية مع ترجمتها. اضغط عليها لتكمل القراءة.</string>
+    <string name="kicker">آية اليوم</string>
+    <string name="read">اقرأ</string>
+    <string name="next">آيةٌ أخرى</string>
+    <string name="sample_ref">الأعراف ٧:٢٣</string>
+</resources>

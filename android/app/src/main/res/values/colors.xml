@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- the site's night palette (app.html :root) -->
+    <color name="night">#040A07</color>
+    <color name="night2">#0B1A13</color>
+    <color name="gold">#E9B95F</color>
+    <color name="emerald">#34D399</color>
+    <color name="emerald_dark">#0FB56D</color>
+    <color name="emerald_deep">#067647</color>
+    <color name="ink">#EEF6F1</color>
+    <color name="ink2">#CFDDD6</color>
+    <color name="muted">#93A89E</color>
+</resources>

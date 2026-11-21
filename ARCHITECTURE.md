@@ -7,6 +7,7 @@ web/            the site: landing page, the app, generated data files, library c
 data-build/     the Python pipeline that writes web's data files, its tests, the knowledge-graph builder
 api/            one optional Vercel function (Jev)
 vercel.json     serves web/ and api/, and sends the short links to the app
+android/        the Android app: the site full screen in Chrome, and a verse-of-the-day widget
 ```
 
 ## The site (`web/`)
@@ -82,6 +83,14 @@ Each page explains itself in two layers that the reader switches between. The pl
 - `knowledge-graph/` builds the Knowledge Graph page: `scripts/` turn `quranjson/` (surah texts and translations) into a corpus of notes (`corpus/`), graphify draws the graph in `corpus/graphify-out/`, and its pages are copied to `web/content/quran_graph.html` and `quran_graph_ar.html`.
 
 `web/data.js` is a single line. When two branches change it, rebuild it on top of the other change instead of merging the two lines.
+
+## The Android app (`android/`)
+
+A small Android app (`com.hesham.quraninsights`) that opens the site full screen in Chrome (a Trusted Web Activity, `Launcher.java`, Google's android-browser-helper) and adds a home-screen widget, which a website cannot. The site vouches for the app in `web/.well-known/assetlinks.json`, naming the app's package and the SHA-256 of its signing key; with that file live, Chrome shows the app without its address bar. The key is kept outside the repository (`~/Documents/quran-insights-keys`, read through the gitignored `android/keystore.properties`); losing it means the app can no longer be updated in place.
+
+The widget (`VerseWidget.java`) shows a verse of the day in the mushaf's Arabic with Pickthall's English, from the 355 short verses and passages the site's Du'as and Lessons point to (`assets/verses.json`, written by `node android/tools/make_verses.js`). The same verse shows all day on every phone and changes at local midnight; "Another verse" moves on, and a tap opens the verse in the Reader. A phone set to Arabic gets the Arabic labels and reference, and opens the Arabic site.
+
+Build: `cd android && JAVA_HOME=/opt/homebrew/opt/openjdk@17 ./gradlew :app:assembleRelease` (the signed app is `app/build/outputs/apk/release/app-release.apk`). `data-build/tests/test_android.js` checks that the site vouches for this app, that the app opens the site's own start page and asks only for the internet, and that the widget's verses are the site's text and up to date.
 
 ## Deploying
 
